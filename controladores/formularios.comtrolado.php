@@ -61,5 +61,13 @@ class ControladorFormulario{
     }
 
 
+    static public function ctrselccionarlistaInquilinos(){
+
+        $tabla = "inquilino";
+        $respuestas =  modeloFormularios::mdlselccionarPropietraios($tabla,null,null);
+        return $respuestas;
+    }
+
+
 
 }
