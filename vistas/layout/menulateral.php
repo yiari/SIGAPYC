@@ -20,7 +20,7 @@
             <div class="collapse" id="collapsealquileres" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                 <nav class="sb-sidenav-menu-nested nav">
                     <a class="nav-link" href="index.php?url=propietarios">Propietario</a>
-                    <a class="nav-link" href="inquilinos.php">Inquilinos</a>
+                    <a class="nav-link" href="index.php?url=inquilinos">Inquilinos</a>
                     <a class="nav-link" href="inmuebles.php">Inmuebles</a>
                     <a class="nav-link" href="documentos.php">Contratos</a>
                 </nav>

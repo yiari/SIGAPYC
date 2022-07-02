@@ -45,6 +45,7 @@
                                 if($_GET["url"] == "registro" ||
                                 $_GET["url"] == "menuprincipal" ||
                                 $_GET["url"] == "propietarios" ||
+                                $_GET["url"] == "inquilinos" ||
                                 $_GET["url"] == "alquileres" ||
                                 $_GET["url"] == "ingresar_propietarios" ){
                                     

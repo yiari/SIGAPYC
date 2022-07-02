@@ -18,7 +18,7 @@
             $usuario = ControladorFormulario::ctrselccionarlistaPropietarios();
             //echo '<pre>' ; print_r($usuario); echo '</pre>';
 
-            ?>
+        ?>
         
         <!--tabla-->
         <div class="card mb-4">

@@ -70,7 +70,7 @@
                             echo '<div class="alert alert-success">El usuario fue regitrado con exito </div>';
                         }
 
-            ?>    
+                 ?>    
         </form> 
 
 <div class="d-flex p-5 ">
