@@ -7,7 +7,6 @@
                 <a type="button" class="btn btn-primary" href="inquilinos.php"> <i class="fa-solid fa-people-roof"></i> Inquilinos</a>
                 <a type="button" class="btn btn-primary" href="inmuebles.php"> <i class="fa-solid fa-city"></i> Inmuebles</a>
                 <a type="button" class="btn btn-primary" type="button" class="btn btn-primary"  href="documentos.php"> <i class="fa-regular fa-copy"></i> Contrato</a> 
-
             </ol>
         </div>
     </div>
