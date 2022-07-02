@@ -1,0 +1,20 @@
+https://servicioshosting.com/whmcs/clientarea.php?action=services
+sumitic2205ca@gmail.com
+Margarita2205$
+
+
+
+Username: sumiticc
+Password: S67Ql;tm;Bv39V
+
+FTP
+subir@sumitic.com
+Nueva$2022
+
+
+
+Base de Datos
+		$this->servidor="localhost";
+		$this->usuario="sumiticc_alquiler";
+		$this->clave="H1lslRFS=Vao";
+		$this->basedatos="sumiticc_alquileres";
