@@ -33,7 +33,7 @@ static public function mblregistros($tabla,$datos){
       print_r(conexcion::conectar()->errorInfo());
     }
 
-    $stmt->close();
+    //$stmt->close();
   
   }
 

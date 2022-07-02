@@ -18,7 +18,7 @@
 <body class="sb-nav-fixed">
 
         <?php
-            include "paginas/top.php";
+            include "layout/top.php";
         ?>
 
     <!-- menu de navegacion lateral-->
@@ -26,7 +26,7 @@
         <!-- menu de navegacion lateral-->
         <div id="layoutSidenav_nav">
             <?php
-                include "paginas/menulateral.php";
+                include "layout/menulateral.php";
             ?>
 
         </div>
@@ -52,7 +52,7 @@
 
                                 }else{
 
-                                    include "paginas/error404.php";
+                                    include "errores/error404.php";
                                 }
 
 
