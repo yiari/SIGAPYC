@@ -9,7 +9,7 @@ public function ctrtraeplantilla(){
 
 /* include  se utiliza para invocar el archivo que contiene codigo html-pgp */ 
 
-include "vistas/index.php";
+include "vistas/inicio.php";
 
 }
 

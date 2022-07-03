@@ -7,8 +7,8 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>Login - Sistema SIGAPYC</title>
-        <link href="css/bootstrap.min.css" rel="stylesheet" />
-        <link href="css/styles.css" rel="stylesheet" />
+        <link href="../css/bootstrap.min.css" rel="stylesheet" />
+        <link href="../css/styles.css" rel="stylesheet" />
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
     </head>
     <body class="bg-opacity-75">
@@ -19,7 +19,7 @@
                         <div class="row justify-content-center">
                             <div class="col-lg-5">
                                 <div class="card shadow-lg border-0 rounded-lg mt-5">
-                                    <div class="logo"><img src="img/logo.png" class="img-responsive" alt=""></div>
+                                    <div class="logo"><img src="../img/logo.png" class="img-responsive" alt=""></div>
                                     <div class="card-header"><h3 class="text-center font-weight-light my-4">Módulo de Alquileres</h3></div>
                                     <div class="card-body">
                                         <form method="POST" action="menuprincipal.php">
