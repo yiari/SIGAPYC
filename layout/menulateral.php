@@ -51,7 +51,7 @@
             <div class="collapse" id="collapsesistema" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                 <nav class="sb-sidenav-menu-nested nav">
                     <a class="nav-link" href="">Crear roles</a>
-                    <a class="nav-link" href="inicio.php?url=admin/registro">Crear usuarios</a>
+                    <a class="nav-link" href="inicio.php?url=app/vistas/admin/registro">Crear usuarios</a>
                     <a class="nav-link" href="#">tipo de inmuebles</a>
                     <a class="nav-link" href="#">tipo de Pagos</a>
                 </nav>

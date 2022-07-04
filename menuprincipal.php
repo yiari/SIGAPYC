@@ -8,8 +8,8 @@
         <meta name="author" content="" />
         <title>Sistema SIGAPYC | MODULO DE ALQUILERES</title>
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
-        <link href="../css/styles.css" rel="stylesheet" />
-        <link href="../css/bootstrap.min.css" rel="stylesheet" />
+        <link href="css/styles.css" rel="stylesheet" />
+        <link href="css/bootstrap.min.css" rel="stylesheet" />
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
     </head>
     <body>    
@@ -18,7 +18,7 @@
     <div class="container">
         <div class="row justify-content-center">                            
             <div class="card  mt-5">
-                <div class="logo"><img src="../img/logo.png" class="img-responsive" alt=""></div>
+                <div class="logo"><img src="img/logo.png" class="img-responsive" alt=""></div>
                 <div class="container">
             <div class="row">
                 <main>

@@ -1,18 +1,22 @@
 <?php
 
-namespace controladores\admin;
+/*
+|----------------------------------------
+| INCLUYO LA CLASE CORRESPONDIENTE
+|----------------------------------------
+*/
+include_once '../../../app/modelos/admin/mdlregistrousuarios.php';
+
+
 /*
 |---------------------------------------------------------------
 | LAS CLASES SE DEBEN LLAMAR EXACTAMENTE IGUAL QUE SU ARCHIVO
 |---------------------------------------------------------------
 */
 
-include 'modelos/admin/';
-
-use modelos\admin\mdlregistrousuarios;
-
 class ctrregistrousuarios{
 
+    protected string $tabla;
 
     public function __construct()
     {

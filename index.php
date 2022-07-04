@@ -10,9 +10,12 @@ por ello, si el archivo especificado en la finción require() no se encuentra sa
 /*require_once() función es la misma forma que su respectivo, salvo que ,al utilzar la version _once, se impide la carga de un mismo archivo más de una vez */
 
 
-require_once "controladores/plantilla.controlador.php";
-require_once "controladores/formularios.comtrolado.php";
-require_once "modelos/formulario.modelo.php";
+//echo __DIR__. "\app\controladores\plantilla.controlador.php";
 
-$plantilla = new controladorPlantilla();
-$plantilla -> ctrtraeplantilla();
+
+require_once "app/controladores/ctrinicio.php";
+//require_once "app/controladores/formularios.comtrolado.php";
+//require_once "app/modelos/formulario.modelo.php";
+
+$plantilla = new ctrinicio();
+$plantilla -> cargarpantallainicio();
