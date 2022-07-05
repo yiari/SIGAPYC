@@ -2,7 +2,7 @@
 
 
 class conexcion{
-
+/*
  static public function conectar_old(){
 
      #PDO ("nombre del servidor; nombre de la base datos" , "usuario", "contraseña")
@@ -14,7 +14,7 @@ class conexcion{
      return $limk;
 
  }
-
+*/
 
  public function conectar() {
     $servername = "192.168.11.100";

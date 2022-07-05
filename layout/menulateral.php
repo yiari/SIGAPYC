@@ -19,10 +19,10 @@
             </a>
             <div class="collapse" id="collapsealquileres" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                 <nav class="sb-sidenav-menu-nested nav">
-                    <a class="nav-link" href="inicio.php?url=propietarios">Propietario</a>
-                    <a class="nav-link" href="inicio.php?url=inquilinos">Inquilinos</a>
-                    <a class="nav-link" href="inmuebles.php">Inmuebles</a>
-                    <a class="nav-link" href="documentos.php">Contratos</a>
+                    <a class="nav-link" href="inicio.php?url=app/vistas/alquileres/propietarios">Propietario</a>
+                    <a class="nav-link" href="inicio.php?url=app/vistas/alquileres/inquilinos">Inquilinos</a>
+                    <a class="nav-link" href="index.php?url=app/vistas/alquileres/inmuebles">Inmuebles</a>
+                    <a class="nav-link" href="index.php?url=app/vistas/alquileres/contratos">Contratos</a>
                 </nav>
             </div>
 

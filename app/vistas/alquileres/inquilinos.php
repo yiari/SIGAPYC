@@ -1,4 +1,9 @@
-<?php include("menuNavegacion.php"); ?>
+<?php 
+
+include("layout/menuNavegacion.php"); 
+
+
+?>
 
 
 <div class="container">
@@ -6,17 +11,12 @@
 
         <div style="text-align: right;">
         <ol>
-                <a class="btn btn-outline-primary" href="ingresar_inquilinos.php" role="button">Nuevo</a>                
+                <a class="btn btn-outline-primary" href="index.php?url=app/vistas/alquileres/ingresar_inquilinos" role="button">Nuevo</a>                
                 <a class="btn btn-outline-secondary" href="" role="button">Imprimir</a>
             </ol>
         </div>
 
-        <?php
-
-            $usuario = ControladorFormulario::ctrselccionarlistaInquilinos();
-            //echo '<pre>' ; print_r($usuario); echo '</pre>';
-
-        ?>
+        
         
         <!--tabla-->
         <div class="card mb-4">
@@ -48,35 +48,7 @@
                     </tfoot>
                     <tbody>
 
-                    <?php foreach ($usuario as $key => $value): ?>
-
-
-                        <tr>
-                        <td>
-                                <?php echo (trim($value['cod_inqu']));?></td>
-                                <td><?php echo $value["nom_inqu"];?><?php echo $value["ape_inqu"]; ?></td>
-                                <td><?php echo $value["ci_inqu"];?></td>
-                                <td><?php echo $value["loc_inqu"];?> / <?php echo $value["cel_inqu"];?></td>
-                                <td><?php echo $value["cor_inqu"];?></td>
-                                
-                                <td>
-                                    <div class="btn-group">
-
-                                    <a href='#' ><img src='img/editar.png'  width=25 height=25 ></a> &nbsp;
-                                    <a href='#' target='_blank'><img src='img/ver.png' width=25 height=25  alt='Ver'></a> &nbsp;
-
-                                    <a href='#' target='_blank'><img src='img/mandato.png' width=25 height=25  alt='Mandato'></a> &nbsp;
-                                    <a href='#'><img src='img/bitacora.png' width=25 height=25  alt='Bitacora'> </a> &nbsp;
-
-                                        
-                                    </div>
-
-                                </td>
-                                
-                            </tr>
-
-
-                    <?php endforeach ?>
+                    
                         
                     </tbody>
                 </table>

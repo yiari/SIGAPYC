@@ -1,12 +1,18 @@
 
-<?php include("menuNavegacion.php"); ?>
+<?php 
+
+require_once "app/controladores/alquileres/ctrpropietarios.php";
+include("layout/menuNavegacion.php"); 
+
+
+?>
 
 <div class="container">
     <div class="card-header">
 
         <div style="text-align: right;">
         <ol>
-                <a class="btn btn-outline-primary" href="index.php?url=ingresar_propietarios" role="button">Nuevo</a>                
+                <a class="btn btn-outline-primary" href="index.php?url=app/vistas/alquileres/ingresar_propietarios" role="button">Nuevo</a>                
                 <!--a class="btn btn-outline-secondary" href="reportes.php" role="button">Imprimir</a-->
             </ol>
         </div>
@@ -15,8 +21,9 @@
         
         <?php
 
-            $usuario = ControladorFormulario::ctrselccionarlistaPropietarios();
-            //echo '<pre>' ; print_r($usuario); echo '</pre>';
+
+            $usuario = new ctrpropietarios();
+            $usuario -> seleccionarlistaPropietarios();
 
         ?>
         
@@ -66,10 +73,11 @@
                                     <td><?php echo $value["loc_prop"];?></td>
                                     <td><?php echo $value["cel_prop"];?></td>
                                     <td><?php echo $value["cor_prop"];?></td>
+                                    
                                     <td>
                                         <div class="btn-group">
 
-                                        <a href='#' ><img src='img/editar.png'  width=25 height=25 ></a> &nbsp;
+                                        <a href='#' ><img src='img/editar.png'  width=25 height=25 placeholder="Editar..."></a> &nbsp;
                                         <a href='#' target='_blank'><img src='img/ver.png' width=25 height=25  alt='Ver'></a> &nbsp;
 
                                         <a href='#' target='_blank'><img src='img/mandato.png' width=25 height=25  alt='Mandato'></a> &nbsp;

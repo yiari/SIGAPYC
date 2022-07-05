@@ -14,6 +14,8 @@ por ello, si el archivo especificado en la finción require() no se encuentra sa
 
 
 require_once "app/controladores/ctrinicio.php";
+
+
 //require_once "app/controladores/formularios.comtrolado.php";
 //require_once "app/modelos/formulario.modelo.php";
 

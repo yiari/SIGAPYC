@@ -5,7 +5,7 @@
             <div class="card bg-primary text-white mb-4">
                 <div class="card-body text-center">Propietarios</div>
                 <div class="card-footer d-flex align-items-center justify-content-between">
-                    <a class="small text-white stretched-link" href="propietarios.php"></a>
+                    <a class="small text-white stretched-link" href="index.php?url=app/vistas/alquileres/propietarios"></a>
                 </div>
             </div>
         </div>
@@ -14,7 +14,7 @@
             <div class="card bg-warning text-white mb-4">
                 <div class="card-body text-center">Inquilinos</div>
                 <div class="card-footer d-flex align-items-center justify-content-between">
-                    <a class="small text-white stretched-link" href="inquilinos.php"></a>
+                    <a class="small text-white stretched-link" href="index.php?url=app/vistas/alquileres/inquilinos"></a>
                 </div>
             </div>
         </div>

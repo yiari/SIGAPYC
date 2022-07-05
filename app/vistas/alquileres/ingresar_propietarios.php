@@ -1,5 +1,9 @@
 
-<?php include("menuNavegacion.php"); ?>
+<?php 
+
+include("layout/menuNavegacion.php"); 
+
+?>
 
 <div class="container">
     <div class="card-header">
@@ -158,7 +162,7 @@
                                                     <div class="col-md-4">
                                                         <label class="col-sm-9 col-form-label">Cuenta Paypal:</label>
                                                         <div class="col-sm-12">
-                                                            <input type="text" class="form-control" id="cor_payp" name="cor_payp" value=''><br>
+                                                        <input type="text" class="form-control" id="cor_payp" name="cor_payp" value=''><br>
                                                         </div>
                                                     </div>
                                                 </div>
