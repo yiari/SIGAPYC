@@ -16,7 +16,7 @@ include_once '../../../app/modelos/admin/mdlregistrousuarios.php';
 
 class ctrregistrousuarios{
 
-    protected string $tabla;
+    //protected string $tabla;
 
     public function __construct()
     {
@@ -31,11 +31,12 @@ class ctrregistrousuarios{
         return "lion";
     }
 
-    static public function registrar($datos){
+    public function registrar($datos){
 
             $tabla = "users";
+            $modelo = new mdlregistrousuarios();
 
-            $respuesta = mdlregistrousuarios::registrar($tabla,$datos);
+            $respuesta = $modelo->registrar($tabla,$datos);
 
             return $respuesta;
 
@@ -43,28 +44,19 @@ class ctrregistrousuarios{
 
     /*tabla para visializar los usuarios registrados*/
 
-    static public function seleccionarregistros(){
+   public function seleccionarregistros(){
 
         $tabla = "users";
-        $respuestas =  mdlregistrousuarios::seleccionarregistros($tabla,null,null);
+        $modelo = new mdlregistrousuarios();
+        $respuestas =  $modelo->seleccionarregistros($tabla,null,null);
         return $respuestas;
     }
 
 
-    static public function seleccionarlistaPropietarios(){
-
-        $tabla = "propietario";
-        $respuestas =  mdlregistrousuarios::seleccionarpropietarios($tabla,null,null);
-        return $respuestas;
-    }
+    
 
 
-    static public function seleccionarlistainquilinos(){
-
-        $tabla = "inquilino";
-        $respuestas =  mdlregistrousuarios::seleccionarpropietarios($tabla,null,null);
-        return $respuestas;
-    }
+    
 
 
 

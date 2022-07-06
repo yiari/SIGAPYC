@@ -14,13 +14,14 @@ include_once '../../../app/modelos/conexcion.php';
 */
 class mdlregistrousuarios{
 
-static public function registrar($tabla,$datos){
+ public function registrar($tabla,$datos){
 
 
       try {
 
+        $dbconeccion=new conexcion();
       
-        $stmt = conexcion::conectar()->prepare("INSERT INTO $tabla (nombre,apellido,usuario,password,email) 
+        $stmt = $dbconeccion->conectar()->prepare("INSERT INTO $tabla (nombre,apellido,usuario,password,email) 
         VALUES (:nombre,:apellido,:usuario,:password,:email)");
 
           $stmt -> bindParam(":nombre", $datos["nombre"], PDO::PARAM_STR);
@@ -53,15 +54,15 @@ static public function registrar($tabla,$datos){
   
   }
 
-    static public function seleccionarregistros($tabla,$iten,$valor){
+   public function seleccionarregistros($tabla,$iten,$valor){
 
       If($iten == null && $valor == null){
 
 
             try {
 
-          
-                $stmt = conexcion::conectar()->prepare("SELECT id, nombre,apellido,usuario,password,email,DATE_FORMAT( fecha_creacion, '%d/%m/%Y') AS fecha_creacion FROM $tabla");
+                $dbconeccion=new conexcion();
+                $stmt = $dbconeccion->conectar()->prepare("SELECT id, nombre,apellido,usuario,password,email,DATE_FORMAT( fecha_creacion, '%d/%m/%Y') AS fecha_creacion FROM $tabla");
                 $stmt->execute();
                 $dataRegistro["Items"][] = $stmt->fetchAll();
       
@@ -90,8 +91,8 @@ static public function registrar($tabla,$datos){
 
         try {
 
-          
-          $stmt = conexcion::conectar()->prepare("SELECT id, nombre,apellido,usuario,password,email,DATE_FORMAT( fecha_creacion, '%d/%m/%Y') AS fecha_creacion FROM $tabla WHERE $iten = :$iten");
+          $dbconeccion=new conexcion();
+          $stmt = $dbconeccion->conectar()->prepare("SELECT id, nombre,apellido,usuario,password,email,DATE_FORMAT( fecha_creacion, '%d/%m/%Y') AS fecha_creacion FROM $tabla WHERE $iten = :$iten");
         
           $stmt ->bindParam(":".$iten, $valor, PDO::PARAM_STR);
           $stmt->execute();
@@ -123,32 +124,6 @@ static public function registrar($tabla,$datos){
 
       }
   }
-
-
-
-  static public function seleccionarpropietarios($tabla,$iten,$valor){
-
-    If($iten == null && $valor == null){
-
-      $stmt = conexcion::conectar()->prepare("SELECT * FROM $tabla");
-      $stmt->execute();
-      return $stmt -> fetchAll();
-
-    }else{
-
-
-      $stmt = conexcion::conectar()->prepare("SELECT * FROM $tabla WHERE $iten = :$iten");
-      
-      $stmt ->bindParam(":".$iten, $valor, PDO::PARAM_STR);
-      
-      $stmt->execute();
-      return $stmt -> fetch();
-
-
-    }
-}
-
-
 
 
 }

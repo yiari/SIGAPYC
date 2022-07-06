@@ -19,15 +19,99 @@ include("layout/menuNavegacion.php");
             <div class="tab-pane fade show active" id="nav-info_propinmu" role="tabpanel" aria-labelledby="nav-info_propinmu-tab">
                 <div class="col-12 grid-margin">
                     <input type="hidden" id="operacion" name="operacion" enctype="multipart/form-data">
-                    
+
+                    <!--Datos del propietario-->
+                    <div class="card" id="Propietario">
+
+                        
+                                
+                                <div class="card-body">
+                                    <div class="col text-center">
+                                        <h5 class="card-title">Datos del Propietario</h5>
+                                    </div>
+</br>
+                                    <div class="row">
+                                       <div class="col-md-3">
+                                            <label class="col-sm-12 col-form-label">Buscar Código Propietario:</label>
+                                            
+                                        </div>
+                                    
+                                        <div class="col-md-3">
+                                            <div class="col-sm-12">
+                                                <select class="form-control" id="id_prop" name="id_prop" style="width:400px" required autofocus>
+                                                    <option selected disabled value=""></option>               
+                                                
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+</br>
+                                    <div class="row">
+                                        
+                                        <div class="col-md-3">
+                                            <label class="col-sm-12 col-form-label">Nombre:</label>
+                                            <div class="col-sm-12">
+                                                <input type="text" class="form-control" id="nom_prop" name="nom_prop" readonly="yes">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label class="col-sm-12 col-form-label">Apellido:</label>
+                                            <div class="col-sm-12">
+                                                <input type="text" class="form-control" id="ape_prop" name="ape_prop" readonly="yes">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="row">
+                                                <label for="ced_prop" class="col-sm-12 col-form-label">Cédula de Identidad</label>
+                                                <div class="col-sm-3">
+                                                    <select class="form-select" id="nac_prop" name="nac_prop" readonly="yes">
+                                                        <option selected disabled value=""></option>
+                                                        <option>V</option>
+                                                        <option>E</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-sm-9">
+                                                    <input type="text" class="form-control" id="ci_prop" name="ci_prop" readonly="yes">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label class="col-sm-5 col-form-label">Rif:</label>
+                                            <div class="col-sm-12">
+                                                <input type="text" class="form-control" id="rif_prop" name="rif_prop" readonly="yes">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <label class="col-sm-8 col-form-label">Teléfono local:</label>
+                                            <div class="col-sm-12">
+                                                <input type="text" class="form-control" id="loc_prop" name="loc_prop" readonly="yes">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label class="col-sm-9 col-form-label">Celular:</label>
+                                            <div class="col-sm-12">
+                                                <input type="text" class="form-control" id="cel_prop" name="cel_prop" readonly="yes">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="col-sm-3 col-form-label">Correo:</label>
+                                            <div class="col-sm-12">
+                                                <input type="text" class="form-control" id="cor_prop" name="cor_prop" readonly="yes">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><br>
                     <!--info_propietario-->
                     <div class="card">
                         <div class="card-body">
                             <div class="col text-center">
-                                <h5 class="card-title">Datos del Propietario</h5>
+                                <h5 class="card-title">Datos del Beneficiario</h5>
                             </div>
                             <div class="col-1 btn btn">
-                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#beneficiario_inmu">Beneficiario</button>
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#beneficiario_inmu"> Beneficiario</button>
                             </div>
                     
                             <div class="row" id="mapa" >
@@ -75,7 +159,7 @@ include("layout/menuNavegacion.php");
                             </div>  <!--Fin de Mapa/div-->
                             
                         </div>
-                    </div><br>
+                    </div></br>
 
                     <!--info_inmueble-->
                     <div class="card">
@@ -197,103 +281,11 @@ include("layout/menuNavegacion.php");
                                     </div>
                                 </div>
                             </div>
+                        </div>
                         </div><br>
 
-                        <!--info_registro-->
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="col text-center">
-                                    <h5 class="card-title">Información del Registro</h5>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-1">
-                                        <label class="col-sm-12 col-form-label">Código:</label>
-                                        <div class="col-sm-12">
-                                            <div class="col-sm-12">
-                                                <input type="text" class="form-control" id="id_prod" name="id_prod" value='' required>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <div class="row">
-                                            <label for="ced_prop" class="col-sm-12 col-form-label">Nombre del Registro:</label>
-                                            <div class="col-sm-12">
-                                                <input type="text" class="form-control" id="act_inmu" name="act_inmu" value=''>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <label for="inputfecha" class="col-sm-12 col-form-label">Fecha:</label>
-                                        <div class="col-sm-12">
-                                            <input type="date" id="fec_inmu" name="fec_inmu" value='' class="form-control">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-1">
-                                        <label class="col-sm-12 col-form-label">Tomo:</label>
-                                        <div class="col-sm-12">
-                                            <input type="text" class="form-control" id="tom_inmu" name="tom_inmu" value=''>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-1">
-                                        <label class="col-sm-12 col-form-label">Folio:</label>
-                                        <div class="col-sm-12">
-                                            <input type="text" class="form-control" id="fol_inmu" name="fol_inmu">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-1">
-                                        <label class="col-sm-12 col-form-label">Asiento:</label>
-                                        <div class="col-sm-12">
-                                            <input type="text" class="form-control" id="asi_inmu" name="asi_inmu">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <label class="col-sm-12 col-form-label">F. Catastral:</label>
-                                        <div class="col-sm-12">
-                                            <input type="text" class="form-control" id="asi_inmu" name="asi_inmu">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <label for="rif_docu" class="col-sm-9 col-form-label">documento</label>
-                                        <div class="col-sm-12">
-                                            <input class="form-control form-control-sm" id="doc_inmu" type="file" name="doc_inmu" value="" required><br>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div><br>
-
-                        <!--Datos financieros-->
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="col text-center">
-                                    <h5 class="card-title">Datos Financieros</h5>
-                                </div>
-                                <div class="col">
-                                    <h5 class="card-title">Gastos Fijos</h5>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-3">
-                                        <div class="row">
-                                            <label for="ced_prop" class="col-sm-12 col-form-label">Gasto de Administración:</label>
-                                            <div class="col-sm-12">
-                                                <input type="number" class="form-control" id="adm_inmu" name="adm_inmu">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <div class="row">
-                                            <label for="ced_prop" class="col-sm-12 col-form-label">Gasto de Papelería:</label>
-                                            <div class="col-sm-12">
-                                                <input type="number" class="form-control" id="pap_inmu" name="pap_inmu">
-                                            </div>
-                                        </div>
-                                    </div>
-                             
-
-                          
-
-                        <!--Distribución del Inmueble-->
-                        <div class="card">
+                                                <!--Distribución del Inmueble-->
+                                                <div class="card">
                             <div class="card-body">
                                 <div class="col text-center">
                                     <h5 class="card-title">Distribución del Inmueble</h5>
@@ -372,8 +364,102 @@ include("layout/menuNavegacion.php");
                                 </div>
                             </div>
                         </div><br>
+                        <!--info_registro-->
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="col text-center">
+                                    <h5 class="card-title">Información del Registro</h5>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-1">
+                                        <label class="col-sm-12 col-form-label">Código:</label>
+                                        <div class="col-sm-12">
+                                            <div class="col-sm-12">
+                                                <input type="text" class="form-control" id="id_prod" name="id_prod" value='' required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="row">
+                                            <label for="ced_prop" class="col-sm-12 col-form-label">Nombre del Registro:</label>
+                                            <div class="col-sm-12">
+                                                <input type="text" class="form-control" id="act_inmu" name="act_inmu" value=''>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <label for="inputfecha" class="col-sm-12 col-form-label">Fecha:</label>
+                                        <div class="col-sm-12">
+                                            <input type="date" id="fec_inmu" name="fec_inmu" value='' class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-1">
+                                        <label class="col-sm-12 col-form-label">Tomo:</label>
+                                        <div class="col-sm-12">
+                                            <input type="text" class="form-control" id="tom_inmu" name="tom_inmu" value=''>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-1">
+                                        <label class="col-sm-12 col-form-label">Folio:</label>
+                                        <div class="col-sm-12">
+                                            <input type="text" class="form-control" id="fol_inmu" name="fol_inmu">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-1">
+                                        <label class="col-sm-12 col-form-label">Asiento:</label>
+                                        <div class="col-sm-12">
+                                            <input type="text" class="form-control" id="asi_inmu" name="asi_inmu">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <label class="col-sm-12 col-form-label">F. Catastral:</label>
+                                        <div class="col-sm-12">
+                                            <input type="text" class="form-control" id="asi_inmu" name="asi_inmu">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <label for="rif_docu" class="col-sm-9 col-form-label">documento</label>
+                                        <div class="col-sm-12">
+                                            <input class="form-control form-control-sm" id="doc_inmu" type="file" name="doc_inmu" value="" required><br>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div></br>
 
-                    <!--Documentos del Inmueble-->
+                        <!--Datos financieros-->
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="col text-center">
+                                    <h5 class="card-title">Datos Financieros</h5>
+                                </div>
+                                <div class="col">
+                                    <h5 class="card-title">Gastos Fijos</h5>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="row">
+                                            <label for="ced_prop" class="col-sm-12 col-form-label">Gasto de Administración:</label>
+                                            <div class="col-sm-12">
+                                                <input type="number" class="form-control" id="adm_inmu" name="adm_inmu">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="row">
+                                            <label for="ced_prop" class="col-sm-12 col-form-label">Gasto de Papelería:</label>
+                                            <div class="col-sm-12">
+                                                <input type="number" class="form-control" id="pap_inmu" name="pap_inmu">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div></br>
+                 
+                          
+               
+                   
                     <div class="card">
                         <div class="card-body">
                             <div class="col text-center">
