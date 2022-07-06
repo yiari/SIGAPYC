@@ -1,5 +1,9 @@
 
-<?php include("menuNavegacion.php"); ?>
+<?php 
+
+include("layout/menuNavegacion.php"); 
+
+?>
 
 <div class="container">
     <div class="card-header">
@@ -144,10 +148,15 @@
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-3">
-                                                        <label class="col-sm-10 col-form-label">Banco Nacional:</label>
-                                                        <div class="col-sm-12">
-                                                            <input type="text" class="form-control" id="id_banc" name="id_banc" value=''>
-                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="col-sm-10 col-form-label">Banco Nacional:</label>
+                                                            <select class="form-control" id="sel1">
+                                                                <option>1</option>
+                                                                <option>2</option>
+                                                                <option>3</option>
+                                                                <option>4</option>
+                                                            </select>
+                                                        </div> 
                                                     </div>
                                                     <div class="col-md-5">
                                                         <label class="col-sm-9 col-form-label">Cuenta:</label>
@@ -158,7 +167,7 @@
                                                     <div class="col-md-4">
                                                         <label class="col-sm-9 col-form-label">Cuenta Paypal:</label>
                                                         <div class="col-sm-12">
-                                                            <input type="text" class="form-control" id="cor_payp" name="cor_payp" value=''><br>
+                                                        <input type="text" class="form-control" id="cor_payp" name="cor_payp" value=''><br>
                                                         </div>
                                                     </div>
                                                 </div>

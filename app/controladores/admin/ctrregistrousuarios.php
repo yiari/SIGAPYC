@@ -30,6 +30,7 @@ class ctrregistrousuarios{
      public function registrar($datos){
 
             $tabla = "users";
+            $modelo = new mdlregistrousuarios();
 
             $modelo =  new mdlregistrousuarios();
             $respuesta = $modelo->registrar($tabla,$datos);

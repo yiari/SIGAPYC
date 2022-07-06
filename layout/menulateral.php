@@ -58,5 +58,25 @@
             </div>
 
         </div>
+        <!--bitacora propietario-->
+        <nav>
+           <a class="nav-link" href="index.php?url=menuprincipal">
+                <div class="sb-nav-link-icon"><i class="fa-solid fa-home"></i></div>
+                BITACORA
+                
+            </a>
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                <a class="nav-link" href="inicio.php?url=app/vistas/alquileres/verpropietarios"><i class='fas fa-chalkboard-teacher'></i>&nbsp;Datos Generales</a>
+
+                <button class="nav-link" id="nav-inmuebles-tab" data-bs-toggle="tab" data-bs-target="#nav-inmuebles" type="button" role="tab" aria-controls="nav-inmuebles" aria-selected="false"><i class='fas fa-house-user'></i>&nbsp;&nbsp;Inmuebles</button>
+
+                <button class="nav-link" id="nav-liquidaciones-tab" data-bs-toggle="tab" data-bs-target="#nav-liquidaciones" type="button" role="tab" aria-controls="nav-liquidaciones" aria-selected="false"><i class='fas fa-coins'></i>&nbsp;&nbsp;Liquidaciones</button>
+
+                <button class="nav-link" id="nav-edo_cuenta-tab" data-bs-toggle="tab" data-bs-target="#nav-edo_cuenta" type="button" role="tab" aria-controls="nav-edo_cuenta" aria-selected="false"><i class='fas fa-file-invoice-dollar'></i>&nbsp;&nbsp;Estado de Cuenta</button>
+
+                <button class="nav-link" id="nav-finiquito-tab" data-bs-toggle="tab" data-bs-target="#nav-finiquito" type="button" role="tab" aria-controls="nav-finiquito" aria-selected="false"><i class='fas fa-share-square'></i>&nbsp;&nbsp;Finiquito</button>
+                
+            </div>
+        </nav>
     </div>
 </nav>
