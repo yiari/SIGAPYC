@@ -3,12 +3,16 @@
 
 <div class="row">
 
+<div class="card">
+  <div class="card-body">
+
         <div class="col-sm-12">
         <span id="mensaje">&nbsp;</span>
         </div>
 
 
         <form class="bg-light" method="post" id="registrarusuario">
+                <input type="hidden" id="hidUsuario" name="hidUsuario" value="0">
                 <div class="form-group row">
                         <div class="col-sm-3 mb-3 mb-sm-0">
                                 <label for="registroNombre" class="mr-sm-2">Nombres:</label>
@@ -42,14 +46,21 @@
 
                 </br>
 
-                <button type="submit" class="btn btn-primary mb-2">Enviar</button>
+                <button type="submit" class="btn btn-primary mb-2">Guardar</button>
+                <button type="button" class="btn btn-danger mb-2 cancelar" style="display:none;">Cancelar</button>
         </form> 
+
+  </div>
+</div>
 </div>
 
 <hr size="2" width="100%" />
 
 
 <div class="row">
+
+<div class="card">
+  <div class="card-body">
 
         <div class="table-responsive">
         <table class="table table-striped" id="tblUsuarios">
@@ -64,25 +75,11 @@
                         </tr>
                 </thead>
                 <tbody>
-                        <tr>
-                                <td>01</td>
-                                <td>Nombre Usuario</td>
-                                <td>Apellido Usuario</td>
-                                <td>Correo Electronico</td>
-                                <td>03/07/2022</td>
-                                <td>
-                                        <div class="btn-group">
-                                                <button class="btn btn-warning" ><i class="fas fa-edit" alt=“editar”></i>&nbsp;Editar</button>
-                                                <button class="btn btn-danger"><i class="fas fa-trash" alt=“eliminar”></i>&nbsp;Eliminar</button>
-                                        </div>
-                                </td>
-                        
-                        </tr>
-                        
-                
                 </tbody>
         </table>
         </div>
+        </div>
+</div>
 </div>
 
 <script src="js/admin/registrousuarios.js"></script>

@@ -14,21 +14,25 @@ include_once '../../../app/modelos/conexcion.php';
 */
 class mdlregistrousuarios{
 
-static public function registrar($tabla,$datos){
+public function registrar($tabla,$datos){
 
 
       try {
 
+        $dbConexion = new conexcion();
       
-        $stmt = conexcion::conectar()->prepare("INSERT INTO $tabla (nombre,apellido,usuario,password,email) 
-        VALUES (:nombre,:apellido,:usuario,:password,:email)");
+        //$stmt = $dbConexion->conectar()->prepare("INSERT INTO $tabla (nombre,apellido,usuario,password,email)  VALUES (:nombre,:apellido,:usuario,:password,:email)");
+        //IN `idusuario` INT(11), IN `prmnombre` VARCHAR(255), IN `prmapellido` VARCHAR(255), IN `prmusuario` VARCHAR(255), IN `prmemail` VARCHAR(255),  IN `prmpassword` VARCHAR(255)
 
-          $stmt -> bindParam(":nombre", $datos["nombre"], PDO::PARAM_STR);
-          $stmt -> bindParam(":apellido", $datos["apellido"], PDO::PARAM_STR);
-          $stmt -> bindParam(":usuario", $datos["usuario"], PDO::PARAM_STR);
-          $stmt -> bindParam(":password", $datos["password"], PDO::PARAM_STR);
-          $stmt -> bindParam(":email", $datos["email"], PDO::PARAM_STR);
-          
+        $stmt = $dbConexion->conectar()->prepare("CALL usp_registrousuarios(?,?,?,?,?,?)");
+
+          $stmt -> bindParam(1, $datos["idusuario"], PDO::PARAM_INT);
+          $stmt -> bindParam(2, $datos["nombre"], PDO::PARAM_STR);
+          $stmt -> bindParam(3, $datos["apellido"], PDO::PARAM_STR);
+          $stmt -> bindParam(4, $datos["usuario"], PDO::PARAM_STR);
+          $stmt -> bindParam(5, $datos["email"], PDO::PARAM_STR);
+          $stmt -> bindParam(6, $datos["password"], PDO::PARAM_STR);
+                    
           $stmt->execute();
 
           $dataRes = array(
@@ -53,15 +57,16 @@ static public function registrar($tabla,$datos){
   
   }
 
-    static public function seleccionarregistros($tabla,$iten,$valor){
+ public function seleccionarregistros($tabla,$iten,$valor){
 
       If($iten == null && $valor == null){
 
 
             try {
 
-          
-                $stmt = conexcion::conectar()->prepare("SELECT id, nombre,apellido,usuario,password,email,DATE_FORMAT( fecha_creacion, '%d/%m/%Y') AS fecha_creacion FROM $tabla");
+              $dbConexion = new conexcion();  
+
+                $stmt = $dbConexion->conectar()->prepare("SELECT id, nombre,apellido,usuario,password,email,DATE_FORMAT( fecha_creacion, '%d/%m/%Y') AS fecha_creacion FROM $tabla");
                 $stmt->execute();
                 $dataRegistro["Items"][] = $stmt->fetchAll();
       
@@ -90,8 +95,9 @@ static public function registrar($tabla,$datos){
 
         try {
 
+          $dbConexion = new conexcion();
           
-          $stmt = conexcion::conectar()->prepare("SELECT id, nombre,apellido,usuario,password,email,DATE_FORMAT( fecha_creacion, '%d/%m/%Y') AS fecha_creacion FROM $tabla WHERE $iten = :$iten");
+          $stmt = $dbConexion->conectar()->prepare("SELECT id, nombre,apellido,usuario,password,email,DATE_FORMAT( fecha_creacion, '%d/%m/%Y') AS fecha_creacion FROM $tabla WHERE $iten = :$iten");
         
           $stmt ->bindParam(":".$iten, $valor, PDO::PARAM_STR);
           $stmt->execute();
@@ -126,27 +132,6 @@ static public function registrar($tabla,$datos){
 
 
 
-  static public function seleccionarpropietarios($tabla,$iten,$valor){
-
-    If($iten == null && $valor == null){
-
-      $stmt = conexcion::conectar()->prepare("SELECT * FROM $tabla");
-      $stmt->execute();
-      return $stmt -> fetchAll();
-
-    }else{
-
-
-      $stmt = conexcion::conectar()->prepare("SELECT * FROM $tabla WHERE $iten = :$iten");
-      
-      $stmt ->bindParam(":".$iten, $valor, PDO::PARAM_STR);
-      
-      $stmt->execute();
-      return $stmt -> fetch();
-
-
-    }
-}
 
 
 
