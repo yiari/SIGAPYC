@@ -27,15 +27,12 @@ class ctrregistrousuarios{
         */ 
     }
 
-    public function test(){
-        return "lion";
-    }
-
-    public function registrar($datos){
+     public function registrar($datos){
 
             $tabla = "users";
             $modelo = new mdlregistrousuarios();
 
+            $modelo =  new mdlregistrousuarios();
             $respuesta = $modelo->registrar($tabla,$datos);
 
             return $respuesta;
@@ -44,19 +41,14 @@ class ctrregistrousuarios{
 
     /*tabla para visializar los usuarios registrados*/
 
-   public function seleccionarregistros(){
+     public function seleccionarregistros(){
 
         $tabla = "users";
-        $modelo = new mdlregistrousuarios();
+        $modelo =  new mdlregistrousuarios();
         $respuestas =  $modelo->seleccionarregistros($tabla,null,null);
         return $respuestas;
     }
 
-
-    
-
-
-    
 
 
 

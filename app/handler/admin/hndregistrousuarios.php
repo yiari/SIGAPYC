@@ -74,7 +74,8 @@ if($operacion == "I"){
    | AQUI CARGO LOS DATOS PARA ALMACENAR
    |---------------------------------------------
    */
-    $datos = array("nombre" => $_POST["registroNombre"],
+    $datos = array( "idusuario" => $_POST["hidUsuario"],
+                    "nombre" => $_POST["registroNombre"],
                     "apellido" => $_POST["registroApellido"],
                     "usuario" => $_POST["registroUsuario"],
                     "password" => $_POST["registroContrasena"],                
