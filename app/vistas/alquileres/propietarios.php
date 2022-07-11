@@ -19,13 +19,6 @@ include("layout/menuNavegacion.php");
 
 
         
-        <?php
-
-
-            $usuario = new ctrpropietarios();
-            $usuario -> seleccionarlistaPropietarios();
-
-        ?>
         
         <!--tabla-->
         <div class="card mb-4">
@@ -60,38 +53,31 @@ include("layout/menuNavegacion.php");
                     </tfoot>
                     <tbody>
 
-                    
-
-
-                            <?php foreach ($usuario as $key => $value): ?>
-
-
                             <tr>
-                                    <td><?php echo (trim($value['cod_prop']));?></td>
-                                    <td><?php echo $value["nom_prop"]; ?><?php echo $value["ape_prop"]; ?></td>
-                                    <td><?php echo $value["ci_prop"];?></td>
-                                    <td><?php echo $value["loc_prop"];?></td>
-                                    <td><?php echo $value["cel_prop"];?></td>
-                                    <td><?php echo $value["cor_prop"];?></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
                                     
                                     <td>
-                                        <div class="btn-group">
+                                        <div class="btn-group" style="font-size:1.3em; letter-spacing:0.5em;">
 
-                                        <a href='#' ><img src='img/editar.png'  width=25 height=25 placeholder="Editar..."></a> &nbsp;
-                                        <a href='#' target='_blank'><img src='img/ver.png' width=25 height=25  alt='Ver'></a> &nbsp;
-
-                                        <a href='#' target='_blank'><img src='img/mandato.png' width=25 height=25  alt='Mandato'></a> &nbsp;
-                                        <a href='#'><img src='img/bitacora.png' width=25 height=25  alt='Bitacora'> </a> &nbsp;
-
-                                            
+                                        
+                                        <a href="#" title="Editar"><i class="fas fa-edit"></i></a> &nbsp;
+                                        <a href='#' title="Ver" target='_blank'><i class="fas fa-search"></i></a> &nbsp;
+                                        <a href='#' title="Mandato" target='_blank'><i class="fa-solid fa-file-pen"></i></a> &nbsp;
+                                        <a href='#' title="Bitacora"><i class="fa-regular fa-folder-open"  ></i></a> &nbsp;
+                                        <!--aquie de a ver una condicion si es proietario natural es apoderado si es juridoco es un representante-->
+                                         <a href='index.php?url=app/vistas/alquileres/apoderado' title="Apoderado"><i class="fa-regular fa-id-badge"></i></a> &nbsp;
+                                         <a href='index.php?url=app/vistas/alquileres/inmuebles' title="Inmueble"><i class="fa-solid fa-city"></i></a> &nbsp;  
                                         </div>
 
                                     </td>
                                     
                                 </tr>
 
-
-                            <?php endforeach ?>
                        
                     </tbody>
                 </table>

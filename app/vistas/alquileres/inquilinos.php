@@ -48,6 +48,25 @@ include("layout/menuNavegacion.php");
                     </tfoot>
                     <tbody>
 
+                    <td></td>
+                                    
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>
+                                        <div class="btn-group" style="font-size:1.3em; letter-spacing:0.5em;">
+
+                                            <a href="#" title="Editar"><i class="fas fa-edit" ></i></a>&nbsp;
+                                            <a href='#' title="Ver" target='_blank'><i class="fas fa-search" ></i></a> &nbsp;
+                                            <a href='#' title="Contrato" target='_blank'><i class="fa-solid fa-file-pen" ></i></a> &nbsp;
+                                            <a href='#' title="Bitacora"><i class="fa-regular fa-folder-open"></i></a> &nbsp;
+    
+                                        </div>
+
+                                    </td>
+
                     
                         
                     </tbody>

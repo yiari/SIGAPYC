@@ -30,7 +30,7 @@
 
             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsefinanzas" aria-expanded="false" aria-controls="collapsefinanzas">
                 <div class="sb-nav-link-icon"><i class="fa-solid fa-money-bill-transfer"></i></div>
-                FINANZAS
+                FACTURACIÓN
                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
             </a>
             <div class="collapse" id="collapsefinanzas" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
@@ -45,7 +45,7 @@
 
             <a class="nav-link collapsed"  href="#" data-bs-toggle="collapse" data-bs-target="#collapsesistema" aria-expanded="false" aria-controls="collapsesistema">
                 <div class="sb-nav-link-icon"><i class="fa-solid fa-money-bill-transfer"></i></div>
-                        CONFIGURACIÓN DEL SISTEMA
+                        CONFIGURACIÓN 
                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
             </a>
             <div class="collapse" id="collapsesistema" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
@@ -57,26 +57,36 @@
                 </nav>
             </div>
 
-        </div>
-        <!--bitacora propietario-->
-        <nav>
+
+            <!--bitacora propietario-->
+
            <a class="nav-link" href="index.php?url=menuprincipal">
-                <div class="sb-nav-link-icon"><i class="fa-solid fa-home"></i></div>
+                <div class="sb-nav-link-icon"><i class="fa-regular fa-folder-open"></i></div>
                 BITACORA
-                
             </a>
-            <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                <a class="nav-link" href="inicio.php?url=app/vistas/alquileres/verpropietarios"><i class='fas fa-chalkboard-teacher'></i>&nbsp;Datos Generales</a>
 
-                <button class="nav-link" id="nav-inmuebles-tab" data-bs-toggle="tab" data-bs-target="#nav-inmuebles" type="button" role="tab" aria-controls="nav-inmuebles" aria-selected="false"><i class='fas fa-house-user'></i>&nbsp;&nbsp;Inmuebles</button>
+            <a class="nav-link" href="inicio.php?url=app/vistas/alquileres/verpropietarios">
+                <div class="sb-nav-link-icon"><i class='fas fa-chalkboard-teacher'></i></div>
+                DATOS PERSONALES
+            </a>
 
-                <button class="nav-link" id="nav-liquidaciones-tab" data-bs-toggle="tab" data-bs-target="#nav-liquidaciones" type="button" role="tab" aria-controls="nav-liquidaciones" aria-selected="false"><i class='fas fa-coins'></i>&nbsp;&nbsp;Liquidaciones</button>
+            <a class="nav-link" href="#">
+                <div class="sb-nav-link-icon"><i class='fas fa-coins'></i></div>
+                LIQUIDACION
+            </a>
 
-                <button class="nav-link" id="nav-edo_cuenta-tab" data-bs-toggle="tab" data-bs-target="#nav-edo_cuenta" type="button" role="tab" aria-controls="nav-edo_cuenta" aria-selected="false"><i class='fas fa-file-invoice-dollar'></i>&nbsp;&nbsp;Estado de Cuenta</button>
+            <a class="nav-link" href="#">
+                <div class="sb-nav-link-icon"><i class='fas fa-file-invoice-dollar'></i></div>
+                ESTADO DE CUENTA
+            </a>
 
-                <button class="nav-link" id="nav-finiquito-tab" data-bs-toggle="tab" data-bs-target="#nav-finiquito" type="button" role="tab" aria-controls="nav-finiquito" aria-selected="false"><i class='fas fa-share-square'></i>&nbsp;&nbsp;Finiquito</button>
-                
-            </div>
-        </nav>
+            <a class="nav-link" href="#">
+                <div class="sb-nav-link-icon"><i class='fas fa-share-square'></i></div>
+                FINIQUITO
+            </a>
+
+           
+        </div>
+        
     </div>
 </nav>

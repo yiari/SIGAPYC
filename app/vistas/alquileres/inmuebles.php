@@ -44,32 +44,32 @@
                             <th>Letra</th>
                             <th>Tipo</th>
                             <th>Estatus</th>
-                            <th><div class="btn-group">
-
-                                <a href='#' ><img src='img/editar.png'  width=25 height=25 placeholder="Editar..."></a> &nbsp;
-                                <a href="#" title="Editar"><i class="fas fa-edit"></i></a>
-                                <a href='#' target='_blank'><img src='img/ver.png' width=25 height=25  alt='Ver'></a> &nbsp;
-
-                                <a href='#' target='_blank'><img src='img/mandato.png' width=25 height=25  alt='Mandato'></a> &nbsp;
-                                <a href='#'><img src='img/bitacora.png' width=25 height=25  alt='Bitacora'> </a> &nbsp;
-
-                                    
-                            </div></th>                        
+                            <th>Doc / Editar</th>                        
                         </tr>
                     </tfoot>
                     <tbody>
 
-                    <div class="btn-group">
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>
+                                        <div class="btn-group" style="font-size:1.3em; letter-spacing:0.5em;">
 
-                               
-                                <a href="#" title="Editar"><i class="fas fa-edit" width=25 height=25></i></a>&nbsp;
-                                <a href='#' title="Ver" target='_blank'><i class="fas fa-search " width=25 height=25></i></a> &nbsp;
-                                
-                                <a href='#' title="Mandato" target='_blank'><i class="fa-solid fa-file-pen"></i></a> &nbsp;
-                                <a href='#' title="Bitacora"><i class="fa-regular fa-folder-open"></i></a> &nbsp;
+                                            <a href="#" title="Editar"><i class="fas fa-edit" ></i></a>&nbsp;
+                                            <a href='#' title="Ver" target='_blank'><i class="fas fa-search" ></i></a> &nbsp;
+                                            <a href='#' title="Contrato" target='_blank'><i class="fa-solid fa-file-pen" ></i></a> &nbsp;
+                                            <a href='#' title="Bitacora"><i class="fa-regular fa-folder-open"></i></a> &nbsp;
+    
+                                        </div>
 
-                                    
-                            </div>
+                                    </td>
+
+                             
                         
                     </tbody>
                 </table>

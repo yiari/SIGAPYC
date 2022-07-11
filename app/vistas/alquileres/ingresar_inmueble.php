@@ -107,57 +107,83 @@ include("layout/menuNavegacion.php");
                     <!--info_propietario-->
                     <div class="card">
                         <div class="card-body">
-                            <div class="col text-center">
-                                <h5 class="card-title">Datos del Beneficiario</h5>
-                            </div>
-                            <div class="col-1 btn btn">
-                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#beneficiario_inmu"> Beneficiario</button>
-                            </div>
-                    
-                            <div class="row" id="mapa" >
-
-
-                                <div class="col-md-1">
-                                    <label class="col-sm-12 col-form-label">Código:</label>
-                                    <div class="col-sm-12">
-                                        <select class="form-control" id="id_prop" name="id_prop" style="width:80px" required autofocus>
-                                               <option selected disabled value=""></option>               
-                                          
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-md-2">
-                                    <label class="col-sm-10 col-form-label">Doc. Identidad:</label>
-                                    <div class="col-sm-12">
-                                        <input type="text" class="form-control" id="doc_ipro" name="doc_ipro" value='' readonly>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <label class="col-sm-12 col-form-label">Nombre o Razón social:</label>
-                                    <div class="col-sm-12">
-                                        <input type="text" class="form-control" id="nom_ipro" name="nom_ipro" value='' readonly>
-                                    </div>
-                                </div>
-                                <div class="col-md-1">
-                                    <label class="col-sm-12 col-form-label">% Part.:</label>
-                                    <div class="col-sm-12">
-                                        <input type="number" class="form-control" id="por_ipro" name="por_ipro" value=0 required>
-                                    </div>
-                                </div>
-                                <div class="col-md-2">
-                                    <label class="col-sm-11 col-form-label">Celular:</label>
-                                    <div class="col-sm-12">
-                                        <input type="text" class="form-control" id="cel_ipro" name="cel_ipro" value='' readonly>
-                                    </div> 
-                                </div>
-                                <div class="col-md-2">
-                                    <label class="col-sm-12 col-form-label">Correo:</label>
-                                    <div class="col-sm-12">
-                                        <input type="email" class="form-control" id="cor_ipro" name="cor_ipro" value='' readonly>
-                                    </div>
-                                </div>
-                            </div>  <!--Fin de Mapa/div-->
                             
+
+                            <div class="card-header">
+
+                                <div style="text-align: right;">
+                                <ol>
+                                        <a class="btn btn-outline-primary" href="index.php?url=app/vistas/alquileres/ingresar_beneficiarios" role="button">Nuevo</a>                
+                                        <!--a class="btn btn-outline-secondary" href="reportes.php"  role="button">Imprimir</a-->
+                                    </ol>
+                                </div>
+        
+        <!--tabla-->
+                                <div class="card mb-4">
+                                    <div class="card-header">
+                                    <i class="fa-solid fa-city"></i>&nbsp;
+                                        BENEFICIARIOS
+                                    </div>
+                                    <div class="card-body">
+                                        <table id="datatablesSimple">
+                                            <thead>
+                                                <tr>
+
+                                                    <th>Codigo:</th>
+                                                    <th>Doc. Identidad:</th>
+                                                    <th>Nombre o Razón social:</th>
+                                                    <th>Celular</th>
+                                                   
+                                                    <th>correo</th>
+                                                    <th>% Part</th>
+                                                    <th>Doc / Editar</th>
+                                            
+                        
+                                                </tr>
+                                            </thead>
+                                            <tfoot>
+                                                <tr>
+
+                                                    <th>Id</th>
+                                                    <th>Doc. Identidad:</th>
+                                                    <th>Nombre o Razón social:</th>
+                                                    <th>Celular:</th>
+                                                    <th>correo:</th>
+                                                    <th >% Part</th>
+                                                    <th>Doc / Editar</th>                        
+                                                </tr>
+                                            </tfoot>
+                                            <tbody>
+
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td> 
+
+                                                                <div class="col-sm-4">
+                                                                    <input type="number" class="form-control" id="por_ipro" name="por_ipro" value=0 required>
+                                                                </div>
+                                                           
+                                                            </td>
+                                                            <td>
+                                                                <div class="btn-group" style="font-size:1.3em; letter-spacing:0.5em;">
+
+                                                                    <a href="#" title="Editar"><i class="fas fa-edit" ></i></a>&nbsp;
+
+                                                                </div>
+
+                                                            </td>
+
+                                                    
+                                                
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
                     </div></br>
 
