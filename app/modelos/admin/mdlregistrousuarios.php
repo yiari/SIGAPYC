@@ -5,6 +5,7 @@
 | INCLUYO LA CLASE CORRESPONDIENTE
 |----------------------------------------
 */
+
 include_once '../../../app/modelos/conexcion.php';
 
 /*
@@ -16,46 +17,199 @@ class mdlregistrousuarios{
 
 public function registrar($tabla,$datos){
 
+  /* 
+  |------------------------------------------------------------
+  | AQUI DECLARO LA VARIABLE - INSTANCIA DEL METODO CONEXION
+  |------------------------------------------------------------
+  */
+  $dbConexion = new conexcion();
+  /* 
+  |------------------------------------------------------------------------------------------------
+  | AQUI DECLARO LA VARIABLES QUE CAPTURARAN EL RESULTADO DE LA OPERAION PARA INFORMAR AL USUARIO
+  |------------------------------------------------------------------------------------------------
+  */
+  $prmError = 0;
+  $prmMensaje = "";
 
+
+
+  
       try {
-
-        $dbConexion = new conexcion();
-      
-        //$stmt = $dbConexion->conectar()->prepare("INSERT INTO $tabla (nombre,apellido,usuario,password,email)  VALUES (:nombre,:apellido,:usuario,:password,:email)");
-        //IN `idusuario` INT(11), IN `prmnombre` VARCHAR(255), IN `prmapellido` VARCHAR(255), IN `prmusuario` VARCHAR(255), IN `prmemail` VARCHAR(255),  IN `prmpassword` VARCHAR(255)
-
-        $stmt = $dbConexion->conectar()->prepare("CALL usp_registrousuarios(?,?,?,?,?,?)");
-
+  
+         /* 
+          |----------------------------------------------------------------------------------
+          | AQUI PREPARO LO QUE SERA LA LLAMADA AL PROCEDIMIENTO QUE REALIZARA LA OPERACION
+          |----------------------------------------------------------------------------------
+          */
+          $stmt = $dbConexion->conectar()->prepare("CALL usp_registrousuarios(?,?,?,?,?,?)");
           $stmt -> bindParam(1, $datos["idusuario"], PDO::PARAM_INT);
           $stmt -> bindParam(2, $datos["nombre"], PDO::PARAM_STR);
           $stmt -> bindParam(3, $datos["apellido"], PDO::PARAM_STR);
           $stmt -> bindParam(4, $datos["usuario"], PDO::PARAM_STR);
           $stmt -> bindParam(5, $datos["email"], PDO::PARAM_STR);
           $stmt -> bindParam(6, $datos["password"], PDO::PARAM_STR);
-                    
+          
+          /*
+          |---------------------------------
+          | AQUI SE EJECUTA LA OPERACION
+          |---------------------------------
+          */
           $stmt->execute();
 
+          /* 
+          |----------------------------------
+          | AQUI SE OBTIENE EL RESULTADO
+          |----------------------------------
+          */
+          $resultado = $stmt->fetchAll();
+
+          if (count($resultado) >0){
+
+            foreach ($resultado as $key=> $row) {
+              $prmError = $row[0]; //COLUMNA NUMERO DE ERROR ( EN CASO DE SUCEDER), DE LO CONTRARIO REGRESARA, CERO (0)
+              
+              if ($prmError == 1062 ){ //registro duplicado
+                $prmMensaje =  "Registro duplicado: " . $row[1]; //COLUMNA DEL MENSAJE
+              } else {
+                $prmMensaje =  $row[1]; //COLUMNA DEL MENSAJE
+              }
+            }
+        
+
+          } ;
+
+          /*
+          |--------------------------------------------------------------------
+          | AQUI CARGO LOS VALORES PARA EL MENSAJE QUE SE MOSTRARA AL USUARIO
+          |--------------------------------------------------------------------
+          */
           $dataRes = array(
-            'error' => '0',
-            'mensaje' =>  'El registro se realizo con exito.'
+            'error' => $prmError,
+            'mensaje' =>  $prmMensaje
           );
-    
+
           echo json_encode($dataRes);
 
-    } catch (\Throwable $th) {
+    } catch (\Exception $e) {
     
-        //$pdo->rollBack() ;
-        //echo "Mensaje de Error: " . $th->getMessage();
-        $dataRes = array(
-          'error' => '1',
-          'mensaje' =>  "Mensaje de Error: " . $th->getMessage()
-        );
-  
+
+        $codigoError = $e->getCode();
+
+        if ($codigoError == 23000) { //ERROR DE REGISTRO DUPLICADO
+          $dataRes = array(
+            'error' => '1',
+            'mensaje' =>  "El registro se encuentra duplicado " . $e->getMessage()
+          );
+        } else {
+          $dataRes = array(
+            'error' => '1',
+            'mensaje' =>  "Mensaje de Error: " . $e->getMessage()
+          );
+
+        }
+ 
         echo json_encode($dataRes);
 
     }
   
   }
+
+
+
+  public function eliminarusuario($tabla,$datos){
+
+    /* 
+    |------------------------------------------------------------
+    | AQUI DECLARO LA VARIABLE - INSTANCIA DEL METODO CONEXION
+    |------------------------------------------------------------
+    */
+    $dbConexion = new conexcion();
+    /* 
+    |------------------------------------------------------------------------------------------------
+    | AQUI DECLARO LA VARIABLES QUE CAPTURARAN EL RESULTADO DE LA OPERAION PARA INFORMAR AL USUARIO
+    |------------------------------------------------------------------------------------------------
+    */
+    $prmError = 0;
+    $prmMensaje = "";
+  
+  
+  
+    
+        try {
+    
+           /* 
+            |----------------------------------------------------------------------------------
+            | AQUI PREPARO LO QUE SERA LA LLAMADA AL PROCEDIMIENTO QUE REALIZARA LA OPERACION
+            |----------------------------------------------------------------------------------
+            */
+            $stmt = $dbConexion->conectar()->prepare("CALL usp_eliminarusuarios(?)");
+            $stmt -> bindParam(1, $datos["idusuario"], PDO::PARAM_INT);
+            
+            /*
+            |---------------------------------
+            | AQUI SE EJECUTA LA OPERACION
+            |---------------------------------
+            */
+            $stmt->execute();
+  
+            /* 
+            |----------------------------------
+            | AQUI SE OBTIENE EL RESULTADO
+            |----------------------------------
+            */
+            $resultado = $stmt->fetchAll();
+  
+            if (count($resultado) >0){
+  
+              foreach ($resultado as $key=> $row) {
+                $prmError = $row[0]; //COLUMNA NUMERO DE ERROR ( EN CASO DE SUCEDER), DE LO CONTRARIO REGRESARA, CERO (0)
+                
+                if ($prmError == 1062 ){ //registro duplicado
+                  $prmMensaje =  "Registro duplicado: " . $row[1]; //COLUMNA DEL MENSAJE
+                } else {
+                  $prmMensaje =  $row[1]; //COLUMNA DEL MENSAJE
+                }
+              }
+          
+  
+            } ;
+  
+            /*
+            |--------------------------------------------------------------------
+            | AQUI CARGO LOS VALORES PARA EL MENSAJE QUE SE MOSTRARA AL USUARIO
+            |--------------------------------------------------------------------
+            */
+            $dataRes = array(
+              'error' => $prmError,
+              'mensaje' =>  $prmMensaje
+            );
+  
+            echo json_encode($dataRes);
+  
+      } catch (\Exception $e) {
+      
+  
+          $codigoError = $e->getCode();
+  
+          if ($codigoError == 23000) { //ERROR DE REGISTRO DUPLICADO
+            $dataRes = array(
+              'error' => '1',
+              'mensaje' =>  "El registro se encuentra duplicado " . $e->getMessage()
+            );
+          } else {
+            $dataRes = array(
+              'error' => '1',
+              'mensaje' =>  "Mensaje de Error: " . $e->getMessage()
+            );
+  
+          }
+   
+          echo json_encode($dataRes);
+  
+      }
+    
+    }
+
 
  public function seleccionarregistros($tabla,$iten,$valor){
 
@@ -66,7 +220,7 @@ public function registrar($tabla,$datos){
 
               $dbConexion = new conexcion();  
 
-                $stmt = $dbConexion->conectar()->prepare("SELECT id, nombre,apellido,usuario,password,email,DATE_FORMAT( fecha_creacion, '%d/%m/%Y') AS fecha_creacion FROM $tabla");
+                $stmt = $dbConexion->conectar()->prepare("SELECT id, nombre,apellido,usuario,password,email,DATE_FORMAT( fecha_creacion, '%d/%m/%Y') AS fecha_creacion FROM $tabla WHERE activo = 1");
                 $stmt->execute();
                 $dataRegistro["Items"][] = $stmt->fetchAll();
       
@@ -131,7 +285,73 @@ public function registrar($tabla,$datos){
   }
 
 
+  public function getroles(){
+  /* 
+  |------------------------------------------------------------
+  | AQUI DECLARO LA VARIABLE - INSTANCIA DEL METODO CONEXION
+  |------------------------------------------------------------
+  */
+  $dbConexion = new conexcion();
+  /* 
+  |------------------------------------------------------------------------------------------------
+  | AQUI DECLARO LA VARIABLES QUE CAPTURARAN EL RESULTADO DE LA OPERAION PARA INFORMAR AL USUARIO
+  |------------------------------------------------------------------------------------------------
+  */
+  $prmError = 0;
+  $prmMensaje = "";
 
+
+  try {
+         /* 
+          |----------------------------------------------------------------------------------
+          | AQUI PREPARO LO QUE SERA LA LLAMADA AL PROCEDIMIENTO QUE REALIZARA LA OPERACION
+          |----------------------------------------------------------------------------------
+          */
+          $stmt = $dbConexion->conectar()->prepare("CALL usp_getroles()");
+  
+          /*
+          |---------------------------------
+          | AQUI SE EJECUTA LA OPERACION
+          |---------------------------------
+          */
+          $stmt->execute();
+
+          $dataRegistro["Items"][] = $stmt->fetchAll();
+      
+          $dataRes = array(
+            'error' => '0',
+            'mensaje' =>  'correcto'
+          );
+                    
+          echo json_encode(array_merge($dataRegistro,$dataRes));
+  
+        } catch (\Exception $e) {
+    
+
+          $codigoError = $e->getCode();
+  
+          if ($codigoError == 23000) { //ERROR DE REGISTRO DUPLICADO
+            $dataRes = array(
+              'error' => '1',
+              'mensaje' =>  "El registro se encuentra duplicado " . $e->getMessage()
+            );
+          } else {
+            $dataRes = array(
+              'error' => '1',
+              'mensaje' =>  "Mensaje de Error: " . $e->getMessage()
+            );
+  
+          }
+   
+          echo json_encode($dataRes);
+  
+      }
+  
+
+
+
+  
+  }
 
 
 

@@ -13,19 +13,33 @@
 
         <form class="bg-light" method="post" id="registrarusuario">
                 <input type="hidden" id="hidUsuario" name="hidUsuario" value="0">
+
+                <div class="form-group row">
+                        <div class="col-sm-3 mb-3 mb-sm-0">
+                                <label for="cboRoles" class="mr-sm-2">Roles:</label></br>
+                                <select id="cboRoles" name="cboRoles"></select>
+                        </div>
+                        <div class="col-sm-3 mb-3 mb-sm-0">
+                                &nbsp;    
+                        </div>
+                        <div class="col-sm-6">
+                                &nbsp;                            
+                        </div>
+                </div>
+
                 <div class="form-group row">
                         <div class="col-sm-3 mb-3 mb-sm-0">
                                 <label for="registroNombre" class="mr-sm-2">Nombres:</label>
-                                <input type="text" class="form-control form-control-user" placeholder="Nombre del usuario" id="registroNombre" name="registroNombre" required=required >
+                                <input type="text" class="form-control form-control-user" placeholder="Nombre del usuario" id="registroNombre" name="registroNombre">
                         </div>
                         <div class="col-sm-3 mb-3 mb-sm-0">
                                 <label for="registroApellido" class="mr-sm-2">Apellidos:</label>
-                                <input type="text" class="form-control form-control-user" placeholder="Apellidos del usuario" id="registroApellido" name="registroApellido" required=required >
+                                <input type="text" class="form-control form-control-user" placeholder="Apellidos del usuario" id="registroApellido" name="registroApellido">
                         </div>
 
                         <div class="col-sm-6">
                                 <label for="registroUsuario" class="mr-sm-2">Usuario:</label>
-                                <input type="text" class="form-control form-control-user" placeholder="Usuario" id="registroUsuario" name="registroUsuario" required=required >
+                                <input type="text" class="form-control form-control-user" placeholder="Usuario" id="registroUsuario" name="registroUsuario">
 
                         </div>
                 </div>
@@ -33,12 +47,12 @@
                 <div class="form-group row">
                         <div class="col-sm-6 mb-3 mb-sm-0">
                                 <label for="registroEmail" class="mr-sm-2">Correo:</label>
-                                <input type="text" class="form-control form-control-user" placeholder="Correo electronico" id="registroEmail" name="registroEmail" required=required >
+                                <input type="text" class="form-control form-control-user" placeholder="Correo electronico" id="registroEmail" name="registroEmail">
                         </div>
 
                         <div class="col-sm-6">
                                 <label for="registroContrasena" class="mr-sm-2">Contraseña:</label>
-                                <input type="password" class="form-control form-control-user" placeholder="Contraseña" id="registroContrasena" name="registroContrasena" required=required >
+                                <input type="password" class="form-control form-control-user" placeholder="Contraseña" id="registroContrasena" name="registroContrasena">
 
                         </div>
                 </div>
@@ -81,5 +95,12 @@
         </div>
 </div>
 </div>
+
+<?php 
+
+include_once "app/vistas/comunes/modalmensajes.php";
+include_once "app/vistas/comunes/modaleliminar.php";
+
+?>
 
 <script src="js/admin/registrousuarios.js"></script>

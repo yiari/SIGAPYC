@@ -50,6 +50,24 @@ class ctrregistrousuarios{
     }
 
 
+     public function getroles(){
+
+        
+        $modelo =  new mdlregistrousuarios();
+        $respuestas =  $modelo->getroles();
+        return $respuestas;
+    }
+
+
+    public function eliminarusuario($datos){
+
+        $tabla = "users";
+        $modelo =  new mdlregistrousuarios();
+        $respuesta = $modelo->eliminarusuario($tabla,$datos);
+
+        return $respuesta;
+
+    }
 
 
 }

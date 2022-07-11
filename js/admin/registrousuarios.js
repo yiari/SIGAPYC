@@ -1,17 +1,35 @@
 function inicio(){
 
     guardarUsuario();
+    cargarRoles();
     cargarUsuarios();
-
+    
     limpiarCampos();
+
+
+    jQuery("#registroNombre").on('input', function (evt) {
+        jQuery(this).val(jQuery(this).val().replace(/[^A-Za-z ]/g, ''));
+    });
+
+    jQuery("#registroApellido").on('input', function (evt) {
+        jQuery(this).val(jQuery(this).val().replace(/[^A-Za-z ]/g, ''));
+    });
+
+
 
 }
 
+function validateEmail(email) {
+
+    var re = /\S+@\S+\.\S+/;
+    return re.test(email);
+
+
+}
 
 function guardarUsuario(){
 
-    $("#registrarusuario").on('submit', function(evt) {
-
+         $("#registrarusuario").on('submit', function(evt) {
         /*
         |-----------------------------------------------
         | AQUI SE PREVIENE QUE EL FORMULARIO CONTINUE 
@@ -19,6 +37,58 @@ function guardarUsuario(){
         */
         evt.preventDefault();
         /**********************************************/        
+
+        if ($("#cboRoles").val() == "") {
+            mensaje("Debe seleccionar el rol del usuario",1);
+            return;
+        }
+
+        if ($("#registroNombre").val() == "") {
+            mensaje("Debe indicar el nombre del usuario",1);
+            return;
+        }
+    
+        if ($("#registroApellido").val() == "") {
+            mensaje("Debe indicar el apellido del usuario",1);
+            return;
+        }
+    
+        if ($("#registroUsuario").val() == "") {
+            mensaje("Debe indicar el usuario del sistema",1);
+            return;
+        }
+    
+        if ($("#registroEmail").val() == "") {
+            mensaje("Debe indicar una direccion de correo valida",1);
+            return;
+        } else {
+            var respuesta = validateEmail($("#registroEmail").val());
+    
+            if (respuesta == false) {
+                mensaje("La direccion de correo es invalida",1);
+                return;
+            }
+        }
+    
+        if( $("#hidUsuario").val() == ""){
+
+            if ($("#registroContrasena").val() == "") {
+                mensaje("Debe indicar la contraseña del usuario",1);
+                return;
+            } else {
+                
+                if ($("#registroContrasena").val().length < 8) {
+                    mensaje("La contraseña debe ser minimo de 8 caracteres",1);
+                    return;
+                }
+        
+
+            }
+
+    
+        }
+
+
         /*
         |-----------------------------------------------
         | LIMPIA EL CAMPO MENSAJE 
@@ -58,10 +128,13 @@ function guardarUsuario(){
             var json = data;
             var html = "";
 
+                console.log("Mensaje del JSON: " + json.mensaje);
+
                 if(json.error == 0){
                     
-                    html = '<div class="alert alert-success" role="alert">' + json.mensaje + '</div>';
-                    $("#mensaje").html(html).fadeIn();
+                    mensaje(json.mensaje,0);
+
+                    //$("#mensaje").html(html).fadeIn();
                     limpiarCampos();
                     limpiarTabla();
                     botones(0);
@@ -69,22 +142,18 @@ function guardarUsuario(){
 
                 }else {
 
-                    html = '<div class="alert alert-danger" role="alert">' + json.mensaje + '</div>';
-                    $("#mensaje").html(html).fadeIn();
+                    mensaje(json.mensaje,1);
+
+                    //$("#mensaje").html(html).fadeIn();
                 }
 
 
-            /*
-            for (var i=0;i<json.length;++i)
-            {
-                $("#error").html(json[i].mensaje).fadeIn();
-               // $('#results').append('<div class="name">'+json[i].name+'</>');
-            }
-            */
 
             },
             error: function (e) {
-                $("#error").html(e).fadeIn();
+                //$("#error").html(e).fadeIn();
+                mensaje(e,1);
+                
             }
         });
 
@@ -122,13 +191,13 @@ function cargarUsuarios(){
             success: function (data) {
             var json = data;
             var html = "";
-
+/*
             console.log(json);
             console.log("Este es el Mensaje: " + json.mensaje);
             console.log("Items: " + json.Items.length);
             console.log("Items Resultados: " + json.Items[0].length);
             console.log("Email Resultados: " + json.Items[0][1].email);
-
+*/
                     /*
                     |------------------------------------------------------
                     | AQUI SE CARGA LA INFORMACION EN LA TABLA
@@ -150,7 +219,7 @@ function cargarUsuarios(){
                                 var html="";
                                 html = '<div class="btn-group">';
                                 html += '<button class="btn btn-warning edit" data-field-id="' + json.Items[0][i].id + '" data-field-nombre="' + json.Items[0][i].nombre + '" data-field-apellido="'+ json.Items[0][i].apellido + '" data-field-usuario="'+ json.Items[0][i].usuario + '" data-field-email="' + json.Items[0][i].email +  '"><i class="fas fa-edit" alt=“editar”></i>&nbsp;Editar</button>';
-                                html += '<button class="btn btn-danger"><i class="fas fa-trash" alt=“eliminar”></i>&nbsp;Eliminar</button>';
+                                html += '<button class="btn btn-danger delete" data-field-id="' + json.Items[0][i].id + '"><i class="fas fa-trash" alt=“eliminar”></i>&nbsp;Eliminar</button>';
                                 html += '</div>'
                                 tr.append("<td>" + html + "</td>");
                                 $('#tblUsuarios').append(tr);
@@ -159,7 +228,7 @@ function cargarUsuarios(){
 
 
                         editarUsuario();
-                        
+                        validareliminarUsuario();
                     }
                     /************************************************ */
 
@@ -169,6 +238,93 @@ function cargarUsuarios(){
                 $("#error").html(e).fadeIn();
             }
         });
+
+}
+
+function cargarRoles(){
+
+    /*
+    |-----------------------------------------------------
+    | AQUI SE AGREGA UN PARAMETRO ADICIONAL AL FORMULARIO 
+    |-----------------------------------------------------
+    */
+    var formData = new FormData();
+
+    formData.append('opcion','CR');
+    /*
+    |-----------------------------------------------
+    | AQUI SE LLAMA EL AJAX 
+    |-----------------------------------------------
+    */
+    $.ajax({
+        url: "app/handler/admin/hndregistrousuarios.php",
+        data: formData,
+        processData: false,
+        contentType: false,
+        type: 'POST',
+        beforeSend: function () {
+            //$("#preview").fadeOut();
+            $("#error").fadeOut();
+        },
+        success: function (data) {
+        var json = data;
+        var html = "";
+/*
+        console.log(json);
+        console.log("Este es el Mensaje: " + json.mensaje);
+        console.log("Items: " + json.Items.length);
+        console.log("Items Resultados: " + json.Items[0].length);
+        console.log("Rol Resultados: " + json.Items[0][1].rol);
+*/
+                /*
+                |------------------------------------------------------
+                | AQUI SE CARGA LA INFORMACION EN LA TABLA
+                |------------------------------------------------------
+                */
+                if(json.Items.length > 0){
+                    var tr;
+
+                    /* 
+                    |-----------------------------------------
+                    | SELECCIONO EL COMBO ROLES Y LO LIMPIO
+                    |-----------------------------------------
+                    */
+
+                        $('#cboRoles') 
+                        .find('option') 
+                        .remove()
+                        .end()
+                        ;
+
+                    /* 
+                    |----------------------------------------
+                    | AQUI CARGO EL TEXTO POR DEFECTO
+                    |----------------------------------------
+                    */
+
+                        $('#cboRoles').append("<option value=''>Seleccione un rol...</option>"); 
+
+                    /* 
+                    |-------------------------------------------------
+                    | AQUI RECORRO LOS ITEMS Y LOS CARGO EN EL COMBO
+                    |--------------------------------------------------
+                    */
+
+                    for (var i = 0; i < json.Items[0].length; i++) {
+       
+                        $("#cboRoles").append($("<option></option>").val(json.Items[0][i].id).html(json.Items[0][i].rol)); 
+        
+                    }
+
+                }
+                /************************************************ */
+
+
+        },
+        error: function (e) {
+            $("#error").html(e).fadeIn();
+        }
+    });
 
 }
 
@@ -203,6 +359,28 @@ if(opcion == 1){
 
 }
 
+
+function mensaje(mensaje, condicion){
+
+    var html="";
+
+    if(condicion == 0){//ESTOS SON MENSAJES CON EXITO
+
+        html='<i class="fa fa-check-circle fa-2x" aria-hidden="true" style="color:#29bf1d;"></i>&nbsp' + mensaje;
+
+    } else if (condicion == 1){//ESTOS SON MENSAJES CON ERROR
+
+        html='<i class="fa fa-times-circle fa-2x" aria-hidden="true" style="color:#bf1d1d;"></i>&nbsp' + mensaje;
+    }
+
+
+    $('#spanMsg').html('');
+    $('#spanMsg').html(html);
+    //open the modal
+    $('#msgModal').modal('show');
+
+}
+
 function editarUsuario(){
 
     $(".edit").click(function() {
@@ -229,6 +407,91 @@ function editarUsuario(){
 
         //alert("El id del Registro es: " + vlId);
     })
+
+
+}
+
+function validareliminarUsuario(){
+
+    $(".delete").click(function() {
+
+        var vlId = $(this).data('field-id');
+        var vlEliminar = '#'; //'{{ route("eliminar-ministerial",["id" => "VALOR"]) }}';
+        //vlEliminar = vlEliminar.replace('VALOR', vlId);
+
+        $('#spanDeleteOk').attr('onclick','eliminarUsuario(' + vlId + ')');
+
+        //pass the data in the modal body adding html elements
+        //$('#spanDelete').html('');
+        //$('#spanDelete').html('<form id="delete-form" action="' + vlEliminar + '" method="POST" style="display: none;">@csrf</form>');
+        //open the modal
+        $('#deleteModal').modal('show')
+
+    })
+
+
+}
+
+function eliminarUsuario(idusuario){
+
+    //mensaje("Eliminar el usuario con el ID: " + idusuario,0);
+   
+  /*
+        |-----------------------------------------------------
+        | AQUI SE AGREGA UN PARAMETRO ADICIONAL AL FORMULARIO 
+        |-----------------------------------------------------
+        */
+        var formData = new FormData();
+
+        formData.append('idusuario',idusuario);
+        formData.append('opcion','D');
+        /*
+        |-----------------------------------------------
+        | AQUI SE LLAMA EL AJAX 
+        |-----------------------------------------------
+        */
+        $.ajax({
+            url: "app/handler/admin/hndregistrousuarios.php",
+            data: formData,
+            processData: false,
+            contentType: false,
+            type: 'POST',
+            beforeSend: function () {
+                //$("#preview").fadeOut();
+                $("#error").fadeOut();
+            },
+            success: function (data) {
+                var json = data;
+                var html = "";
+    
+                    console.log("Mensaje del JSON: " + json.mensaje);
+    
+                    if(json.error == 0){
+                        
+                        mensaje(json.mensaje,0);
+    
+                        //$("#mensaje").html(html).fadeIn();
+                        limpiarCampos();
+                        limpiarTabla();
+                        botones(0);
+                        cargarUsuarios();
+    
+                    }else {
+    
+                        mensaje(json.mensaje,1);
+    
+                        //$("#mensaje").html(html).fadeIn();
+                    }
+    
+    
+    
+                },
+                error: function (e) {
+                    //$("#error").html(e).fadeIn();
+                    mensaje(e,1);
+                    
+                }
+            });
 
 
 }

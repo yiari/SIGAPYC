@@ -132,3 +132,76 @@ if($operacion == "C"){
      
 }
 
+
+/* 
+ |--------------------------------------------------------------
+ | AQUI SE EJECUTA LA OPERACION DE CONSULTAR LOS ROLES
+ |--------------------------------------------------------------
+*/
+
+if($operacion == "CR"){
+
+   /*
+    |-------------------------------------------
+    | AQUI CREO UNA INSTANCIA DE LA CLASE
+    |-------------------------------------------
+    */
+    
+    $registroUsuario =  new ctrregistrousuarios();
+
+   /* 
+   |---------------------------------------------
+   | AQUI OBTENGO EL RESULTADO DE LA EJECUCION
+   |---------------------------------------------
+   */
+     $result = $registroUsuario->getroles();
+    
+    /*
+    |-------------------------------------------
+    | AQUI REGRESO EL RESULTADO AL AJAX
+    |-------------------------------------------
+    */
+    header('Content-Type: application/json');
+     return $result;
+     
+}
+
+
+/* 
+ |--------------------------------------------------------------
+ | AQUI SE EJECUTA LA OPERACION ELIMINAR USUARIO
+ |--------------------------------------------------------------
+*/
+
+if($operacion == "D"){
+
+   /*
+    |-------------------------------------------
+    | AQUI CREO UNA INSTANCIA DE LA CLASE
+    |-------------------------------------------
+    */
+    
+    $registroUsuario =  new ctrregistrousuarios();
+
+   /*
+   |---------------------------------------------
+   | AQUI CARGO LOS DATOS PARA ALMACENAR
+   |---------------------------------------------
+   */
+  $datos = array( "idusuario" => $_POST["idusuario"]);
+   /* 
+   |---------------------------------------------
+   | AQUI OBTENGO EL RESULTADO DE LA EJECUCION
+   |---------------------------------------------
+   */
+   $result = $registroUsuario->eliminarusuario($datos);
+    
+    /*
+    |-------------------------------------------
+    | AQUI REGRESO EL RESULTADO AL AJAX
+    |-------------------------------------------
+    */
+    header('Content-Type: application/json');
+     return $result;
+     
+}
