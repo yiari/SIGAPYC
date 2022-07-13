@@ -80,30 +80,27 @@
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                <div class="col-md-4">
-                                                    <label class="col-sm-10 col-form-label">Estado:</label>
-                                                    <div class="col-sm-12">
-                                                        <select class="form-control" id="est_benn" name="est_prop" required>
-                                                            <option value="0"></option>
-                                                        </select>
+                                                    <div class="col-md-4">
+                                                        <label for="cboEstados" class="col-sm-10 col-form-label">Estado:</label></br>
+                                                        <div class="col-sm-12">
+                                                            <select class="form-control"  id="cboEstados" name="cboEstados"></select>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <label class="col-sm-10 col-form-label">Municipio:</label>
-                                                    <div class="col-sm-12">
-                                                        <select class="form-control" id="mun_benn" name="mun_prop" required>
-                                                            <option value="0"></option>
-                                                        </select>
+
+                                                    <div class="col-md-4">
+                                                        <label for="cboMunicipios" class="col-sm-10 col-form-label">Municipio:</label></br>
+                                                        <div class="col-sm-12">
+                                                            <select class="form-control"  id="cboMunicipios" name="cboMunicipios"></select>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <label class="col-sm-10 col-form-label">Parroquia:</label>
-                                                    <div class="col-sm-12">
-                                                        <select class="form-control" id="par_benn" name="par_prop" required>
-                                                            <option></option>
-                                                        </select>
+
+                                                    <div class="col-md-4">
+                                                        <label for="cboParroquia" class="col-sm-10 col-form-label">Parroquia:</label></br>
+                                                        <div class="col-sm-12">
+                                                            <select class="form-control"  id="cboParroquia" name="cboParroquia"></select>
+                                                        </div>
                                                     </div>
-                                                </div>
+  
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-6">
@@ -122,15 +119,13 @@
 
                                             <h5 class="card-title">Datos bancarios</h5>
                                             <div class="row">
-                                                <div class="col-md-3">
-                                                    <label class="col-sm-10 col-form-label">Banco Nacional:</label>
-                                                    <div class="col-sm-12">
-                                                        <input type="text" class="form-control" id="ban_benn" name="id_banc" required>
-                                                        <option></option>
-                                                        </select>
-                                                    </div>
+                                                <div class="col-md-4">
+                                                        <label for="cboBancoN" class="col-sm-10 col-form-label">Bancos Nacional:</label></br>
+                                                        <div class="col-sm-12">
+                                                            <select class="form-control"  id="cboBancoN" name="cboBancoN"></select>
+                                                        </div>
                                                 </div>
-                                                <div class="col-md-5">
+                                                <div class="col-md-4">
                                                     <label class="col-sm-9 col-form-label">Cuenta:</label>
                                                     <div class="col-sm-12">
                                                         <input type="text" class="form-control" id="cue_benn" name="num_cuen" required><br>
@@ -192,7 +187,7 @@
                                                     <div class="input-group">
                                                         <span class="input-group-text">Pago Movil</span>
                                                         <input type="text" placeholder="cedula" id="ced_pben" name="ced_pmov" aria-label="Cédula" class="form-control">
-                                                        <input type="text" placeholder="banco" id="ban_pben" name="ban_pmov" aria-label="Banco" class="form-control">
+                                                        <select class="form-control"  id="cboBancop" name="cboBancop"></select>
                                                         <input type="text" placeholder="celular" id="cel_pben" name="cel_pmov" aria-label="Celular" class="form-control">
                                                     </div><br>
                                                 </div>
@@ -309,15 +304,13 @@
 
                                             <h5 class="card-title">Datos bancarios</h5>
                                             <div class="row">
-                                                <div class="col-md-3">
-                                                    <label class="col-sm-5 col-form-label">Banco:</label>
+                                                <div class="col-md-4">
+                                                    <label for="cboBancoJ" class="col-sm-10 col-form-label">Bancos Nacional:</label></br>
                                                     <div class="col-sm-12">
-                                                        <input type="text" class="form-control" id="ban_benj" name="id_banc" required>
-                                                        <option></option>
-                                                        </select>
+                                                        <select class="form-control"  id="cboBancoJ" name="cboBancoJ"></select>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-5">
+                                                <div class="col-md-4">
                                                     <label class="col-sm-9 col-form-label">Cuenta:</label>
                                                     <div class="col-sm-12">
                                                         <input type="text" class="form-control" id="cta_benj" name="num_cuen" required><br>
@@ -355,10 +348,10 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-md-2">
-                                                    <label class="col-sm-12 col-form-label">Cuenta:</label>
-                                                    <div class="col-sm-12">
-                                                        <input type="text" class="form-control" id="cue_bebj" name="cue_extr" required><br>
-                                                    </div>
+                                                        <label class="col-sm-12 col-form-label">Cuenta:</label>
+                                                        <div class="col-sm-12">
+                                                            <input type="text" class="form-control" id="cue_proj" name="cue_proj" value=''><br>
+                                                        </div>
                                                 </div>
                                                 <div class="col-md-4">
                                                     <label class="col-sm-12 col-form-label">IBAN:</label>
@@ -380,7 +373,7 @@
                                                     <div class="input-group">
                                                         <span class="input-group-text">Pago Movil</span>
                                                         <input type="text" placeholder="cedula" id="ced_pbej" name="ced_pmov" aria-label="Cédula" class="form-control">
-                                                        <input type="text" placeholder="banco" id="ban_pbej" name="ban_pmov" aria-label="Banco" class="form-control">
+                                                        <select class="form-control"  id="cboBancoNP" name="cboBancoNP"></select>
                                                         <input type="text" placeholder="celular" id="cel_pbej" name="cel_pmov" aria-label="Celular" class="form-control">
                                                     </div><br>
                                                 </div>
@@ -480,3 +473,5 @@
                
             </div>
         </div>
+        <script src="js/comunes/combos.js"></script>
+        <script src="js/alquileres/ingresar_beneficiario.js"></script>

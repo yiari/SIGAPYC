@@ -87,74 +87,27 @@ include("layout/menuNavegacion.php");
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-4">
-                                                        <label class="col-sm-10 col-form-label">Estado:</label>
+                                                        <label for="cboEstados" class="col-sm-10 col-form-label">Estado:</label></br>
                                                         <div class="col-sm-12">
-                                                            <select class="form-control" id="est_inqu" name="est_inqu" required>
-                                                                <option value="0"></option>
-                                                                <?php
-                                                                /*
-                                                                foreach ($estados as $fila) {
-                                                                    if ($ID == $fila['ID']) {
-                                                                        $cond = "selected=selected";
-                                                                    } else {
-                                                                        $cond = "";
-                                                                    }
-                                                                    echo "<option value='" . $fila['ID'] . "' $cond>" . utf8_encode($fila['nom_esta']) . "</option>";
-                                                                }
-                                                                */
-                                                                ?>
-                                                            </select>
+                                                            <select class="form-control"  id="cboEstados" name="cboEstados"></select>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-4">
-                                                        <label class="col-sm-10 col-form-label">Municipio:</label>
-                                                        <div class="col-sm-12">
-                                                            <select class="form-control" id="mun_inqu" name="mun_inqu" required>
-                                                                <option value="">Seleccione Estado</option>
-                                                                <?php
-                                                                /*   
-                                                                foreach ($municipios as $fila)
-                                                                {
-                                                                    if ($id_muni==$fila['id_muni'])
-                                                                    {
-                                                                        $cond="selected=selected";
-                                                                    }   
-                                                                    else
-                                                                    {
-                                                                        $cond="";
-                                                                    }
-                                                                    echo "<option value='".$fila['id_muni']."' $cond>".utf8_encode($fila['nom_muni'])."</option>";
-                                                                }
-                                                                */
-                                                                ?>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-4">
-                                                        <label class="col-sm-10 col-form-label">Parroquia:</label>
-                                                        <div class="col-sm-12">
-                                                            <select class="form-control" id="par_inqu" name="par_inqu" required>
-                                                                <option value="">Seleccione Municipio</option>
 
-                                                                <?php
-                                                                /*
-                                                        foreach ($parroquia as $fila)
-                                                        {
-                                                            if ($id_parr==$fila['id_parr'])
-                                                            {
-                                                                $cond="selected=selected";
-                                                            }   
-                                                            else
-                                                            {
-                                                                $cond="";
-                                                            }
-                                                            echo "<option value='".$fila['id_parr']."' $cond>".utf8_encode($fila['nom_parr'])."</option>";
-                                                        }*/
-                                                                ?>
-                                                            </select>
+                                                    <div class="col-md-4">
+                                                        <label for="cboMunicipios" class="col-sm-10 col-form-label">Municipio:</label></br>
+                                                        <div class="col-sm-12">
+                                                            <select class="form-control"  id="cboMunicipios" name="cboMunicipios"></select>
                                                         </div>
                                                     </div>
-                                                </div>
+
+                                                    <div class="col-md-4">
+                                                        <label for="cboParroquia" class="col-sm-10 col-form-label">Parroquia:</label></br>
+                                                        <div class="col-sm-12">
+                                                            <select class="form-control"  id="cboParroquia" name="cboParroquia"></select>
+                                                        </div>
+                                                    </div>
+  
+                                            </div>
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <label class="col-sm-10 col-form-label">Dirección de habitación:</label>
@@ -500,3 +453,5 @@ include("layout/menuNavegacion.php");
                 </div>
             </div>
         </div>
+        <script src="js/comunes/combos.js"></script>
+        <script src="js/alquileres/ingresar_inquilinos.js"></script>

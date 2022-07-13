@@ -62,6 +62,7 @@ include("layout/menuNavegacion.php");
                                             <a href='#' title="Ver" target='_blank'><i class="fas fa-search" ></i></a> &nbsp;
                                             <a href='#' title="Contrato" target='_blank'><i class="fa-solid fa-file-pen" ></i></a> &nbsp;
                                             <a href='#' title="Bitacora"><i class="fa-regular fa-folder-open"></i></a> &nbsp;
+                                            <a href='index.php?url=app/vistas/alquileres/ingresar_pagador' title="pagador"><i class="fa-regular fa-id-badge"></i></a> &nbsp;
     
                                         </div>
 

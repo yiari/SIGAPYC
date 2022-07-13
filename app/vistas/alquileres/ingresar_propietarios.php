@@ -17,7 +17,7 @@ include("layout/menuNavegacion.php");
                 </nav>
                 <div class="tab-content" id="nav-tabContent">
 
-                    <div class="tab-pane fade show" id="nav-prop_natural" role="tabpanel" aria-labelledby="nav-prop_natural-tab">
+                    <div class="tab-pane fade show active" id="nav-prop_natural" role="tabpanel" aria-labelledby="nav-prop_natural-tab">
                         <div class="col-12 grid-margin">
                             <!--prop_natural-->
                             <div class="card">
@@ -95,33 +95,26 @@ include("layout/menuNavegacion.php");
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-4">
-                                                        <label class="col-sm-10 col-form-label">Estado:</label>
+                                                        <label for="cboEstados" class="col-sm-10 col-form-label">Estado:</label></br>
                                                         <div class="col-sm-12">
-                                                            <select class="form-control" id="est_prop" name="est_prop" required>
-                                                                <option value="0"></option>
-                                                            
-                                                            </select>
+                                                            <select class="form-control"  id="cboEstados" name="cboEstados"></select>
                                                         </div>
                                                     </div>
+
                                                     <div class="col-md-4">
-                                                        <label class="col-sm-10 col-form-label">Municipio:</label>
+                                                        <label for="cboMunicipios" class="col-sm-10 col-form-label">Municipio:</label></br>
                                                         <div class="col-sm-12">
-                                                            <select class="form-control" id="mun_prop" name="mun_prop" required>
-                                                            
-
-                                                            </select>
+                                                            <select class="form-control"  id="cboMunicipios" name="cboMunicipios"></select>
                                                         </div>
                                                     </div>
+
                                                     <div class="col-md-4">
-                                                        <label class="col-sm-10 col-form-label">Parroquia:</label>
+                                                        <label for="cboParroquia" class="col-sm-10 col-form-label">Parroquia:</label></br>
                                                         <div class="col-sm-12">
-                                                            <select class="form-control" id="par_prop" name="par_prop" required>
-                                                            
-
-
-                                                            </select>
+                                                            <select class="form-control"  id="cboParroquia" name="cboParroquia"></select>
                                                         </div>
                                                     </div>
+  
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-6">
@@ -147,18 +140,16 @@ include("layout/menuNavegacion.php");
                                                     <h5 class="card-title">Datos bancarios</h5>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-md-3">
-                                                        <div class="form-group">
-                                                            <label class="col-sm-10 col-form-label">Banco Nacional:</label>
-                                                            <select class="form-control" id="sel1">
-                                                                <option>1</option>
-                                                                <option>2</option>
-                                                                <option>3</option>
-                                                                <option>4</option>
-                                                            </select>
-                                                        </div> 
-                                                    </div>
-                                                    <div class="col-md-5">
+                                                    
+                                                        <div class="col-md-4">
+                                                            <label for="cboBancoN" class="col-sm-10 col-form-label">Bancos Nacional:</label></br>
+                                                            <div class="col-sm-12">
+                                                                <select class="form-control"  id="cboBancoN" name="cboBancoN"></select>
+                                                            </div>
+                                                       </div>
+  
+                                                    
+                                                    <div class="col-md-4">
                                                         <label class="col-sm-9 col-form-label">Cuenta:</label>
                                                         <div class="col-sm-12">
                                                             <input type="text" class="form-control" id="num_cuen" name="num_cuen" value=''><br>
@@ -217,7 +208,7 @@ include("layout/menuNavegacion.php");
                                                         <div class="input-group">
                                                             <span class="input-group-text">Pago Movil</span>
                                                             <input type="number" placeholder="cedula" id="ced_pmov" name="ced_pmov" aria-label="Cédula" value='' class="form-control">
-                                                            <input type="text" placeholder="banco" id="ban_pmov" name="ban_pmov" aria-label="Banco" value='' class="form-control">
+                                                            <select class="form-control"  id="cboBancoNP" name="cboBancoNP"></select>
                                                             <input type="number" placeholder="celular" id="cel_pmov" name="cel_pmov" aria-label="Celular" value='' class="form-control">
                                                         </div><br>
                                                     </div>
@@ -364,13 +355,13 @@ include("layout/menuNavegacion.php");
                                                     <h5 class="card-title">Datos bancarios</h5>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-md-3">
-                                                        <label class="col-sm-5 col-form-label">Banco:</label>
-                                                        <div class="col-sm-12">
-                                                            <input type="text" class="form-control" id="ban_proj" name="ban_proj" value=''>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-5">
+                                                      <div class="col-md-4">
+                                                            <label for="cboBancoJ" class="col-sm-10 col-form-label">Bancos Nacional:</label></br>
+                                                            <div class="col-sm-12">
+                                                                <select class="form-control"  id="cboBancoJ" name="cboBancoJ"></select>
+                                                            </div>
+                                                       </div>
+                                                    <div class="col-md-4">
                                                         <label class="col-sm-9 col-form-label">Cuenta:</label>
                                                         <div class="col-sm-12">
                                                             <input type="text" class="form-control" id="cta_proj" name="cta_proj" value='' maxlength="20"><br>
@@ -428,9 +419,11 @@ include("layout/menuNavegacion.php");
                                                     <div class="col-md-6">
                                                         <div class="input-group">
                                                             <span class="input-group-text">Pago Movil</span>
-                                                            <input type="number" placeholder="cedula" id="ced_pmoj" name="ced_pmoj" aria-label="Cédula" class="form-control" value=''>
-                                                            <input type="text" placeholder="banco" id="ban_pmoj" name="ban_pmoj" aria-label="Banco" class="form-control" value=''>
-                                                            <input type="number" placeholder="celular" id="cel_pmoj" name="cel_pmoj" aria-label="Celular" class="form-control" value=''>
+                                                            <input type="text" placeholder="cedula" id="ced_pmoj" name="ced_pmoj" aria-label="Cédula" class="form-control" value=''>
+                                                           
+                                                            <select class="form-control"  id="cboBancop" name="cboBancop"></select>
+                                                              
+                                                            <input type="text" placeholder="celular" id="cel_pmoj" name="cel_pmoj" aria-label="Celular" class="form-control" value=''>
                                                         </div><br>
                                                     </div>
                                                     <div class="col-md-6">
@@ -537,3 +530,7 @@ include("layout/menuNavegacion.php");
             </div>
         </div>
     </div>
+
+
+<script src="js/comunes/combos.js"></script>
+<script src="js/alquileres/ingresar_propietarios.js"></script>
