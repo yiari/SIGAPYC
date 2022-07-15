@@ -71,6 +71,7 @@ include("layout/menuNavegacion.php");
                                         <a href='#' title="Bitacora"><i class="fa-regular fa-folder-open"  ></i></a> &nbsp;
                                         <!--aquie de a ver una condicion si es proietario natural es apoderado si es juridoco es un representante-->
                                          <a href='index.php?url=app/vistas/alquileres/apoderado' title="Apoderado"><i class="fa-regular fa-id-badge"></i></a> &nbsp;
+                                         <a href='index.php?url=app/vistas/alquileres/representante' title="Representante"><i class="fa-regular fa-id-badge"></i></a> &nbsp;
                                          <a href='index.php?url=app/vistas/alquileres/inmuebles' title="Inmueble"><i class="fa-solid fa-city"></i></a> &nbsp;  
                                         </div>
 

@@ -328,7 +328,7 @@ include("layout/menuNavegacion.php");
         </div>
     </div>
 </div>
-
+<!--  aqui puedo ver normal la pantalla-->
     <div class="container">
 
         <div class="card-header">

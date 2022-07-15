@@ -3,7 +3,9 @@
 
 include("layout/menuNavegacion.php"); 
 
+
 ?>
+
 
 <div class="container">
     <div class="card-header">
