@@ -147,88 +147,95 @@ include("layout/menuNavegacion.php");
                                         <div class="card">
                                             <div class="card-body">
                                                 <div class="col text-center">
-                                                    <h5 class="card-title">Datos bancarios</h5>
+                                                    <h5 class="card-title">Datos cuentas Nacionales</h5>
                                                 </div>
                                                 <div class="row">
                                                     
-                                                        <div class="col-md-4">
+                                                        <div class="col-md-6">
                                                             <label for="cboBancoN" class="col-sm-10 col-form-label">Bancos Nacional:</label></br>
                                                             <div class="col-sm-12">
                                                                 <select class="form-control"  id="cboBancoN" name="cboBancoN"></select>
                                                             </div>
                                                        </div>
   
-                                                    
-                                                    <div class="col-md-4">
+                                                    <div class="col-md-6">
                                                         <label class="col-sm-9 col-form-label">Cuenta:</label>
                                                         <div class="col-sm-12">
                                                             <input type="text" class="form-control" id="num_cuen" name="num_cuen" value=''><br>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-4">
-                                                        <label class="col-sm-9 col-form-label">Cuenta Paypal:</label>
-                                                        <div class="col-sm-12">
-                                                        <input type="text" class="form-control" id="cor_payp" name="cor_payp" value=''><br>
-                                                        </div>
-                                                    </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-md-2">
-                                                        <label class="col-sm-10 col-form-label">Banco Extranjero:</label>
-                                                        <div class="col-sm-12">
-                                                            <input type="text" class="form-control" id="ban_extr" name="ban_extr" value=''>
-
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-1">
-                                                        <label class="col-sm-12 col-form-label">Agencia:</label>
-                                                        <div class="col-sm-12">
-                                                            <input type="text" class="form-control" id="age_extr" name="age_extr" value=''>
-
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-1">
-                                                        <label class="col-sm-12 col-form-label">DC:</label>
-                                                        <div class="col-sm-12">
-                                                            <input type="text" class="form-control" id="dc_extr" name="dc_extr" value=''><br>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-2">
-                                                        <label class="col-sm-12 col-form-label">Cuenta:</label>
-                                                        <div class="col-sm-12">
-                                                            <input type="text" class="form-control" id="cue_extr" name="cue_extr" value=''><br>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-4">
-                                                        <label class="col-sm-12 col-form-label">IBAN:</label>
-                                                        <div class="col-sm-12">
-                                                            <input type="text" class="form-control" id="iba_extr" name="iba_extr" value=''><br>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-2">
-                                                        <label class="col-sm-12 col-form-label">BIC o SWIFT:</label>
-                                                        <div class="col-sm-12">
-                                                            <input type="text" class="form-control" id="bic_extr" name="bic_extr" value=''><br>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="row">
-                                                    <div class="col-md-6">
+                                                    <div class="col-md-12">
                                                         <div class="input-group">
                                                             <span class="input-group-text">Pago Movil</span>
                                                             <input type="text" placeholder="cedula" id="ced_pmov" name="ced_pmov" aria-label="Cédula" value='' class="form-control">
                                                             <select class="form-control"  id="cboBancoNP" name="cboBancoNP"></select>
                                                             <input type="text" placeholder="celular" id="cel_pmov" name="cel_pmov" aria-label="Celular" value='' class="form-control">
                                                         </div><br>
+                                                    </div>  
+                                                </div>
+
+                                                <div class="col text-center">
+                                                    <h5 class="card-title">Datos cuentas Intarnacionales</h5>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-2">
+                                                        <label class="col-sm-10 col-form-label">Banco Extranjero:</label>
+                                                        <div class="col-sm-12">
+                                                            <input type="text" class="form-control" id="" name="" >
+
+                                                        </div>
                                                     </div>
+                                                    <div class="col-md-1">
+                                                        <label class="col-sm-12 col-form-label">Agencia:</label>
+                                                        <div class="col-sm-12">
+                                                            <input type="text" class="form-control" id="" name="" >
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-1">
+                                                        <label class="col-sm-12 col-form-label">DC:</label>
+                                                        <div class="col-sm-12">
+                                                            <input type="text" class="form-control" id="" name="" ><br>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <label class="col-sm-12 col-form-label">Cuenta:</label>
+                                                        <div class="col-sm-12">
+                                                            <input type="text" class="form-control" id="" name="" ><br>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <label class="col-sm-12 col-form-label">IBAN:</label>
+                                                        <div class="col-sm-12">
+                                                            <input type="text" class="form-control" id="" name="" ><br>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <label class="col-sm-12 col-form-label">BIC o SWIFT:</label>
+                                                        <div class="col-sm-12">
+                                                            <input type="text" class="form-control" id="" name="" ><br>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="input-group">
+                                                            <span class="input-group-text">Cuenta Paypal:</span>
+                                                            <input type="text" class="form-control" placeholder="correo" id="" name="" >
+                                                        </div>
+                                                    </div>
+
                                                     <div class="col-md-6">
                                                         <div class="input-group">
                                                             <span class="input-group-text">Cuenta Zelle</span>
-                                                            <input type="text" class="form-control" placeholder="telefono" id="tel_zell" name="tel_zell" value=''>
-                                                            <input type="text" class="form-control" placeholder="correo" id="cor_zell" name="cor_zell" value=''>
+                                                            <input type="text" class="form-control" placeholder="telefono" id="" name="" >
+                                                            <input type="text" class="form-control" placeholder="correo" id="" name="" >
                                                         </div>
                                                     </div>
+
                                                 </div>
                                             </div>
                                         </div><br>
