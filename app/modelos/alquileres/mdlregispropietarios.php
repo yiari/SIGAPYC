@@ -13,7 +13,7 @@ include_once '../../../app/modelos/conexcion.php';
 | LAS CLASES SE DEBEN LLAMAR EXACTAMENTE IGUAL QUE SU ARCHIVO
 |---------------------------------------------------------------
 */
-class mdlpropietarios{
+class mdlregispropietarios{
 
 public function registrar($tabla,$datos){
 

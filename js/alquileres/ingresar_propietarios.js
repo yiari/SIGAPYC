@@ -174,7 +174,7 @@ function guardarPropietarios(){
             var json = data;
             var html = "";
 
-                console.log("Mensaje del JSON: " + json.mensaje);
+                //console.log("Mensaje del JSON: " + json.mensaje);
 
                 if(json.error == 0){
                     

@@ -5,7 +5,7 @@
 | INCLUYO LA CLASE CORRESPONDIENTE
 |----------------------------------------
 */
-include_once '../../../app/modelos/alquileres/mdlpropietarios.php';
+include_once '../../../app/modelos/alquileres/mdlregispropietarios.php';
 
 
 /*
@@ -30,9 +30,9 @@ class ctrregistropropietarios{
      public function registrar($datos){
 
             $tabla = "propietarios";
-            $modelo = new mdlpropietarios();
+            $modelo = new mdlregispropietarios();
 
-            $modelo =  new mdlpropietarios();
+            $modelo =  new mdlregispropietarios();
             $respuesta = $modelo->registrar($tabla,$datos);
 
             return $respuesta;
@@ -44,7 +44,7 @@ class ctrregistropropietarios{
      public function seleccionarregistros(){
 
         $tabla = "users";
-        $modelo =  new mdlpropietarios();
+        $modelo =  new mdlregispropietarios();
         $respuestas =  $modelo->seleccionarregistros($tabla,null,null);
         return $respuestas;
     }
@@ -56,7 +56,7 @@ class ctrregistropropietarios{
     public function eliminarpropietario($datos){
 
         $tabla = "users";
-        $modelo =  new mdlpropietarios();
+        $modelo =  new mdlregispropietarios();
         $respuesta = $modelo->eliminarpropietario($tabla,$datos);
 
         return $respuesta;
