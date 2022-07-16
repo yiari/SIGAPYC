@@ -24,74 +24,80 @@ include("layout/menuNavegacion.php");
                             <!--prop_natural-->
                             <div class="card">
                                 <div class="card-body">
-                                    <form class="form-sample" id="prop_natural" name="prop_natural" method="POST" action="" autocomplete="off" enctype="multipart/form-data">
-                                        <input type="hidden" id="operacion" name="operacion">
-                                        <input type="hidden" id="id_prop" name="id_prop" value=''>
-                                        <input type="hidden" id="cod_prop" name="cod_prop" value=''>
+                                    <form class="form-sample" id="registrarpropietario" name="registrarpropietario" method="POST" action="" autocomplete="off" enctype="multipart/form-data">
+                                        <input type="hidden" id="tipo_persona" name="tipo_persona" value='1'>
+                                        <input type="hidden" id="hidpropietario" name="hidpropietario" value=''>
+                                        <input type="hidden" id="registroCodigo" name="registroCodigo" value='0001'>
                                         <!--datos personales-->
                                         <div class="card">
                                             <div class="card-body">
                                                 <div class="col text-center">
                                                     <h5 class="card-title">Datos del Propietario Natural</h5>
                                                 </div>
+                                                <div class="col-md-5">
+                                                        <label class="col-sm-12 col-form-label">Código Propietario:</label>
+                                                        <div class="col-sm-12">
+                                                            <input type="text" class="form-control" id="id_prop" name="id_prop" autofocus readonly="yes" >
+                                                        </div>
+                                                </div>
                                                 <div class="row">
                                                     <div class="col-md-3">
-                                                        <label class="col-sm-12 col-form-label">Nombre:</label>
+                                                        <label for="registroNombre" class="col-sm-12 col-form-label">Nombre:</label>
                                                         <div class="col-sm-12">
-                                                            <input type="text" class="form-control" id="nom_prop" name="nom_prop" value='' autofocus required>
+                                                            <input type="text" class="form-control" id="registroNombre" name="registroNombre" >
                                                         </div>
                                                     </div>
                                                     <div class="col-md-3">
-                                                        <label class="col-sm-12 col-form-label">Apellido:</label>
+                                                        <label  for="registroApellido"class="col-sm-12 col-form-label">Apellido:</label>
                                                         <div class="col-sm-12">
-                                                            <input type="text" class="form-control" id="ape_prop" name="ape_prop" value='' required>
+                                                            <input type="text" class="form-control" id="registroApellido" name="registroApellido" >
                                                         </div>
                                                     </div>
                                                     <div class="col-md-3">
                                                         <div class="row">
-                                                            <label for="ced_prop" class="col-sm-12 col-form-label">Cédula de Identidad</label>
+                                                            <label for="registroNacionalidad" class="col-sm-12 col-form-label">Cédula de Identidad</label>
                                                             <div class="col-sm-4">
-                                                                <select class="form-select" id="nac_pron" name="nac_prop" required>
+                                                                <select class="form-select" id="registroNacionalidad" name="registroNacionalidad" >
                                                                     <option selected disabled value=""></option>
-                                                                    <option>V</option>
-                                                                    <option>E</option>
+                                                                    <option value="1">V</option>
+                                                                    <option value="2">E</option>
                                                                 </select>
                                                             </div>
                                                             <div class="col-sm-7">
-                                                                <input type="text" class="form-control" id="ced_pron" name="ci_prop" value='' required>
+                                                                <input for="registroCedula" type="text" class="form-control" id="registroCedula" name="registroCedula" value='' >
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-3">
                                                         <label class="col-sm-12 col-form-label">Representación:</label>
                                                         <div class="col-sm-12">
-                                                            <input type="text" class="form-control" id="rep_prop" name="rep_prop" required>
+                                                            <input for="registropre_prop" type="text" class="form-control" id="registropre_prop" name="registropre_prop" >
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-2">
-                                                        <label class="col-sm-5 col-form-label">Rif:</label>
+                                                        <label  for="registroRif" class="col-sm-5 col-form-label">Rif:</label>
                                                         <div class="col-sm-12">
-                                                            <input type="text" class="form-control" id="rif_pron" name="rif_prop" value='' required>
+                                                            <input type="text" class="form-control" id="registroRif" name="registroRif" >
                                                         </div>
                                                     </div>
                                                     <div class="col-md-2">
-                                                        <label class="col-sm-8 col-form-label">Teléfono local:</label>
+                                                        <label  for="registroTeléfono" class="col-sm-8 col-form-label">Teléfono local:</label>
                                                         <div class="col-sm-12">
-                                                            <input type="text" class="form-control" id="loc_pron" name="loc_prop" value='' required>
+                                                            <input type="text" class="form-control" id="registroTelefono" name="registroTelefono" >
                                                         </div>
                                                     </div>
                                                     <div class="col-md-2">
-                                                        <label class="col-sm-9 col-form-label">Celular:</label>
+                                                        <label  for="registroCelular" class="col-sm-9 col-form-label">Celular:</label>
                                                         <div class="col-sm-12">
-                                                            <input type="number" class="form-control" id="cel_pron" name="cel_prop" value='' required>
+                                                            <input type="text" class="form-control" id="registroCelular" name="registroCelular" >
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <label class="col-sm-3 col-form-label">Correo:</label>
                                                         <div class="col-sm-12">
-                                                            <input type="email" class="form-control" id="cor_pron" name="cor_prop" value='' required>
+                                                            <input for="registroEmail" type="text" class="form-control" id="registroEmail" name="registroEmail" >
                                                         </div>
                                                     </div>
                                                 </div>
@@ -122,13 +128,13 @@ include("layout/menuNavegacion.php");
                                                     <div class="col-md-6">
                                                         <label class="col-sm-10 col-form-label">Dirección de habitación:</label>
                                                         <div class="col-sm-12">
-                                                            <input type="text" class="form-control" id="dir_pron" name="dir_prop" value='' required>
+                                                            <input  for="registroDirecionH" type="text" class="form-control" id="registroDirecionH" name="registroDirecionH">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <label class="col-sm-10 col-form-label">Dirección de oficina:</label>
                                                         <div class="col-sm-12">
-                                                            <input type="text" class="form-control" id="ofi_pron" name="ofi_prop" value=''><br>
+                                                            <input  for ="registroDirecionO" type="text" class="form-control" id="registroDirecionO" name="registroDirecionO"><br>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -182,7 +188,7 @@ include("layout/menuNavegacion.php");
                                                     <div class="col-md-1">
                                                         <label class="col-sm-12 col-form-label">DC:</label>
                                                         <div class="col-sm-12">
-                                                            <input type="number" class="form-control" id="dc_extr" name="dc_extr" value=''><br>
+                                                            <input type="text" class="form-control" id="dc_extr" name="dc_extr" value=''><br>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-2">
@@ -209,9 +215,9 @@ include("layout/menuNavegacion.php");
                                                     <div class="col-md-6">
                                                         <div class="input-group">
                                                             <span class="input-group-text">Pago Movil</span>
-                                                            <input type="number" placeholder="cedula" id="ced_pmov" name="ced_pmov" aria-label="Cédula" value='' class="form-control">
+                                                            <input type="text" placeholder="cedula" id="ced_pmov" name="ced_pmov" aria-label="Cédula" value='' class="form-control">
                                                             <select class="form-control"  id="cboBancoNP" name="cboBancoNP"></select>
-                                                            <input type="number" placeholder="celular" id="cel_pmov" name="cel_pmov" aria-label="Celular" value='' class="form-control">
+                                                            <input type="text" placeholder="celular" id="cel_pmov" name="cel_pmov" aria-label="Celular" value='' class="form-control">
                                                         </div><br>
                                                     </div>
                                                     <div class="col-md-6">
@@ -283,7 +289,7 @@ include("layout/menuNavegacion.php");
 
                                         <div class="container">
                                             <div class="col-12 btn btn-align-center">
-                                            <button id="guardarjm" class="btn btn-primary" type="submit" >Guardar</button>
+                                            <button type="submit" class="btn btn-primary mb-2">Guardar</button>
                                             </div>
                                         </div>
                                     </form>
@@ -311,7 +317,7 @@ include("layout/menuNavegacion.php");
                                                     <div class="col-md-4">
                                                         <label class="col-sm-12 col-form-label">Nombre o Razón Social:</label>
                                                         <div class="col-sm-12">
-                                                            <input type="text" class="form-control" id="nom_proj" name="nom_proj" autofocus value='' required>
+                                                            <input type="text" class="form-control" id="nom_proj" name="nom_proj" autofocus value=''>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-3">
@@ -331,19 +337,19 @@ include("layout/menuNavegacion.php");
                                                     <div class="col-md-5">
                                                         <label class="col-sm-12 col-form-label">Dirección Fiscal:</label>
                                                         <div class="col-sm-12">
-                                                            <input type="text" class="form-control" id="dir_proj" name="dir_proj" autofocus value='' required><br>
+                                                            <input type="text" class="form-control" id="dir_proj" name="dir_proj" autofocus value=''><br>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-2">
                                                         <label class="col-sm-9 col-form-label">Celular:</label>
                                                         <div class="col-sm-12">
-                                                            <input type="number" class="form-control" id="tel_proj" name="tel_proj" value='' required>
+                                                            <input type="number" class="form-control" id="tel_proj" name="tel_proj" value='' >
                                                         </div>
                                                     </div>
                                                     <div class="col-md-3">
                                                         <label class="col-sm-3 col-form-label">Correo:</label>
                                                         <div class="col-sm-12">
-                                                            <input type="email" class="form-control" id="cor_proj" name="cor_proj" value='' required>
+                                                            <input type="email" class="form-control" id="cor_proj" name="cor_proj" value='' >
                                                         </div>
                                                     </div>
                                                 </div>
@@ -516,7 +522,7 @@ include("layout/menuNavegacion.php");
                                         <div class="container">
                                             <div class="col-12 btn btn-align-center">
                                             
-                                                <button id="guardarjm" class="btn btn-primary" type="submit" >Guardar</button>
+                                            <button type="submit" class="btn btn-primary mb-2">Guardar</button>
                                         
                                             </div>
                                         </div>
@@ -526,13 +532,20 @@ include("layout/menuNavegacion.php");
                         </div>
                     </div>
                 </div>
-                <!--modal-->
-                <?php //include("template/op_apoderado_n.php"); ?>
-                <?php //include("template/op_representante_j.php"); ?>
+         
             </div>
         </div>
     </div>
 
 
+
+
+
+<?php 
+
+include_once "app/vistas/comunes/modalmensajes.php";
+include_once "app/vistas/comunes/modaleliminar.php";
+
+?>
 <script src="js/comunes/combos.js"></script>
 <script src="js/alquileres/ingresar_propietarios.js"></script>

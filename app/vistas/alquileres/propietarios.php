@@ -1,7 +1,7 @@
 
 <?php 
 
-require_once "app/controladores/alquileres/ctrpropietarios.php";
+
 include("layout/menuNavegacion.php"); 
 
 
@@ -88,3 +88,4 @@ include("layout/menuNavegacion.php");
     </br>
 </div>
 </br>
+<script src="js/alquileres/ingresar_propietarios.js"></script>

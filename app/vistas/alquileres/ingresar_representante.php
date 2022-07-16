@@ -554,31 +554,28 @@ include("layout/menuNavegacion.php");
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                <div class="col-md-4">
-                                                    <label class="col-sm-10 col-form-label">Estado:</label>
-                                                    <div class="col-sm-12">
-                                                        <select class="form-control" id="est_repn" name="est_prop" required>
-                                                            <option value="0"></option>
-                                                        </select>
+                                                    <div class="col-md-4">
+                                                        <label for="cboEstados" class="col-sm-10 col-form-label">Estado:</label></br>
+                                                        <div class="col-sm-12">
+                                                            <select class="form-control"  id="cboEstados" name="cboEstados"></select>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <label class="col-sm-10 col-form-label">Municipio:</label>
-                                                    <div class="col-sm-12">
-                                                        <select class="form-control" id="mun_repn" name="mun_prop" required>
-                                                            <option value="0"></option>
-                                                        </select>
+
+                                                    <div class="col-md-4">
+                                                        <label for="cboMunicipios" class="col-sm-10 col-form-label">Municipio:</label></br>
+                                                        <div class="col-sm-12">
+                                                            <select class="form-control"  id="cboMunicipios" name="cboMunicipios"></select>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <label class="col-sm-10 col-form-label">Parroquia:</label>
-                                                    <div class="col-sm-12">
-                                                        <select class="form-control" id="par_repn" name="par_prop" required>
-                                                            <option></option>
-                                                        </select>
+
+                                                    <div class="col-md-4">
+                                                        <label for="cboParroquia" class="col-sm-10 col-form-label">Parroquia:</label></br>
+                                                        <div class="col-sm-12">
+                                                            <select class="form-control"  id="cboParroquia" name="cboParroquia"></select>
+                                                        </div>
                                                     </div>
+  
                                                 </div>
-                                            </div>
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <label class="col-sm-10 col-form-label">Dirección de habitación:</label>
@@ -704,3 +701,6 @@ include("layout/menuNavegacion.php");
         </div>
     </div>
 </div>
+
+<script src="js/comunes/combos.js"></script>
+<script src="js/alquileres/ingresar_representante.js"></script>
