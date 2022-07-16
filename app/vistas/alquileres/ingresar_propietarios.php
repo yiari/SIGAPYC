@@ -27,7 +27,9 @@ include("layout/menuNavegacion.php");
                                     <form class="form-sample" id="registrarpropietario" name="registrarpropietario" method="POST" action="" autocomplete="off" enctype="multipart/form-data">
                                         <input type="hidden" id="tipo_persona" name="tipo_persona" value='1'>
                                         <input type="hidden" id="hidpropietario" name="hidpropietario" value=''>
+                                        <!--
                                         <input type="hidden" id="registroCodigo" name="registroCodigo" value='0001'>
+-->
                                         <!--datos personales-->
                                         <div class="card">
                                             <div class="card-body">
@@ -37,7 +39,7 @@ include("layout/menuNavegacion.php");
                                                 <div class="col-md-5">
                                                         <label class="col-sm-12 col-form-label">Código Propietario:</label>
                                                         <div class="col-sm-12">
-                                                            <input type="text" class="form-control" id="id_prop" name="id_prop" autofocus readonly="yes" >
+                                                            <input type="text" class="form-control" id="registroCodigo" name="registroCodigo" autofocus readonly="yes" >
                                                         </div>
                                                 </div>
                                                 <div class="row">
@@ -547,5 +549,7 @@ include_once "app/vistas/comunes/modalmensajes.php";
 include_once "app/vistas/comunes/modaleliminar.php";
 
 ?>
+
 <script src="js/comunes/combos.js"></script>
+<script src="js/comunes/generadorcodigos.js"></script>
 <script src="js/alquileres/ingresar_propietarios.js"></script>

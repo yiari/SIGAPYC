@@ -1,13 +1,15 @@
 function codigoPropietario(nombre){
 
-    let text = nombre;
+            if(nombre.length >0){
 
-   // console.log("Nombre enviado:" + text);
-   // console.log("1era Letra Nombre:" + text.charAt(0));
+                let text = nombre;
 
-    let result = 'P-' +  valorLetra(text.charAt(0)) + '-' +  completarconcero(1, 4)  + '-' +  nombre;
+                let result = 'P-' +  valorLetra(text.charAt(0)) + '-' +  completarconcero(1, 4)  + '-' +  nombre;
 
-    return result;
+                return result;
+            } else {
+                return "";
+            }
 
 }
 
@@ -82,6 +84,7 @@ function completarconcero(numero, longitud) {
 | ESTA INSTRUCCION ES SOLO PARA PRUEBAS
 |--------------------------------------------
 */
+/*
 $(document).ready(function() {
 
 
@@ -93,3 +96,4 @@ $(document).ready(function() {
 
 
 });
+*/
