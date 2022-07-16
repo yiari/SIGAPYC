@@ -232,7 +232,7 @@ public function registrar($tabla,$datos){
 
               $dbConexion = new conexcion();  
 
-                $stmt = $dbConexion->conectar()->prepare("SELECT id,nom_prop,ape_prop,id_nacionalidad,cedula_prop,rif_prop,pre_prop,telefono_prop,celular_prop,correo_prop,estado,municipio,parroquia,tipo_persona,rep_prop FROM $tabla");
+                $stmt = $dbConexion->conectar()->prepare("CALL usp_cargapropietario()");
                 $stmt->execute();
                 $dataRegistro["Items"][] = $stmt->fetchAll();
       
@@ -263,7 +263,7 @@ public function registrar($tabla,$datos){
 
           $dbConexion = new conexcion();
           
-          $stmt = $dbConexion->conectar()->prepare("SELECT id, nombre,apellido,usuario,password,email,DATE_FORMAT( fecha_creacion, '%d/%m/%Y') AS fecha_creacion FROM $tabla WHERE $iten = :$iten");
+          $stmt = $dbConexion->conectar()->prepare("CALL usp_cargapropietario()");
         
           $stmt ->bindParam(":".$iten, $valor, PDO::PARAM_STR);
           $stmt->execute();

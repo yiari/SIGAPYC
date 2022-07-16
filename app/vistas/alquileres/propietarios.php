@@ -40,17 +40,7 @@ include("layout/menuNavegacion.php");
                              <th width="10%">Doc / Editar</th>
                        </tr>
                     </thead>
-                    <tfoot>
-                        <tr>
-                            <th width="10%">Código</th>
-                            <th width="10%">Nombre</th>
-                            <th width="10%">Id</th>
-                            <th width="10%">local </th>
-                            <th width="10%">celular </th>
-                            <th width="10%">Correo</th>
-                             <th width="10%">Doc / Editar</th>
-                       </tr>
-                    </tfoot>
+                   
                     <tbody>
 
                             <tr>
@@ -60,6 +50,7 @@ include("layout/menuNavegacion.php");
                                     <td></td>
                                     <td></td>
                                     <td></td>
+                                    
                                     
                                     <td>
                                         <div class="btn-group" style="font-size:1.3em; letter-spacing:0.5em;">
