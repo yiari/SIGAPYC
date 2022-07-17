@@ -21,8 +21,9 @@ function cargarEstados(){
         processData: false,
         contentType: false,
         type: 'POST',
-        success: function (data) {
-        var json = data;
+        success: function (data,status,xhr) {
+
+         var json = data;
         
 /*
         console.log(json);
@@ -322,16 +323,32 @@ function cargarBancos(cboBancos){
         processData: false,
         contentType: false,
         type: 'POST',
-        success: function (data) {
+        success: function (data,status,xhr) {
         var json = data;
         
-/*
-        console.log(json);
-        console.log("Este es el Mensaje: " + json.mensaje);
-        console.log("Items: " + json.Items.length);
-        console.log("Items Resultados: " + json.Items[0].length);
-        console.log("Rol Resultados: " + json.Items[0][1].rol);
-*/
+        /*
+        |-----------------------------------------------------------
+        | AQUI VERIFICO SI LA RESPUESTA ES JSON, SI NO ES JSON
+        | EL RESULTADO SE CONVIERTE A JSON
+        |-----------------------------------------------------------
+        */
+
+        var respuestaHeader = xhr.getResponseHeader("Content-Type");
+        var verificarHeader = respuestaHeader.search('text/html')
+
+        if(verificarHeader >= 0){
+            json = JSON.parse(json);
+        } 
+
+        /*---------------------------------------------------------*/
+
+
+        //console.log(json);
+        //console.log("Este es el Mensaje: " + json.mensaje);
+        //console.log("Items: " + json.Items.length);
+        //console.log("Items Resultados: " + json.Items[0].length);
+       // console.log("Rol Resultados: " + json.Items[0][1].rol);
+
                 /*
                 |------------------------------------------------------
                 | AQUI SE CARGA LA INFORMACION EN LA TABLA
@@ -368,7 +385,7 @@ function cargarBancos(cboBancos){
 
                     for (var i = 0; i < json.Items[0].length; i++) {
        
-                        $('#' + cboBancos).append($("<option></option>").val(json.Items[0][i].id).html(json.Items[0][i].nombre)); 
+                        $('#' + cboBancos).append($("<option></option>").val(json.Items[0][i].id).html(json.Items[0][i].nombre).attr("data-codigobanco", json.Items[0][i].codigobanco)); 
         
                     }
 

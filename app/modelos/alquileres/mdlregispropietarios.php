@@ -41,7 +41,7 @@ public function registrar($tabla,$datos){
           | AQUI PREPARO LO QUE SERA LA LLAMADA AL PROCEDIMIENTO QUE REALIZARA LA OPERACION
           |----------------------------------------------------------------------------------
           */
-          $stmt = $dbConexion->conectar()->prepare("CALL usp_registropropietarios(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+          $stmt = $dbConexion->conectar()->prepare("CALL usp_registropropietarios(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
           $stmt -> bindParam(1, $datos["id_prop"], PDO::PARAM_INT);
           $stmt -> bindParam(2, $datos["cod_prop"], PDO::PARAM_STR);
           $stmt -> bindParam(3, $datos["mon_prop"], PDO::PARAM_STR);            
@@ -61,6 +61,19 @@ public function registrar($tabla,$datos){
           $stmt -> bindParam(17, $datos["tipo_persona"], PDO::PARAM_STR);       
           $stmt -> bindParam(18, $datos["rep_prop"], PDO::PARAM_STR);
           
+            /*
+            |-----------------------------------------------
+            | AQUI VAN LOS DATOS DE LOS BANCOS NACIONALES
+            |-----------------------------------------------
+            */
+
+          $stmt -> bindParam(19, $datos["cuenta_id_nacional"], PDO::PARAM_INT); 
+          $stmt -> bindParam(20, $datos["cuenta_id_banco"], PDO::PARAM_INT); 
+          $stmt -> bindParam(21, $datos["num_cuenta_nacional"], PDO::PARAM_STR);
+          $stmt -> bindParam(22, $datos["pagomovil_cedula"], PDO::PARAM_INT);     
+          $stmt -> bindParam(23, $datos["pagomovil_id_banco"], PDO::PARAM_INT);       
+          $stmt -> bindParam(24, $datos["pagomovil_telefono"], PDO::PARAM_STR);
+                  
           /*
           |---------------------------------
           | AQUI SE EJECUTA LA OPERACION

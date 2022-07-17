@@ -91,7 +91,24 @@ if($operacion == "I"){
                     "dir_prop" => $_POST["registroDirecionH"],
                     "ofi_prop" => $_POST["registroDirecionO"],
                     "tipo_persona" => $_POST["tipo_persona"],
-                    "rep_prop" => "");
+                    "rep_prop" => "",
+                   /*
+                   |------------------------------------------
+                   | AQUI VAN LOS DATOS DE LOS BANCOS NACIONALES
+                   |------------------------------------------
+                   */
+                  "cuenta_id_nacional" => $_POST["hidcuenta_id_nacional"],
+                  "cuenta_id_banco" => $_POST["cboBancoN"],
+                  "num_cuenta_nacional" => $_POST["num_cuen"],
+                  "pagomovil_cedula" => $_POST["ced_pmov"],
+                  "pagomovil_id_banco" => $_POST["cboBancoNP"],
+                  "pagomovil_telefono" => $_POST["cel_pmov"]
+                
+                  
+                  
+                  
+                  
+                  );
 
      // echo json_encode($datos);
      // die;
