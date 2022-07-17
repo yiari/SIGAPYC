@@ -14,6 +14,25 @@ function inicio(){
     });
 
 
+
+    /*
+    |-------------------------
+    | ESTO ES LO JURIDICO
+    |------------------------------
+    */
+
+
+    guardarInquilinoJuridico();
+    generarCodigoInquilinoj();
+
+    jQuery("#registroNombreJ").on('input', function (evt) {
+        jQuery(this).val(jQuery(this).val().replace(/[^A-Za-z ]/g, ''));
+    });
+
+
+
+
+
 }
 
 
