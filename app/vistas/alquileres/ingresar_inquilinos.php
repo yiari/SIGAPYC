@@ -21,8 +21,11 @@ include("layout/menuNavegacion.php");
                             <!--inq_natural-->
                             <div class="card">
                                 <div class="card-body">
-                                    <form class="form-sample" id="inq_natural" name="inq_natural" method="POST" action="" autocomplete="off" enctype="multipart/form-data">
-                                        <input type="hidden" id="operacion" name="operacion">
+                                    <form class="form-sample" id="registroinquilino" name="registroinquilino" method="POST" action="" autocomplete="off" enctype="multipart/form-data">
+                                         
+                                        <input type="hidden" id="tipo_persona" name="tipo_persona" value='1'>
+                                        <input type="hidden" id="hidinquilino" name="hidinquilino" value=''>
+                                        <!--<input type="hidden" id="registroCodigo" name="registroCodigo" value='0001'>-->
 
                                         <!--Datos Personales-->
                                         <div class="card">
@@ -30,31 +33,38 @@ include("layout/menuNavegacion.php");
                                                 <div class="col text-center">
                                                     <h5 class="card-title">Datos del Inquilino Natural</h5>
                                                 </div>
+
+                                                <div class="col-md-5">
+                                                        <label class="col-sm-12 col-form-label">Código Propietario:</label>
+                                                        <div class="col-sm-12">
+                                                            <input type="text" class="form-control" id="registroCodigo" name="registroCodigo" autofocus readonly="yes" >
+                                                        </div>
+                                                </div>
                                                 <div class="row">
                                                     <div class="col-md-4">
                                                         <label class="col-sm-3 col-form-label">Nombre:</label>
                                                         <div class="col-sm-12">
-                                                            <input type="text" class="form-control" id="nom_inqn" name="nom_inqu" autofocus required>
+                                                            <input for="registroNombre" type="text" class="form-control" id="registroNombre" name="registroNombre" autofocus >
                                                         </div>
                                                     </div>
                                                     <div class="col-md-4">
                                                         <label class="col-sm-3 col-form-label">Apellido:</label>
                                                         <div class="col-sm-12">
-                                                            <input type="text" class="form-control" id="ape_inqn" name="ape_inqu" required>
+                                                            <input for="registroApellido" type="text" class="form-control" id="registroApellido" name="registroApellido">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-4">
                                                         <div class="row">
-                                                            <label for="ced_inqu" class="col-sm-12 col-form-label">Cédula de Identidad</label>
+                                                            <label for="registroNacionalidad" class="col-sm-12 col-form-label">Cédula de Identidad</label>
                                                             <div class="col-sm-3">
-                                                                <select class="form-select" id="nac_inqn" name="nac_inqu" required>
+                                                                <select class="form-select" id="registroNacionalidad" name="registroNacionalidad" >
                                                                     <option selected disabled value=""></option>
-                                                                    <option>V</option>
-                                                                    <option>E</option>
+                                                                    <option value="1">V</option>
+                                                                    <option value="2">E</option>
                                                                 </select>
                                                             </div>
                                                             <div class="col-sm-9">
-                                                                <input type="number" class="form-control" id="ced_inqn" name="ci_inqu" required>
+                                                                <input for="registroCedula" type="text" class="form-control" id="registroCedula" name="registroCedula" >
                                                             </div>
                                                         </div>
                                                     </div>
@@ -63,25 +73,25 @@ include("layout/menuNavegacion.php");
                                                     <div class="col-md-2">
                                                         <label class="col-sm-5 col-form-label">Rif:</label>
                                                         <div class="col-sm-12">
-                                                            <input type="text" class="form-control" id="rif_inqn" name="rif_inqu" required>
+                                                            <input for="registroRif" type="text" class="form-control" id="registroRif" name="registroRif">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-2">
                                                         <label class="col-sm-8 col-form-label">Teléfono local:</label>
                                                         <div class="col-sm-12">
-                                                            <input type="text" class="form-control" id="loc_inqn" name="loc_inqu">
+                                                            <input for="registroTeléfono" type="text" class="form-control" id="registroTeléfono" name="registroTeléfono">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-2">
                                                         <label class="col-sm-9 col-form-label">Celular:</label>
                                                         <div class="col-sm-12">
-                                                            <input type="text" class="form-control" id="cel_inqn" name="cel_inqu">
+                                                            <input for="registroCelular" type="text" class="form-control" id="registroCelular" name="registroCelular">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <label class="col-sm-3 col-form-label">Correo:</label>
                                                         <div class="col-sm-12">
-                                                            <input type="email" class="form-control" id="cor_inqn" name="cor_inqu" required>
+                                                            <input for="registroEmail" type="email" class="form-control" id="registroEmail" name="registroEmail">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -112,13 +122,13 @@ include("layout/menuNavegacion.php");
                                                     <div class="col-md-6">
                                                         <label class="col-sm-10 col-form-label">Dirección de habitación:</label>
                                                         <div class="col-sm-12">
-                                                            <input type="text" class="form-control" id="dir_inqn" name="dir_inqu" required>
+                                                            <input for="registroDirecionH" type="text" class="form-control" id="registroDirecionH" name="registroDirecionH">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <label class="col-sm-10 col-form-label">Dirección de oficina:</label>
                                                         <div class="col-sm-12">
-                                                            <input type="text" class="form-control" id="ofi_inqn" name="ofi_inqu"><br>
+                                                            <input for="registroDirecionO" type="text" class="form-control" id="registroDirecionO" name="registroDirecionO"><br>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -216,11 +226,9 @@ include("layout/menuNavegacion.php");
 
                                         <div class="container">
                                             <div class="col-12 btn btn-align-center">
-                                                <!--button id="guardan" class="btn btn-primary" type="submit" data-bs-toggle="modal" data-bs-target="#op_inquilino_n" >Guardar</button-->               
-                                                <button id="guardan" class="btn btn-primary" type="submit"  >Guardar</button>
-                                            </div>  <!--onclick="incluir()"-->
+                                               <button type="submit" class="btn btn-primary mb-2">Guardar</button>
+                                            </div>
                                         </div>
-
                                     </form>
                                 </div>
                             </div>
@@ -453,5 +461,14 @@ include("layout/menuNavegacion.php");
                 </div>
             </div>
         </div>
+
+
+        <?php 
+
+        include_once "app/vistas/comunes/modalmensajes.php";
+        include_once "app/vistas/comunes/modaleliminar.php";
+
+        ?>
         <script src="js/comunes/combos.js"></script>
+        <script src="js/comunes/generadorcodigos.js"></script>
         <script src="js/alquileres/ingresar_inquilinos.js"></script>

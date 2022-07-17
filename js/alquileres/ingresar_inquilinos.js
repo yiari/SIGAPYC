@@ -2,10 +2,16 @@ function inicio(){
 
   
     cargarEstados();
-    cargarBancos('cboBancoN');
-    cargarBancos('cboBancoJ');
-    cargarBancos('cboBancop');
-    cargarBancos('cboBancoNP');
+    guardarInquilino();
+    generarCodigoInquilino();
+  
+    jQuery("#registroNombre").on('input', function (evt) {
+        jQuery(this).val(jQuery(this).val().replace(/[^A-Za-z ]/g, ''));
+    });
+
+    jQuery("#registroApellido").on('input', function (evt) {
+        jQuery(this).val(jQuery(this).val().replace(/[^A-Za-z ]/g, ''));
+    });
 
 
 }
@@ -23,7 +29,7 @@ function validateEmail(email) {
 
 function guardarInquilino(){
 
-    $("#registrarinquilino").on('submit', function(evt) {
+    $("#registroinquilino").on('submit', function(evt) {
    /*
    |-----------------------------------------------
    | AQUI SE PREVIENE QUE EL FORMULARIO CONTINUE 
@@ -33,7 +39,7 @@ function guardarInquilino(){
    /**********************************************/        
 
  
-   if ($("#registroNombre").val() == "") {
+if ($("#registroNombre").val() == "") {
     mensaje("Debe indicar el nombre del inquilino",1);
     return;
 }
@@ -43,15 +49,22 @@ if ($("#registroApellido").val() == "") {
     return;
 }
 
-if ($("#registroNacionalidad").val() == "") {
- mensaje("Debe indicar la nacionalidad del inquilino",1);
- return;
- }
+
 
  if ($("#registroCedula").val() == "") {
      mensaje("Debe indicar la cédula del inquilino",1);
      return;
      }
+
+if ($("#registroNacionalidad").val() == "") {
+mensaje("Debe indicar la nacionalidad del inquilino",1);
+return;
+}
+
+if ($("#registroRif").val() == "") {
+        mensaje("Debe indicar el rif del inquilino",1);
+        return;
+        }
  
  if ($("#registroTeléfono").val() == "") {
      mensaje("Debe indicar el telefono del inquilino",1);
@@ -63,10 +76,7 @@ if ($("#registroNacionalidad").val() == "") {
      return;
      }
 
- if ($("#registroRif").val() == "") {
-     mensaje("Debe indicar el rif del inquilino",1);
-     return;
-     }
+ 
  
  if ($("#registroEstado").val() == "") {
          mensaje("Debe colocar el campo el estado ",1);
@@ -182,14 +192,71 @@ if ($("#registroNacionalidad").val() == "") {
 }
 
 
+function mensaje(mensaje, condicion){
+
+    var html="";
+
+    if(condicion == 0){//ESTOS SON MENSAJES CON EXITO
+
+        html='<i class="fa fa-check-circle fa-2x" aria-hidden="true" style="color:#29bf1d;"></i>&nbsp' + mensaje;
+
+    } else if (condicion == 1){//ESTOS SON MENSAJES CON ERROR
+
+        html='<i class="fa fa-times-circle fa-2x" aria-hidden="true" style="color:#bf1d1d;"></i>&nbsp' + mensaje;
+    }
+
+
+    $('#spanMsg').html('');
+    $('#spanMsg').html(html);
+    //open the modal
+    $('#msgModal').modal('show');
+
+}
+
+
 function limpiarCampos(){
 
     $("#hidinquilino").val("");
     $("#registroNombre").val("");
     $("#registroApellido").val("");
-    $("#registroUsuario").val("");
+    $("#registroNacionalidad").val("");
+    $("registroCedula").val("");
+    $("#registroTeléfono").val("");
+    $("#registroCelular").val("");
+    $("#registroRif").val("");
+    $("#cboEstados").val("");
+    $("#registroMunicipio").val("");
+    $("#registroParroquia").val("");
+    $("#registroDirecionH").val("");
+    $("#registroDirecionO").val("");
     $("#registroEmail").val("");
-    $("#registroContrasena").val("");
+
+}
+
+
+function generarCodigoInquilino(){
+
+
+    $("#registroNombre").on('keyup', function () {
+
+        var prmNombre= this.value;
+        var prmApellido=$("#registroApellido").val();
+
+        $("#registroCodigo").val('');
+        $("#registroCodigo").val(codigoInquilino(prmNombre + ' ' + prmApellido));
+
+    });
+
+    $("#registroApellido").on('keyup', function () {
+
+        var prmNombre= $("#registroNombre").val(); 
+        var prmApellido=this.value;
+
+        $("#registroCodigo").val('');
+        $("#registroCodigo").val(codigoInquilino(prmNombre + ' ' + prmApellido));
+
+    });
+   
 
 }
 
