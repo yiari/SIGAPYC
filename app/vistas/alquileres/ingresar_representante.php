@@ -683,6 +683,12 @@ include("layout/menuNavegacion.php");
                                                 </div>
                                             </div>
                                         </form>
+
+                                        <div class="col-12 btn btn-align-center">
+                                            <button type="button" class="btn btn-primary">añadir otro</button>
+                                            <button type="button" class="btn btn-primary">Guardar</button>
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -693,11 +699,7 @@ include("layout/menuNavegacion.php");
                 </div>
 
             </div>
-            <div>
-                <button type="button" class="btn btn-primary">añadir otro</button>
-                <button type="button" class="btn btn-primary">Guardar</button>
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-            </div>
+            
         </div>
     </div>
 </div>

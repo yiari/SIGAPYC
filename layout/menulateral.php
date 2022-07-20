@@ -22,7 +22,7 @@
                     <a class="nav-link" href="inicio.php?url=app/vistas/alquileres/propietarios">Propietario</a>
                     <a class="nav-link" href="inicio.php?url=app/vistas/alquileres/inmuebles">Inmuebles</a>
                     <a class="nav-link" href="inicio.php?url=app/vistas/alquileres/inquilinos">Inquilinos</a>
-                    <a class="nav-link" href="inicio.php?url=app/vistas/alquileres/contrato">Contratos</a>
+                    <a class="nav-link" href="inicio.php?url=app/vistas/alquileres/contratos">Contratos</a>
                 </nav>
             </div>
 
@@ -52,6 +52,7 @@
                 <nav class="sb-sidenav-menu-nested nav">
                     <a class="nav-link" href="">Crear roles</a>
                     <a class="nav-link" href="inicio.php?url=app/vistas/admin/registro">Crear usuarios</a>
+                    <a class="nav-link" href="inicio.php?url=app/vistas/admin/representante_legal">Representante Legal</a>
                     <a class="nav-link" href="#">tipo de inmuebles</a>
                     <a class="nav-link" href="#">tipo de Pagos</a>
                 </nav>

@@ -25,30 +25,65 @@ include("layout/menuNavegacion.php");
                             <!--datos del inmueble-->
                             <div class="card">
                                 <div class="card-body">
+                                       <div class="col text-center">
+                                            <h5 class="card-title">Representante legal de la administradora</h5>
+                                        </div>
+                                   <div class="row">
+                                        <div class="col-md-4">
+                                            <label for="cboRepresentante" class="col-sm-10 col-form-label">Codigo:</label></br>
+                                            <div class="col-sm-12">
+                                                <select class="form-control"  id="cboRepresentante" name="cboRepresentante"></select>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <div class="row">
+                                                <label for="ced_prop" class="col-sm-12 col-form-label">Cédula de Identidad</label>
+                                                <div class="col-sm-12">
+                                                    <input type="text" class="form-control" id="" name="" readonly="yes">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <div class="row">
+                                                <label for="ced_prop" class="col-sm-12 col-form-label">Rif:</label>
+                                                <div class="col-sm-12">
+                                                    <input type="text" class="form-control" id="" name="" readonly="yes">
+                                                </div>
+                                            </div>
+                                        </div>
+                                     </div>
+
+                                </div>
+                            </div>
+
+</br>
+
+                            <div class="card">
+                                <div class="card-body"> 
                                     <div class="col text-center">
                                         <h5 class="card-title">Datos del Inmueble</h5>
                                     </div>
                                     <div class="row">
-                                        <div class="col-md-2">
+                                        <div class="col-md-4">
                                             <label class="col-sm-12 col-form-label">Código:</label>
+                                          
                                             <div class="col-sm-12">
-                                                <div class="col-sm-12">
-                                              <select class="form-control" id="cod_inmu" name="cod_inmu" style="width:140px" required autofocus>
-                                           
-                                                     <option selected disabled value=""></option>               
+                                                <select class="form-control" id="cod_inmu" name="cod_inmu"  required autofocus>
+                                        
+                                                    <option selected disabled value=""></option>               
                                                 </select>
 
-                                                </div>
                                             </div>
+                                            
                                         </div>
                                        
                                         <div class="col-md-2">
                                             <label class="col-sm-12 col-form-label">Tipo:</label>
                                             <div class="col-sm-12">
-                                                <select class="form-select" id="tip_inmu" name="tip_inmu" readonly>
-                                                    <option selected disabled value=""></option>
-
-                                                </select>
+                                               <input type="text" class="form-control" id="tip_inmu" name="tip_inmu" readonly="yes">
+                                              
                                             </div>
                                         </div>
                                         <div class="col-md-1">
@@ -59,7 +94,7 @@ include("layout/menuNavegacion.php");
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-5">
+                                        <div class="col-md-3">
                                             <div class="row">
                                                 <label for="ced_prop" class="col-sm-12 col-form-label">Actividad / Uso del Inmueble:</label>
                                                 <div class="col-sm-12">
@@ -190,13 +225,16 @@ include("layout/menuNavegacion.php");
                                         <h5 class="card-title">Datos del Propietario</h5>
                                     </div>
                                     <div class="row">
-                                        <div class="col-md-1">
+                                        <div class="col-md-4">
                                             <label class="col-sm-12 col-form-label">Código:</label>
-                                            <div class="col-sm-12">
-                                                <input type="text" class="form-control" id="id_prop" name="id_prop" autofocus readonly="yes" >
-                                            </div>
-
+                                        
+                                                <div class="col-sm-12">
+                                                    <select class="form-control" id="id_prop" name="id_prop"  required autofocus>
                                             
+                                                        <option selected disabled value=""></option>               
+                                                    </select>
+                                                </div>
+
                                         </div>
                                         <div class="col-md-3">
                                             <label class="col-sm-12 col-form-label">Nombre:</label>
@@ -210,41 +248,40 @@ include("layout/menuNavegacion.php");
                                                 <input type="text" class="form-control" id="ape_prop" name="ape_prop" readonly="yes">
                                             </div>
                                         </div>
-                                        <div class="col-md-3">
+                                        <div class="col-md-2">
                                             <div class="row">
                                                 <label for="ced_prop" class="col-sm-12 col-form-label">Cédula de Identidad</label>
-                                                <div class="col-sm-3">
-                                                    <select class="form-select" id="nac_prop" name="nac_prop" readonly="yes">
-                                                        <option selected disabled value=""></option>
-                                                        <option>V</option>
-                                                        <option>E</option>
-                                                    </select>
-                                                </div>
                                                 <div class="col-sm-9">
                                                     <input type="text" class="form-control" id="ci_prop" name="ci_prop" readonly="yes">
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-2">
+                                        
+                                    </div>
+                                    <div class="row">
+
+                                        <div class="col-md-4">
                                             <label class="col-sm-5 col-form-label">Rif:</label>
                                             <div class="col-sm-12">
                                                 <input type="text" class="form-control" id="rif_prop" name="rif_prop" readonly="yes">
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-3">
+                                        <div class="col-md-4">
                                             <label class="col-sm-8 col-form-label">Teléfono local:</label>
                                             <div class="col-sm-12">
                                                 <input type="text" class="form-control" id="loc_prop" name="loc_prop" readonly="yes">
                                             </div>
                                         </div>
-                                        <div class="col-md-3">
+                                        <div class="col-md-4">
                                             <label class="col-sm-9 col-form-label">Celular:</label>
                                             <div class="col-sm-12">
                                                 <input type="text" class="form-control" id="cel_prop" name="cel_prop" readonly="yes">
                                             </div>
                                         </div>
+                                        
+                                    </div>
+
+                                    <div class="row">
                                         <div class="col-md-6">
                                             <label class="col-sm-3 col-form-label">Correo:</label>
                                             <div class="col-sm-12">
@@ -500,3 +537,6 @@ include("layout/menuNavegacion.php");
     <!--modal-->
     
 </div>
+
+ <script src="js/comunes/combos.js"></script>
+ <script src="js/alquileres/ingresar_contrato.js"></script>

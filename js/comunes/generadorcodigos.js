@@ -14,6 +14,22 @@ function codigoPropietario(nombre){
 }
 
 
+function codigoInquilino(nombre){
+
+    if(nombre.length >0){
+
+        let text = nombre;
+
+        let result = 'IN-' +  valorLetra(text.charAt(0)) + '-' +  completarconcero(1, 4)  + '-' +  nombre;
+
+        return result;
+    } else {
+        return "";
+    }
+
+}
+
+
 /*
 |-------------------------------------------------
 | ESTO ES PARA DETERMINAR EL VALOR DE LA LETRA 

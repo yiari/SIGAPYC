@@ -28,7 +28,7 @@ include("layout/menuNavegacion.php");
                 <table id="datatablesSimple">
                     <thead>
                         <tr>
-                           <th>Codigo</th>
+                           <th> Codigo</th>
                             <th>Nombre</th>
                             <th>Doc ID</th>
                             <th>Telefono </th>
@@ -36,37 +36,8 @@ include("layout/menuNavegacion.php");
                              <th>Acciones</th>
                         </tr>
                     </thead>
-                    <tfoot>
-                        <tr>
-                            <th>Codigo</th>
-                            <th>Nombre</th>
-                            <th>Doc ID</th>
-                            <th>Telefono </th>
-                            <th>Correo</th>
-                              <th>Acciones</th>
-                      </tr>
-                    </tfoot>
+                    
                     <tbody>
-
-                    <td></td>
-                                    
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>
-                                        <div class="btn-group" style="font-size:1.3em; letter-spacing:0.5em;">
-
-                                            <a href="#" title="Editar"><i class="fas fa-edit" ></i></a>&nbsp;
-                                            <a href='#' title="Ver" target='_blank'><i class="fas fa-search" ></i></a> &nbsp;
-                                            <a href='#' title="Contrato" target='_blank'><i class="fa-solid fa-file-pen" ></i></a> &nbsp;
-                                            <a href='#' title="Bitacora"><i class="fa-regular fa-folder-open"></i></a> &nbsp;
-                                            <a href='index.php?url=app/vistas/alquileres/ingresar_pagador' title="pagador"><i class="fa-regular fa-id-badge"></i></a> &nbsp;
-    
-                                        </div>
-
-                                    </td>
 
                     
                         
@@ -78,3 +49,13 @@ include("layout/menuNavegacion.php");
     </div>
 
 </div>
+
+
+<?php 
+
+include_once "app/vistas/comunes/modalmensajes.php";
+include_once "app/vistas/comunes/modaleliminar.php";
+
+?>
+
+<script src="js/alquileres/ingresar_inquilinos.js"></script>

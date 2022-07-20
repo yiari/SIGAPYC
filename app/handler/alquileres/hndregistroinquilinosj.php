@@ -5,7 +5,7 @@
 | INCLUYO LA CLASE CORRESPONDIENTE
 |----------------------------------------
 */
-include_once '../../../app/controladores/comunes/ctrcombos.php';
+include_once '../../../app/controladores/alquileres/ctrregistroinquilinosj.php';
 
 
 /*
@@ -14,7 +14,7 @@ include_once '../../../app/controladores/comunes/ctrcombos.php';
 |-------------------------------------------------
 */
 
-if (class_exists('ctrcombos')) 
+if (class_exists('ctrregistroinquilinoj')) 
 {
    //$o_miClase = new ctrregistrousuarios();
 }
@@ -51,14 +51,15 @@ if(isset($_POST["opcion"])) {
 
     return json_encode($dataRes);
 }
+   
 
 /* 
- |--------------------------------------------------------------
- | AQUI SE EJECUTA LA OPERACION DE CONSULTAR LOS ESTADOS
- |--------------------------------------------------------------
+ |-------------------------------------------
+ | AQUI SE EJECUTA LA OPERACION DE INSERTAR
+ |-------------------------------------------
 */
 
-if($operacion == "estados"){
+if($operacion == "I"){
 
    /*
     |-------------------------------------------
@@ -66,14 +67,42 @@ if($operacion == "estados"){
     |-------------------------------------------
     */
     
-    $combo =  new ctrcombos();
+    $registroInquilinoj =  new ctrregistroinquilinoj();
+
+   /*
+   |---------------------------------------------
+   | AQUI CARGO LOS DATOS PARA ALMACENAR
+   |---------------------------------------------
+   */
+    $datos = array( "id_"  => $_POST["hidinquilinoj"],
+                    "cod_inqu" => $_POST["registroCodigoj"],
+                    "nom_inquj" => $_POST["registroNombrej"],
+                    "rif_inquj" => $_POST["registroRifj"],
+                    "act_inqj" => $_POST["registroactividad"],
+                    "dir_inqj " => $_POST["registroDirecionj"],
+                    "tel_inqj" => $_POST["registroCelularj"],
+                    "cor_inqj" => $_POST["registroEmailj"],
+                    "cod_regi" => $_POST["registroPoder"],
+                    "not_regi" => $_POST["nombreRegistro"],
+                    "fec_regi" => $_POST["fechaRegistro"],
+                    "num_regi" => $_POST["numeroRegistro"],
+                    "tom_regi" => $_POST["tomoRegistro"],
+                    "fol_regi" => $_POST["foliRegistro"],
+                    "tip_inqu" => $_POST["tipo_personaj"]);
+
+                         
+				
+
+      //echo json_encode($datos);
+      //die;
+
 
    /* 
    |---------------------------------------------
    | AQUI OBTENGO EL RESULTADO DE LA EJECUCION
    |---------------------------------------------
    */
-     $result = $combo->getestados();
+     $result = $registroInquilinoj->registrar($datos);
     
     /*
     |-------------------------------------------
@@ -86,87 +115,14 @@ if($operacion == "estados"){
 }
 
 
+
 /* 
  |--------------------------------------------------------------
- | AQUI SE EJECUTA LA OPERACION DE CONSULTAR LOS MUNICIPIOS
+ | AQUI SE EJECUTA LA OPERACION DE CONSULTAR TODOS LOS USUARIOS
  |--------------------------------------------------------------
 */
 
-if($operacion == "municipios"){
-
-
-    $idestado = $_POST["idestado"];
-
-    /*
-     |-------------------------------------------
-     | AQUI CREO UNA INSTANCIA DE LA CLASE
-     |-------------------------------------------
-     */
-     
-     $combo =  new ctrcombos();
- 
-    /* 
-    |---------------------------------------------
-    | AQUI OBTENGO EL RESULTADO DE LA EJECUCION
-    |---------------------------------------------
-    */
-      $result = $combo->getmunicipios($idestado);
-     
-     /*
-     |-------------------------------------------
-     | AQUI REGRESO EL RESULTADO AL AJAX
-     |-------------------------------------------
-     */
-     header('Content-Type: application/json');
-      return $result;
-      
- }
-
-
- /* 
- |--------------------------------------------------------------
- | AQUI SE EJECUTA LA OPERACION DE CONSULTAR LAS PARROQUIAS
- |--------------------------------------------------------------
-*/
-
-if($operacion == "parroquia"){
-
-
-    $idmunicipio = $_POST["idmunicipio"];
-
-    /*
-     |-------------------------------------------
-     | AQUI CREO UNA INSTANCIA DE LA CLASE
-     |-------------------------------------------
-     */
-     
-     $combo =  new ctrcombos();
- 
-    /* 
-    |---------------------------------------------
-    | AQUI OBTENGO EL RESULTADO DE LA EJECUCION
-    |---------------------------------------------
-    */
-      $result = $combo->getparroquias($idmunicipio);
-     
-     /*
-     |-------------------------------------------
-     | AQUI REGRESO EL RESULTADO AL AJAX
-     |-------------------------------------------
-     */
-     header('Content-Type: application/json');
-      return $result;
-      
- }
-
-
- /* 
- |------------------------------------------------------------------
- | AQUI SE EJECUTA LA OPERACION DE CONSULTAR LOS bANCOS nACIONALES
- |------------------------------------------------------------------
-*/
-
-if($operacion == "banco"){
+if($operacion == "C"){
 
    /*
     |-------------------------------------------
@@ -174,50 +130,14 @@ if($operacion == "banco"){
     |-------------------------------------------
     */
     
-    $combo =  new ctrcombos();
+    $registroInquilinoj =  new ctrregistroinquilinoj();
 
    /* 
    |---------------------------------------------
    | AQUI OBTENGO EL RESULTADO DE LA EJECUCION
    |---------------------------------------------
    */
-     $result = $combo->getbancos();
-    
-    /*
-    |-------------------------------------------
-    | AQUI REGRESO EL RESULTADO AL AJAX
-    |-------------------------------------------
-    */
-
-    // header('Content-Type: application/json');
-     return $result;
-     
-}
-
-
-
-/* 
- |--------------------------------------------------------------
- | AQUI SE EJECUTA LA OPERACION DE CONSULTAR LOS ESTADOS
- |--------------------------------------------------------------
-*/
-
-if($operacion == "representante"){
-
-   /*
-    |-------------------------------------------
-    | AQUI CREO UNA INSTANCIA DE LA CLASE
-    |-------------------------------------------
-    */
-    
-    $combo =  new ctrcombos();
-
-   /* 
-   |---------------------------------------------
-   | AQUI OBTENGO EL RESULTADO DE LA EJECUCION
-   |---------------------------------------------
-   */
-     $result = $combo->getrepresentante();
+     $result = $registroInquilinoj->seleccionarregistros();
     
     /*
     |-------------------------------------------
@@ -229,3 +149,44 @@ if($operacion == "representante"){
      
 }
 
+
+
+
+/* 
+ |--------------------------------------------------------------
+ | AQUI SE EJECUTA LA OPERACION ELIMINAR USUARIO
+ |--------------------------------------------------------------
+*/
+
+if($operacion == "D"){
+
+   /*
+    |-------------------------------------------
+    | AQUI CREO UNA INSTANCIA DE LA CLASE
+    |-------------------------------------------
+    */
+    
+    $registroInquilinoj =  new ctrregistroinquilinoj();
+
+   /*
+   |---------------------------------------------
+   | AQUI CARGO LOS DATOS PARA ALMACENAR
+   |---------------------------------------------
+   */
+  $datos = array( "id" => $_POST["id"]);
+   /* 
+   |---------------------------------------------
+   | AQUI OBTENGO EL RESULTADO DE LA EJECUCION
+   |---------------------------------------------
+   */
+   $result = $registroInquilinoj->eliminarinquilinoJ($datos);
+    
+    /*
+    |-------------------------------------------
+    | AQUI REGRESO EL RESULTADO AL AJAX
+    |-------------------------------------------
+    */
+    header('Content-Type: application/json');
+     return $result;
+     
+}
