@@ -5,7 +5,7 @@
 | INCLUYO LA CLASE CORRESPONDIENTE
 |----------------------------------------
 */
-include_once '../../../app/controladores/alquileres/ctrregistroinquilino.php';
+include_once '../../../app/controladores/admin/ctrregistrorepresentante.php';
 
 
 /*
@@ -14,7 +14,7 @@ include_once '../../../app/controladores/alquileres/ctrregistroinquilino.php';
 |-------------------------------------------------
 */
 
-if (class_exists('ctrregistroinquilino')) 
+if (class_exists('ctrregistrorepresentante')) 
 {
    //$o_miClase = new ctrregistrousuarios();
 }
@@ -67,40 +67,25 @@ if($operacion == "I"){
     |-------------------------------------------
     */
     
-    $registroInquilino =  new ctrregistroinquilino();
+    $registrorepresentantel =  new ctrregistrorepresentante();
 
    /*
    |---------------------------------------------
    | AQUI CARGO LOS DATOS PARA ALMACENAR
    |---------------------------------------------
    */
-    $datos = array( "id_inqu"  => $_POST["hidinquilino"],
-                    "cod_inqu" => $_POST["registroCodigo"],
-                    "nom_inqu" => $_POST["registroNombre"],
-                    "ape_inqu" => $_POST["registroApellido"],
-                    "nac_inqu" => $_POST["registroNacionalidad"],
-                    "ci_inqu"  => $_POST["registroCedula"],
-                    "rif_inqu" => $_POST["registroRif"],
-                    "loc_inqu" => $_POST["registroTeléfono"],
-                    "cel_inqu" => $_POST["registroCelular"],
-                    "cor_inqu" => $_POST["registroEmail"],
-                    "est_inqu" => $_POST["cboEstados"],
-                    "mun_inqu" => $_POST["cboMunicipios"],
-                    "par_inqu" => $_POST["cboParroquia"],
-                    "dir_inqu" => $_POST["registroDirecionH"],
-                    "ofi_inqu" => $_POST["registroDirecionO"],
-                    "tip_inqu" => $_POST["tipo_persona"]);
-
-      //echo json_encode($datos);
-      //die;
-
-
+    $datos = array( "id_legal" => $_POST["hidlegal"],
+                    "nom_legal" => $_POST["registroNombre"],
+                    "ape_legal" => $_POST["registroApellido"],
+                    "rif_legal" => $_POST["registroRif"],
+                    "ced_legal" => $_POST["registroCedula"]);               
+                  
    /* 
    |---------------------------------------------
    | AQUI OBTENGO EL RESULTADO DE LA EJECUCION
    |---------------------------------------------
    */
-     $result = $registroInquilino->registrar($datos);
+     $result = $registrorepresentantel->registrar($datos);
     
     /*
     |-------------------------------------------
@@ -115,9 +100,9 @@ if($operacion == "I"){
 
 
 /* 
- |--------------------------------------------------------------
- | AQUI SE EJECUTA LA OPERACION DE CONSULTAR TODOS LOS INQUILINOS
- |--------------------------------------------------------------
+ |--------------------------------------------------------------------------
+ | AQUI SE EJECUTA LA OPERACION DE CONSULTAR TODOS LOS REPRESENTANTES LEGAL
+ |-------------------------------------------------------------------------
 */
 
 if($operacion == "C"){
@@ -128,14 +113,14 @@ if($operacion == "C"){
     |-------------------------------------------
     */
     
-    $registroInquilino =  new ctrregistroinquilino();
+    $registrorepresentantel =  new ctrregistrorepresentante();
 
    /* 
    |---------------------------------------------
    | AQUI OBTENGO EL RESULTADO DE LA EJECUCION
    |---------------------------------------------
    */
-     $result = $registroInquilino->seleccionarregistros();
+     $result = $registrorepresentantel->seleccionarregistros();
     
     /*
     |-------------------------------------------
@@ -150,9 +135,10 @@ if($operacion == "C"){
 
 
 
+
 /* 
  |--------------------------------------------------------------
- | AQUI SE EJECUTA LA OPERACION ELIMINAR USUARIO
+ | AQUI SE EJECUTA LA OPERACION ELIMINAR REPRESENTANTE LEGAL
  |--------------------------------------------------------------
 */
 
@@ -164,20 +150,20 @@ if($operacion == "D"){
     |-------------------------------------------
     */
     
-    $registroInquilino =  new ctrregistroinquilino();
+    $registrorepresentantel =  new ctrregistrorepresentante();
 
    /*
    |---------------------------------------------
    | AQUI CARGO LOS DATOS PARA ALMACENAR
    |---------------------------------------------
    */
-  $datos = array( "id_inqu" => $_POST["id_inqu"]);
+  $datos = array( "idrepresentante" => $_POST["idrepresentante"]);
    /* 
    |---------------------------------------------
    | AQUI OBTENGO EL RESULTADO DE LA EJECUCION
    |---------------------------------------------
    */
-   $result = $registroInquilino->eliminarinquilino($datos);
+   $result = $registrorepresentantel->eliminarrepresentante($datos);
     
     /*
     |-------------------------------------------

@@ -136,6 +136,7 @@ if ($("#registroDirecionj").val() == "") {
 function limpiarCamposjuridico(){
 
     $("#hidinquilino").val("");
+    $("#registroCodigoj").val("");
     $("#registroNombrej").val("");
     $("#registroRifj").val("");
     $("#registroDirecionj").val("");

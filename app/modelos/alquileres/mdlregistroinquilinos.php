@@ -128,7 +128,7 @@ public function registrar($tabla,$datos){
 
 
 
-  public function eliminarpropietario($tabla,$datos){
+  public function eliminarinquilino($tabla,$datos){
 
     /* 
     |------------------------------------------------------------
@@ -232,7 +232,7 @@ public function registrar($tabla,$datos){
 
               $dbConexion = new conexcion();  
 
-                $stmt = $dbConexion->conectar()->prepare("CALL usp_");
+                $stmt = $dbConexion->conectar()->prepare("CALL usp_cargainquilinos()");
                 $stmt->execute();
                 $dataRegistro["Items"][] = $stmt->fetchAll();
       
@@ -263,7 +263,7 @@ public function registrar($tabla,$datos){
 
           $dbConexion = new conexcion();
           
-          $stmt = $dbConexion->conectar()->prepare("CALL usp_");
+          $stmt = $dbConexion->conectar()->prepare("CALL usp_cargainquilinos()" );
         
           $stmt ->bindParam(":".$iten, $valor, PDO::PARAM_STR);
           $stmt->execute();

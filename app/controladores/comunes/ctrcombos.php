@@ -55,6 +55,14 @@ class ctrcombos{
     }
 
 
+    public function getrepresentante(){
+
+        
+        $modelo =  new mdlcombos();
+        $respuestas =  $modelo->getrepresentante();
+        return $respuestas;
+    }
+
 
 
 }

@@ -194,3 +194,38 @@ if($operacion == "banco"){
      
 }
 
+
+
+/* 
+ |--------------------------------------------------------------
+ | AQUI SE EJECUTA LA OPERACION DE CONSULTAR LOS ESTADOS
+ |--------------------------------------------------------------
+*/
+
+if($operacion == "representante"){
+
+   /*
+    |-------------------------------------------
+    | AQUI CREO UNA INSTANCIA DE LA CLASE
+    |-------------------------------------------
+    */
+    
+    $combo =  new ctrcombos();
+
+   /* 
+   |---------------------------------------------
+   | AQUI OBTENGO EL RESULTADO DE LA EJECUCION
+   |---------------------------------------------
+   */
+     $result = $combo->getrepresentante();
+    
+    /*
+    |-------------------------------------------
+    | AQUI REGRESO EL RESULTADO AL AJAX
+    |-------------------------------------------
+    */
+    header('Content-Type: application/json');
+     return $result;
+     
+}
+
