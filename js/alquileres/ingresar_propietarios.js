@@ -20,6 +20,33 @@ function inicio(){
     });
 
 
+
+
+    jQuery("#registroCedula").on('input', function (evt) {
+        jQuery(this).val(jQuery(this).val().replace(/[^0-9]/g, ''));
+    });
+
+    jQuery("#registroTelefono").on('input', function (evt) {
+        jQuery(this).val(jQuery(this).val().replace(/[^0-9]/g, ''));
+    });
+
+    jQuery("#registroCelular").on('input', function (evt) {
+        jQuery(this).val(jQuery(this).val().replace(/[^0-9]/g, ''));
+    });
+
+    jQuery("#num_cuen").on('input', function (evt) {
+        jQuery(this).val(jQuery(this).val().replace(/[^0-9]/g, ''));
+    });
+
+    jQuery("#ced_pmov").on('input', function (evt) {
+        jQuery(this).val(jQuery(this).val().replace(/[^0-9]/g, ''));
+    });
+
+    jQuery("#cel_pmov").on('input', function (evt) {
+        jQuery(this).val(jQuery(this).val().replace(/[^0-9]/g, ''));
+    });
+
+
 }
 
 function validateEmail(email) {
@@ -133,6 +160,36 @@ function guardarPropietarios(){
         return;
         }
     
+    
+    if ($("#cboBancoN").val() == "") {
+        mensaje("Debe indicar el banco del propietario",1);
+        return;
+        }
+
+    if ($("#num_cuen").val() == "") {
+        mensaje("Debe indicar el numero de cuenta del banco",1);
+        return;
+        } else {
+
+            var numcuentaTMP = $("#num_cuen").val(); 
+
+            if (numcuentaTMP.length<20){
+                mensaje("El Numero de cuenta debe ser de 20 digitos.",1);
+                return;
+
+            } else {
+
+                if(validarCuentaBanco('cboBancoN',numcuentaTMP) == false){
+                    mensaje("El Numero de cuenta registrado no concuerda con el banco seleccionado.",1);
+                    return;
+                }
+
+            } 
+
+
+        }
+
+
 
    
    /*

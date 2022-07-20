@@ -28,6 +28,7 @@ include("layout/menuNavegacion.php");
                                         <input type="hidden" id="tipo_persona" name="tipo_persona" value='1'>
                                         <input type="hidden" id="hidpropietario" name="hidpropietario" value=''>
                                         <input type="hidden" id="hidcuenta_id_nacional" name="hidcuenta_id_nacional" value='0'>
+                                        <input type="hidden" id="hidcuenta_id_internacional" name="hidcuenta_id_internacional" value='0'>
                                         <!--
                                         <input type="hidden" id="registroCodigo" name="registroCodigo" value='0001'>
 -->
@@ -162,7 +163,7 @@ include("layout/menuNavegacion.php");
                                                     <div class="col-md-6">
                                                         <label class="col-sm-9 col-form-label">Cuenta:</label>
                                                         <div class="col-sm-12">
-                                                            <input type="text" class="form-control" id="num_cuen" name="num_cuen" value=''><br>
+                                                            <input type="text" class="form-control" id="num_cuen" name="num_cuen" maxlength="20" value=''><br>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -184,39 +185,39 @@ include("layout/menuNavegacion.php");
                                                     <div class="col-md-2">
                                                         <label class="col-sm-10 col-form-label">Banco Extranjero:</label>
                                                         <div class="col-sm-12">
-                                                            <input type="text" class="form-control" id="" name="" >
+                                                            <input type="text" class="form-control" id="ban_extr" name="ban_extr" >
 
                                                         </div>
                                                     </div>
                                                     <div class="col-md-1">
                                                         <label class="col-sm-12 col-form-label">Agencia:</label>
                                                         <div class="col-sm-12">
-                                                            <input type="text" class="form-control" id="" name="" >
+                                                            <input type="text" class="form-control" id="age_extr" name="age_extr" >
 
                                                         </div>
                                                     </div>
                                                     <div class="col-md-1">
                                                         <label class="col-sm-12 col-form-label">DC:</label>
                                                         <div class="col-sm-12">
-                                                            <input type="text" class="form-control" id="" name="" ><br>
+                                                            <input type="text" class="form-control" id="dc_extr" name="dc_extr" ><br>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-2">
                                                         <label class="col-sm-12 col-form-label">Cuenta:</label>
                                                         <div class="col-sm-12">
-                                                            <input type="text" class="form-control" id="" name="" ><br>
+                                                            <input type="text" class="form-control" id="cue_extr" name="cue_extr" ><br>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-4">
                                                         <label class="col-sm-12 col-form-label">IBAN:</label>
                                                         <div class="col-sm-12">
-                                                            <input type="text" class="form-control" id="" name="" ><br>
+                                                            <input type="text" class="form-control" id="iba_extr" name="iba_extr" ><br>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-2">
                                                         <label class="col-sm-12 col-form-label">BIC o SWIFT:</label>
                                                         <div class="col-sm-12">
-                                                            <input type="text" class="form-control" id="" name="" ><br>
+                                                            <input type="text" class="form-control" id="bic_extr" name="bic_extr" ><br>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -225,15 +226,14 @@ include("layout/menuNavegacion.php");
                                                     <div class="col-md-6">
                                                         <div class="input-group">
                                                             <span class="input-group-text">Cuenta Paypal:</span>
-                                                            <input type="text" class="form-control" placeholder="correo" id="" name="" >
+                                                            <input type="text" class="form-control" placeholder="correo" id="paypal" name="paypal" >
                                                         </div>
                                                     </div>
 
                                                     <div class="col-md-6">
                                                         <div class="input-group">
                                                             <span class="input-group-text">Cuenta Zelle</span>
-                                                            <input type="text" class="form-control" placeholder="telefono" id="" name="" >
-                                                            <input type="text" class="form-control" placeholder="correo" id="" name="" >
+                                                                  <input type="text" class="form-control" placeholder="correo" id="zeller" name="zeller" >
                                                         </div>
                                                     </div>
 
