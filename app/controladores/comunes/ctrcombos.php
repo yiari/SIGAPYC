@@ -64,5 +64,14 @@ class ctrcombos{
     }
 
 
+    public function gettipoinmueble(){
+
+        
+        $modelo =  new mdlcombos();
+        $respuestas =  $modelo->gettipoinmueble();
+        return $respuestas;
+    }
+
+
 
 }

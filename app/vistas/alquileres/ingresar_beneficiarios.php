@@ -3,6 +3,11 @@
     <div class="container">
 
          <div class="card-header">
+                 <div style="text-align: right;">
+                        <ol>          
+                            <a class="btn btn-outline-secondary" href="index.php?url=app/vistas/alquileres/inmuebles"  role="button">Atras</a>
+                        </ol>
+                    </div>
             
 
             <h4 class="card-title">Beneficiarios</h4>

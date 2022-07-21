@@ -356,6 +356,76 @@ class mdlcombos{
             
               
               }
+
+
+
+              public function gettipoinmueble(){
+              /* 
+              |------------------------------------------------------------
+              | AQUI DECLARO LA VARIABLE - INSTANCIA DEL METODO CONEXION
+              |------------------------------------------------------------
+              */
+              $dbConexion = new conexcion();
+              /* 
+              |------------------------------------------------------------------------------------------------
+              | AQUI DECLARO LA VARIABLES QUE CAPTURARAN EL RESULTADO DE LA OPERAION PARA INFORMAR DEL TIPO
+              |------------------------------------------------------------------------------------------------
+              */
+              $prmError = 0;
+              $prmMensaje = "";
+            
+            
+              try {
+                     /* 
+                      |----------------------------------------------------------------------------------
+                      | AQUI PREPARO LO QUE SERA LA LLAMADA AL PROCEDIMIENTO QUE REALIZARA LA OPERACION
+                      |----------------------------------------------------------------------------------
+                      */
+                      $stmt = $dbConexion->conectar()->prepare("CALL usp_gettipo_inmueble()");
+              
+                      /*
+                      |---------------------------------
+                      | AQUI SE EJECUTA LA OPERACION
+                      |---------------------------------
+                      */
+                      $stmt->execute();
+            
+                      $dataRegistro["Items"][] = $stmt->fetchAll();
+                  
+                      $dataRes = array(
+                        'error' => '0',
+                        'mensaje' =>  'correcto'
+                      );
+                                
+                      echo json_encode(array_merge($dataRegistro,$dataRes));
+              
+                    } catch (\Exception $e) {
+                
+            
+                      $codigoError = $e->getCode();
+              
+                      if ($codigoError == 23000) { //ERROR DE REGISTRO DUPLICADO
+                        $dataRes = array(
+                          'error' => '1',
+                          'mensaje' =>  "El registro se encuentra duplicado " . $e->getMessage()
+                        );
+                      } else {
+                        $dataRes = array(
+                          'error' => '1',
+                          'mensaje' =>  "Mensaje de Error: " . $e->getMessage()
+                        );
+              
+                      }
+               
+                      echo json_encode($dataRes);
+              
+                  }
+              
+            
+            
+            
+              
+              }
       
 
 

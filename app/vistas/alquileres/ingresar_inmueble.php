@@ -6,14 +6,23 @@ include("layout/menuNavegacion.php");
 ?>
 
 <div class="container">
-    <h4 class="card-title">Inmuebles</h4><br>
-    <nav>
-        <div class="nav nav-tabs" id="nav-tab" role="tablist">
-            <button class="nav-link active" id="nav-Inmueble-tab" data-bs-toggle="tab" data-bs-target="#nav-Inmueble" type="button" role="tab" aria-controls="nav-edificio" aria-selected="true">Inmueble</button>
-        </div>
-    </nav>
 
-    <form class="form-sample" id="info_propinmu" name="info_propinmu" method="POST" action="" autocomplete="off" enctype="multipart/form-data">
+    <div class="card-header">
+            
+                    <div style="text-align: right;">
+                        <ol>          
+                            <a class="btn btn-outline-secondary" href="index.php?url=app/vistas/alquileres/inmuebles"  role="button">Atras</a>
+                        </ol>
+                    </div>
+
+           <h4 class="card-title">Inmuebles</h4><br>
+            <nav>
+                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                    <button class="nav-link active" id="nav-Inmueble-tab" data-bs-toggle="tab" data-bs-target="#nav-Inmueble" type="button" role="tab" aria-controls="nav-edificio" aria-selected="true">Inmueble</button>
+                </div>
+            </nav>
+
+                     <form class="form-sample" id="info_propinmu" name="info_propinmu" method="POST" action="" autocomplete="off" enctype="multipart/form-data">
 
         <div class="tab-content" id="nav-tabContent">
             <div class="tab-pane fade show active" id="nav-info_propinmu" role="tabpanel" aria-labelledby="nav-info_propinmu-tab">
@@ -29,7 +38,7 @@ include("layout/menuNavegacion.php");
                                     <div class="col text-center">
                                         <h5 class="card-title">Datos del Propietario</h5>
                                     </div>
-</br>
+        </br>
                                     <div class="row">
                                        <div class="col-md-3">
                                             <label class="col-sm-12 col-form-label">Buscar Código Propietario:</label>
@@ -45,7 +54,7 @@ include("layout/menuNavegacion.php");
                                             </div>
                                         </div>
                                     </div>
-</br>
+        </br>
                                     <div class="row">
                                         
                                         <div class="col-md-3">
@@ -61,21 +70,12 @@ include("layout/menuNavegacion.php");
                                             </div>
                                         </div>
                                         <div class="col-md-3">
-                                            <div class="row">
                                                 <label for="ced_prop" class="col-sm-12 col-form-label">Cédula de Identidad</label>
-                                                <div class="col-sm-3">
-                                                    <select class="form-select" id="nac_prop" name="nac_prop" readonly="yes">
-                                                        <option selected disabled value=""></option>
-                                                        <option>V</option>
-                                                        <option>E</option>
-                                                    </select>
-                                                </div>
-                                                <div class="col-sm-9">
+                                                <div class="col-sm-12">
                                                     <input type="text" class="form-control" id="ci_prop" name="ci_prop" readonly="yes">
                                                 </div>
-                                            </div>
                                         </div>
-                                        <div class="col-md-2">
+                                        <div class="col-md-3">
                                             <label class="col-sm-5 col-form-label">Rif:</label>
                                             <div class="col-sm-12">
                                                 <input type="text" class="form-control" id="rif_prop" name="rif_prop" readonly="yes">
@@ -194,31 +194,31 @@ include("layout/menuNavegacion.php");
                                 <h5 class="card-title">Datos del Inmueble</h5>
                             </div>
                             <div class="row">
-                                <div class="col-md-1">
+
+                                <div class="col-md-6">
                                     <label class="col-sm-12 col-form-label">Código:</label>
                                     <div class="col-sm-12">
                                         <div class="col-sm-12">
-                                            <input type="text" class="form-control" id="cod_inmu" name="cod_inmu" value='' required>
+                                            <input type="text" class="form-control" id="" name="" autofocus readonly="yes" >
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-2">
-                                    <label class="col-sm-12 col-form-label">Tipo:</label>
-                                    <div class="col-sm-12">
-                                        <select class="form-select" id="tip_inmu" name="tip_inmu">
-                                            <option selected disabled value=""></option>
-                                            <option>Anexo</option>
-                                            <option>Apartamento</option>
-                                            <option>Local</option>
-                                            <option>Oficina</option>
-                                        </select>
+
+                            </div>
+
+                            <div class="row">
+                                
+                                <div class="col-md-3">
+                                        <label for="cboinmueble" class="col-sm-10 col-form-label">Tipo de inmuebles:</label></br>
+                                        <div class="col-sm-12">
+                                            <select class="form-control"  id="cboinmueble" name="cboinmueble"></select>
+                                        </div>
                                     </div>
-                                </div>
                                 <div class="col-md-1">
                                     <label class="col-sm-12 col-form-label">Letra/N°:</label>
                                     <div class="col-sm-12">
                                         <div class="col-sm-12">
-                                            <input type="text" class="form-control" id="let_inmu" name="let_inmu" required>
+                                            <input type="text" class="form-control" id="let_inmu" name="let_inmu">
                                         </div>
                                     </div>
                                 </div>
@@ -307,7 +307,7 @@ include("layout/menuNavegacion.php");
                         </div><br>
 
                                                 <!--Distribución del Inmueble-->
-                                                <div class="card">
+                        <div class="card">
                             <div class="card-body">
                                 <div class="col text-center">
                                     <h5 class="card-title">Distribución del Inmueble</h5>
@@ -537,16 +537,16 @@ include("layout/menuNavegacion.php");
                 </div>
             </div>    
         </form>
-    <div class="container">
-        <!--div class="col-12 btn btn-align-center">
-            <a class="btn btn-primary" href="ingresar_inquilinos.php" role="button">Añadir Inquilino</a>           
-            <a class="btn btn-primary" href="repmandato.php?id_prop=<?php /*echo $id_prop*/ ?> "  target='_blank'role="button">Imprimir Mandato</a> 
-            <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#varias_unidades">Añadir Unidades</button>
-
-        </div-->
     </div>
-
     
 </div>
+<?php 
+
+include_once "app/vistas/comunes/modalmensajes.php";
+include_once "app/vistas/comunes/modaleliminar.php";
+
+?>
 
 <script src="js/comunes/combos.js"></script>
+<script src="js/comunes/generadorcodigos.js"></script>
+<script src="js/alquileres/ingresar_inmuebles.js"></script>
