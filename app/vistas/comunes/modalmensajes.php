@@ -4,7 +4,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header badge-primary" style="background-color: #c2c9ce !important;">
-                <h5 class="modal-title" id="editModalLabel"><i class="fas fa-comment" alt="mensaje"></i>&nbsp;Mensaje</h5>
+                <h5 class="modal-title" id="editModalLabel"><i class="fa fa-comment" alt="mensaje"></i>&nbsp;Mensaje</h5>
                 <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">×</span>
                 </button>

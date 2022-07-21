@@ -100,11 +100,24 @@ if($operacion == "I"){
                   "cuenta_id_nacional" => $_POST["hidcuenta_id_nacional"],
                   "cuenta_id_banco" => $_POST["cboBancoN"],
                   "num_cuenta_nacional" => $_POST["num_cuen"],
+
                   "pagomovil_cedula" => $_POST["ced_pmov"],
                   "pagomovil_id_banco" => $_POST["cboBancoNP"],
-                  "pagomovil_telefono" => $_POST["cel_pmov"]
+                  "pagomovil_telefono" => $_POST["cel_pmov"],
                 
+                                     /*
+                   |------------------------------------------
+                   | AQUI VAN LOS DATOS DE LOS BANCOS INTERNACIONALES
+                   |------------------------------------------
+                   */
+                  "cuenta_id_internacional" => $_POST["hidcuenta_id_internacional"],
+                  "ban_extr" => $_POST["ban_extr"],
+                  "age_extr" => $_POST["age_extr"],
                   
+                  "dc_extr" => $_POST["dc_extr"],
+                  "cue_extr" => $_POST["cue_extr"],
+                  "iba_extr" => $_POST["iba_extr"],
+                  "bic_extr" => $_POST["bic_extr"]
                   
                   
                   

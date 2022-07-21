@@ -402,6 +402,21 @@ function cargarBancos(cboBancos){
 }
 
 
+function validarCuentaBanco(comboBanco,numeroCuenta){
+
+   var  prmCodigoBanco = $('#' + comboBanco).find('option:selected').attr('data-codigobanco');
+
+   var digitosBanco = prmCodigoBanco.substring(0,4);
+   var  digitosCuenta = numeroCuenta.substring(0,4);
+
+   if(digitosBanco == digitosCuenta){
+    return true;
+   } else {
+    return false;
+   }
+
+
+}
 function cargarRepresentanteLegal(){
 
     /*
