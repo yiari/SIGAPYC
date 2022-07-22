@@ -167,7 +167,7 @@ include("layout/menuNavegacion.php");
                                                     <div class="col-md-6">
                                                         <label class="col-sm-9 col-form-label">Cuenta:</label>
                                                         <div class="col-sm-12">
-                                                            <input type="text" class="form-control" id="num_cuen" name="num_cuen" value=''><br>
+                                                            <input type="text" class="form-control" id="num_cuen" name="num_cuen" ><br>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -247,32 +247,34 @@ include("layout/menuNavegacion.php");
 
                                             <h5 class="card-title">Datos del Poder</h5>
                                             <div class="row">
-                                                <div class="col-md-3">
-                                                    <label class="col-sm-12 col-form-label">Notaria o Registro:</label>
+                                               <input type="hidden" id="cod_pode" name="cod_pode" value='0'>
+                                                
+                                               <div class="col-md-3">
+                                                    <label  for="not_pode" class="col-sm-12 col-form-label">Notaria o Registro:</label>
                                                     <div class="col-sm-12">
                                                         <input type="text" class="form-control" id="not_pode" name="not_pode"><br>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-2">
-                                                    <label for="inputfecha" class="col-sm-12 col-form-label">Fecha:</label>
+                                                    <label for="fec_pode" class="col-sm-12 col-form-label">Fecha:</label>
                                                     <div class="col-sm-12">
-                                                        <input type="date" id="fec_inmu" name="fec_inmu" value='' class="form-control">
+                                                        <input type="date" id="fec_pode" name="fec_pode" value='' class="form-control">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-2">
-                                                    <label class="col-sm-12 col-form-label">Número:</label>
+                                                    <label for="num_pode" class="col-sm-12 col-form-label">Número:</label>
                                                     <div class="col-sm-12">
                                                         <input type="text" class="form-control" id="num_pode" name="num_pode"><br>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-2">
-                                                    <label class="col-sm-9 col-form-label">Tomo:</label>
+                                                    <label for="tom_pode" class="col-sm-9 col-form-label">Tomo:</label>
                                                     <div class="col-sm-12">
                                                         <input type="text" class="form-control" id="tom_pode" name="tom_pode"><br>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-3">
-                                                    <label class="col-sm-9 col-form-label">Folio o asiento real:</label>
+                                                    <label for="fol_pode" class="col-sm-9 col-form-label">Folio o asiento real:</label>
                                                     <div class="col-sm-12">
                                                         <input type="text" class="form-control" id="fol_pode" name="fol_pode"><br>
                                                     </div>
@@ -335,6 +337,7 @@ include("layout/menuNavegacion.php");
                                                     </div>
                                                 </div>
                                             </div>
+                                            </br>
                                             <div class="col-12 btn btn-align-center">
                                                   
                                                  

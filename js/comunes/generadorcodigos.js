@@ -29,6 +29,21 @@ function codigoApoderado(nombre){
 
 }
 
+function codigoRepresentante(nombre){
+
+    if(nombre.length >0){
+
+        let text = nombre;
+
+        let result = 'R-' +  valorLetra(text.charAt(0)) + '-' +  completarconcero(1, 4)  + '-' +  nombre;
+
+        return result;
+    } else {
+        return "";
+    }
+
+}
+
 
 function codigoInquilino(nombre){
 
