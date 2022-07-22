@@ -8,6 +8,8 @@
 
 include_once '../../../app/modelos/conexcion.php';
 
+include_once '../../../app/controladores/comunes/ctrsubirarchivos.php';
+
 /*
 |---------------------------------------------------------------
 | LAS CLASES SE DEBEN LLAMAR EXACTAMENTE IGUAL QUE SU ARCHIVO
@@ -15,7 +17,7 @@ include_once '../../../app/modelos/conexcion.php';
 */
 class mdlregispropietarios{
 
-public function registrar($tabla,$datos){
+public function registrar($tabla,$datos,$archivos){
 
   /* 
   |------------------------------------------------------------
@@ -30,7 +32,7 @@ public function registrar($tabla,$datos){
   */
   $prmError = 0;
   $prmMensaje = "";
-
+  $prmIdPropietario = 0;
 
 
   
@@ -118,12 +120,40 @@ public function registrar($tabla,$datos){
               if ($prmError == 1062 ){ //registro duplicado
                 $prmMensaje =  "Registro duplicado: " . $row[1]; //COLUMNA DEL MENSAJE
               } else {
+                
+
+                /*
+                |-------------------------------------------------
+                | SI NO HUBO ERRORM OBTENGO EL ID DEL PROPIETARIO
+                |-------------------------------------------------
+                */
+
+                if($prmError == 0){
+                  $prmIdPropietario = $row[2]; //AQUI OBTENGO EL ID DEL PROPIETARIO
+                }
+
+                /*-----------------------------------------------*/
+
                 $prmMensaje =  $row[1]; //COLUMNA DEL MENSAJE
+              
               }
             }
         
 
           } ;
+
+
+          /*
+          |------------------------------
+          | AQUI SUBO LOS ARCHIVOS
+          |------------------------------
+          */
+
+          $subirArchivos = new ctrsubirarchivos();
+
+          $subirArchivos->validarArchivos($archivos,$prmIdPropietario);
+
+
 
           /*
           |--------------------------------------------------------------------
@@ -135,7 +165,21 @@ public function registrar($tabla,$datos){
             'mensaje' =>  $prmMensaje
           );
 
-          echo json_encode($dataRes);
+
+          if( $prmIdPropietario > 0 ){
+
+            $dataRegistro["Items"][] = ["ID_PROPIETARIO" => $prmIdPropietario];
+          
+            echo json_encode(array_merge($dataRegistro,$dataRes));
+
+          } else {
+
+            echo json_encode($dataRes);
+          
+          }
+
+
+          
 
     } catch (\Exception $e) {
     

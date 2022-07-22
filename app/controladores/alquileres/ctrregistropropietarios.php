@@ -27,13 +27,13 @@ class ctrregistropropietarios{
         */ 
     }
 
-     public function registrar($datos){
+     public function registrar($datos,$archivos){
 
             $tabla = "propietarios";
             $modelo = new mdlregispropietarios();
 
             $modelo =  new mdlregispropietarios();
-            $respuesta = $modelo->registrar($tabla,$datos);
+            $respuesta = $modelo->registrar($tabla,$datos,$archivos);
 
             return $respuesta;
 
