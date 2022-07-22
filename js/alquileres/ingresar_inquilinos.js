@@ -338,7 +338,7 @@ function cargarInquilino(){
                             
                             var html="";
                             html = '<div class="btn-group" style="font-size:1.3em; letter-spacing:0.5em;">';
-                            html += '<a title="edit" data-field-id="' + json.Items[0][i].id  + '"><i class="fas fa-edit" alt=“editar”></i></a>&nbsp;';
+                            html += '<a title="edit" data-field-id="' + json.Items[0][i].id  + '"><fa fa-pencil-square-o alt=“editar”></i></a>&nbsp;';
                             html += '<a title="ver" data-field-id="' + json.Items[0][i].id + '"><i class="fas fa-search"></i></a>&nbsp;';
                             html += '<a title="contrato" data-field-id="' + json.Items[0][i].id + '" data-field-nombre="' + json.Items[0][i].nom_legal + '" data-field-apellido="'+ json.Items[0][i].ape_legal + '" data-field-correo="'+ json.Items[0][i].cor_legal + '" data-field-cedula="' + json.Items[0][i].ced_inqu + '" data-field-telefo="' + json.Items[0][i].cel_inqu +  '"><i class="fa-solid fa-file-pen"></i></a>&nbsp;';
                             html += '<a title="bitacora" data-field-id="' + json.Items[0][i].id + '"><i class="fa-regular fa-folder-open"></i></a>&nbsp;';

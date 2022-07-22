@@ -14,6 +14,22 @@ function codigoPropietario(nombre){
 }
 
 
+function codigoApoderado(nombre){
+
+    if(nombre.length >0){
+
+        let text = nombre;
+
+        let result = 'A-' +  valorLetra(text.charAt(0)) + '-' +  completarconcero(1, 4)  + '-' +  nombre;
+
+        return result;
+    } else {
+        return "";
+    }
+
+}
+
+
 function codigoInquilino(nombre){
 
     if(nombre.length >0){
