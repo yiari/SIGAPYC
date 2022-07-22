@@ -6,7 +6,7 @@
         <div style="text-align: right;">
         <ol>
                 <a class="btn btn-outline-primary" href="index.php?url=app/vistas/alquileres/ingresar_inmueble" role="button">Nuevo</a>                
-                <!--a class="btn btn-outline-secondary" href="reportes.php"  role="button">Imprimir</a-->
+               
             </ol>
         </div>
         
