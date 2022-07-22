@@ -433,6 +433,21 @@ function limpiarCampos(){
     $("#num_pode").val("");
     $("#tom_pode").val("");
     $("#fol_pode").val("");
+    $("cuenta_id_nacional").val("");
+    $("cuenta_id_banco").val("");
+    $("num_cuenta_nacional").val("");
+    $("pagomovil_cedula").val("");
+    $("pagomovil_id_banco").val("");
+    $("pagomovil_telefono").val("");
+
+    $("cuenta_id_internacional").val("");
+    $("ban_extr").val("");
+    $("age_extr").val("");
+    
+    $("dc_extr").val("");
+    $("cue_extr").val("");
+    $("iba_extr").val("");
+    $("bic_extr").val("");
 
 }
 
