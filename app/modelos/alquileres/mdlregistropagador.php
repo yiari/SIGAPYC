@@ -13,7 +13,7 @@ include_once '../../../app/modelos/conexcion.php';
 | LAS CLASES SE DEBEN LLAMAR EXACTAMENTE IGUAL QUE SU ARCHIVO
 |---------------------------------------------------------------
 */
-class mdlregistrorepresentante{
+class mdlregistropagador{
 
 public function registrar($tabla,$datos){
 
@@ -41,35 +41,26 @@ public function registrar($tabla,$datos){
           | AQUI PREPARO LO QUE SERA LA LLAMADA AL PROCEDIMIENTO QUE REALIZARA LA OPERACION
           |----------------------------------------------------------------------------------
           */
-          $stmt = $dbConexion->conectar()->prepare("CALL usp_registrarrepresentante(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
-          $stmt -> bindParam(1,  $datos ["id_repr"],  PDO::PARAM_INT); //ESTE ES EL ID DEL APODRRADO
-		  $stmt -> bindParam(2,  $datos ["id_prop"],  PDO::PARAM_INT); //ESTE ES EL ID DEL PROPIETARIO
-          $stmt -> bindParam(3,  $datos ["cod_repr"], PDO::PARAM_STR);
-          $stmt -> bindParam(4,  $datos ["nom_repr"], PDO::PARAM_STR);            
-          $stmt -> bindParam(5,  $datos ["ape_repr"], PDO::PARAM_STR);          
-          $stmt -> bindParam(6,  $datos ["nac_repr"], PDO::PARAM_INT);   
-          $stmt -> bindParam(7,  $datos ["ci_repr "], PDO::PARAM_STR);       
-          $stmt -> bindParam(8,  $datos ["rif_repr"], PDO::PARAM_STR);                     
-          $stmt -> bindParam(9,  $datos ["loc_repr"], PDO::PARAM_STR);     
-          $stmt -> bindParam(10, $datos ["cel_repr"], PDO::PARAM_STR);          
-          $stmt -> bindParam(11, $datos ["cor_repr"], PDO::PARAM_STR);       
-          $stmt -> bindParam(12, $datos ["est_repr"], PDO::PARAM_INT);         
-          $stmt -> bindParam(13, $datos ["mun_repr"], PDO::PARAM_INT);      
-          $stmt -> bindParam(14, $datos ["par_repr"], PDO::PARAM_INT); 
-          $stmt -> bindParam(15, $datos ["dir_repr"], PDO::PARAM_STR);
-          $stmt -> bindParam(16, $datos ["ofi_repr"], PDO::PARAM_STR);     
-          $stmt -> bindParam(17, $datos ["tip_repr"], PDO::PARAM_INT);
-          
-          $stmt -> bindParam(18, $datos ["cod_regi"], PDO::PARAM_STR);
-          $stmt -> bindParam(19, $datos ["not_regi"], PDO::PARAM_STR);
-          $stmt -> bindParam(20, $datos ["fec_regi"], PDO::PARAM_INT);
-          $stmt -> bindParam(21, $datos ["num_regi"], PDO::PARAM_STR);
-          $stmt -> bindParam(22, $datos ["tom_regi"], PDO::PARAM_STR);
-          $stmt -> bindParam(23, $datos ["fol_regi"], PDO::PARAM_STR);
-              
+          $stmt = $dbConexion->conectar()->prepare("CALL usp_registropagador(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+          $stmt -> bindParam(1,  $datos ["id_paga"],  PDO::PARAM_INT); //ESTE ES EL ID DEL pagador
+		  $stmt -> bindParam(2,  $datos ["id_inqu"],  PDO::PARAM_INT); //ESTE ES EL ID DEL inquilino
+          $stmt -> bindParam(3,  $datos ["cod_paga"], PDO::PARAM_STR);
+          $stmt -> bindParam(4,  $datos ["nom_paga"], PDO::PARAM_STR);            
+          $stmt -> bindParam(5,  $datos ["ape_paga"], PDO::PARAM_STR);          
+          $stmt -> bindParam(6,  $datos ["nac_paga"], PDO::PARAM_INT);   
+          $stmt -> bindParam(7,  $datos ["ci_paga"],  PDO::PARAM_STR);       
+          $stmt -> bindParam(8,  $datos ["rif_paga"], PDO::PARAM_STR);                     
+          $stmt -> bindParam(9,  $datos ["loc_paga"], PDO::PARAM_STR);     
+          $stmt -> bindParam(10, $datos ["cel_paga"], PDO::PARAM_STR);          
+          $stmt -> bindParam(11, $datos ["cor_paga"], PDO::PARAM_STR);       
+          $stmt -> bindParam(12, $datos ["est_paga"], PDO::PARAM_INT);         
+          $stmt -> bindParam(13, $datos ["mun_paga"], PDO::PARAM_INT);      
+          $stmt -> bindParam(14, $datos ["par_paga"], PDO::PARAM_INT); 
+          $stmt -> bindParam(15, $datos ["dir_paga"], PDO::PARAM_STR);
+          $stmt -> bindParam(16, $datos ["ofi_paga"], PDO::PARAM_STR);     
+          $stmt -> bindParam(17, $datos ["tip_paga"], PDO::PARAM_INT);
 
-           
-  
+
                   
           /*
           |---------------------------------
@@ -145,7 +136,7 @@ public function registrar($tabla,$datos){
 
             $dbConexion = new conexcion();  
 
-              $stmt = $dbConexion->conectar()->prepare("CALL usp_cargarrepresentante()");
+              $stmt = $dbConexion->conectar()->prepare("CALL usp_cargarpagador()");
               $stmt->execute();
               $dataRegistro["Items"][] = $stmt->fetchAll();
     
@@ -176,7 +167,7 @@ public function registrar($tabla,$datos){
 
         $dbConexion = new conexcion();
         
-        $stmt = $dbConexion->conectar()->prepare("CALL usp_cargarrepresentante()" );
+        $stmt = $dbConexion->conectar()->prepare("CALL usp_cargarpagador()" );
       
         $stmt ->bindParam(":".$iten, $valor, PDO::PARAM_STR);
         $stmt->execute();

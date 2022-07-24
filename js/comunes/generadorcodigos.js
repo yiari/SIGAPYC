@@ -60,6 +60,21 @@ function codigoInquilino(nombre){
 
 }
 
+function codigoPagador(nombre){
+
+    if(nombre.length >0){
+
+        let text = nombre;
+
+        let result = 'PA-' +  valorLetra(text.charAt(0)) + '-' +  completarconcero(1, 4)  + '-' +  nombre;
+
+        return result;
+    } else {
+        return "";
+    }
+
+}
+
 
 /*
 |-------------------------------------------------

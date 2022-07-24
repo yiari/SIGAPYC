@@ -37,6 +37,7 @@
                             <th>Id</th>
                             <th>Doc. Identidad:</th>
                             <th>Nombre o Razón social:</th>
+                            <th>Inquilino</th>
                             <th>Celular:</th>
                             <th>correo</th>
                             <th>Doc / Editar</th>                        
@@ -44,21 +45,7 @@
                     </tfoot>
                     <tbody>
 
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                  
-                                    <td>
-                                        <div class="btn-group" style="font-size:1.3em; letter-spacing:0.5em;">
-
-                                            <a href="#" title="Editar"><i class="fas fa-edit" ></i></a>&nbsp;
-
-                                        </div>
-
-                                    </td>
-
+                                    
                              
                         
                     </tbody>
@@ -68,3 +55,13 @@
     </div>
 
 </div>
+
+
+<?php 
+
+include_once "app/vistas/comunes/modalmensajes.php";
+include_once "app/vistas/comunes/modaleliminar.php";
+
+?>
+
+<script src="js/alquileres/ingresar_pagador.js"></script>
