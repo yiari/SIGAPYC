@@ -6,7 +6,7 @@ class ctrsubirarchivos{
 
 
 
-public function validarArchivos($listaarchivos,$idpropietario){
+public function validarArchivos($listaarchivos,$idpropietario,$tipo,$coordenada){
 
     $listaObjetos = array_keys($listaarchivos);
 
@@ -16,17 +16,16 @@ public function validarArchivos($listaarchivos,$idpropietario){
 
         if($listaarchivos[$objeto]['error'] == 0 ){
 
-            self::subirArchivos($listaarchivos[$objeto],$idpropietario,$objeto);
+            self::subirArchivos($listaarchivos[$objeto],$idpropietario,$objeto,$tipo,$coordenada);
 
         }
         
     }
 
-
 }
 
 
-private function subirArchivos($objeto,$idpropietario,$campoDocumento){
+private function subirArchivos($objeto,$idpropietario,$campoDocumento,$tipo,$coordenada){
 
     /*
     |--------------------------------------------------------------
@@ -44,7 +43,7 @@ private function subirArchivos($objeto,$idpropietario,$campoDocumento){
 
     $docuTEMP = explode('_',$campoDocumento); 
 
-    $rutaDocumento = self::rutasCarpetas($docuTEMP[0]);
+    $rutaDocumento = self::rutasCarpetas($docuTEMP[0],$tipo,$coordenada);
 
 
     /* 
@@ -107,26 +106,66 @@ private function subirArchivos($objeto,$idpropietario,$campoDocumento){
                 $ruta = str_replace("../", "", $path);
 
 
-
+                try {
                 /*
                 |--------------------------------------------------
                 | AQUI GUARDO LA INFORMACION EN LA BASE DE DATOS
                 |--------------------------------------------------
                 */
 
-                //include database configuration file
-                //include_once 'db.php';
-                //insert form data in the database
+                $dbConexionDocumento = new conexcion();
+
+                //$idpropietario,$campoDocumento,$tipo,$coordenada,$rutaDocumento
 
 
-               // $valor = $_POST['medidas'];
+                $stmtDOCU = $dbConexionDocumento->conectar()->prepare("CALL usp_registrodocumentos(?,?,?,?,?)");
+                $stmtDOCU -> bindParam(1, $idpropietario, PDO::PARAM_INT); //ESTE ES EL ID DEL PROPIETARIO
+                $stmtDOCU -> bindParam(2, $tipo, PDO::PARAM_INT);
+                $stmtDOCU -> bindParam(3, $campoDocumento, PDO::PARAM_STR);            
+                $stmtDOCU -> bindParam(4, $coordenada, PDO::PARAM_STR); 
+                $stmtDOCU -> bindParam(5, $path, PDO::PARAM_STR); 
+                
 
-               // foreach ($valor as $medidas){
-                    //echo $medidas."<br />";
+                /*
+                |---------------------------------
+                | AQUI SE EJECUTA LA OPERACION
+                |---------------------------------
+                */
+                $stmtDOCU->execute();
 
-                    //$insert = $conn->query("INSERT tbl_llantas (id_medida,id_manzana,foto,descripcion) VALUES ('".$medidas."','".$id_manzana."','" .$ruta. "','" . $codigo. "')");
 
-               // }
+                } catch (\Exception $e) {
+        
+
+                    $codigoError = $e->getCode();
+            
+                    if ($codigoError == 23000) { //ERROR DE REGISTRO DUPLICADO
+                    $dataRes = array(
+                        'error' => '1',
+                        'mensaje' =>  "El registro se encuentra duplicado " . $e->getMessage()
+                    );
+                    } else {
+                    $dataRes = array(
+                        'error' => '1',
+                        'mensaje' =>  "Mensaje de Error: " . $e->getMessage()
+                    );
+            
+                    }
+            
+                    echo json_encode($dataRes);
+            
+                }
+
+
+
+
+
+
+
+
+
+
+
 
 
             }
@@ -138,128 +177,95 @@ private function subirArchivos($objeto,$idpropietario,$campoDocumento){
 
 }
 
-private function rutasCarpetas($tipoDocumento){
+private function rutasCarpetas($tipoDocumento,$tipo,$coordenada){
+
+/* 
+|-------------------------------------------------------------------
+| LA VARIABLE COORDENADA ES PARA SABER COMO SE MANEJARA LA INFORMACION
+|-------------------------------------------------------------------
+| COORDENADA PERSONA NATURAL
+|--------------------------------- 
+| -> 1P = PROPIETARIO 
+| -> 1PA = APODERADO 
+| -> 1I = INMUEBLE 
+| -> 1IB = BENEFICIARIO 
+| -> 1Q = INQUILINO
+| -> 1QP = PAGADOR 
+|---------------------------------
+| COORDENADA PERSONA JURIDICA
+|---------------------------------  
+| -> 2P = PROPIETARIO 
+| -> 2PR = REPRESENTANTE LEGAL 
+| -> 2I = INMUEBLE 
+| -> 2IB = BENEFICIARIO 
+| -> 2Q = INQUILINO
+| -> 2QP = PAGADOR 
+|
+|----------------------------------------------------------------------
+*/
+
+$carpetaTipo = "";
+
+if($tipo == 1){
+    $carpetaTipo = "natural";
+} else {
+    $carpetaTipo = "juridico";
+}
+
+
+/*
+|------------------------------------------------------
+| AQUI CONSULTO LA CONFIGURACION DE LAS CARPETAS
+|------------------------------------------------------
+*/
+
+
+                $dbConexionCarpetas = new conexcion();  
+
+
+                $prmTipo = "";
+                $prmCarpeta = "";
+                $prmRutaDirecta = 0;
+
+                $stmt = $dbConexionCarpetas->conectar()->prepare('CALL usp_getrutacarpetas (' . $tipo. ',"' . $tipoDocumento . '","' . $coordenada . '")');
+                $stmt->execute();
+                $respuesta = $stmt->fetchAll();
+      
+                //echo "stop datos";
+                
+                if (count($respuesta) > 0){
+
+                    $prmTipo = $respuesta[0]['tipo'];
+                    $prmCarpeta =  $respuesta[0]['carpeta'];
+                    $prmRutaDirecta =  $respuesta[0]['rutadirecta'];
+
+                }
+
 /*
 |-----------------------------------------------------
 | ESTA ES LA RUTA DE LAS CARPETAS DE LOS DOCUMENTOS
 |-----------------------------------------------------
 */
 
-    $ruta = "";
 
-    switch($tipoDocumento){
+$ruta = '../../../documentos/';
 
-        case "cedu":
-            $ruta = '../../../documentos/natural/cedulas/';
-            break;
-        case "rif":
-            $ruta = '../../../documentos/natural/rif/';
-            break;
-        case "refper":
-            $ruta = '../../../documentos/natural/refpersonales/';
-            break;
-        case "reffam":
-            $ruta = '../../../documentos/natural/reffamiliares/';
-            break;
-    
 
-    }
+if ($prmRutaDirecta == 0){
 
+    $ruta = '../../../documentos/' . $carpetaTipo . '/' . $prmCarpeta;
+
+} else {
+
+    $ruta = '../../../documentos/' . $prmCarpeta;
+
+}
 
     return $ruta;
 
 }
 
 
-
-public function uploadFile(){
-//include "dbConectar.php";
-
-    $valid_extensions = array('jpeg', 'jpg', 'png', 'pdf'); // Extensiones de arhivos validas
-    
-    //$valid_extensions = array('jpeg', 'jpg', 'png'); // valid extensions
-
-    $path = '../images/llantas/'; // upload directory
-
-
-    if(!empty($_POST['cboMedidas']) || !empty($_POST['medidas']) || !empty($_POST['txtCodigo']) || $_FILES['imagen'])
-    {
-        $img = $_FILES['imagen']['name'];
-        $tmp = $_FILES['imagen']['tmp_name'];
-
-        
-    /*
-    |--------------------------------------------------------------------------
-    | AQUI VERIFICO LA RESOLUCION DE LA IMAGEN QUE DEBE SER [ 640px x 427px ] |
-    |--------------------------------------------------------------------------
-    */
-
-    $imageInformation = getimagesize($tmp);
-
-    $imageWidth = $imageInformation[0]; //El indice 0 Contiene el Ancho de la imagen
-    $imageHeight = $imageInformation[1]; //El indice 1 Contiene el Alto de la imagen
-
-
-    if($imageWidth == 640 && $imageHeight == 427)
-    {
-
-        // get uploaded file's extension
-        $ext = strtolower(pathinfo($img, PATHINFO_EXTENSION));
-        // can upload same image using rand function
-        $final_image = rand(1000,1000000).$img;
-        // check's valid format
-        if(in_array($ext, $valid_extensions)) 
-        { 
-            $path = $path.strtolower($final_image); 
-            //echo '<br>';
-            //echo $path;
-        
-            if(move_uploaded_file($tmp,$path)) 
-                {
-
-                    $ruta = str_replace("../", "", $path);
-
-                    echo "<img src='$ruta'  width='240px' height='161px' />";
-                    $id_medida = 0;// $_POST['cboMedidas'];
-                    $id_manzana = $_POST['cboManzana'];
-                    $codigo = $_POST['txtCodigo'];
-
-                    //include database configuration file
-                    //include_once 'db.php';
-                    //insert form data in the database
-
-
-                    $valor = $_POST['medidas'];
-
-                    foreach ($valor as $medidas){
-                        //echo $medidas."<br />";
-
-                        //$insert = $conn->query("INSERT tbl_llantas (id_medida,id_manzana,foto,descripcion) VALUES ('".$medidas."','".$id_manzana."','" .$ruta. "','" . $codigo. "')");
-
-                    }
-
-                    //$insert = $conn->query("INSERT tbl_llantas (id_medida,id_manzana,foto,descripcion) VALUES ('".$id_medida."','".$id_manzana."','" .$ruta. "','" . $codigo. "')");
-                    //echo $insert?'ok':'err';
-                }
-        
-        } 
-        else 
-        {
-            echo 'invalid';
-        }
-
-    } else {
-        echo 'badres';
-    }
-
-
-
-
-        
-    }
-
-    //$conn->close();
-}
 
 }
 

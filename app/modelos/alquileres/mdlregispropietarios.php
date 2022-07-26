@@ -151,7 +151,16 @@ public function registrar($tabla,$datos,$archivos){
 
           $subirArchivos = new ctrsubirarchivos();
 
-          $subirArchivos->validarArchivos($archivos,$prmIdPropietario);
+          $prmTipoPersonaTEMP = $datos["tipo_persona"];
+
+
+
+          IF($prmTipoPersonaTEMP == 1){
+            $subirArchivos->validarArchivos($archivos,$prmIdPropietario,$prmTipoPersonaTEMP,'1P');
+          } else {
+            $subirArchivos->validarArchivos($archivos,$prmIdPropietario,$prmTipoPersonaTEMP,'2P');
+          }
+          
 
 
 
