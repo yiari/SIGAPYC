@@ -13,7 +13,7 @@ include_once '../../../app/modelos/conexcion.php';
 | LAS CLASES SE DEBEN LLAMAR EXACTAMENTE IGUAL QUE SU ARCHIVO
 |---------------------------------------------------------------
 */
-class mdlregistroinquilinosj{
+class mdlregistropagadorj{
 
 public function registrar($tabla,$datos){
 
@@ -41,22 +41,23 @@ public function registrar($tabla,$datos){
           | AQUI PREPARO LO QUE SERA LA LLAMADA AL PROCEDIMIENTO QUE REALIZARA LA OPERACION
           |----------------------------------------------------------------------------------
           */
-          $stmt = $dbConexion->conectar()->prepare("CALL usp_registroinquilinos_j(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
-          $stmt -> bindParam(1,  $datos["id"], PDO::PARAM_INT);
-          $stmt -> bindParam(2,  $datos["cod_inqu"],PDO::PARAM_STR); 
-          $stmt -> bindParam(3,  $datos["nom_inqj"],PDO::PARAM_STR); 
-          $stmt -> bindParam(4,  $datos["rif_inqj"],PDO::PARAM_STR); 
-          $stmt -> bindParam(5,  $datos["act_inqj"],PDO::PARAM_STR); 
-          $stmt -> bindParam(6,  $datos["dir_inqj"],PDO::PARAM_STR); 
-          $stmt -> bindParam(7,  $datos["tel_inqj"],PDO::PARAM_STR); 
-          $stmt -> bindParam(8,  $datos["cor_inqj"],PDO::PARAM_STR); 
-          $stmt -> bindParam(9,  $datos["cod_regi"],PDO::PARAM_STR); 
-          $stmt -> bindParam(10, $datos["not_regi"],PDO::PARAM_STR); 
-          $stmt -> bindParam(11, $datos["fec_regi"],PDO::PARAM_INT); 
-          $stmt -> bindParam(12, $datos["num_regi"],PDO::PARAM_INT);
-          $stmt -> bindParam(13, $datos["tom_regi"],PDO::PARAM_STR); 
-          $stmt -> bindParam(14, $datos["fol_regi"],PDO::PARAM_STR); 
-          $stmt -> bindParam(15, $datos["tip_inqu"],PDO::PARAM_STR); 
+          $stmt = $dbConexion->conectar()->prepare("CALL usp_registropagadorj(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+          $stmt -> bindParam(1,  $datos["id"],PDO::PARAM_INT);       //ESTE ES EL ID DEL PAGADOR JURIDICO
+          $stmt -> bindParam(2,  $datos ["id_inqu"],PDO::PARAM_INT); //ESTE ES EL ID DEL inquilino
+          $stmt -> bindParam(3,  $datos["cod_pagj"],PDO::PARAM_STR); 
+          $stmt -> bindParam(4,  $datos["nom_pagj"],PDO::PARAM_STR); 
+          $stmt -> bindParam(5,  $datos["rif_pagj"],PDO::PARAM_STR); 
+          $stmt -> bindParam(6,  $datos["act_pagj"],PDO::PARAM_STR); 
+          $stmt -> bindParam(7,  $datos["dir_pagj"],PDO::PARAM_STR); 
+          $stmt -> bindParam(8,  $datos["tel_pagj"],PDO::PARAM_STR); 
+          $stmt -> bindParam(9,  $datos["cor_pagj"],PDO::PARAM_STR); 
+          $stmt -> bindParam(10, $datos["cod_regi"],PDO::PARAM_STR); 
+          $stmt -> bindParam(11, $datos["not_regi"],PDO::PARAM_STR); 
+          $stmt -> bindParam(12, $datos["fec_regi"],PDO::PARAM_INT); 
+          $stmt -> bindParam(13, $datos["num_regi"],PDO::PARAM_INT);
+          $stmt -> bindParam(14, $datos["tom_regi"],PDO::PARAM_STR); 
+          $stmt -> bindParam(15, $datos["fol_regi"],PDO::PARAM_STR); 
+          $stmt -> bindParam(16, $datos["tip_paga"],PDO::PARAM_STR); 
 
 
           

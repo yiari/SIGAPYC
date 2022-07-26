@@ -228,12 +228,9 @@ include("layout/menuNavegacion.php");
                                         <div class="col-md-4">
                                             <label class="col-sm-12 col-form-label">Código:</label>
                                         
-                                                <div class="col-sm-12">
-                                                    <select class="form-control" id="id_prop" name="id_prop"  required autofocus>
-                                            
-                                                        <option selected disabled value=""></option>               
-                                                    </select>
-                                                </div>
+                                            <div class="col-sm-12">
+                                                <input type="text" class="form-control" id="nom_prop" name="nom_prop" readonly="yes">
+                                            </div>
 
                                         </div>
                                         <div class="col-md-3">
@@ -298,16 +295,15 @@ include("layout/menuNavegacion.php");
                                         <h5 class="card-title">Datos del Inquilino</h5>
                                     </div>
                                     <div class="row">
+                                        
+
                                         <div class="col-md-4">
-                                            <label class="col-sm-12 col-form-label">Código:</label>
+                                            <label for="cboinquilino" class="col-sm-10 col-form-label">Codigo:</label></br>
                                             <div class="col-sm-12">
-                                              <select class="form-control" id="cod_inqu" name="cod_inqu"  required autofocus>
-                                                    <option value="0" selected="selected"></option>  
-                                                       
-                                                </select>
-                                                <!--input type="text" class="form-control" id="cod_inqu" name="cod_inqu"  required-->
+                                                <select class="form-control"  id="cboinquilino" name="cboinquilino"></select>
                                             </div>
                                         </div>
+                                           
                                         <div class="col-md-8">
                                             <label class="col-sm-12 col-form-label">Nombre o Razón social:</label>
                                             <div class="col-sm-12">

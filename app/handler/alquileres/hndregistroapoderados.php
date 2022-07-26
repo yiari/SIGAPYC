@@ -94,12 +94,12 @@ if($operacion == "I"){
                     "dir_apod" => $_POST["registroDirecionH"],
                     "ofi_apod" => $_POST["registroDirecionO"],
                     "tip_apod" => $_POST["tipo_persona"],
-                    "cod_pode" => "",
-                    "not_pode" => "",
-                    "fec_pode" => "",
-                    "num_pode" => "",
-                    "tom_pode" => "",
-                    "fol_pode" => "",
+                    "cod_pode" => $_POST["cod_pode"],
+                    "not_pode" => $_POST["not_pode"],
+                    "fec_pode" => $_POST["fec_pode"],
+                    "num_pode" => $_POST["num_pode"],
+                    "tom_pode" => $_POST["tom_pode"],
+                    "fol_pode" => $_POST["fol_pode"],
                    /*
                    |------------------------------------------
                    | AQUI VAN LOS DATOS DE LOS BANCOS NACIONALES

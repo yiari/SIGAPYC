@@ -13,7 +13,7 @@ include_once '../../../app/modelos/conexcion.php';
 | LAS CLASES SE DEBEN LLAMAR EXACTAMENTE IGUAL QUE SU ARCHIVO
 |---------------------------------------------------------------
 */
-class mdlregistroapoderado{
+class mdlregistropagador{
 
 public function registrar($tabla,$datos){
 
@@ -41,61 +41,26 @@ public function registrar($tabla,$datos){
           | AQUI PREPARO LO QUE SERA LA LLAMADA AL PROCEDIMIENTO QUE REALIZARA LA OPERACION
           |----------------------------------------------------------------------------------
           */
-          $stmt = $dbConexion->conectar()->prepare("CALL usp_registroapoderado(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
-          $stmt -> bindParam(1,  $datos ["id_apod"],  PDO::PARAM_INT); //ESTE ES EL ID DEL APODRRADO
-		      $stmt -> bindParam(2,  $datos ["id_prop"],  PDO::PARAM_INT); //ESTE ES EL ID DEL PROPIETARIO
-          $stmt -> bindParam(3,  $datos ["cod_apod"], PDO::PARAM_STR);
-          $stmt -> bindParam(4,  $datos ["nom_apod"], PDO::PARAM_STR);            
-          $stmt -> bindParam(5,  $datos ["ape_apod"], PDO::PARAM_STR);          
-          $stmt -> bindParam(6,  $datos ["nac_apod"], PDO::PARAM_INT);   
-          $stmt -> bindParam(7,  $datos ["ci_apod"],  PDO::PARAM_STR);       
-          $stmt -> bindParam(8,  $datos ["rif_apod"], PDO::PARAM_STR);                     
-          $stmt -> bindParam(9,  $datos ["loc_apod"], PDO::PARAM_STR);     
-          $stmt -> bindParam(10, $datos ["cel_apod"], PDO::PARAM_STR);          
-          $stmt -> bindParam(11, $datos ["cor_apod"], PDO::PARAM_STR);       
-          $stmt -> bindParam(12, $datos ["est_apod"], PDO::PARAM_INT);         
-          $stmt -> bindParam(13, $datos ["mun_apod"], PDO::PARAM_INT);      
-          $stmt -> bindParam(14, $datos ["par_apod"], PDO::PARAM_INT); 
-          $stmt -> bindParam(15, $datos ["dir_apod"], PDO::PARAM_STR);
-          $stmt -> bindParam(16, $datos ["ofi_apod"], PDO::PARAM_STR);     
-          $stmt -> bindParam(17, $datos ["tip_apod"], PDO::PARAM_INT);       
-          $stmt -> bindParam(18, $datos ["cod_pode"], PDO::PARAM_STR);
-          $stmt -> bindParam(19, $datos ["not_pode"], PDO::PARAM_STR);
-          $stmt -> bindParam(20, $datos ["fec_pode"], PDO::PARAM_INT);
-          $stmt -> bindParam(21, $datos ["num_pode"], PDO::PARAM_STR);
-          $stmt -> bindParam(22, $datos ["tom_pode"], PDO::PARAM_STR);
-          $stmt -> bindParam(23, $datos ["fol_pode"], PDO::PARAM_STR);
-              
-            /*
-            |-----------------------------------------------
-            | AQUI VAN LOS DATOS DE LOS BANCOS NACIONALES
-            |-----------------------------------------------
-            */
-
-          $stmt -> bindParam(24, $datos["cuenta_id_nacional"], PDO::PARAM_INT); //ESTE ES EL ID DEL REGISTRO EN LA TABLA CUENTAS_PROPIETARIOS_NACIONAL
-          $stmt -> bindParam(25, $datos["cuenta_id_banco"], PDO::PARAM_INT); //CAMPO OBLIGATORIO
-          $stmt -> bindParam(26, $datos["num_cuenta_nacional"], PDO::PARAM_STR); //CAMPO OBLIGATORIO
-
-          $stmt -> bindParam(27, $datos["pagomovil_cedula"], PDO::PARAM_INT);     
-          $stmt -> bindParam(28, $datos["pagomovil_id_banco"], PDO::PARAM_INT);       
-          $stmt -> bindParam(29, $datos["pagomovil_telefono"], PDO::PARAM_STR);
+          $stmt = $dbConexion->conectar()->prepare("CALL usp_registropagador(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+          $stmt -> bindParam(1,  $datos ["id_paga"],  PDO::PARAM_INT); //ESTE ES EL ID DEL pagador
+		  $stmt -> bindParam(2,  $datos ["id_inqu"],  PDO::PARAM_INT); //ESTE ES EL ID DEL inquilino
+          $stmt -> bindParam(3,  $datos ["cod_paga"], PDO::PARAM_STR);
+          $stmt -> bindParam(4,  $datos ["nom_paga"], PDO::PARAM_STR);            
+          $stmt -> bindParam(5,  $datos ["ape_paga"], PDO::PARAM_STR);          
+          $stmt -> bindParam(6,  $datos ["nac_paga"], PDO::PARAM_INT);   
+          $stmt -> bindParam(7,  $datos ["ci_paga"],  PDO::PARAM_STR);       
+          $stmt -> bindParam(8,  $datos ["rif_paga"], PDO::PARAM_STR);                     
+          $stmt -> bindParam(9,  $datos ["loc_paga"], PDO::PARAM_STR);     
+          $stmt -> bindParam(10, $datos ["cel_paga"], PDO::PARAM_STR);          
+          $stmt -> bindParam(11, $datos ["cor_paga"], PDO::PARAM_STR);       
+          $stmt -> bindParam(12, $datos ["est_paga"], PDO::PARAM_INT);         
+          $stmt -> bindParam(13, $datos ["mun_paga"], PDO::PARAM_INT);      
+          $stmt -> bindParam(14, $datos ["par_paga"], PDO::PARAM_INT); 
+          $stmt -> bindParam(15, $datos ["dir_paga"], PDO::PARAM_STR);
+          $stmt -> bindParam(16, $datos ["ofi_paga"], PDO::PARAM_STR);     
+          $stmt -> bindParam(17, $datos ["tip_paga"], PDO::PARAM_INT);
 
 
-            /*
-            |-----------------------------------------------
-            | AQUI VAN LOS DATOS DE LOS BANCOS INTERNACIONALES
-            |-----------------------------------------------
-            */
-
-            $stmt -> bindParam(30, $datos["cuenta_id_internacional"], PDO::PARAM_INT); //ESTE ES EL ID DEL REGISTRO EN LA TABLA CUENTAS_PROPIETARIOS_NACIONAL
-            
-            $stmt -> bindParam(31, $datos["ban_extr"], PDO::PARAM_STR); 
-            $stmt -> bindParam(32, $datos["age_extr"], PDO::PARAM_STR); 
-            $stmt -> bindParam(33, $datos["dc_extr"], PDO::PARAM_STR);     
-            $stmt -> bindParam(34, $datos["cue_extr"], PDO::PARAM_STR);       
-            $stmt -> bindParam(35, $datos["iba_extr"], PDO::PARAM_STR);
-            $stmt -> bindParam(36, $datos["bic_extr"], PDO::PARAM_STR);
-  
                   
           /*
           |---------------------------------
@@ -171,7 +136,7 @@ public function registrar($tabla,$datos){
 
             $dbConexion = new conexcion();  
 
-              $stmt = $dbConexion->conectar()->prepare("CALL usp_cargarapoderado()");
+              $stmt = $dbConexion->conectar()->prepare("CALL usp_cargarpagador()");
               $stmt->execute();
               $dataRegistro["Items"][] = $stmt->fetchAll();
     
@@ -202,7 +167,7 @@ public function registrar($tabla,$datos){
 
         $dbConexion = new conexcion();
         
-        $stmt = $dbConexion->conectar()->prepare("CALL usp_cargarapoderado()" );
+        $stmt = $dbConexion->conectar()->prepare("CALL usp_cargarpagador()" );
       
         $stmt ->bindParam(":".$iten, $valor, PDO::PARAM_STR);
         $stmt->execute();

@@ -1,7 +1,9 @@
 function inicio(){
 
-  
+   
     cargarRepresentanteLegal();
+    cargarinquilino();
+    
 
 
 }

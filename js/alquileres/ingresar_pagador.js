@@ -1,14 +1,10 @@
 function inicio(){
 
-    cargarApoderado();
+    
+    cargarPagador();
+    generarCodigoPagador();
     cargarEstados();
-    guardarApoderado();
-    generarCodigoApoderado();
-  
-    cargarBancos('cboBancoN');
-    cargarBancos('cboBancoJ');
-    cargarBancos('cboBancop');
-    cargarBancos('cboBancoNP');
+    guardarPagador();
 
 
     jQuery("#registroNombre").on('input', function (evt) {
@@ -18,8 +14,6 @@ function inicio(){
     jQuery("#registroApellido").on('input', function (evt) {
         jQuery(this).val(jQuery(this).val().replace(/[^A-Za-z ]/g, ''));
     });
-
-
 
 
     jQuery("#registroCedula").on('input', function (evt) {
@@ -34,19 +28,15 @@ function inicio(){
         jQuery(this).val(jQuery(this).val().replace(/[^0-9]/g, ''));
     });
 
-    jQuery("#num_cuen").on('input', function (evt) {
-        jQuery(this).val(jQuery(this).val().replace(/[^0-9]/g, ''));
-    });
 
-    jQuery("#ced_pmov").on('input', function (evt) {
-        jQuery(this).val(jQuery(this).val().replace(/[^0-9]/g, ''));
-    });
+    /*
+    |-------------------------
+    | ESTO ES LO JURIDICO
+    |------------------------------
+    */
 
-    jQuery("#cel_pmov").on('input', function (evt) {
-        jQuery(this).val(jQuery(this).val().replace(/[^0-9]/g, ''));
-    });
-
-
+    guardarPagadorJuridico();
+    generarCodigoPagadorj();
 
 }
 
@@ -61,9 +51,9 @@ function validateEmail(email) {
 
 
 
-function guardarApoderado(){
+function guardarPagador(){
 
-    $("#registrarapoderado").on('submit', function(evt) {
+    $("#registrarpagador").on('submit', function(evt) {
    /*
    |-----------------------------------------------
    | AQUI SE PREVIENE QUE EL FORMULARIO CONTINUE 
@@ -75,37 +65,37 @@ function guardarApoderado(){
   
 
    if ($("#registroNombre").val() == "") {
-       mensaje("Debe indicar el nombre del apoderado",1);
+       mensaje("Debe indicar el nombre del pagador",1);
        return;
    }
 
    if ($("#registroApellido").val() == "") {
-       mensaje("Debe indicar el apellido del apoderado",1);
+       mensaje("Debe indicar el apellido del pagador",1);
        return;
    }
 
    if ($("#registroNacionalidad").val() == "") {
-    mensaje("Debe indicar la nacionalidad del apoderado",1);
+    mensaje("Debe indicar la nacionalidad del pagador",1);
     return;
     }
 
     if ($("#registroCedula").val() == "") {
-        mensaje("Debe indicar la cédula del apoderado",1);
+        mensaje("Debe indicar la cédula del pagador",1);
         return;
         }
     
     if ($("#registroTeléfono").val() == "") {
-        mensaje("Debe indicar el telefono del apoderado",1);
+        mensaje("Debe indicar el telefono del pagador",1);
         return;
         }
     
     if ($("#registroCelular").val() == "") {
-        mensaje("Debe indicar el celular del apoderado",1);
+        mensaje("Debe indicar el celular del pagador",1);
         return;
         }
 
     if ($("#registroRif").val() == "") {
-        mensaje("Debe indicar el rif del apoderado",1);
+        mensaje("Debe indicar el rif del pagador",1);
         return;
         }
     
@@ -125,12 +115,12 @@ function guardarApoderado(){
         }
     
     if ($("#registroDirecionH").val() == "") {
-        mensaje("Debe indicar la dirección de habitación del apoderado ",1);
+        mensaje("Debe indicar la dirección de habitación del pagador ",1);
         return;
         }
 
     if ($("#registroDirecionO").val() == "") {
-        mensaje("Debe indicar la dirección de la oficina del apoderado ",1);
+        mensaje("Debe indicar la dirección de la oficina del pagador ",1);
         return;
         }
     
@@ -146,52 +136,6 @@ function guardarApoderado(){
             return;
         }
     }
-
-
-    if ($("#registroEstado").val() == "") {
-        mensaje("Debe indicar el estado de residencia del apoderado",1);
-        return;
-        }
-    
-    if ($("#registroMunicipio").val() == "") {
-        mensaje("Debe indicar el Municipio de residencia del apoderado",1);
-        return;
-        }
-
-    if ($("#registroParroquia").val() == "") {
-        mensaje("Debe indicar la parroquia de residencia del apoderado",1);
-        return;
-        }
-    
-    
-    if ($("#cboBancoN").val() == "") {
-        mensaje("Debe indicar el banco del apoderado",1);
-        return;
-        }
-
-    if ($("#num_cuen").val() == "") {
-        mensaje("Debe indicar el numero de cuenta del banco",1);
-        return;
-        } else {
-
-            var numcuentaTMP = $("#num_cuen").val(); 
-
-            if (numcuentaTMP.length<20){
-                mensaje("El Numero de cuenta debe ser de 20 digitos.",1);
-                return;
-
-            } else {
-
-                if(validarCuentaBanco('cboBancoN',numcuentaTMP) == false){
-                    mensaje("El Numero de cuenta registrado no concuerda con el banco seleccionado.",1);
-                    return;
-                }
-
-            } 
-
-
-        }
-
 
 
    
@@ -219,7 +163,7 @@ function guardarApoderado(){
         |-----------------------------------------------
         */
         $.ajax({
-            url: "app/handler/alquileres/hndregistroapoderados.php",
+            url: "app/handler/alquileres/hndregistropagador.php",
             type: "POST",
             data: formData, //new FormData(this),
             contentType: false,
@@ -270,7 +214,7 @@ function guardarApoderado(){
 
 
 
-function cargarApoderado(){
+function cargarPagador(){
 
     /*
     |-----------------------------------------------------
@@ -286,7 +230,7 @@ function cargarApoderado(){
     |-----------------------------------------------
     */
     $.ajax({
-        url: "app/handler/alquileres/hndregistroapoderados.php",
+        url: "app/handler/alquileres/hndregistropagador.php",
         data: formData,
         processData: false,
         contentType: false,
@@ -320,15 +264,17 @@ function cargarApoderado(){
                            
                             tr.append("<td>" + json.Items[0][i].codigo + "</td>");
                             tr.append("<td>" + json.Items[0][i].nombre + "</td>");
-                            tr.append("<td>" + json.Items[0][i].propietraio + "</td>");
+                            tr.append("<td>" + json.Items[0][i].inquilino + "</td>");
                             tr.append("<td>" + json.Items[0][i].telefono + "</td>");
                             tr.append("<td>" + json.Items[0][i].correo + "</td>"); 
                             
                             var html="";
                             html = '<div class="btn-group" style="font-size:1.3em; letter-spacing:0.5em;">';
-                            html += '<a title="edit" data-field-id="' + json.Items[0][i].id_apod  + '"><fa fa-pencil-square-o alt=“editar”></i></a>&nbsp;';
-                            html += '<a title="ver" data-field-id="' + json.Items[0][i].id_apod + '"><i class="fas fa-search"></i></a>&nbsp;';
-                            html += '<a title="eliminar"  data-field-id="'  + json.Items[0][i].id_apod + '"><i class="fas fa-trash" alt=“eliminar”></i></a>';
+                            html += '<a href="javascript:void(0);" onclick="cargarPantalla(' + json.Items[0][i].id_paga + ')" title="edit"><i class="fas fa-edit" alt=“editar”></i></a>&nbsp;';
+                            html += '<a title="ver" data-field-id_paga="' + json.Items[0][i].id_paga + '"><i class="fas fa-search"></i></a>&nbsp;';
+                            html += '<a title="eliminar"  data-field-id_paga="'  + json.Items[0][i].id_paga + '"><i class="fas fa-trash" alt=“eliminar”></i></a>';
+                            
+                           
                             html += '</div>'
                             tr.append("<td>" + html + "</td>");
                             $('#datatablesSimple').append(tr);
@@ -336,7 +282,7 @@ function cargarApoderado(){
                     }
 
 
-                    //editarRepresentante();
+                    editarPagador();
                     //validareliminarRepresentante();
                 }
                 /************************************************ */
@@ -349,6 +295,13 @@ function cargarApoderado(){
     });
 
 }
+
+
+function cargarPantalla(prmid_paga){
+
+    window.open("index.php?url=app/vistas/alquileres/ingresar_pagador?id_paga=" + prmid_paga, "_self");
+   
+   }
 
 
 
@@ -375,7 +328,7 @@ function mensaje(mensaje, condicion){
 
 
 
-function generarCodigoApoderado(){
+function generarCodigoPagador(){
 
 
     $("#registroNombre").on('keyup', function () {
@@ -384,7 +337,7 @@ function generarCodigoApoderado(){
         var prmApellido=$("#registroApellido").val();
 
         $("#registroCodigo").val('');
-        $("#registroCodigo").val(codigoApoderado(prmNombre + ' ' + prmApellido));
+        $("#registroCodigo").val(codigoPagador(prmNombre + ' ' + prmApellido));
 
     });
 
@@ -394,7 +347,7 @@ function generarCodigoApoderado(){
         var prmApellido=this.value;
 
         $("#registroCodigo").val('');
-        $("#registroCodigo").val(codigoApoderado(prmNombre + ' ' + prmApellido));
+        $("#registroCodigo").val(codigoPagador(prmNombre + ' ' + prmApellido));
 
     });
    
@@ -412,7 +365,6 @@ function limpiarTabla() {
 function limpiarCampos(){
 
     $("#hidapoderado").val("");
-    $("#id_prop").val("");
     $("#registroCodigo").val("");
     $("#registroNombre").val("");
     $("#registroApellido").val("");
@@ -427,29 +379,89 @@ function limpiarCampos(){
     $("#cboParroquia").val("");
     $("#registroDirecionH").val("");
     $("#registroDirecionO").val("");
-    $("#cod_pode").val("");
-    $("#not_pode").val("");
-    $("#fec_pode").val("");
-    $("#num_pode").val("");
-    $("#tom_pode").val("");
-    $("#fol_pode").val("");
-    $("cuenta_id_nacional").val("");
-    $("cuenta_id_banco").val("");
-    $("num_cuenta_nacional").val("");
-    $("pagomovil_cedula").val("");
-    $("pagomovil_id_banco").val("");
-    $("pagomovil_telefono").val("");
-
-    $("cuenta_id_internacional").val("");
-    $("ban_extr").val("");
-    $("age_extr").val("");
-    
-    $("dc_extr").val("");
-    $("cue_extr").val("");
-    $("iba_extr").val("");
-    $("bic_extr").val("");
+   
 
 }
+
+
+
+function editarPagador(){
+
+    $(".edit").click(function() {
+
+    
+
+        var prmid_paga = $(this).data('field-id_paga');
+        var prmcod_paga = $(this).data('field-cod_paga');
+        var prmnom_paga = $(this).data('field-nom_paga');
+        var prmape_paga = $(this).data('field-ape_pag');
+        var prmnac_paga = $(this).data('field-nac_paga');
+        var prmci_paga  = $(this).data('field-ci_paga');
+        var prmrif_paga = $(this).data('field-rif_paga');
+        var prmloc_paga = $(this).data('field-loc_paga');
+        var prmcel_paga = $(this).data('field-cel_paga');
+        var prmcor_paga = $(this).data('field-cor_paga');
+        var prmest_paga = $(this).data('field-est_paga');
+        var prmmun_paga = $(this).data('field-mun_paga');
+        var prmpar_paga = $(this).data('field-par_paga');
+        var prmdir_paga = $(this).data('field-dir_paga');
+        var prmofi_paga = $(this).data('field-ofi_paga');
+       
+
+        
+        $("#hidapoderado").val(prmid_paga);
+        $("#registroCodigo").val(prmcod_paga);
+        $("#registroNombre").val(prmnom_paga);
+        $("#registroApellido").val(prmape_paga);
+        $("#registroNacionalidad").val( prmnac_paga);
+        $("#registroCedula").val(prmci_paga);
+        $("#registroRif").val(prmrif_paga);
+        $("#registroTelefono").val(prmloc_paga);
+        $("#registroCelular").val(prmcel_paga); 
+        $("#registroEmail").val(prmcor_paga);
+        $("#cboEstados").val(prmest_paga);                
+        $("#cboMunicipios").val(prmmun_paga);
+        $("#cboParroquia").val(prmpar_paga);
+        $("#registroDirecionH").val(prmdir_paga);
+        $("#registroDirecionO").val(prmofi_paga );
+       
+
+      
+
+        botones(1);
+
+        cancelarRegistro();
+       
+    })
+
+
+}
+
+
+function botones(opcion){
+
+    if(opcion == 1){
+    
+        $(".cancelar").show();
+    
+    } else {
+        
+        $(".cancelar").hide();
+    
+    }
+    
+    }
+
+function cancelarRegistro(){
+    
+        $(".cancelar").click(function() {
+            limpiarCampos();
+            botones(0);
+    
+        })
+    }
+
+
 
 
 

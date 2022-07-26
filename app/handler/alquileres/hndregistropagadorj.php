@@ -5,7 +5,7 @@
 | INCLUYO LA CLASE CORRESPONDIENTE
 |----------------------------------------
 */
-include_once '../../../app/controladores/alquileres/ctrregistroinquilinosj.php';
+include_once '../../../app/controladores/alquileres/ctrregistropagadorj.php';
 
 
 /*
@@ -14,7 +14,7 @@ include_once '../../../app/controladores/alquileres/ctrregistroinquilinosj.php';
 |-------------------------------------------------
 */
 
-if (class_exists('ctrregistroinquilinoj')) 
+if (class_exists('ctrregistropagadorj')) 
 {
    //$o_miClase = new ctrregistrousuarios();
 }
@@ -67,28 +67,29 @@ if($operacion == "I"){
     |-------------------------------------------
     */
     
-    $registroInquilinoj =  new ctrregistroinquilinoj();
+    $registroPagadorj =  new ctrregistropagadorj();
 
    /*
    |---------------------------------------------
    | AQUI CARGO LOS DATOS PARA ALMACENAR
    |---------------------------------------------
    */
-    $datos = array( "id"  => $_POST["hidinquilinoj"],
-                    "cod_inqu" => $_POST["registroCodigoj"],
-                    "nom_inqj" => $_POST["registroNombrej"],
-                    "rif_inqj" => $_POST["registroRifj"],
-                    "act_inqj" => $_POST["registroactividad"],
-                    "dir_inqj" => $_POST["registroDirecionj"],
-                    "tel_inqj" => $_POST["registroCelularj"],
-                    "cor_inqj" => $_POST["registroEmailj"],
+    $datos = array( "id"       => $_POST["hidpagadorj"],
+                    "id_inqu"  =>   $_POST["id_inqu"],
+                    "cod_pagj" => $_POST["registroCodigoj"],
+                    "nom_pagj" => $_POST["registroNombrej"],
+                    "rif_pagj" => $_POST["registroRifj"],
+                    "act_pagj" => $_POST["registroactividad"],
+                    "dir_pagj" => $_POST["registroDirecionj"],
+                    "tel_pagj" => $_POST["registroCelularj"],
+                    "cor_pagj" => $_POST["registroEmailj"],
                     "cod_regi" => $_POST["registroPoder"],
                     "not_regi" => $_POST["nombreRegistro"],
                     "fec_regi" => $_POST["fechaRegistro"],
                     "num_regi" => $_POST["numeroRegistro"],
                     "tom_regi" => $_POST["tomoRegistro"],
                     "fol_regi" => $_POST["foliRegistro"],
-                    "tip_inqu" => $_POST["tipo_personaj"]);
+                    "tip_paga" => $_POST["tipo_personaj"]);
 
                          
 				
@@ -102,7 +103,7 @@ if($operacion == "I"){
    | AQUI OBTENGO EL RESULTADO DE LA EJECUCION
    |---------------------------------------------
    */
-     $result = $registroInquilinoj->registrar($datos);
+     $result = $registroPagadorj->registrar($datos);
     
     /*
     |-------------------------------------------
@@ -118,7 +119,7 @@ if($operacion == "I"){
 
 /* 
  |--------------------------------------------------------------
- | AQUI SE EJECUTA LA OPERACION DE CONSULTAR TODOS LOS USUARIOS
+ | AQUI SE EJECUTA LA OPERACION DE CONSULTAR TODOS LOS PAGADOR_JURIDICO
  |--------------------------------------------------------------
 */
 
@@ -130,14 +131,14 @@ if($operacion == "C"){
     |-------------------------------------------
     */
     
-    $registroInquilinoj =  new ctrregistroinquilinoj();
+    $registroPagadorj =  new ctrregistropagadorj();
 
    /* 
    |---------------------------------------------
    | AQUI OBTENGO EL RESULTADO DE LA EJECUCION
    |---------------------------------------------
    */
-     $result = $registroInquilinoj->seleccionarregistros();
+     $result = $registroPagadorj->seleccionarregistros();
     
     /*
     |-------------------------------------------
@@ -154,7 +155,7 @@ if($operacion == "C"){
 
 /* 
  |--------------------------------------------------------------
- | AQUI SE EJECUTA LA OPERACION ELIMINAR USUARIO
+ | AQUI SE EJECUTA LA OPERACION ELIMINAR PAGADOR_JURIDICO
  |--------------------------------------------------------------
 */
 
@@ -166,7 +167,7 @@ if($operacion == "D"){
     |-------------------------------------------
     */
     
-    $registroInquilinoj =  new ctrregistroinquilinoj();
+    $registroPagadorj =  new ctrregistropagadorj();
 
    /*
    |---------------------------------------------
