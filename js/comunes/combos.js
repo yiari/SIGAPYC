@@ -417,6 +417,7 @@ function validarCuentaBanco(comboBanco,numeroCuenta){
 
 
 }
+
 function cargarRepresentanteLegal(){
 
     /*
@@ -591,6 +592,95 @@ function cargartipo_inmueble(){
     });
 
 }
+
+
+
+function cargarinquilino(){
+
+    /*
+    |-----------------------------------------------------
+    | AQUI SE AGREGA UN PARAMETRO ADICIONAL AL FORMULARIO 
+    |-----------------------------------------------------
+    */
+    var formData = new FormData();
+
+    formData.append('opcion','inquilino');
+    /*
+    |-----------------------------------------------
+    | AQUI SE LLAMA EL AJAX 
+    |-----------------------------------------------
+    */
+    $.ajax({
+        url: "app/handler/comunes/hndcomunes.php",
+        data: formData,
+        processData: false,
+        contentType: false,
+        type: 'POST',
+        success: function (data,status,xhr) {
+
+         var json = data;
+        
+/*
+        console.log(json);
+        console.log("Este es el Mensaje: " + json.mensaje);
+        console.log("Items: " + json.Items.length);
+        console.log("Items Resultados: " + json.Items[0].length);
+        console.log("Rol Resultados: " + json.Items[0][1].rol);
+*/
+                /*
+                |------------------------------------------------------
+                | AQUI SE CARGA LA INFORMACION EN LA TABLA
+                |------------------------------------------------------
+                */
+                if(json.Items.length > 0){
+                    var tr;
+
+                    /* 
+                    |-----------------------------------------
+                    | SELECCIONO EL COMBO ROLES Y LO LIMPIO
+                    |-----------------------------------------
+                    */
+
+                        $('#cboinquilino') 
+                        .find('option') 
+                        .remove()
+                        .end()
+                        ;
+
+                    /* 
+                    |----------------------------------------
+                    | AQUI CARGO EL TEXTO POR DEFECTO
+                    |----------------------------------------
+                    */
+
+                        $('#cboinquilino').append("<option value=''>Seleccione un inquilino...</option>"); 
+
+                    /* 
+                    |-------------------------------------------------
+                    | AQUI RECORRO LOS ITEMS Y LOS CARGO EN EL COMBO
+                    |--------------------------------------------------
+                    */
+
+                    for (var i = 0; i < json.Items[0].length; i++) {
+       
+                        $("#cboinquilino").append($("<option></option>").val(json.Items[0][i].id).html(json.Items[0][i].codigo)); 
+        
+                    }
+
+                   
+
+                }
+                /************************************************ */
+
+
+        },
+        error: function (e) {
+            $("#error").html(e).fadeIn();
+        }
+    });
+
+}
+
 
 
 

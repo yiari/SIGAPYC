@@ -22,8 +22,8 @@
                         <tr>
 
                             <th>Codigo</th>
-                            <th>Nombre</th>
-                            <th>Propietario</th>
+                            <th>Nombre pagador</th>
+                            <th>Inquilino</th>
                             <th>Telefono</th>
                             <th>correo</th>
                             <th>Doc / Editar</th>

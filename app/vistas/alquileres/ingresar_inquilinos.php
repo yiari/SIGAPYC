@@ -280,7 +280,7 @@ include("layout/menuNavegacion.php");
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-5">
-                                                        <label class="col-sm-12 col-form-label">Dirección Fiscal:</label>
+                                                        <label  class="col-sm-12 col-form-label">Dirección Fiscal:</label>
                                                         <div class="col-sm-12">
                                                             <input  for="registroDirecionj" type="text" class="form-control" id="registroDirecionj" name="registroDirecionj"><br>
                                                         </div>

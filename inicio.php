@@ -51,7 +51,18 @@
 
                                 
                                 if($_GET["url"] != ""){
+                                    
+                                 $pos = strpos($_GET["url"],"?");
+
+                                 if($pos > 0){
+                                    include $_GET["url"];
+                                 } else {
                                     include $_GET["url"].".php";
+                                 }
+
+                                    
+
+
                                 } else {
                                     include "errores/error404.php";
                                 }

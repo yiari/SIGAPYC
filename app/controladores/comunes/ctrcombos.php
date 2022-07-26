@@ -73,5 +73,14 @@ class ctrcombos{
     }
 
 
+    public function getinquilinos(){
+
+        
+        $modelo =  new mdlcombos();
+        $respuestas =  $modelo->getinquilinos();
+        return $respuestas;
+    }
+
+
 
 }

@@ -132,14 +132,14 @@ if($operacion == "C"){
      |-------------------------------------------
      */
      
-     $registroRepresentante =  new ctrregistrorepresentante();
+     $registroPagador =  new ctrregistropagador();
  
     /* 
     |---------------------------------------------
     | AQUI OBTENGO EL RESULTADO DE LA EJECUCION
     |---------------------------------------------
     */
-      $result = $registroRepresentante->seleccionarregistros();
+      $result = $registroPagador->seleccionarregistros();
      
      /*
      |-------------------------------------------

@@ -29,6 +29,14 @@ function inicio(){
     });
 
 
+    /*
+    |-------------------------
+    | ESTO ES LO JURIDICO
+    |------------------------------
+    */
+
+    guardarPagadorJuridico();
+    generarCodigoPagadorj();
 
 }
 
@@ -262,9 +270,11 @@ function cargarPagador(){
                             
                             var html="";
                             html = '<div class="btn-group" style="font-size:1.3em; letter-spacing:0.5em;">';
-                            html += '<a title="edit" data-field-id="' + json.Items[0][i].id_paga  + '"><fa fa-pencil-square-o alt=“editar”></i></a>&nbsp;';
-                            html += '<a title="ver" data-field-id="' + json.Items[0][i].id_paga + '"><i class="fas fa-search"></i></a>&nbsp;';
-                            html += '<a title="eliminar"  data-field-id="'  + json.Items[0][i].id_paga + '"><i class="fas fa-trash" alt=“eliminar”></i></a>';
+                            html += '<a href="javascript:void(0);" onclick="cargarPantalla(' + json.Items[0][i].id_paga + ')" title="edit"><i class="fas fa-edit" alt=“editar”></i></a>&nbsp;';
+                            html += '<a title="ver" data-field-id_paga="' + json.Items[0][i].id_paga + '"><i class="fas fa-search"></i></a>&nbsp;';
+                            html += '<a title="eliminar"  data-field-id_paga="'  + json.Items[0][i].id_paga + '"><i class="fas fa-trash" alt=“eliminar”></i></a>';
+                            
+                           
                             html += '</div>'
                             tr.append("<td>" + html + "</td>");
                             $('#datatablesSimple').append(tr);
@@ -272,7 +282,7 @@ function cargarPagador(){
                     }
 
 
-                    //editarRepresentante();
+                    editarPagador();
                     //validareliminarRepresentante();
                 }
                 /************************************************ */
@@ -285,6 +295,13 @@ function cargarPagador(){
     });
 
 }
+
+
+function cargarPantalla(prmid_paga){
+
+    window.open("index.php?url=app/vistas/alquileres/ingresar_pagador?id_paga=" + prmid_paga, "_self");
+   
+   }
 
 
 
@@ -348,7 +365,6 @@ function limpiarTabla() {
 function limpiarCampos(){
 
     $("#hidapoderado").val("");
-    $("#id_prop").val("");
     $("#registroCodigo").val("");
     $("#registroNombre").val("");
     $("#registroApellido").val("");
@@ -363,15 +379,87 @@ function limpiarCampos(){
     $("#cboParroquia").val("");
     $("#registroDirecionH").val("");
     $("#registroDirecionO").val("");
-    $("#cod_regi").val("");
-    $("#not_regi").val("");
-    $("#fec_regi").val("");
-    $("#num_regi").val("");
-    $("#tom_regi").val("");
-    $("#fol_regi").val("");
+   
 
 }
 
+
+
+function editarPagador(){
+
+    $(".edit").click(function() {
+
+    
+
+        var prmid_paga = $(this).data('field-id_paga');
+        var prmcod_paga = $(this).data('field-cod_paga');
+        var prmnom_paga = $(this).data('field-nom_paga');
+        var prmape_paga = $(this).data('field-ape_pag');
+        var prmnac_paga = $(this).data('field-nac_paga');
+        var prmci_paga  = $(this).data('field-ci_paga');
+        var prmrif_paga = $(this).data('field-rif_paga');
+        var prmloc_paga = $(this).data('field-loc_paga');
+        var prmcel_paga = $(this).data('field-cel_paga');
+        var prmcor_paga = $(this).data('field-cor_paga');
+        var prmest_paga = $(this).data('field-est_paga');
+        var prmmun_paga = $(this).data('field-mun_paga');
+        var prmpar_paga = $(this).data('field-par_paga');
+        var prmdir_paga = $(this).data('field-dir_paga');
+        var prmofi_paga = $(this).data('field-ofi_paga');
+       
+
+        
+        $("#hidapoderado").val(prmid_paga);
+        $("#registroCodigo").val(prmcod_paga);
+        $("#registroNombre").val(prmnom_paga);
+        $("#registroApellido").val(prmape_paga);
+        $("#registroNacionalidad").val( prmnac_paga);
+        $("#registroCedula").val(prmci_paga);
+        $("#registroRif").val(prmrif_paga);
+        $("#registroTelefono").val(prmloc_paga);
+        $("#registroCelular").val(prmcel_paga); 
+        $("#registroEmail").val(prmcor_paga);
+        $("#cboEstados").val(prmest_paga);                
+        $("#cboMunicipios").val(prmmun_paga);
+        $("#cboParroquia").val(prmpar_paga);
+        $("#registroDirecionH").val(prmdir_paga);
+        $("#registroDirecionO").val(prmofi_paga );
+       
+
+      
+
+        botones(1);
+
+        cancelarRegistro();
+       
+    })
+
+
+}
+
+
+function botones(opcion){
+
+    if(opcion == 1){
+    
+        $(".cancelar").show();
+    
+    } else {
+        
+        $(".cancelar").hide();
+    
+    }
+    
+    }
+
+function cancelarRegistro(){
+    
+        $(".cancelar").click(function() {
+            limpiarCampos();
+            botones(0);
+    
+        })
+    }
 
 
 

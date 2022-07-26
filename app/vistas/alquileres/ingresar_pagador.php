@@ -240,46 +240,56 @@ include("layout/menuNavegacion.php");
                                 <div class="card">
                                     <div class="card-body">
                                         <h5 class="card-title">Datos Jurídicos</h5>
-                                        <form class="form-sample" id="pag_juridico" name="pag_juridico" method="POST" action="guarda.php" autocomplete="off" enctype="multipart/form-data">
+                                        <form class="form-sample" id="registropagadorj" name="registropagadorj" method="POST" action="guarda.php" autocomplete="off" enctype="multipart/form-data">
+                                              
+                                            <input type="hidden"  id="hidpagadorj" name="hidpagadorj" value='' >
+                                             <input type="hidden" id="id_inqu" name="id_inqu" value='1'>
+                                             <input type="hidden" id="tipo_personaj" name=" tipo_personaj" value='2'>
 
+                                             <div class="col-md-5">
+                                                <label  class="col-sm-12 col-form-label">Código pagador:</label>
+                                                <div class="col-sm-12">
+                                                    <input for="registroCodigoj" type="text" class="form-control" id="registroCodigoj" name="registroCodigoj" autofocus readonly="yes" >
+                                                </div>
+                                            </div>
                                             
-                                        <div class="row">
+                                               <div class="row">
                                                         <div class="col-md-4">
-                                                            <label class="col-sm-12 col-form-label">Nombre o Razón Social:</label>
+                                                            <label  for="registroNombrej" class="col-sm-12 col-form-label">Nombre o Razón Social:</label>
                                                             <div class="col-sm-12">
-                                                                <input type="text" class="form-control" id="nom_pagj" name="nom_pagj" autofocus  value='' >
+                                                                <input type="text" class="form-control" id="registroNombrej" name="registroNombrej" autofocus >
                                                             </div>
                                                         </div>
                                                         <div class="col-md-3">
-                                                            <label class="col-sm-12 col-form-label">Rif Jurídico:</label>
+                                                            <label for="registroRifj" class="col-sm-12 col-form-label">Rif Jurídico:</label>
                                                             <div class="col-sm-12">
-                                                                <input type="text" class="form-control" id="rif_pagj" name="rif_pagj"  value='' >
+                                                                <input type="text" class="form-control" id="registroRifj" name="registroRifj">
                                                             </div>
                                                         </div>
                                                         <div class="col-md-5">
-                                                            <label class="col-sm-12 col-form-label">Actividad Comercial:</label>
+                                                            <label for="registroactividad"  class="col-sm-12 col-form-label">Actividad Comercial:</label>
                                                             <div class="col-sm-12">
-                                                                <input type="text" class="form-control" id="act_pagj" name="act_pagj"  value='' >
+                                                                <input type="text" class="form-control" id="registroactividad" name="registroactividad">
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="row">
                                                         <div class="col-md-5">
-                                                            <label class="col-sm-12 col-form-label">Dirección Fiscal:</label>
+                                                            <label for="registroDirecionj" class="col-sm-12 col-form-label">Dirección Fiscal:</label>
                                                             <div class="col-sm-12">
-                                                                <input type="text" class="form-control" id="dir_pagj" name="dir_pagj"  value='' ><br>
+                                                                <input type="text" class="form-control" id="registroDirecionj" name="registroDirecionj"><br>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-3">
-                                                            <label class="col-sm-9 col-form-label">Celular:</label>
+                                                            <label for="registroCelularj" class="col-sm-9 col-form-label">Celular:</label>
                                                             <div class="col-sm-12">
-                                                                <input type="number" class="form-control" id="tel_pagj" name="tel_pagj"  value='' >
+                                                                <input type="number" class="form-control" id="registroCelularj" name="registroCelularj">
                                                             </div>
                                                         </div>
                                                         <div class="col-md-4">
-                                                            <label class="col-sm-3 col-form-label">Correo:</label>
+                                                            <label  for="registroEmailj" class="col-sm-3 col-form-label">Correo:</label>
                                                             <div class="col-sm-12">
-                                                                <input type="email" class="form-control" id="cor_pagj" name="cor_pagj"  value='' >
+                                                                <input type="email" class="form-control" id="registroEmailj" name="registroEmailj" >
                                                             </div>
                                                         </div>
                                                     </div>
@@ -293,43 +303,43 @@ include("layout/menuNavegacion.php");
                                                     </div>
                                                     <div class="row">
                                                         <div class="col-md-1">
-                                                            <label class="col-sm-12 col-form-label">Código:</label>
+                                                            <label  for="registroPoder" class="col-sm-12 col-form-label">Código:</label>
                                                             <div class="col-sm-12">
                                                                 <div class="col-sm-12">
-                                                                    <input type="text" class="form-control" id="cod_regi" name="cod_regi"  value='' >
+                                                                    <input type="text" class="form-control" id="registroPoder" name="registroPoder" >
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-4">
                                                             <div class="row">
-                                                                <label for="ced_prop" class="col-sm-12 col-form-label">Nombre del Registro:</label>
+                                                                <label for="nombreRegistro" class="col-sm-12 col-form-label">Nombre del Registro:</label>
                                                                 <div class="col-sm-12">
-                                                                    <input type="text" class="form-control" id="nom_regi" name="nom_regi"  value='' >
+                                                                    <input type="text" class="form-control" id="nombreRegistro" name="nombreRegistro">
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-3">
-                                                            <label for="inputfecha" class="col-sm-12 col-form-label">Fecha:</label>
+                                                            <label for="fechaRegistro" class="col-sm-12 col-form-label">Fecha:</label>
                                                             <div class="col-sm-12">
-                                                                <input type="date" id="fec_regi" name="fec_regi" class="form-control"  value='' >
+                                                                <input type="date" id="fechaRegistro" name="fechaRegistro" class="form-control" >
                                                             </div>
                                                         </div>
                                                         <div class="col-md-1">
-                                                            <label class="col-sm-12 col-form-label">Número:</label>
+                                                            <label for="numeroRegistro" class="col-sm-12 col-form-label">Número:</label>
                                                             <div class="col-sm-12">
-                                                                <input type="text" class="form-control" id="num_regi" name="num_regi"  value='' >
+                                                                <input type="text" class="form-control" id="numeroRegistro" name="numeroRegistro">
                                                             </div>
                                                         </div>
                                                         <div class="col-md-1">
-                                                            <label class="col-sm-12 col-form-label">Tomo:</label>
+                                                            <label for="tomoRegistro" class="col-sm-12 col-form-label">Tomo:</label>
                                                             <div class="col-sm-12">
-                                                                <input type="text" class="form-control" id="tom_regi" name="tom_regi"  value='' >
+                                                                <input type="text" class="form-control" id="tomoRegistro" name="tomoRegistro" >
                                                             </div>
                                                         </div>
                                                         <div class="col-md-2">
-                                                            <label class="col-sm-12 col-form-label">Expediente:</label>
+                                                            <label for="foliRegistro" class="col-sm-12 col-form-label">Expediente:</label>
                                                             <div class="col-sm-12">
-                                                                <input type="text" class="form-control" id="fol_regi" name="fol_regi"  value='' >
+                                                                <input type="text" class="form-control" id="foliRegistro" name="foliRegistro" >
                                                             </div>
                                                         </div>
                                                     </div>
@@ -457,5 +467,6 @@ include_once "app/vistas/comunes/modaleliminar.php";
 <script src="js/comunes/combos.js"></script>
 <script src="js/comunes/generadorcodigos.js"></script>
 <script src="js/alquileres/ingresar_pagador.js"></script>
+<script src="js/alquileres/ingresar_pagador_juridico.js"></script>
             
         
