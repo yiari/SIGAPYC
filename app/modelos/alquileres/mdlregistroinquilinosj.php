@@ -7,6 +7,7 @@
 */
 
 include_once '../../../app/modelos/conexcion.php';
+include_once '../../../app/controladores/comunes/ctrsubirarchivos.php';
 
 /*
 |---------------------------------------------------------------
@@ -15,7 +16,7 @@ include_once '../../../app/modelos/conexcion.php';
 */
 class mdlregistroinquilinosj{
 
-public function registrar($tabla,$datos){
+public function registrar($tabla,$datos,$archivos){
 
   /* 
   |------------------------------------------------------------
@@ -30,6 +31,7 @@ public function registrar($tabla,$datos){
   */
   $prmError = 0;
   $prmMensaje = "";
+  $prmIdinquilino = 0;
 
 
 
@@ -82,12 +84,41 @@ public function registrar($tabla,$datos){
               if ($prmError == 1062 ){ //registro duplicado
                 $prmMensaje =  "Registro duplicado: " . $row[1]; //COLUMNA DEL MENSAJE
               } else {
+
+
+                 /*
+                |-------------------------------------------------
+                | SI NO HUBO ERRORM OBTENGO EL ID DEL PROPIETARIO
+                |-------------------------------------------------
+                */
+
+                if($prmError == 0){
+                  $prmIdinquilino = $row[2]; //AQUI OBTENGO EL ID DEL PAGADOR
+                }
                 $prmMensaje =  $row[1]; //COLUMNA DEL MENSAJE
               }
             }
         
 
           } ;
+
+          /*
+          |------------------------------
+          | AQUI SUBO LOS ARCHIVOS
+          |------------------------------
+          */
+
+          $subirArchivos = new ctrsubirarchivos();
+
+          $prmTipoPersonaTEMP = $datos["tip_inqu"];
+
+
+
+          IF($prmTipoPersonaTEMP == 2){
+            $subirArchivos->validarArchivos($archivos,$prmIdinquilino,$prmTipoPersonaTEMP,'2Q');
+          } else {
+            $subirArchivos->validarArchivos($archivos,$prmIdinquilino,$prmTipoPersonaTEMP,'2P');
+          }
 
           /*
           |--------------------------------------------------------------------
@@ -99,7 +130,17 @@ public function registrar($tabla,$datos){
             'mensaje' =>  $prmMensaje
           );
 
-          echo json_encode($dataRes);
+          if( $prmIdinquilino > 0 ){
+
+            $dataRegistro["Items"][] = ["ID_INQUILINO" => $prmIdinquilino];
+          
+            echo json_encode(array_merge($dataRegistro,$dataRes));
+
+          } else {
+
+            echo json_encode($dataRes);
+          
+          }
 
     } catch (\Exception $e) {
     

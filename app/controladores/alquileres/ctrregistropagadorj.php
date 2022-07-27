@@ -27,27 +27,18 @@ class ctrregistropagadorj{
         */ 
     }
 
-     public function registrar($datos){
+     public function registrar($datos,$archivos){
 
             $tabla = "pagador_juridico";
             $modelo = new mdlregistropagadorj();
 
             $modelo =  new mdlregistropagadorj();
-            $respuesta = $modelo->registrar($tabla,$datos);
+            $respuesta = $modelo->registrar($tabla,$datos,$archivos);
 
             return $respuesta;
 
     }
 
-    /*tabla para visializar los usuarios registrados*/
-
-     public function seleccionarregistros(){
-
-        $tabla = "pagador_juridico";
-        $modelo =  new mdlregistropagadorj();
-        $respuestas =  $modelo->seleccionarregistros($tabla,null,null);
-        return $respuestas;
-    }
 
 
      

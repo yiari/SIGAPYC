@@ -8,6 +8,12 @@ include("layout/menuNavegacion.php");
 <div class="container">
     <div class="card-header">
 
+        <div style="text-align: right;">
+                    <ol>               
+                        <a class="btn btn-outline-secondary" href="index.php?url=app/vistas/alquileres/inquilinos"  role="button">Atras</a>
+                    </ol>
+                </div>
+
             <h4 class="card-title">Inquilinos</h4>
                 <nav>
                     <div class="nav nav-tabs" id="nav-tab" role="tablist">
@@ -171,25 +177,12 @@ include("layout/menuNavegacion.php");
                                                 <div class="row">
                                                     <div class="col-md-12">
                                                         <div class="row">
-                                                            <label for="fam_docu" class="col-sm-12 col-form-label text-center">Referencias Familiares</label>
+                                                            <label for="reffam_docu" class="col-sm-12 col-form-label text-center">Referencias Familiares</label>
                                                             <div class="col-sm-6">
-                                                                <input class="form-control form-control-sm" id="fam_docu1" type="file" name="fam_docu1" value="">
+                                                                <input class="form-control form-control-sm" id="reffam_docu" type="file" name="reffam_docu" value="">
                                                             </div>
                                                             <div class="col-sm-6">
-                                                                <input class="form-control form-control-sm" id="fam_docu2" type="file" name="fam_docu2" value=""><br>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-12">
-                                                        <div class="row">
-                                                            <label for="fam_docu" class="col-sm-12 col-form-label text-center">Referencias Bancarias</label>
-                                                            <div class="col-sm-6">
-                                                                <input class="form-control form-control-sm" id="ban_dcin1" type="file" name="ban_dcin1" value="">
-                                                            </div>
-                                                            <div class="col-sm-6">
-                                                                <input class="form-control form-control-sm" id="ban_dcin2" type="file" name="ban_dcin2" value=""><br>
+                                                                <input class="form-control form-control-sm" id="reffam_docu2" type="file" name="reffam_docu2" value=""><br>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -197,27 +190,40 @@ include("layout/menuNavegacion.php");
                                                 <div class="row">
                                                     <div class="col-md-12">
                                                         <div class="row">
-                                                            <label for="fam_docu" class="col-sm-12 col-form-label text-center">Referencias Comerciales</label>
+                                                            <label for="refban_docu" class="col-sm-12 col-form-label text-center">Referencias Bancarias</label>
                                                             <div class="col-sm-6">
-                                                                <input class="form-control form-control-sm" id="com_dcin1" type="file" name="com_dcin1" value="">
+                                                                <input class="form-control form-control-sm" id="refban_docu" type="file" name="refban_docu" value="">
                                                             </div>
                                                             <div class="col-sm-6">
-                                                                <input class="form-control form-control-sm" id="com_dcin2" type="file" name="com_dcin2" value=""><br>
+                                                                <input class="form-control form-control-sm" id="refban_docu2" type="file" name="refban_docu2" value=""><br>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="row">
+                                                            <label for="refcom_docu" class="col-sm-12 col-form-label text-center">Referencias Comerciales</label>
+                                                            <div class="col-sm-6">
+                                                                <input class="form-control form-control-sm" id="refcom_docu" type="file" name="refcom_docu" value="">
+                                                            </div>
+                                                            <div class="col-sm-6">
+                                                                <input class="form-control form-control-sm" id="refcom_docu2" type="file" name="refcom_docu2" value=""><br>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-6">
-                                                        <label for="ced_docu" class="col-sm-9 col-form-label text-center">Referencia del Arrendandor actual</label>
+                                                        <label for="refarre_docu" class="col-sm-9 col-form-label text-center">Referencia del Arrendandor actual</label>
                                                         <div class="col-sm-12">
-                                                            <input class="form-control form-control-sm" id="arr_dcin" type="file" name="arr_dcin" value="">
+                                                            <input class="form-control form-control-sm" id="refarre_docu" type="file" name="refarre_docu" value="">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <label for="rif_docu" class="col-sm-9 col-form-label text-center">Contrato de Arrendamiento actual</label>
+                                                        <label for="conarre_docu" class="col-sm-9 col-form-label text-center">Contrato de Arrendamiento actual</label>
                                                         <div class="col-sm-12">
-                                                            <input class="form-control form-control-sm" id="con_arr" type="file" name="con_arr" value=""><br>
+                                                            <input class="form-control form-control-sm" id="conarre_docu" type="file" name="conarre_docu" value=""><br>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -360,9 +366,9 @@ include("layout/menuNavegacion.php");
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-6">
-                                                        <label for="reg_imer" class="col-sm-9 col-form-label">Registro Mercantil</label>
+                                                        <label for="regmen_docu" class="col-sm-9 col-form-label">Registro Mercantil</label>
                                                         <div class="col-sm-12">
-                                                            <input class="form-control form-control-sm" id="reg_imer" type="file" name="reg_imer" value="">
+                                                            <input class="form-control form-control-sm" id="regmen_docu" type="file" name="regmen_docu" value="">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
@@ -374,27 +380,27 @@ include("layout/menuNavegacion.php");
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-6">
-                                                        <label for="act_iasa" class="col-sm-9 col-form-label">Acta de última Asamblea</label>
+                                                        <label for="actcons_docu" class="col-sm-9 col-form-label">Acta de última Asamblea</label>
                                                         <div class="col-sm-12">
-                                                            <input class="form-control form-control-sm" id="act_iasa" type="file" name="act_iasa" value="">
+                                                            <input class="form-control form-control-sm" id="actcons_docu" type="file" name="actcons_docu" value="">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <label for="rif_idoj" class="col-sm-9 col-form-label">Rif Empresa</label>
+                                                        <label for="rif_docu" class="col-sm-9 col-form-label">Rif Empresa</label>
                                                         <div class="col-sm-12">
-                                                            <input class="form-control form-control-sm" id="rif_idoj" type="file" name="rif_idoj" value=""><br>
+                                                            <input class="form-control form-control-sm" id="rif_docu" type="file" name="rif_docu" value=""><br>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-12">
                                                         <div class="row">
-                                                            <label for="ref_docu" class="col-sm-12 col-form-label text-center">Referencias Personales</label>
+                                                            <label for="refper_docu" class="col-sm-12 col-form-label text-center">Referencias Personales</label>
                                                             <div class="col-sm-6">
-                                                                <input class="form-control form-control-sm" id="ref_iper1" type="file" name="ref_iper1" value="">
+                                                                <input class="form-control form-control-sm" id="refper_docu" type="file" name="refper_docu" value="">
                                                             </div>
                                                             <div class="col-sm-6">
-                                                                <input class="form-control form-control-sm" id="ref_iper2" type="file" name="ref_iper2" value=""><br>
+                                                                <input class="form-control form-control-sm" id="refper_docu2" type="file" name="refper_docu2" value=""><br>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -402,23 +408,23 @@ include("layout/menuNavegacion.php");
                                                 <div class="row">
                                                     <div class="col-md-12">
                                                         <div class="row">
-                                                            <label for="fam_docu" class="col-sm-12 col-form-label text-center">Referencias Familiares</label>
+                                                            <label for="reffam_docu" class="col-sm-12 col-form-label text-center">Referencias Familiares</label>
                                                             <div class="col-sm-6">
-                                                                <input class="form-control form-control-sm" id="fam_iref1" type="file" id="fam_iref1" value="">
+                                                                <input class="form-control form-control-sm" id="reffam_docu" type="file" id="reffam_docu" value="">
                                                             </div>
                                                             <div class="col-sm-6">
-                                                                <input class="form-control form-control-sm" id="fam_iref2" type="file" id="fam_iref2" value=""><br>
+                                                                <input class="form-control form-control-sm" id="reffam_docu2" type="file" id="reffam_docu2" value=""><br>
                                                             </div>
                                                         </div>
                                                         <div class="row">
                                                             <div class="col-md-12">
                                                                 <div class="row">
-                                                                    <label for="fam_docu" class="col-sm-12 col-form-label text-center">Referencias Bancarias</label>
+                                                                    <label for="refban_docu" class="col-sm-12 col-form-label text-center">Referencias Bancarias</label>
                                                                     <div class="col-sm-6">
-                                                                        <input class="form-control form-control-sm" id="ban_dcij1" type="file" name="ban_dcij1" value="">
+                                                                        <input class="form-control form-control-sm" id="refban_docu" type="file" name="refban_docu" value="">
                                                                     </div>
                                                                     <div class="col-sm-6">
-                                                                        <input class="form-control form-control-sm" id="ban_dcij2" type="file" name="ban_dcij2" value=""><br>
+                                                                        <input class="form-control form-control-sm" id="refban_docu2" type="file" name="refban_docu2" value=""><br>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -426,27 +432,27 @@ include("layout/menuNavegacion.php");
                                                         <div class="row">
                                                             <div class="col-md-12">
                                                                 <div class="row">
-                                                                    <label for="fam_docu" class="col-sm-12 col-form-label text-center">Referencias Comerciales</label>
+                                                                    <label for="refcom_docu" class="col-sm-12 col-form-label text-center">Referencias Comerciales</label>
                                                                     <div class="col-sm-6">
-                                                                        <input class="form-control form-control-sm" id="com_dcij1" type="file" name="com_dcij1" value="">
+                                                                        <input class="form-control form-control-sm" id="refcom_docu" type="file" name="refcom_docu" value="">
                                                                     </div>
                                                                     <div class="col-sm-6">
-                                                                        <input class="form-control form-control-sm" id="com_dcij2" type="file" name="com_dcij2" value=""><br>
+                                                                        <input class="form-control form-control-sm" id="refcom_docu2" type="file" name="refcom_docu2" value=""><br>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         <div class="row">
                                                             <div class="col-md-6">
-                                                                <label for="ced_docu" class="col-sm-9 col-form-label text-center">Referencia del Arrendandor actual</label>
+                                                                <label for="refarre_docu" class="col-sm-9 col-form-label text-center">Referencia del Arrendandor actual</label>
                                                                 <div class="col-sm-12">
-                                                                    <input class="form-control form-control-sm" id="arr_dcij" type="file" name="arr_dcij" value="">
+                                                                    <input class="form-control form-control-sm" id="refarre_docu" type="file" name="refarre_docu" value="">
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6">
-                                                                <label for="rif_docu" class="col-sm-9 col-form-label text-center">Contrato de Arrendamiento actual</label>
+                                                                <label for="conarre_docu" class="col-sm-9 col-form-label text-center">Contrato de Arrendamiento actual</label>
                                                                 <div class="col-sm-12">
-                                                                    <input class="form-control form-control-sm" id="are_dcij" type="file" name="are_dcij" value=""><br>
+                                                                    <input class="form-control form-control-sm" id="conarre_docu" type="file" name="conarre_docu" value=""><br>
                                                                 </div>
                                                             </div>
                                                         </div>

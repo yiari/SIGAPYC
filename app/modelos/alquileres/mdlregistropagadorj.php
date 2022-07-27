@@ -7,6 +7,7 @@
 */
 
 include_once '../../../app/modelos/conexcion.php';
+include_once '../../../app/controladores/comunes/ctrsubirarchivos.php';
 
 /*
 |---------------------------------------------------------------
@@ -15,7 +16,7 @@ include_once '../../../app/modelos/conexcion.php';
 */
 class mdlregistropagadorj{
 
-public function registrar($tabla,$datos){
+public function registrar($tabla,$datos,$archivos){
 
   /* 
   |------------------------------------------------------------
@@ -30,6 +31,7 @@ public function registrar($tabla,$datos){
   */
   $prmError = 0;
   $prmMensaje = "";
+  $prmIdpagador = 0;
 
 
 
@@ -83,12 +85,40 @@ public function registrar($tabla,$datos){
               if ($prmError == 1062 ){ //registro duplicado
                 $prmMensaje =  "Registro duplicado: " . $row[1]; //COLUMNA DEL MENSAJE
               } else {
+                 /*
+                |-------------------------------------------------
+                | SI NO HUBO ERRORM OBTENGO EL ID DEL PROPIETARIO
+                |-------------------------------------------------
+                */
+
+                if($prmError == 0){
+                  $prmIdpagador = $row[2]; //AQUI OBTENGO EL ID DEL PAGADOR
+                }
+
                 $prmMensaje =  $row[1]; //COLUMNA DEL MENSAJE
               }
             }
         
 
           } ;
+
+          /*
+          |------------------------------
+          | AQUI SUBO LOS ARCHIVOS
+          |------------------------------
+          */
+
+          $subirArchivos = new ctrsubirarchivos();
+
+          $prmTipoPersonaTEMP = $datos["tip_paga"];
+
+
+
+          IF($prmTipoPersonaTEMP == 2){
+            $subirArchivos->validarArchivos($archivos,$prmIdpagador,$prmTipoPersonaTEMP,'2QP');
+          } else {
+            $subirArchivos->validarArchivos($archivos,$prmIdpagador,$prmTipoPersonaTEMP,'2P');
+          }
 
           /*
           |--------------------------------------------------------------------
@@ -100,7 +130,17 @@ public function registrar($tabla,$datos){
             'mensaje' =>  $prmMensaje
           );
 
-          echo json_encode($dataRes);
+          if( $prmIdpagador > 0 ){
+
+            $dataRegistro["Items"][] = ["ID_PAGADOR" => $prmIdpagador];
+          
+            echo json_encode(array_merge($dataRegistro,$dataRes));
+
+          } else {
+
+            echo json_encode($dataRes);
+          
+          }
 
     } catch (\Exception $e) {
     
@@ -222,82 +262,6 @@ public function registrar($tabla,$datos){
     
     }
 
-
- public function seleccionarregistros($tabla,$iten,$valor){
-
-      If($iten == null && $valor == null){
-
-
-            try {
-
-              $dbConexion = new conexcion();  
-
-                $stmt = $dbConexion->conectar()->prepare("CALL usp_");
-                $stmt->execute();
-                $dataRegistro["Items"][] = $stmt->fetchAll();
-      
-                $dataRes = array(
-                  'error' => '0',
-                  'mensaje' =>  'El registro se realizo con exito.'
-                );
-                          
-                echo json_encode(array_merge($dataRegistro,$dataRes));
-      
-                } catch (\Throwable $th) {
-                
-                    //$pdo->rollBack() ;
-                    //echo "Mensaje de Error: " . $th->getMessage();
-                    $dataRes = array(
-                      'error' => '1',
-                      'mensaje' =>  "Mensaje de Error: " . $th->getMessage()
-                    );
-              
-                    echo json_encode($dataRes);
-            
-                }
-
-      }else{
-
-
-        try {
-
-          $dbConexion = new conexcion();
-          
-          $stmt = $dbConexion->conectar()->prepare("CALL usp_");
-        
-          $stmt ->bindParam(":".$iten, $valor, PDO::PARAM_STR);
-          $stmt->execute();
-          $dataRegistro["Items"][] = $stmt->fetch();
-
-          $dataRes = array(
-            'error' => '0',
-            'mensaje' =>  'El registro se realizo con exito.'
-          );
-          
-          
-          echo json_encode(array_merge($dataRegistro,$dataRes));
-
-          } catch (\Throwable $th) {
-          
-              //$pdo->rollBack() ;
-              //echo "Mensaje de Error: " . $th->getMessage();
-              $dataRes = array(
-                'error' => '1',
-                'mensaje' =>  "Mensaje de Error: " . $th->getMessage()
-              );
-        
-              echo json_encode($dataRes);
-      
-          }
-
-
-
-
-      }
-  }
-
-
-  
 
 
 

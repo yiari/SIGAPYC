@@ -7,6 +7,7 @@
 */
 
 include_once '../../../app/modelos/conexcion.php';
+include_once '../../../app/controladores/comunes/ctrsubirarchivos.php';
 
 /*
 |---------------------------------------------------------------
@@ -15,7 +16,7 @@ include_once '../../../app/modelos/conexcion.php';
 */
 class mdlregistropagador{
 
-public function registrar($tabla,$datos){
+public function registrar($tabla,$datos,$archivos){
 
   /* 
   |------------------------------------------------------------
@@ -30,6 +31,7 @@ public function registrar($tabla,$datos){
   */
   $prmError = 0;
   $prmMensaje = "";
+  $prmIdpagador = 0;
 
 
 
@@ -43,7 +45,7 @@ public function registrar($tabla,$datos){
           */
           $stmt = $dbConexion->conectar()->prepare("CALL usp_registropagador(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
           $stmt -> bindParam(1,  $datos ["id_paga"],  PDO::PARAM_INT); //ESTE ES EL ID DEL pagador
-		  $stmt -> bindParam(2,  $datos ["id_inqu"],  PDO::PARAM_INT); //ESTE ES EL ID DEL inquilino
+		      $stmt -> bindParam(2,  $datos ["id_inqu"],  PDO::PARAM_INT); //ESTE ES EL ID DEL inquilino
           $stmt -> bindParam(3,  $datos ["cod_paga"], PDO::PARAM_STR);
           $stmt -> bindParam(4,  $datos ["nom_paga"], PDO::PARAM_STR);            
           $stmt -> bindParam(5,  $datos ["ape_paga"], PDO::PARAM_STR);          
@@ -84,12 +86,43 @@ public function registrar($tabla,$datos){
               if ($prmError == 1062 ){ //registro duplicado
                 $prmMensaje =  "Registro duplicado: " . $row[1]; //COLUMNA DEL MENSAJE
               } else {
+
+                 /*
+                |-------------------------------------------------
+                | SI NO HUBO ERRORM OBTENGO EL ID DEL PROPIETARIO
+                |-------------------------------------------------
+                */
+
+                if($prmError == 0){
+                  $prmIdpagador = $row[2]; //AQUI OBTENGO EL ID DEL PAGADOR
+                }
+
                 $prmMensaje =  $row[1]; //COLUMNA DEL MENSAJE
               }
             }
         
 
           } ;
+
+
+           /*
+          |------------------------------
+          | AQUI SUBO LOS ARCHIVOS
+          |------------------------------
+          */
+
+          $subirArchivos = new ctrsubirarchivos();
+
+          $prmTipoPersonaTEMP = $datos["tip_paga"];
+
+
+
+          IF($prmTipoPersonaTEMP == 1){
+            $subirArchivos->validarArchivos($archivos,$prmIdpagador,$prmTipoPersonaTEMP,'1QP');
+          } else {
+            $subirArchivos->validarArchivos($archivos,$prmIdpagador,$prmTipoPersonaTEMP,'2P');
+          }
+          
 
           /*
           |--------------------------------------------------------------------
@@ -101,7 +134,18 @@ public function registrar($tabla,$datos){
             'mensaje' =>  $prmMensaje
           );
 
-          echo json_encode($dataRes);
+
+          if( $prmIdpagador > 0 ){
+
+            $dataRegistro["Items"][] = ["ID_PAGADOR" => $prmIdpagador];
+          
+            echo json_encode(array_merge($dataRegistro,$dataRes));
+
+          } else {
+
+            echo json_encode($dataRes);
+          
+          }
 
     } catch (\Exception $e) {
     
@@ -198,6 +242,6 @@ public function registrar($tabla,$datos){
 
 
     }
-}
+  }
 
 }

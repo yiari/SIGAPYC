@@ -31,18 +31,7 @@
  
                         </tr>
                     </thead>
-                    <tfoot>
-                        <tr>
-
-                            <th>Id</th>
-                            <th>Doc. Identidad:</th>
-                            <th>Nombre o Razón social:</th>
-                            <th>Inquilino</th>
-                            <th>Celular:</th>
-                            <th>correo</th>
-                            <th>Doc / Editar</th>                        
-                        </tr>
-                    </tfoot>
+                   
                     <tbody>
 
                                     

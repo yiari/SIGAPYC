@@ -12,7 +12,7 @@ public function validarArchivos($listaarchivos,$idpropietario,$tipo,$coordenada)
 
     foreach($listaObjetos as $objeto){
 
-        print "Objeto: " . $objeto;
+        //print "Objeto: " . $objeto;
 
         if($listaarchivos[$objeto]['error'] == 0 ){
 

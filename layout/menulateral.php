@@ -8,14 +8,14 @@
             <!--primero-->
 
             <a class="nav-link" href="index.php?url=menuprincipal">
-                <div class="sb-nav-link-icon"><i class="fa-solid fa-home"></i></div>
+                <div class="sb-nav-link-icon"><i class="fa fa-home"></i></div>
                 INICIO
                 
             </a>
             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsealquileres" aria-expanded="false" aria-controls="collapsealquileres">
                 <div class="sb-nav-link-icon"><i class="fa-solid fa-chalkboard-user"></i></div>
                 ALQUILERES
-                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                <div class="sb-sidenav-collapse-arrow"><i class="fa fa-angle-down"></i></div>
             </a>
             <div class="collapse" id="collapsealquileres" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                 <nav class="sb-sidenav-menu-nested nav">
@@ -31,7 +31,7 @@
             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsefinanzas" aria-expanded="false" aria-controls="collapsefinanzas">
                 <div class="sb-nav-link-icon"><i class="fa-solid fa-money-bill-transfer"></i></div>
                 FACTURACIÓN
-                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                <div class="sb-sidenav-collapse-arrow"><i class="fa fa-angle-down"></i></div>
             </a>
             <div class="collapse" id="collapsefinanzas" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                 <nav class="sb-sidenav-menu-nested nav">
@@ -46,7 +46,7 @@
             <a class="nav-link collapsed"  href="#" data-bs-toggle="collapse" data-bs-target="#collapsesistema" aria-expanded="false" aria-controls="collapsesistema">
                 <div class="sb-nav-link-icon"><i class="fa-solid fa-money-bill-transfer"></i></div>
                         CONFIGURACIÓN 
-                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                <div class="sb-sidenav-collapse-arrow"><i class="fa fa-angle-down"></i></div>
             </a>
             <div class="collapse" id="collapsesistema" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                 <nav class="sb-sidenav-menu-nested nav">
@@ -61,30 +61,30 @@
 
             <!--bitacora propietario-->
 
-           <a class="nav-link" href="index.php?url=menuprincipal">
-                <div class="sb-nav-link-icon"><i class="fa-regular fa-folder-open"></i></div>
+          <!-- <a class="nav-link" href="index.php?url=menuprincipal">
+                <div class="sb-nav-link-icon"><i class="fa fa-folder-open"></i></div>
                 BITACORA
             </a>
 
             <a class="nav-link" href="inicio.php?url=app/vistas/alquileres/verpropietarios">
-                <div class="sb-nav-link-icon"><i class='fas fa-chalkboard-teacher'></i></div>
+                <div class="sb-nav-link-icon"><i class='fa fa-chalkboard-teacher'></i></div>
                 DATOS PERSONALES
             </a>
 
             <a class="nav-link" href="#">
-                <div class="sb-nav-link-icon"><i class='fas fa-coins'></i></div>
+                <div class="sb-nav-link-icon"><i class='fa fa-coins'></i></div>
                 LIQUIDACION
             </a>
 
             <a class="nav-link" href="#">
-                <div class="sb-nav-link-icon"><i class='fas fa-file-invoice-dollar'></i></div>
+                <div class="sb-nav-link-icon"><i class='fa fa-file-invoice-dollar'></i></div>
                 ESTADO DE CUENTA
             </a>
 
             <a class="nav-link" href="#">
-                <div class="sb-nav-link-icon"><i class='fas fa-share-square'></i></div>
+                <div class="sb-nav-link-icon"><i class='fa fa-share-square'></i></div>
                 FINIQUITO
-            </a>
+            </a>-->
 
            
         </div>

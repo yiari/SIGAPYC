@@ -270,9 +270,9 @@ function cargarPagador(){
                             
                             var html="";
                             html = '<div class="btn-group" style="font-size:1.3em; letter-spacing:0.5em;">';
-                            html += '<a href="javascript:void(0);" onclick="cargarPantalla(' + json.Items[0][i].id_paga + ')" title="edit"><i class="fas fa-edit" alt=“editar”></i></a>&nbsp;';
-                            html += '<a title="ver" data-field-id_paga="' + json.Items[0][i].id_paga + '"><i class="fas fa-search"></i></a>&nbsp;';
-                            html += '<a title="eliminar"  data-field-id_paga="'  + json.Items[0][i].id_paga + '"><i class="fas fa-trash" alt=“eliminar”></i></a>';
+                            html += '<a href="javascript:void(0);" onclick="cargarPantalla(' + json.Items[0][i].id_paga + ')" title="Editar"><i class="fa fa-edit" alt=“editar”></i></a>&nbsp;';
+                            html += '<a title="Ver" data-field-id_paga="' + json.Items[0][i].id_paga + '"><i class="fa fa-search" alt=“Ver”></i></a>&nbsp;';
+                            html += '<a title="Eliminar"  data-field-id_paga="'  + json.Items[0][i].id_paga + '"><i class="fa fa-trash" alt=“Eliminar”></i></a>';
                             
                            
                             html += '</div>'
@@ -282,7 +282,7 @@ function cargarPagador(){
                     }
 
 
-                    editarPagador();
+                    //editarPagador();
                     //validareliminarRepresentante();
                 }
                 /************************************************ */
@@ -379,6 +379,20 @@ function limpiarCampos(){
     $("#cboParroquia").val("");
     $("#registroDirecionH").val("");
     $("#registroDirecionO").val("");
+    $("#cedu_docu").val("");
+    $("#rif_docu").val("");
+    $("#refper_docu").val("");
+    $("#refper_docu2").val("");
+    $("#refper_docu2").val("");
+    $("#autopro_docu").val("");
+    $("#reffam_docu").val("");
+    $("#reffam_docu2").val("");
+    $("#refban_docu").val("");
+    $("#refban_docu2").val("");
+    $("#refcom_docu").val("");
+    $("#refcom_docu2").val("");
+    $("#refarre_docu").val("");
+    $("#conarre_docu").val("");
    
 
 }

@@ -337,13 +337,13 @@ function cargarInquilino(){
                             tr.append("<td>" + json.Items[0][i].correo + "</td>"); 
                             
                             var html="";
-                            html = '<div class="btn-group" style="font-size:1.3em; letter-spacing:0.5em;">';
-                            html += '<a title="edit" data-field-id="' + json.Items[0][i].id  + '"><fa fa-pencil-square-o alt=“editar”></i></a>&nbsp;';
-                            html += '<a title="ver" data-field-id="' + json.Items[0][i].id + '"><i class="fas fa-search"></i></a>&nbsp;';
-                            html += '<a title="contrato" data-field-id="' + json.Items[0][i].id + '" data-field-nombre="' + json.Items[0][i].nom_legal + '" data-field-apellido="'+ json.Items[0][i].ape_legal + '" data-field-correo="'+ json.Items[0][i].cor_legal + '" data-field-cedula="' + json.Items[0][i].ced_inqu + '" data-field-telefo="' + json.Items[0][i].cel_inqu +  '"><i class="fa-solid fa-file-pen"></i></a>&nbsp;';
-                            html += '<a title="bitacora" data-field-id="' + json.Items[0][i].id + '"><i class="fa-regular fa-folder-open"></i></a>&nbsp;';
-                            html += '<a title="pagador"  data-field-id="' + json.Items[0][i].id + '"><i class="fa-regular fa-id-badge"></i></a>&nbsp;';
-                            html += '<a title="eliminar"  data-field-id="'  + json.Items[0][i].id + '"><i class="fas fa-trash" alt=“eliminar”></i></a>';
+                            html = '<div class="btn-group" style="font-size:1.3em; letter-spacing:0.2em;">';
+                            html += '<a title="Editar" data-field-id="' + json.Items[0][i].id  + '"><i class="fa fa-edit" alt=“editar”></i></a>&nbsp;';
+                            html += '<a title="Ver" data-field-id="' + json.Items[0][i].id + '"><i class="fa fa-search" alt=“Ver”></i></a>&nbsp;';
+                            html += '<a title="Contrato" data-field-id="' + json.Items[0][i].id + '"><i class="fa fa-file-pen"></i></a>&nbsp;';
+                            html += '<a title="Bitacora" data-field-id="' + json.Items[0][i].id + '"><i class="fa fa-folder-open"></i></a>&nbsp;';
+                            html += '<a title="Pagador"  data-field-id="' + json.Items[0][i].id + '"><i class="fa fa-id-badge"></i></a>&nbsp;';
+                            html += '<a title="Eliminar"  data-field-id="'  + json.Items[0][i].id + '"><i class="fa fa-trash" alt=“eliminar”></i></a>';
                             html += '</div>'
                             tr.append("<td>" + html + "</td>");
                             $('#datatablesSimple').append(tr);

@@ -27,13 +27,13 @@ class ctrregistroinquilino{
         */ 
     }
 
-     public function registrar($datos){
+     public function registrar($datos,$archivos){
 
             $tabla = "inquilino";
             $modelo = new mdlregistroinquilinos();
 
             $modelo =  new mdlregistroinquilinos();
-            $respuesta = $modelo->registrar($tabla,$datos);
+            $respuesta = $modelo->registrar($tabla,$datos,$archivos);
 
             return $respuesta;
 
