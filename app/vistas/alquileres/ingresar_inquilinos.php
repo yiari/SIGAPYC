@@ -41,7 +41,7 @@ include("layout/menuNavegacion.php");
                                                 </div>
 
                                                 <div class="col-md-5">
-                                                        <label class="col-sm-12 col-form-label">Código Propietario:</label>
+                                                        <label class="col-sm-12 col-form-label">Código Inquilino:</label>
                                                         <div class="col-sm-12">
                                                             <input for="registroCodigo" type="text" class="form-control" id="registroCodigo" name="registroCodigo" autofocus readonly="yes" >
                                                         </div>
@@ -259,7 +259,7 @@ include("layout/menuNavegacion.php");
                                                     <h5 class="card-title">Datos del Inquilino Jurídico</h5>
                                                 </div>
                                                 <div class="col-md-5">
-                                                        <label class="col-sm-12 col-form-label">Código Propietario:</label>
+                                                        <label class="col-sm-12 col-form-label">Código Inquilino:</label>
                                                         <div class="col-sm-12">
                                                             <input  for="" type="text" class="form-control" id="registroCodigoj" name="registroCodigoj" autofocus readonly="yes" >
                                                         </div>

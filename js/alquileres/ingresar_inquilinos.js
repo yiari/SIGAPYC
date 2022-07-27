@@ -95,23 +95,21 @@ if ($("#registroRif").val() == "") {
      mensaje("Debe indicar el celular del inquilino",1);
      return;
      }
-
  
- 
- if ($("#registroEstado").val() == "") {
-         mensaje("Debe colocar el campo el estado ",1);
-         return;
-         }
+if ($("#cboEstados").val() == "") {
+    mensaje("Debe indicar el estado de residencia del inquilino",1);
+    return;
+    }
 
- if ($("#registroMunicipio").val() == "") {
-     mensaje("Debe colocar el campo el municipio ",1);
-     return;
-     }
+if ($("#cboMunicipios").val() == "") {
+    mensaje("Debe indicar el Municipio de residencia del inquilino",1);
+    return;
+    }
 
- if ($("#registroParroquia").val() == "") {
-     mensaje("Debe colocar el campo el parroqui ",1);
-     return;
-     }
+if ($("#cboParroquia").val() == "") {
+    mensaje("Debe indicar la parroquia de residencia del inquilino",1);
+    return;
+    }
  
  if ($("#registroDirecionH").val() == "") {
      mensaje("Debe indicar la dirección de habitación del propietario ",1);
@@ -245,8 +243,8 @@ function limpiarCampos(){
     $("#registroCelular").val("");
     $("#registroRif").val("");
     $("#cboEstados").val("");
-    $("#registroMunicipio").val("");
-    $("#registroParroquia").val("");
+    $("#cboMunicipios").val("");
+    $("#cboParroquia").val("");
     $("#registroDirecionH").val("");
     $("#registroDirecionO").val("");
     $("#registroEmail").val("");
