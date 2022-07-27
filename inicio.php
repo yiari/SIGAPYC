@@ -48,16 +48,23 @@
 
 
                                 //echo $_GET["url"];
-
+                                $parametros = "";
                                 
                                 if($_GET["url"] != ""){
                                     
                                  $pos = strpos($_GET["url"],"?");
 
+                                if (isset($_GET["parametros"])){
+                                    $parametros = $_GET["parametros"];
+                                }
+
+
                                  if($pos > 0){
                                     include $_GET["url"];
                                  } else {
+                                    
                                     include $_GET["url"].".php";
+
                                  }
 
                                     

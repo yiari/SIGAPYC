@@ -21,3 +21,4 @@ require_once "app/controladores/ctrinicio.php";
 
 $plantilla = new ctrinicio();
 $plantilla -> cargarpantallainicio();
+

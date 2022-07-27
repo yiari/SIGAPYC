@@ -563,6 +563,9 @@ include("layout/menuNavegacion.php");
 
 include_once "app/vistas/comunes/modalmensajes.php";
 include_once "app/vistas/comunes/modaleliminar.php";
+include_once "app/vistas/comunes/modalpronatu.php";
+
+ 
 
 ?>
 

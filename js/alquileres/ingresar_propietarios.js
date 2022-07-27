@@ -69,7 +69,10 @@ function guardarPropietarios(){
    evt.preventDefault();
    /**********************************************/        
 
-  
+
+   mensajeNatural();
+   return;
+
 
    if ($("#registroNombre").val() == "") {
        mensaje("Debe indicar el nombre del propietario",1);
@@ -303,6 +306,64 @@ function mensaje(mensaje, condicion){
     $('#msgModal').modal('show');
 
 }
+
+
+
+function mensajeNatural(){
+
+    
+    var htmlContenido="";
+    var htmlApoderado="";
+    var htmlInmueble="";
+   
+    htmlContenido='<i class="fa fa-check-circle fa-2x" aria-hidden="true" style="color:#29bf1d;"></i>&nbsp' + 'P-JEAN PERAZA-0001';
+
+
+  
+    htmlApoderado='<a href="index.php?url=app/vistas/alquileres/ingresar_apoderado&parametros=1" class="btn btn-primary">Apoderado</a>';
+    htmlInmueble='<a href="index.php?url=app/vistas/alquileres/ingresar_inmueble&parametros=1" class="btn btn-primary">Inmueble</a>';
+
+    $('#spanMsgProNatu').html('');
+    $('#spanApoderado').html('');
+    $('#spanInmueble').html('');
+
+    $('#spanMsgProNatu').html(htmlContenido);
+    $('#spanApoderado').html(htmlApoderado);
+    $('#spanInmueble').html(htmlInmueble);
+
+    //open the modal
+    $('#msgModalProNatu').modal('show');
+
+}
+
+
+function mensajeJuridico(){
+
+    var htmlContenido="";
+    var htmlApoderado="";
+    var htmlInmueble="";
+   
+    htmlContenido='<i class="fa fa-check-circle fa-2x" aria-hidden="true" style="color:#29bf1d;"></i>&nbsp' + 'P-JEAN PERAZA-0001';
+
+    htmlApoderado='<a href="index.php?url=app/vistas/alquileres/representante" class="btn btn-primary">Representante</a>';
+    htmlInmueble='<a href="index.php?url=app/vistas/alquileres/inmuebles" class="btn btn-primary">Inmueble</a>';
+
+    $('#spanMsgProNatu').html('');
+    $('#spanApoderado').html('');
+    $('#spanInmueble').html('');
+
+    $('#spanMsgProNatu').html(htmlContenido);
+    $('#spanApoderado').html(htmlApoderado);
+    $('#spanInmueble').html(htmlInmueble);
+
+    //open the modal
+    $('#msgModalProNatu').modal('show');
+
+
+}
+
+
+
 
 function generarCodigoPropietario(){
 
