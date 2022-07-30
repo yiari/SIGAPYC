@@ -14,7 +14,6 @@ include("layout/menuNavegacion.php");
                             <a class="btn btn-outline-secondary" href="index.php?url=app/vistas/alquileres/apoderado"  role="button">Atras</a>
                         </ol>
                     </div>
-        
 
                 <h4 class="card-title">Apoderado</h4>
                     <nav>
@@ -36,7 +35,7 @@ include("layout/menuNavegacion.php");
                                         <form class="form-sample" id="registrarapoderado" name="registrarapoderado" method="POST" action="" autocomplete="off" enctype="multipart/form-data">
                                              
                                              <input type="hidden"  id="hidapoderado" name="hidapoderado" value='' >
-                                             <input type="hidden" id="id_prop" name="id_prop" value='1'>
+                                             <input type="hidden" id="id_prop" name="id_prop" value="0">
                                              <input type="hidden" id="tipo_persona" name=" tipo_persona" value='1'>
                                              <input type="hidden" id="hidcuenta_id_nacional" name="hidcuenta_id_nacional" value='0'>
                                              <input type="hidden" id="hidcuenta_id_internacional" name="hidcuenta_id_internacional" value='0'>
@@ -368,6 +367,7 @@ include_once "app/vistas/comunes/modaleliminar.php";
 
 <script src="js/comunes/combos.js"></script>
 <script src="js/comunes/generadorcodigos.js"></script>
+<script src="js/comunes/funciones.js"></script>
 <script src="js/alquileres/ingresar_apoderado.js"></script>
 
 

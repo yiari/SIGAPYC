@@ -1,5 +1,14 @@
 function inicio(){
 
+    /*
+    |----------------------------------------
+    | ASI SE CAPTURAN LOS PARAMETROS
+    |---------------------------------------
+    */
+    $('#id_prop').val(getParameterByName('idpro'));
+    /*--------------------------------------*/    
+
+
     cargarApoderado();
     cargarEstados();
     guardarApoderado();

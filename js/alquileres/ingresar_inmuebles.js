@@ -1,9 +1,18 @@
 function inicio(){
 
-cargarInmueble();
-guardarInmueble();
-cargarEstados();
-cargartipo_inmueble();
+
+    /*
+    |----------------------------------------
+    | ASI SE CAPTURAN LOS PARAMETROS
+    |---------------------------------------
+    */
+    $('#id_prop').val(getParameterByName('idpro'));
+    /*--------------------------------------*/    
+
+    cargarInmueble();
+    guardarInmueble();
+    cargarEstados();
+    cargartipo_inmueble();
 
 
 
