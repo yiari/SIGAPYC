@@ -183,6 +183,13 @@ function inicio(){
         $("#num_regi").val("");
         $("#gasto_admi").val("");
         $("#gasto_papel").val("");
+        $("#iva").val("");
+        $("#isrl").val("");
+        $("#servicio").val("");
+        $("#monto").val("");
+        $("#cboBancoNP").val("");
+        $("#num_cuenta").val("");
+        $("#cedula").val("");
     
     
     }

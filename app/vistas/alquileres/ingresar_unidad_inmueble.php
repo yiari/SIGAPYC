@@ -27,7 +27,7 @@ include("layout/menuNavegacion.php");
                 <input type="hidden" id="id_inmu" name="id_inmu" value='1'>
                 <input type="hidden" id="hidunidad" name="hidunidad" value=''>
                 <input type="hidden" id="hid_gastos" name="hid_gastos" value='0'>
-                <input type="hidden" id="id_gastos_especiolas" name="id_gastos_especiolas" value='0'>
+                <input type="hidden" id="hidgastos_especial" name="hidgastos_especial" value='0'>
 
                 <input type="hidden" id="registroCodigo" name="registroCodigo" value='U-'>
         
@@ -344,9 +344,9 @@ include("layout/menuNavegacion.php");
                                 <div class="row">
                                     <div class="col-md-4">
                                         <div class="row">
-                                            <label for="servicios" class="col-sm-12 col-form-label">Servicio:</label>
+                                            <label for="servicio" class="col-sm-12 col-form-label">Servicio:</label>
                                             <div class="col-sm-12">
-                                                <input type="text" class="form-control" id="servicios" name="servicios">
+                                                <input type="text" class="form-control" id="servicio" name="servicio">
                                             </div>
                                         </div>
                                     </div>

@@ -115,7 +115,7 @@ if($operacion == "I"){
                     "est_inmu"   => $_POST["est_inmu"],
                     "ser_inmu"   => $_POST["ser_inmu"],
                     "lim_nort"   => $_POST["lim_nort"],
-                    "lim_sur"    =>  $_POST["lim_sur"],
+                    "lim_sur"    => $_POST["lim_sur"],
                     "lim_este"   => $_POST["lim_este"],
                     "lim_oest"   => $_POST["lim_oest"],
                     "nom_regi"   => $_POST["nom_regi"],
@@ -133,8 +133,8 @@ if($operacion == "I"){
                    |------------------------------------------
                    */
                   "id_gastos" => $_POST["hid_gastos"],
-                  "gasto_administrativo" => $_POST["gasto_admi"],
-                  "gastos_papeleria" => $_POST["gasto_papel"],
+                  "gasto_admi" => $_POST["gasto_admi"],
+                  "gasto_papel" => $_POST["gasto_papel"],
                    "iva" => $_POST["iva"],
                    "isrl" => $_POST["isrl"],
 
@@ -144,15 +144,17 @@ if($operacion == "I"){
                    | AQUI VAN LOS DATOS DE LOS GASTOS FIJOS
                    |------------------------------------------
                    */
-                  "id_gastos_especiolas" => $_POST["hid_gastos_especial"],
-                  "servicios" => $_POST["servicio"],
-                  "monto" => $_POST["monto"],
-                  "Id_banco" => $_POST["id_bamco"],
-                  "num_cuenta" => $_POST["num_cuenta"],
-                  "cedula" => $_POST["cedula"]);
+                     "id_gesp" => $_POST["hidgastos_especial"],
+                     "servicio" => $_POST["servicio"],
+                     "monto" => $_POST["monto"],
+                     "id_banco" => $_POST["cboBancoNP"],
+                     "num_cuenta" => $_POST["num_cuenta"],
+                     "cedula" => $_POST["cedula"]);
 
-                  //echo json_encode($datos);
-      //die;
+                     $fecha = str_replace("-","",$_POST["fec_regi"]);
+                  
+                     //echo json_encode($fecha);
+                     // die;
 
     /*
    |-------------------------------------------------------------------------------------------------------------
@@ -180,7 +182,7 @@ if($operacion == "I"){
    | AQUI OBTENGO EL RESULTADO DE LA EJECUCION
    |---------------------------------------------
    */
-     $result = $registroInmueble->registrar($datos,$AchivosCargados);
+     $result = $registroUnidades->registrar($datos,$AchivosCargados);
     
     /*
     |-------------------------------------------

@@ -32,8 +32,8 @@ public function registrar($tabla,$datos,$archivos){
   $prmError = 0;
   $prmMensaje = "";
   $prmIdunidades = 0;
-
-
+  
+  $fecha = str_replace($datos["fec_regi"],"-","");
 
   
       try {
@@ -43,7 +43,7 @@ public function registrar($tabla,$datos,$archivos){
           | AQUI PREPARO LO QUE SERA LA LLAMADA AL PROCEDIMIENTO QUE REALIZARA LA OPERACION
           |----------------------------------------------------------------------------------
           */
-          $stmt = $dbConexion->conectar()->prepare("CALL usp_registrarunideades(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+          $stmt = $dbConexion->conectar()->prepare("CALL usp_registrarunideades(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
           $stmt -> bindParam(1, $datos["id_unid"],PDO::PARAM_INT); //id del uniades
           $stmt -> bindParam(2, $datos["id_inmu"],PDO::PARAM_INT); //id propietraio
           $stmt -> bindParam(3, $datos["cod_inmu"],PDO::PARAM_STR); // codigo del inmueble
@@ -67,28 +67,26 @@ public function registrar($tabla,$datos,$archivos){
           $stmt -> bindParam(21,$datos["lim_este"],PDO::PARAM_STR); // limites este
           $stmt -> bindParam(22,$datos["lim_oest"],PDO::PARAM_STR); // limites oeste
           $stmt -> bindParam(23,$datos["nom_regi"],PDO::PARAM_STR); // nombre3 del registro
-          $stmt -> bindParam(24,$datos["fec_regi"],PDO::PARAM_INT); // fecha del registro
+          $stmt -> bindParam(24,$fecha,PDO::PARAM_INT); // fecha del registro
           $stmt -> bindParam(25,$datos["tom_regi"],PDO::PARAM_STR); // tomo del registro
           $stmt -> bindParam(26,$datos["fol_regi"],PDO::PARAM_STR); // foli del registro
           $stmt -> bindParam(27,$datos["asi_regi"],PDO::PARAM_STR); // asiento del registro
           $stmt -> bindParam(28,$datos["fic_cata"],PDO::PARAM_STR); // Numero del ficha castratal
           $stmt -> bindParam(29,$datos["num_regi"],PDO::PARAM_STR); // Numero del codigo del registro
-          $stmt -> bindParam(30,$datos["tipo_persona"],PDO::PARAM_INT); // Numero del  Ficha Catastral
           $stmt -> bindParam(30,$datos["tipo_persona"],PDO::PARAM_INT); // tipo 
 
           $stmt -> bindParam(31,$datos["id_gastos"],PDO::PARAM_INT); // id gastos fijos
-          $stmt -> bindParam(32,$datos["gasto_administrativo"],PDO::PARAM_INT); // gastos fijos administrativo
-          $stmt -> bindParam(33,$datos["gastos_papeleria"],PDO::PARAM_INT); // gastos fijos papeleria
-          $stmt -> bindParam(33,$datos["gastos_papeleria"],PDO::PARAM_INT); // gastos fijos papeleria
-          $stmt -> bindParam(33,$datos["iva"],PDO::PARAM_INT); // gastos iva
-          $stmt -> bindParam(33,$datos["isrl"],PDO::PARAM_INT); // gastos isrl
+          $stmt -> bindParam(32,$datos["gasto_admi"],PDO::PARAM_INT); // gastos fijos administrativo
+          $stmt -> bindParam(33,$datos["gasto_papel"],PDO::PARAM_INT); // gastos fijos papeleria
+          $stmt -> bindParam(34,$datos["iva"],PDO::PARAM_INT); // gastos iva
+          $stmt -> bindParam(35,$datos["isrl"],PDO::PARAM_INT); // gastos isrl
 
-          $stmt -> bindParam(34,$datos["id_gastos_especiolas"],PDO::PARAM_INT); // gastos especilaes
-          $stmt -> bindParam(35,$datos["servicios"],PDO::PARAM_INT); // gastos servicios
-          $stmt -> bindParam(36,$datos["monto"],PDO::PARAM_INT); // gastos montos del servicio
-          $stmt -> bindParam(37,$datos["Id_banco"],PDO::PARAM_INT); // gastos especilaes
-          $stmt -> bindParam(38,$datos["num_cuenta"],PDO::PARAM_INT); // gastos servicios
-          $stmt -> bindParam(39,$datos["cedula"],PDO::PARAM_INT); // gastos montos del servicio
+          $stmt -> bindParam(36,$datos["id_gesp"],PDO::PARAM_INT); // gastos especilaes
+          $stmt -> bindParam(37,$datos["servicio"],PDO::PARAM_STR); // gastos servicios
+          $stmt -> bindParam(38,$datos["monto"],PDO::PARAM_INT); // gastos montos del servicio
+          $stmt -> bindParam(39,$datos["id_banco"],PDO::PARAM_INT); // gastos especilaes
+          $stmt -> bindParam(40,$datos["num_cuenta"],PDO::PARAM_INT); // gastos servicios
+          $stmt -> bindParam(41,$datos["cedula"],PDO::PARAM_STR); // gastos montos del servicio
           
           
 
@@ -127,7 +125,7 @@ public function registrar($tabla,$datos,$archivos){
                 */
 
                 if($prmError == 0){
-                  $prmIdinmueble = $row[2]; //AQUI OBTENGO EL ID DEL PAGADOR
+                  $prmIdunidades = $row[2]; //AQUI OBTENGO EL ID DEL REGISTRO
                 }
                 $prmMensaje =  $row[1]; //COLUMNA DEL MENSAJE
               }
@@ -149,9 +147,9 @@ public function registrar($tabla,$datos,$archivos){
 
 
           IF($prmTipoPersonaTEMP == 1){
-            $subirArchivos->validarArchivos($archivos,$prmIdinmueble,$prmTipoPersonaTEMP,'1IU');
+            $subirArchivos->validarArchivos($archivos,$prmIdunidades,$prmTipoPersonaTEMP,'1IU');
           } else {
-            $subirArchivos->validarArchivos($archivos,$prmIdinmueble,$prmTipoPersonaTEMP,'2P');
+            $subirArchivos->validarArchivos($archivos,$prmIdunidades,$prmTipoPersonaTEMP,'2P');
           }
           
 
@@ -165,9 +163,9 @@ public function registrar($tabla,$datos,$archivos){
             'mensaje' =>  $prmMensaje
           );
 
-          if( $prmIdinmueble > 0 ){
+          if( $prmIdunidades > 0 ){
 
-            $dataRegistro["Items"][] = ["ID_INMUEBLE" => $prmIdinmueble];
+            $dataRegistro["Items"][] = ["ID_UNIDAD" => $prmIdunidades];
           
             echo json_encode(array_merge($dataRegistro,$dataRes));
 
