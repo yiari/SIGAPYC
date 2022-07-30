@@ -380,8 +380,12 @@ function generarCodigoApoderado(){
         var prmApellido=$("#registroApellido").val();
 
         $("#registroCodigo").val('');
+        codigoApoderado(prmNombre + ' ' + prmApellido,function(result){
+            $("#registroCodigo").val(result);
+        });
+        /*
         $("#registroCodigo").val(codigoApoderado(prmNombre + ' ' + prmApellido));
-
+        */
     });
 
     $("#registroApellido").on('keyup', function () {
@@ -390,8 +394,12 @@ function generarCodigoApoderado(){
         var prmApellido=this.value;
 
         $("#registroCodigo").val('');
+        codigoApoderado(prmNombre + ' ' + prmApellido,function(result){
+            $("#registroCodigo").val(result);
+        });
+        /*
         $("#registroCodigo").val(codigoApoderado(prmNombre + ' ' + prmApellido));
-
+        */
     });
    
 
