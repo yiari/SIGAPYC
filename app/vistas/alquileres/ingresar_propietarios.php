@@ -571,4 +571,5 @@ include_once "app/vistas/comunes/modalpronatu.php";
 
 <script src="js/comunes/combos.js"></script>
 <script src="js/comunes/generadorcodigos.js"></script>
+<script src="js/comunes/funciones.js"></script>
 <script src="js/alquileres/ingresar_propietarios.js"></script>

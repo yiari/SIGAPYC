@@ -527,6 +527,7 @@ include_once "app/vistas/comunes/modaleliminar.php";
 
 <script src="js/comunes/combos.js"></script>
 <script src="js/comunes/generadorcodigos.js"></script>
+<script src="js/comunes/funciones.js"></script>
 <script src="js/alquileres/ingresar_inmuebles.js"></script>
 
 

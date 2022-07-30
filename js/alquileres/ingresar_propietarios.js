@@ -70,8 +70,8 @@ function guardarPropietarios(){
    /**********************************************/        
 
 
-   //mensajeNatural();
-   //return;
+   mensajeNatural();
+   return;
 
 
    if ($("#registroNombre").val() == "") {
@@ -320,8 +320,8 @@ function mensajeNatural(){
 
 
   
-    htmlApoderado='<a href="index.php?url=app/vistas/alquileres/ingresar_apoderado&parametros=1" class="btn btn-primary">Apoderado</a>';
-    htmlInmueble='<a href="index.php?url=app/vistas/alquileres/ingresar_inmueble&parametros=1" class="btn btn-primary">Inmueble</a>';
+    htmlApoderado='<a href="index.php?url=app/vistas/alquileres/ingresar_apoderado&idpro=1290&codpro=P-JEAN PERAZA-0001" class="btn btn-primary">Apoderado</a>';
+    htmlInmueble='<a href="index.php?url=app/vistas/alquileres/ingresar_inmueble&idpro=1290&codpro=P-JEAN PERAZA-0001" class="btn btn-primary">Inmueble</a>';
 
     $('#spanMsgProNatu').html('');
     $('#spanApoderado').html('');
