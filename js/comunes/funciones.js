@@ -15,3 +15,18 @@ function getParameterByName( name ) //courtesy Artem
   }
   
 }
+
+/* ESTO ES PARA FUNCIONES ASINCRONAS */
+function delay(n){
+  return new Promise(function(resolve){
+      setTimeout(resolve,n*1000);
+  });
+}
+
+function syncDelay(milliseconds){
+  var start = new Date().getTime();
+  var end=0;
+  while( (end-start) < milliseconds){
+      end = new Date().getTime();
+  }
+ }

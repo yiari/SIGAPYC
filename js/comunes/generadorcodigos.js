@@ -1,21 +1,93 @@
-function codigoPropietario(nombre){
+function codigoPropietario(nombre,callback){
 
-            if(nombre.length >0){
 
-                let text = nombre;
+    let text="";
+    let result="";
 
-                let result = 'P-' +  valorLetra(text.charAt(0)) + '-' +  completarconcero(1, 4)  + '-' +  nombre;
+    if(nombre.length >0){
 
-                return result;
-            } else {
-                return "";
-            }
+            $.ajax({
+                url: "app/vistas/comunes/generarcodigos.php",
+                method: 'POST',
+                data: {opcion:"codigoPropietario"},
+                success: function (data,status,xhr) {
+                    var json = data;
+                    
+                    /*
+                    |-----------------------------------------------------------
+                    | AQUI VERIFICO SI LA RESPUESTA ES JSON, SI NO ES JSON
+                    | EL RESULTADO SE CONVIERTE A JSON
+                    |-----------------------------------------------------------
+                    */
+            
+                    var respuestaHeader = xhr.getResponseHeader("Content-Type");
+                    var verificarHeader = respuestaHeader.search('text/html')
+            
+                    if(verificarHeader >= 0){
+                        json = JSON.parse(json);
+                    } 
+            
+                    /*---------------------------------------------------------*/
+            
+                    text = nombre;
+                    result = 'P-' +  valorLetra(text.charAt(0)) + '-' +  completarconcero(json.valor, 4)  + '-' +  nombre;
+
+                     callback(result);
+
+                }
+
+            });
+
+    }
+
 
 }
 
 
-function codigoApoderado(nombre){
+function codigoApoderado(nombre,callback){
 
+    let text="";
+    let result="";
+
+    if(nombre.length >0){
+
+            $.ajax({
+                url: "app/vistas/comunes/generarcodigos.php",
+                method: 'POST',
+                data: {opcion:"codigoApoderado"},
+                success: function (data,status,xhr) {
+                    var json = data;
+                    
+                    /*
+                    |-----------------------------------------------------------
+                    | AQUI VERIFICO SI LA RESPUESTA ES JSON, SI NO ES JSON
+                    | EL RESULTADO SE CONVIERTE A JSON
+                    |-----------------------------------------------------------
+                    */
+            
+                    var respuestaHeader = xhr.getResponseHeader("Content-Type");
+                    var verificarHeader = respuestaHeader.search('text/html')
+            
+                    if(verificarHeader >= 0){
+                        json = JSON.parse(json);
+                    } 
+            
+                    /*---------------------------------------------------------*/
+            
+                    text = nombre;
+                    result = 'A-' +  valorLetra(text.charAt(0)) + '-' +  completarconcero(json.valor, 4)  + '-' +  nombre;
+
+                     callback(result);
+
+                }
+
+            });
+
+    }
+
+
+
+    /*
     if(nombre.length >0){
 
         let text = nombre;
@@ -26,10 +98,54 @@ function codigoApoderado(nombre){
     } else {
         return "";
     }
+    */
 
 }
 
-function codigoRepresentante(nombre){
+function codigoRepresentante(nombre,callback){
+
+
+    let text="";
+    let result="";
+
+    if(nombre.length >0){
+
+            $.ajax({
+                url: "app/vistas/comunes/generarcodigos.php",
+                method: 'POST',
+                data: {opcion:"codigoRepresentante"},
+                success: function (data,status,xhr) {
+                    var json = data;
+                    
+                    /*
+                    |-----------------------------------------------------------
+                    | AQUI VERIFICO SI LA RESPUESTA ES JSON, SI NO ES JSON
+                    | EL RESULTADO SE CONVIERTE A JSON
+                    |-----------------------------------------------------------
+                    */
+            
+                    var respuestaHeader = xhr.getResponseHeader("Content-Type");
+                    var verificarHeader = respuestaHeader.search('text/html')
+            
+                    if(verificarHeader >= 0){
+                        json = JSON.parse(json);
+                    } 
+            
+                    /*---------------------------------------------------------*/
+            
+                    text = nombre;
+                    result = 'R-' +  valorLetra(text.charAt(0)) + '-' +  completarconcero(json.valor, 4)  + '-' +  nombre;
+
+                     callback(result);
+
+                }
+
+            });
+
+    }
+
+
+/*
 
     if(nombre.length >0){
 
@@ -42,11 +158,54 @@ function codigoRepresentante(nombre){
         return "";
     }
 
+*/
 }
 
 
-function codigoInquilino(nombre){
+function codigoInquilino(nombre,callback){
 
+
+
+    let text="";
+    let result="";
+
+    if(nombre.length >0){
+
+            $.ajax({
+                url: "app/vistas/comunes/generarcodigos.php",
+                method: 'POST',
+                data: {opcion:"codigoInquilino"},
+                success: function (data,status,xhr) {
+                    var json = data;
+                    
+                    /*
+                    |-----------------------------------------------------------
+                    | AQUI VERIFICO SI LA RESPUESTA ES JSON, SI NO ES JSON
+                    | EL RESULTADO SE CONVIERTE A JSON
+                    |-----------------------------------------------------------
+                    */
+            
+                    var respuestaHeader = xhr.getResponseHeader("Content-Type");
+                    var verificarHeader = respuestaHeader.search('text/html')
+            
+                    if(verificarHeader >= 0){
+                        json = JSON.parse(json);
+                    } 
+            
+                    /*---------------------------------------------------------*/
+            
+                    text = nombre;
+                    result = 'IN-' +  valorLetra(text.charAt(0)) + '-' +  completarconcero(json.valor, 4)  + '-' +  nombre;
+
+                     callback(result);
+
+                }
+
+            });
+
+    }
+
+    /*
     if(nombre.length >0){
 
         let text = nombre;
@@ -57,11 +216,53 @@ function codigoInquilino(nombre){
     } else {
         return "";
     }
+    */
 
 }
 
-function codigoPagador(nombre){
+function codigoPagador(nombre,callback){
 
+
+    let text="";
+    let result="";
+
+    if(nombre.length >0){
+
+            $.ajax({
+                url: "app/vistas/comunes/generarcodigos.php",
+                method: 'POST',
+                data: {opcion:"codigoPagador"},
+                success: function (data,status,xhr) {
+                    var json = data;
+                    
+                    /*
+                    |-----------------------------------------------------------
+                    | AQUI VERIFICO SI LA RESPUESTA ES JSON, SI NO ES JSON
+                    | EL RESULTADO SE CONVIERTE A JSON
+                    |-----------------------------------------------------------
+                    */
+            
+                    var respuestaHeader = xhr.getResponseHeader("Content-Type");
+                    var verificarHeader = respuestaHeader.search('text/html')
+            
+                    if(verificarHeader >= 0){
+                        json = JSON.parse(json);
+                    } 
+            
+                    /*---------------------------------------------------------*/
+            
+                    text = nombre;
+                    result = 'PA-' +  valorLetra(text.charAt(0)) + '-' +  completarconcero(json.valor, 4)  + '-' +  nombre;
+
+                     callback(result);
+
+                }
+
+            });
+
+    }
+
+    /*
     if(nombre.length >0){
 
         let text = nombre;
@@ -72,6 +273,7 @@ function codigoPagador(nombre){
     } else {
         return "";
     }
+*/
 
 }
 

@@ -69,9 +69,24 @@ function guardarPropietarios(){
    evt.preventDefault();
    /**********************************************/        
 
-
+/*
    mensajeNatural();
    return;
+*/
+
+
+        /*
+        |---------------------------------------------------
+        | AQUI VALIDO EL CODIGO DEL PROPIETARIO ANTES
+        | DE GUARDAR, POR SI SE HA GENERADO OTRO DOCUMENTO
+        |---------------------------------------------------
+        */
+   
+      //  validarCodigoPropietario();
+
+       // syncDelay(5000); //ESTO VA A ESPERAR 5 SEGUNDOS;
+
+        /*-------------------------------------------------*/
 
 
    if ($("#registroNombre").val() == "") {
@@ -194,8 +209,7 @@ function guardarPropietarios(){
 
 
 
-   
-   /*
+        /*
         |-----------------------------------------------
         | LIMPIA EL CAMPO MENSAJE 
         |-----------------------------------------------
@@ -233,17 +247,27 @@ function guardarPropietarios(){
             success: function (data) {
             var json = data;
             var html = "";
-
-                //console.log("Mensaje del JSON: " + json.mensaje);
+            let idPropietario = 0;
+                console.log("Mensaje del JSON: " + json);
 
                 if(json.error == 0){
                     
-                    mensaje(json.mensaje,0);
+                    //mensaje(json.mensaje,0);
+                    if(json.Items.length > 0){
 
-                    //$("#mensaje").html(html).fadeIn();
-                    //limpiarCampos();
-                    //limpiarTabla();
-                    botones(0);
+                        //console.log("Datos del Propietario: " + json.Items[0].ID_PROPIETARIO);
+                        idPropietario = json.Items[0].ID_PROPIETARIO;
+
+                    }
+
+                    if(idPropietario > 0){
+                        mensajeNatural(idPropietario,  $("#registroCodigo").val());
+                        limpiarFormulario(1);
+                        botones(0);
+                        
+                    } else {
+                        mensaje("Hubo un problema con el codigo de propietario.",1);
+                    }
 
                 }else {
 
@@ -269,6 +293,13 @@ function guardarPropietarios(){
 }
 
 
+function limpiarFormulario(valor){
+
+    if(valor == 1){
+        document.getElementById("registrarpropietario").reset();
+    }
+
+}
 
 function botones(opcion){
 
@@ -309,19 +340,19 @@ function mensaje(mensaje, condicion){
 
 
 
-function mensajeNatural(){
+function mensajeNatural(idpro, codigopro){
 
     
     var htmlContenido="";
     var htmlApoderado="";
     var htmlInmueble="";
    
-    htmlContenido='<i class="fa fa-check-circle fa-2x" aria-hidden="true" style="color:#29bf1d;"></i>&nbsp' + 'P-JEAN PERAZA-0001';
+    htmlContenido='<i class="fa fa-check-circle fa-2x" aria-hidden="true" style="color:#29bf1d;"></i>&nbsp' + codigopro;
 
 
   
-    htmlApoderado='<a href="index.php?url=app/vistas/alquileres/ingresar_apoderado&idpro=1290&codpro=P-JEAN PERAZA-0001" class="btn btn-primary">Apoderado</a>';
-    htmlInmueble='<a href="index.php?url=app/vistas/alquileres/ingresar_inmueble&idpro=1290&codpro=P-JEAN PERAZA-0001" class="btn btn-primary">Inmueble</a>';
+    htmlApoderado='<a href="index.php?url=app/vistas/alquileres/ingresar_apoderado&idpro=' + idpro + '&codpro=' + codigopro + '" class="btn btn-primary">Apoderado</a>';
+    htmlInmueble='<a href="index.php?url=app/vistas/alquileres/ingresar_inmueble&idpro=' + idpro + '&codpro=' + codigopro + '" class="btn btn-primary">Inmueble</a>';
 
     $('#spanMsgProNatu').html('');
     $('#spanApoderado').html('');
@@ -374,7 +405,11 @@ function generarCodigoPropietario(){
         var prmApellido=$("#registroApellido").val();
 
         $("#registroCodigo").val('');
-        $("#registroCodigo").val(codigoPropietario(prmNombre + ' ' + prmApellido));
+
+        codigoPropietario(prmNombre + ' ' + prmApellido,function(result){
+            $("#registroCodigo").val(result);
+        });
+
 
     });
 
@@ -384,7 +419,9 @@ function generarCodigoPropietario(){
         var prmApellido=this.value;
 
         $("#registroCodigo").val('');
-        $("#registroCodigo").val(codigoPropietario(prmNombre + ' ' + prmApellido));
+        codigoPropietario(prmNombre + ' ' + prmApellido,function(result){
+            $("#registroCodigo").val(result);
+        });
 
     });
    
@@ -392,8 +429,17 @@ function generarCodigoPropietario(){
 }
 
 
+function validarCodigoPropietario(){
 
+    var prmNombre= $("#registroNombre").val(); 
+    var prmApellido= $("#registroApellido").val();
 
+    $("#registroCodigo").val('');
+    codigoPropietario(prmNombre + ' ' + prmApellido,function(result){
+        $("#registroCodigo").val(result);
+    });
+
+}
 
 $(document).ready(function() {
 
