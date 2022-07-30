@@ -1,5 +1,6 @@
 function inicio(){
-
+ 
+    cargarbeneficiarios();
     cargarEstados();
     cargarBancos('cboBancoN');
     cargarBancos('cboBancoNP');
@@ -305,7 +306,7 @@ function limpiarCampos(){
 
 
 
-function cargarInquilino(){
+function cargarbeneficiarios(){
 
     /*
     |-----------------------------------------------------
@@ -321,7 +322,7 @@ function cargarInquilino(){
     |-----------------------------------------------
     */
     $.ajax({
-        url: "app/handler/alquileres/hndregistroinquilino.php",
+        url: "app/handler/alquileres/hndregistrobeneficiarios.php",
         data: formData,
         processData: false,
         contentType: false,
@@ -358,6 +359,7 @@ function cargarInquilino(){
                             tr.append("<td>" + json.Items[0][i].cedula+ "</td>");
                             tr.append("<td>" + json.Items[0][i].telefono + "</td>");
                             tr.append("<td>" + json.Items[0][i].correo + "</td>"); 
+                            tr.append("<td>" % "</td>"); 
                             
                             var html="";
                             html = '<div class="btn-group" style="font-size:1.3em; letter-spacing:0.2em;">';

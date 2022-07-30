@@ -43,7 +43,7 @@ class ctrregistrobeneficiarios{
 
      public function seleccionarregistros(){
 
-        $tabla = "users";
+        $tabla = "beneficiario";
         $modelo =  new mdlregisbenficiario();
         $respuestas =  $modelo->seleccionarregistros($tabla,null,null);
         return $respuestas;

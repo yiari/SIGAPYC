@@ -1,6 +1,6 @@
 function inicio(){
 
-  
+    cargarPropietarios();
 
 
 }
@@ -22,7 +22,7 @@ function cargarPropietarios(){
     |-----------------------------------------------
     */
     $.ajax({
-        url: "app/handler/alquileres/hndregispropietario.php",
+        url: "app/handler/alquileres/hndregispropietarios.php",
         data: formData,
         processData: false,
         contentType: false,
@@ -41,6 +41,24 @@ function cargarPropietarios(){
         console.log("Items Resultados: " + json.Items[0].length);
         console.log("Email Resultados: " + json.Items[0][1].email);
 */
+
+
+        
+/*
+|-----------------------------------------------------------
+| AQUI VERIFICO SI LA RESPUESTA ES JSON, SI NO ES JSON
+| EL RESULTADO SE CONVIERTE A JSON
+|-----------------------------------------------------------
+*/
+
+var respuestaHeader = xhr.getResponseHeader("Content-Type");
+var verificarHeader = respuestaHeader.search('text/html')
+
+if(verificarHeader >= 0){
+    json = JSON.parse(json);
+} 
+
+/*---------------------------------------------------------*/
                 /*
                 |------------------------------------------------------
                 | AQUI SE CARGA LA INFORMACION EN LA TABLA
@@ -53,29 +71,33 @@ function cargarPropietarios(){
                        // if (isEmpty(json.Items[0][i]) == false) {
                             tr = $('<tr/>');
                             
-                            tr.append("<td>" + (i+1) + "</td>");
-                            tr.append("<td>" + json.Items[0][i].cod_prop + "</td>");
-                            tr.append("<td>" + json.Items[0][i].mon_prop + "</td>");
-                            tr.append("<td>" + json.Items[0][i].cedula_prop + "</td>");
-                            tr.append("<td>" + json.Items[0][i].correo_prop + "</td>");
-                            tr.append("<td>" + json.Items[0][i].telefono_prop + "</td>"); 
-                            
-                            
+                            tr.append("<td>" + json.Items[0][i].codigo + "</td>");
+                            tr.append("<td>" + json.Items[0][i].nombre + "</td>");
+                            tr.append("<td>" + json.Items[0][i].cedula + "</td>");
+                            tr.append("<td>" + json.Items[0][i].telefonos + "</td>");
+                            tr.append("<td>" + json.Items[0][i].correo + "</td>"); 
+                            tr.append("<td>" + json.Items[0][i].tipo + "</td>");
+                           
                             
                             var html="";
-                            html = '<div class="btn-group" style="font-size:1.3em; letter-spacing:0.5em;';
-                            html +=  '<a href="#" title="Editar" data-field-id="' + json.Items[0][i].id + '" data-field-nombre="' + json.Items[0][i].nombre + '" data-field-apellido="'+ json.Items[0][i].apellido + '" data-field-usuario="'+ json.Items[0][i].usuario + '" data-field-email="' + json.Items[0][i].email +  '"><i class="fas fa-edit"></i></a> &nbsp;'
-                            html += '<button class="btn btn-warning edit" data-field-id="' + json.Items[0][i].id + '" data-field-nombre="' + json.Items[0][i].nombre + '" data-field-apellido="'+ json.Items[0][i].apellido + '" data-field-usuario="'+ json.Items[0][i].usuario + '" data-field-email="' + json.Items[0][i].email +  '"><i class="fas fa-edit" alt=“editar”></i>&nbsp;Editar</button>';
-                            html +=  ''
+                            html = '<div class="btn-group" style="font-size:1.3em; letter-spacing:0.2em;">';
+                            html += '<a title="Editar" data-field-id="' + json.Items[0][i].id  + '"><i class="fa fa-edit" alt=“editar”></i></a>&nbsp;';
+                            html += '<a title="Ver" data-field-id="' + json.Items[0][i].id + '"><i class="fa fa-search" alt=“Ver”></i></a>&nbsp;'
+                            html += '<a title="Bitacora" data-field-id="' + json.Items[0][i].id + '"><i class="fa fa-folder-open"></i></a>&nbsp;';
+                            html += '<a title="Apodferado" data-field-id="' + json.Items[0][i].id + '"><i class="fa-regular fa-id-badge"></i></a>&nbsp;';
+                            html += '<a title= "Representante" data-field-id="' + json.Items[0][i].id + '"><i class="fa-regular fa-id-badge"></i></a>&nbsp;';
+                            html += '<a title= "Beneficiario" data-field-id="' + json.Items[0][i].id + '"><i class="fa fa-folder-open"></i></a>&nbsp;';
+                            html += '<a title= "Inmuebles" data-field-id="' + json.Items[0][i].id + '"><i class="fa fa-folder-open"></i></a>&nbsp;';
+                            html += '<a title="Eliminar"  data-field-id="'  + json.Items[0][i].id + '"><i class="fa fa-trash" alt=“eliminar”></i></a>';
                             html += '</div>'
                             tr.append("<td>" + html + "</td>");
-                            $('#tblPropietarios').append(tr);
+                            $('#datatablesSimple').append(tr);
                         //}
                     }
 
 
-                   // editarUsuario();
-                   // validareliminarUsuario();
+                    //editarRepresentante();
+                    //validareliminarRepresentante();
                 }
                 /************************************************ */
 

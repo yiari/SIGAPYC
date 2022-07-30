@@ -43,7 +43,7 @@ class ctrregistropropietarios{
 
      public function seleccionarregistros(){
 
-        $tabla = "users";
+        $tabla = "propietarios";
         $modelo =  new mdlregispropietarios();
         $respuestas =  $modelo->seleccionarregistros($tabla,null,null);
         return $respuestas;

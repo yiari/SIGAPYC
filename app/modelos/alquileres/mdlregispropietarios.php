@@ -320,7 +320,7 @@ public function registrar($tabla,$datos,$archivos){
 
               $dbConexion = new conexcion();  
 
-                $stmt = $dbConexion->conectar()->prepare("CALL usp_cargapropietario()");
+                $stmt = $dbConexion->conectar()->prepare("CALL usp_cargarpropietario()");
                 $stmt->execute();
                 $dataRegistro["Items"][] = $stmt->fetchAll();
       
@@ -351,7 +351,7 @@ public function registrar($tabla,$datos,$archivos){
 
           $dbConexion = new conexcion();
           
-          $stmt = $dbConexion->conectar()->prepare("CALL usp_cargapropietario()");
+          $stmt = $dbConexion->conectar()->prepare("CALL usp_cargarpropietario()");
         
           $stmt ->bindParam(":".$iten, $valor, PDO::PARAM_STR);
           $stmt->execute();
@@ -383,9 +383,6 @@ public function registrar($tabla,$datos,$archivos){
 
       }
   }
-
-
-  
 
 
 

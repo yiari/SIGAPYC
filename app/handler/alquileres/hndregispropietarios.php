@@ -211,7 +211,7 @@ if($operacion == "C"){
     | AQUI REGRESO EL RESULTADO AL AJAX
     |-------------------------------------------
     */
-    header('Content-Type: application/json');
+    //header('Content-Type: application/json');
      return $result;
      
 }

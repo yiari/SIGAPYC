@@ -33,42 +33,17 @@ include("layout/menuNavegacion.php");
                         <tr>
                             <th width="10%">Código</th>
                             <th width="10%">Nombre</th>
-                            <th width="10%">Documento Id</th>
-                            <th width="10%">local </th>
-                            <th width="10%">celular </th>
+                            <th width="10%">Cedula o rif</th>
+                            <th width="10%">Telefonos</th>
                             <th width="10%">Correo</th>
+                            <th width="10%">Tipo</th>
                              <th width="10%">Doc / Editar</th>
                        </tr>
                     </thead>
                    
                     <tbody>
 
-                            <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    
-                                    
-                                    <td>
-                                        <div class="btn-group" style="font-size:1.3em; letter-spacing:0.5em;">
-
-                                        
-                                        <a href="#" title="Editar"><i class="fas fa-edit"></i></a> &nbsp;
-                                        <a href='#' title="Ver" target='_blank'><i class="fas fa-search"></i></a> &nbsp;
-                                        <a href='#' title="Mandato" target='_blank'><i class="fa-solid fa-file-pen"></i></a> &nbsp;
-                                        <a href='#' title="Bitacora"><i class="fa-regular fa-folder-open"  ></i></a> &nbsp;
-                                        <!--aquie de a ver una condicion si es proietario natural es apoderado si es juridoco es un representante-->
-                                         <a href='index.php?url=app/vistas/alquileres/apoderado' title="Apoderado"><i class="fa-regular fa-id-badge"></i></a> &nbsp;
-                                         <a href='index.php?url=app/vistas/alquileres/representante' title="Representante"><i class="fa-regular fa-id-badge"></i></a> &nbsp;
-                                         <a href='index.php?url=app/vistas/alquileres/inmuebles' title="Inmueble"><i class="fa-solid fa-city"></i></a> &nbsp;  
-                                        </div>
-
-                                    </td>
-                                    
-                                </tr>
+                           
 
                        
                     </tbody>
@@ -79,4 +54,12 @@ include("layout/menuNavegacion.php");
     </br>
 </div>
 </br>
-<script src="js/alquileres/ingresar_propietarios.js"></script>
+
+
+<?php 
+
+include_once "app/vistas/comunes/modalmensajes.php";
+include_once "app/vistas/comunes/modaleliminar.php";
+
+?>
+<script src="js/alquileres/cargar_propietario.js"></script>

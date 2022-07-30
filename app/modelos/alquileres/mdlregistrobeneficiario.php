@@ -44,7 +44,7 @@ public function registrar($tabla,$datos,$archivos){
           |----------------------------------------------------------------------------------
           */
           $stmt = $dbConexion->conectar()->prepare("CALL usp_registrobeneficiario(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
-          
+
           $stmt -> bindParam(1, $datos["id_bene"], PDO::PARAM_INT); //ESTE ES EL ID DEL Beneficiario
           $stmt -> bindParam(2, $datos["id_prop"], PDO::PARAM_INT); //ESTE ES EL ID DEL PROPIETARIO
           $stmt -> bindParam(3, $datos["cod_bene"], PDO::PARAM_STR);
@@ -330,7 +330,7 @@ public function registrar($tabla,$datos,$archivos){
 
               $dbConexion = new conexcion();  
 
-                $stmt = $dbConexion->conectar()->prepare("CALL usp_cargapropietario()");
+                $stmt = $dbConexion->conectar()->prepare("CALL usp_cargarbeneficiario");
                 $stmt->execute();
                 $dataRegistro["Items"][] = $stmt->fetchAll();
       
@@ -361,7 +361,7 @@ public function registrar($tabla,$datos,$archivos){
 
           $dbConexion = new conexcion();
           
-          $stmt = $dbConexion->conectar()->prepare("CALL usp_cargapropietario()");
+          $stmt = $dbConexion->conectar()->prepare("CALL usp_cargarbeneficiario");
         
           $stmt ->bindParam(":".$iten, $valor, PDO::PARAM_STR);
           $stmt->execute();

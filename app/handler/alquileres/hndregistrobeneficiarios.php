@@ -208,14 +208,14 @@ if($operacion == "C"){
     |-------------------------------------------
     */
     
-    $registroPropietario =  new ctrregistropropietarios();
+    $registroBenefesiarios =  new ctrregistrobeneficiarios();
 
    /* 
    |---------------------------------------------
    | AQUI OBTENGO EL RESULTADO DE LA EJECUCION
    |---------------------------------------------
    */
-     $result = $registroPropietario->seleccionarregistros();
+     $result = $registroBenefesiarios->seleccionarregistros();
     
     /*
     |-------------------------------------------
