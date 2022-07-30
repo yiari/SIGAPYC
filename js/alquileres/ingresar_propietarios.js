@@ -70,8 +70,8 @@ function guardarPropietarios(){
    /**********************************************/        
 
 
-   mensajeNatural();
-   return;
+   //mensajeNatural();
+   //return;
 
 
    if ($("#registroNombre").val() == "") {

@@ -1,4 +1,3 @@
-
 <?php 
 
 include("layout/menuNavegacion.php"); 
@@ -15,105 +14,27 @@ include("layout/menuNavegacion.php");
                         </ol>
                     </div>
 
-           <h4 class="card-title">Inmuebles</h4><br>
+           <h4 class="card-title">Unidades del Inmueble</h4><br>
             <nav>
                 <div class="nav nav-tabs" id="nav-tab" role="tablist">
                     <button class="nav-link active" id="nav-Inmueble-tab" data-bs-toggle="tab" data-bs-target="#nav-Inmueble" type="button" role="tab" aria-controls="nav-edificio" aria-selected="true">Inmueble</button>
                 </div>
             </nav>
 
-        <form class="form-sample" id="registroinmueble" name="registroinmueble" method="POST" action="" autocomplete="off" enctype="multipart/form-data">
+        <form class="form-sample" id="registrounidades" name="registrounidades" method="POST" action="" autocomplete="off" enctype="multipart/form-data">
                 
                 <input type="hidden" id="tipo_persona" name="tipo_persona" value='1'>
-                <input type="hidden" id="id_prop" name="id_prop" value='1'>
-                <input type="hidden" id="hidinmueble" name="hidinmueble" value=''>
+                <input type="hidden" id="id_inmu" name="id_inmu" value='1'>
+                <input type="hidden" id="hidunidad" name="hidunidad" value=''>
                 <input type="hidden" id="hid_gastos" name="hid_gastos" value='0'>
+                <input type="hidden" id="id_gastos_especiolas" name="id_gastos_especiolas" value='0'>
 
-                <input type="hidden" id="registroCodigo" name="registroCodigo" value='IN-'>
+                <input type="hidden" id="registroCodigo" name="registroCodigo" value='U-'>
         
         <div class="tab-content" id="nav-tabContent">
             <div class="tab-pane fade show active" id="nav-info_propinmu" role="tabpanel" aria-labelledby="nav-info_propinmu-tab">
                 <div class="col-12 grid-margin">
-                    <input type="hidden" id="operacion" name="operacion" enctype="multipart/form-data">
-
-                    <!--Datos del propietario-->
-                    <div class="card" id="Propietario">
-
-                        
-                                
-                                <div class="card-body">
-                                    <div class="col text-center">
-                                        <h5 class="card-title">Datos del Propietario</h5>
-                                    </div>
-        </br>
-                                    <div class="row">
-                                        <div class="col-md-3">
-                                            <label class="col-sm-12 col-form-label">Buscar Código Propietario:</label>
-                                        </div>
-                                    
-                                        <div class="col-md-4">
-                                                <input type="text" class="form-control" id="nom_prop" name="nom_prop">
-                                               
-                                        </div>
-
-                                        <div class="col-md-2">
-                                                <button type="submit" class="btn btn-primary mb-2">Buscar</button>
-                                        </div>
-                                        
-                                    </div>
-        </br>
-                                    <div class="row">
-                                        
-                                        <div class="col-md-3">
-                                            <label class="col-sm-12 col-form-label">Nombre:</label>
-                                            <div class="col-sm-12">
-                                                <input type="text" class="form-control" id="nom_prop" name="nom_prop" readonly="yes">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <label class="col-sm-12 col-form-label">Apellido:</label>
-                                            <div class="col-sm-12">
-                                                <input type="text" class="form-control" id="ape_prop" name="ape_prop" readonly="yes">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3">
-                                                <label for="ced_prop" class="col-sm-12 col-form-label">Cédula de Identidad</label>
-                                                <div class="col-sm-12">
-                                                    <input type="text" class="form-control" id="ci_prop" name="ci_prop" readonly="yes">
-                                                </div>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <label class="col-sm-5 col-form-label">Rif:</label>
-                                            <div class="col-sm-12">
-                                                <input type="text" class="form-control" id="rif_prop" name="rif_prop" readonly="yes">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-3">
-                                            <label class="col-sm-8 col-form-label">Teléfono local:</label>
-                                            <div class="col-sm-12">
-                                                <input type="text" class="form-control" id="loc_prop" name="loc_prop" readonly="yes">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <label class="col-sm-9 col-form-label">Celular:</label>
-                                            <div class="col-sm-12">
-                                                <input type="text" class="form-control" id="cel_prop" name="cel_prop" readonly="yes">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label class="col-sm-3 col-form-label">Correo:</label>
-                                            <div class="col-sm-12">
-                                                <input type="text" class="form-control" id="cor_prop" name="cor_prop" readonly="yes">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div><br>
-                    <!--info_propietario-->
-                  
-
+     
                     <!--info_inmueble-->
                     <div class="card">
                         <div class="card-body">
@@ -390,10 +311,105 @@ include("layout/menuNavegacion.php");
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="col-md-3">
+                                        <div class="row">
+                                            <label for="iva" class="col-sm-12 col-form-label">IVA:</label>
+                                            <div class="col-sm-12">
+                                                <input type="text" class="form-control" id="iva" name="iva">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <div class="row">
+                                            <label for="isrl" class="col-sm-12 col-form-label">ISRL:</label>
+                                            <div class="col-sm-12">
+                                                <input type="text" class="form-control" id="isrl" name="isrl">
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
+                                
+                      
+                         </div>
+                   </div>      
+                     
+                    </br> 
+
+                    <div class="card">
+                            <div class="card-body">
+                                <div class="col">
+                                    <h5 class="card-title">Gastos Especiales</h5>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="row">
+                                            <label for="servicios" class="col-sm-12 col-form-label">Servicio:</label>
+                                            <div class="col-sm-12">
+                                                <input type="text" class="form-control" id="servicios" name="servicios">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="row">
+                                            <label for="monto" class="col-sm-12 col-form-label">Monto:</label>
+                                            <div class="col-sm-12">
+                                                <input type="text" class="form-control" id="monto" name="monto">
+                                            </div>
+                                        </div>
+                                    </div>
+                                 </div>
+</br>
+                                <div class="row">   
+                                        <div class="col-md-12">
+                                            <div class="row">
+                                                <div class="input-group">
+                                                    <span class="input-group-text">Datos Bancarios:</span>
+                                                    <select class="form-control"  id="cboBancoNP" name="cboBancoNP"></select>
+                                                    <input type="text" placeholder="cuenta" id="num_cuenta" name="num_cuenta"  class="form-control">
+                                                    <input type="text" placeholder="cedula" id="cedula" name="cedula"  class="form-control">
+                                                </div><br>
+                                            </div>  
+                                        </div>
+                                </div>
+
+
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="row">
+                                            <label for="gasto_admi" class="col-sm-12 col-form-label">Servicio:</label>
+                                            <div class="col-sm-12">
+                                                <input type="text" class="form-control" id="gasto_admi" name="gasto_admi">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="row">
+                                            <label for="gasto_papel" class="col-sm-12 col-form-label">Monto:</label>
+                                            <div class="col-sm-12">
+                                                <input type="text" class="form-control" id="gasto_papel" name="gasto_papel">
+                                            </div>
+                                        </div>
+                                    </div>
+                                 </div>
+</br>
+                                <div class="row">   
+                                        <div class="col-md-12">
+                                            <div class="row">
+                                                <div class="input-group">
+                                                    <span class="input-group-text">Datos Bancarios:</span>
+                                                    <select class="form-control"  id="cboBancoNP" name="cboBancoNP"></select>
+                                                    <input type="text" placeholder="cuenta" id="ced_pmov" name="ced_pmov" aria-label="Cédula" value='' class="form-control">
+                                                    <input type="text" placeholder="cedula" id="cel_pmov" name="cel_pmov" aria-label="Celular" value='' class="form-control">
+                                                </div><br>
+                                            </div>  
+                                        </div>
+                                </div>
+                               
                             </div>
-                        </div></br>
-                        
+                    </div>
+
+                    </br>
                     <div class="card">
                         <div class="card-body">
 
@@ -503,6 +519,21 @@ include("layout/menuNavegacion.php");
                                     </div>
                                 </div>
                             </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <label for="fica_docu" class="col-sm-9 col-form-label">Autorización del propietario</label>
+                                    <div class="col-sm-12">
+                                        <input class="form-control form-control-sm" id="fica_docu" type="file" name="fica_docu" >
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="propi_docu" class="col-sm-9 col-form-label">Registro:</label>
+                                    <div class="col-sm-12">
+                                        <input class="form-control form-control-sm" id="propi_docu" type="file" name="propi_docu"><br>
+                                    </div>
+                                </div>
+                                
+                            </div>
                         </div>
                     </div><br>
                 </div>
@@ -527,6 +558,4 @@ include_once "app/vistas/comunes/modaleliminar.php";
 
 <script src="js/comunes/combos.js"></script>
 <script src="js/comunes/generadorcodigos.js"></script>
-<script src="js/alquileres/ingresar_inmuebles.js"></script>
-
-
+<script src="js/alquileres/ingresar_unidades_inmueble.js"></script>

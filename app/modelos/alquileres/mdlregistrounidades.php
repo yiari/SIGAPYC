@@ -14,7 +14,7 @@ include_once '../../../app/controladores/comunes/ctrsubirarchivos.php';
 | LAS CLASES SE DEBEN LLAMAR EXACTAMENTE IGUAL QUE SU ARCHIVO
 |---------------------------------------------------------------
 */
-class mdlregistroinmueble{
+class mdlregistrounidades{
 
 public function registrar($tabla,$datos,$archivos){
 
@@ -31,7 +31,7 @@ public function registrar($tabla,$datos,$archivos){
   */
   $prmError = 0;
   $prmMensaje = "";
-  $prmIdinmueble = 0;
+  $prmIdunidades = 0;
 
 
 
@@ -43,9 +43,9 @@ public function registrar($tabla,$datos,$archivos){
           | AQUI PREPARO LO QUE SERA LA LLAMADA AL PROCEDIMIENTO QUE REALIZARA LA OPERACION
           |----------------------------------------------------------------------------------
           */
-          $stmt = $dbConexion->conectar()->prepare("CALL usp_registroinmueble(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
-          $stmt -> bindParam(1, $datos["id_inmu"],PDO::PARAM_INT); //id del imnumeble
-          $stmt -> bindParam(2, $datos["id_prop"],PDO::PARAM_INT); //id propietraio
+          $stmt = $dbConexion->conectar()->prepare("CALL usp_registrarunideades(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+          $stmt -> bindParam(1, $datos["id_unid"],PDO::PARAM_INT); //id del uniades
+          $stmt -> bindParam(2, $datos["id_inmu"],PDO::PARAM_INT); //id propietraio
           $stmt -> bindParam(3, $datos["cod_inmu"],PDO::PARAM_STR); // codigo del inmueble
           $stmt -> bindParam(4, $datos["tip_inmu"],PDO::PARAM_INT); // tipo de inmuebles
           $stmt -> bindParam(5, $datos["act_inmu"],PDO::PARAM_STR); //actividad del inmueble
@@ -74,12 +74,24 @@ public function registrar($tabla,$datos,$archivos){
           $stmt -> bindParam(28,$datos["fic_cata"],PDO::PARAM_STR); // Numero del ficha castratal
           $stmt -> bindParam(29,$datos["num_regi"],PDO::PARAM_STR); // Numero del codigo del registro
           $stmt -> bindParam(30,$datos["tipo_persona"],PDO::PARAM_INT); // Numero del  Ficha Catastral
-          $stmt -> bindParam(30,$datos["tipo_persona"],PDO::PARAM_INT); // Numero del  Ficha Catastral
+          $stmt -> bindParam(30,$datos["tipo_persona"],PDO::PARAM_INT); // tipo 
+
           $stmt -> bindParam(31,$datos["id_gastos"],PDO::PARAM_INT); // id gastos fijos
           $stmt -> bindParam(32,$datos["gasto_administrativo"],PDO::PARAM_INT); // gastos fijos administrativo
           $stmt -> bindParam(33,$datos["gastos_papeleria"],PDO::PARAM_INT); // gastos fijos papeleria
+          $stmt -> bindParam(33,$datos["gastos_papeleria"],PDO::PARAM_INT); // gastos fijos papeleria
+          $stmt -> bindParam(33,$datos["iva"],PDO::PARAM_INT); // gastos iva
+          $stmt -> bindParam(33,$datos["isrl"],PDO::PARAM_INT); // gastos isrl
 
-        
+          $stmt -> bindParam(34,$datos["id_gastos_especiolas"],PDO::PARAM_INT); // gastos especilaes
+          $stmt -> bindParam(35,$datos["servicios"],PDO::PARAM_INT); // gastos servicios
+          $stmt -> bindParam(36,$datos["monto"],PDO::PARAM_INT); // gastos montos del servicio
+          $stmt -> bindParam(37,$datos["Id_banco"],PDO::PARAM_INT); // gastos especilaes
+          $stmt -> bindParam(38,$datos["num_cuenta"],PDO::PARAM_INT); // gastos servicios
+          $stmt -> bindParam(39,$datos["cedula"],PDO::PARAM_INT); // gastos montos del servicio
+          
+          
+
 
           //$stmt -> bindParam(19,$datos["sta_inmu"],PDO::PARAM_INT); // estado del inmueble 1-Disponible 0-desactivado 2-Alquilado 
        
@@ -137,7 +149,7 @@ public function registrar($tabla,$datos,$archivos){
 
 
           IF($prmTipoPersonaTEMP == 1){
-            $subirArchivos->validarArchivos($archivos,$prmIdinmueble,$prmTipoPersonaTEMP,'1i');
+            $subirArchivos->validarArchivos($archivos,$prmIdinmueble,$prmTipoPersonaTEMP,'1IU');
           } else {
             $subirArchivos->validarArchivos($archivos,$prmIdinmueble,$prmTipoPersonaTEMP,'2P');
           }

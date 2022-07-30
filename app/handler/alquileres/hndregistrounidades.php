@@ -5,7 +5,7 @@
 | INCLUYO LA CLASE CORRESPONDIENTE
 |----------------------------------------
 */
-include_once '../../../app/controladores/alquileres/ctrregistroinmueble.php';
+include_once '../../../app/controladores/alquileres/ctrregistrounidades.php';
 include_once '../../../app/controladores/comunes/ctrcapturararchivos.php';
 
 
@@ -15,7 +15,7 @@ include_once '../../../app/controladores/comunes/ctrcapturararchivos.php';
 |-------------------------------------------------
 */
 
-if (class_exists('ctrregistroinmueble')) 
+if (class_exists('ctrregistrounidades')) 
 {
    //$o_miClase = new ctrregistrousuarios();
 }
@@ -89,15 +89,15 @@ if($operacion == "I"){
     |-------------------------------------------
     */
     
-    $registroInmueble =  new ctrregistroinmueble();
+    $registroUnidades =  new ctrregistrounidades();
 
    /*
    |---------------------------------------------
    | AQUI CARGO LOS DATOS PARA ALMACENAR
    |---------------------------------------------
    */
-    $datos = array( "id_inmu"   => $_POST["hidinmueble"],
-                    "id_prop"    => $_POST["id_prop"],
+    $datos = array( "id_unid"   => $_POST["hidunidad"],
+                    "id_inmu"    => $_POST["id_inmu"],
                     "cod_inmu"   => $_POST["registroCodigo"],
                     "tip_inmu"   => $_POST["cboinmueble"],
                     "act_inmu"   => $_POST["registroUso"],
@@ -134,9 +134,24 @@ if($operacion == "I"){
                    */
                   "id_gastos" => $_POST["hid_gastos"],
                   "gasto_administrativo" => $_POST["gasto_admi"],
-                  "gastos_papeleria" => $_POST["gasto_papel"]);
+                  "gastos_papeleria" => $_POST["gasto_papel"],
+                   "iva" => $_POST["iva"],
+                   "isrl" => $_POST["isrl"],
 
-      //echo json_encode($datos);
+
+                    /*
+                   |------------------------------------------
+                   | AQUI VAN LOS DATOS DE LOS GASTOS FIJOS
+                   |------------------------------------------
+                   */
+                  "id_gastos_especiolas" => $_POST["hid_gastos_especial"],
+                  "servicios" => $_POST["servicio"],
+                  "monto" => $_POST["monto"],
+                  "Id_banco" => $_POST["id_bamco"],
+                  "num_cuenta" => $_POST["num_cuenta"],
+                  "cedula" => $_POST["cedula"]);
+
+                  //echo json_encode($datos);
       //die;
 
     /*
@@ -193,14 +208,14 @@ if($operacion == "C"){
     |-------------------------------------------
     */
     
-    $registroInmueble =  new ctrregistroinmueble();
+    $registroUnidades =  new ctrregistrounidades();
 
    /* 
    |---------------------------------------------
    | AQUI OBTENGO EL RESULTADO DE LA EJECUCION
    |---------------------------------------------
    */
-     $result = $registroInmueble->seleccionarregistros();
+     $result = $registroUnidades->seleccionarregistros();
     
     /*
     |-------------------------------------------

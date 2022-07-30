@@ -5,7 +5,7 @@
 
         <div style="text-align: right;">
         <ol>
-                <a class="btn btn-outline-primary" href="index.php?url=app/vistas/alquileres/ingresar_unidades_inmueble" role="button">Nuevo</a>                
+                <a class="btn btn-outline-primary" href="index.php?url=app/vistas/alquileres/ingresar_unidad_inmueble" role="button">Nuevo</a>                
                 <a class="btn btn-outline-secondary" href="index.php?url=app/vistas/alquileres/inmuebles"  role="button">Atras</a>
             </ol>
         </div>
