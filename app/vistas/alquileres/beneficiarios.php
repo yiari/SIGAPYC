@@ -35,7 +35,6 @@
                                                     <th>Cedoula o rif</th>
                                                     <th>telefono</th>
                                                     <th>correo</th>
-                                                    <th>% Part</th>
                                                     <th>Doc / Editar</th>
                                             
                         
