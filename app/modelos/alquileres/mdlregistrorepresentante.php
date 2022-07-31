@@ -123,7 +123,7 @@ public function registrar($tabla,$datos,$archivos){
 
 
 
-          IF($prmTipoPersonaTEMP == 1){
+          IF($prmTipoPersonaTEMP == 2){
             $subirArchivos->validarArchivos($archivos,$prmIdrepresentante,$prmTipoPersonaTEMP,'2PR');
           } else {
             $subirArchivos->validarArchivos($archivos,$prmIdrepresentante,$prmTipoPersonaTEMP,'2P');

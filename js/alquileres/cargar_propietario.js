@@ -61,19 +61,35 @@ function cargarPropietarios(){
                             tr.append("<td>" + json.Items[0][i].cedula + "</td>");
                             tr.append("<td>" + json.Items[0][i].telefonos + "</td>");
                             tr.append("<td>" + json.Items[0][i].correo + "</td>"); 
-                            tr.append("<td>" + json.Items[0][i].tipo + "</td>");
+                            tr.append("<td>" + tipoPersona(json.Items[0][i].tipo) + "</td>");
                            
                             
                             var html="";
+                            var htmlApoderado="";
+                            var htmlRepresentante="";
+
                             html = '<div class="btn-group" style="font-size:1.3em; letter-spacing:0.2em;">';
-                            html += '<a title="Editar" data-field-id="' + json.Items[0][i].id  + '"><i class="fa fa-edit" alt=“editar”></i></a>&nbsp;';
-                            html += '<a title="Ver" data-field-id="' + json.Items[0][i].id + '"><i class="fa fa-search" alt=“Ver”></i></a>&nbsp;'
-                            html += '<a title="Bitacora" data-field-id="' + json.Items[0][i].id + '"><i class="fa fa-folder-open"></i></a>&nbsp;';
-                            html += '<a title="Apodferado" data-field-id="' + json.Items[0][i].id + '"><i class="fa-regular fa-id-badge"></i></a>&nbsp;';
-                            html += '<a title= "Representante" data-field-id="' + json.Items[0][i].id + '"><i class="fa-regular fa-id-badge"></i></a>&nbsp;';
-                            html += '<a title= "Beneficiario" data-field-id="' + json.Items[0][i].id + '"><i class="fa fa-folder-open"></i></a>&nbsp;';
-                            html += '<a title= "Inmuebles" data-field-id="' + json.Items[0][i].id + '"><i class="fa fa-folder-open"></i></a>&nbsp;';
-                            html += '<a title="Eliminar"  data-field-id="'  + json.Items[0][i].id + '"><i class="fa fa-trash" alt=“eliminar”></i></a>';
+                            html += '<a title="Ver" data-field-id="' + json.Items[0][i].id_prop + '"><i class="fa fa-search" alt=“Ver”></i></a>&nbsp;'
+                            html += '<a title="Editar" data-field-id="' + json.Items[0][i].id_prop  + '"><i class="fa fa-edit" alt=“editar”></i></a>&nbsp;';
+                            html += '<a title="Bitacora" data-field-id="' + json.Items[0][i].id_prop + '"><i class="fa fa-book"></i></a>&nbsp;';
+                            
+                            if(json.Items[0][i].tipo == 1){//PERSONA NATUARAL
+
+                                htmlApoderado='<a title="Apoderado" href="index.php?url=app/vistas/alquileres/apoderado&idpro=' + json.Items[0][i].id_prop  + '&codpro=' + json.Items[0][i].codigo  + '"><i class="fa fa-id-badge"></i></a>&nbsp;';
+                                html += htmlApoderado;
+
+                            }else if (json.Items[0][i].tipo == 2){//PERSONA JURIDICA
+                            
+                                htmlRepresentante='<a title="Representante" href="index.php?url=app/vistas/alquileres/representante&idpro=' + json.Items[0][i].id_prop  + '&codpro=' + json.Items[0][i].codigo  + '"><i class="fa fa-id-badge"></i></a>&nbsp;';
+                                html += htmlRepresentante;
+
+                            }
+
+                            html += '<a title= "Beneficiario" data-field-id="' + json.Items[0][i].id_prop + '"><i class="fa fa-user-circle-o"></i></a>&nbsp;';
+                            
+                            html += '<a title="Inmuebles" href="index.php?url=app/vistas/alquileres/inmuebles&idpro=' + json.Items[0][i].id_prop  + '&codpro=' + json.Items[0][i].codigo  + '"><i class="fa fa-home"></i></a>&nbsp;';
+                           
+                            html += '<a title="Eliminar"  data-field-id="'  + json.Items[0][i].id_prop + '"><i class="fa fa-trash" alt=“eliminar”></i></a>';
                             html += '</div>'
                             tr.append("<td>" + html + "</td>");
                             $('#datosPropietarios').append(tr);

@@ -11,9 +11,14 @@ include("layout/menuNavegacion.php");
             
                     <div style="text-align: right;">
                         <ol>          
-                            <a class="btn btn-outline-secondary" href="index.php?url=app/vistas/alquileres/apoderado"  role="button">Atras</a>
+                            <a class="btn btn-outline-secondary codpro" href="index.php?url=app/vistas/alquileres/apoderado"  role="button">Atras</a>
                         </ol>
                     </div>
+
+                <div style="text-align: left;">
+                    <span id="lblPropietario"><strong>PROPIETARIO : </strong></span>
+                    <br/><br/>
+                </div>
 
                 <h4 class="card-title">Apoderado</h4>
                     <nav>

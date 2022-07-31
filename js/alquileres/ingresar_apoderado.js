@@ -6,10 +6,14 @@ function inicio(){
     |---------------------------------------
     */
     $('#id_prop').val(getParameterByName('idpro'));
+    let idPropietario = getParameterByName('idpro');
+    let prmCodPro = getParameterByName('codpro');
     /*--------------------------------------*/    
 
+    codigoPropietario(prmCodPro);
+    atrasApoderado(idPropietario,prmCodPro);
 
-    cargarApoderado();
+
     cargarEstados();
     guardarApoderado();
     generarCodigoApoderado();
@@ -59,6 +63,31 @@ function inicio(){
 
 }
 
+function codigoPropietario(prmDato){
+
+    var html = "";
+
+    html='<strong>PROPIETARIO : </strong>'  + prmDato +'</span>';
+
+    $("#lblPropietario").html('');
+    $("#lblPropietario").html(html);
+
+}
+
+function atrasApoderado(prmIdPro, prmCodPro){
+
+    //if (isEmpty(prmDato) == false ){
+
+
+        var html = "";
+        html='index.php?url=app/vistas/alquileres/apoderado&idpro=' + prmIdPro  + '&codpro=' + prmCodPro;
+    
+        $(".codpro").prop("href", html);
+
+
+    //}
+
+}
 
 function validateEmail(email) {
 

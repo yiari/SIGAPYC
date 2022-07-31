@@ -153,7 +153,7 @@ if($operacion == "I"){
    | AQUI OBTENGO EL RESULTADO DE LA EJECUCION
    |---------------------------------------------
    */
-     $result = $registroRepresentante->registrar($datos,$capturarArchivos);
+     $result = $registroRepresentante->registrar($datos,$AchivosCargados);
     
     /*
     |-------------------------------------------

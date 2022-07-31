@@ -326,7 +326,7 @@ public function registrar($tabla,$datos,$archivos){
       
                 $dataRes = array(
                   'error' => '0',
-                  'mensaje' =>  'El registro se realizo con exito.'
+                  'mensaje' =>  'El registro se obtuvo.'
                 );
                           
                 echo json_encode(array_merge($dataRegistro,$dataRes));
@@ -359,7 +359,7 @@ public function registrar($tabla,$datos,$archivos){
 
           $dataRes = array(
             'error' => '0',
-            'mensaje' =>  'El registro se realizo con exito.'
+            'mensaje' =>  'El registro se obtuvo.'
           );
           
           

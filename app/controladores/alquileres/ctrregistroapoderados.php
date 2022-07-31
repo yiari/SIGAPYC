@@ -41,11 +41,11 @@ class ctrregistroapoderado{
 
     /*tabla para visializar los apoderados registrados*/
 
-     public function seleccionarregistros(){
+     public function seleccionarregistros($id_prop){
 
         $tabla = "apoderado";
         $modelo =  new mdlregistroapoderado();
-        $respuestas =  $modelo->seleccionarregistros($tabla,null,null);
+        $respuestas =  $modelo->seleccionarregistros($tabla,$id_prop);
         return $respuestas;
     }
 

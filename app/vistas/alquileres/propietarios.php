@@ -23,7 +23,7 @@ include("layout/menuNavegacion.php");
         <!--tabla-->
         <div class="card mb-4">
             <div class="card-header">
-            <i class="fa-solid fa-building-user"></i>&nbsp;
+            <i class="fa fa-users"></i>&nbsp;
                 PROPIETARIOS
             </div>
 
@@ -61,5 +61,8 @@ include("layout/menuNavegacion.php");
 include_once "app/vistas/comunes/modalmensajes.php";
 include_once "app/vistas/comunes/modaleliminar.php";
 
+
 ?>
+
+<script src="js/comunes/funciones.js"></script>
 <script src="js/alquileres/cargar_propietario.js"></script>

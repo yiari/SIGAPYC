@@ -14,7 +14,7 @@ function guardarPagadorJuridico(){
    //alert("llamo a las funciones juridicas");
  
 if ($("#registroNombrej").val() == "") {
-    mensaje("Debe indicar el Nombre o Razón Social del pagador",1);
+    mensaje("Debe indicar el Nombre o Razón Social del pagador juridico",1);
     return;
 }
 

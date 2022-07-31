@@ -16,17 +16,46 @@ function getParameterByName( name ) //courtesy Artem
   
 }
 
-/* ESTO ES PARA FUNCIONES ASINCRONAS */
+/* 
+|--------------------------------------------------
+| ESTO ES PARA HACER PAUSA EN FUNCIONES ASINCRONAS 
+|--------------------------------------------------
+*/
 function delay(n){
   return new Promise(function(resolve){
       setTimeout(resolve,n*1000);
   });
 }
 
+/* 
+|--------------------------------------------------
+| ESTO ES PARA HACER PAUSA EN FUNCIONES SINCRONAS 
+|--------------------------------------------------
+*/
 function syncDelay(milliseconds){
   var start = new Date().getTime();
   var end=0;
   while( (end-start) < milliseconds){
       end = new Date().getTime();
   }
+ }
+
+
+ /*
+ |----------------------------------------------------
+ | ESTO ES PARA COLOCAR LA ETIQUETA DEL TIPO PERSONA
+ |----------------------------------------------------
+ */
+ function tipoPersona(valor){
+
+  let resultado = "";
+
+  if(valor == "1"){
+    resultado = "Natural";
+  } else if (valor == "2"){
+    resultado = "Juridico";
+  }
+
+  return resultado;
+
  }

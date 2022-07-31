@@ -7,8 +7,12 @@ function inicio(){
     |---------------------------------------
     */
     $('#id_prop').val(getParameterByName('idpro'));
+    let idPropietario = getParameterByName('idpro');
+    let prmCodPro = getParameterByName('codpro');
     /*--------------------------------------*/    
-
+    codigoPropietario(prmCodPro);
+    atrasInmueble(idPropietario,prmCodPro);
+    mostrarBuscar(idPropietario);
   
     guardarInmueble();
     cargarEstados();
@@ -18,7 +22,37 @@ function inicio(){
 
 }
 
+function mostrarBuscar(prmDato){
+    if(prmDato == 0){
+        $("#buscarPropietario").show();
+    }
+}
 
+function codigoPropietario(prmDato){
+
+    var html = "";
+
+    html='<strong>PROPIETARIO : </strong>'  + prmDato +'</span>';
+
+    $("#lblPropietario").html('');
+    $("#lblPropietario").html(html);
+
+}
+
+function atrasInmueble(prmIdPro, prmCodPro){
+
+    //if (isEmpty(prmDato) == false ){
+
+
+        var html = "";
+        html='index.php?url=app/vistas/alquileres/inmuebles&idpro=' + prmIdPro  + '&codpro=' + prmCodPro;
+    
+        $(".codpro").prop("href", html);
+
+
+    //}
+
+}
 
 
 function guardarInmueble(){

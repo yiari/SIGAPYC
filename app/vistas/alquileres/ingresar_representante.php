@@ -33,8 +33,8 @@ include("layout/menuNavegacion.php");
                                         <form class="form-sample" id="registrarrepresentante" name="registrarrepresentante" method="POST" action="guarda.php" autocomplete="off" enctype="multipart/form-data">
                                              
                                             <input type="hidden"  id="hidrepresentante" name="hidrepresentante" value='' >
-                                             <input type="hidden" id="id_prop" name="id_prop" value='1'>
-                                             <input type="hidden" id="tipo_persona" name=" tipo_persona" value='1'>
+                                             <input type="hidden" id="id_prop" name="id_prop" value='0'>
+                                             <input type="hidden" id="tipo_persona" name=" tipo_persona" value='2'>
                                             
 
                                              <div class="col-md-5">
