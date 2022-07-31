@@ -43,22 +43,7 @@ function cargarPropietarios(){
 */
 
 
-        
-/*
-|-----------------------------------------------------------
-| AQUI VERIFICO SI LA RESPUESTA ES JSON, SI NO ES JSON
-| EL RESULTADO SE CONVIERTE A JSON
-|-----------------------------------------------------------
-*/
 
-var respuestaHeader = xhr.getResponseHeader("Content-Type");
-var verificarHeader = respuestaHeader.search('text/html')
-
-if(verificarHeader >= 0){
-    json = JSON.parse(json);
-} 
-
-/*---------------------------------------------------------*/
                 /*
                 |------------------------------------------------------
                 | AQUI SE CARGA LA INFORMACION EN LA TABLA
@@ -91,13 +76,12 @@ if(verificarHeader >= 0){
                             html += '<a title="Eliminar"  data-field-id="'  + json.Items[0][i].id + '"><i class="fa fa-trash" alt=“eliminar”></i></a>';
                             html += '</div>'
                             tr.append("<td>" + html + "</td>");
-                            $('#datatablesSimple').append(tr);
+                            $('#datosPropietarios').append(tr);
                         //}
                     }
 
+                    new simpleDatatables.DataTable("#datosPropietarios");
 
-                    //editarRepresentante();
-                    //validareliminarRepresentante();
                 }
                 /************************************************ */
 
