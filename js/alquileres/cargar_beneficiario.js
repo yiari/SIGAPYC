@@ -1,13 +1,12 @@
 
 function inicio(){
 
-    cargarRepresentante();
+    cargarbeneficiarios();
 
 }
 
 
-
-function cargarRepresentante(){
+function cargarbeneficiarios(){
 
     /*
     |-----------------------------------------------------
@@ -23,7 +22,7 @@ function cargarRepresentante(){
     |-----------------------------------------------
     */
     $.ajax({
-        url: "app/handler/alquileres/hndregistrorepresentante.php",
+        url: "app/handler/alquileres/hndregistrobeneficiarios.php",
         data: formData,
         processData: false,
         contentType: false,
@@ -54,27 +53,27 @@ function cargarRepresentante(){
                        // if (isEmpty(json.Items[0][i]) == false) {
                             tr = $('<tr/>');
                             
-                           
+                            tr.append("<td>" + json.Items[0][i].propietario+ "</td>");
                             tr.append("<td>" + json.Items[0][i].codigo + "</td>");
-                            tr.append("<td>" + json.Items[0][i].nombre + "</td>");
-                            tr.append("<td>" + json.Items[0][i].cedula + "</td>");
+                            tr.append("<td>" + json.Items[0][i].beneficiario+ "</td>");
+                            tr.append("<td>" + json.Items[0][i].cedula+ "</td>");
                             tr.append("<td>" + json.Items[0][i].telefono + "</td>");
                             tr.append("<td>" + json.Items[0][i].correo + "</td>"); 
-                            tr.append("<td>" + json.Items[0][i].propietraio + "</td>");
-                           
+                            tr.append("<td>" % "</td>"); 
                             
                             var html="";
-                            html = '<div class="btn-group" style="font-size:1.3em; letter-spacing:0.5em;">';
-                            html += '<a title="edit" data-field-id="' + json.Items[0][i].id_repr  + '"><i class="fa fa-edit" alt=“editar”></i></a>&nbsp;';
-                            html += '<a title="ver" data-field-id="' + json.Items[0][i].id_repr + '"><i class="fa fa-search"></i></a>&nbsp;';
-                            html += '<a title="eliminar"  data-field-id="'  + json.Items[0][i].id_repr + '"><i class="fa fa-trash" alt=“eliminar”></i></a>';
+                            html = '<div class="btn-group" style="font-size:1.3em; letter-spacing:0.2em;">';
+                            html += '<a title="Editar" data-field-id="' + json.Items[0][i].id  + '"><i class="fa fa-edit" alt=“editar”></i></a>&nbsp;';
+                            html += '<a title="Ver" data-field-id="' + json.Items[0][i].id + '"><i class="fa fa-search" alt=“Ver”></i></a>&nbsp;'
+                            html += '<a title="Bitacora" data-field-id="' + json.Items[0][i].id + '"><i class="fa fa-folder-open"></i></a>&nbsp;';
+                            html += '<a title="Eliminar"  data-field-id="'  + json.Items[0][i].id + '"><i class="fa fa-trash" alt=“eliminar”></i></a>';
                             html += '</div>'
                             tr.append("<td>" + html + "</td>");
-                            $('#datatablesSimple').append(tr);
+                            $('#datosBeneficiario').append(tr);
                         //}
                     }
 
-
+                    new simpleDatatables.DataTable("#datosBeneficiario");
                     //editarRepresentante();
                     //validareliminarRepresentante();
                 }
@@ -89,15 +88,11 @@ function cargarRepresentante(){
 
 }
 
-
-
 function limpiarTabla() {
 
     $('#datatablesSimple tbody').children().remove();
 
 }
-
-
 
 $(document).ready(function() {
 

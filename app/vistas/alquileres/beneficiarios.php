@@ -25,7 +25,7 @@
                                         BENEFICIARIOS
                                     </div>
                                     <div class="card-body">
-                                        <table id="datatablesSimple">
+                                        <table id="datosBeneficiario">
                                             <thead>
                                                 <tr>
                                                     
@@ -61,4 +61,4 @@ include_once "app/vistas/comunes/modaleliminar.php";
 
 ?>
 
-<script src="js/alquileres/ingresar_beneficiarios.js"></script>
+<script src="js/alquileres/cargar_beneficiario.js"></script>

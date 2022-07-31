@@ -1,13 +1,14 @@
 
 function inicio(){
 
-    cargarRepresentante();
+    cargarPagador();
+
 
 }
 
 
 
-function cargarRepresentante(){
+function cargarPagador(){
 
     /*
     |-----------------------------------------------------
@@ -23,7 +24,7 @@ function cargarRepresentante(){
     |-----------------------------------------------
     */
     $.ajax({
-        url: "app/handler/alquileres/hndregistrorepresentante.php",
+        url: "app/handler/alquileres/hndregistropagador.php",
         data: formData,
         processData: false,
         contentType: false,
@@ -57,25 +58,25 @@ function cargarRepresentante(){
                            
                             tr.append("<td>" + json.Items[0][i].codigo + "</td>");
                             tr.append("<td>" + json.Items[0][i].nombre + "</td>");
-                            tr.append("<td>" + json.Items[0][i].cedula + "</td>");
+                            tr.append("<td>" + json.Items[0][i].inquilino + "</td>");
                             tr.append("<td>" + json.Items[0][i].telefono + "</td>");
                             tr.append("<td>" + json.Items[0][i].correo + "</td>"); 
-                            tr.append("<td>" + json.Items[0][i].propietraio + "</td>");
-                           
                             
                             var html="";
                             html = '<div class="btn-group" style="font-size:1.3em; letter-spacing:0.5em;">';
-                            html += '<a title="edit" data-field-id="' + json.Items[0][i].id_repr  + '"><i class="fa fa-edit" alt=“editar”></i></a>&nbsp;';
-                            html += '<a title="ver" data-field-id="' + json.Items[0][i].id_repr + '"><i class="fa fa-search"></i></a>&nbsp;';
-                            html += '<a title="eliminar"  data-field-id="'  + json.Items[0][i].id_repr + '"><i class="fa fa-trash" alt=“eliminar”></i></a>';
+                            html += '<a href="javascript:void(0);" onclick="cargarPantalla(' + json.Items[0][i].id_paga + ')" title="Editar"><i class="fa fa-edit" alt=“editar”></i></a>&nbsp;';
+                            html += '<a title="Ver" data-field-id_paga="' + json.Items[0][i].id_paga + '"><i class="fa fa-search" alt=“Ver”></i></a>&nbsp;';
+                            html += '<a title="Eliminar"  data-field-id_paga="'  + json.Items[0][i].id_paga + '"><i class="fa fa-trash" alt=“Eliminar”></i></a>';
+                            
+                           
                             html += '</div>'
                             tr.append("<td>" + html + "</td>");
-                            $('#datatablesSimple').append(tr);
+                            $('#datosPagador').append(tr);
                         //}
                     }
 
-
-                    //editarRepresentante();
+                    new simpleDatatables.DataTable("#datosPagador");
+                    //editarPagador();
                     //validareliminarRepresentante();
                 }
                 /************************************************ */
@@ -96,7 +97,6 @@ function limpiarTabla() {
     $('#datatablesSimple tbody').children().remove();
 
 }
-
 
 
 $(document).ready(function() {

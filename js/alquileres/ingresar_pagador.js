@@ -1,7 +1,7 @@
 function inicio(){
 
     
-    cargarPagador();
+   
     generarCodigoPagador();
     cargarEstados();
     guardarPagador();
@@ -99,17 +99,17 @@ function guardarPagador(){
         return;
         }
     
-    if ($("#registroEstado").val() == "") {
+    if ($("#cboEstados").val() == "") {
             mensaje("Debe colocar el campo el estado ",1);
             return;
             }
 
-    if ($("#registroMunicipio").val() == "") {
+    if ($("#cboMunicipios").val() == "") {
         mensaje("Debe colocar el campo el municipio ",1);
         return;
         }
 
-    if ($("#registroParroquia").val() == "") {
+    if ($("#cboParroquia").val() == "") {
         mensaje("Debe colocar el campo el parroqui ",1);
         return;
         }
@@ -185,8 +185,8 @@ function guardarPagador(){
                     mensaje(json.mensaje,0);
 
                     //$("#mensaje").html(html).fadeIn();
-                    limpiarCampos();
-                    limpiarTabla();
+                    limpiarFormulario(1);
+                    //limpiarTabla();
                     //botones(0);
 
                 }else {
@@ -213,95 +213,13 @@ function guardarPagador(){
 }
 
 
+function limpiarFormulario(valor){
 
-function cargarPagador(){
-
-    /*
-    |-----------------------------------------------------
-    | AQUI SE AGREGA UN PARAMETRO ADICIONAL AL FORMULARIO 
-    |-----------------------------------------------------
-    */
-    var formData = new FormData();
-
-    formData.append('opcion','C');
-    /*
-    |-----------------------------------------------
-    | AQUI SE LLAMA EL AJAX 
-    |-----------------------------------------------
-    */
-    $.ajax({
-        url: "app/handler/alquileres/hndregistropagador.php",
-        data: formData,
-        processData: false,
-        contentType: false,
-        type: 'POST',
-        beforeSend: function () {
-            //$("#preview").fadeOut();
-            $("#error").fadeOut();
-        },
-        success: function (data) {
-        var json = data;
-        var html = "";
-/*
-        console.log(json);
-        console.log("Este es el Mensaje: " + json.mensaje);
-        console.log("Items: " + json.Items.length);
-        console.log("Items Resultados: " + json.Items[0].length);
-        console.log("Email Resultados: " + json.Items[0][1].email);
-*/
-                /*
-                |------------------------------------------------------
-                | AQUI SE CARGA LA INFORMACION EN LA TABLA
-                |------------------------------------------------------
-                */
-                if(json.Items.length > 0){
-                    var tr;
-                    for (var i = 0; i < json.Items[0].length; i++) {
-                
-                       // if (isEmpty(json.Items[0][i]) == false) {
-                            tr = $('<tr/>');
-                            
-                           
-                            tr.append("<td>" + json.Items[0][i].codigo + "</td>");
-                            tr.append("<td>" + json.Items[0][i].nombre + "</td>");
-                            tr.append("<td>" + json.Items[0][i].inquilino + "</td>");
-                            tr.append("<td>" + json.Items[0][i].telefono + "</td>");
-                            tr.append("<td>" + json.Items[0][i].correo + "</td>"); 
-                            
-                            var html="";
-                            html = '<div class="btn-group" style="font-size:1.3em; letter-spacing:0.5em;">';
-                            html += '<a href="javascript:void(0);" onclick="cargarPantalla(' + json.Items[0][i].id_paga + ')" title="Editar"><i class="fa fa-edit" alt=“editar”></i></a>&nbsp;';
-                            html += '<a title="Ver" data-field-id_paga="' + json.Items[0][i].id_paga + '"><i class="fa fa-search" alt=“Ver”></i></a>&nbsp;';
-                            html += '<a title="Eliminar"  data-field-id_paga="'  + json.Items[0][i].id_paga + '"><i class="fa fa-trash" alt=“Eliminar”></i></a>';
-                            
-                           
-                            html += '</div>'
-                            tr.append("<td>" + html + "</td>");
-                            $('#datatablesSimple').append(tr);
-                        //}
-                    }
-
-
-                    //editarPagador();
-                    //validareliminarRepresentante();
-                }
-                /************************************************ */
-
-
-        },
-        error: function (e) {
-            $("#error").html(e).fadeIn();
-        }
-    });
+    if(valor == 1){
+        document.getElementById("registrarpagador").reset();
+    }
 
 }
-
-
-function cargarPantalla(prmid_paga){
-
-    window.open("index.php?url=app/vistas/alquileres/ingresar_pagador?id_paga=" + prmid_paga, "_self");
-   
-   }
 
 
 
@@ -328,6 +246,7 @@ function mensaje(mensaje, condicion){
 
 
 
+
 function generarCodigoPagador(){
 
 
@@ -337,7 +256,11 @@ function generarCodigoPagador(){
         var prmApellido=$("#registroApellido").val();
 
         $("#registroCodigo").val('');
-        $("#registroCodigo").val(codigoPagador(prmNombre + ' ' + prmApellido));
+
+        codigoPagador(prmNombre + ' ' + prmApellido,function(result){
+            $("#registroCodigo").val(result);
+        });
+
 
     });
 
@@ -347,55 +270,15 @@ function generarCodigoPagador(){
         var prmApellido=this.value;
 
         $("#registroCodigo").val('');
-        $("#registroCodigo").val(codigoPagador(prmNombre + ' ' + prmApellido));
+        codigoPagador(prmNombre + ' ' + prmApellido,function(result){
+            $("#registroCodigo").val(result);
+        });
 
     });
    
 
 }
 
-
-function limpiarTabla() {
-
-    $('#datatablesSimple tbody').children().remove();
-
-}
-
-
-function limpiarCampos(){
-
-    $("#hidapoderado").val("");
-    $("#registroCodigo").val("");
-    $("#registroNombre").val("");
-    $("#registroApellido").val("");
-    $("#registroNacionalidad").val("");
-    $("#registroCedula").val("");
-    $("#registroRif").val("");
-    $("#registroTelefono").val("");
-    $("#registroCelular").val(""); 
-    $("#registroEmail").val("");
-    $("#cboEstados").val("");                
-    $("#cboMunicipios").val("");
-    $("#cboParroquia").val("");
-    $("#registroDirecionH").val("");
-    $("#registroDirecionO").val("");
-    $("#cedu_docu").val("");
-    $("#rif_docu").val("");
-    $("#refper_docu").val("");
-    $("#refper_docu2").val("");
-    $("#refper_docu2").val("");
-    $("#autopro_docu").val("");
-    $("#reffam_docu").val("");
-    $("#reffam_docu2").val("");
-    $("#refban_docu").val("");
-    $("#refban_docu2").val("");
-    $("#refcom_docu").val("");
-    $("#refcom_docu2").val("");
-    $("#refarre_docu").val("");
-    $("#conarre_docu").val("");
-   
-
-}
 
 
 

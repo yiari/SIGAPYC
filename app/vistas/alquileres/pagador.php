@@ -17,7 +17,7 @@
                 PAGADOR
             </div>
             <div class="card-body">
-                <table id="datatablesSimple">
+                <table id="datosPagador">
                     <thead>
                         <tr>
 
@@ -53,4 +53,4 @@ include_once "app/vistas/comunes/modaleliminar.php";
 
 ?>
 
-<script src="js/alquileres/ingresar_pagador.js"></script>
+<script src="js/alquileres/cargar_pagador.js"></script>

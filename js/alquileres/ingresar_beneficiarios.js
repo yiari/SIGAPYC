@@ -1,6 +1,6 @@
 function inicio(){
  
-    cargarbeneficiarios();
+    generarCodigoBeneficiario();
     cargarEstados();
     cargarBancos('cboBancoN');
     cargarBancos('cboBancoNP');
@@ -37,6 +37,24 @@ function inicio(){
     jQuery("#cel_pmov").on('input', function (evt) {
         jQuery(this).val(jQuery(this).val().replace(/[^0-9]/g, ''));
     });
+/*
+    |-------------------------
+    | ESTO ES LO JURIDICO
+    |------------------------------
+    */
+    
+    
+    generarCodigoBeneficiarioj();
+    guardarBeneficiarioJ();
+    
+
+    cargarBancos('cboBancoPJ');
+    cargarBancos('cboBancop');
+
+    jQuery("#registroNombreJ").on('input', function (evt) {
+        jQuery(this).val(jQuery(this).val().replace(/[^A-Za-z ]/g, ''));
+    });
+
 
 
 }
@@ -241,7 +259,7 @@ function guardarBeneficiario(){
                     mensaje(json.mensaje,0);
 
                     //$("#mensaje").html(html).fadeIn();
-                    limpiarCampos();
+                    limpiarFormulario(1);
                     //limpiarTabla();
                     botones(0);
 
@@ -269,131 +287,53 @@ function guardarBeneficiario(){
 }
 
 
+function limpiarFormulario(valor){
 
-function limpiarCampos(){
-
-    $("#hidbeneficiario").val("");
-    $("#registroNombre").val("");
-    $("#registroApellido").val("");
-    $("#registroNacionalidad").val("");
-    $("registroCedula").val("");
-    $("#registroTeléfono").val("");
-    $("#registroCelular").val("");
-    $("#registroRif").val("");
-    $("#cboEstados").val("");
-    $("#cboMunicipios").val("");
-    $("#cboParroquia").val("");
-    $("#registroDirecionH").val("");
-    $("#registroDirecionO").val("");
-    $("#registroEmail").val("");
-
-    
-    $("#cboBancoN").val("");
-    $("#num_cuen").val("");
-    $("#ced_pmov").val("");
-    $("#cboBancoNP").val("");
-    $("#cel_pmov").val("");
-
-
-    $("ban_extr").val("");
-    $("age_extr").val("");         
-    $("dc_extr").val("");
-    $("cue_extr").val("");
-    $("iba_extr").val("");
-    $("bic_extr").val("");
+    if(valor == 1){
+        document.getElementById("registrarbeneficiario").reset();
+    }
 
 }
 
 
-
-function cargarbeneficiarios(){
-
-    /*
-    |-----------------------------------------------------
-    | AQUI SE AGREGA UN PARAMETRO ADICIONAL AL FORMULARIO 
-    |-----------------------------------------------------
-    */
-    var formData = new FormData();
-
-    formData.append('opcion','C');
-    /*
-    |-----------------------------------------------
-    | AQUI SE LLAMA EL AJAX 
-    |-----------------------------------------------
-    */
-    $.ajax({
-        url: "app/handler/alquileres/hndregistrobeneficiarios.php",
-        data: formData,
-        processData: false,
-        contentType: false,
-        type: 'POST',
-        beforeSend: function () {
-            //$("#preview").fadeOut();
-            $("#error").fadeOut();
-        },
-        success: function (data) {
-        var json = data;
-        var html = "";
-/*
-        console.log(json);
-        console.log("Este es el Mensaje: " + json.mensaje);
-        console.log("Items: " + json.Items.length);
-        console.log("Items Resultados: " + json.Items[0].length);
-        console.log("Email Resultados: " + json.Items[0][1].email);
-*/
-                /*
-                |------------------------------------------------------
-                | AQUI SE CARGA LA INFORMACION EN LA TABLA
-                |------------------------------------------------------
-                */
-                if(json.Items.length > 0){
-                    var tr;
-                    for (var i = 0; i < json.Items[0].length; i++) {
-                
-                       // if (isEmpty(json.Items[0][i]) == false) {
-                            tr = $('<tr/>');
-                            
-                            tr.append("<td>" + json.Items[0][i].propietario+ "</td>");
-                            tr.append("<td>" + json.Items[0][i].codigo + "</td>");
-                            tr.append("<td>" + json.Items[0][i].beneficiario+ "</td>");
-                            tr.append("<td>" + json.Items[0][i].cedula+ "</td>");
-                            tr.append("<td>" + json.Items[0][i].telefono + "</td>");
-                            tr.append("<td>" + json.Items[0][i].correo + "</td>"); 
-                            tr.append("<td>" % "</td>"); 
-                            
-                            var html="";
-                            html = '<div class="btn-group" style="font-size:1.3em; letter-spacing:0.2em;">';
-                            html += '<a title="Editar" data-field-id="' + json.Items[0][i].id  + '"><i class="fa fa-edit" alt=“editar”></i></a>&nbsp;';
-                            html += '<a title="Ver" data-field-id="' + json.Items[0][i].id + '"><i class="fa fa-search" alt=“Ver”></i></a>&nbsp;'
-                            html += '<a title="Bitacora" data-field-id="' + json.Items[0][i].id + '"><i class="fa fa-folder-open"></i></a>&nbsp;';
-                            html += '<a title="Eliminar"  data-field-id="'  + json.Items[0][i].id + '"><i class="fa fa-trash" alt=“eliminar”></i></a>';
-                            html += '</div>'
-                            tr.append("<td>" + html + "</td>");
-                            $('#datatablesSimple').append(tr);
-                        //}
-                    }
+function generarCodigoBeneficiario(){
 
 
-                    //editarRepresentante();
-                    //validareliminarRepresentante();
-                }
-                /************************************************ */
+    $("#registroNombre").on('keyup', function () {
+
+        var prmNombre= this.value;
+        var prmApellido=$("#registroApellido").val();
+
+        $("#registroCodigo").val('');
+
+        codigoBeneficiario(prmNombre,function(result){
+            $("#registroCodigo").val(result);
+        });
 
 
-        },
-        error: function (e) {
-            $("#error").html(e).fadeIn();
-        }
     });
 
+    $("#registroApellido").on('keyup', function () {
+
+        var prmNombre= $("#registroNombre").val(); 
+        var prmApellido=this.value;
+
+        $("#registroCodigo").val('');
+        codigoBeneficiario(prmNombre ,function(result){
+            $("#registroCodigo").val(result);
+        });
+
+    });
+   
+
 }
 
 
-function limpiarTabla() {
 
-    $('#datatablesSimple tbody').children().remove();
 
-}
+
+
+
 
 $(document).ready(function() {
 

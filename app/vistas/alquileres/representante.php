@@ -23,9 +23,11 @@
 
                             <th>Codigo</th>
                             <th>Nombre</th>
-                            <th>Propietario</th>
+                            <th>cedula</th>
                             <th>Telefono</th>
                             <th>correo</th>
+                            <th>Propietario</th>
+                            
                             <th>Doc / Editar</th>
                      
  
