@@ -28,7 +28,7 @@ include("layout/menuNavegacion.php");
             </div>
 
             <div class="card-body">
-                <table id="datatablesSimple">
+                <table id="datosPropietarios">
                     <thead>
                         <tr>
                             <th width="10%">Código</th>
