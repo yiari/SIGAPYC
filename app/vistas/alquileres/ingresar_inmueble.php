@@ -113,8 +113,6 @@ include("layout/menuNavegacion.php");
                 <input type="hidden" id="id_prop" name="id_prop" value='1'>
                 <input type="hidden" id="hidinmueble" name="hidinmueble" value=''>
                 <input type="hidden" id="hid_gastos" name="hid_gastos" value='0'>
-
-                <input type="hidden" id="registroCodigo" name="registroCodigo" value='IN-'>
         
         <div class="tab-content" id="nav-tabContent">
             <div class="tab-pane fade show active" id="nav-info_propinmu" role="tabpanel" aria-labelledby="nav-info_propinmu-tab">
@@ -133,7 +131,7 @@ include("layout/menuNavegacion.php");
                                     <label class="col-sm-12 col-form-label">Código:</label>
                                     <div class="col-sm-12">
                                         <div class="col-sm-12">
-                                            <input type="text" class="form-control" id="" name="" autofocus readonly="yes" >
+                                            <input type="text" class="form-control" id="registroCodigo" name="registroCodigo" autofocus readonly="yes" >
                                         </div>
                                     </div>
                                 </div>

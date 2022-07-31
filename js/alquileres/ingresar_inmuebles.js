@@ -17,7 +17,7 @@ function inicio(){
     guardarInmueble();
     cargarEstados();
     cargartipo_inmueble();
-
+    generarCodigoInmueble();
 
 
 }
@@ -229,6 +229,28 @@ function limpiarCampos(){
 
 }
 
+
+function generarCodigoInmueble(){
+
+    
+
+    $('#cboinmueble').change(function() {
+
+        var  prmTipoInmueble = $('#cboinmueble').find('option:selected').attr('data-tipoinmueble');
+        //var prmNombre=$(this).attr('data-tipoinmueble');;
+
+        $("#registroCodigo").val('');
+
+        codigoInmueble(prmTipoInmueble,function(result){
+            $("#registroCodigo").val(result);
+        });
+
+
+    });
+
+
+
+}
 
 function mensaje(mensaje, condicion){
 
