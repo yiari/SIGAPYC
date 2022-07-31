@@ -37,7 +37,7 @@
                                                 <input type="hidden" id="hidcuenta_id_paypal" name=" hidcuenta_id_paypal" value='0'>
                                                
 
-                                                <input type="hidden" id="registroCodigo" name="registroCodigo" value='BE'>
+                                               
 
                                                 <input type="hidden" id="nom_payp" name="nom_payp" value='0'>
                                                     
@@ -52,7 +52,7 @@
                                             
                                              <div class="row">
                                                 <div class="col-md-4">
-                                                    <label for="" class="col-sm-3 col-form-label">Nombre:</label>
+                                                    <label for="registroNombre" class="col-sm-3 col-form-label">Nombre:</label>
                                                     <div class="col-sm-12">
                                                         <input type="text" class="form-control" id="registroNombre" name="registroNombre" >
                                                     </div>
@@ -292,12 +292,9 @@
 
                                             <div class="container">
                                                     <div class="col-12 btn btn-align-center">
-                                                
-                                                        <button type="button" class="btn btn-primary">Añadir otro</button>
+
                                                         <button type="submit" class="btn btn-primary">Guardar</button>
-                                                        <a class="btn btn-primary" href="index.php?url=app/vistas/alquileres/ingresar_inmueble" role="button">Volver</a> 
-                                                
-                                            
+
                                                 </div>
                                             </div>
                                         </form>
@@ -313,33 +310,46 @@
                                 <div class="card">
                                     <div class="card-body">
                                         <h5 class="card-title">Datos Jurídicos</h5>
-                                        <form class="form-sample" id="apo_juridico" name="apo_juridico" method="POST" action="guarda.php" autocomplete="off" enctype="multipart/form-data" enctype="multipart/form-data">
+                                        <form class="form-sample" id="registrarbeneficiarioj" name="registrarbeneficiarioj" method="POST" action="guarda.php" autocomplete="off" enctype="multipart/form-data" enctype="multipart/form-data">
+ 
+                                                <input type="hidden" id="tipo_persona" name="tipo_persona" value='2'>
+                                                <input type="hidden" id="hidbeneficiarioj" name="hidbeneficiarioj" value=''>
+                                                <input type="hidden" id="id_prop" name="id_prop" value='1'>
+                                                <input type="hidden" id="hidcuenta_id_nacional" name="hidcuenta_id_nacional" value='0'>
+                                                <input type="hidden" id="hidcuenta_id_internacional" name="hidcuenta_id_internacional" value='0'>
+                                                
 
+                                            <div class="col-md-5">
+                                                <label class="col-sm-12 col-form-label">Código Beneficiario:</label>
+                                                <div class="col-sm-12">
+                                                    <input for="registroCodigo" type="text" class="form-control" id="registroCodigo" name="registroCodigo" autofocus readonly="yes" >
+                                                </div>
+                                           </div>
                                             <div class="row">
                                                 <div class="col-md-4">
-                                                    <label class="col-sm-12 col-form-label">Nombre o Razón Social:</label>
+                                                    <label for="registroNombre"  class="col-sm-12 col-form-label">Nombre o Razón Social:</label>
                                                     <div class="col-sm-12">
-                                                        <input type="text" class="form-control" id="nom_benj" name="nom_proj" autofocus required>
+                                                        <input type="text" class="form-control" id="registroNombre" name="registroNombre" >
                                                     </div>
                                                 </div>
                                                 <div class="col-md-3">
-                                                    <label class="col-sm-12 col-form-label">Rif Jurídico:</label>
+                                                    <label for="registrorif" class="col-sm-12 col-form-label">Rif Jurídico:</label>
                                                     <div class="col-sm-12">
-                                                        <input type="text" class="form-control" id="rif_benj" name="rif_proj" required>
+                                                        <input type="text" class="form-control" id="registrorif" name="registrorif" required>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-5">
-                                                    <label class="col-sm-12 col-form-label">Actividad Comercial:</label>
+                                                    <label for="registroActividad" class="col-sm-12 col-form-label">Actividad Comercial:</label>
                                                     <div class="col-sm-12">
-                                                        <input type="text" class="form-control" id="act_benj" name="act_proj" required>
+                                                        <input type="text" class="form-control" id="registroActividad" name="registroActividad" >
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-12">
-                                                    <label class="col-sm-12 col-form-label">Dirección Fiscal:</label>
+                                                    <label for="registroDirecionH" class="col-sm-12 col-form-label">Dirección Fiscal:</label>
                                                     <div class="col-sm-12">
-                                                        <input type="text" class="form-control" id="dir_benj" name="dir_proj" autofocus required><br>
+                                                        <input type="text" class="form-control" id="registroDirecionH" name="registroDirecionH"><br>
                                                     </div>
                                                 </div>
                                             </div>
@@ -353,16 +363,16 @@
                                                 <div class="row">
                                                     
                                                         <div class="col-md-6">
-                                                            <label for="cboBancoJ" class="col-sm-10 col-form-label">Bancos Nacional:</label></br>
+                                                            <label for="cboBancoPJ" class="col-sm-10 col-form-label">Bancos Nacional:</label></br>
                                                             <div class="col-sm-12">
-                                                                <select class="form-control"  id="cboBancoJ" name="cboBancoJ"></select>
+                                                                <select class="form-control"  id="cboBancoPJ" name="cboBancoPJ"></select>
                                                             </div>
                                                        </div>
   
                                                     <div class="col-md-6">
-                                                        <label class="col-sm-9 col-form-label">Cuenta:</label>
+                                                        <label for="num_cuenJ" class="col-sm-9 col-form-label">Cuenta:</label>
                                                         <div class="col-sm-12">
-                                                            <input type="text" class="form-control" id="num_cuen" name="num_cuen" value=''><br>
+                                                            <input type="text" class="form-control" id="num_cuenJ" name="num_cuenJ" value=''><br>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -370,9 +380,9 @@
                                                     <div class="col-md-12">
                                                         <div class="input-group">
                                                             <span class="input-group-text">Pago Movil</span>
-                                                            <input type="text" placeholder="cedula" id="ced_pmov" name="ced_pmov" aria-label="Cédula" value='' class="form-control">
+                                                            <input type="text" placeholder="cedula" id="ced_pmovJ" name="ced_pmovJ" aria-label="Cédula" value='' class="form-control">
                                                             <select class="form-control"  id="cboBancop" name="cboBancop"></select>
-                                                            <input type="text" placeholder="celular" id="cel_pmov" name="cel_pmov" aria-label="Celular" value='' class="form-control">
+                                                            <input type="text" placeholder="celular" id="cel_pmovJ" name="cel_pmovJ" aria-label="Celular" value='' class="form-control">
                                                         </div><br>
                                                     </div>  
                                                 </div>
@@ -382,41 +392,41 @@
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-2">
-                                                        <label class="col-sm-10 col-form-label">Banco Extranjero:</label>
+                                                        <label for="ban_extrj" class="col-sm-10 col-form-label">Banco Extranjero:</label>
                                                         <div class="col-sm-12">
-                                                            <input type="text" class="form-control" id="" name="" >
+                                                            <input type="text" class="form-control" id="ban_extrj" name="ban_extrj" >
 
                                                         </div>
                                                     </div>
                                                     <div class="col-md-1">
-                                                        <label class="col-sm-12 col-form-label">Agencia:</label>
+                                                        <label for="age_extrj" class="col-sm-12 col-form-label">Agencia:</label>
                                                         <div class="col-sm-12">
-                                                            <input type="text" class="form-control" id="" name="" >
+                                                            <input type="text" class="form-control" id="age_extrj" name="age_extrj" >
 
                                                         </div>
                                                     </div>
                                                     <div class="col-md-1">
-                                                        <label class="col-sm-12 col-form-label">DC:</label>
+                                                        <label for="dc_extrj" class="col-sm-12 col-form-label">DC:</label>
                                                         <div class="col-sm-12">
-                                                            <input type="text" class="form-control" id="" name="" ><br>
+                                                            <input type="text" class="form-control" id="dc_extrj" name="dc_extrj" ><br>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-2">
-                                                        <label class="col-sm-12 col-form-label">Cuenta:</label>
+                                                        <label for="cue_extrj" class="col-sm-12 col-form-label">Cuenta:</label>
                                                         <div class="col-sm-12">
-                                                            <input type="text" class="form-control" id="" name="" ><br>
+                                                            <input type="text" class="form-control" id="cue_extrj" name="cue_extrj" ><br>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-4">
-                                                        <label class="col-sm-12 col-form-label">IBAN:</label>
+                                                        <label for="iba_extrj" class="col-sm-12 col-form-label">IBAN:</label>
                                                         <div class="col-sm-12">
-                                                            <input type="text" class="form-control" id="" name="" ><br>
+                                                            <input type="text" class="form-control" id="iba_extrj" name="iba_extrj" ><br>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-2">
-                                                        <label class="col-sm-12 col-form-label">BIC o SWIFT:</label>
+                                                        <label for="bic_extrj" class="col-sm-12 col-form-label">BIC o SWIFT:</label>
                                                         <div class="col-sm-12">
-                                                            <input type="text" class="form-control" id="" name="" ><br>
+                                                            <input type="text" class="form-control" id="bic_extrj" name="bic_extrj" ><br>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -444,48 +454,48 @@
                                             <h5 class="card-title">Documentos Consignados</h5>
                                             <div class="row">
                                                 <div class="col-md-6">
-                                                    <label for="ced_docu" class="col-sm-9 col-form-label">Registro Mercantil</label>
+                                                    <label for="regmen_docu" class="col-sm-9 col-form-label">Registro Mercantil</label>
                                                     <div class="col-sm-12">
-                                                        <input class="form-control form-control-sm" id="ced_dcbj" type="file" name="ced_docj" value="" required>
+                                                        <input class="form-control form-control-sm" id="regmen_docu" type="file" name="regmen_docu" >
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <label for="rif_docu" class="col-sm-9 col-form-label">Acta Constitutiva</label>
+                                                    <label for="actcons_docu" class="col-sm-9 col-form-label">Acta Constitutiva</label>
                                                     <div class="col-sm-12">
-                                                        <input class="form-control form-control-sm" id="rif_dcbj" type="file" name="rif_docj" value="" required><br>
+                                                        <input class="form-control form-control-sm" id="actcons_docu" type="file" name="actcons_docu" ><br>
                                                     </div>
                                                 </div>
                                             </div>
 
                                             <div class="row">
                                                 <div class="col-md-4">
-                                                    <label for="ced_docu" class="col-sm-9 col-form-label">Acta de última Asamblea</label>
+                                                    <label for="actultasam_docu" class="col-sm-9 col-form-label">Acta de última Asamblea</label>
                                                     <div class="col-sm-12">
-                                                        <input class="form-control form-control-sm" id="ced_dcbj" type="file" name="ced_docj" value="" required>
+                                                        <input class="form-control form-control-sm" id="actultasam_docu" type="file" name="actultasam_docu">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4">
                                                     <label for="rif_docu" class="col-sm-9 col-form-label">Rif Personal</label>
                                                     <div class="col-sm-12">
-                                                        <input class="form-control form-control-sm" id="rif_dcbj" type="file" name="rif_docj" value="" required><br>
+                                                        <input class="form-control form-control-sm" id="rif_docu" type="file" name="rif_docu" ><br>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4">
-                                                    <label for="rif_docu" class="col-sm-12 col-form-label">Autorización del Propietario</label>
+                                                    <label for="autopro_docu" class="col-sm-12 col-form-label">Autorización del Propietario</label>
                                                     <div class="col-sm-12">
-                                                        <input class="form-control form-control-sm" id="aut_dabj" type="file" name="aut_docn" value="" required><br>
+                                                        <input class="form-control form-control-sm" id="autopro_docu" type="file" name="autopro_docu"><br>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <div class="row">
-                                                        <label for="ref_docu" class="col-sm-12 col-form-label">Referencias Personales</label>
+                                                        <label for="refper_docu" class="col-sm-12 col-form-label">Referencias Personales</label>
                                                         <div class="col-sm-6">
-                                                            <input class="form-control form-control-sm" id="ref_dcbj1" type="file" name="ref_docj1" value="" required>
+                                                            <input class="form-control form-control-sm" id="refper_docu" type="file" name="refper_docu">
                                                         </div>
                                                         <div class="col-sm-6">
-                                                            <input class="form-control form-control-sm" id="ref_dcbj2" type="file" name="ref_docj2" value="" required><br>
+                                                            <input class="form-control form-control-sm" id="refper_docu2" type="file" name="refper_docu2"><br>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -493,12 +503,12 @@
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <div class="row">
-                                                        <label for="fam_docu" class="col-sm-12 col-form-label">Referencias Familiares</label>
+                                                        <label for="reffam_docu" class="col-sm-12 col-form-label">Referencias Familiares</label>
                                                         <div class="col-sm-6">
-                                                            <input class="form-control form-control-sm" id="fam_dcbj1" type="file" id="fam_docj1" value="" required>
+                                                            <input class="form-control form-control-sm" id="reffam_docu" type="file" id="reffam_docu">
                                                         </div>
                                                         <div class="col-sm-6">
-                                                            <input class="form-control form-control-sm" id="fam_dcbj2" type="file" id="fam_docj2" value="" required><br>
+                                                            <input class="form-control form-control-sm" id="fam_dcbj2" type="file" id="fam_docj2"><br>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -506,12 +516,9 @@
 
                                             <div class="container">
                                                     <div class="col-12 btn btn-align-center">
-                                                
-                                                        <button type="button" class="btn btn-primary">añadir otro</button>
+
                                                         <button type="button" class="btn btn-primary">Guardar</button>
-                                                        <a class="btn btn-primary" href="index.php?url=app/vistas/alquileres/ingresar_inmueble" role="button">Volver</a> 
-                                                
-                                            
+
                                                 </div>
                                             </div>
                                         </form>
@@ -539,3 +546,4 @@ include_once "app/vistas/comunes/modaleliminar.php";
 <script src="js/comunes/generadorcodigos.js"></script>
 <script src="js/comunes/funciones.js"></script>
 <script src="js/alquileres/ingresar_beneficiarios.js"></script>
+<script src="js/alquileres/ingresar_beneficiario_juridico.js"></script>

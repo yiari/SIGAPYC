@@ -162,6 +162,128 @@ function codigoRepresentante(nombre,callback){
 }
 
 
+
+function codigoBeneficiario(nombre,callback){
+
+
+    let text="";
+    let result="";
+
+    if(nombre.length >0){
+
+            $.ajax({
+                url: "app/vistas/comunes/generarcodigos.php",
+                method: 'POST',
+                data: {opcion:"codigoRepresentante"},
+                success: function (data,status,xhr) {
+                    var json = data;
+                    
+                    /*
+                    |-----------------------------------------------------------
+                    | AQUI VERIFICO SI LA RESPUESTA ES JSON, SI NO ES JSON
+                    | EL RESULTADO SE CONVIERTE A JSON
+                    |-----------------------------------------------------------
+                    */
+            
+                    var respuestaHeader = xhr.getResponseHeader("Content-Type");
+                    var verificarHeader = respuestaHeader.search('text/html')
+            
+                    if(verificarHeader >= 0){
+                        json = JSON.parse(json);
+                    } 
+            
+                    /*---------------------------------------------------------*/
+            
+                    text = nombre;
+                    result = 'B-' +  valorLetra(text.charAt(0)) + '-' +  completarconcero(json.valor, 4)  + '-' +  nombre;
+
+                     callback(result);
+
+                }
+
+            });
+
+    }
+
+
+/*
+
+    if(nombre.length >0){
+
+        let text = nombre;
+
+        let result = 'R-' +  valorLetra(text.charAt(0)) + '-' +  completarconcero(1, 4)  + '-' +  nombre;
+
+        return result;
+    } else {
+        return "";
+    }
+
+*/
+}
+
+
+
+function codigoBeneficiarioj(nombre,callback){
+
+
+    let text="";
+    let result="";
+
+    if(nombre.length >0){
+
+            $.ajax({
+                url: "app/vistas/comunes/generarcodigos.php",
+                method: 'POST',
+                data: {opcion:"codigoRepresentante"},
+                success: function (data,status,xhr) {
+                    var json = data;
+                    
+                    /*
+                    |-----------------------------------------------------------
+                    | AQUI VERIFICO SI LA RESPUESTA ES JSON, SI NO ES JSON
+                    | EL RESULTADO SE CONVIERTE A JSON
+                    |-----------------------------------------------------------
+                    */
+            
+                    var respuestaHeader = xhr.getResponseHeader("Content-Type");
+                    var verificarHeader = respuestaHeader.search('text/html')
+            
+                    if(verificarHeader >= 0){
+                        json = JSON.parse(json);
+                    } 
+            
+                    /*---------------------------------------------------------*/
+            
+                    text = nombre;
+                    result = 'B-' +  valorLetra(text.charAt(0)) + '-' +  completarconcero(json.valor, 4)  + '-' +  nombre;
+
+                     callback(result);
+
+                }
+
+            });
+
+    }
+
+
+/*
+
+    if(nombre.length >0){
+
+        let text = nombre;
+
+        let result = 'R-' +  valorLetra(text.charAt(0)) + '-' +  completarconcero(1, 4)  + '-' +  nombre;
+
+        return result;
+    } else {
+        return "";
+    }
+
+*/
+}
+
+
 function codigoInquilino(nombre,callback){
 
 

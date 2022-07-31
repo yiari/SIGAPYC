@@ -130,6 +130,28 @@ if ($("#registroDirecionj").val() == "") {
 }
 
 
+function generarCodigoPagadorJ(){
+
+
+    $("#registroNombrej").on('keyup', function () {
+
+        var prmNombre= this.value;
+        
+
+        $("#registroCodigo").val('');
+
+        codigoPagador(prmNombre,function(result){
+            $("#registroCodigo").val(result);
+        });
+
+
+    });
+
+
+}
+
+
+
 function limpiarCamposjuridico(){
 
     $("#hidpagadorj").val("");
@@ -162,27 +184,9 @@ function limpiarCamposjuridico(){
     $("#conarre_docu").val("");
   
     
-    
-    
-  
 
 }
 
 
 
 
-function generarCodigoPagadorj(){
-
-
-    $("#registroNombrej").on('keyup', function () {
-
-        var prmNombre= this.value;
-        
-
-        $("#registroCodigoj").val('');
-        $("#registroCodigoj").val(codigoPagador(prmNombre));
-
-    });
-
-
-}
