@@ -249,7 +249,7 @@ include("layout/menuNavegacion.php");
                                              <div class="col-md-5">
                                                 <label  class="col-sm-12 col-form-label">Código pagador:</label>
                                                 <div class="col-sm-12">
-                                                    <input for="registroCodigo" type="text" class="form-control" id="registroCodigo" name="registroCodigo" autofocus readonly="yes" >
+                                                    <input for="registroCodigoj" type="text" class="form-control" id="registroCodigoj" name="registroCodigoj" autofocus readonly="yes" >
                                                 </div>
                                             </div>
                                             

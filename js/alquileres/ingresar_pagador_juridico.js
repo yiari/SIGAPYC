@@ -138,10 +138,10 @@ function generarCodigoPagadorJ(){
         var prmNombre= this.value;
         
 
-        $("#registroCodigo").val('');
+        $("#registroCodigoj").val('');
 
         codigoPagador(prmNombre,function(result){
-            $("#registroCodigo").val(result);
+            $("#registroCodigoj").val(result);
         });
 
 

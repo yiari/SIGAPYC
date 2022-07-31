@@ -36,7 +36,7 @@ function inicio(){
     */
 
     guardarPagadorJuridico();
-    generarCodigoPagadorj();
+    generarCodigoPagadorJ();
 
 }
 
