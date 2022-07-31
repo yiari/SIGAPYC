@@ -48,9 +48,13 @@ function cargarPagador(){
                 | AQUI SE CARGA LA INFORMACION EN LA TABLA
                 |------------------------------------------------------
                 */
+
                 if(json.Items.length > 0){
                     var tr;
-                    for (var i = 0; i < json.Items[0].length; i++) {
+                
+                    if(json.Items.length > 0){
+                    var tr;
+                        for (var i = 0; i < json.Items[0].length; i++) {
                 
                        // if (isEmpty(json.Items[0][i]) == false) {
                             tr = $('<tr/>');
@@ -74,11 +78,19 @@ function cargarPagador(){
                             $('#datosPagador').append(tr);
                         //}
                     }
+                    
+                } else {
 
-                    new simpleDatatables.DataTable("#datosPagador");
-                    //editarPagador();
-                    //validareliminarRepresentante();
+                var tr;
+                tr = $('<tr/>');
+                tr.append("<td colspan=6 style='text-align:center'>NO HAY INFORMACION REGISTRADA</td>");
+                $('#datosPagador').append(tr);
+
                 }
+
+                 new simpleDatatables.DataTable("#datosPagador");
+
+            } 
                 /************************************************ */
 
 

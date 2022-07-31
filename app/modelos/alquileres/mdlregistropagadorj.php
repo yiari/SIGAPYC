@@ -33,7 +33,7 @@ public function registrar($tabla,$datos,$archivos){
   $prmMensaje = "";
   $prmIdpagador = 0;
 
-
+  $fecha = str_replace($datos["fec_regi"],"-","");
 
   
       try {
@@ -55,7 +55,7 @@ public function registrar($tabla,$datos,$archivos){
           $stmt -> bindParam(9,  $datos["cor_pagj"],PDO::PARAM_STR); 
           $stmt -> bindParam(10, $datos["cod_regi"],PDO::PARAM_STR); 
           $stmt -> bindParam(11, $datos["not_regi"],PDO::PARAM_STR); 
-          $stmt -> bindParam(12, $datos["fec_regi"],PDO::PARAM_INT); 
+          $stmt -> bindParam(12,$fecha,PDO::PARAM_INT); 
           $stmt -> bindParam(13, $datos["num_regi"],PDO::PARAM_INT);
           $stmt -> bindParam(14, $datos["tom_regi"],PDO::PARAM_STR); 
           $stmt -> bindParam(15, $datos["fol_regi"],PDO::PARAM_STR); 

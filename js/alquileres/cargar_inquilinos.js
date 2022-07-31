@@ -48,7 +48,10 @@ function cargarInquilino(){
                 */
                 if(json.Items.length > 0){
                     var tr;
-                    for (var i = 0; i < json.Items[0].length; i++) {
+
+                    if(json.Items[0].length > 0){
+                        
+                        for (var i = 0; i < json.Items[0].length; i++) {
                 
                        // if (isEmpty(json.Items[0][i]) == false) {
                             tr = $('<tr/>');
@@ -70,16 +73,22 @@ function cargarInquilino(){
                             html += '<a title="Eliminar"  data-field-id="'  + json.Items[0][i].id + '"><i class="fa fa-trash" alt=“eliminar”></i></a>';
                             html += '</div>'
                             tr.append("<td>" + html + "</td>");
-                            $('#datatablesSimple').append(tr);
+                            $('#datosinquilinos').append(tr);
                         //}
                     }
 
+                } else {
 
-                    //editarRepresentante();
-                    //validareliminarRepresentante();
-                }
-                /************************************************ */
+                    var tr;
+                    tr = $('<tr/>');
+                    tr.append("<td colspan=6 style='text-align:center'>NO HAY INFORMACION REGISTRADA</td>");
+                    $('#datosinquilinos').append(tr);
 
+                    }
+
+                    new simpleDatatables.DataTable("#datosinquilinos");
+               
+                }   
 
         },
         error: function (e) {
