@@ -305,7 +305,7 @@ public function registrar($tabla,$datos,$archivos){
 
               $dbConexion = new conexcion();  
 
-                $stmt = $dbConexion->conectar()->prepare("CALL usp_cargarinmueble()");
+                $stmt = $dbConexion->conectar()->prepare("CALL usp_cargarunidades");
                 $stmt->execute();
                 $dataRegistro["Items"][] = $stmt->fetchAll();
       
@@ -336,7 +336,7 @@ public function registrar($tabla,$datos,$archivos){
 
           $dbConexion = new conexcion();
           
-          $stmt = $dbConexion->conectar()->prepare("CALL usp_cargarinmueble()" );
+          $stmt = $dbConexion->conectar()->prepare("CALL usp_cargarunidades" );
         
           $stmt ->bindParam(":".$iten, $valor, PDO::PARAM_STR);
           $stmt->execute();

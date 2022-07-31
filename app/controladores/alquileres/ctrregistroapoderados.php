@@ -27,13 +27,13 @@ class ctrregistroapoderado{
         */ 
     }
 
-     public function registrar($datos){
+     public function registrar($datos,$archivos){
 
             $tabla = "apoderado";
             $modelo = new mdlregistroapoderado();
 
             $modelo =  new mdlregistroapoderado();
-            $respuesta = $modelo->registrar($tabla,$datos);
+            $respuesta = $modelo->registrar($tabla,$datos,$archivos);
 
             return $respuesta;
 

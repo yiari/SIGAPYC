@@ -283,9 +283,9 @@ include("layout/menuNavegacion.php");
                                             <h5 class="card-title">Documentos Consignados</h5>
                                             <div class="row">
                                                 <div class="col-md-4">
-                                                    <label for="ced_docu" class="col-sm-9 col-form-label">Cédula de Identidad</label>
+                                                    <label for="cedu_docu" class="col-sm-9 col-form-label">Cédula de Identidad</label>
                                                     <div class="col-sm-12">
-                                                        <input class="form-control form-control-sm" id="ced_doca" type="file" name="ced_doca" >
+                                                        <input class="form-control form-control-sm" id="cedu_docu" type="file" name="cedu_docu" >
                                                                                              
 
                                                     </div>
@@ -293,14 +293,14 @@ include("layout/menuNavegacion.php");
                                                 <div class="col-md-4">
                                                     <label for="rif_docu" class="col-sm-9 col-form-label">Rif Personal</label>
                                                     <div class="col-sm-12">
-                                                        <input class="form-control form-control-sm" id="rif_doca" type="file" name="rif_doca" >
+                                                        <input class="form-control form-control-sm" id="rif_docu" type="file" name="rif_docu" >
                                                                                              
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4">
-                                                    <label for="rif_docu" class="col-sm-9 col-form-label">Poder Notariado</label>
+                                                    <label for="ponot_docu" class="col-sm-9 col-form-label">Poder Notariado</label>
                                                     <div class="col-sm-12">
-                                                        <input class="form-control form-control-sm" id="pod_doca" type="file" name="pod_doca">
+                                                        <input class="form-control form-control-sm" id="ponot_docu" type="file" name="ponot_docu">
                                                                                              
 
                                                     </div>
@@ -309,14 +309,14 @@ include("layout/menuNavegacion.php");
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <div class="row">
-                                                        <label for="ref_docu" class="col-sm-12 col-form-label">Referencias Personales</label>
+                                                        <label for="refper_docu" class="col-sm-12 col-form-label">Referencias Personales</label>
                                                         <div class="col-sm-6">
-                                                            <input class="form-control form-control-sm" id="ref_doca1" type="file" name="ref_doca1">
+                                                            <input class="form-control form-control-sm" id="refper_docu" type="file" name="refper_docu">
                                                          
 
                                                         </div>
                                                         <div class="col-sm-6">
-                                                            <input class="form-control form-control-sm" id="ref_doca2" type="file" name="ref_doca2" >
+                                                            <input class="form-control form-control-sm" id="refper_docu2" type="file" name="refper_docu2" >
                                     
 
                                                         </div>
@@ -326,9 +326,9 @@ include("layout/menuNavegacion.php");
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <div class="row">
-                                                        <label for="fam_docu" class="col-sm-12 col-form-label">Referencias Familiares</label>
+                                                        <label for="reffam_docu" class="col-sm-12 col-form-label">Referencias Familiares</label>
                                                         <div class="col-sm-6">
-                                                            <input class="form-control form-control-sm" id="fam_doca1" type="file" name="fam_doca1" >
+                                                            <input class="form-control form-control-sm" id="reffam_docu2" type="file" name="reffam_docu2" >
                                    
 
                                                         </div>

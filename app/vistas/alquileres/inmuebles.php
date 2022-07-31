@@ -49,5 +49,5 @@ include_once "app/vistas/comunes/modaleliminar.php";
 
 ?>
 
-<script src="js/alquileres/ingresar_inmuebles.js"></script>
+<script src="js/alquileres/cargar_inmuebles.js"></script>
 

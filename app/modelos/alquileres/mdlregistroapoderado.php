@@ -7,6 +7,7 @@
 */
 
 include_once '../../../app/modelos/conexcion.php';
+include_once '../../../app/controladores/comunes/ctrsubirarchivos.php';
 
 /*
 |---------------------------------------------------------------
@@ -15,7 +16,7 @@ include_once '../../../app/modelos/conexcion.php';
 */
 class mdlregistroapoderado{
 
-public function registrar($tabla,$datos){
+public function registrar($tabla,$datos,$archivos){
 
   /* 
   |------------------------------------------------------------
@@ -30,6 +31,7 @@ public function registrar($tabla,$datos){
   */
   $prmError = 0;
   $prmMensaje = "";
+  $prmIdapoderado = 0;
 
 
 
@@ -119,12 +121,39 @@ public function registrar($tabla,$datos){
               if ($prmError == 1062 ){ //registro duplicado
                 $prmMensaje =  "Registro duplicado: " . $row[1]; //COLUMNA DEL MENSAJE
               } else {
+                 /*
+                |-------------------------------------------------
+                | SI NO HUBO ERRORM OBTENGO EL ID DEL PROPIETARIO
+                |-------------------------------------------------
+                */
+
+                if($prmError == 0){
+                  $prmIdapoderado = $row[2]; //AQUI OBTENGO EL ID DEL PAGADOR
+                }
                 $prmMensaje =  $row[1]; //COLUMNA DEL MENSAJE
               }
             }
         
 
           } ;
+
+          /*
+          |------------------------------
+          | AQUI SUBO LOS ARCHIVOS
+          |------------------------------
+          */
+
+          $subirArchivos = new ctrsubirarchivos();
+
+          $prmTipoPersonaTEMP = $datos["tipo_persona"];
+
+
+
+          IF($prmTipoPersonaTEMP == 1){
+            $subirArchivos->validarArchivos($archivos,$prmIdapoderado,$prmTipoPersonaTEMP,'1PA');
+          } else {
+            $subirArchivos->validarArchivos($archivos,$prmIdapoderado,$prmTipoPersonaTEMP,'2P');
+          }
 
           /*
           |--------------------------------------------------------------------
@@ -136,7 +165,17 @@ public function registrar($tabla,$datos){
             'mensaje' =>  $prmMensaje
           );
 
-          echo json_encode($dataRes);
+          if( $prmIdapoderado > 0 ){
+
+            $dataRegistro["Items"][] = ["ID_APODERADO" => $prmIdapoderado];
+          
+            echo json_encode(array_merge($dataRegistro,$dataRes));
+
+          } else {
+
+            echo json_encode($dataRes);
+          
+          }
 
     } catch (\Exception $e) {
     

@@ -20,12 +20,13 @@
                 <table id="datatablesSimple">
                     <thead>
                         <tr>
-
-                            <th>Cod unidad</th>
-                            <th>Cod inmueble</th>
-                            <th>Propietario</th>
-                            <th>Telefono</th>
-                            <th>correo</th>
+                            
+                            <th>Fotos</th>
+                            <th>Unidad</th>
+                            <th>Inmueble</th>
+                            <th>Inquilino</th>
+                            <th>Estatus</th>
+                            <th>Tipo</th>
                             <th>Doc / Editar</th>
                      
  
@@ -34,23 +35,6 @@
                    
                     <tbody>
 
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                  
-                                    <td>
-                                        <div class="btn-group" style="font-size:1.3em; letter-spacing:0.5em;">
-
-                                            <a href="#" title="Editar"><i class="fas fa-edit" ></i></a>&nbsp;
-
-                                        </div>
-
-                                    </td>
-
-                             
-                        
                     </tbody>
                 </table>
             </div>
@@ -58,3 +42,12 @@
     </div>
 
 </div>
+
+<?php 
+
+include_once "app/vistas/comunes/modalmensajes.php";
+include_once "app/vistas/comunes/modaleliminar.php";
+
+?>
+
+<script src="js/alquileres/cargar_unidades.js"></script>

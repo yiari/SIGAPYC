@@ -53,4 +53,4 @@ include_once "app/vistas/comunes/modaleliminar.php";
 
 ?>
 
-<script src="js/alquileres/ingresar_representante.js"></script>
+<script src="js/alquileres/cargar_representante.js"></script>
