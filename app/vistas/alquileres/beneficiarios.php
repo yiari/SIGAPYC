@@ -4,10 +4,7 @@
     <div class="card-header">
 
         <div style="text-align: right;">
-        <ol>
-                <a class="btn btn-outline-primary" href="index.php?url=app/vistas/alquileres/ingresar_beneficiarios" role="button">Nuevo</a>                
-                <a class="btn btn-outline-secondary" href="index.php?url=app/vistas/alquileres/inmuebles"  role="button">Atras</a>
-            </ol>
+        
         </div>
         
         <!--tabla-->
@@ -17,7 +14,7 @@
                 <div style="text-align: right;">
                     <ol>
                             <a class="btn btn-outline-primary" href="index.php?url=app/vistas/alquileres/ingresar_beneficiarios" role="button">Nuevo</a>                
-                            <!--a class="btn btn-outline-secondary" href="reportes.php"  role="button">Imprimir</a-->
+                            <a class="btn btn-outline-secondary" href="index.php?url=app/vistas/alquileres/inmuebles"  role="button">Atras</a>
                     </ol>
                 </div>
         
@@ -31,12 +28,12 @@
                                         <table id="datatablesSimple">
                                             <thead>
                                                 <tr>
-
+                                                    
+                                                    <th>Propietarios</th>
                                                     <th>Codigo:</th>
-                                                    <th>Doc. Identidad:</th>
-                                                    <th>Nombre o Razón social:</th>
-                                                    <th>Celular</th>
-                                                   
+                                                    <th>beneficiario</th>
+                                                    <th>Cedoula o rif</th>
+                                                    <th>telefono</th>
                                                     <th>correo</th>
                                                     <th>% Part</th>
                                                     <th>Doc / Editar</th>
@@ -44,42 +41,9 @@
                         
                                                 </tr>
                                             </thead>
-                                            <tfoot>
-                                                <tr>
-
-                                                    <th>Id</th>
-                                                    <th>Doc. Identidad:</th>
-                                                    <th>Nombre o Razón social:</th>
-                                                    <th>Celular:</th>
-                                                    <th>correo:</th>
-                                                    <th >% Part</th>
-                                                    <th>Doc / Editar</th>                        
-                                                </tr>
-                                            </tfoot>
+                                            
                                             <tbody>
 
-                                                            <td></td>
-                                                            <td></td>
-                                                            <td></td>
-                                                            <td></td>
-                                                            <td></td>
-                                                            <td> 
-
-                                                                <div class="col-sm-4">
-                                                                    <input type="number" class="form-control" id="por_ipro" name="por_ipro" value=0 required>
-                                                                </div>
-                                                           
-                                                            </td>
-                                                            <td>
-                                                                <div class="btn-group" style="font-size:1.3em; letter-spacing:0.5em;">
-
-                                                                    <a href="#" title="Editar"><i class="fas fa-edit" ></i></a>&nbsp;
-
-                                                                </div>
-
-                                                            </td>
-
-                                                    
                                                 
                                             </tbody>
                                         </table>
@@ -90,3 +54,11 @@
     </div>
 
 </div>
+<?php 
+
+include_once "app/vistas/comunes/modalmensajes.php";
+include_once "app/vistas/comunes/modaleliminar.php";
+
+?>
+
+<script src="js/alquileres/ingresar_beneficiarios.js"></script>

@@ -5,7 +5,7 @@
 | INCLUYO LA CLASE CORRESPONDIENTE
 |----------------------------------------
 */
-include_once '../../../app/controladores/alquileres/ctrregistropropietarios.php';
+include_once '../../../app/controladores/alquileres/ctrregistrobeneficiarios.php';
 include_once '../../../app/controladores/comunes/ctrcapturararchivos.php';
 
 
@@ -15,7 +15,7 @@ include_once '../../../app/controladores/comunes/ctrcapturararchivos.php';
 |-------------------------------------------------
 */
 
-if (class_exists('ctrregistropropietarios')) 
+if (class_exists('ctrregistrobeneficiarios')) 
 {
    //$o_miClase = new ctrregistrousuarios();
 }
@@ -90,31 +90,31 @@ if($operacion == "I"){
     |-------------------------------------------
     */
     
-    $registroPropietario =  new ctrregistropropietarios();
+    $registroBenefesiarios =  new ctrregistrobeneficiarios();
 
    /*
    |---------------------------------------------
    | AQUI CARGO LOS DATOS PARA ALMACENAR
    |---------------------------------------------
    */
-    $datos = array( "id_prop" => $_POST["hidpropietario"],
-                    "cod_prop" => $_POST["registroCodigo"],
-                    "mon_prop" => $_POST["registroNombre"],
-                    "ape_prop" => $_POST["registroApellido"],
-                    "id_nacionalidad" => $_POST["registroNacionalidad"],
-                    "cedula_prop" => $_POST["registroCedula"],
-                    "rif_prop" => $_POST["registroCedula"],
-                    "pre_prop" => $_POST["registropre_prop"],
-                    "telefono_prop" => $_POST["registroTelefono"],  
-                    "cel_prop" => $_POST["registroCelular"],
-                    "correo_prop" => $_POST["registroEmail"],                 
+    $datos = array( "id_bene" => $_POST["hidbeneficiario"],
+                    "id_prop" => $_POST["id_prop"],
+                    "cod_bene" => $_POST["registroCodigo"],
+                    "mon_bene" => $_POST["registroNombre"],
+                    "ape_bene" => $_POST["registroApellido"],
+                    "nac_bene" => $_POST["registroNacionalidad"],
+                    "cel_bene" => $_POST["registroCedula"],
+                    "rif_bene" => $_POST["registrorif"],
+                    "loc_bene" => $_POST["registroTelefono"],  
+                    "cel_bene" => $_POST["registroCelular"],
+                    "cor_bene" => $_POST["registroEmail"],                 
                     "id_estado" => $_POST["cboEstados"],
                     "id_municipio" => $_POST["cboMunicipios"],
                     "id_parroquia" => $_POST["cboParroquia"],
-                    "dir_prop" => $_POST["registroDirecionH"],
-                    "ofi_prop" => $_POST["registroDirecionO"],
+                    "dir_bene" => $_POST["registroDirecionH"],
+                    "ofi_bene" => $_POST["registroDirecionO"],
                     "tipo_persona" => $_POST["tipo_persona"],
-                    "rep_prop" => "",
+                
                    /*
                    |------------------------------------------
                    | AQUI VAN LOS DATOS DE LOS BANCOS NACIONALES
@@ -136,12 +136,23 @@ if($operacion == "I"){
                   "cuenta_id_internacional" => $_POST["hidcuenta_id_internacional"],
                   "ban_extr" => $_POST["ban_extr"],
                   "age_extr" => $_POST["age_extr"],
-                  
                   "dc_extr" => $_POST["dc_extr"],
                   "cue_extr" => $_POST["cue_extr"],
                   "iba_extr" => $_POST["iba_extr"],
-                  "bic_extr" => $_POST["bic_extr"]
-                  );
+                  "bic_extr" => $_POST["bic_extr"],
+
+
+                   /*
+                   |------------------------------------------
+                   | AQUI VAN LOS DATOS DE PAYPAÑ
+                   |------------------------------------------
+                   */
+                  "cuenta_id_paypal" => $_POST["hidcuenta_id_paypal"],
+                  "cor_payp" => $_POST["cor_payp"],
+                  "nom_payp" => $_POST["nom_payp"]);
+
+                   //echo json_encode($datos);
+                    //die;
 
 
 
@@ -169,7 +180,7 @@ if($operacion == "I"){
    | AQUI OBTENGO EL RESULTADO DE LA EJECUCION
    |---------------------------------------------
    */
-     $result = $registroPropietario->registrar($datos,$AchivosCargados);
+     $result = $registroBenefesiarios->registrar($datos,$AchivosCargados);
     
     /*
     |-------------------------------------------
@@ -197,21 +208,21 @@ if($operacion == "C"){
     |-------------------------------------------
     */
     
-    $registroPropietario =  new ctrregistropropietarios();
+    $registroBenefesiarios =  new ctrregistrobeneficiarios();
 
    /* 
    |---------------------------------------------
    | AQUI OBTENGO EL RESULTADO DE LA EJECUCION
    |---------------------------------------------
    */
-     $result = $registroPropietario->seleccionarregistros();
+     $result = $registroBenefesiarios->seleccionarregistros();
     
     /*
     |-------------------------------------------
     | AQUI REGRESO EL RESULTADO AL AJAX
     |-------------------------------------------
     */
-    //header('Content-Type: application/json');
+    header('Content-Type: application/json');
      return $result;
      
 }

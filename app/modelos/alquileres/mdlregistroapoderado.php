@@ -162,26 +162,62 @@ public function registrar($tabla,$datos){
   
   }
 
-  public function seleccionarregistros($tabla,$iten,$valor){
+  
+  
+    public function seleccionarregistros($tabla,$iten,$valor){
 
-    If($iten == null && $valor == null){
+          If($iten == null && $valor == null){
 
 
-          try {
+                try {
 
-            $dbConexion = new conexcion();  
+                  $dbConexion = new conexcion();  
 
-              $stmt = $dbConexion->conectar()->prepare("CALL usp_cargarapoderado()");
+                    $stmt = $dbConexion->conectar()->prepare("CALL usp_cargarapoderado()");
+                    $stmt->execute();
+                    $dataRegistro["Items"][] = $stmt->fetchAll();
+          
+                    $dataRes = array(
+                      'error' => '0',
+                      'mensaje' =>  'El registro se realizo con exito.'
+                    );
+                              
+                    echo json_encode(array_merge($dataRegistro,$dataRes));
+          
+                    } catch (\Throwable $th) {
+                    
+                        //$pdo->rollBack() ;
+                        //echo "Mensaje de Error: " . $th->getMessage();
+                        $dataRes = array(
+                          'error' => '1',
+                          'mensaje' =>  "Mensaje de Error: " . $th->getMessage()
+                        );
+                  
+                        echo json_encode($dataRes);
+                
+                    }
+
+          }else{
+
+
+            try {
+
+              $dbConexion = new conexcion();
+              
+              $stmt = $dbConexion->conectar()->prepare("CALL usp_cargarapoderado()" );
+            
+              $stmt ->bindParam(":".$iten, $valor, PDO::PARAM_STR);
               $stmt->execute();
-              $dataRegistro["Items"][] = $stmt->fetchAll();
-    
+              $dataRegistro["Items"][] = $stmt->fetch();
+
               $dataRes = array(
                 'error' => '0',
                 'mensaje' =>  'El registro se realizo con exito.'
               );
-                        
+              
+              
               echo json_encode(array_merge($dataRegistro,$dataRes));
-    
+
               } catch (\Throwable $th) {
               
                   //$pdo->rollBack() ;
@@ -195,44 +231,10 @@ public function registrar($tabla,$datos){
           
               }
 
-    }else{
-
-
-      try {
-
-        $dbConexion = new conexcion();
-        
-        $stmt = $dbConexion->conectar()->prepare("CALL usp_cargarapoderado()" );
-      
-        $stmt ->bindParam(":".$iten, $valor, PDO::PARAM_STR);
-        $stmt->execute();
-        $dataRegistro["Items"][] = $stmt->fetch();
-
-        $dataRes = array(
-          'error' => '0',
-          'mensaje' =>  'El registro se realizo con exito.'
-        );
-        
-        
-        echo json_encode(array_merge($dataRegistro,$dataRes));
-
-        } catch (\Throwable $th) {
-        
-            //$pdo->rollBack() ;
-            //echo "Mensaje de Error: " . $th->getMessage();
-            $dataRes = array(
-              'error' => '1',
-              'mensaje' =>  "Mensaje de Error: " . $th->getMessage()
-            );
-      
-            echo json_encode($dataRes);
-    
-        }
 
 
 
-
+          }
     }
-}
 
 }

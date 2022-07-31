@@ -26,33 +26,55 @@
                                 <div class="card">
                                     <div class="card-body">
                                         <h5 class="card-title">Datos Personales</h5>
-                                        <form class="form-sample" id="prop_bene_natural" name="prop_bene_natural" method="POST" action="guarda.php" autocomplete="off" enctype="multipart/form-data">
 
-                                            <div class="row">
+                                        <form class="form-sample" id="registrarbeneficiario" name="registrarbeneficiario" method="POST" action="guarda.php" autocomplete="off" enctype="multipart/form-data">
+                                                
+                                                <input type="hidden" id="tipo_persona" name="tipo_persona" value='1'>
+                                                <input type="hidden" id="hidbeneficiario" name="hidbeneficiario" value=''>
+                                                <input type="hidden" id="id_prop" name="id_prop" value='1'>
+                                                <input type="hidden" id="hidcuenta_id_nacional" name="hidcuenta_id_nacional" value='0'>
+                                                <input type="hidden" id="hidcuenta_id_internacional" name="hidcuenta_id_internacional" value='0'>
+                                                <input type="hidden" id="hidcuenta_id_paypal" name=" hidcuenta_id_paypal" value='0'>
+                                               
+
+                                                <input type="hidden" id="registroCodigo" name="registroCodigo" value='BE'>
+
+                                                <input type="hidden" id="nom_payp" name="nom_payp" value='0'>
+                                                    
+
+
+                                                <div class="col-md-5">
+                                                        <label class="col-sm-12 col-form-label">Código Beneficiario:</label>
+                                                        <div class="col-sm-12">
+                                                            <input for="registroCodigo" type="text" class="form-control" id="registroCodigo" name="registroCodigo" autofocus readonly="yes" >
+                                                        </div>
+                                                </div>
+                                            
+                                             <div class="row">
                                                 <div class="col-md-4">
-                                                    <label class="col-sm-3 col-form-label">Nombre:</label>
+                                                    <label for="" class="col-sm-3 col-form-label">Nombre:</label>
                                                     <div class="col-sm-12">
-                                                        <input type="text" class="form-control" id="nom_benn" name="nom_prop" autofocus required>
+                                                        <input type="text" class="form-control" id="registroNombre" name="registroNombre" >
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4">
-                                                    <label class="col-sm-3 col-form-label">Apellido:</label>
+                                                    <label for="registroApellido" class="col-sm-3 col-form-label">Apellido:</label>
                                                     <div class="col-sm-12">
-                                                        <input type="text" class="form-control" id="ape_benn" name="ape_prop" required>
+                                                        <input type="text" class="form-control" id="registroApellido" name="registroApellido">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4">
                                                     <div class="row">
-                                                        <label for="ced_prop" class="col-sm-12 col-form-label">Cédula de Identidad</label>
+                                                        <label for="registroNacionalidad" class="col-sm-12 col-form-label">Cédula de Identidad</label>
                                                         <div class="col-sm-3">
-                                                            <select class="form-select" id="nac_benn" name="nac_prop" required>
+                                                            <select class="form-select" id="registroNacionalidad" name="registroNacionalidad">
                                                                 <option selected disabled value=""></option>
-                                                                <option>V</option>
-                                                                <option>E</option>
+                                                                <option value="1">V</option>
+                                                                <option value="2">E</option>
                                                             </select>
                                                         </div>
                                                         <div class="col-sm-9">
-                                                            <input type="text" class="form-control" id="ced_benn" name="ci_prop" required>
+                                                            <input for="registroCedula"  type="text" class="form-control" id="registroCedula" name="registroCedula" >
                                                         </div>
                                                     </div>
                                                 </div>
@@ -60,27 +82,27 @@
 
                                             <div class="row">
                                                 <div class="col-md-2">
-                                                    <label class="col-sm-5 col-form-label">Rif:</label>
+                                                    <label for="registrorif" class="col-sm-5 col-form-label">Rif:</label>
                                                     <div class="col-sm-12">
-                                                        <input type="text" class="form-control" id="rif_benn" name="rif_prop" required>
+                                                        <input type="text" class="form-control" id="registrorif" name="registrorif" >
                                                     </div>
                                                 </div>
                                                 <div class="col-md-2">
-                                                    <label class="col-sm-8 col-form-label">Teléfono local:</label>
+                                                    <label for="registroTelefono" class="col-sm-8 col-form-label">Teléfono local:</label>
                                                     <div class="col-sm-12">
-                                                        <input type="text" class="form-control" id="loc_benn" name="loc_prop" required>
+                                                        <input type="text" class="form-control" id="registroTelefono" name="registroTelefono">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-2">
-                                                    <label class="col-sm-9 col-form-label">Celular:</label>
+                                                    <label for="registroCelular" class="col-sm-9 col-form-label">Celular:</label>
                                                     <div class="col-sm-12">
-                                                        <input type="text" class="form-control" id="cel_benn" name="cel_prop" required>
+                                                        <input type="text" class="form-control" id="registroCelular" name="registroCelular">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <label class="col-sm-3 col-form-label">Correo:</label>
+                                                    <label for="registroEmail" class="col-sm-3 col-form-label">Correo:</label>
                                                     <div class="col-sm-12">
-                                                        <input type="text" class="form-control" id="cor_benn" name="cor_prop" required>
+                                                        <input type="text" class="form-control" id="registroEmail" name="registroEmail">
                                                     </div>
                                                 </div>
                                             </div>
@@ -109,15 +131,15 @@
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-6">
-                                                    <label class="col-sm-10 col-form-label">Dirección de habitación:</label>
+                                                    <label for="registroDirecionH" class="col-sm-10 col-form-label">Dirección de habitación:</label>
                                                     <div class="col-sm-12">
-                                                        <input type="text" class="form-control" id="dir_benn" name="dir_prop" required>
+                                                        <input type="text" class="form-control" id="registroDirecionH" name="registroDirecionH">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <label class="col-sm-10 col-form-label">Dirección de oficina:</label>
+                                                    <label for="registroDirecionO" class="col-sm-10 col-form-label">Dirección de oficina:</label>
                                                     <div class="col-sm-12">
-                                                        <input type="text" class="form-control" id="ofi_benn" name="ofi_prop" required><br>
+                                                        <input type="text" class="form-control" id="registroDirecionO" name="registroDirecionO"><br>
                                                     </div>
                                                 </div>
                                             </div>
@@ -138,9 +160,9 @@
                                                        </div>
   
                                                     <div class="col-md-6">
-                                                        <label class="col-sm-9 col-form-label">Cuenta:</label>
+                                                        <label for="num_cuen"  class="col-sm-9 col-form-label">Cuenta:</label>
                                                         <div class="col-sm-12">
-                                                            <input type="text" class="form-control" id="num_cuen" name="num_cuen" value=''><br>
+                                                            <input type="text" class="form-control" id="num_cuen" name="num_cuen"><br>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -160,41 +182,41 @@
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-2">
-                                                        <label class="col-sm-10 col-form-label">Banco Extranjero:</label>
+                                                        <label for="ban_extr" class="col-sm-10 col-form-label">Banco Extranjero:</label>
                                                         <div class="col-sm-12">
-                                                            <input type="text" class="form-control" id="" name="" >
+                                                            <input type="text" class="form-control" id="ban_extr" name="ban_extr" >
 
                                                         </div>
                                                     </div>
                                                     <div class="col-md-1">
-                                                        <label class="col-sm-12 col-form-label">Agencia:</label>
+                                                        <label for="age_extr" class="col-sm-12 col-form-label">Agencia:</label>
                                                         <div class="col-sm-12">
-                                                            <input type="text" class="form-control" id="" name="" >
+                                                            <input type="text" class="form-control" id="age_extr" name="age_extr" >
 
                                                         </div>
                                                     </div>
                                                     <div class="col-md-1">
-                                                        <label class="col-sm-12 col-form-label">DC:</label>
+                                                        <label for="dc_extr" class="col-sm-12 col-form-label">DC:</label>
                                                         <div class="col-sm-12">
-                                                            <input type="text" class="form-control" id="" name="" ><br>
+                                                            <input type="text" class="form-control" id="dc_extr" name="dc_extr" ><br>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-2">
-                                                        <label class="col-sm-12 col-form-label">Cuenta:</label>
+                                                        <label for="cue_extr" class="col-sm-12 col-form-label">Cuenta:</label>
                                                         <div class="col-sm-12">
-                                                            <input type="text" class="form-control" id="" name="" ><br>
+                                                            <input type="text" class="form-control" id="cue_extr" name="cue_extr" ><br>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-4">
-                                                        <label class="col-sm-12 col-form-label">IBAN:</label>
+                                                        <label for="iba_extr" class="col-sm-12 col-form-label">IBAN:</label>
                                                         <div class="col-sm-12">
-                                                            <input type="text" class="form-control" id="" name="" ><br>
+                                                            <input type="text" class="form-control" id="iba_extr" name="iba_extr" ><br>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-2">
-                                                        <label class="col-sm-12 col-form-label">BIC o SWIFT:</label>
+                                                        <label for="bic_extr" class="col-sm-12 col-form-label">BIC o SWIFT:</label>
                                                         <div class="col-sm-12">
-                                                            <input type="text" class="form-control" id="" name="" ><br>
+                                                            <input type="text" class="form-control" id="bic_extr" name="bic_extr" ><br>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -202,8 +224,8 @@
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="input-group">
-                                                            <span class="input-group-text">Cuenta Paypal:</span>
-                                                            <input type="text" class="form-control" placeholder="correo" id="" name="" >
+                                                            <span for="cor_payp" class="input-group-text">Cuenta Paypal:</span>
+                                                            <input type="text" class="form-control" placeholder="correo" id="cor_payp" name="cor_payp" >
                                                         </div>
                                                     </div>
 
@@ -219,42 +241,37 @@
                                             </div>
                                         </div><br>
 
-                                            
-
-                                           
-
-                                            
 
                                             <h5 class="card-title">Documentos Consignados</h5>
                                             <div class="row">
                                                 <div class="col-md-4">
-                                                    <label for="ced_docu" class="col-sm-9 col-form-label">Cédula de Identidad</label>
+                                                    <label for="cedu_docu" class="col-sm-9 col-form-label">Cédula de Identidad</label>
                                                     <div class="col-sm-12">
-                                                        <input class="form-control form-control-sm" id="ced_dcbn" type="file" name="ced_docn" value="" required>
+                                                        <input class="form-control form-control-sm" id="cedu_docu" type="file" name="cedu_docu">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4">
                                                     <label for="rif_docu" class="col-sm-9 col-form-label">Rif Personal</label>
                                                     <div class="col-sm-12">
-                                                        <input class="form-control form-control-sm" id="rif_dcbn" type="file" name="rif_docn" value="" required><br>
+                                                        <input class="form-control form-control-sm" id="rif_docu" type="file" name="rif_docu" ><br>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4">
-                                                    <label for="rif_docu" class="col-sm-12 col-form-label">Autorización del Propietario</label>
+                                                    <label for="autopro_docu" class="col-sm-12 col-form-label">Autorización del Propietario</label>
                                                     <div class="col-sm-12">
-                                                        <input class="form-control form-control-sm" id="aut_dabn" type="file" name="rif_docn" value="" required><br>
+                                                        <input class="form-control form-control-sm" id="autopro_docu" type="file" name="autopro_docu" ><br>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <div class="row">
-                                                        <label for="ref_docu" class="col-sm-12 col-form-label">Referencias Personales</label>
+                                                        <label for="refper_docu" class="col-sm-12 col-form-label">Referencias Personales</label>
                                                         <div class="col-sm-6">
-                                                            <input class="form-control form-control-sm" id="ref_dcbn1" type="file" name="ref_docn1" value="" required>
+                                                            <input class="form-control form-control-sm" id="refper_docu" type="file" name="refper_docu" >
                                                         </div>
                                                         <div class="col-sm-6">
-                                                            <input class="form-control form-control-sm" id="ref_dcbn2" type="file" name="ref_docn2" value="" required><br>
+                                                            <input class="form-control form-control-sm" id="refper_docu2" type="file" name="refper_docu2"><br>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -262,12 +279,12 @@
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <div class="row">
-                                                        <label for="fam_docu" class="col-sm-12 col-form-label">Referencias Familiares</label>
+                                                        <label for="reffam_docu" class="col-sm-12 col-form-label">Referencias Familiares</label>
                                                         <div class="col-sm-6">
-                                                            <input class="form-control form-control-sm" id="fam_dcbn1" type="file" name="fam_docn1" value="" required>
+                                                            <input class="form-control form-control-sm" id="reffam_docu" type="file" name="reffam_docu" >
                                                         </div>
                                                         <div class="col-sm-6">
-                                                            <input class="form-control form-control-sm" id="fam_dcbn2" type="file" name="fam_docn2" value="" required><br>
+                                                            <input class="form-control form-control-sm" id="reffam_docu2" type="file" name="reffam_docu2"><br>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -277,7 +294,7 @@
                                                     <div class="col-12 btn btn-align-center">
                                                 
                                                         <button type="button" class="btn btn-primary">Añadir otro</button>
-                                                        <button type="button" class="btn btn-primary">Guardar</button>
+                                                        <button type="submit" class="btn btn-primary">Guardar</button>
                                                         <a class="btn btn-primary" href="index.php?url=app/vistas/alquileres/ingresar_inmueble" role="button">Volver</a> 
                                                 
                                             
@@ -487,9 +504,6 @@
                                                 </div>
                                             </div>
 
-                                            
-                                   
-
                                             <div class="container">
                                                     <div class="col-12 btn btn-align-center">
                                                 
@@ -511,5 +525,17 @@
                
             </div>
         </div>
-        <script src="js/comunes/combos.js"></script>
-        <script src="js/alquileres/ingresar_beneficiario.js"></script>
+
+
+        
+    <?php 
+
+include_once "app/vistas/comunes/modalmensajes.php";
+include_once "app/vistas/comunes/modaleliminar.php";
+
+?>
+
+<script src="js/comunes/combos.js"></script>
+<script src="js/comunes/generadorcodigos.js"></script>
+<script src="js/comunes/funciones.js"></script>
+<script src="js/alquileres/ingresar_beneficiarios.js"></script>

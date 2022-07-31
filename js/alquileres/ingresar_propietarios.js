@@ -1,7 +1,7 @@
 
 function inicio(){
 
-  
+
     generarCodigoPropietario();
     cargarEstados();
     cargarBancos('cboBancoN');
@@ -440,6 +440,11 @@ function validarCodigoPropietario(){
     });
 
 }
+
+
+
+
+
 
 $(document).ready(function() {
 
