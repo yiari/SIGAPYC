@@ -1,6 +1,18 @@
 function inicio(){
 
-   
+   /*
+    |----------------------------------------
+    | ASI SE CAPTURAN LOS PARAMETROS
+    |---------------------------------------
+    */
+    $('#hidinquilino').val(getParameterByName('idinq'));
+    let idInquilino = getParameterByName('idinq');
+    let prmCodInq = getParameterByName('codinq');
+    /*--------------------------------------*/    
+
+    codigoInquilino(prmCodInq);
+    atrasInquilino(idInquilino,prmCodInq);
+
     cargarEstados();
     guardarInquilino();
     generarCodigoInquilino();
@@ -252,6 +264,9 @@ function limpiarCampos(){
 }
 
 
+
+
+
 function generarCodigoInquilino(){
 
 
@@ -261,7 +276,11 @@ function generarCodigoInquilino(){
         var prmApellido=$("#registroApellido").val();
 
         $("#registroCodigo").val('');
-        $("#registroCodigo").val(codigoInquilino(prmNombre + ' ' + prmApellido));
+
+        codigoInquilino(prmNombre + ' ' + prmApellido,function(result){
+            $("#registroCodigo").val(result);
+        });
+
 
     });
 
@@ -271,12 +290,15 @@ function generarCodigoInquilino(){
         var prmApellido=this.value;
 
         $("#registroCodigo").val('');
-        $("#registroCodigo").val(codigoInquilino(prmNombre + ' ' + prmApellido));
+        codigoInquilino(prmNombre + ' ' + prmApellido,function(result){
+            $("#registroCodigo").val(result);
+        });
 
     });
    
 
 }
+
 
 
 

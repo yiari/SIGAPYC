@@ -41,11 +41,11 @@ class ctrregistropagador{
 
     /*tabla para visializar los pagador registrados*/
 
-     public function seleccionarregistros(){
+     public function seleccionarregistros($id_inq){
 
         $tabla = "pagador";
         $modelo =  new mdlregistropagador();
-        $respuestas =  $modelo->seleccionarregistros($tabla,null,null);
+        $respuestas =  $modelo->seleccionarregistros($tabla,$id_inq);
         return $respuestas;
     }
 

@@ -56,16 +56,19 @@ function inicio(){
     |------------------------------
     */
     
-    
-    generarCodigoBeneficiarioj();
     guardarBeneficiarioJ();
+    generarCodigoBeneficiarioj();
     
 
     cargarBancos('cboBancoPJ');
     cargarBancos('cboBancop');
 
-    jQuery("#registroNombreJ").on('input', function (evt) {
+    jQuery("#registroNombrej").on('input', function (evt) {
         jQuery(this).val(jQuery(this).val().replace(/[^A-Za-z ]/g, ''));
+    });
+
+    jQuery("#registroCedulaj").on('input', function (evt) {
+        jQuery(this).val(jQuery(this).val().replace(/[^0-9]/g, ''));
     });
 
 
@@ -79,7 +82,6 @@ function validateEmail(email) {
 
 
 }
-
 
 
 function codigoPropietario(prmDato){

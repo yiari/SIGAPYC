@@ -12,7 +12,7 @@ include("layout/menuNavegacion.php");
         <div style="text-align: right;">
         <ol>
                 <a class="btn btn-outline-primary" href="index.php?url=app/vistas/alquileres/ingresar_inquilinos" role="button">Nuevo</a>                
-                <a class="btn btn-outline-secondary" href="" role="button">Imprimir</a>
+               
             </ol>
         </div>
 
@@ -33,7 +33,8 @@ include("layout/menuNavegacion.php");
                             <th>Doc ID</th>
                             <th>Telefono </th>
                             <th>Correo</th>
-                             <th>Acciones</th>
+                            <th>Tipo</th>
+                            <th>Acciones</th>
                         </tr>
                     </thead>
                     
@@ -58,4 +59,5 @@ include_once "app/vistas/comunes/modaleliminar.php";
 
 ?>
 
+<script src="js/comunes/funciones.js"></script>
 <script src="js/alquileres/cargar_inquilinos.js"></script>

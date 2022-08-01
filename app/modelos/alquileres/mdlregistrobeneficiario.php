@@ -325,46 +325,13 @@ public function registrar($tabla,$datos,$archivos){
 
   If($idprop == null || $idprop == 0){
 
-    try {
-
-      $dbConexion = new conexcion();
-      $valor = 0;
-      
-      $stmt = $dbConexion->conectar()->prepare("CALL usp_cargarbeneficiario(?)");
-      $stmt ->bindParam(1, $valor, PDO::PARAM_INT);
-      $stmt->execute();
-      $dataRegistro["Items"][] = $stmt->fetchAll();
-
-      $dataRes = array(
-        'error' => '0',
-        'mensaje' =>  'El registro se obtuvo con exito.'
-      );
-      
-      
-      echo json_encode(array_merge($dataRegistro,$dataRes));
-
-      } catch (\Throwable $th) {
-      
-          //$pdo->rollBack() ;
-          //echo "Mensaje de Error: " . $th->getMessage();
-          $dataRes = array(
-            'error' => '1',
-            'mensaje' =>  "Mensaje de Error: " . $th->getMessage()
-          );
-    
-          echo json_encode($dataRes);
-  
-      }
-
-  } else {
-
-
         try {
 
           $dbConexion = new conexcion();
+          $valor = 0;
           
           $stmt = $dbConexion->conectar()->prepare("CALL usp_cargarbeneficiario(?)");
-          $stmt ->bindParam(1, $idprop, PDO::PARAM_INT);
+          $stmt ->bindParam(1, $valor, PDO::PARAM_INT);
           $stmt->execute();
           $dataRegistro["Items"][] = $stmt->fetchAll();
 
@@ -389,9 +356,42 @@ public function registrar($tabla,$datos,$archivos){
       
           }
 
-  }
+      } else {
 
 
- }
+            try {
+
+              $dbConexion = new conexcion();
+              
+              $stmt = $dbConexion->conectar()->prepare("CALL usp_cargarbeneficiario(?)");
+              $stmt ->bindParam(1, $idprop, PDO::PARAM_INT);
+              $stmt->execute();
+              $dataRegistro["Items"][] = $stmt->fetchAll();
+
+              $dataRes = array(
+                'error' => '0',
+                'mensaje' =>  'El registro se obtuvo con exito.'
+              );
+              
+              
+              echo json_encode(array_merge($dataRegistro,$dataRes));
+
+              } catch (\Throwable $th) {
+              
+                  //$pdo->rollBack() ;
+                  //echo "Mensaje de Error: " . $th->getMessage();
+                  $dataRes = array(
+                    'error' => '1',
+                    'mensaje' =>  "Mensaje de Error: " . $th->getMessage()
+                  );
+            
+                  echo json_encode($dataRes);
+          
+              }
+
+      }
+
+
+     }
 
 }

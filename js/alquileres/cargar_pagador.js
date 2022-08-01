@@ -1,14 +1,59 @@
 
 function inicio(){
 
-    cargarPagador();
+
+     /*
+    |----------------------------------------
+    | ASI SE CAPTURAN LOS PARAMETROS
+    |---------------------------------------
+    */
+    let idInquilino = getParameterByName('idinq');
+    let prmCodInq = getParameterByName('codinq');
+    /*--------------------------------------*/    
+
+    codigoPropietario(prmCodInq);
+
+    cargarPagador(idInquilino);
+
+    nuevoBeneficiario(idInquilino,prmCodInq);
+
+
+
 
 
 }
 
 
+function codigoInquilino(prmDato){
 
-function cargarPagador(){
+    var html = "";
+
+    html='<strong>INQUILINO : </strong>'  + prmDato +'</span>';
+
+    $("#lblinquilino").html('');
+    $("#lblinquilino").html(html);
+
+}
+
+function nuevoPagador(prmIdInq, prmCodInq){
+
+    //if (isEmpty(prmDato) == false ){
+
+
+        var html = "";
+
+        html='index.php?url=app/vistas/alquileres/ingresar_pagador&idinq=' + prmIdInq  + '&codinq=' + prmCodInq;
+    
+        $(".codinq").prop("href", html);
+
+
+    //}
+
+}
+
+
+
+function cargarPagador(prmDato){
 
     /*
     |-----------------------------------------------------
@@ -18,6 +63,7 @@ function cargarPagador(){
     var formData = new FormData();
 
     formData.append('opcion','C');
+    formData.append('id_inq',prmDato);
     /*
     |-----------------------------------------------
     | AQUI SE LLAMA EL AJAX 

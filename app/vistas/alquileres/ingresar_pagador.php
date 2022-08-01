@@ -8,8 +8,13 @@ include("layout/menuNavegacion.php");
         <div class="card-header">
                 <div style="text-align: right;">
                     <ol>               
-                        <a class="btn btn-outline-secondary" href="index.php?url=app/vistas/alquileres/pagador"  role="button">Atras</a>
+                        <a class="btn btn-outline-secondary codinq" href="index.php?url=app/vistas/alquileres/pagador"  role="button">Atras</a>
                     </ol>
+                </div>
+
+                <div style="text-align: left;">
+                    <span id="lblinquilino"><strong>INQUILINO : </strong></span>
+                         <br/><br/>
                 </div>
 
             <h4 class="card-title">Pagador</h4>
@@ -444,7 +449,7 @@ include("layout/menuNavegacion.php");
                                             <div class="container">
                                                 <div class="col-12 btn btn-align-center">
                                                      
-                                                     <button type="submit" class="btn btn-primary">Guardar</button>
+                                                    <button type="submit" class="btn btn-primary mb-2">Guardar</button>
                                                 </div>
                                             </div>
                                         </form>
@@ -466,6 +471,7 @@ include_once "app/vistas/comunes/modaleliminar.php";
 
 <script src="js/comunes/combos.js"></script>
 <script src="js/comunes/generadorcodigos.js"></script>
+<script src="js/comunes/funciones.js"></script>
 <script src="js/alquileres/ingresar_pagador.js"></script>
 <script src="js/alquileres/ingresar_pagador_juridico.js"></script>
             

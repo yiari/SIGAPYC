@@ -159,20 +159,25 @@ function limpiarCamposjuridico(){
 
 
 
-
 function generarCodigoInquilinoj(){
 
 
     $("#registroNombrej").on('keyup', function () {
 
         var prmNombre= this.value;
-        
+      
 
         $("#registroCodigoj").val('');
-        $("#registroCodigoj").val(codigoInquilino(prmNombre));
+
+        codigoInquilino(prmNombre,function(result){
+            $("#registroCodigoj").val(result);
+        });
+
 
     });
 
+   
+   
 
 }
 
