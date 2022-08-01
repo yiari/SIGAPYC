@@ -575,7 +575,7 @@ function cargartipo_inmueble(){
 
                     for (var i = 0; i < json.Items[0].length; i++) {
        
-                        $("#cboinmueble").append($("<option></option>").val(json.Items[0][i].id).html(json.Items[0][i].nombre)); 
+                        $("#cboinmueble").append($("<option></option>").val(json.Items[0][i].id).html(json.Items[0][i].nombre).attr("data-tipoinmueble", json.Items[0][i].id_tipo)); 
         
                     }
 

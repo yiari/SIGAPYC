@@ -399,6 +399,50 @@ function codigoPagador(nombre,callback){
 
 }
 
+function codigoInmueble(nombre,callback){
+
+
+    let text="";
+    let result="";
+
+    if(nombre.length >0){
+
+            $.ajax({
+                url: "app/vistas/comunes/generarcodigos.php",
+                method: 'POST',
+                data: {opcion:"codigoInmueble"},
+                success: function (data,status,xhr) {
+                    var json = data;
+                    
+                    /*
+                    |-----------------------------------------------------------
+                    | AQUI VERIFICO SI LA RESPUESTA ES JSON, SI NO ES JSON
+                    | EL RESULTADO SE CONVIERTE A JSON
+                    |-----------------------------------------------------------
+                    */
+            
+                    var respuestaHeader = xhr.getResponseHeader("Content-Type");
+                    var verificarHeader = respuestaHeader.search('text/html')
+            
+                    if(verificarHeader >= 0){
+                        json = JSON.parse(json);
+                    } 
+            
+                    /*---------------------------------------------------------*/
+            
+                    text = nombre;
+                    result = 'IM-' +  nombre + '-' +  completarconcero(json.valor, 4);
+
+                     callback(result);
+
+                }
+
+            });
+
+    }
+
+
+}
 
 /*
 |-------------------------------------------------
