@@ -41,11 +41,11 @@ class ctrregistrobeneficiarios{
 
     /*tabla para visializar los usuarios registrados*/
 
-     public function seleccionarregistros(){
+     public function seleccionarregistros($id_prop){
 
         $tabla = "beneficiario";
         $modelo =  new mdlregisbenficiario();
-        $respuestas =  $modelo->seleccionarregistros($tabla,null,null);
+        $respuestas =  $modelo->seleccionarregistros($tabla,$id_prop);
         return $respuestas;
     }
 
