@@ -62,6 +62,7 @@ function cargarInquilino(){
                             tr.append("<td>" + json.Items[0][i].cedula+ "</td>");
                             tr.append("<td>" + json.Items[0][i].telefono + "</td>");
                             tr.append("<td>" + json.Items[0][i].correo + "</td>"); 
+                            tr.append("<td>" + tipoPersona(json.Items[0][i].tipo) + "</td>");
                             
                             var html="";
                             html = '<div class="btn-group" style="font-size:1.3em; letter-spacing:0.2em;">';
@@ -69,7 +70,7 @@ function cargarInquilino(){
                             html += '<a title="Ver" data-field-id="' + json.Items[0][i].id + '"><i class="fa fa-search" alt=“Ver”></i></a>&nbsp;';
                             html += '<a title="Contrato" data-field-id="' + json.Items[0][i].id + '"><i class="fa fa-file-pen"></i></a>&nbsp;';
                             html += '<a title="Bitacora" data-field-id="' + json.Items[0][i].id + '"><i class="fa fa-folder-open"></i></a>&nbsp;';
-                            html += '<a title="Pagador"  data-field-id="' + json.Items[0][i].id + '"><i class="fa fa-id-badge"></i></a>&nbsp;';
+                            html += '<a title="Pagador"  href="index.php?url=app/vistas/alquileres/pagador&idinq=' + json.Items[0][i].id_inq  + '&codinq=' + json.Items[0][i].codigo  +'"><i class="fa fa-id-badge"></i></a>&nbsp;';
                             html += '<a title="Eliminar"  data-field-id="'  + json.Items[0][i].id + '"><i class="fa fa-trash" alt=“eliminar”></i></a>';
                             html += '</div>'
                             tr.append("<td>" + html + "</td>");

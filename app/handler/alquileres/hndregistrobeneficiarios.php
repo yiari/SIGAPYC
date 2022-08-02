@@ -202,6 +202,9 @@ if($operacion == "I"){
 
 if($operacion == "C"){
 
+
+   $prmid_prop = $_POST["id_prop"];
+
    /*
     |-------------------------------------------
     | AQUI CREO UNA INSTANCIA DE LA CLASE
@@ -215,7 +218,7 @@ if($operacion == "C"){
    | AQUI OBTENGO EL RESULTADO DE LA EJECUCION
    |---------------------------------------------
    */
-     $result = $registroBenefesiarios->seleccionarregistros();
+     $result = $registroBenefesiarios->seleccionarregistros($prmid_prop);
     
     /*
     |-------------------------------------------

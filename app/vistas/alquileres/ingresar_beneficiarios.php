@@ -5,12 +5,18 @@
          <div class="card-header">
                  <div style="text-align: right;">
                         <ol>          
-                            <a class="btn btn-outline-secondary" href="index.php?url=app/vistas/alquileres/beneficiario"  role="button">Atras</a>
+                            <a class="btn btn-outline-secondary codpro" href="index.php?url=app/vistas/alquileres/beneficiarios"  role="button">Atras</a>
                         </ol>
+                    </div>
+
+
+                    <div style="text-align: left;">
+                    <span id="lblPropietario"><strong>PROPIETARIO : </strong></span>
+                         <br/><br/>
                     </div>
             
 
-            <h4 class="card-title">Beneficiarios</h4>
+                     <h4 class="card-title">Beneficiarios</h4>
                     <nav>
                         <div class="nav nav-tabs" id="nav-tab" role="tablist">
                             <button class="nav-link active" id="nav-bene_natural-tab" data-bs-toggle="tab" data-bs-target="#nav-bene_natural" type="button" role="tab" aria-controls="nav-bene_natural" aria-selected="true">Beneficiario Natural</button>
@@ -31,7 +37,7 @@
                                                 
                                                 <input type="hidden" id="tipo_persona" name="tipo_persona" value='1'>
                                                 <input type="hidden" id="hidbeneficiario" name="hidbeneficiario" value=''>
-                                                <input type="hidden" id="id_prop" name="id_prop" value='1'>
+                                                <input type="hidden" id="id_prop" name="id_prop" value='0'>
                                                 <input type="hidden" id="hidcuenta_id_nacional" name="hidcuenta_id_nacional" value='0'>
                                                 <input type="hidden" id="hidcuenta_id_internacional" name="hidcuenta_id_internacional" value='0'>
                                                 <input type="hidden" id="hidcuenta_id_paypal" name=" hidcuenta_id_paypal" value='0'>
@@ -162,7 +168,7 @@
                                                     <div class="col-md-6">
                                                         <label for="num_cuen"  class="col-sm-9 col-form-label">Cuenta:</label>
                                                         <div class="col-sm-12">
-                                                            <input type="text" class="form-control" id="num_cuen" name="num_cuen"><br>
+                                                            <input type="text" class="form-control" id="num_cuen" name="num_cuen" maxlength="20"><br>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -312,30 +318,30 @@
                                         <h5 class="card-title">Datos Jurídicos</h5>
                                         <form class="form-sample" id="registrarbeneficiarioj" name="registrarbeneficiarioj" method="POST" action="guarda.php" autocomplete="off" enctype="multipart/form-data" enctype="multipart/form-data">
  
-                                                <input type="hidden" id="tipo_persona" name="tipo_persona" value='2'>
+                                                <input type="hidden" id="tipo_personaj" name="tipo_personaj" value='2'>
                                                 <input type="hidden" id="hidbeneficiarioj" name="hidbeneficiarioj" value=''>
-                                                <input type="hidden" id="id_prop" name="id_prop" value='1'>
-                                                <input type="hidden" id="hidcuenta_id_nacional" name="hidcuenta_id_nacional" value='0'>
-                                                <input type="hidden" id="hidcuenta_id_internacional" name="hidcuenta_id_internacional" value='0'>
+                                                <input type="hidden" id="id_propietarioj" name="id_propietarioj" value='0'>
+                                                <input type="hidden" id="hidcuenta_id_nacionalj" name="hidcuenta_id_nacionalj" value='0'>
+                                                <input type="hidden" id="hidcuenta_id_internacionalj" name="hidcuenta_id_internacionalj" value='0'>
                                                 
 
                                             <div class="col-md-5">
                                                 <label class="col-sm-12 col-form-label">Código Beneficiario:</label>
                                                 <div class="col-sm-12">
-                                                    <input for="registroCodigo" type="text" class="form-control" id="registroCodigo" name="registroCodigo" autofocus readonly="yes" >
+                                                    <input for="registroCodigoj" type="text" class="form-control" id="registroCodigoj" name="registroCodigoj" autofocus readonly="yes" >
                                                 </div>
                                            </div>
                                             <div class="row">
                                                 <div class="col-md-4">
-                                                    <label for="registroNombre"  class="col-sm-12 col-form-label">Nombre o Razón Social:</label>
+                                                    <label for="registroNombrej"  class="col-sm-12 col-form-label">Nombre o Razón Social:</label>
                                                     <div class="col-sm-12">
-                                                        <input type="text" class="form-control" id="registroNombre" name="registroNombre" >
+                                                        <input type="text" class="form-control" id="registroNombrej" name="registroNombrej" >
                                                     </div>
                                                 </div>
                                                 <div class="col-md-3">
-                                                    <label for="registrorif" class="col-sm-12 col-form-label">Rif Jurídico:</label>
+                                                    <label for="registrorifj" class="col-sm-12 col-form-label">Rif Jurídico:</label>
                                                     <div class="col-sm-12">
-                                                        <input type="text" class="form-control" id="registrorif" name="registrorif" required>
+                                                        <input type="text" class="form-control" id="registrorifj" name="registrorifj" required>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-5">
@@ -347,9 +353,9 @@
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-12">
-                                                    <label for="registroDirecionH" class="col-sm-12 col-form-label">Dirección Fiscal:</label>
+                                                    <label for="registroDirecionHj" class="col-sm-12 col-form-label">Dirección Fiscal:</label>
                                                     <div class="col-sm-12">
-                                                        <input type="text" class="form-control" id="registroDirecionH" name="registroDirecionH"><br>
+                                                        <input type="text" class="form-control" id="registroDirecionHj" name="registroDirecionHj"><br>
                                                     </div>
                                                 </div>
                                             </div>
@@ -372,7 +378,7 @@
                                                     <div class="col-md-6">
                                                         <label for="num_cuenJ" class="col-sm-9 col-form-label">Cuenta:</label>
                                                         <div class="col-sm-12">
-                                                            <input type="text" class="form-control" id="num_cuenJ" name="num_cuenJ" value=''><br>
+                                                            <input type="text" class="form-control" id="num_cuenJ" name="num_cuenJ" maxlength="20"><br>
                                                         </div>
                                                     </div>
                                                 </div>

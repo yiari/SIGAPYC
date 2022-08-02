@@ -15,19 +15,19 @@ function guardarBeneficiarioJ(){
    //return;
 
 
-   if ($("#registroNombre").val() == "") {
-       mensaje("Debe indicar el nombre del beneficiario",1);
+   if ($("#registroNombrej").val() == "") {
+       mensaje("Debe indicar el nombre del beneficiario juridico",1);
        return;
    }
 
 
-    if ($("#registroRif").val() == "") {
+    if ($("#registroRifj").val() == "") {
         mensaje("Debe indicar el rif del beneficiario",1);
         return;
         }
     
    
-    if ($("#registroDirecionH").val() == "") {
+    if ($("#registroDirecionHj").val() == "") {
         mensaje("Debe indicar la dirección de habitación del beneficiario ",1);
         return;
         }
@@ -178,31 +178,20 @@ function limpiarFormulario(valor){
 function generarCodigoBeneficiarioj(){
 
 
-    $("#registroNombre").on('keyup', function () {
+    $("#registroNombrej").on('keyup', function () {
 
         var prmNombre= this.value;
-        var prmApellido=$("#registroApellido").val();
+       
 
-        $("#registroCodigo").val('');
+        $("#registroCodigoj").val('');
 
-        codigoBeneficiarioj(prmNombre + ' ' + prmApellido,function(result){
-            $("#registroCodigo").val(result);
+        codigoBeneficiarioj(prmNombre,function(result){
+            $("#registroCodigoj").val(result);
         });
 
 
     });
 
-    $("#registroApellido").on('keyup', function () {
-
-        var prmNombre= $("#registroNombre").val(); 
-        var prmApellido=this.value;
-
-        $("#registroCodigo").val('');
-        codigoBeneficiarioj(prmNombre + ' ' + prmApellido,function(result){
-            $("#registroCodigo").val(result);
-        });
-
-    });
    
 
 }

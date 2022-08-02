@@ -1,12 +1,55 @@
 
 function inicio(){
 
-    cargarbeneficiarios();
+    /*
+    |----------------------------------------
+    | ASI SE CAPTURAN LOS PARAMETROS
+    |---------------------------------------
+    */
+   let idPropietario = getParameterByName('idpro');
+   let prmCodPro = getParameterByName('codpro');
+    /*--------------------------------------*/    
+
+    codigoPropietario(prmCodPro);
+
+    cargarbeneficiarios(idPropietario);
+
+    nuevoBeneficiario(idPropietario,prmCodPro);
+
+
+    
+
+}
+
+function codigoPropietario(prmDato){
+
+    var html = "";
+
+    html='<strong>PROPIETARIO : </strong>'  + prmDato +'</span>';
+
+    $("#lblPropietario").html('');
+    $("#lblPropietario").html(html);
+
+}
+
+function nuevoBeneficiario(prmIdPro, prmCodPro){
+
+    //if (isEmpty(prmDato) == false ){
+
+
+        var html = "";
+
+        html='index.php?url=app/vistas/alquileres/ingresar_beneficiarios&idpro=' + prmIdPro  + '&codpro=' + prmCodPro;
+    
+        $(".codpro").prop("href", html);
+
+
+    //}
 
 }
 
 
-function cargarbeneficiarios(){
+function cargarbeneficiarios(prmDato){
 
     /*
     |-----------------------------------------------------
@@ -16,6 +59,7 @@ function cargarbeneficiarios(){
     var formData = new FormData();
 
     formData.append('opcion','C');
+    formData.append('id_prop',prmDato);
     /*
     |-----------------------------------------------
     | AQUI SE LLAMA EL AJAX 
@@ -61,7 +105,8 @@ function cargarbeneficiarios(){
                             tr.append("<td>" + json.Items[0][i].cedula+ "</td>");
                             tr.append("<td>" + json.Items[0][i].telefono + "</td>");
                             tr.append("<td>" + json.Items[0][i].correo + "</td>"); 
-                            tr.append("<td>" % "</td>"); 
+                            tr.append("<td>" + tipoPersona(json.Items[0][i].tipo) + "</td>");
+                         
                             
                             var html="";
                             html = '<div class="btn-group" style="font-size:1.3em; letter-spacing:0.2em;">';

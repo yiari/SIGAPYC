@@ -167,6 +167,8 @@ if($operacion == "I"){
 
 if($operacion == "C"){
 
+   $prmid_inq = $_POST["id_inq"];
+
     /*
      |-------------------------------------------
      | AQUI CREO UNA INSTANCIA DE LA CLASE
@@ -180,7 +182,7 @@ if($operacion == "C"){
     | AQUI OBTENGO EL RESULTADO DE LA EJECUCION
     |---------------------------------------------
     */
-      $result = $registroPagador->seleccionarregistros();
+      $result = $registroPagador->seleccionarregistros($prmid_inq);
      
      /*
      |-------------------------------------------

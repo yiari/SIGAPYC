@@ -321,55 +321,23 @@ public function registrar($tabla,$datos,$archivos){
     }
 
 
- public function seleccionarregistros($tabla,$iten,$valor){
+ public function seleccionarregistros($tabla,$idprop){
 
-      If($iten == null && $valor == null){
-
-
-            try {
-
-              $dbConexion = new conexcion();  
-
-                $stmt = $dbConexion->conectar()->prepare("CALL usp_cargarbeneficiario");
-                $stmt->execute();
-                $dataRegistro["Items"][] = $stmt->fetchAll();
-      
-                $dataRes = array(
-                  'error' => '0',
-                  'mensaje' =>  'El registro se realizo con exito.'
-                );
-                          
-                echo json_encode(array_merge($dataRegistro,$dataRes));
-      
-                } catch (\Throwable $th) {
-                
-                    //$pdo->rollBack() ;
-                    //echo "Mensaje de Error: " . $th->getMessage();
-                    $dataRes = array(
-                      'error' => '1',
-                      'mensaje' =>  "Mensaje de Error: " . $th->getMessage()
-                    );
-              
-                    echo json_encode($dataRes);
-            
-                }
-
-      }else{
-
+  If($idprop == null || $idprop == 0){
 
         try {
 
           $dbConexion = new conexcion();
+          $valor = 0;
           
-          $stmt = $dbConexion->conectar()->prepare("CALL usp_cargarbeneficiario");
-        
-          $stmt ->bindParam(":".$iten, $valor, PDO::PARAM_STR);
+          $stmt = $dbConexion->conectar()->prepare("CALL usp_cargarbeneficiario(?)");
+          $stmt ->bindParam(1, $valor, PDO::PARAM_INT);
           $stmt->execute();
-          $dataRegistro["Items"][] = $stmt->fetch();
+          $dataRegistro["Items"][] = $stmt->fetchAll();
 
           $dataRes = array(
             'error' => '0',
-            'mensaje' =>  'El registro se realizo con exito.'
+            'mensaje' =>  'El registro se obtuvo con exito.'
           );
           
           
@@ -388,16 +356,42 @@ public function registrar($tabla,$datos,$archivos){
       
           }
 
+      } else {
 
 
+            try {
+
+              $dbConexion = new conexcion();
+              
+              $stmt = $dbConexion->conectar()->prepare("CALL usp_cargarbeneficiario(?)");
+              $stmt ->bindParam(1, $idprop, PDO::PARAM_INT);
+              $stmt->execute();
+              $dataRegistro["Items"][] = $stmt->fetchAll();
+
+              $dataRes = array(
+                'error' => '0',
+                'mensaje' =>  'El registro se obtuvo con exito.'
+              );
+              
+              
+              echo json_encode(array_merge($dataRegistro,$dataRes));
+
+              } catch (\Throwable $th) {
+              
+                  //$pdo->rollBack() ;
+                  //echo "Mensaje de Error: " . $th->getMessage();
+                  $dataRes = array(
+                    'error' => '1',
+                    'mensaje' =>  "Mensaje de Error: " . $th->getMessage()
+                  );
+            
+                  echo json_encode($dataRes);
+          
+              }
 
       }
-  }
 
 
-  
-
-
+     }
 
 }
-

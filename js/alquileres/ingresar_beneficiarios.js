@@ -1,4 +1,17 @@
 function inicio(){
+
+     /*
+    |----------------------------------------
+    | ASI SE CAPTURAN LOS PARAMETROS
+    |---------------------------------------
+    */
+    $('#id_prop').val(getParameterByName('idpro'));
+    let idPropietario = getParameterByName('idpro');
+    let prmCodPro = getParameterByName('codpro');
+    /*--------------------------------------*/    
+
+    codigoPropietario(prmCodPro);
+    atrasbeneficiario(idPropietario,prmCodPro);
  
     generarCodigoBeneficiario();
     cargarEstados();
@@ -43,16 +56,19 @@ function inicio(){
     |------------------------------
     */
     
-    
-    generarCodigoBeneficiarioj();
     guardarBeneficiarioJ();
+    generarCodigoBeneficiarioj();
     
 
     cargarBancos('cboBancoPJ');
     cargarBancos('cboBancop');
 
-    jQuery("#registroNombreJ").on('input', function (evt) {
+    jQuery("#registroNombrej").on('input', function (evt) {
         jQuery(this).val(jQuery(this).val().replace(/[^A-Za-z ]/g, ''));
+    });
+
+    jQuery("#registroCedulaj").on('input', function (evt) {
+        jQuery(this).val(jQuery(this).val().replace(/[^0-9]/g, ''));
     });
 
 
@@ -64,6 +80,33 @@ function validateEmail(email) {
     var re = /\S+@\S+\.\S+/;
     return re.test(email);
 
+
+}
+
+
+function codigoPropietario(prmDato){
+
+    var html = "";
+
+    html='<strong>PROPIETARIO : </strong>'  + prmDato +'</span>';
+
+    $("#lblPropietario").html('');
+    $("#lblPropietario").html(html);
+
+}
+
+function atrasbeneficiario(prmIdPro, prmCodPro){
+
+    //if (isEmpty(prmDato) == false ){
+
+
+        var html = "";
+        html='index.php?url=app/vistas/alquileres/beneficiarios&idpro=' + prmIdPro  + '&codpro=' + prmCodPro;
+    
+        $(".codpro").prop("href", html);
+
+
+    //}
 
 }
 

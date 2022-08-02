@@ -98,20 +98,20 @@ if($operacion == "I"){
    |---------------------------------------------
    */
     $datos = array( "id_benej" => $_POST["hidbeneficiarioj"],
-                    "id_prop" => $_POST["id_prop"],
-                    "cod_benej" => $_POST["registroCodigo"],
-                    "mon_benej" => $_POST["registroNombre"],
-                    "rif_benej" => $_POST["registrorif"], 
+                    "id_prop" => $_POST["id_propietarioj"],
+                    "cod_bene" => $_POST["registroCodigoj"],
+                    "mon_benej" => $_POST["registroNombrej"],
+                    "rif_benej" => $_POST["registrorifj"], 
                     "act_benj" => $_POST["registroActividad"],
-                    "dir_benej" => $_POST["registroDirecionH"],
-                    "tipo_persona" => $_POST["tipo_persona"],
+                    "dir_benej" => $_POST["registroDirecionHj"],
+                    "tipo_persona" => $_POST["tipo_personaj"],
                 
                    /*
                    |------------------------------------------
                    | AQUI VAN LOS DATOS DE LOS BANCOS NACIONALES
                    |------------------------------------------
                    */
-                  "cuenta_id_nacional" => $_POST["hidcuenta_id_nacional"],
+                  "cuenta_id_nacional" => $_POST["hidcuenta_id_nacionalj"],
                   "cuenta_id_banco" => $_POST["cboBancoN"],
                   "num_cuenta_nacional" => $_POST["num_cuenJ"],
 
@@ -124,7 +124,7 @@ if($operacion == "I"){
                    | AQUI VAN LOS DATOS DE LOS BANCOS INTERNACIONALES
                    |------------------------------------------
                    */
-                  "cuenta_id_internacional" => $_POST["hidcuenta_id_internacional"],
+                  "cuenta_id_internacional" => $_POST["hidcuenta_id_internacionalj"],
                   "ban_extrj" => $_POST["ban_extrj"],
                   "age_extrj" => $_POST["age_extrj"],
                   "dc_extrj" => $_POST["dc_extrj"],
@@ -206,7 +206,7 @@ if($operacion == "C"){
    | AQUI OBTENGO EL RESULTADO DE LA EJECUCION
    |---------------------------------------------
    */
-     $result = $registroBenefesiarios->seleccionarregistros();
+     $result = $registroBenefesiarios->seleccionarregistros($prmid_prop);
     
     /*
     |-------------------------------------------

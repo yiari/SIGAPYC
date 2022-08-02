@@ -13,7 +13,7 @@
                 
             </a>
             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsealquileres" aria-expanded="false" aria-controls="collapsealquileres">
-                <div class="sb-nav-link-icon"><i class="fa-solid fa-chalkboard-user"></i></div>
+                <div class="sb-nav-link-icon"><i class="fa fa-key"></i></div>
                 ALQUILERES
                 <div class="sb-sidenav-collapse-arrow"><i class="fa fa-angle-down"></i></div>
             </a>
@@ -29,7 +29,7 @@
             <!--segundo-->
 
             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsefinanzas" aria-expanded="false" aria-controls="collapsefinanzas">
-                <div class="sb-nav-link-icon"><i class="fa-solid fa-money-bill-transfer"></i></div>
+                <div class="sb-nav-link-icon"><i class="fa fa-calculator"></i></div>
                 FACTURACIÓN
                 <div class="sb-sidenav-collapse-arrow"><i class="fa fa-angle-down"></i></div>
             </a>
@@ -44,7 +44,7 @@
             <!--tercero-->
 
             <a class="nav-link collapsed"  href="#" data-bs-toggle="collapse" data-bs-target="#collapsesistema" aria-expanded="false" aria-controls="collapsesistema">
-                <div class="sb-nav-link-icon"><i class="fa-solid fa-money-bill-transfer"></i></div>
+                <div class="sb-nav-link-icon"><i class="fa fa-wrench"></i></div>
                         CONFIGURACIÓN 
                 <div class="sb-sidenav-collapse-arrow"><i class="fa fa-angle-down"></i></div>
             </a>
