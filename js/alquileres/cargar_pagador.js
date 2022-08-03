@@ -11,7 +11,7 @@ function inicio(){
     let prmCodInq = getParameterByName('codinq');
     /*--------------------------------------*/    
 
-    codigoPropietario(prmCodInq);
+    codigoInquilino(prmCodInq);
 
     cargarPagador(idInquilino);
 

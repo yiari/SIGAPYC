@@ -17,7 +17,7 @@
         <!--tabla-->
         <div class="card mb-4">
             <div class="card-header">
-            <i class="fa fa-home"></i>&nbsp;
+            <i class="fa fa-building-o"></i>&nbsp;
                 INMUEBLES
             </div>
             <div class="card-body">

@@ -117,7 +117,7 @@ include("layout/menuNavegacion.php");
         <div class="tab-content" id="nav-tabContent">
             <div class="tab-pane fade show active" id="nav-info_propinmu" role="tabpanel" aria-labelledby="nav-info_propinmu-tab">
                 <div class="col-12 grid-margin">
-                    <input type="hidden" id="operacion" name="operacion" enctype="multipart/form-data">
+                   
 
                     <!--info_inmueble-->
                     <div class="card">

@@ -164,7 +164,7 @@ if ($("#cboParroquia").val() == "") {
 
                //$("#mensaje").html(html).fadeIn();
                limpiarCampos();
-               //limpiarTabla();
+               limpiarFormulario();
                //botones(0);
                cargarInmueble();
 
@@ -192,40 +192,11 @@ if ($("#cboParroquia").val() == "") {
 }
 
 
-function limpiarCampos(){
+function limpiarFormulario(valor){
 
-    $("#hidinmueble").val("");
-    $("#cboinmueble").val("");
-    $("#registroletra").val("");
-    $("#registrNombre").val("");
-    $("#registroUso").val("");
-    $("#registroAntiguedad").val("");
-    $("#cboEstados").val("");
-    $("#cboMunicipios").val("");
-    $("#cboParroquia").val("");
-    $("#registroDirecionH").val("");
-    $("#pun_inmu").val("");
-    $("#equ_inmu").val("");
-    $("#mtr_inmu").val("");
-    $("#mtr_cons").val("");    
-    $("#hab_inmu").val("");
-    $("#ban_inmu").val("");
-    $("#est_inmu").val("");
-    $("#ser_inmu").val("");
-    $("#lim_nort").val("");
-    $("#lim_sur").val("");
-    $("#lim_este").val("");
-    $("#lim_oest").val("");
-    $("#nom_regi").val("");
-    $("#fec_regi").val("");
-    $("#tom_regi").val("");
-    $("#fol_regi").val("");
-    $("#asi_regi").val("");
-    $("#fic_cata").val("");
-    $("#num_regi").val("");
-    $("#gasto_admi").val("");
-    $("#gasto_papel").val("");
-
+    if(valor == 1){
+        document.getElementById("registroinmueble").reset();
+    }
 
 }
 
@@ -237,7 +208,7 @@ function generarCodigoInmueble(){
     $('#cboinmueble').change(function() {
 
         var  prmTipoInmueble = $('#cboinmueble').find('option:selected').attr('data-tipoinmueble');
-        //var prmNombre=$(this).attr('data-tipoinmueble');;
+        //var prmTipo=$(this).attr('data-tipoinmueble');;
 
         $("#registroCodigo").val('');
 
@@ -251,6 +222,7 @@ function generarCodigoInmueble(){
 
 
 }
+
 
 function mensaje(mensaje, condicion){
 

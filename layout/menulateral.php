@@ -59,32 +59,23 @@
             </div>
 
 
-            <!--bitacora propietario-->
+            <!--bitacora-->
 
-          <!-- <a class="nav-link" href="index.php?url=menuprincipal">
+            <a class="nav-link collapsed"  href="#" data-bs-toggle="collapse" data-bs-target="#collapbitacora" aria-expanded="false" aria-controls="collapbitacora">
                 <div class="sb-nav-link-icon"><i class="fa fa-folder-open"></i></div>
-                BITACORA
+                        BITACORA
+                <div class="sb-sidenav-collapse-arrow"><i class="fa fa-angle-down"></i></div>
             </a>
+            <div class="collapse" id="collapbitacora" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                <nav class="sb-sidenav-menu-nested nav">
+                    <a class="nav-link" href="inicio.php?url=app/vistas/alquileres/verpropietarios">Datos Personales</a>
+                    <a class="nav-link" href="">Liquidación</a>
+                    <a class="nav-link" href="">Estado Cuenta</a>
+                    <a class="nav-link" href="#">Finiquito</a> 
+                </nav>
+            </div>
 
-            <a class="nav-link" href="inicio.php?url=app/vistas/alquileres/verpropietarios">
-                <div class="sb-nav-link-icon"><i class='fa fa-chalkboard-teacher'></i></div>
-                DATOS PERSONALES
-            </a>
 
-            <a class="nav-link" href="#">
-                <div class="sb-nav-link-icon"><i class='fa fa-coins'></i></div>
-                LIQUIDACION
-            </a>
-
-            <a class="nav-link" href="#">
-                <div class="sb-nav-link-icon"><i class='fa fa-file-invoice-dollar'></i></div>
-                ESTADO DE CUENTA
-            </a>
-
-            <a class="nav-link" href="#">
-                <div class="sb-nav-link-icon"><i class='fa fa-share-square'></i></div>
-                FINIQUITO
-            </a>-->
 
            
         </div>

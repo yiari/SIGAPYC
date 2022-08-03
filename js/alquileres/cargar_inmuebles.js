@@ -107,7 +107,7 @@ function cargarInmueble(prmDato){
                                     tr.append("<td>" + json.Items[0][i].propietario + "</td>");
                                     tr.append("<td>" + json.Items[0][i].inquilino + "</td>");
                                     tr.append("<td>" + json.Items[0][i].tipo + "</td>"); 
-                                    tr.append("<td>" + json.Items[0][i].estatus + "</td>"); 
+                                    tr.append("<td>" + statusinmuebles(json.Items[0][i].estatus) + "</td>");
                                     
                                     var html="";
                                     html = '<div class="btn-group" style="font-size:1.3em; letter-spacing:0.2em;">';

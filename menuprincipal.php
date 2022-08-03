@@ -8,7 +8,7 @@
         <meta name="author" content="" />
         <title>Sistema SIGAPYC | MODULO DE ALQUILERES</title>
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
-        <link href="css/styles.css" rel="stylesheet" />
+        /*<link href="css/stymenu.css" rel="stylesheet" />
         <link href="css/bootstrap.min.css" rel="stylesheet" />
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
     </head>
@@ -24,29 +24,42 @@
                 <main>
                     <div class="container-fluid px-4"> 
                         <h1 class="text-center">SIGAPYC</h1><br><br>
-                        <div class="row">
-                            <div class="col-xl-6 col-md-6">
-                                <div class="card bg-primary text-white mb-4">
-                                <a href="inicio.php?url=alquileres/alquileres" button type= "submit" class="btn btn-primary">ALQUILERES</button></a>  
-                                </div>
+                        
+                        <div class="col-md-12 px-5">
+                            <div class="row align_center">
+                            
+                                  <div class="col-xl-6 col-md-6">
+                                            <button class="corner-button">
+                                                <span>Alquileres</span>
+                                            </button>
+                                    </div>
+                                
+                            
+                                    <div class="col-xl-6 col-md-6">
+                                            <button class="corner-button">
+                                                <span>Finanzas</span>
+                                            </button>
+                                    </div>
                             </div>
-                            <div class="col-xl-6 col-md-6">
-                                <div class="card bg-primary text-white mb-4">
-                                <a href="finanzas.php" button type= "submit" class="btn btn-primary">FINANZAS</button></a>  
-                                </div>
-                            </div>
-                            <div class="col-xl-6 col-md-6">
-                                <div class="card bg-primary text-white mb-4">
-                                <a href="configuraciones.php" button type= "submit" class="btn btn-primary">CONFIGURACIONES</button></a>                                   
-                                </div>
-                            </div>
-                            <div class="col-xl-6 col-md-6">
-                                <div class="card bg-primary text-white mb-4">
-                                <a href="reportes.php" button type= "submit" class="btn btn-primary">REPORTES</button></a>                                     
-                                </div>
-                            </div>
-                            </div>
-                        </div>
+                        </div>  
+                        </br>
+                        <div class=" col-md-12">
+                            <div class="row">       
+                                    <div class="col-xl-6 col-md-6">
+                                            <button class="corner-button">
+                                                <span>Configuracion</span>
+                                            </button>
+                                    </div>                                 
+                                
+                                
+                                    <div class="col-xl-6 col-md-6">
+                                            <button class="corner-button">
+                                                <span>Reportes</span>
+                                            </button>
+                                    </div>
+                            </div> 
+                        </div> 
+                        
                     </div>
                 </main>
             </div>

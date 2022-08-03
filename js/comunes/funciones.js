@@ -59,3 +59,25 @@ function syncDelay(milliseconds){
   return resultado;
 
  }
+
+
+
+ /*
+ |---------------------------------------------------------
+ | ESTO ES PARA COLOCAR LA ETIQUETA EL SATUS DEL INMUEBLE
+ |--------------------------------------------------------
+ */
+ function statusinmuebles(valor){
+
+  let resultado = "";
+
+  if(valor == "1"){
+    resultado = "Disponible";
+  } else if (valor == "2"){
+    resultado = "Alquilados";
+  } else if (valor == 0){ 
+    resulatdo = "Desactivado"
+  }
+  return resultado;
+
+ }

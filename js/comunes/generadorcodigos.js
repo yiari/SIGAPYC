@@ -431,7 +431,7 @@ function codigoInmueble(nombre,callback){
                     /*---------------------------------------------------------*/
             
                     text = nombre;
-                    result = 'IM-' +  nombre + '-' +  completarconcero(json.valor, 4);
+                    result =  nombre + '-' +  completarconcero(json.valor, 4);
 
                      callback(result);
 
