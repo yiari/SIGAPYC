@@ -174,17 +174,18 @@ public function registrar($tabla,$datos,$archivos){
   
 
 
-  public function seleccionarregistros($tabla,$id_inq){
+  public function seleccionarregistros($tabla,$id_inqu,$tipo){
 
-    If($id_inq == null || $id_inq == 0){
+    If($id_inqu == null || $id_inqu == 0){
   
       try {
   
         $dbConexion = new conexcion();
         $valor = 0;
         
-        $stmt = $dbConexion->conectar()->prepare("CALL usp_cargarapoderado(?)");
+        $stmt = $dbConexion->conectar()->prepare("CALL usp_cargarpagador(?,?)");
         $stmt ->bindParam(1, $valor, PDO::PARAM_INT);
+        $stmt ->bindParam(2, $valor, PDO::PARAM_INT);
         $stmt->execute();
         $dataRegistro["Items"][] = $stmt->fetchAll();
   
@@ -216,11 +217,12 @@ public function registrar($tabla,$datos,$archivos){
   
             $dbConexion = new conexcion();
             
-            $stmt = $dbConexion->conectar()->prepare("CALL usp_cargarapoderado(?)");
-            $stmt ->bindParam(1, $id_inq, PDO::PARAM_INT);
+            $stmt = $dbConexion->conectar()->prepare("CALL usp_cargarpagador(?)");
+          ;
             $stmt->execute();
             $dataRegistro["Items"][] = $stmt->fetchAll();
-  
+            $stmt ->bindParam(1, $id_inqu, PDO::PARAM_INT);
+            $stmt ->bindParam(2, $tip_paga, PDO::PARAM_INT);
             $dataRes = array(
               'error' => '0',
               'mensaje' =>  'El registro se obtuvo con exito.'

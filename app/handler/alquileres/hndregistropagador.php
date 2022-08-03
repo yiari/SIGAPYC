@@ -105,7 +105,7 @@ if($operacion == "I"){
                     "nom_paga" =>   $_POST["registroNombre"],
                     "ape_paga" =>   $_POST["registroApellido"],
                     "nac_paga" =>   $_POST["registroNacionalidad"],
-                    "ci_paga" =>   $_POST["registroCedula"],
+                    "ci_paga" =>    $_POST["registroCedula"],
                     "rif_paga" =>   $_POST["registroRif"],
                     "loc_paga" =>   $_POST["registroTelefono"],
                     "cel_paga" =>   $_POST["registroCelular"],  
@@ -167,7 +167,8 @@ if($operacion == "I"){
 
 if($operacion == "C"){
 
-   $prmid_inq = $_POST["id_inq"];
+   $prmid_inq = $_POST["id"];
+   $prmtipo = $_POST["tipo"];
 
     /*
      |-------------------------------------------
@@ -182,7 +183,7 @@ if($operacion == "C"){
     | AQUI OBTENGO EL RESULTADO DE LA EJECUCION
     |---------------------------------------------
     */
-      $result = $registroPagador->seleccionarregistros($prmid_inq);
+      $result = $registroPagador->seleccionarregistros($prmid_inq,$prmtipo);
      
      /*
      |-------------------------------------------

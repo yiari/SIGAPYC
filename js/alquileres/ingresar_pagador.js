@@ -1,6 +1,18 @@
 function inicio(){
 
-    
+    /*
+    |----------------------------------------
+    | ASI SE CAPTURAN LOS PARAMETROS
+    |---------------------------------------
+    */
+    $('#id_inqu').val(getParameterByName('idinq'));
+    $('#id_inquj').val(getParameterByName('idinq'));
+    let idInquilino = getParameterByName('idinq');
+    let prmCodInq = getParameterByName('codinq');
+    /*--------------------------------------*/    
+
+    codigoInquilino(prmCodInq);
+    atrasPagador(idInquilino,prmCodInq);
    
     generarCodigoPagador();
     cargarEstados();
@@ -48,6 +60,34 @@ function validateEmail(email) {
 
 
 }
+
+
+function codigoInquilino(prmDato){
+
+    var html = "";
+
+    html='<strong>INQUILINO : </strong>'  + prmDato +'</span>';
+
+    $("#lblinquilino").html('');
+    $("#lblinquilino").html(html);
+
+}
+
+function atrasPagador(idInquilino, prmCodInq){
+
+    //if (isEmpty(prmDato) == false ){
+
+
+        var html = "";
+        html='index.php?url=app/vistas/alquileres/pagador&idinq=' + idInquilino  + '&codinq=' + prmCodInq;
+    
+        $(".idinq").prop("href", html);
+
+
+    //}
+
+}
+
 
 
 

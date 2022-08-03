@@ -36,7 +36,7 @@ include("layout/menuNavegacion.php");
                                         <form class="form-sample" id="registrarpagador" name="registrarpagador" method="POST" action="guarda.php" autocomplete="off">
                                              
                                              <input type="hidden"  id="hidpagador" name="hidpagador" value='' >
-                                             <input type="hidden" id="id_inqu" name="id_inqu" value='1'>
+                                             <input type="hidden" id="id_inqu" name="id_inqu" value=''>
                                              <input type="hidden" id="tipo_persona" name="tipo_persona" value='1'>
 
                                              <div class="col-md-5">
@@ -248,7 +248,7 @@ include("layout/menuNavegacion.php");
                                         <form class="form-sample" id="registropagadorj" name="registropagadorj" method="POST" action="guarda.php" autocomplete="off" enctype="multipart/form-data">
                                               
                                             <input type="hidden"  id="hidpagadorj" name="hidpagadorj" value='' >
-                                             <input type="hidden" id="id_inqu" name="id_inqu" value='1'>
+                                             <input type="hidden" id="id_inquj" name="id_inquj" value=''>
                                              <input type="hidden" id="tipo_personaj" name=" tipo_personaj" value='2'>
 
                                              <div class="col-md-5">

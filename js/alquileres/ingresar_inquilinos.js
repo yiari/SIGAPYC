@@ -1,17 +1,6 @@
 function inicio(){
 
-   /*
-    |----------------------------------------
-    | ASI SE CAPTURAN LOS PARAMETROS
-    |---------------------------------------
-    */
-    $('#hidinquilino').val(getParameterByName('idinq'));
-    let idInquilino = getParameterByName('idinq');
-    let prmCodInq = getParameterByName('codinq');
-    /*--------------------------------------*/    
-
-    codigoInquilino(prmCodInq);
-    atrasInquilino(idInquilino,prmCodInq);
+  
 
     cargarEstados();
     guardarInquilino();

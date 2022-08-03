@@ -484,5 +484,6 @@ include("layout/menuNavegacion.php");
         ?>
         <script src="js/comunes/combos.js"></script>
         <script src="js/comunes/generadorcodigos.js"></script>
+        <script src="js/comunes/funciones.js"></script>
         <script src="js/alquileres/ingresar_inquilino_juridico.js"></script>
         <script src="js/alquileres/ingresar_inquilinos.js"></script>

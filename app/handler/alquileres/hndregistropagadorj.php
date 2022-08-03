@@ -98,7 +98,7 @@ if($operacion == "I"){
    |---------------------------------------------
    */
     $datos = array( "id"       => $_POST["hidpagadorj"],
-                    "id_inqu"  =>   $_POST["id_inqu"],
+                    "id_inqu"  => $_POST["id_inquj"],
                     "cod_pagj" => $_POST["registroCodigoj"],
                     "nom_pagj" => $_POST["registroNombrej"],
                     "rif_pagj" => $_POST["registroRifj"],

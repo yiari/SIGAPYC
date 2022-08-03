@@ -101,7 +101,7 @@ if ($("#registroDirecionj").val() == "") {
                mensaje(json.mensaje,0);
 
                //$("#mensaje").html(html).fadeIn();
-               limpiarCamposjuridico();
+               limpiarFormulario();
                //limpiarTabla();
                //botones(0);
                //cargarUsuarios();
@@ -151,41 +151,14 @@ function generarCodigoPagadorJ(){
 }
 
 
+function limpiarFormulario(valor){
 
-function limpiarCamposjuridico(){
-
-    $("#hidpagadorj").val("");
-    $("#registroCodigoj").val("");
-    $("#registroNombrej").val("");
-    $("#registroRifj").val("");
-    $("#registroDirecionj").val("");
-    $("#registroactividad").val("");
-    $("#registroCelularj").val("");
-    $("#registroEmailj").val("");
-    $("#registroPoder").val("");
-    $("#nombreRegistro").val("");
-    $("#fechaRegistro").val("");
-    $("#numeroRegistro").val("");
-    $("#tomoRegistro").val("");
-    $("#foliRegistro").val("");
-    $("#cedu_docu").val("");
-    $("#rif_docu").val("");
-    $("#refper_docu").val("");
-    $("#refper_docu2").val("");
-    $("#refper_docu2").val("");
-    $("#autopro_docu").val("");
-    $("#reffam_docu").val("");
-    $("#reffam_docu2").val("");
-    $("#refban_docu").val("");
-    $("#refban_docu2").val("");
-    $("#refcom_docu").val("");
-    $("#refcom_docu2").val("");
-    $("#refarre_docu").val("");
-    $("#conarre_docu").val("");
-  
-    
+    if(valor == 1){
+        document.getElementById("registropagadorj").reset();
+    }
 
 }
+
 
 
 

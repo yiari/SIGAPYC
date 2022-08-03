@@ -9,16 +9,14 @@ function inicio(){
     */
     let idInquilino = getParameterByName('idinq');
     let prmCodInq = getParameterByName('codinq');
+    let prmTipo = getParameterByName('codtip');
     /*--------------------------------------*/    
 
     codigoInquilino(prmCodInq);
 
     cargarPagador(idInquilino);
 
-    nuevoBeneficiario(idInquilino,prmCodInq);
-
-
-
+    nuevoPagador(idInquilino,prmCodInq);
 
 
 }
@@ -63,7 +61,9 @@ function cargarPagador(prmDato){
     var formData = new FormData();
 
     formData.append('opcion','C');
-    formData.append('id_inq',prmDato);
+    formData.append('id',prmDato);
+    formData.append('tipo',prmTipo);
+
     /*
     |-----------------------------------------------
     | AQUI SE LLAMA EL AJAX 
@@ -110,7 +110,8 @@ function cargarPagador(prmDato){
                             tr.append("<td>" + json.Items[0][i].nombre + "</td>");
                             tr.append("<td>" + json.Items[0][i].inquilino + "</td>");
                             tr.append("<td>" + json.Items[0][i].telefono + "</td>");
-                            tr.append("<td>" + json.Items[0][i].correo + "</td>"); 
+                            tr.append("<td>" + json.Items[0][i].correo + "</td>");
+
                             
                             var html="";
                             html = '<div class="btn-group" style="font-size:1.3em; letter-spacing:0.5em;">';
