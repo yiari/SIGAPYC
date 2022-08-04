@@ -38,6 +38,7 @@ include("layout/menuNavegacion.php");
                                              <input type="hidden"  id="hidpagador" name="hidpagador" value='' >
                                              <input type="hidden" id="id_inqu" name="id_inqu" value=''>
                                              <input type="hidden" id="tipo_persona" name="tipo_persona" value='1'>
+                                             <input type="hidden" id="tipo_inquilino" name="tipo_inquilino" value='0'>
 
                                              <div class="col-md-5">
                                                 <label  class="col-sm-12 col-form-label">Código pagador:</label>
@@ -250,6 +251,7 @@ include("layout/menuNavegacion.php");
                                             <input type="hidden"  id="hidpagadorj" name="hidpagadorj" value='' >
                                              <input type="hidden" id="id_inquj" name="id_inquj" value=''>
                                              <input type="hidden" id="tipo_personaj" name=" tipo_personaj" value='2'>
+                                             <input type="hidden" id="tipo_inquilinoj" name="tipo_inquilinoj" value='0'>
 
                                              <div class="col-md-5">
                                                 <label  class="col-sm-12 col-form-label">Código pagador:</label>

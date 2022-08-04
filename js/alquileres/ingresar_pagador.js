@@ -7,6 +7,9 @@ function inicio(){
     */
     $('#id_inqu').val(getParameterByName('idinq'));
     $('#id_inquj').val(getParameterByName('idinq'));
+    $('#tipo_inquilino').val(getParameterByName('codtip'));
+    $('#tipo_inquilinoj').val(getParameterByName('codtip'));
+
     let idInquilino = getParameterByName('idinq');
     let prmCodInq = getParameterByName('codinq');
     /*--------------------------------------*/    

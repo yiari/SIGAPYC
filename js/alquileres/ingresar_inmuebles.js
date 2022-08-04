@@ -208,16 +208,53 @@ function generarCodigoInmueble(){
     $('#cboinmueble').change(function() {
 
         var  prmTipoInmueble = $('#cboinmueble').find('option:selected').attr('data-tipoinmueble');
+        var  prmLetraInmueble = $("#registroletra").val();
+        var  prmNombreInmueble = $("#registrNombre").val();
         //var prmTipo=$(this).attr('data-tipoinmueble');;
 
         $("#registroCodigo").val('');
 
-        codigoInmueble(prmTipoInmueble,function(result){
+        codigoInmueble(prmTipoInmueble,prmLetraInmueble,prmNombreInmueble,function(result){
             $("#registroCodigo").val(result);
         });
 
 
     });
+
+
+    $("#registroletra").on('keyup', function () {
+
+        var  prmTipoInmueble = $('#cboinmueble').find('option:selected').attr('data-tipoinmueble');
+        var  prmLetraInmueble = $("#registroletra").val();
+        var  prmNombreInmueble = $("#registrNombre").val();
+
+        $("#registroCodigo").val('');
+
+        codigoInmueble(prmTipoInmueble,prmLetraInmueble,prmNombreInmueble,function(result){
+            $("#registroCodigo").val(result);
+        });
+
+    });
+
+    $("#registrNombre").on('keyup', function () {
+
+        var  prmTipoInmueble = $('#cboinmueble').find('option:selected').attr('data-tipoinmueble');
+        var  prmLetraInmueble = $("#registroletra").val();
+        var  prmNombreInmueble = $("#registrNombre").val();
+
+        $("#registroCodigo").val('');
+
+        codigoInmueble(prmTipoInmueble,prmLetraInmueble,prmNombreInmueble,function(result){
+            $("#registroCodigo").val(result);
+        });
+
+    });
+
+
+    
+
+
+
 
 
 

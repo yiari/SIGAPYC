@@ -43,24 +43,25 @@ public function registrar($tabla,$datos,$archivos){
           | AQUI PREPARO LO QUE SERA LA LLAMADA AL PROCEDIMIENTO QUE REALIZARA LA OPERACION
           |----------------------------------------------------------------------------------
           */
-          $stmt = $dbConexion->conectar()->prepare("CALL usp_registropagador(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+          $stmt = $dbConexion->conectar()->prepare("CALL usp_registropagador(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
           $stmt -> bindParam(1,  $datos ["id_paga"],  PDO::PARAM_INT); //ESTE ES EL ID DEL pagador
 		      $stmt -> bindParam(2,  $datos ["id_inqu"],  PDO::PARAM_INT); //ESTE ES EL ID DEL inquilino
-          $stmt -> bindParam(3,  $datos ["cod_paga"], PDO::PARAM_STR);
-          $stmt -> bindParam(4,  $datos ["nom_paga"], PDO::PARAM_STR);            
-          $stmt -> bindParam(5,  $datos ["ape_paga"], PDO::PARAM_STR);          
-          $stmt -> bindParam(6,  $datos ["nac_paga"], PDO::PARAM_INT);   
-          $stmt -> bindParam(7,  $datos ["ci_paga"],  PDO::PARAM_STR);       
-          $stmt -> bindParam(8,  $datos ["rif_paga"], PDO::PARAM_STR);                     
-          $stmt -> bindParam(9,  $datos ["loc_paga"], PDO::PARAM_STR);     
-          $stmt -> bindParam(10, $datos ["cel_paga"], PDO::PARAM_STR);          
-          $stmt -> bindParam(11, $datos ["cor_paga"], PDO::PARAM_STR);       
-          $stmt -> bindParam(12, $datos ["est_paga"], PDO::PARAM_INT);         
-          $stmt -> bindParam(13, $datos ["mun_paga"], PDO::PARAM_INT);      
-          $stmt -> bindParam(14, $datos ["par_paga"], PDO::PARAM_INT); 
-          $stmt -> bindParam(15, $datos ["dir_paga"], PDO::PARAM_STR);
-          $stmt -> bindParam(16, $datos ["ofi_paga"], PDO::PARAM_STR);     
-          $stmt -> bindParam(17, $datos ["tip_paga"], PDO::PARAM_INT);
+          $stmt -> bindParam(3,  $datos ["tipo_inquilino"],  PDO::PARAM_INT); //ESTE ES EL TIPO DE INQUILINO
+          $stmt -> bindParam(4,  $datos ["cod_paga"], PDO::PARAM_STR);
+          $stmt -> bindParam(5,  $datos ["nom_paga"], PDO::PARAM_STR);            
+          $stmt -> bindParam(6,  $datos ["ape_paga"], PDO::PARAM_STR);          
+          $stmt -> bindParam(7,  $datos ["nac_paga"], PDO::PARAM_INT);   
+          $stmt -> bindParam(8,  $datos ["ci_paga"],  PDO::PARAM_STR);       
+          $stmt -> bindParam(9,  $datos ["rif_paga"], PDO::PARAM_STR);                     
+          $stmt -> bindParam(10, $datos ["loc_paga"], PDO::PARAM_STR);     
+          $stmt -> bindParam(11, $datos ["cel_paga"], PDO::PARAM_STR);          
+          $stmt -> bindParam(12, $datos ["cor_paga"], PDO::PARAM_STR);       
+          $stmt -> bindParam(13, $datos ["est_paga"], PDO::PARAM_INT);         
+          $stmt -> bindParam(14, $datos ["mun_paga"], PDO::PARAM_INT);      
+          $stmt -> bindParam(15, $datos ["par_paga"], PDO::PARAM_INT); 
+          $stmt -> bindParam(16, $datos ["dir_paga"], PDO::PARAM_STR);
+          $stmt -> bindParam(17, $datos ["ofi_paga"], PDO::PARAM_STR);     
+          $stmt -> bindParam(18, $datos ["tip_paga"], PDO::PARAM_INT);
 
 
                   
@@ -185,7 +186,7 @@ public function registrar($tabla,$datos,$archivos){
         
         $stmt = $dbConexion->conectar()->prepare("CALL usp_cargarpagador(?,?)");
         $stmt ->bindParam(1, $valor, PDO::PARAM_INT);
-        $stmt ->bindParam(2, $valor, PDO::PARAM_INT);
+        $stmt ->bindParam(2, $tipo, PDO::PARAM_INT);
         $stmt->execute();
         $dataRegistro["Items"][] = $stmt->fetchAll();
   
@@ -217,12 +218,12 @@ public function registrar($tabla,$datos,$archivos){
   
             $dbConexion = new conexcion();
             
-            $stmt = $dbConexion->conectar()->prepare("CALL usp_cargarpagador(?)");
-          ;
+            $stmt = $dbConexion->conectar()->prepare("CALL usp_cargarpagador(?,?)");
+            $stmt ->bindParam(1, $id_inqu, PDO::PARAM_INT);
+            $stmt ->bindParam(2, $tipo, PDO::PARAM_INT);
             $stmt->execute();
             $dataRegistro["Items"][] = $stmt->fetchAll();
-            $stmt ->bindParam(1, $id_inqu, PDO::PARAM_INT);
-            $stmt ->bindParam(2, $tip_paga, PDO::PARAM_INT);
+
             $dataRes = array(
               'error' => '0',
               'mensaje' =>  'El registro se obtuvo con exito.'

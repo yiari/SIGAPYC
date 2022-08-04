@@ -399,13 +399,13 @@ function codigoPagador(nombre,callback){
 
 }
 
-function codigoInmueble(nombre,callback){
+function codigoInmueble(tipo,letra,nombre,callback){
 
 
     let text="";
     let result="";
 
-    if(nombre.length >0){
+    if(tipo.length >0){
 
             $.ajax({
                 url: "app/vistas/comunes/generarcodigos.php",
@@ -430,8 +430,8 @@ function codigoInmueble(nombre,callback){
             
                     /*---------------------------------------------------------*/
             
-                    text = nombre;
-                    result =  nombre + '-' +  completarconcero(json.valor, 4);
+                    text = tipo;
+                    result =  tipo + '-' +  completarconcero(json.valor, 4) + '-' + letra + '-' + nombre;
 
                      callback(result);
 

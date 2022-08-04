@@ -14,9 +14,9 @@ function inicio(){
 
     codigoInquilino(prmCodInq);
 
-    cargarPagador(idInquilino);
+    cargarPagador(idInquilino, prmTipo);
 
-    nuevoPagador(idInquilino,prmCodInq);
+    nuevoPagador(idInquilino,prmCodInq, prmTipo);
 
 
 }
@@ -33,14 +33,14 @@ function codigoInquilino(prmDato){
 
 }
 
-function nuevoPagador(prmIdInq, prmCodInq){
+function nuevoPagador(prmIdInq, prmCodInq, prmTipo){
 
     //if (isEmpty(prmDato) == false ){
 
 
         var html = "";
 
-        html='index.php?url=app/vistas/alquileres/ingresar_pagador&idinq=' + prmIdInq  + '&codinq=' + prmCodInq;
+        html='index.php?url=app/vistas/alquileres/ingresar_pagador&idinq=' + prmIdInq  + '&codinq=' + prmCodInq + '&codtip=' + prmTipo;
     
         $(".codinq").prop("href", html);
 
@@ -51,7 +51,7 @@ function nuevoPagador(prmIdInq, prmCodInq){
 
 
 
-function cargarPagador(prmDato){
+function cargarPagador(prmDato, prmTipo){
 
     /*
     |-----------------------------------------------------

@@ -43,23 +43,24 @@ public function registrar($tabla,$datos,$archivos){
           | AQUI PREPARO LO QUE SERA LA LLAMADA AL PROCEDIMIENTO QUE REALIZARA LA OPERACION
           |----------------------------------------------------------------------------------
           */
-          $stmt = $dbConexion->conectar()->prepare("CALL usp_registropagadorj(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+          $stmt = $dbConexion->conectar()->prepare("CALL usp_registropagadorj(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
           $stmt -> bindParam(1,  $datos["id"],PDO::PARAM_INT);       //ESTE ES EL ID DEL PAGADOR JURIDICO
           $stmt -> bindParam(2,  $datos ["id_inqu"],PDO::PARAM_INT); //ESTE ES EL ID DEL inquilino
-          $stmt -> bindParam(3,  $datos["cod_pagj"],PDO::PARAM_STR); 
-          $stmt -> bindParam(4,  $datos["nom_pagj"],PDO::PARAM_STR); 
-          $stmt -> bindParam(5,  $datos["rif_pagj"],PDO::PARAM_STR); 
-          $stmt -> bindParam(6,  $datos["act_pagj"],PDO::PARAM_STR); 
-          $stmt -> bindParam(7,  $datos["dir_pagj"],PDO::PARAM_STR); 
-          $stmt -> bindParam(8,  $datos["tel_pagj"],PDO::PARAM_STR); 
-          $stmt -> bindParam(9,  $datos["cor_pagj"],PDO::PARAM_STR); 
-          $stmt -> bindParam(10, $datos["cod_regi"],PDO::PARAM_STR); 
-          $stmt -> bindParam(11, $datos["not_regi"],PDO::PARAM_STR); 
-          $stmt -> bindParam(12,$fecha,PDO::PARAM_INT); 
-          $stmt -> bindParam(13, $datos["num_regi"],PDO::PARAM_INT);
-          $stmt -> bindParam(14, $datos["tom_regi"],PDO::PARAM_STR); 
-          $stmt -> bindParam(15, $datos["fol_regi"],PDO::PARAM_STR); 
-          $stmt -> bindParam(16, $datos["tip_paga"],PDO::PARAM_STR); 
+          $stmt -> bindParam(3,  $datos ["tipo_inquilino"],  PDO::PARAM_INT); //ESTE ES EL TIPO DE INQUILINO
+          $stmt -> bindParam(4,  $datos["cod_pagj"],PDO::PARAM_STR); 
+          $stmt -> bindParam(5,  $datos["nom_pagj"],PDO::PARAM_STR); 
+          $stmt -> bindParam(6,  $datos["rif_pagj"],PDO::PARAM_STR); 
+          $stmt -> bindParam(7,  $datos["act_pagj"],PDO::PARAM_STR); 
+          $stmt -> bindParam(8,  $datos["dir_pagj"],PDO::PARAM_STR); 
+          $stmt -> bindParam(9,  $datos["tel_pagj"],PDO::PARAM_STR); 
+          $stmt -> bindParam(10,  $datos["cor_pagj"],PDO::PARAM_STR); 
+          $stmt -> bindParam(11, $datos["cod_regi"],PDO::PARAM_STR); 
+          $stmt -> bindParam(12, $datos["not_regi"],PDO::PARAM_STR); 
+          $stmt -> bindParam(13,$fecha,PDO::PARAM_INT); 
+          $stmt -> bindParam(14, $datos["num_regi"],PDO::PARAM_INT);
+          $stmt -> bindParam(15, $datos["tom_regi"],PDO::PARAM_STR); 
+          $stmt -> bindParam(16, $datos["fol_regi"],PDO::PARAM_STR); 
+          $stmt -> bindParam(17, $datos["tip_paga"],PDO::PARAM_STR); 
 
 
           

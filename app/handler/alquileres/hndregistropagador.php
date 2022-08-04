@@ -101,6 +101,7 @@ if($operacion == "I"){
    */
     $datos = array( "id_paga"   =>	$_POST["hidpagador"],
                     "id_inqu"   =>   $_POST["id_inqu"],
+                    "tipo_inquilino"   =>   $_POST["tipo_inquilino"],
                     "cod_paga" =>   $_POST["registroCodigo"],
                     "nom_paga" =>   $_POST["registroNombre"],
                     "ape_paga" =>   $_POST["registroApellido"],
