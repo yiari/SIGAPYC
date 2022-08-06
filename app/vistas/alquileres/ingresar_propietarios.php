@@ -25,7 +25,8 @@ include("layout/menuNavegacion.php");
                             <div class="card">
                                 <div class="card-body">
                                     <form class="form-sample" id="registrarpropietario" name="registrarpropietario" method="POST" action="" autocomplete="off" enctype="multipart/form-data">
-                                        <input type="hidden" id="tipo_persona" name="tipo_persona" value='1'>
+                                        
+                                      <input type="hidden" id="tipo_persona" name="tipo_persona" value='1'>
                                         <input type="hidden" id="hidpropietario" name="hidpropietario" value=''>
                                         <input type="hidden" id="hidcuenta_id_nacional" name="hidcuenta_id_nacional" value='0'>
                                         <input type="hidden" id="hidcuenta_id_internacional" name="hidcuenta_id_internacional" value='0'>
@@ -312,10 +313,16 @@ include("layout/menuNavegacion.php");
                             <!--Jurídico-->
                             <div class="card">
                                 <div class="card-body">
-                                    <form class="form-sample" id="prop_juridico" name="prop_juridico" method="POST" action="" autocomplete="off" enctype="multipart/form-data">
-                                        <input type="hidden" id="operacion" name="operacion">
-                                        <input type="hidden" id="id_prop" name="id_prop" value=''>
-                                        <input type="hidden" id="cod_prop" name="cod_prop" value=''>
+                                    <form class="form-sample" id="registrarpropietarioj" name="registrarpropietarioj" method="POST" action="" autocomplete="off" enctype="multipart/form-data">
+                                        
+                
+
+                                        <input type="hidden" id="tipo_personaj" name="tipo_personaj" value='2'>
+                                        <input type="hidden" id="hiid_propj" name="hiid_propj" value=''>
+                                        <input type="hidden" id="hidcuenta_id_nacionalj" name="hidcuenta_id_nacionalj" value='0'>
+                                        <input type="hidden" id="hidcuenta_id_internacionalj" name="hidcuenta_id_internacionalj" value='0'>
+                                        <input type="hidden" id="hidcuenta_id_paypalj" name="hidcuenta_id_paypalj" value='0'>
+                                        <input type="hidden" id="hidcuenta_id_zellej" name="hidcuenta_id_zellej" value='0'>
 
                                         <!--Datos Personales-->
                                         <div class="card">
@@ -323,43 +330,50 @@ include("layout/menuNavegacion.php");
                                                 <div class="col text-center">
                                                     <h5 class="card-title">Datos del Propietario Jurídico</h5>
                                                 </div>
+
+                                                <div class="col-md-5">
+                                                        <label class="col-sm-12 col-form-label">Código Propietario:</label>
+                                                        <div class="col-sm-12">
+                                                            <input type="text" class="form-control" id="registroCodigoj" name="registroCodigoj"  readonly="yes" >
+                                                        </div>
+                                                </div>
                                                 <div class="row">
                                                     <div class="col-md-4">
-                                                        <label class="col-sm-12 col-form-label">Nombre o Razón Social:</label>
+                                                        <label for="registroNombrej" class="col-sm-12 col-form-label">Nombre o Razón Social:</label>
                                                         <div class="col-sm-12">
-                                                            <input type="text" class="form-control" id="nom_proj" name="nom_proj" autofocus value=''>
+                                                            <input type="text" class="form-control" id="registroNombrej" name="registroNombrej" autofocus value=''>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-3">
-                                                        <label class="col-sm-12 col-form-label">Rif Jurídico:</label>
+                                                        <label for="registroRifj" class="col-sm-12 col-form-label">Rif Jurídico:</label>
                                                         <div class="col-sm-12">
-                                                            <input type="text" class="form-control" id="rif_proj" name="rif_proj" value='' required>
+                                                            <input type="text" class="form-control" id="registroRifj" name="registroRifj">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-5">
-                                                        <label class="col-sm-12 col-form-label">Actividad Comercial:</label>
+                                                        <label for="registroactividad" class="col-sm-12 col-form-label">Actividad Comercial:</label>
                                                         <div class="col-sm-12">
-                                                            <input type="text" class="form-control" id="act_proj" name="act_proj" value='' required>
+                                                            <input type="text" class="form-control" id="registroactividad" name="registroactividad">
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-5">
-                                                        <label class="col-sm-12 col-form-label">Dirección Fiscal:</label>
+                                                        <label for="registroDirecionj" class="col-sm-12 col-form-label">Dirección Fiscal:</label>
                                                         <div class="col-sm-12">
-                                                            <input type="text" class="form-control" id="dir_proj" name="dir_proj" autofocus value=''><br>
+                                                            <input type="text" class="form-control" id="registroDirecionj" name="registroDirecionj" ><br>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-2">
-                                                        <label class="col-sm-9 col-form-label">Celular:</label>
+                                                        <label for="registroCelularj"  class="col-sm-9 col-form-label">Celular:</label>
                                                         <div class="col-sm-12">
-                                                            <input type="number" class="form-control" id="tel_proj" name="tel_proj" value='' >
+                                                            <input type="text" class="form-control" id="registroCelularj" name="registroCelularj">
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-3">
-                                                        <label class="col-sm-3 col-form-label">Correo:</label>
+                                                    <div class="col-md-5">
+                                                        <label for="registroEmailj" class="col-sm-3 col-form-label">Correo:</label>
                                                         <div class="col-sm-12">
-                                                            <input type="email" class="form-control" id="cor_proj" name="cor_proj" value='' >
+                                                            <input type="email" class="form-control" id="registroEmailj" name="registroEmailj">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -375,16 +389,16 @@ include("layout/menuNavegacion.php");
                                                 <div class="row">
                                                     
                                                         <div class="col-md-6">
-                                                            <label for="cboBancoN" class="col-sm-10 col-form-label">Bancos Nacional:</label></br>
+                                                            <label for="cboBancoNj" class="col-sm-10 col-form-label">Bancos Nacional:</label></br>
                                                             <div class="col-sm-12">
-                                                                <select class="form-control"  id="cboBancoN" name="cboBancoN"></select>
+                                                                <select class="form-control"  id="cboBancoJ" name="cboBancoJ"></select>
                                                             </div>
                                                        </div>
   
                                                     <div class="col-md-6">
                                                         <label class="col-sm-9 col-form-label">Cuenta:</label>
                                                         <div class="col-sm-12">
-                                                            <input type="text" class="form-control" id="num_cuen" name="num_cuen" value=''><br>
+                                                            <input for="num_cuenj" type="text" class="form-control" id="num_cuenj" name="num_cuenj" maxlength="20" ><br>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -392,9 +406,9 @@ include("layout/menuNavegacion.php");
                                                     <div class="col-md-12">
                                                         <div class="input-group">
                                                             <span class="input-group-text">Pago Movil</span>
-                                                            <input type="text" placeholder="cedula" id="ced_pmov" name="ced_pmov" aria-label="Cédula" value='' class="form-control">
-                                                            <select class="form-control"  id="cboBancoNP" name="cboBancoNP"></select>
-                                                            <input type="text" placeholder="celular" id="cel_pmov" name="cel_pmov" aria-label="Celular" value='' class="form-control">
+                                                            <input type="text" placeholder="cedula" id="ced_pmovj" name="ced_pmovj" aria-label="Cédula" value='' class="form-control">
+                                                            <select class="form-control"  id="cboBancop" name="cboBancop"></select>
+                                                            <input type="text" placeholder="celular" id="cel_pmovj" name="cel_pmovj" aria-label="Celular" value='' class="form-control">
                                                         </div><br>
                                                     </div>  
                                                 </div>
@@ -404,41 +418,41 @@ include("layout/menuNavegacion.php");
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-2">
-                                                        <label class="col-sm-10 col-form-label">Banco Extranjero:</label>
+                                                        <label for="ban_extrj" class="col-sm-10 col-form-label">Banco Extranjero:</label>
                                                         <div class="col-sm-12">
-                                                            <input type="text" class="form-control" id="" name="" >
+                                                            <input type="text" class="form-control" id="ban_extrj" name="ban_extrj" >
 
                                                         </div>
                                                     </div>
                                                     <div class="col-md-1">
-                                                        <label class="col-sm-12 col-form-label">Agencia:</label>
+                                                        <label for="age_extrj" class="col-sm-12 col-form-label">Agencia:</label>
                                                         <div class="col-sm-12">
-                                                            <input type="text" class="form-control" id="" name="" >
+                                                            <input type="text" class="form-control" id="age_extrj" name="age_extrj" >
 
                                                         </div>
                                                     </div>
                                                     <div class="col-md-1">
-                                                        <label class="col-sm-12 col-form-label">DC:</label>
+                                                        <label for="dc_extrj" class="col-sm-12 col-form-label">DC:</label>
                                                         <div class="col-sm-12">
-                                                            <input type="text" class="form-control" id="" name="" ><br>
+                                                            <input type="text" class="form-control" id="dc_extrj" name="dc_extrj" ><br>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-2">
-                                                        <label class="col-sm-12 col-form-label">Cuenta:</label>
+                                                        <label for="cue_extrj" class="col-sm-12 col-form-label">Cuenta:</label>
                                                         <div class="col-sm-12">
-                                                            <input type="text" class="form-control" id="" name="" ><br>
+                                                            <input type="text" class="form-control" id="cue_extrj" name="cue_extrj" ><br>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-4">
-                                                        <label class="col-sm-12 col-form-label">IBAN:</label>
+                                                        <label for="iba_extrj" class="col-sm-12 col-form-label">IBAN:</label>
                                                         <div class="col-sm-12">
-                                                            <input type="text" class="form-control" id="" name="" ><br>
+                                                            <input type="text" class="form-control" id="iba_extrj" name="iba_extrj" ><br>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-2">
-                                                        <label class="col-sm-12 col-form-label">BIC o SWIFT:</label>
+                                                        <label for="bic_extrj" class="col-sm-12 col-form-label">BIC o SWIFT:</label>
                                                         <div class="col-sm-12">
-                                                            <input type="text" class="form-control" id="" name="" ><br>
+                                                            <input type="text" class="form-control" id="bic_extrj" name="bic_extrj" ><br>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -447,15 +461,17 @@ include("layout/menuNavegacion.php");
                                                     <div class="col-md-6">
                                                         <div class="input-group">
                                                             <span class="input-group-text">Cuenta Paypal:</span>
-                                                            <input type="text" class="form-control" placeholder="correo" id="" name="" >
+                                                            <input for="cor_paypj" type="text" class="form-control" placeholder="correo" id="cor_paypj" name="cor_paypj" >
+                                                            <input type="hidden" id="nom_paypj" name="nom_paypj" value=''>
                                                         </div>
                                                     </div>
 
                                                     <div class="col-md-6">
                                                         <div class="input-group">
                                                             <span class="input-group-text">Cuenta Zelle</span>
-                                                            <input type="text" class="form-control" placeholder="telefono" id="" name="" >
-                                                            <input type="text" class="form-control" placeholder="correo" id="" name="" >
+                                                            <input for="tel_zellj" type="text" class="form-control" placeholder="Telefono" id="tel_zellj" name="tel_zellj" >
+                                                            <input for="cor_zellj" type="text" class="form-control" placeholder="Correo" id="cor_zellj" name="cor_zellj" >
+                                                            <input for="nom_zellj" type="text" class="form-control" placeholder="Nombre" id="nom_zellj" name="nom_zellj" >
                                                         </div>
                                                     </div>
 
@@ -471,33 +487,33 @@ include("layout/menuNavegacion.php");
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-6">
-                                                        <label for="ced_docu" class="col-sm-9 col-form-label">Registro Mercantil</label>
+                                                        <label for="regmen_docu" class="col-sm-9 col-form-label">Registro Mercantil</label>
                                                         <div class="col-sm-12">
-                                                            <input class="form-control form-control-sm" id="reg_merc" type="file" name="reg_merc" value="">
+                                                            <input class="form-control form-control-sm" id="regmen_docu" type="file" name="regmen_docu">
                                                         </div>
 
                                                     
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <label for="rif_docu" class="col-sm-9 col-form-label">Acta Constitutiva</label>
+                                                        <label for="actcons_docu" class="col-sm-9 col-form-label">Acta Constitutiva</label>
                                                         <div class="col-sm-12">
-                                                            <input class="form-control form-control-sm" id="act_cons" type="file" name="act_cons" value="">
+                                                            <input class="form-control form-control-sm" id="actcons_docu" type="file" name="actcons_docu">
                                                         </div>
                                                         
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-6">
-                                                        <label for="act_asam" class="col-sm-9 col-form-label">Acta de última Asamblea</label>
+                                                        <label for="actultasam_docu" class="col-sm-9 col-form-label">Acta de última Asamblea</label>
                                                         <div class="col-sm-12">
-                                                            <input class="form-control form-control-sm" id="act_asam" type="file" name="act_asam" value="">
+                                                            <input class="form-control form-control-sm" id="actultasam_docu" type="file" name="actultasam_docu">
                                                         </div>
                                                         
                                                     </div>
                                                     <div class="col-md-6">
                                                         <label for="rif_docj" class="col-sm-9 col-form-label">Rif Empresa</label>
                                                         <div class="col-sm-12">
-                                                            <input class="form-control form-control-sm" id="rif_docj" type="file" name="rif_docj" value="">
+                                                            <input class="form-control form-control-sm" id="rif_docu" type="file" name="rif_docu" >
                                                         </div>
                                                         
                                                     </div>
@@ -505,13 +521,13 @@ include("layout/menuNavegacion.php");
                                                 <div class="row">
                                                     <div class="col-md-12">
                                                         <div class="row">
-                                                            <label for="ref_docu" class="col-sm-12 col-form-label text-center text-center">Referencias Personales</label>
+                                                            <label for="refper_docu" class="col-sm-12 col-form-label text-center text-center">Referencias Personales</label>
                                                             <div class="col-sm-6">
-                                                                <input class="form-control form-control-sm" id="ref_docj1" type="file" name="ref_docj1" value="">
+                                                                <input class="form-control form-control-sm" id="refper_docu3" type="file" name="refper_docu3">
                                                             
                                                             </div>
                                                             <div class="col-sm-6">
-                                                                <input class="form-control form-control-sm" id="ref_docj2" type="file" name="ref_docj2" value="">
+                                                                <input class="form-control form-control-sm" id="refper_docu4" type="file" name="refper_docu4">
                                                             
                                                             </div>
                                                         </div>
@@ -520,13 +536,13 @@ include("layout/menuNavegacion.php");
                                                 <div class="row">
                                                     <div class="col-md-12">
                                                         <div class="row">
-                                                            <label for="fam_docu" class="col-sm-12 col-form-label text-center">Referencias Familiares</label>
+                                                            <label for="reffam_docu" class="col-sm-12 col-form-label text-center">Referencias Familiares</label>
                                                             <div class="col-sm-6">
-                                                                <input class="form-control form-control-sm" id="fam_docj1" type="file" name="fam_docj1" value="">
+                                                                <input class="form-control form-control-sm" id="reffam_docu" type="file" name="reffam_docu" value="">
                                                                
                                                             </div>
                                                             <div class="col-sm-6">
-                                                                <input class="form-control form-control-sm" id="fam_docj2" type="file" name="fam_docj2" value="">
+                                                                <input class="form-control form-control-sm" id="reffam_docu1" type="file" name="reffam_docu1" value="">
                                                                 
                                                                 
                                                                     
@@ -573,3 +589,4 @@ include_once "app/vistas/comunes/modalpronatu.php";
 <script src="js/comunes/generadorcodigos.js"></script>
 <script src="js/comunes/funciones.js"></script>
 <script src="js/alquileres/ingresar_propietarios.js"></script>
+<script src="js/alquileres/ingresar_propietarios_juridico.js"></script>

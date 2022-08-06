@@ -5,9 +5,9 @@ function inicio(){
     generarCodigoPropietario();
     cargarEstados();
     cargarBancos('cboBancoN');
-    cargarBancos('cboBancoJ');
-    cargarBancos('cboBancop');
     cargarBancos('cboBancoNP');
+    
+   
     guardarPropietarios();
     
     
@@ -29,8 +29,6 @@ function inicio(){
     jQuery("#registroApellido").on('input', function (evt) {
         jQuery(this).val(jQuery(this).val().replace(/[^A-Za-z ]/g, ''));
     });
-
-
 
 
     jQuery("#registroCedula").on('input', function (evt) {
@@ -57,6 +55,42 @@ function inicio(){
         jQuery(this).val(jQuery(this).val().replace(/[^0-9]/g, ''));
     });
 
+
+     /*
+    |-------------------------
+    | ESTO ES LO JURIDICO
+    |------------------------------
+    */
+
+
+    guardarPropietariosj();
+    generarCodigoPropietarioj();
+  
+    cargarBancos('cboBancoJ');
+    cargarBancos('cboBancop');
+ 
+
+   
+
+    jQuery("#registroCelularj").on('input', function (evt) {
+        jQuery(this).val(jQuery(this).val().replace(/[^0-9]/g, ''));
+    });
+
+    jQuery("#ced_pmovj").on('input', function (evt) {
+        jQuery(this).val(jQuery(this).val().replace(/[^0-9]/g, ''));
+    });
+
+    jQuery("#cel_pmovj").on('input', function (evt) {
+        jQuery(this).val(jQuery(this).val().replace(/[^0-9]/g, ''));
+    });
+
+     jQuery("#num_cuenj").on('input', function (evt) {
+        jQuery(this).val(jQuery(this).val().replace(/[^0-9]/g, ''));
+    });
+
+    jQuery("#tel_zellj").on('input', function (evt) {
+        jQuery(this).val(jQuery(this).val().replace(/[^0-9]/g, ''));
+    });
 
 }
 

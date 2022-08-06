@@ -44,6 +44,54 @@ function codigoPropietario(nombre,callback){
 }
 
 
+
+function codigoPropietarioj(nombre,callback){
+
+
+    let text="";
+    let result="";
+
+    if(nombre.length >0){
+
+            $.ajax({
+                url: "app/vistas/comunes/generarcodigos.php",
+                method: 'POST',
+                data: {opcion:"codigoPropietario"},
+                success: function (data,status,xhr) {
+                    var json = data;
+                    
+                    /*
+                    |-----------------------------------------------------------
+                    | AQUI VERIFICO SI LA RESPUESTA ES JSON, SI NO ES JSON
+                    | EL RESULTADO SE CONVIERTE A JSON
+                    |-----------------------------------------------------------
+                    */
+            
+                    var respuestaHeader = xhr.getResponseHeader("Content-Type");
+                    var verificarHeader = respuestaHeader.search('text/html')
+            
+                    if(verificarHeader >= 0){
+                        json = JSON.parse(json);
+                    } 
+            
+                    /*---------------------------------------------------------*/
+            
+                    text = nombre;
+                    result = 'P-' +  valorLetra(text.charAt(0)) + '-' +  completarconcero(json.valor, 4)  + '-' +  nombre;
+
+                     callback(result);
+
+                }
+
+            });
+
+    }
+
+
+}
+
+
+
 function codigoApoderado(nombre,callback){
 
     let text="";
@@ -174,7 +222,7 @@ function codigoBeneficiario(nombre,callback){
             $.ajax({
                 url: "app/vistas/comunes/generarcodigos.php",
                 method: 'POST',
-                data: {opcion:"codigoRepresentante"},
+                data: {opcion:"codigoBeneficiario"},
                 success: function (data,status,xhr) {
                     var json = data;
                     
@@ -235,7 +283,7 @@ function codigoBeneficiarioj(nombre,callback){
             $.ajax({
                 url: "app/vistas/comunes/generarcodigos.php",
                 method: 'POST',
-                data: {opcion:"codigoRepresentante"},
+                data: {opcion:"codigoBeneficiario"},
                 success: function (data,status,xhr) {
                     var json = data;
                     
@@ -383,6 +431,69 @@ function codigoPagador(nombre,callback){
             });
 
     }
+
+
+    
+
+    /*
+    if(nombre.length >0){
+
+        let text = nombre;
+
+        let result = 'PA-' +  valorLetra(text.charAt(0)) + '-' +  completarconcero(1, 4)  + '-' +  nombre;
+
+        return result;
+    } else {
+        return "";
+    }
+*/
+}
+
+
+function codigoCobrador(nombre,callback){
+
+
+    let text="";
+    let result="";
+
+    if(nombre.length >0){
+
+            $.ajax({
+                url: "app/vistas/comunes/generarcodigos.php",
+                method: 'POST',
+                data: {opcion:"codigoCobrador"},
+                success: function (data,status,xhr) {
+                    var json = data;
+                    
+                    /*
+                    |-----------------------------------------------------------
+                    | AQUI VERIFICO SI LA RESPUESTA ES JSON, SI NO ES JSON
+                    | EL RESULTADO SE CONVIERTE A JSON
+                    |-----------------------------------------------------------
+                    */
+            
+                    var respuestaHeader = xhr.getResponseHeader("Content-Type");
+                    var verificarHeader = respuestaHeader.search('text/html')
+            
+                    if(verificarHeader >= 0){
+                        json = JSON.parse(json);
+                    } 
+            
+                    /*---------------------------------------------------------*/
+            
+                    text = nombre;
+                    result = 'CO-' +  valorLetra(text.charAt(0)) + '-' +  completarconcero(json.valor, 4)  + '-' +  nombre;
+
+                     callback(result);
+
+                }
+
+            });
+
+    }
+
+
+    
 
     /*
     if(nombre.length >0){

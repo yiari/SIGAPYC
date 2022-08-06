@@ -39,7 +39,7 @@ if(isset($_POST["opcion"])) {
  |-------------------------------------------
 */
 
-if($operacion == "codigoPropietario" || $operacion == "codigoApoderado" || $operacion == "codigoRepresentante" || $operacion == "codigoInquilino" || $operacion == "codigoPagador" || $operacion == "codigoInmueble"){
+if($operacion == "codigoPropietario" || $operacion == "codigoApoderado" || $operacion == "codigoRepresentante" || $operacion == "codigoInquilino" || $operacion == "codigoPagador" || $operacion == "codigoInmueble" || $operacion == "codigoCobrador"){
 
         /* 
         |------------------------------------------------------------

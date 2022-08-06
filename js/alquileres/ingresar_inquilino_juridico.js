@@ -133,27 +133,11 @@ if ($("#registroDirecionj").val() == "") {
 }
 
 
-function limpiarCamposjuridico(){
+function limpiarFormulario(valor){
 
-    $("#hidinquilino").val("");
-    $("#registroCodigoj").val("");
-    $("#registroNombrej").val("");
-    $("#registroRifj").val("");
-    $("#registroDirecionj").val("");
-    $("#registroactividad").val("");
-    $("#registroCelularj").val("");
-    $("#registroEmailj").val("");
-    $("#registroPoder").val("");
-    $("#nombreRegistro").val("");
-    $("#fechaRegistro").val("");
-    $("#numeroRegistro").val("");
-    $("#tomoRegistro").val("");
-    $("#foliRegistro").val("");
-    $("#foliRegistro").val("");
-    
-    
-    
-  
+    if(valor == 1){
+        document.getElementById("registroinquilinoj").reset();
+    }
 
 }
 

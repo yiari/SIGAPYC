@@ -22,6 +22,7 @@
                     <a class="nav-link" href="inicio.php?url=app/vistas/alquileres/propietarios">Propietario</a>
                     <a class="nav-link" href="inicio.php?url=app/vistas/alquileres/inmuebles">Inmuebles</a>
                     <a class="nav-link" href="inicio.php?url=app/vistas/alquileres/inquilinos">Inquilinos</a>
+                    <a class="nav-link" href="inicio.php?url=app/vistas/alquileres/cobrador">Cobrador</a>
                     <a class="nav-link" href="inicio.php?url=app/vistas/alquileres/contratos">Contratos</a>
                 </nav>
             </div>
