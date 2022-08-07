@@ -341,7 +341,7 @@ include("layout/menuNavegacion.php");
                                                     <div class="col-md-4">
                                                         <label for="registroNombrej" class="col-sm-12 col-form-label">Nombre o Razón Social:</label>
                                                         <div class="col-sm-12">
-                                                            <input type="text" class="form-control" id="registroNombrej" name="registroNombrej" autofocus value=''>
+                                                            <input type="text" class="form-control" id="registroNombrej" name="registroNombrej" autofocus >
                                                         </div>
                                                     </div>
                                                     <div class="col-md-3">
@@ -389,14 +389,14 @@ include("layout/menuNavegacion.php");
                                                 <div class="row">
                                                     
                                                         <div class="col-md-6">
-                                                            <label for="cboBancoNj" class="col-sm-10 col-form-label">Bancos Nacional:</label></br>
+                                                            <label for="cboBancoj" class="col-sm-10 col-form-label">Bancos Nacional:</label></br>
                                                             <div class="col-sm-12">
-                                                                <select class="form-control"  id="cboBancoJ" name="cboBancoJ"></select>
+                                                                <select class="form-control"  id="cboBancoj" name="cboBancoj"></select>
                                                             </div>
                                                        </div>
   
                                                     <div class="col-md-6">
-                                                        <label class="col-sm-9 col-form-label">Cuenta:</label>
+                                                        <label for="num_cuenj" class="col-sm-9 col-form-label">Cuenta:</label>
                                                         <div class="col-sm-12">
                                                             <input for="num_cuenj" type="text" class="form-control" id="num_cuenj" name="num_cuenj" maxlength="20" ><br>
                                                         </div>
@@ -580,6 +580,7 @@ include("layout/menuNavegacion.php");
 include_once "app/vistas/comunes/modalmensajes.php";
 include_once "app/vistas/comunes/modaleliminar.php";
 include_once "app/vistas/comunes/modalpronatu.php";
+include_once "app/vistas/comunes/modalprojuri.php";
 
  
 

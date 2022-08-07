@@ -1,6 +1,17 @@
 function inicio(){
 
-    
+    /*
+    |----------------------------------------
+    | ASI SE CAPTURAN LOS PARAMETROS
+    |---------------------------------------
+    */
+    $('#id_prop').val(getParameterByName('idpro'));
+    let idPropietario = getParameterByName('idpro');
+    let prmCodPro = getParameterByName('codpro');
+    /*--------------------------------------*/    
+
+    codigoPropietario(prmCodPro);
+    atrasRepresentante(idPropietario,prmCodPro);
   
     generarCodigoRepresentante();
     cargarEstados();
@@ -18,8 +29,6 @@ function inicio(){
     jQuery("#registroApellido").on('input', function (evt) {
         jQuery(this).val(jQuery(this).val().replace(/[^A-Za-z ]/g, ''));
     });
-
-
 
 
     jQuery("#registroCedula").on('input', function (evt) {
@@ -44,6 +53,33 @@ function validateEmail(email) {
     var re = /\S+@\S+\.\S+/;
     return re.test(email);
 
+
+}
+
+
+function codigoPropietario(prmDato){
+
+    var html = "";
+
+    html='<strong>PROPIETARIO : </strong>'  + prmDato +'</span>';
+
+    $("#lblPropietario").html('');
+    $("#lblPropietario").html(html);
+
+}
+
+function atrasRepresentante(prmIdPro, prmCodPro){
+
+    //if (isEmpty(prmDato) == false ){
+
+
+        var html = "";
+        html='index.php?url=app/vistas/alquileres/apoderado&idpro=' + prmIdPro  + '&codpro=' + prmCodPro;
+    
+        $(".codpro").prop("href", html);
+
+
+    //}
 
 }
 
@@ -238,31 +274,7 @@ function mensaje(mensaje, condicion){
 
 
 
-/*function generarCodigoRepresentante(){
 
-
-    $("#registroNombre").on('keyup', function () {
-
-        var prmNombre= this.value;
-        var prmApellido=$("#registroApellido").val();
-
-        $("#registroCodigo").val('');
-        $("#registroCodigo").val(codigoRepresentante(prmNombre + ' ' + prmApellido));
-
-    });
-
-    $("#registroApellido").on('keyup', function () {
-
-        var prmNombre= $("#registroNombre").val(); 
-        var prmApellido=this.value;
-
-        $("#registroCodigo").val('');
-        $("#registroCodigo").val(codigoRepresentante(prmNombre + ' ' + prmApellido));
-
-    });
-   
-
-}*/
 
 
 function generarCodigoRepresentante(){
@@ -300,35 +312,15 @@ function generarCodigoRepresentante(){
 }
 
 
+function limpiarFormulario(valor){
 
-
-
-function limpiarCampos(){
-
-    $("#hidapoderado").val("");
-    $("#id_prop").val("");
-    $("#registroCodigo").val("");
-    $("#registroNombre").val("");
-    $("#registroApellido").val("");
-    $("#registroNacionalidad").val("");
-    $("#registroCedula").val("");
-    $("#registroRif").val("");
-    $("#registroTelefono").val("");
-    $("#registroCelular").val(""); 
-    $("#registroEmail").val("");
-    $("#cboEstados").val("");                
-    $("#cboMunicipios").val("");
-    $("#cboParroquia").val("");
-    $("#registroDirecionH").val("");
-    $("#registroDirecionO").val("");
-    $("#cod_regi").val("");
-    $("#not_regi").val("");
-    $("#fec_regi").val("");
-    $("#num_regi").val("");
-    $("#tom_regi").val("");
-    $("#fol_regi").val("");
+    if(valor == 1){
+        document.getElementById("#registrarrepresentante").reset();
+    }
 
 }
+
+
 
 
 

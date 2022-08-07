@@ -39,18 +39,36 @@ function guardarPropietariosj(){
         mensaje("Debe indicar el rif Jurídico del propietario",1);
         return;
         }
+
     
     if ($("#registroactividad").val() == "") {
-        mensaje("Debe indicar la dirección  Fiscal del propietario ",1);
+        mensaje("Debe indicar la  actividad comercial del propietario ",1);
         return;
         }
     
-    if ($("#registroDirecionHj").val() == "") {
-        mensaje("Debe indicar la dirección  Fiscal del propietario ",1);
+    if ($("#registroDirecionj").val() == "") {
+        mensaje("Debe indicar la  dirección fiscal del propietario ",1);
         return;
         }
+    
+    if ($("#registroCelularj").val() == "") {
+        mensaje("Debe indicar el celular del propietario",1);
+        return;
+        }
+    
+    if ($("#registroEmailj").val() == "") {
+        mensaje("Debe indicar una direccion de correo valida",1);
+        return;
+    } else {
+        var respuesta = validateEmail($("#registroEmailj").val());
 
-    if ($("#cboBancoNj").val() == "") {
+        if (respuesta == false) {
+            mensaje("La direccion de correo es invalida",1);
+            return;
+        }
+    }
+
+    if ($("#cboBancoj").val() == "") {
         mensaje("Debe indicar el banco del propietario",1);
         return;
         }
@@ -68,7 +86,7 @@ function guardarPropietariosj(){
 
             } else {
 
-                if(validarCuentaBanco('cboBancoN',numcuentaTMP) == false){
+                if(validarCuentaBanco('cboBancoj',numcuentaTMP) == false){
                     mensaje("El Numero de cuenta registrado no concuerda con el banco seleccionado.",1);
                     return;
                 }
@@ -127,12 +145,12 @@ function guardarPropietariosj(){
                     if(json.Items.length > 0){
 
                         //console.log("Datos del Propietario: " + json.Items[0].ID_PROPIETARIO);
-                        idPropietario = json.Items[0].ID_PROPIETARIO;
+                        idPropietario = json.Items[0].ID_PROPIETARIOJ;
 
                     }
 
                     if(idPropietario > 0){
-                        mensajeNatural(idPropietario,  $("#registroCodigo").val());
+                        mensajeJuridico(idPropietario,  $("#registroCodigoj").val());
                         limpiarFormulario(1);
                         botones(0);
                         
@@ -167,7 +185,7 @@ function guardarPropietariosj(){
 function limpiarFormulario(valor){
 
     if(valor == 1){
-        document.getElementById("registrarpropietario").reset();
+        document.getElementById("guardarPropietariosj").reset();
     }
 
 }
@@ -192,6 +210,32 @@ function generarCodigoPropietarioj(){
 
    
    
+
+}
+
+
+function mensajeJuridico(idpro, codigopro){
+
+    var htmlContenido="";
+    var htmlRepresentante="";
+    var htmlInmueble="";
+   
+    htmlContenido='<i class="fa fa-check-circle fa-2x" aria-hidden="true" style="color:#29bf1d;"></i>&nbsp';
+
+    htmlRepresentante='<a href="index.php?url=app/vistas/alquileres/representante&idpro=' + idpro + '&codpro=' + codigopro + '" class="btn btn-primary">Representante</a>';
+    htmlInmueble='<a href="index.php?url=app/vistas/alquileres/inmuebles&idpro=' + idpro + '&codpro=' + codigopro + '" class="btn btn-primary">Inmueble</a>';
+
+    $('#spanMsgProJuri').html('');
+    $('#spanRepresentante').html('');
+    $('#spanInmueble').html('');
+
+    $('#spanMsgProJuri').html(htmlContenido);
+    $('#spanRepresentante').html(htmlRepresentante);
+    $('#spanInmueble').html(htmlInmueble);
+
+    //open the modal
+    $('#msgModalProJuri').modal('show');
+
 
 }
 

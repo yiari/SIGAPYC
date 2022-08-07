@@ -1,5 +1,5 @@
 <!-- Message Modal Propietario Juridico -->
-<div class="modal fade" id="msgModal" tabindex="-1" role="dialog" aria-labelledby="msgModalLabel" aria-hidden="true">
+<div class="modal fade" id="msgModalProJuri" tabindex="-1" role="dialog" aria-labelledby="msgModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header badge-primary" style="background-color: #c2c9ce !important;">
@@ -8,10 +8,27 @@
                     <span aria-hidden="true">×</span>
                 </button>
             </div>
-            <div class="modal-body"><span id="spanMsg">&nbsp;</span></div>
+            <div class="modal-body">
+                
+               <div class="row">
+                    <div class="col-md-12">
+                        <span id="spanMsgProJuri">&nbsp;</span>
+                    </div>
+                </div>
+                <br/>
+                <div class="row">
+                    <div class="col-md-6">
+                        <span id="spanRepresentante">&nbsp;</span>
+                        <span id="spanInmueble">&nbsp;</span>
+                    </div>
+                    
+                </div>
+
             <div class="modal-footer">
-                <button class="btn btn-primary" type="button" data-bs-dismiss="modal">Aceptar</button>
+            <button class="btn btn-primary" type="button" data-bs-dismiss="modal">Cerrar</button>
             </div>
         </div>
     </div>
 </div>
+
+

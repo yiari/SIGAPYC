@@ -66,7 +66,7 @@ function inicio(){
     guardarPropietariosj();
     generarCodigoPropietarioj();
   
-    cargarBancos('cboBancoJ');
+    cargarBancos('cboBancoj');
     cargarBancos('cboBancop');
  
 
@@ -394,8 +394,6 @@ function mensajeNatural(idpro, codigopro){
    
     htmlContenido='<i class="fa fa-check-circle fa-2x" aria-hidden="true" style="color:#29bf1d;"></i>&nbsp' + codigopro;
 
-
-  
     htmlApoderado='<a href="index.php?url=app/vistas/alquileres/ingresar_apoderado&idpro=' + idpro + '&codpro=' + codigopro + '" class="btn btn-primary">Apoderado</a>';
     htmlInmueble='<a href="index.php?url=app/vistas/alquileres/ingresar_inmueble&idpro=' + idpro + '&codpro=' + codigopro + '" class="btn btn-primary">Inmueble</a>';
 
@@ -413,31 +411,30 @@ function mensajeNatural(idpro, codigopro){
 }
 
 
-function mensajeJuridico(){
+/*function mensajeJuridico(idpro, codigopro){
 
     var htmlContenido="";
-    var htmlApoderado="";
+    var htmlRepresentante="";
     var htmlInmueble="";
    
-    htmlContenido='<i class="fa fa-check-circle fa-2x" aria-hidden="true" style="color:#29bf1d;"></i>&nbsp' + 'P-JEAN PERAZA-0001';
+    htmlContenido='<i class="fa fa-check-circle fa-2x" aria-hidden="true" style="color:#29bf1d;"></i>&nbsp';
 
-    htmlApoderado='<a href="index.php?url=app/vistas/alquileres/representante" class="btn btn-primary">Representante</a>';
-    htmlInmueble='<a href="index.php?url=app/vistas/alquileres/inmuebles" class="btn btn-primary">Inmueble</a>';
+    htmlRepresentante='<a href="index.php?url=app/vistas/alquileres/representante&idpro=' + idpro + '&codpro=' + codigopro + '" class="btn btn-primary">Representante</a>';
+    htmlInmueble='<a href="index.php?url=app/vistas/alquileres/inmuebles&idpro=' + idpro + '&codpro=' + codigopro + '" class="btn btn-primary">Inmueble</a>';
 
-    $('#spanMsgProNatu').html('');
-    $('#spanApoderado').html('');
+    $('#spanMsgProJuri').html('');
+    $('#spanRepresentante').html('');
     $('#spanInmueble').html('');
 
-    $('#spanMsgProNatu').html(htmlContenido);
-    $('#spanApoderado').html(htmlApoderado);
+    $('#spanMsgProJuri').html(htmlContenido);
+    $('#spanRepresentante').html(htmlRepresentante);
     $('#spanInmueble').html(htmlInmueble);
 
     //open the modal
-    $('#msgModalProNatu').modal('show');
+    $('#msgModalProJuri').modal('show');
 
 
-}
-
+}*/
 
 
 

@@ -10,6 +10,18 @@ include("layout/menuNavegacion.php");
 <div class="container">
 
         <div class="card-header">
+
+                <div style="text-align: right;">
+                        <ol>          
+                            <a class="btn btn-outline-secondary codpro" href="index.php?url=app/vistas/alquileres/representante"  role="button">Atras</a>
+                        </ol>
+                </div>
+
+                <div style="text-align: left;">
+                    <span id="lblPropietario"><strong>PROPIETARIO : </strong></span>
+                    <br/><br/>
+                </div>
+
             
 
                 <h4 class="card-title">Datos del Representante Lega</h4>
@@ -33,7 +45,7 @@ include("layout/menuNavegacion.php");
                                         <form class="form-sample" id="registrarrepresentante" name="registrarrepresentante" method="POST" action="guarda.php" autocomplete="off" enctype="multipart/form-data">
                                              
                                             <input type="hidden"  id="hidrepresentante" name="hidrepresentante" value='' >
-                                             <input type="hidden" id="id_prop" name="id_prop" value='0'>
+                                             <input type="hidden" id="id_prop" name="id_prop" value=''>
                                              <input type="hidden" id="tipo_persona" name=" tipo_persona" value='2'>
                                             
 
@@ -261,6 +273,8 @@ include_once "app/vistas/comunes/modaleliminar.php";
 
 ?>
 
+
 <script src="js/comunes/combos.js"></script>
 <script src="js/comunes/generadorcodigos.js"></script>
+<script src="js/comunes/funciones.js"></script>
 <script src="js/alquileres/ingresar_representante.js"></script>

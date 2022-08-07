@@ -29,7 +29,6 @@
                             <th>Inquilino</th>
                             <th>Telefono</th>
                             <th>correo</th>
-                            <th>correo</th>
                             <th>Doc / Editar</th>
                      
  

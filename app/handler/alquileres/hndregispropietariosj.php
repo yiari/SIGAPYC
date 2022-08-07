@@ -90,7 +90,7 @@ if($operacion == "I"){
     |-------------------------------------------
     */
     
-    $registroPagadorj =  new ctrregistropagadorj();
+    $registroPropietarioj =  new ctrregistropropietarioj();
 
    /*
    |---------------------------------------------
@@ -106,18 +106,18 @@ if($operacion == "I"){
                     "dir_proj"  => $_POST["registroDirecionj"],
                     "tel_proj"  => $_POST["registroCelularj"],
                     "cor_proj"  => $_POST["registroEmailj"],
-                    "tipo_personaj" => $_POST["tipo_personaj"], 
+                    "tipo_persona" => $_POST["tipo_personaj"], 
                     /*
                     |------------------------------------------
                     | AQUI VAN LOS DATOS DE LOS BANCOS NACIONALES
                     |------------------------------------------
                     */
                    "cuenta_id_nacionalj" => $_POST["hidcuenta_id_nacionalj"],
-                   "cuenta_id_bancoj" => $_POST["cboBancoNj"],
+                   "cuenta_id_bancoj" => $_POST["cboBancoj"],
                    "num_cuenta_nacionalj" => $_POST["num_cuenj"],
  
                    "pagomovil_cedulaj" => $_POST["ced_pmovj"],
-                   "pagomovil_id_bancoj" => $_POST["cboBancoNPj"],
+                   "pagomovil_id_bancoj" => $_POST["cboBancop"],
                    "pagomovil_telefonoj" => $_POST["cel_pmovj"],
                  
                    /*
@@ -186,7 +186,7 @@ if($operacion == "I"){
    | AQUI OBTENGO EL RESULTADO DE LA EJECUCION
    |---------------------------------------------
    */
-     $result = $registroPagadorj->registrar($datos,$AchivosCargados);
+     $result = $registroPropietarioj->registrar($datos,$AchivosCargados);
     
     /*
     |-------------------------------------------

@@ -266,8 +266,8 @@ function guardarApoderado(){
                     mensaje(json.mensaje,0);
 
                     //$("#mensaje").html(html).fadeIn();
-                    limpiarCampos();
-                    //limpiarTabla();
+                    //limpiarCampos();
+                    limpiarFormulario(1);
                     //botones(0);
 
                 }else {
@@ -292,9 +292,6 @@ function guardarApoderado(){
     });
 
 }
-
-
-
 
 
 
@@ -356,51 +353,18 @@ function generarCodigoApoderado(){
 
 }
 
+function limpiarFormulario(valor){
 
-
-
-
-function limpiarCampos(){
-
-    $("#hidapoderado").val("");
-    $("#id_prop").val("");
-    $("#registroCodigo").val("");
-    $("#registroNombre").val("");
-    $("#registroApellido").val("");
-    $("#registroNacionalidad").val("");
-    $("#registroCedula").val("");
-    $("#registroRif").val("");
-    $("#registroTelefono").val("");
-    $("#registroCelular").val(""); 
-    $("#registroEmail").val("");
-    $("#cboEstados").val("");                
-    $("#cboMunicipios").val("");
-    $("#cboParroquia").val("");
-    $("#registroDirecionH").val("");
-    $("#registroDirecionO").val("");
-    $("#cod_pode").val("");
-    $("#not_pode").val("");
-    $("#fec_pode").val("");
-    $("#num_pode").val("");
-    $("#tom_pode").val("");
-    $("#fol_pode").val("");
-    $("cuenta_id_nacional").val("");
-    $("cuenta_id_banco").val("");
-    $("num_cuenta_nacional").val("");
-    $("pagomovil_cedula").val("");
-    $("pagomovil_id_banco").val("");
-    $("pagomovil_telefono").val("");
-
-    $("cuenta_id_internacional").val("");
-    $("ban_extr").val("");
-    $("age_extr").val("");
-    
-    $("dc_extr").val("");
-    $("cue_extr").val("");
-    $("iba_extr").val("");
-    $("bic_extr").val("");
+    if(valor == 1){
+        document.getElementById("#registrarapoderado").reset();
+    }
 
 }
+
+
+
+
+
 
 
 

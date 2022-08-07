@@ -14,7 +14,7 @@ include_once '../../../app/modelos/alquileres/mdlregispropietariosj.php';
 |---------------------------------------------------------------
 */
 
-class ctrregistropropietarios{
+class ctrregistropropietarioj{
 
     //protected string $tabla;
 

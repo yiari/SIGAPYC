@@ -46,13 +46,13 @@ public function registrar($tabla,$datos,$archivos){
           $stmt = $dbConexion->conectar()->prepare("CALL usp_registropropietarioj(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
           $stmt -> bindParam(1, $datos["id_propj"], PDO::PARAM_INT); //ESTE ES EL ID DEL PROPIETARIO JURIDICO
           $stmt -> bindParam(2, $datos["cod_prop"], PDO::PARAM_STR);
-          $stmt -> bindParam(3, $datos["mon_proj"], PDO::PARAM_STR);                  
+          $stmt -> bindParam(3, $datos["nom_proj"], PDO::PARAM_STR);                  
           $stmt -> bindParam(4, $datos["rif_proj"], PDO::PARAM_STR); 
           $stmt -> bindParam(5, $datos["act_proj"], PDO::PARAM_STR);		  
           $stmt -> bindParam(6, $datos["dir_proj"], PDO::PARAM_STR); 
           $stmt -> bindParam(7, $datos["tel_proj"], PDO::PARAM_STR);
           $stmt -> bindParam(8, $datos["cor_proj"], PDO::PARAM_STR);		  
-          $stmt -> bindParam(9, $datos["tipo_personaj"],PDO::PARAM_INT); 
+          $stmt -> bindParam(9, $datos["tipo_persona"],PDO::PARAM_INT); 
           
             /*
             |-----------------------------------------------
@@ -75,7 +75,7 @@ public function registrar($tabla,$datos,$archivos){
             |-----------------------------------------------
             */
 
-            $stmt -> bindParam(176, $datos["cuenta_id_internacionalJ"], PDO::PARAM_INT); //ESTE ES EL ID DEL REGISTRO EN LA TABLA CUENTAS_PROPIETARIOSJ_NACIONAL 
+            $stmt -> bindParam(16, $datos["cuenta_id_internacionalJ"], PDO::PARAM_INT); //ESTE ES EL ID DEL REGISTRO EN LA TABLA CUENTAS_PROPIETARIOSJ_NACIONAL 
             $stmt -> bindParam(17, $datos["ban_extrj"], PDO::PARAM_STR); 
             $stmt -> bindParam(18, $datos["age_extrj"], PDO::PARAM_STR); 
             $stmt -> bindParam(19, $datos["dc_extrj"],  PDO::PARAM_STR);     
@@ -161,7 +161,7 @@ public function registrar($tabla,$datos,$archivos){
 
           $subirArchivos = new ctrsubirarchivos();
 
-          $prmTipoPersonaTEMP = $datos["tipo_personaj"];
+          $prmTipoPersonaTEMP = $datos["tipo_persona"];
 
 
 
@@ -187,7 +187,7 @@ public function registrar($tabla,$datos,$archivos){
 
           if( $prmIdPropietario > 0 ){
 
-            $dataRegistro["Items"][] = ["ID_PROPIETARIOj" => $prmIdPropietario];
+            $dataRegistro["Items"][] = ["ID_PROPIETARIOJ" => $prmIdPropietario];
           
             echo json_encode(array_merge($dataRegistro,$dataRes));
 

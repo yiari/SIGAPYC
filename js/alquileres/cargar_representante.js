@@ -1,13 +1,58 @@
 
 function inicio(){
 
-    cargarRepresentante();
+
+    /*
+    |----------------------------------------
+    | ASI SE CAPTURAN LOS PARAMETROS
+    |---------------------------------------
+    */
+   let idPropietario = getParameterByName('idpro');
+   let prmCodPro = getParameterByName('codpro');
+    /*--------------------------------------*/    
+
+    codigoPropietario(prmCodPro);
+
+    cargarRepresentante(idPropietario);
+
+    nuevoRepresentante(idPropietario,prmCodPro);
+
+   
+
+}
+
+
+function codigoPropietario(prmDato){
+
+    var html = "";
+
+    html='<strong>PROPIETARIO : </strong>'  + prmDato +'</span>';
+
+    $("#lblPropietario").html('');
+    $("#lblPropietario").html(html);
+
+}
+
+
+function nuevoRepresentante(prmIdPro, prmCodPro){
+
+    //if (isEmpty(prmDato) == false ){
+
+
+        var html = "";
+
+        html='index.php?url=app/vistas/alquileres/ingresar_representante&idpro=' + prmIdPro  + '&codpro=' + prmCodPro;
+    
+        $(".codpro").prop("href", html);
+
+
+    //}
 
 }
 
 
 
-function cargarRepresentante(){
+function cargarRepresentante(prmDato){
 
     /*
     |-----------------------------------------------------
@@ -17,6 +62,7 @@ function cargarRepresentante(){
     var formData = new FormData();
 
     formData.append('opcion','C');
+    formData.append('id_prop',prmDato);
     /*
     |-----------------------------------------------
     | AQUI SE LLAMA EL AJAX 
@@ -49,7 +95,10 @@ function cargarRepresentante(){
                 */
                 if(json.Items.length > 0){
                     var tr;
-                    for (var i = 0; i < json.Items[0].length; i++) {
+
+                    if(json.Items[0].length > 0){
+                    
+                        for (var i = 0; i < json.Items[0].length; i++) {
                 
                        // if (isEmpty(json.Items[0][i]) == false) {
                             tr = $('<tr/>');
@@ -70,14 +119,27 @@ function cargarRepresentante(){
                             html += '<a title="eliminar"  data-field-id="'  + json.Items[0][i].id_repr + '"><i class="fa fa-trash" alt=“eliminar”></i></a>';
                             html += '</div>'
                             tr.append("<td>" + html + "</td>");
-                            $('#datatablesSimple').append(tr);
+                            $('#datosRepresentante').append(tr);
                         //}
                     }
+                        } else {
+
+                        var tr;
+                        tr = $('<tr/>');
+                        tr.append("<td colspan=6 style='text-align:center'>NO HAY INFORMACION REGISTRADA</td>");
+                        $('#datosRepresentante').append(tr);
+
+                        }
 
 
+
+
+                    new simpleDatatables.DataTable("#datosRepresentante");
+
+                } 
                     //editarRepresentante();
                     //validareliminarRepresentante();
-                }
+                
                 /************************************************ */
 
 

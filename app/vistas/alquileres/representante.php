@@ -5,9 +5,14 @@
 
         <div style="text-align: right;">
         <ol>
-                <a class="btn btn-outline-primary" href="index.php?url=app/vistas/alquileres/ingresar_representante" role="button">Nuevo</a>                
+                <a class="btn btn-outline-primary codpro" href="index.php?url=app/vistas/alquileres/ingresar_representante" role="button">Nuevo</a>                
                 <!--a class="btn btn-outline-secondary" href="reportes.php"  role="button">Imprimir</a-->
             </ol>
+        </div>
+
+        <div style="text-align: left;">
+            <span id="lblPropietario"><strong>PROPIETARIO : </strong></span>
+            <br/><br/>
         </div>
         
         <!--tabla-->
@@ -17,7 +22,7 @@
                 REPRESENTANTE
             </div>
             <div class="card-body">
-                <table id="datatablesSimple">
+                <table id="datosRepresentante">
                     <thead>
                         <tr>
 
