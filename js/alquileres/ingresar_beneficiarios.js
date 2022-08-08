@@ -1,11 +1,16 @@
 function inicio(){
 
-     /*
+
+    /*
     |----------------------------------------
     | ASI SE CAPTURAN LOS PARAMETROS
     |---------------------------------------
     */
     $('#id_prop').val(getParameterByName('idpro'));
+    $('#id_propj').val(getParameterByName('idpro'));
+    $('#tipo_propietario').val(getParameterByName('codtip'));
+    $('#tipo_propietarioj').val(getParameterByName('codtip'));
+
     let idPropietario = getParameterByName('idpro');
     let prmCodPro = getParameterByName('codpro');
     /*--------------------------------------*/    

@@ -99,6 +99,7 @@ if($operacion == "I"){
    */
     $datos = array( "id_bene" => $_POST["hidbeneficiario"],
                     "id_prop" => $_POST["id_prop"],
+                    "tipo_propietario"   =>   $_POST["tipo_propietario"],
                     "cod_bene" => $_POST["registroCodigo"],
                     "mon_bene" => $_POST["registroNombre"],
                     "ape_bene" => $_POST["registroApellido"],
@@ -204,6 +205,7 @@ if($operacion == "C"){
 
 
    $prmid_prop = $_POST["id_prop"];
+   $prmtipo = $_POST["tipo"];
 
    /*
     |-------------------------------------------
@@ -218,7 +220,7 @@ if($operacion == "C"){
    | AQUI OBTENGO EL RESULTADO DE LA EJECUCION
    |---------------------------------------------
    */
-     $result = $registroBenefesiarios->seleccionarregistros($prmid_prop);
+     $result = $registroBenefesiarios->seleccionarregistros($prmid_prop,$prmtipo);
     
     /*
     |-------------------------------------------

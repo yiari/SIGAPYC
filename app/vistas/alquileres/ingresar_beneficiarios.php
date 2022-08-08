@@ -41,10 +41,8 @@
                                                 <input type="hidden" id="hidcuenta_id_nacional" name="hidcuenta_id_nacional" value='0'>
                                                 <input type="hidden" id="hidcuenta_id_internacional" name="hidcuenta_id_internacional" value='0'>
                                                 <input type="hidden" id="hidcuenta_id_paypal" name=" hidcuenta_id_paypal" value='0'>
-                                               
-
-                                               
-
+                                                <input type="hidden" id="tipo_propietario" name="tipo_propietario" value='0'>
+ 
                                                 <input type="hidden" id="nom_payp" name="nom_payp" value='0'>
                                                     
 

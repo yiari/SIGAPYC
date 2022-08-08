@@ -74,7 +74,7 @@ function atrasRepresentante(prmIdPro, prmCodPro){
 
 
         var html = "";
-        html='index.php?url=app/vistas/alquileres/apoderado&idpro=' + prmIdPro  + '&codpro=' + prmCodPro;
+        html='index.php?url=app/vistas/alquileres/representante&idpro=' + prmIdPro  + '&codpro=' + prmCodPro;
     
         $(".codpro").prop("href", html);
 

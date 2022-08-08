@@ -34,12 +34,13 @@
                                             <thead>
                                                 <tr>
                                                     
-                                                    <th>Propietarios</th>
-                                                    <th>Codigo:</th>
-                                                    <th>beneficiario</th>
+                                                    
+                                                    <th>Codigo</th>
+                                                    <th>nombre</th>
                                                     <th>Cedula o rif</th>
                                                     <th>telefono</th>
                                                     <th>correo</th>
+                                                    <th>Propietario</th>
                                                     <th>tipo</th>
                                                     <th>Doc / Editar</th>
                                             

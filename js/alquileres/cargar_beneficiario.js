@@ -8,13 +8,14 @@ function inicio(){
     */
    let idPropietario = getParameterByName('idpro');
    let prmCodPro = getParameterByName('codpro');
+   let prmTipo = getParameterByName('codtip');
     /*--------------------------------------*/    
 
     codigoPropietario(prmCodPro);
 
-    cargarbeneficiarios(idPropietario);
+    cargarbeneficiarios(idPropietario,prmTipo);
 
-    nuevoBeneficiario(idPropietario,prmCodPro);
+    nuevoBeneficiario(idPropietario,prmCodPro,prmTipo);
 
 
     
@@ -32,14 +33,14 @@ function codigoPropietario(prmDato){
 
 }
 
-function nuevoBeneficiario(prmIdPro, prmCodPro){
+function nuevoBeneficiario(prmIdPro, prmCodPro, prmTipo){
 
     //if (isEmpty(prmDato) == false ){
 
 
         var html = "";
 
-        html='index.php?url=app/vistas/alquileres/ingresar_beneficiarios&idpro=' + prmIdPro  + '&codpro=' + prmCodPro;
+        html='index.php?url=app/vistas/alquileres/ingresar_beneficiarios&idpro=' + prmIdPro  + '&codpro=' + prmCodPro + '&codtip=' + prmTipo;
     
         $(".codpro").prop("href", html);
 
@@ -49,7 +50,7 @@ function nuevoBeneficiario(prmIdPro, prmCodPro){
 }
 
 
-function cargarbeneficiarios(prmDato){
+function cargarbeneficiarios(prmDato, prmTipo){
 
     /*
     |-----------------------------------------------------
@@ -60,6 +61,7 @@ function cargarbeneficiarios(prmDato){
 
     formData.append('opcion','C');
     formData.append('id_prop',prmDato);
+    formData.append('tipo',prmTipo);
     /*
     |-----------------------------------------------
     | AQUI SE LLAMA EL AJAX 

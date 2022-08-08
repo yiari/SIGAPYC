@@ -6,7 +6,7 @@
         <div style="text-align: right;">
         <ol>
                 <a class="btn btn-outline-primary codpro" href="index.php?url=app/vistas/alquileres/ingresar_representante" role="button">Nuevo</a>                
-                <!--a class="btn btn-outline-secondary" href="reportes.php"  role="button">Imprimir</a-->
+                <a class="btn btn-outline-secondary" href="index.php?url=app/vistas/alquileres/propietarios"  role="button">Atras</a>
             </ol>
         </div>
 
@@ -59,5 +59,5 @@ include_once "app/vistas/comunes/modalmensajes.php";
 include_once "app/vistas/comunes/modaleliminar.php";
 
 ?>
-
+<script src="js/comunes/funciones.js"></script>
 <script src="js/alquileres/cargar_representante.js"></script>

@@ -62,7 +62,7 @@ function cargarRepresentante(prmDato){
     var formData = new FormData();
 
     formData.append('opcion','C');
-    formData.append('id_prop',prmDato);
+    formData.append('id_propj',prmDato);
     /*
     |-----------------------------------------------
     | AQUI SE LLAMA EL AJAX 
@@ -153,11 +153,7 @@ function cargarRepresentante(prmDato){
 
 
 
-function limpiarTabla() {
 
-    $('#datatablesSimple tbody').children().remove();
-
-}
 
 
 
