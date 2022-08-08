@@ -350,6 +350,20 @@
                                                 </div>
                                             </div>
                                             <div class="row">
+                                            <div class="col-md-4">
+                                                    <label for="registroCelularj" class="col-sm-8 col-form-label">Celular:</label>
+                                                    <div class="col-sm-12">
+                                                        <input type="text" class="form-control" id="registroCelularj" name="registroCelularj">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-8">
+                                                    <label for="registroEmailj" class="col-sm-9 col-form-label">Correo:</label>
+                                                    <div class="col-sm-12">
+                                                        <input type="text" class="form-control" id="registroEmailj" name="registroEmailj">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
                                                 <div class="col-md-12">
                                                     <label for="registroDirecionHj" class="col-sm-12 col-form-label">Dirección Fiscal:</label>
                                                     <div class="col-sm-12">

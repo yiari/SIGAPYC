@@ -37,6 +37,22 @@ function guardarBeneficiarioJ(){
         return;
         }
 
+    if ($("#registroCelular").val() == "") {
+        mensaje("Debe indicar el celular del beneficiario",1);
+        return;
+        }
+
+    if ($("#registroEmail").val() == "") {
+        mensaje("Debe indicar una direccion de correo valida",1);
+        return;
+    } else {
+        var respuesta = validateEmail($("#registroEmail").val());
+
+        if (respuesta == false) {
+            mensaje("La direccion de correo es invalida",1);
+            return;
+        }
+    }
 
 
         if ($("#cboBancoPJ").val() == "") {

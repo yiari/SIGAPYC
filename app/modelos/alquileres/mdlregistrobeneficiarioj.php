@@ -43,15 +43,18 @@ public function registrar($tabla,$datos,$archivos){
           | AQUI PREPARO LO QUE SERA LA LLAMADA AL PROCEDIMIENTO QUE REALIZARA LA OPERACION
           |----------------------------------------------------------------------------------
           */
-          $stmt = $dbConexion->conectar()->prepare("CALL usp_registrobeneficiario(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+          $stmt = $dbConexion->conectar()->prepare("CALL usp_registrobeneficiario(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
 
           $stmt -> bindParam(1, $datos["id_benej"], PDO::PARAM_INT); //ESTE ES EL ID DEL Beneficiario Jurídico
           $stmt -> bindParam(2, $datos["id_prop"], PDO::PARAM_INT); //ESTE ES EL ID DEL PROPIETARIO
           $stmt -> bindParam(3, $datos["cod_bene"], PDO::PARAM_STR);
           $stmt -> bindParam(4, $datos["mon_benej"], PDO::PARAM_STR);                  
-          $stmt -> bindParam(5, $datos["rif_benej"], PDO::PARAM_STR);                          
-          $stmt -> bindParam(6, $datos["dir_benej"], PDO::PARAM_INT);   
-          $stmt -> bindParam(7, $datos["tipo_persona"], PDO::PARAM_STR);       
+          $stmt -> bindParam(6, $datos["rif_benej"], PDO::PARAM_STR);
+          $stmt -> bindParam(7, $datos["act_benj"], PDO::PARAM_STR);
+          $stmt -> bindParam(8, $datos["cor_benj"], PDO::PARAM_STR);
+          $stmt -> bindParam(9, $datos["cel_benj"], PDO::PARAM_STR);                          
+          $stmt -> bindParam(10, $datos["dir_benej"], PDO::PARAM_INT);   
+          $stmt -> bindParam(11, $datos["tipo_persona"], PDO::PARAM_STR);       
          
           
             /*
@@ -60,13 +63,13 @@ public function registrar($tabla,$datos,$archivos){
             |-----------------------------------------------
             */
 
-          $stmt -> bindParam(8, $datos["cuenta_id_nacional"], PDO::PARAM_INT); //ESTE ES EL ID DEL REGISTRO EN LA TABLA CUENTAS_PROPIETARIOS_NACIONAL
-          $stmt -> bindParam(9, $datos["cuenta_id_banco"], PDO::PARAM_INT); //CAMPO OBLIGATORIO
-          $stmt -> bindParam(10, $datos["num_cuenta_nacional"], PDO::PARAM_STR); //CAMPO OBLIGATORIO
+          $stmt -> bindParam(12, $datos["cuenta_id_nacional"], PDO::PARAM_INT); //ESTE ES EL ID DEL REGISTRO EN LA TABLA CUENTAS_PROPIETARIOS_NACIONAL
+          $stmt -> bindParam(13, $datos["cuenta_id_banco"], PDO::PARAM_INT); //CAMPO OBLIGATORIO
+          $stmt -> bindParam(14, $datos["num_cuenta_nacional"], PDO::PARAM_STR); //CAMPO OBLIGATORIO
 
-          $stmt -> bindParam(11, $datos["pagomovil_cedula"], PDO::PARAM_INT);     
-          $stmt -> bindParam(12, $datos["pagomovil_id_banco"], PDO::PARAM_INT);       
-          $stmt -> bindParam(13, $datos["pagomovil_telefono"], PDO::PARAM_STR);
+          $stmt -> bindParam(15, $datos["pagomovil_cedula"], PDO::PARAM_INT);     
+          $stmt -> bindParam(16, $datos["pagomovil_id_banco"], PDO::PARAM_INT);       
+          $stmt -> bindParam(17, $datos["pagomovil_telefono"], PDO::PARAM_STR);
 
 
             /*
@@ -75,14 +78,14 @@ public function registrar($tabla,$datos,$archivos){
             |-----------------------------------------------
             */
 
-            $stmt -> bindParam(44, $datos["cuenta_id_internacional"], PDO::PARAM_INT); //ESTE ES EL ID DEL REGISTRO EN LA TABLA CUENTAS_PROPIETARIOS_INTERNACIONAL
+            $stmt -> bindParam(18, $datos["cuenta_id_internacional"], PDO::PARAM_INT); //ESTE ES EL ID DEL REGISTRO EN LA TABLA CUENTAS_PROPIETARIOS_INTERNACIONAL
             
-            $stmt -> bindParam(55, $datos["ban_extrj"], PDO::PARAM_STR); 
-            $stmt -> bindParam(66, $datos["age_extrj"], PDO::PARAM_STR); 
-            $stmt -> bindParam(77, $datos["dc_extrj"], PDO::PARAM_STR);     
-            $stmt -> bindParam(18, $datos["cue_extrj"], PDO::PARAM_STR);       
-            $stmt -> bindParam(19, $datos["iba_extrj"], PDO::PARAM_STR);
-            $stmt -> bindParam(20, $datos["bic_extrj"], PDO::PARAM_STR);
+            $stmt -> bindParam(19, $datos["ban_extrj"], PDO::PARAM_STR); 
+            $stmt -> bindParam(20, $datos["age_extrj"], PDO::PARAM_STR); 
+            $stmt -> bindParam(21, $datos["dc_extrj"],  PDO::PARAM_STR);     
+            $stmt -> bindParam(22, $datos["cue_extrj"], PDO::PARAM_STR);       
+            $stmt -> bindParam(23, $datos["iba_extrj"], PDO::PARAM_STR);
+            $stmt -> bindParam(24, $datos["bic_extrj"], PDO::PARAM_STR);
   
             /*
             |-----------------------------------------------
@@ -177,7 +180,7 @@ public function registrar($tabla,$datos,$archivos){
 
           if( $prmIdBeneficiarioj > 0 ){
 
-            $dataRegistro["Items"][] = ["ID_BENEFICIARIO" => $prmIdBeneficiarioj];
+            $dataRegistro["Items"][] = ["ID_BENEFICIARIOJ" => $prmIdBeneficiarioj];
           
             echo json_encode(array_merge($dataRegistro,$dataRes));
 

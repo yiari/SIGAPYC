@@ -103,6 +103,8 @@ if($operacion == "I"){
                     "mon_benej" => $_POST["registroNombrej"],
                     "rif_benej" => $_POST["registrorifj"], 
                     "act_benj" => $_POST["registroActividad"],
+                    "cor_benj" => $_POST["registroEmailj"],
+                    "cel_benj" => $_POST["registroCelualr"],
                     "dir_benej" => $_POST["registroDirecionHj"],
                     "tipo_persona" => $_POST["tipo_personaj"],
                 
@@ -185,38 +187,7 @@ if($operacion == "I"){
 
 
 
-/* 
- |--------------------------------------------------------------
- | AQUI SE EJECUTA LA OPERACION DE CONSULTAR TODOS LOS USUARIOS
- |--------------------------------------------------------------
-*/
 
-if($operacion == "C"){
-
-   /*
-    |-------------------------------------------
-    | AQUI CREO UNA INSTANCIA DE LA CLASE
-    |-------------------------------------------
-    */
-    
-    $registroBenefesiarios =  new ctrregistrobeneficiarios();
-
-   /* 
-   |---------------------------------------------
-   | AQUI OBTENGO EL RESULTADO DE LA EJECUCION
-   |---------------------------------------------
-   */
-     $result = $registroBenefesiarios->seleccionarregistros($prmid_prop);
-    
-    /*
-    |-------------------------------------------
-    | AQUI REGRESO EL RESULTADO AL AJAX
-    |-------------------------------------------
-    */
-    header('Content-Type: application/json');
-     return $result;
-     
-}
 
 
 
