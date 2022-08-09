@@ -187,7 +187,7 @@ function mensaje(mensaje, condicion){
 function limpiarFormulario(valor){
 
     if(valor == 1){
-        document.getElementById("registrarbeneficiario").reset();
+        document.getElementById("registrarbeneficiarioj").reset();
     }
 
 }
