@@ -145,12 +145,16 @@ if($operacion == "I"){
 
                    /*
                    |------------------------------------------
-                   | AQUI VAN LOS DATOS DE PAYPAÑ
+                   | AQUI VAN LOS DATOS DE PAYPAL
                    |------------------------------------------
                    */
                   "cuenta_id_paypal" => $_POST["hidcuenta_id_paypal"],
                   "cor_payp" => $_POST["cor_payp"],
                   "nom_payp" => $_POST["nom_payp"]);
+
+
+                  
+
 
                    //echo json_encode($datos);
                     //die;

@@ -25,6 +25,11 @@ function guardarBeneficiarioJ(){
         mensaje("Debe indicar el rif del beneficiario",1);
         return;
         }
+
+    if ($("#registroCelularj").val() == "") {
+        mensaje("Debe indicar el celular del beneficiario juridico",1);
+        return;
+        }
     
    
     if ($("#registroDirecionHj").val() == "") {
@@ -37,16 +42,13 @@ function guardarBeneficiarioJ(){
         return;
         }
 
-    if ($("#registroCelular").val() == "") {
-        mensaje("Debe indicar el celular del beneficiario",1);
-        return;
-        }
+    
 
-    if ($("#registroEmail").val() == "") {
+    if ($("#registroEmailj").val() == "") {
         mensaje("Debe indicar una direccion de correo valida",1);
         return;
     } else {
-        var respuesta = validateEmail($("#registroEmail").val());
+        var respuesta = validateEmail($("#registroEmailj").val());
 
         if (respuesta == false) {
             mensaje("La direccion de correo es invalida",1);
@@ -55,33 +57,33 @@ function guardarBeneficiarioJ(){
     }
 
 
-        if ($("#cboBancoPJ").val() == "") {
+    if ($("#cboBancoj").val() == "") {
         mensaje("Debe indicar el banco del beneficiario",1);
         return;
         }
 
-        if ($("#num_cuenJ").val() == "") {
-            mensaje("Debe indicar el numero de cuenta del banco",1);
-            return;
+    if ($("#num_cuenj").val() == "") {
+        mensaje("Debe indicar el numero de cuenta del banco",1);
+        return;
+        } else {
+
+            var numcuentaTMP = $("#num_cuenj").val(); 
+
+            if (numcuentaTMP.length<20){
+                mensaje("El Numero de cuenta debe ser de 20 digitos.",1);
+                return;
+
             } else {
 
-                var numcuentaTMP = $("#num_cuenJ").val(); 
-
-                if (numcuentaTMP.length<20){
-                    mensaje("El Numero de cuenta debe ser de 20 digitos.",1);
+                if(validarCuentaBanco('cboBancoj',numcuentaTMP) == false){
+                    mensaje("El Numero de cuenta registrado no concuerda con el banco seleccionado.",1);
                     return;
+                }
 
-                } else {
-
-                    if(validarCuentaBanco('cboBancoNP',numcuentaTMP) == false){
-                        mensaje("El Numero de cuenta registrado no concuerda con el banco seleccionado.",1);
-                        return;
-                    }
-
-                } 
+            } 
 
 
-            }
+        }
 
 
         

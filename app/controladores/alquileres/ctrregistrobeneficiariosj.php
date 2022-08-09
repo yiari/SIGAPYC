@@ -39,16 +39,7 @@ class ctrregistrobeneficiariosj{
 
     }
 
-    /*tabla para visializar los usuarios registrados*/
-
-     public function seleccionarregistros(){
-
-        $tabla = "beneficiario";
-        $modelo =  new mdlregisbenficiario();
-        $respuestas =  $modelo->seleccionarregistros($tabla,null,null);
-        return $respuestas;
-    }
-
+    
 
      
 

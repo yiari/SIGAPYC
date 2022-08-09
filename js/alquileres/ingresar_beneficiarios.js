@@ -13,16 +13,28 @@ function inicio(){
 
     let idPropietario = getParameterByName('idpro');
     let prmCodPro = getParameterByName('codpro');
+    let prmTipo = getParameterByName('codtip');
     /*--------------------------------------*/    
 
     codigoPropietario(prmCodPro);
-    atrasbeneficiario(idPropietario,prmCodPro);
+    atrasbeneficiario(idPropietario,prmCodPro,prmTipo);
  
     generarCodigoBeneficiario();
     cargarEstados();
     cargarBancos('cboBancoN');
     cargarBancos('cboBancoNP');
     guardarBeneficiario();
+
+
+    /*
+    |--------------------------------------------------
+    | TODOS LOS CAMPOS DE TEXTO ESCRIBEN EN MAYUSCULA
+    |--------------------------------------------------
+    */
+    $("input[type=text]").keyup(function() {
+        $(this).val($(this).val().toUpperCase());
+    });
+    /*------------------------------------------------*/
 
     jQuery("#registroNombre").on('input', function (evt) {
         jQuery(this).val(jQuery(this).val().replace(/[^A-Za-z ]/g, ''));
@@ -65,8 +77,9 @@ function inicio(){
     generarCodigoBeneficiarioj();
     
 
-    cargarBancos('cboBancoPJ');
+    cargarBancos('cboBancoj');
     cargarBancos('cboBancop');
+ 
 
     jQuery("#registroNombrej").on('input', function (evt) {
         jQuery(this).val(jQuery(this).val().replace(/[^A-Za-z ]/g, ''));
@@ -111,13 +124,13 @@ function codigoPropietario(prmDato){
 
 }
 
-function atrasbeneficiario(prmIdPro, prmCodPro){
+function atrasbeneficiario(prmIdPro,prmCodPro,prmTipo){
 
     //if (isEmpty(prmDato) == false ){
 
 
         var html = "";
-        html='index.php?url=app/vistas/alquileres/beneficiarios&idpro=' + prmIdPro  + '&codpro=' + prmCodPro;
+        html='index.php?url=app/vistas/alquileres/beneficiarios&idpro=' + prmIdPro  + '&codpro=' + prmCodPro + '&codtip=' + prmTipo;
     
         $(".codpro").prop("href", html);
 

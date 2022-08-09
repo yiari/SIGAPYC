@@ -50,7 +50,7 @@ function nuevoBeneficiario(prmIdPro, prmCodPro, prmTipo){
 }
 
 
-function cargarbeneficiarios(prmDato, prmTipo){
+function cargarbeneficiarios(prmDato,prmTipo){
 
     /*
     |-----------------------------------------------------
@@ -101,12 +101,13 @@ function cargarbeneficiarios(prmDato, prmTipo){
                        // if (isEmpty(json.Items[0][i]) == false) {
                             tr = $('<tr/>');
                             
-                            tr.append("<td>" + json.Items[0][i].propietario+ "</td>");
+                           
                             tr.append("<td>" + json.Items[0][i].codigo + "</td>");
-                            tr.append("<td>" + json.Items[0][i].beneficiario+ "</td>");
+                            tr.append("<td>" + json.Items[0][i].nombre+ "</td>");
                             tr.append("<td>" + json.Items[0][i].cedula+ "</td>");
                             tr.append("<td>" + json.Items[0][i].telefono + "</td>");
                             tr.append("<td>" + json.Items[0][i].correo + "</td>"); 
+                            tr.append("<td>" + json.Items[0][i].propietario+ "</td>");
                             tr.append("<td>" + tipoPersona(json.Items[0][i].tipo) + "</td>");
                          
                             

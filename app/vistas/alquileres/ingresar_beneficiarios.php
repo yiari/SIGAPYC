@@ -238,6 +238,7 @@
                                                             <span class="input-group-text">Cuenta Zelle</span>
                                                             <input type="text" class="form-control" placeholder="telefono" id="" name="" >
                                                             <input type="text" class="form-control" placeholder="correo" id="" name="" >
+                                                            <input type="text" class="form-control" placeholder="correo" id="" name="" >
                                                         </div>
                                                     </div>
 
@@ -321,25 +322,28 @@
                                                 <input type="hidden" id="id_propietarioj" name="id_propietarioj" value='0'>
                                                 <input type="hidden" id="hidcuenta_id_nacionalj" name="hidcuenta_id_nacionalj" value='0'>
                                                 <input type="hidden" id="hidcuenta_id_internacionalj" name="hidcuenta_id_internacionalj" value='0'>
+                                                <input type="hidden" id="hidcuenta_id_paypalj" name="hidcuenta_id_paypalj" value='0'>
+                                                <input type="hidden" id="hidcuenta_id_zelle" name="hidcuenta_id_zelle" value='0'>
+                                                <input type="hidden" id="tipo_propietarioj" name="tipo_propietarioj" value='0'>
                                                 
 
                                             <div class="col-md-5">
                                                 <label class="col-sm-12 col-form-label">Código Beneficiario:</label>
                                                 <div class="col-sm-12">
-                                                    <input for="registroCodigoj" type="text" class="form-control" id="registroCodigoj" name="registroCodigoj" autofocus readonly="yes" >
+                                                    <input for="registroCodigoj" type="text" class="form-control" id="registroCodigoj" name="registroCodigoj"  readonly="yes" >
                                                 </div>
                                            </div>
                                             <div class="row">
                                                 <div class="col-md-4">
                                                     <label for="registroNombrej"  class="col-sm-12 col-form-label">Nombre o Razón Social:</label>
                                                     <div class="col-sm-12">
-                                                        <input type="text" class="form-control" id="registroNombrej" name="registroNombrej" >
+                                                        <input type="text" class="form-control" id="registroNombrej" name="registroNombrej" autofocus>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-3">
                                                     <label for="registrorifj" class="col-sm-12 col-form-label">Rif Jurídico:</label>
                                                     <div class="col-sm-12">
-                                                        <input type="text" class="form-control" id="registrorifj" name="registrorifj" required>
+                                                        <input type="text" class="form-control" id="registrorifj" name="registrorifj">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-5">
@@ -381,16 +385,16 @@
                                                 <div class="row">
                                                     
                                                         <div class="col-md-6">
-                                                            <label for="cboBancoPJ" class="col-sm-10 col-form-label">Bancos Nacional:</label></br>
+                                                            <label for="cboBancoj" class="col-sm-10 col-form-label">Bancos Nacional:</label></br>
                                                             <div class="col-sm-12">
-                                                                <select class="form-control"  id="cboBancoPJ" name="cboBancoPJ"></select>
+                                                                <select class="form-control"  id="cboBancoj" name="cboBancoj"></select>
                                                             </div>
                                                        </div>
   
                                                     <div class="col-md-6">
                                                         <label for="num_cuenJ" class="col-sm-9 col-form-label">Cuenta:</label>
                                                         <div class="col-sm-12">
-                                                            <input type="text" class="form-control" id="num_cuenJ" name="num_cuenJ" maxlength="20"><br>
+                                                            <input type="text" class="form-control" id="num_cuenj" name="num_cuenj" maxlength="20"><br>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -398,9 +402,9 @@
                                                     <div class="col-md-12">
                                                         <div class="input-group">
                                                             <span class="input-group-text">Pago Movil</span>
-                                                            <input type="text" placeholder="cedula" id="ced_pmovJ" name="ced_pmovJ" aria-label="Cédula" value='' class="form-control">
+                                                            <input type="text" placeholder="cedula" id="ced_pmovj" name="ced_pmovj" aria-label="Cédula" value='' class="form-control">
                                                             <select class="form-control"  id="cboBancop" name="cboBancop"></select>
-                                                            <input type="text" placeholder="celular" id="cel_pmovJ" name="cel_pmovJ" aria-label="Celular" value='' class="form-control">
+                                                            <input type="text" placeholder="celular" id="cel_pmovj" name="cel_pmovj" aria-label="Celular" value='' class="form-control">
                                                         </div><br>
                                                     </div>  
                                                 </div>
@@ -453,15 +457,17 @@
                                                     <div class="col-md-6">
                                                         <div class="input-group">
                                                             <span class="input-group-text">Cuenta Paypal:</span>
-                                                            <input type="text" class="form-control" placeholder="correo" id="" name="" >
+                                                            <input type="text" class="form-control" placeholder="correo" id="cor_paypj" name="cor_paypj" >
+                                                            <input type="hidden" id="nom_paypj" name="nom_paypj" value='0'>
                                                         </div>
                                                     </div>
 
                                                     <div class="col-md-6">
                                                         <div class="input-group">
                                                             <span class="input-group-text">Cuenta Zelle</span>
-                                                            <input type="text" class="form-control" placeholder="telefono" id="" name="" >
-                                                            <input type="text" class="form-control" placeholder="correo" id="" name="" >
+                                                            <input type="text" class="form-control" placeholder="telefono" id="tel_zellj" name="tel_zellj" >
+                                                            <input type="text" class="form-control" placeholder="correo" id="cor_zellj" name="cor_zellj" >
+                                                            <input type="text" class="form-control" placeholder="nombre" id="nom_zellj" name="nom_zellj" >
                                                         </div>
                                                     </div>
 
@@ -535,7 +541,7 @@
                                             <div class="container">
                                                     <div class="col-12 btn btn-align-center">
 
-                                                        <button type="button" class="btn btn-primary">Guardar</button>
+                                                    <button type="submit" class="btn btn-primary">Guardar</button>
 
                                                 </div>
                                             </div>

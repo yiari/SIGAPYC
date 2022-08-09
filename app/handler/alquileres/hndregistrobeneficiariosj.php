@@ -97,14 +97,15 @@ if($operacion == "I"){
    | AQUI CARGO LOS DATOS PARA ALMACENAR
    |---------------------------------------------
    */
-    $datos = array( "id_benej" => $_POST["hidbeneficiarioj"],
+    $datos = array( "id" => $_POST["hidbeneficiarioj"],
                     "id_prop" => $_POST["id_propietarioj"],
+                    "tipo_propietarioj"   =>   $_POST["tipo_propietarioj"],
                     "cod_bene" => $_POST["registroCodigoj"],
                     "mon_benej" => $_POST["registroNombrej"],
                     "rif_benej" => $_POST["registrorifj"], 
-                    "act_benj" => $_POST["registroActividad"],
-                    "cor_benj" => $_POST["registroEmailj"],
-                    "cel_benj" => $_POST["registroCelualr"],
+                    "act_benej" => $_POST["registroActividad"],
+                    "cor_benej" => $_POST["registroEmailj"],
+                    "cel_benej" => $_POST["registroCelularj"],
                     "dir_benej" => $_POST["registroDirecionHj"],
                     "tipo_persona" => $_POST["tipo_personaj"],
                 
@@ -113,13 +114,13 @@ if($operacion == "I"){
                    | AQUI VAN LOS DATOS DE LOS BANCOS NACIONALES
                    |------------------------------------------
                    */
-                  "cuenta_id_nacional" => $_POST["hidcuenta_id_nacionalj"],
-                  "cuenta_id_banco" => $_POST["cboBancoN"],
-                  "num_cuenta_nacional" => $_POST["num_cuenJ"],
+                  "cuenta_id_nacionalj" => $_POST["hidcuenta_id_nacionalj"],
+                  "id_bancoj" => $_POST["cboBancoj"],
+                  "num_cuenta_nacionalj" => $_POST["num_cuenj"],
 
-                  "pagomovil_cedula" => $_POST["ced_pmovJ"],
-                  "pagomovil_id_banco" => $_POST["cboBancoNP"],
-                  "pagomovil_telefono" => $_POST["cel_pmovJ"],
+                  "pagomovil_cedulaj" => $_POST["ced_pmovj"],
+                  "pagomovil_id_bancoj" => $_POST["cboBancop"],
+                  "pagomovil_telefonoj" => $_POST["cel_pmovj"],
                 
                   /*
                    |------------------------------------------
@@ -132,17 +133,28 @@ if($operacion == "I"){
                   "dc_extrj" => $_POST["dc_extrj"],
                   "cue_extrj" => $_POST["cue_extrj"],
                   "iba_extrj" => $_POST["iba_extrj"],
-                  "bic_extrj" => $_POST["bic_extrj"]);
+                  "bic_extrj" => $_POST["bic_extrj"],
 
 
                    /*
                    |------------------------------------------
-                   | AQUI VAN LOS DATOS DE PAYPAÑ
+                   | AQUI VAN LOS DATOS DE PAYPAL
                    |------------------------------------------
                    */
-                  /*"cuenta_id_paypal" => $_POST["hidcuenta_id_paypal"],
-                  "cor_payp" => $_POST["cor_payp"],
-                  "nom_payp" => $_POST["nom_payp"]*/
+                  "cuenta_id_paypalj" => $_POST["hidcuenta_id_paypalj"],
+                  "cor_paypj" => $_POST["cor_paypj"],
+                  "nom_paypj" => $_POST["nom_paypj"],
+
+
+                  /*
+                   |------------------------------------------
+                   | AQUI VAN LOS DATOS DE ZELLE
+                   |------------------------------------------
+                   */
+                  "cuenta_id_zelle" => $_POST["hidcuenta_id_zelle"],
+                  "tel_zellej" => $_POST["tel_zellj"],
+                  "cor_zellej" => $_POST["cor_zellj"],
+                  "nom_zellej" => $_POST["nom_zellj"]);
 
                    //echo json_encode($datos);
                     //die;
