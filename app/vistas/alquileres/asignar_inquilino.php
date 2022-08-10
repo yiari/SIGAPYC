@@ -19,27 +19,25 @@ include("layout/menuNavegacion.php");
                     <br/><br/>
                 </div>
 
-           <h4 class="card-title">Inmuebles</h4><br>
+           <h4 class="card-title">Inquilino</h4><br>
             <nav>
                 <div class="nav nav-tabs" id="nav-tab" role="tablist">
                     <button class="nav-link active" id="nav-Inmueble-tab" data-bs-toggle="tab" data-bs-target="#nav-Inmueble" type="button" role="tab" aria-controls="nav-edificio" aria-selected="true">Inmueble</button>
                 </div>
             </nav>
 
-            <form class="form-sample" id="buscarPropietario" name="buscarPropietario" method="POST" action="" autocomplete="off" style="display: none;">
+            <form class="form-sample" id="buscarPropietario" name="buscarPropietario" method="POST" action="" autocomplete="off" enctype="multipart/form-data">
                  <!--Datos del propietario-->
                 <div class="card" id="Propietario">
-
-                                        
-                                                
+                                
                 <div class="card-body">
                     <div class="col text-center">
-                        <h5 class="card-title">Datos del Inquilino asignar</h5>
+                        <h5 class="card-title">Datos del inquilino</h5>
                     </div>
                 </br>
                     <div class="row">
                         <div class="col-md-3">
-                            <label class="col-sm-12 col-form-label">Buscar Código Inquilino:</label>
+                            <label class="col-sm-12 col-form-label">Buscar Código inquilino:</label>
                         </div>
                     
                         <div class="col-md-4">
@@ -73,23 +71,41 @@ include("layout/menuNavegacion.php");
                                     <input type="text" class="form-control" id="ci_prop" name="ci_prop" readonly="yes">
                                 </div>
                         </div>
+                        
+                    </div>
+                    <div class="row">
                         <div class="col-md-3">
-                            <label class="col-sm-5 col-form-label">Rif:</label>
+                            <label class="col-sm-8 col-form-label">Teléfono local:</label>
                             <div class="col-sm-12">
-                                <input type="text" class="form-control" id="rif_prop" name="rif_prop" readonly="yes">
+                                <input type="text" class="form-control" id="loc_prop" name="loc_prop" readonly="yes">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="col-sm-9 col-form-label">Celular:</label>
+                            <div class="col-sm-12">
+                                <input type="text" class="form-control" id="cel_prop" name="cel_prop" readonly="yes">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="col-sm-3 col-form-label">Correo:</label>
+                            <div class="col-sm-12">
+                                <input type="text" class="form-control" id="cor_prop" name="cor_prop" readonly="yes">
                             </div>
                         </div>
                     </div>
-                   
                 </div>
                 </div><br>
-                <!--info_propietario-->
+                <div class="container">
+                    <div class="col-12 btn btn-align-center">
+                    
+                        <button type="submit" class="btn btn-primary mb-2">Asignar</button>
+                
+                    </div>
+                </div>  
             </form>
 
-
+               
         
-        
-        <
     </div>
     
 </div>
@@ -104,5 +120,7 @@ include_once "app/vistas/comunes/modaleliminar.php";
 <script src="js/comunes/generadorcodigos.js"></script>
 <script src="js/comunes/funciones.js"></script>
 <script src="js/alquileres/ingresar_inmuebles.js"></script>
+
+
 
 
