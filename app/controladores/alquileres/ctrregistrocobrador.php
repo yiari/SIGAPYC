@@ -50,6 +50,17 @@ class ctrregistrocobradores{
     }
 
 
+    /*tabla para visializar los usuarios registrados*/
+
+    public function seleccionasignar(){
+
+        $tabla = "cobrador";
+        $modelo =  new mdlregiscobrador();
+        $respuestas =  $modelo->seleccionasignar($tabla,null,null);
+        return $respuestas;
+    }
+
+
      
 
 

@@ -1,12 +1,24 @@
 function inicio(){
 
-    cargarUnidades();
+
+     /*
+    |--------------------------------------------------
+    | TODOS LOS CAMPOS DE TEXTO ESCRIBEN EN MAYUSCULA
+    |--------------------------------------------------
+    */
+    $("input[type=text]").keyup(function() {
+        $(this).val($(this).val().toUpperCase());
+    });
+    /*------------------------------------------------*/
+
+    
     cargarEstados();
     cargartipo_inmueble();
     cargarBancos('cboBancoNP');
     guardarunidades();
+    generarCodigoUnidad();
     
-    
+   
     
     }
     
@@ -25,8 +37,8 @@ function inicio(){
        /**********************************************/        
     
      
-    if ($("#cboinmueble").val() == "") {
-        mensaje("Debe indicar el tipo de inmueble de la unidad",1);
+       if ($("#cboinmueble").val() == "") {
+        mensaje("Debe indicar el tipo de inmueble",1);
         return;
     }
     
@@ -121,7 +133,7 @@ function inicio(){
                    mensaje(json.mensaje,0);
     
                    //$("#mensaje").html(html).fadeIn();
-                   limpiarCampos();
+                   limpiarFormulario(1);
                    //limpiarTabla();
                    //botones(0);
                    cargarInmueble();
@@ -148,51 +160,63 @@ function inicio(){
     });
     
     }
+
+
+
+    function generarCodigoUnidad(){
+
+    
+
+        $('#cboinmueble').change(function() {
+    
+            var  prmTipoInmueble = $('#cboinmueble').find('option:selected').attr('data-tipoinmueble');
+            var  prmLetraInmueble = $("#registroletra").val();
+            var  prmNombreInmueble = $("#registrNombre").val();
+            //var prmTipo=$(this).attr('data-tipoinmueble');;
+    
+            $("#registroCodigo").val('');
+    
+            codigoUnidad(prmTipoInmueble,prmLetraInmueble,prmNombreInmueble,function(result){
+                $("#registroCodigo").val(result);
+            });
     
     
-    function limpiarCampos(){
+        });
     
-        $("#hidunidad").val("");
-        $("#cboinmueble").val("");
-        $("#registroletra").val("");
-        $("#registrNombre").val("");
-        $("#registroUso").val("");
-        $("#registroAntiguedad").val("");
-        $("#cboEstados").val("");
-        $("#cboMunicipios").val("");
-        $("#cboParroquia").val("");
-        $("#registroDirecionH").val("");
-        $("#pun_inmu").val("");
-        $("#equ_inmu").val("");
-        $("#mtr_inmu").val("");
-        $("#mtr_cons").val("");    
-        $("#hab_inmu").val("");
-        $("#ban_inmu").val("");
-        $("#est_inmu").val("");
-        $("#ser_inmu").val("");
-        $("#lim_nort").val("");
-        $("#lim_sur").val("");
-        $("#lim_este").val("");
-        $("#lim_oest").val("");
-        $("#nom_regi").val("");
-        $("#fec_regi").val("");
-        $("#tom_regi").val("");
-        $("#fol_regi").val("");
-        $("#asi_regi").val("");
-        $("#fic_cata").val("");
-        $("#num_regi").val("");
-        $("#gasto_admi").val("");
-        $("#gasto_papel").val("");
-        $("#iva").val("");
-        $("#isrl").val("");
-        $("#servicio").val("");
-        $("#monto").val("");
-        $("#cboBancoNP").val("");
-        $("#num_cuenta").val("");
-        $("#cedula").val("");
+    
+        $("#registroletra").on('keyup', function () {
+    
+            var  prmTipoInmueble = $('#cboinmueble').find('option:selected').attr('data-tipoinmueble');
+            var  prmLetraInmueble = $("#registroletra").val();
+            var  prmNombreInmueble = $("#registrNombre").val();
+    
+            $("#registroCodigo").val('');
+    
+            codigoUnidad(prmTipoInmueble,prmLetraInmueble,prmNombreInmueble,function(result){
+                $("#registroCodigo").val(result);
+            });
+    
+        });
+    
+        $("#registrNombre").on('keyup', function () {
+    
+            var  prmTipoInmueble = $('#cboinmueble').find('option:selected').attr('data-tipoinmueble');
+            var  prmLetraInmueble = $("#registroletra").val();
+            var  prmNombreInmueble = $("#registrNombre").val();
+    
+            $("#registroCodigo").val('');
+    
+            codigoUnidad(prmTipoInmueble,prmLetraInmueble,prmNombreInmueble,function(result){
+                $("#registroCodigo").val(result);
+            });
+    
+        });
     
     
     }
+    
+    
+    
     
     
     function mensaje(mensaje, condicion){
@@ -216,6 +240,15 @@ function inicio(){
     
     }
     
+
+
+    function limpiarFormulario(valor){
+
+        if(valor == 1){
+            document.getElementById("registrounidades").reset();
+        }
+    
+    }
     
     
     

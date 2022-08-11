@@ -338,7 +338,7 @@ public function registrar($tabla,$datos,$archivos){
 
 
 
-  public function  consultarInquilino($idinquilino,$tipoinquilino){
+  public function consultarInquilino($idinquilino,$tipoinquilino){
 
 
 
@@ -348,7 +348,7 @@ public function registrar($tabla,$datos,$archivos){
         
         $stmt = $dbConexion->conectar()->prepare("CALL usp_registroinquilinos(?,?)");
         $stmt -> bindParam(1,$idinquilino,PDO::PARAM_INT);
-         $stmt ->bindParam(2,$tipoinquilino,PDO::PARAM_STR);
+        $stmt ->bindParam(2,$tipoinquilino,PDO::PARAM_STR);
         
          $stmt->execute();
         $dataRegistro["Items"][] = $stmt->fetch();

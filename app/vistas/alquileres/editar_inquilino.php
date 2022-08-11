@@ -48,9 +48,9 @@ include("layout/menuNavegacion.php");
                                                 </div>
 
                                                 <div class="col-md-5">
-                                                        <label class="col-sm-12 col-form-label">Código Inquilino:</label>
+                                                        <label for="registroCodigo" class="col-sm-12 col-form-label">Código Inquilino:</label>
                                                         <div class="col-sm-12">
-                                                            <input for="registroCodigo" type="text" class="form-control" id="registroCodigo" name="registroCodigo" autofocus readonly="yes" >
+                                                            <input  type="text" class="form-control" id="registroCodigo" name="registroCodigo" autofocus readonly="yes" >
                                                         </div>
                                                 </div>
                                                 <div class="row">
@@ -269,9 +269,9 @@ include("layout/menuNavegacion.php");
                                                     <h5 class="card-title">Datos del Inquilino Jurídico</h5>
                                                 </div>
                                                 <div class="col-md-5">
-                                                        <label class="col-sm-12 col-form-label">Código Inquilino:</label>
+                                                        <label for="registroCodigoj"  class="col-sm-12 col-form-label">Código Inquilino:</label>
                                                         <div class="col-sm-12">
-                                                            <input  for="registroCodigoj" type="text" class="form-control" id="registroCodigoj" name="registroCodigoj" autofocus readonly="yes" >
+                                                            <input  type="text" class="form-control" id="registroCodigoj" name="registroCodigoj" autofocus readonly="yes" >
                                                         </div>
                                                 </div>
                                                 <div class="row">

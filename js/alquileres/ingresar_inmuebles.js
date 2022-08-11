@@ -20,7 +20,7 @@ function inicio(){
     generarCodigoInmueble();
 
 
-<<<<<<< HEAD
+
      /*
     |--------------------------------------------------
     | TODOS LOS CAMPOS DE TEXTO ESCRIBEN EN MAYUSCULA
@@ -33,11 +33,10 @@ function inicio(){
 
 
    
-=======
     jQuery("#unidades").on('input', function (evt) {
         jQuery(this).val(jQuery(this).val().replace(/[^0-9]/g, ''));
     });
->>>>>>> 6d22abfd7f2e0b48c1d996ee24f75ee9c2e660a9
+
 
 
 }

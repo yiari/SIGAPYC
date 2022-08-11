@@ -161,6 +161,43 @@ if($operacion == "I"){
 
 if($operacion == "C"){
 
+//$prmid_cobra = $_POST["id_cobrador"];
+
+   /*
+    |-------------------------------------------
+    | AQUI CREO UNA INSTANCIA DE LA CLASE
+    |-------------------------------------------
+    */
+    
+    $registrocobrador =  new ctrregistrocobradores();
+
+   /* 
+   |---------------------------------------------
+   | AQUI OBTENGO EL RESULTADO DE LA EJECUCION
+   |---------------------------------------------
+   */
+     $result = $registrocobrador->seleccionarregistros();
+    
+    /*
+    |-------------------------------------------
+    | AQUI REGRESO EL RESULTADO AL AJAX
+    |-------------------------------------------
+    */
+    header('Content-Type: application/json');
+     return $result;
+     
+}
+
+
+
+/* 
+ |--------------------------------------------------------------
+ | AQUI SE EJECUTA LA OPERACION DE CONSULTAR TODOS LOS INMUEBLES
+ |--------------------------------------------------------------
+*/
+
+if($operacion == "CAI"){
+
 
    //-$prmid_prop = $_POST["id_prop"];
 
@@ -177,7 +214,7 @@ if($operacion == "C"){
    | AQUI OBTENGO EL RESULTADO DE LA EJECUCION
    |---------------------------------------------
    */
-     $result = $registrocobrador->seleccionarregistros();
+     $result = $registrocobrador->seleccionasignar($tabla,null,null);
     
     /*
     |-------------------------------------------

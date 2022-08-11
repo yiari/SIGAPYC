@@ -27,7 +27,7 @@
                                         COBRADOR
                                     </div>
                                     <div class="card-body">
-
+                                    <div class="table-responsive">
                                         <table id="datosCobrador">
                                             <thead>
                                                 <tr>
@@ -49,6 +49,7 @@
                                                 
                                             </tbody>
                                         </table>
+                                        </div>
                                     </div>
                                 </div>
         </div>

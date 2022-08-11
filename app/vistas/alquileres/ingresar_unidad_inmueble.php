@@ -43,14 +43,12 @@ include("layout/menuNavegacion.php");
                             </div>
                             <div class="row">
 
+                                
                                 <div class="col-md-6">
-                                    <label class="col-sm-12 col-form-label">Código:</label>
-                                    <div class="col-sm-12">
-                                        <div class="col-sm-12">
-                                            <input type="text" class="form-control" id="" name="" autofocus readonly="yes" >
-                                        </div>
-                                    </div>
+                                    <label for="registroCodigo">Código:</label>
+                                    <input type="text" class="form-control" id="registroCodigo" name="registroCodigo" autofocus readonly="yes" >
                                 </div>
+                               
 
                             </div>
 
@@ -558,4 +556,5 @@ include_once "app/vistas/comunes/modaleliminar.php";
 
 <script src="js/comunes/combos.js"></script>
 <script src="js/comunes/generadorcodigos.js"></script>
+<script src="js/comunes/funciones.js"></script>
 <script src="js/alquileres/ingresar_unidades_inmueble.js"></script>
