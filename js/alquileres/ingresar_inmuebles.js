@@ -20,6 +20,20 @@ function inicio(){
     generarCodigoInmueble();
 
 
+     /*
+    |--------------------------------------------------
+    | TODOS LOS CAMPOS DE TEXTO ESCRIBEN EN MAYUSCULA
+    |--------------------------------------------------
+    */
+    $("input[type=text]").keyup(function() {
+        $(this).val($(this).val().toUpperCase());
+    });
+    /*------------------------------------------------*/
+
+
+   
+
+
 }
 
 function mostrarBuscar(prmDato){
@@ -163,7 +177,7 @@ if ($("#cboParroquia").val() == "") {
                mensaje(json.mensaje,0);
 
                //$("#mensaje").html(html).fadeIn();
-               limpiarCampos();
+               //limpiarCampos();
                limpiarFormulario();
                //botones(0);
                cargarInmueble();
@@ -251,12 +265,6 @@ function generarCodigoInmueble(){
     });
 
 
-    
-
-
-
-
-
 
 }
 
@@ -281,6 +289,8 @@ function mensaje(mensaje, condicion){
     $('#msgModal').modal('show');
 
 }
+
+
 
 
 

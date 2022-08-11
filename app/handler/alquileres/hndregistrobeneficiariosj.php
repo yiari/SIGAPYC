@@ -151,10 +151,10 @@ if($operacion == "I"){
                    | AQUI VAN LOS DATOS DE ZELLE
                    |------------------------------------------
                    */
-                  "cuenta_id_zelle" => $_POST["hidcuenta_id_zelle"],
-                  "tel_zellej" => $_POST["tel_zellj"],
-                  "cor_zellej" => $_POST["cor_zellj"],
-                  "nom_zellej" => $_POST["nom_zellj"]);
+                  "cuenta_id_zellej" => $_POST["hidcuenta_id_zellej"],
+                  "tel_zellej" => $_POST["tel_zellej"],
+                  "cor_zellej" => $_POST["cor_zellej"],
+                  "nom_zellej" => $_POST["nom_zellej"]);
 
                    //echo json_encode($datos);
                     //die;

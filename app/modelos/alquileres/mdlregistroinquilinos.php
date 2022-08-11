@@ -337,8 +337,49 @@ public function registrar($tabla,$datos,$archivos){
   }
 
 
-  
+
+  public function  consultarInquilino($idinquilino,$tipoinquilino){
+
+
+
+      try {
+
+        $dbConexion = new conexcion();
+        
+        $stmt = $dbConexion->conectar()->prepare("CALL usp_registroinquilinos(?,?)");
+        $stmt -> bindParam(1,$idinquilino,PDO::PARAM_INT);
+         $stmt ->bindParam(2,$tipoinquilino,PDO::PARAM_STR);
+        
+         $stmt->execute();
+        $dataRegistro["Items"][] = $stmt->fetch();
+
+        $dataRes = array(
+          'error' => '0',
+          'mensaje' =>  'El registro se realizo con exito.'
+        );
+        
+        
+        echo json_encode(array_merge($dataRegistro,$dataRes));
+
+        } catch (\Throwable $th) {
+        
+            //$pdo->rollBack() ;
+           // echo "Mensaje de Error: " . $th->getMessage();
+            $dataRes = array(
+              'error' => '1',
+              'mensaje' =>  "Mensaje de Error: " . $th->getMessage()
+            );
+      
+            echo json_encode($dataRes);
+    
+        }
+
+}
+
 
 
 
 }
+
+
+

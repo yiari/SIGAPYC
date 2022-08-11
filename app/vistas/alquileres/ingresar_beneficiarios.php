@@ -41,6 +41,7 @@
                                                 <input type="hidden" id="hidcuenta_id_nacional" name="hidcuenta_id_nacional" value='0'>
                                                 <input type="hidden" id="hidcuenta_id_internacional" name="hidcuenta_id_internacional" value='0'>
                                                 <input type="hidden" id="hidcuenta_id_paypal" name=" hidcuenta_id_paypal" value='0'>
+                                                <input type="hidden" id="hidcuenta_id_zelle" name="hidcuenta_id_zelle" value='0'>
                                                 <input type="hidden" id="tipo_propietario" name="tipo_propietario" value='0'>
  
                                                 <input type="hidden" id="nom_payp" name="nom_payp" value='0'>
@@ -236,9 +237,9 @@
                                                     <div class="col-md-6">
                                                         <div class="input-group">
                                                             <span class="input-group-text">Cuenta Zelle</span>
-                                                            <input type="text" class="form-control" placeholder="telefono" id="" name="" >
-                                                            <input type="text" class="form-control" placeholder="correo" id="" name="" >
-                                                            <input type="text" class="form-control" placeholder="correo" id="" name="" >
+                                                            <input type="text" class="form-control" placeholder="telefono" id="tel_zelle" name="tel_zelle">
+                                                            <input type="text" class="form-control" placeholder="correo" id="cor_zelle" name="cor_zelle">
+                                                            <input type="text" class="form-control" placeholder="nombre" id="nom_zelle" name="nom_zelle">
                                                         </div>
                                                     </div>
 
@@ -323,7 +324,7 @@
                                                 <input type="hidden" id="hidcuenta_id_nacionalj" name="hidcuenta_id_nacionalj" value='0'>
                                                 <input type="hidden" id="hidcuenta_id_internacionalj" name="hidcuenta_id_internacionalj" value='0'>
                                                 <input type="hidden" id="hidcuenta_id_paypalj" name="hidcuenta_id_paypalj" value='0'>
-                                                <input type="hidden" id="hidcuenta_id_zelle" name="hidcuenta_id_zelle" value='0'>
+                                                <input type="hidden" id="hidcuenta_id_zellej" name="hidcuenta_id_zellej" value='0'>
                                                 <input type="hidden" id="tipo_propietarioj" name="tipo_propietarioj" value='0'>
                                                 
 
@@ -465,9 +466,9 @@
                                                     <div class="col-md-6">
                                                         <div class="input-group">
                                                             <span class="input-group-text">Cuenta Zelle</span>
-                                                            <input type="text" class="form-control" placeholder="telefono" id="tel_zellj" name="tel_zellj" >
-                                                            <input type="text" class="form-control" placeholder="correo" id="cor_zellj" name="cor_zellj" >
-                                                            <input type="text" class="form-control" placeholder="nombre" id="nom_zellj" name="nom_zellj" >
+                                                            <input type="text" class="form-control" placeholder="telefono" id="tel_zellej" name="tel_zellej" >
+                                                            <input type="text" class="form-control" placeholder="correo" id="cor_zellej" name="cor_zellej" >
+                                                            <input type="text" class="form-control" placeholder="nombre" id="nom_zellej" name="nom_zellej" >
                                                         </div>
                                                     </div>
 

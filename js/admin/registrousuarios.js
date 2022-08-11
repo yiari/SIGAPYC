@@ -218,8 +218,8 @@ function cargarUsuarios(){
                                 
                                 var html="";
                                 html = '<div class="btn-group">';
-                                html += '<button class="btn btn-warning edit" data-field-id="' + json.Items[0][i].id + '" data-field-nombre="' + json.Items[0][i].nombre + '" data-field-apellido="'+ json.Items[0][i].apellido + '" data-field-usuario="'+ json.Items[0][i].usuario + '" data-field-email="' + json.Items[0][i].email +  '"><i class="fas fa-edit" alt=“editar”></i>&nbsp;Editar</button>';
-                                html += '<button class="btn btn-danger delete" data-field-id="' + json.Items[0][i].id + '"><i class="fas fa-trash" alt=“eliminar”></i>&nbsp;Eliminar</button>';
+                                html += '<button class="btn btn-warning edit" data-field-id="' + json.Items[0][i].id + '" data-field-nombre="' + json.Items[0][i].nombre + '" data-field-apellido="'+ json.Items[0][i].apellido + '" data-field-usuario="'+ json.Items[0][i].usuario + '" data-field-email="' + json.Items[0][i].email +  '"><i class="fa fa-edit" alt=“editar”></i>&nbsp;Editar</button>';
+                                html += '<button class="btn btn-danger delete" data-field-id="' + json.Items[0][i].id + '"><i class="fa fa-trash" alt=“eliminar”></i>&nbsp;Eliminar</button>';
                                 html += '</div>'
                                 tr.append("<td>" + html + "</td>");
                                 $('#tblUsuarios').append(tr);

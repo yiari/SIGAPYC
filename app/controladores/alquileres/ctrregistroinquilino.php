@@ -50,6 +50,15 @@ class ctrregistroinquilino{
     }
 
 
+    public function consultarInquilino($idinquilino,$tipoinquilino){
+
+        $tabla = "inquilino";
+        $modelo =  new mdlregistroinquilinos();
+        $respuestas =  $modelo->consultarInquilino($idinquilino,$tipoinquilino);
+        return $respuestas;
+    }
+
+
      
 
 

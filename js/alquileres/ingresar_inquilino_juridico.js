@@ -104,7 +104,7 @@ if ($("#registroDirecionj").val() == "") {
                mensaje(json.mensaje,0);
 
                //$("#mensaje").html(html).fadeIn();
-               limpiarCamposjuridico();
+               limpiarFormulario(1);
                //limpiarTabla();
                //botones(0);
                //cargarUsuarios();

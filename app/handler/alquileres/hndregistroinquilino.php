@@ -190,6 +190,43 @@ if($operacion == "C"){
 }
 
 
+/* 
+ |--------------------------------------------------------------
+ | AQUI SE EJECUTA LA OPERACION DE CONSULTAR TODOS LOS INQUILINOS
+ |--------------------------------------------------------------
+*/
+
+if($operacion == "CI"){
+
+   $idinquilino = $_POST["idinquilino"];
+   $tipoinquilino = $_POST["tipo"];
+
+   /*
+    |-------------------------------------------
+    | AQUI CREO UNA INSTANCIA DE LA CLASE
+    |-------------------------------------------
+    */
+    
+    $registroInquilino =  new ctrregistroinquilino();
+
+   /* 
+   |---------------------------------------------
+   | AQUI OBTENGO EL RESULTADO DE LA EJECUCION
+   |---------------------------------------------
+   */
+     $result = $registroInquilino->consultarInquilino($idinquilino,$tipoinquilino);
+    
+    /*
+    |-------------------------------------------
+    | AQUI REGRESO EL RESULTADO AL AJAX
+    |-------------------------------------------
+    */
+    header('Content-Type: application/json');
+     return $result;
+     
+}
+
+
 
 
 /* 

@@ -5,6 +5,17 @@ function inicio(){
     cargarEstados();
     guardarInquilino();
     generarCodigoInquilino();
+
+
+     /*
+    |--------------------------------------------------
+    | TODOS LOS CAMPOS DE TEXTO ESCRIBEN EN MAYUSCULA
+    |--------------------------------------------------
+    */
+    $("input[type=text]").keyup(function() {
+        $(this).val($(this).val().toUpperCase());
+    });
+    /*------------------------------------------------*/
     
   
     jQuery("#registroNombre").on('input', function (evt) {
@@ -13,6 +24,18 @@ function inicio(){
 
     jQuery("#registroApellido").on('input', function (evt) {
         jQuery(this).val(jQuery(this).val().replace(/[^A-Za-z ]/g, ''));
+    });
+
+    jQuery("#registroCedula").on('input', function (evt) {
+        jQuery(this).val(jQuery(this).val().replace(/[^0-9]/g, ''));
+    });
+
+    jQuery("#registroTelefono").on('input', function (evt) {
+        jQuery(this).val(jQuery(this).val().replace(/[^0-9]/g, ''));
+    });
+
+    jQuery("#registroCelular").on('input', function (evt) {
+        jQuery(this).val(jQuery(this).val().replace(/[^0-9]/g, ''));
     });
 
 
@@ -182,8 +205,8 @@ if ($("#cboParroquia").val() == "") {
                mensaje(json.mensaje,0);
 
                //$("#mensaje").html(html).fadeIn();
-               limpiarCampos();
-               //limpiarTabla();
+               
+               limpiarFormulario(1);
                //botones(0);
                cargarInquilino();
 
@@ -233,25 +256,14 @@ function mensaje(mensaje, condicion){
 }
 
 
-function limpiarCampos(){
 
-    $("#hidinquilino").val("");
-    $("#registroNombre").val("");
-    $("#registroApellido").val("");
-    $("#registroNacionalidad").val("");
-    $("registroCedula").val("");
-    $("#registroTeléfono").val("");
-    $("#registroCelular").val("");
-    $("#registroRif").val("");
-    $("#cboEstados").val("");
-    $("#cboMunicipios").val("");
-    $("#cboParroquia").val("");
-    $("#registroDirecionH").val("");
-    $("#registroDirecionO").val("");
-    $("#registroEmail").val("");
+function limpiarFormulario(valor){
+
+    if(valor == 1){
+        document.getElementById("registroinquilino").reset();
+    }
 
 }
-
 
 
 
@@ -287,10 +299,6 @@ function generarCodigoInquilino(){
    
 
 }
-
-
-
-
 
 
 

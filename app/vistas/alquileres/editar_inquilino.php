@@ -1,4 +1,3 @@
-
 <?php 
 
 include("layout/menuNavegacion.php"); 
@@ -12,6 +11,11 @@ include("layout/menuNavegacion.php");
                     <ol>               
                         <a class="btn btn-outline-secondary" href="index.php?url=app/vistas/alquileres/inquilinos"  role="button">Atras</a>
                     </ol>
+                </div>
+
+                <div style="text-align: left;">
+                    <span id="lblinquilino"><strong>INQUILINO : </strong></span>
+                         <br/><br/>
                 </div>
 
             <h4 class="card-title">Inquilinos</h4>
@@ -491,5 +495,7 @@ include("layout/menuNavegacion.php");
         <script src="js/comunes/combos.js"></script>
         <script src="js/comunes/generadorcodigos.js"></script>
         <script src="js/comunes/funciones.js"></script>
+        <script src="js/alquileres/editar_inquilino.js"></script>
         <script src="js/alquileres/ingresar_inquilino_juridico.js"></script>
         <script src="js/alquileres/ingresar_inquilinos.js"></script>
+      
