@@ -17,9 +17,9 @@
                 </div>
                 <br/>
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-8">
                         <span id="spanRepresentante">&nbsp;</span>
-                        <span id="spanInmueble">&nbsp;</span>
+                        <span id="spanInmuebleJ">&nbsp;</span>
                     </div>
                     
                 </div>

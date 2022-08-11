@@ -20,6 +20,11 @@ function inicio(){
     generarCodigoInmueble();
 
 
+    jQuery("#unidades").on('input', function (evt) {
+        jQuery(this).val(jQuery(this).val().replace(/[^0-9]/g, ''));
+    });
+
+
 }
 
 function mostrarBuscar(prmDato){
@@ -72,12 +77,24 @@ if ($("#cboinmueble").val() == "") {
     return;
 }
 
+
+if($('input[name="chkunidades"]').is(':checked'))
+{
+    //checked
+
+    if($("#unidades").val() == "" || $("#unidades").val() == "0" || $("#unidades").val() == 0){
+        mensaje("Debe indicar la cantidad de unidades del inmueble",1);
+        return;
+    }
+
+}
+
+
+
 if ($("#registroletra").val() == "") {
     mensaje("Debe indicar la letra o nuemro del inmueble",1);
     return;
 }
-
-
 
  if ($("#registrNombre").val() == "") {
      mensaje("Debe indicar el nombre del inmueble",1);
@@ -200,6 +217,21 @@ function limpiarFormulario(valor){
 
 }
 
+function checkAgregarUnidades(){
+
+    if($('input[name="chkunidades"]').is(':checked'))
+    {
+        //checked
+        $("#unidades").attr("disabled", false);
+    }
+    else
+    {
+        //unchecked
+        $("#unidades").attr("disabled", true);
+
+    }
+
+}
 
 function generarCodigoInmueble(){
 
@@ -249,13 +281,6 @@ function generarCodigoInmueble(){
         });
 
     });
-
-
-    
-
-
-
-
 
 
 }

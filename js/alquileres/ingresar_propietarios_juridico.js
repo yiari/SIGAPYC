@@ -220,18 +220,18 @@ function mensajeJuridico(idpro, codigopro){
     var htmlRepresentante="";
     var htmlInmueble="";
    
-    htmlContenido='<i class="fa fa-check-circle fa-2x" aria-hidden="true" style="color:#29bf1d;"></i>&nbsp';
+    htmlContenido='<i class="fa fa-check-circle fa-2x" aria-hidden="true" style="color:#29bf1d;"></i>&nbsp' + codigopro;
 
     htmlRepresentante='<a href="index.php?url=app/vistas/alquileres/representante&idpro=' + idpro + '&codpro=' + codigopro + '" class="btn btn-primary">Representante</a>';
     htmlInmueble='<a href="index.php?url=app/vistas/alquileres/inmuebles&idpro=' + idpro + '&codpro=' + codigopro + '" class="btn btn-primary">Inmueble</a>';
 
     $('#spanMsgProJuri').html('');
     $('#spanRepresentante').html('');
-    $('#spanInmueble').html('');
+    $('#spanInmuebleJ').html('');
 
     $('#spanMsgProJuri').html(htmlContenido);
     $('#spanRepresentante').html(htmlRepresentante);
-    $('#spanInmueble').html(htmlInmueble);
+    $('#spanInmuebleJ').html(htmlInmueble);
 
     //open the modal
     $('#msgModalProJuri').modal('show');

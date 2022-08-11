@@ -100,12 +100,31 @@ function cargarInmueble(prmDato){
                         
                             // if (isEmpty(json.Items[0][i]) == false) {
                                     tr = $('<tr/>');
+
                                     
+                                    let prmFoto = json.Items[0][i].foto;
+                                    let prmInquilino = json.Items[0][i].inquilino;
+
+                                    console.log(prmFoto);
+                                    console.log(prmInquilino);
                                 
+                                   
+                                    
+                                    if(prmFoto == undefined){
+                                        tr.append("<td style='text-align:center'>"+ '<img src="./app/iconos/sinfoto01.png" alt="sin foto" style="width:120px;height:120px;"></img>' + "</td>");
+                                    } else {
+                                        tr.append("<td>" + json.Items[0][i].foto + "</td>");
+                                    }
+                                    
                                     tr.append("<td>" + json.Items[0][i].codigo + "</td>");
-                                    tr.append("<td>" + json.Items[0][i].foto + "</td>");
                                     tr.append("<td>" + json.Items[0][i].propietario + "</td>");
-                                    tr.append("<td>" + json.Items[0][i].inquilino + "</td>");
+                                    
+                                    if(prmInquilino == undefined){
+                                        tr.append("<td>SIN INQUILINO</td>");
+                                    } else {
+                                        tr.append("<td>" + json.Items[0][i].inquilino + "</td>");
+                                    }
+
                                     tr.append("<td>" + json.Items[0][i].tipo + "</td>"); 
                                     tr.append("<td>" + statusinmuebles(json.Items[0][i].estatus) + "</td>");
                                     
@@ -115,7 +134,7 @@ function cargarInmueble(prmDato){
                                     html += '<a title="Ver" data-field-id="' + json.Items[0][i].id + '"><i class="fa fa-search" alt=“Ver”></i></a>&nbsp;';
                                     html += '<a title="Contrato" data-field-id="' + json.Items[0][i].id + '"><i class="fa fa-file-pen"></i></a>&nbsp;';
                                     html += '<a title="Bitacora" data-field-id="' + json.Items[0][i].id + '"><i class="fa fa-folder-open"></i></a>&nbsp;';
-                                    html += '<a title="inquilino"  href="index.php?url=app/vistas/alquileres/asignar_inquilino&idpro=' + json.Items[0][i].id_prop  + '&codpro=' + json.Items[0][i].codigo  + '"><i class="fa fa-user-circle-o"></i></a>&nbsp;'
+                                    html += '<a title="inquilino"  href="index.php?url=app/vistas/alquileres/asignar_inquilino&idpro=' + json.Items[0][i].id_prop  + '&codpro=' + json.Items[0][i].propietario  + '"><i class="fa fa-user-circle-o"></i></a>&nbsp;'
                                     html += '<a title="Eliminar"  data-field-id="'  + json.Items[0][i].id + '"><i class="fa fa-trash" alt=“eliminar”></i></a>';
                                     html += '</div>'
                                     tr.append("<td>" + html + "</td>");

@@ -43,7 +43,7 @@ public function registrar($tabla,$datos,$archivos){
           | AQUI PREPARO LO QUE SERA LA LLAMADA AL PROCEDIMIENTO QUE REALIZARA LA OPERACION
           |----------------------------------------------------------------------------------
           */
-          $stmt = $dbConexion->conectar()->prepare("CALL usp_registroinmueble(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+          $stmt = $dbConexion->conectar()->prepare("CALL usp_registroinmueble(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
           $stmt -> bindParam(1, $datos["id_inmu"],PDO::PARAM_INT); //id del imnumeble
           $stmt -> bindParam(2, $datos["id_prop"],PDO::PARAM_INT); //id propietraio
           $stmt -> bindParam(3, $datos["cod_inmu"],PDO::PARAM_STR); // codigo del inmueble
@@ -79,7 +79,8 @@ public function registrar($tabla,$datos,$archivos){
           $stmt -> bindParam(32,$datos["gasto_administrativo"],PDO::PARAM_INT); // gastos fijos administrativo
           $stmt -> bindParam(33,$datos["gastos_papeleria"],PDO::PARAM_INT); // gastos fijos papeleria
 
-        
+          $stmt -> bindParam(34,$datos["tieneunidades"],PDO::PARAM_INT); // Indicador si el inmueble tiene unidades o no
+          $stmt -> bindParam(35,$datos["cantunidades"],PDO::PARAM_INT); // Cantidad de unidades del inmueble en caso de tenerla
 
           //$stmt -> bindParam(19,$datos["sta_inmu"],PDO::PARAM_INT); // estado del inmueble 1-Disponible 0-desactivado 2-Alquilado 
        

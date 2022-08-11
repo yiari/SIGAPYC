@@ -128,11 +128,19 @@ include("layout/menuNavegacion.php");
                             <div class="row">
 
                                 <div class="col-md-6">
-                                    <label class="col-sm-12 col-form-label">Código:</label>
-                                    <div class="col-sm-12">
-                                        <div class="col-sm-12">
-                                            <input type="text" class="form-control" id="registroCodigo" name="registroCodigo" autofocus readonly="yes" >
+                                    <label for="registroCodigo">Código:</label>
+                                    <input type="text" class="form-control" id="registroCodigo" name="registroCodigo" autofocus readonly="yes" >
+                                </div>
+
+                                <div class="col-sm-3">
+                                    <label for="unidades">El Inmueble tiene unidades?</label>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text">
+                                            <input type="checkbox" id="chkunidades" name="chkunidades"  onchange="checkAgregarUnidades();">
+                                            </div>
                                         </div>
+                                        <input type="text" id="unidades"  name="unidades" class="form-control" maxlength="3" placeholder="Cantidad de unidades" disabled>
                                     </div>
                                 </div>
 
