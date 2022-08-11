@@ -25,8 +25,8 @@
                     <thead>
                         <tr>
 
+                            <th>Foto</th>    
                             <th>Codigo</th>
-                            <th>Foto</th>
                             <th>Propietario</th>
                             <th>Inquilino</th>
                             <th>Tipo</th>

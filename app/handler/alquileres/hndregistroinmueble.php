@@ -91,11 +91,68 @@ if($operacion == "I"){
     
     $registroInmueble =  new ctrregistroinmueble();
 
-   /*
-   |---------------------------------------------
-   | AQUI CARGO LOS DATOS PARA ALMACENAR
-   |---------------------------------------------
+
+
+if (isset($_POST["chkunidades"])){
+
+    /*
+   |---------------------------------------------------------------
+   | AQUI CARGO LOS DATOS PARA ALMACENAR (INMUEBLE CON UNIDADES)
+   |---------------------------------------------------------------
    */
+
+  $datos = array(   "id_inmu"   => $_POST["hidinmueble"],
+                     "id_prop"    => $_POST["id_prop"],
+                     "cod_inmu"   => $_POST["registroCodigo"],
+                     "tip_inmu"   => $_POST["cboinmueble"],
+                     "act_inmu"   => $_POST["registroUso"],
+                     "ant_inmu"   => $_POST["registroAntiguedad"],
+                     "cod_esta"   => $_POST["cboEstados"],
+                     "cod_muni"   => $_POST["cboMunicipios"],
+                     "cod_parr"   => $_POST["cboParroquia"],
+                     "dir_inmu"   => $_POST["registroDirecionH"],
+                     "pun_inmu"   => $_POST["pun_inmu"],
+                     "equ_inmu"   => $_POST["equ_inmu"],
+                     "mtr_inmu"   => $_POST["mtr_inmu"],
+                     "mtr_cons"   => $_POST["mtr_cons"],
+                     "hab_inmu"   => $_POST["hab_inmu"],
+                     "ban_inmu"   => $_POST["ban_inmu"],
+                     "est_inmu"   => $_POST["est_inmu"],
+                     "ser_inmu"   => $_POST["ser_inmu"],
+                     "lim_nort"   => $_POST["lim_nort"],
+                     "lim_sur"    =>  $_POST["lim_sur"],
+                     "lim_este"   => $_POST["lim_este"],
+                     "lim_oest"   => $_POST["lim_oest"],
+                     "nom_regi"   => $_POST["nom_regi"],
+                     "fec_regi"   => $_POST["fec_regi"],
+                     "tom_regi"   => $_POST["tom_regi"],
+                     "fol_regi"   => $_POST["fol_regi"],
+                     "asi_regi"   => $_POST["asi_regi"],
+                     "fic_cata"   => $_POST["fic_cata"],
+                     "num_regi"   => $_POST["num_regi"],
+                     "tipo_persona"   => $_POST["tipo_persona"],
+
+                        /*
+                     |------------------------------------------
+                     | AQUI VAN LOS DATOS DE LOS GASTOS FIJOS
+                     |------------------------------------------
+                     */
+                     "id_gastos" => $_POST["hid_gastos"],
+                     "gasto_administrativo" => $_POST["gasto_admi"],
+                     "gastos_papeleria" => $_POST["gasto_papel"],
+                     "tieneunidades" => 1,
+                     "cantunidades" => $_POST["unidades"]
+                  
+                  );
+
+} else {
+
+   /*
+   |---------------------------------------------------------------
+   | AQUI CARGO LOS DATOS PARA ALMACENAR (INMUEBLE SIN UNIDADES)
+   |---------------------------------------------------------------
+   */
+
     $datos = array( "id_inmu"   => $_POST["hidinmueble"],
                     "id_prop"    => $_POST["id_prop"],
                     "cod_inmu"   => $_POST["registroCodigo"],
@@ -134,10 +191,14 @@ if($operacion == "I"){
                    */
                   "id_gastos" => $_POST["hid_gastos"],
                   "gasto_administrativo" => $_POST["gasto_admi"],
-                  "gastos_papeleria" => $_POST["gasto_papel"]);
+                  "gastos_papeleria" => $_POST["gasto_papel"],
+                  "tieneunidades" => 0,
+                  "cantunidades" => 0
+               );
 
-      //echo json_encode($datos);
-      //die;
+
+}
+
 
     /*
    |-------------------------------------------------------------------------------------------------------------
