@@ -26,7 +26,7 @@ include("layout/menuNavegacion.php");
                             <!--inq_natural-->
                             <div class="card">
                                 <div class="card-body">
-                                    <form class="form-sample" id="buscarCodigo" name="buscarCodigo" method="POST" action="" autocomplete="off" enctype="multipart/form-data">
+                                    <form class="form-sample" id="buscarCodigo" name="buscarCodigo" method="POST" action="" autocomplete="off">
 
                                         <!--Datos Personales-->
                                         <div class="card">
@@ -64,8 +64,9 @@ include("layout/menuNavegacion.php");
                                     <table class="table table-striped" id="datosAsignarInmueble">
                                             <thead>
                                                     <tr>
-                                                    <th>Inmueble</th>
                                                     <th>Propietario</th>
+                                                    <th>Inmueble</th>
+                                                    <th>Unidad</th>
                                                     <th>Acciones</th>
                                                     </tr>
                                             </thead>

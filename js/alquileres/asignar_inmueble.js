@@ -17,9 +17,12 @@ function inicio(){
  
    /*--------------------------------------*/    
 
+
+   buscarInmueble();
+
    codigoCobrador(prmCodcobra);
 
-   AsignarInmueble(idcobrador);
+
 
   // nuevoPagador(idInquilino,prmCodInq, prmTipo);
   InmuebleAsigmnadoCobrador();
@@ -49,7 +52,30 @@ function mostrarBuscar(prmDato){
 
 
 
-function AsignarInmueble(prmDato){
+function buscarInmueble(){
+
+
+
+    $("#buscarCodigo").on('submit', function(evt) {
+
+
+   /*
+   |-----------------------------------------------
+   | AQUI SE PREVIENE QUE EL FORMULARIO CONTINUE 
+   |-----------------------------------------------
+   */
+   evt.preventDefault();
+   /**********************************************/       
+
+ 
+        if ($("#nom_prop").val() == "") {
+            mensaje("Debe indicar el codigo de propietario, inmueble o unidad",1);
+            console.log("Aqui llegue al mensaje");
+            return;
+        }
+
+
+        prmDato = $("#nom_prop").val();
 
    /*
    |-----------------------------------------------------
@@ -102,15 +128,22 @@ function AsignarInmueble(prmDato){
                
                       // if (isEmpty(json.Items[0][i]) == false) {
                            tr = $('<tr/>');
-                           
-                          
-                           tr.append("<td>" + json.Items[0][i].inmueble + "</td>");
-                           tr.append("<td>" + json.Items[0][i].propietario + "</td>");
-                          /* tr.append("<td>" + json.Items[0][i].inquilino + "</td>");*/
+                           /*
+                           i.id_inmu as id_inmueble      
+                           ,i.id_prop as id_propietario
+                           ,u.id_unid as id_unidad
+                           ,p.cod_prop as cod_propietario
+                           ,i.cod_inmu as cod_inmueble 
+                           ,u.cod_inmu  as cod_unidad
+                        */
+
+                           tr.append("<td>" + json.Items[0][i].cod_propietario + "</td>");
+                           tr.append("<td>" + json.Items[0][i].cod_inmueble + "</td>");
+                           tr.append("<td>" + json.Items[0][i].cod_unidad + "</td>");
  
                            var html="";
                            html = '<div class="btn-group" style="font-size:1.3em; letter-spacing:0.5em;">';
-                           html += '<button class="btn btn-success" data-field-id="' + json.Items[0][i].id + '"><i class="fa fa-minus " alt=“eliminar”></i>&nbsp;Vincular</button>';
+                           html += '<button class="btn btn-success" data-field-id="' + json.Items[0][i].id_inmueble + '"><i class="fa fa-minus " alt=“eliminar”></i>&nbsp;Vincular</button>';
                            
                           
                            html += '</div>'
@@ -139,6 +172,9 @@ function AsignarInmueble(prmDato){
            $("#error").html(e).fadeIn();
        }
    });
+
+});
+
 
 }
 
@@ -245,6 +281,28 @@ function limpiarTabla() {
 
 }
 
+
+
+function mensaje(mensaje, condicion){
+
+    var html="";
+
+    if(condicion == 0){//ESTOS SON MENSAJES CON EXITO
+
+        html='<i class="fa fa-check-circle fa-2x" aria-hidden="true" style="color:#29bf1d;"></i>&nbsp' + mensaje;
+
+    } else if (condicion == 1){//ESTOS SON MENSAJES CON ERROR
+
+        html='<i class="fa fa-times-circle fa-2x" aria-hidden="true" style="color:#bf1d1d;"></i>&nbsp' + mensaje;
+    }
+
+
+    $('#spanMsg').html('');
+    $('#spanMsg').html(html);
+    //open the modal
+    $('#msgModal').modal('show');
+
+}
 
 $(document).ready(function() {
 

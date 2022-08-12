@@ -358,10 +358,7 @@ public function registrar($tabla,$datos,$archivos){
               $dbConexion = new conexcion();  
 
                 $stmt = $dbConexion->conectar()->prepare("CALL usp_cargar_asignacion_cobrador(?)");
-
-                $stmt -> bindParam(1,$codigo,PDO::PARAM_STR);
-            
-               
+                $stmt -> bindParam(1,$id_cobrador,PDO::PARAM_STR);
                 $stmt->execute();
                 $dataRegistro["Items"][] = $stmt->fetchAll();
       
@@ -394,9 +391,9 @@ public function registrar($tabla,$datos,$archivos){
           
           $stmt = $dbConexion->conectar()->prepare("CALL usp_cargar_asignacion_cobrador(?)" );
         
-          $stmt -> bindParam(1,$codigo,PDO::PARAM_STR);
+          $stmt -> bindParam(1,$id_cobrador,PDO::PARAM_STR);
           $stmt->execute();
-          $dataRegistro["Items"][] = $stmt->fetch();
+          $dataRegistro["Items"][] = $stmt->fetchAll();
 
           $dataRes = array(
             'error' => '0',
