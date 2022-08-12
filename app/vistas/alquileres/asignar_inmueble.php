@@ -8,7 +8,7 @@ include("layout/menuNavegacion.php");
     <div class="card-header">
                     <div style="text-align: right;">
                         <ol>          
-                            <a class="btn btn-outline-secondary codpro" href="index.php?url=app/vistas/alquileres/cobrador"  role="button">Atras</a>
+                            <a class="btn btn-outline-secondary codcobra" href="index.php?url=app/vistas/alquileres/cobrador"  role="button">Atras</a>
                         </ol>
                     </div>
 
@@ -18,7 +18,7 @@ include("layout/menuNavegacion.php");
                          <br/><br/>
                     </div>
 
-            <h4 class="card-title">Asignación de inmuebles al contador</h4>
+            <h4 class="card-title">Asignación de inmuebles al Cobrador</h4>
                 
                 <div class="tab-content" id="nav-tabContent">
                     <div class="tab-pane fade show active" id="nav-inq_natural" role="tabpanel" aria-labelledby="nav-inq_natural-tab">
@@ -26,7 +26,7 @@ include("layout/menuNavegacion.php");
                             <!--inq_natural-->
                             <div class="card">
                                 <div class="card-body">
-                                    <form class="form-sample" id="inq_natural" name="inq_natural" method="POST" action="" autocomplete="off" enctype="multipart/form-data">
+                                    <form class="form-sample" id="buscarCodigo" name="buscarCodigo" method="POST" action="" autocomplete="off" enctype="multipart/form-data">
 
                                         <!--Datos Personales-->
                                         <div class="card">
@@ -55,44 +55,59 @@ include("layout/menuNavegacion.php");
                                         </div><br>
             
                                     </form>
-                                    <div class="row">
-
-                                        <div class="card">
-                                        <div class="card-body">
-
-                                                <div class="table-responsive">
-                                                    <table class="table table-striped" id="datosAsignarInmueble">
-                                                            <thead>
-                                                                    <tr>
-                                                                    <th>Inmueble</th>
-                                                                    <th>Propietario</th>
-                                                                    <th>Inquilino</th>
-                                                                    <th>Acciones</th>
-                                                                    </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                            </tbody>
-                                                    </table>
-                                                </div>
-                                                </div>
-                                        </div>
-                                        </div>
-                                </div>
                                
                             </div>
-                           
+
+                            <div class="card-body ">
+                                
+                                <div class="table-responsive">
+                                    <table class="table table-striped" id="datosAsignarInmueble">
+                                            <thead>
+                                                    <tr>
+                                                    <th>Inmueble</th>
+                                                    <th>Propietario</th>
+                                                    <th>Acciones</th>
+                                                    </tr>
+                                            </thead>
+                                            <tbody>
+                                            </tbody>
+                                    </table>
+                                </div>
+                                 
+                            </div>
+                            
                         </div>
+                        <br>
+                        <h4 class="card-title">Inmuebles asignados al Cobrador</h4>
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table class="table table-striped" id="datosInmuebleAsignados">
+                                                <thead>
+                                                        <tr>
+                                                        <th>Cobrador</th>
+                                                        <th>Inmueble</th>
+                                                        <th>Inquilino</th>
+                                                        <th>Acciones</th>
+                                                        </tr>
+                                                </thead>
+                                                <tbody>
+                                                </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
                       
                     </div>
                 
                 </div>
             </div>
         </div>
-        <?php 
+<?php 
 
 include_once "app/vistas/comunes/modalmensajes.php";
 include_once "app/vistas/comunes/modaleliminar.php";
 
 ?>
 <script src="js/comunes/funciones.js"></script>
-<script src="js/alquileres/asignar_inquilino.js"></script>
+<script src="js/alquileres/asignar_inmueble.js"></script>

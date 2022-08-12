@@ -39,7 +39,7 @@ class ctrregistrocobradores{
 
     }
 
-    /*tabla para visializar los usuarios registrados*/
+    /*tabla para visializar los cobradores registrados*/
 
      public function seleccionarregistros(){
 
@@ -50,13 +50,24 @@ class ctrregistrocobradores{
     }
 
 
-    /*tabla para visializar los usuarios registrados*/
+   /*tabla para visializar los inamuebles para ser asigandos */
 
-    public function seleccionasignar(){
+    public function seleccionasignar($id_cobrador){
 
         $tabla = "cobrador";
         $modelo =  new mdlregiscobrador();
-        $respuestas =  $modelo->seleccionasignar($tabla,null,null);
+        $respuestas =  $modelo->seleccionasignar($tabla,$id_cobrador,null);
+        return $respuestas;
+    }
+
+
+    /*tabla para visializar los inamuebles ya asigandos al cobrador */
+
+    public function seleccioninmueblecobrador(){
+
+        $tabla = "cobrador_inmueble";
+        $modelo =  new mdlregiscobrador();
+        $respuestas =  $modelo->seleccioninmueblecobrador($tabla,null,null);
         return $respuestas;
     }
 

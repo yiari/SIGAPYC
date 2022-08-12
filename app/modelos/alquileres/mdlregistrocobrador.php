@@ -348,16 +348,20 @@ public function registrar($tabla,$datos,$archivos){
 
 
 
-     public function seleccionasignar($tabla,$iten,$valor){
+     public function seleccionasignar($tabla,$id_cobrador){
 
-      If($iten == null && $valor == null){
+      If($id_cobrador == null && $id_cobrador == null){
 
 
             try {
 
               $dbConexion = new conexcion();  
 
-                $stmt = $dbConexion->conectar()->prepare("CALL usp_cargarunidades");
+                $stmt = $dbConexion->conectar()->prepare("CALL usp_cargar_asignacion_cobrador(?)");
+
+                $stmt -> bindParam(1,$codigo,PDO::PARAM_STR);
+            
+               
                 $stmt->execute();
                 $dataRegistro["Items"][] = $stmt->fetchAll();
       
@@ -388,9 +392,9 @@ public function registrar($tabla,$datos,$archivos){
 
           $dbConexion = new conexcion();
           
-          $stmt = $dbConexion->conectar()->prepare("CALL usp_cargarunidades" );
+          $stmt = $dbConexion->conectar()->prepare("CALL usp_cargar_asignacion_cobrador(?)" );
         
-          $stmt ->bindParam(":".$iten, $valor, PDO::PARAM_STR);
+          $stmt -> bindParam(1,$codigo,PDO::PARAM_STR);
           $stmt->execute();
           $dataRegistro["Items"][] = $stmt->fetch();
 
@@ -420,6 +424,82 @@ public function registrar($tabla,$datos,$archivos){
 
       }
   }
+
+
+
+
+  public function seleccioninmueblecobrador($tabla,$iten,$valor){
+
+    If($iten == null && $valor == null){
+
+
+          try {
+
+            $dbConexion = new conexcion();  
+
+              $stmt = $dbConexion->conectar()->prepare("CALL usp_cargar_inmueble_cobrador()");
+              $stmt->execute();
+              $dataRegistro["Items"][] = $stmt->fetchAll();
+    
+              $dataRes = array(
+                'error' => '0',
+                'mensaje' =>  'El registro se realizo con exito.'
+              );
+                        
+              echo json_encode(array_merge($dataRegistro,$dataRes));
+    
+              } catch (\Throwable $th) {
+              
+                  //$pdo->rollBack() ;
+                  //echo "Mensaje de Error: " . $th->getMessage();
+                  $dataRes = array(
+                    'error' => '1',
+                    'mensaje' =>  "Mensaje de Error: " . $th->getMessage()
+                  );
+            
+                  echo json_encode($dataRes);
+          
+              }
+
+    }else{
+
+
+      try {
+
+        $dbConexion = new conexcion();
+        
+        $stmt = $dbConexion->conectar()->prepare("CALL usp_cargar_inmueble_cobrador()" );
+      
+        $stmt ->bindParam(":".$iten, $valor, PDO::PARAM_STR);
+        $stmt->execute();
+        $dataRegistro["Items"][] = $stmt->fetch();
+
+        $dataRes = array(
+          'error' => '0',
+          'mensaje' =>  'El registro se realizo con exito.'
+        );
+        
+        
+        echo json_encode(array_merge($dataRegistro,$dataRes));
+
+        } catch (\Throwable $th) {
+        
+            //$pdo->rollBack() ;
+            //echo "Mensaje de Error: " . $th->getMessage();
+            $dataRes = array(
+              'error' => '1',
+              'mensaje' =>  "Mensaje de Error: " . $th->getMessage()
+            );
+      
+            echo json_encode($dataRes);
+    
+        }
+
+
+
+
+    }
+}
 
 
 
