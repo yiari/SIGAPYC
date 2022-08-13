@@ -265,6 +265,46 @@ if($operacion == "IAC"){
      
 }
 
+/* 
+ |-------------------------------------------
+ | AQUI SE EJECUTA LA OPERACION DE INSERTAR
+ |-------------------------------------------
+*/
+
+if($operacion == "V"){
+
+
+   $idcobrador = $_POST["idcobrador"];
+   $idinmueble = $_POST["idinmueble"];
+   $idunidad = $_POST["idunidad"];
+
+
+   /*
+    |-------------------------------------------
+    | AQUI CREO UNA INSTANCIA DE LA CLASE
+    |-------------------------------------------
+    */
+    
+    $registrocobrador =  new ctrregistrocobradores();
+
+   /*
+   |---------------------------------------------
+   | AQUI CARGO LOS DATOS PARA ALMACENAR
+   |---------------------------------------------
+   */
+  
+
+                   //echo json_encode($datos);
+                    //die;
+    /*
+    |-------------------------------------------
+    | AQUI REGRESO EL RESULTADO AL AJAX
+    |-------------------------------------------
+    */
+    header('Content-Type: application/json');
+     return $result;
+     
+}
 
 
 

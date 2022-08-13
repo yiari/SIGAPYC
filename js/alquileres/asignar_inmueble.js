@@ -19,13 +19,8 @@ function inicio(){
 
 
    buscarInmueble();
-
-   codigoCobrador(prmCodcobra);
-
-
-
-  // nuevoPagador(idInquilino,prmCodInq, prmTipo);
-  InmuebleAsigmnadoCobrador();
+   codigoCobrador(prmCodcobra)
+   InmuebleAsigmnadoCobrador();
 
 }
 
@@ -143,7 +138,7 @@ function buscarInmueble(){
  
                            var html="";
                            html = '<div class="btn-group" style="font-size:1.3em; letter-spacing:0.5em;">';
-                           html += '<button class="btn btn-success" data-field-id="' + json.Items[0][i].id_inmueble + '"><i class="fa fa-minus " alt=“eliminar”></i>&nbsp;Vincular</button>';
+                           html += '<button class="btn btn-success "data-field-idcobrador="' + json.Items[0][i].id_cobrador + '"data-field-idinmueble="' + json.Items[0][i].id_inmueble + '"data-field-idunidad="'+ json.Items[0][i].Id_unidad + '"><i class="fa fa-plus" alt=Vincular></i>&nbsp;Vincular</button>';
                            
                           
                            html += '</div>'
@@ -175,6 +170,103 @@ function buscarInmueble(){
 
 });
 
+
+}
+
+
+
+function vinculacion(){
+
+    $("#.vincular").click(function() {
+   /*
+   |-----------------------------------------------
+   | AQUI SE PREVIENE QUE EL FORMULARIO CONTINUE 
+   |-----------------------------------------------
+   */
+   evt.preventDefault();
+   /**********************************************/ 
+   var prmidusuario = $(this).data('field-id_usuario');       
+   var prmidcobrador = $(this).data('field-id_cobrador');
+   var prmidinmueble = $(this).data('field-id_inmueble');
+   var prmidunidad = $(this).data('field-id_unidad');
+
+
+       
+ 
+   /*
+   |-----------------------------------------------
+   | LIMPIA EL CAMPO MENSAJE 
+   |-----------------------------------------------
+   */
+   $("#error").html("Ejecutando...");
+   /*
+   |-----------------------------------------------
+   | AQUI SE CAPTURA LOS DATOS DEL FORMULARIO 
+   |-----------------------------------------------
+   */
+   var formData = new FormData(this);
+   /*
+   |-----------------------------------------------------
+   | AQUI SE AGREGA UN PARAMETRO ADICIONAL AL FORMULARIO 
+   |-----------------------------------------------------
+   */
+   formData.append('opcion','V');
+   formData.append('idusuario',prmidusuario);
+   formData.append('idcobrador',prmidcobrador);
+   formData.append('idinmueble',prmidinmueble);
+   formData.append('idunidad',prmidunidad);
+
+
+   /*
+   |-----------------------------------------------
+   | AQUI SE LLAMA EL AJAX 
+   |-----------------------------------------------
+   */
+   $.ajax({
+       url: "app/handler/admin/hndregistrousuarios.php",
+       type: "POST",
+       data: formData, //new FormData(this),
+       contentType: false,
+       dataType: "json",
+       cache: false,
+       processData: false,
+       beforeSend: function () {
+           //$("#preview").fadeOut();
+           $("#error").fadeOut();
+       },
+       success: function (data) {
+       var json = data;
+       var html = "";
+
+           console.log("Mensaje del JSON: " + json.mensaje);
+
+           if(json.error == 0){
+               
+               mensaje(json.mensaje,0);
+
+               //$("#mensaje").html(html).fadeIn();
+               
+
+           }else {
+
+               mensaje(json.mensaje,1);
+
+               //$("#mensaje").html(html).fadeIn();
+           }
+
+
+
+       },
+       error: function (e) {
+           //$("#error").html(e).fadeIn();
+           mensaje(e,1);
+           
+       }
+   });
+
+
+
+});
 
 }
 

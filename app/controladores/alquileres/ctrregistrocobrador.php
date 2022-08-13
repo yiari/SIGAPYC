@@ -61,6 +61,20 @@ class ctrregistrocobradores{
     }
 
 
+
+    public function vincular($idusuario,$idcobrador,$idinmueble,$idunidad){
+
+        $tabla = "cobrador";
+        $modelo = new mdlregiscobrador();
+
+        $modelo =  new mdlregiscobrador();
+        $respuesta = $modelo->vincular($idusuario,$idcobrador,$idinmueble,$idunidad);
+
+        return $respuesta;
+
+}
+
+
     /*tabla para visializar los inamuebles ya asigandos al cobrador */
 
     public function seleccioninmueblecobrador(){
