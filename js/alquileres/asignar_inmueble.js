@@ -5,7 +5,7 @@ function inicio(){
     | ASI SE CAPTURAN LOS PARAMETROS
     |---------------------------------------
     */
-    $('#id_cobrador').val(getParameterByName('idcobra'));
+    $('#idcobrador').val(getParameterByName('idcobra'));
   
     /*
    |----------------------------------------
@@ -21,6 +21,7 @@ function inicio(){
    buscarInmueble();
    codigoCobrador(prmCodcobra)
    InmuebleAsigmnadoCobrador();
+   //vinculacion();
 
 }
 
@@ -116,7 +117,7 @@ function buscarInmueble(){
 
                if(json.Items.length > 0){
                    var tr;
-               
+                    var contador = 0;
                    if(json.Items.length > 0){
                    var tr;
                        for (var i = 0; i < json.Items[0].length; i++) {
@@ -138,12 +139,16 @@ function buscarInmueble(){
  
                            var html="";
                            html = '<div class="btn-group" style="font-size:1.3em; letter-spacing:0.5em;">';
-                           html += '<button class="btn btn-success "data-field-idcobrador="' + json.Items[0][i].id_cobrador + '"data-field-idinmueble="' + json.Items[0][i].id_inmueble + '"data-field-idunidad="'+ json.Items[0][i].Id_unidad + '"><i class="fa fa-plus" alt=vincular></i>&nbsp;Vincular</button>';
+                           html += '<button onclick=vinculacion(' + contador + ') id="vincular' + contador + '"  class="vincular btn btn-success "data-field-idpropietario="' + json.Items[0][i].id_propietario + '"data-field-idinmueble="' + json.Items[0][i].id_inmueble + '"data-field-idunidad="'+ json.Items[0][i].Id_unidad + '"><i class="fa fa-plus" alt=vincular></i>&nbsp;Vincular</button>';
                            html += '</div>'
                            tr.append("<td>" + html + "</td>");
                            $('#datosAsignarInmueble').append(tr);
+
+                           contador++;
                        //}
                    }
+
+                   //vinculacion();
                    
                } else {
 
@@ -158,7 +163,7 @@ function buscarInmueble(){
 
            } 
                /************************************************ */
-               vinculacion();
+             
 
        },
        error: function (e) {
@@ -173,27 +178,27 @@ function buscarInmueble(){
 
 
 
-function vinculacion(){
+function vinculacion(valor){
 
+    console.log ("estoy aqui vincular");
 
+   // $(".vincular").click(function() {
 
-    $(".vincular").click(function() {
-
-        console.log ("estoy aqui vincular");
+       
    /*
    |-----------------------------------------------
    | AQUI SE PREVIENE QUE EL FORMULARIO CONTINUE 
    |-----------------------------------------------
    */
-   evt.preventDefault();
+   //evt.preventDefault();
    /**********************************************/ 
-   var prmidusuario = $(this).data('field-id_usuario');       
-   var prmidcobrador = $(this).data('field-id_cobrador');
-   var prmidinmueble = $(this).data('field-id_inmueble');
-   var prmidunidad = $(this).data('field-id_unidad');
+   var prmidusuario = $("#vincular" + valor).data('field-id_usuario');       
+   var prmidcobrador =  $('#idcobrador').val(); //$(this).data('field-id_cobrador');
+   var prmidinmueble = $("#vincular" + valor).data('field-id_inmueble');
+   var prmidunidad = $("#vincular" + valor).data('field-id_unidad');
 
 
-       
+    console.log("Voy a ejecutar la vinculacion");
  
    /*
    |-----------------------------------------------
@@ -206,7 +211,7 @@ function vinculacion(){
    | AQUI SE CAPTURA LOS DATOS DEL FORMULARIO 
    |-----------------------------------------------
    */
-   var formData = new FormData(this);
+   var formData = new FormData();
    /*
    |-----------------------------------------------------
    | AQUI SE AGREGA UN PARAMETRO ADICIONAL AL FORMULARIO 
@@ -268,7 +273,7 @@ function vinculacion(){
 
 
 
-});
+//});
 
 }
 
