@@ -27,7 +27,7 @@ include("layout/menuNavegacion.php");
                             <div class="card">
                                 <div class="card-body">
                                     <form class="form-sample" id="buscarCodigo" name="buscarCodigo" method="POST" action="" autocomplete="off">
-
+                                        <input type="hidden" id="idusuario" name="idusuario" value="0">
                                         <!--Datos Personales-->
                                         <div class="card">
                                             <div class="card-body">
@@ -88,7 +88,6 @@ include("layout/menuNavegacion.php");
                                                         <tr>
                                                         <th>Cobrador</th>
                                                         <th>Inmueble</th>
-                                                        <th>Inquilino</th>
                                                         <th>Acciones</th>
                                                         </tr>
                                                 </thead>

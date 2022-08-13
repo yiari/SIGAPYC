@@ -509,7 +509,7 @@ public function vincular($idusuario,$idcobrador,$idinmueble,$idunidad){
           $dbConexion = new conexcion();
           $valor = 0;
           
-          $stmt = $dbConexion->conectar()->prepare("CALL usp_cargarcobrador()");
+          $stmt = $dbConexion->conectar()->prepare("CALL `usp_vinculacion(?,?,?,?)");
           $stmt ->bindParam(1, $idusuario, PDO::PARAM_INT);
           $stmt ->bindParam(2, $idcobrador, PDO::PARAM_INT);
           $stmt ->bindParam(3, $idinmueble, PDO::PARAM_INT);
@@ -545,7 +545,7 @@ public function vincular($idusuario,$idcobrador,$idinmueble,$idunidad){
 
               $dbConexion = new conexcion();
               
-              $stmt = $dbConexion->conectar()->prepare("CALL usp_cargarcobrador()");
+              $stmt = $dbConexion->conectar()->prepare("CALL usp_cargarcobrador(?,?,?,?)");
               $stmt ->bindParam(1, $idusuario, PDO::PARAM_INT);
               $stmt ->bindParam(2, $idcobrador, PDO::PARAM_INT);
               $stmt ->bindParam(3, $idinmueble, PDO::PARAM_INT);

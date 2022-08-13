@@ -138,9 +138,7 @@ function buscarInmueble(){
  
                            var html="";
                            html = '<div class="btn-group" style="font-size:1.3em; letter-spacing:0.5em;">';
-                           html += '<button class="btn btn-success "data-field-idcobrador="' + json.Items[0][i].id_cobrador + '"data-field-idinmueble="' + json.Items[0][i].id_inmueble + '"data-field-idunidad="'+ json.Items[0][i].Id_unidad + '"><i class="fa fa-plus" alt=Vincular></i>&nbsp;Vincular</button>';
-                           
-                          
+                           html += '<button class="btn btn-success "data-field-idcobrador="' + json.Items[0][i].id_cobrador + '"data-field-idinmueble="' + json.Items[0][i].id_inmueble + '"data-field-idunidad="'+ json.Items[0][i].Id_unidad + '"><i class="fa fa-plus" alt=vincular></i>&nbsp;Vincular</button>';
                            html += '</div>'
                            tr.append("<td>" + html + "</td>");
                            $('#datosAsignarInmueble').append(tr);
@@ -160,7 +158,7 @@ function buscarInmueble(){
 
            } 
                /************************************************ */
-
+               vinculacion();
 
        },
        error: function (e) {
@@ -177,7 +175,11 @@ function buscarInmueble(){
 
 function vinculacion(){
 
-    $("#.vincular").click(function() {
+
+
+    $(".vincular").click(function() {
+
+        console.log ("estoy aqui vincular");
    /*
    |-----------------------------------------------
    | AQUI SE PREVIENE QUE EL FORMULARIO CONTINUE 
@@ -329,7 +331,7 @@ function InmuebleAsigmnadoCobrador(){
                           
                            tr.append("<td>" + json.Items[0][i].cobrador + "</td>");
                            tr.append("<td>" + json.Items[0][i].inmueble + "</td>");
-                           tr.append("<td>" + json.Items[0][i].inquilino + "</td>");
+                         
  
                            var html="";
                            html = '<div class="btn-group" style="font-size:1.3em; letter-spacing:0.5em;">';
