@@ -34,7 +34,7 @@
                                         <h5 class="card-title">Datos Personales</h5>
 
                                         <form class="form-sample" id="registrarbeneficiario" name="registrarbeneficiario" method="POST" action="guarda.php" autocomplete="off" enctype="multipart/form-data">
-                                                
+                                                 <input type="hidden" id="id_usuario" name="id_usuario" value='1'>
                                                 <input type="hidden" id="tipo_persona" name="tipo_persona" value='1'>
                                                 <input type="hidden" id="hidbeneficiario" name="hidbeneficiario" value=''>
                                                 <input type="hidden" id="id_prop" name="id_prop" value='0'>
@@ -317,7 +317,7 @@
                                     <div class="card-body">
                                         <h5 class="card-title">Datos Jurídicos</h5>
                                         <form class="form-sample" id="registrarbeneficiarioj" name="registrarbeneficiarioj" method="POST" action="guarda.php" autocomplete="off" enctype="multipart/form-data" enctype="multipart/form-data">
- 
+                                                <input type="hidden" id="id_usuario" name="id_usuario" value='1'>
                                                 <input type="hidden" id="tipo_personaj" name="tipo_personaj" value='2'>
                                                 <input type="hidden" id="hidbeneficiarioj" name="hidbeneficiarioj" value=''>
                                                 <input type="hidden" id="id_propietarioj" name="id_propietarioj" value='0'>

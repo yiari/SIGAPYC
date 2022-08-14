@@ -77,6 +77,45 @@ function editarInquilino(prmidinquilino,prmcodigo,prmtipo){
      
                 console.log("Mensaje del JSON: " + json.mensaje);
      
+                if(json.Items.length > 0){
+                    var tr;
+                        for (var i = 0; i < json.Items[0].length; i++) {
+                
+                       // if (isEmpty(json.Items[0][i]) == false) {
+                            tr = $('<tr/>');
+                            
+                           
+                            tr.append("<td>" + json.Items[0][i].registroCodigo + "</td>");
+                            tr.append("<td>" + json.Items[0][i].registroNombre + "</td>");
+                            tr.append("<td>" + json.Items[0][i].registroApellido + "</td>");
+                            tr.append("<td>" + json.Items[0][i].registroNacionalidad + "</td>");
+                            tr.append("<td>" + json.Items[0][i].registroCedula + "</td>");
+                            tr.append("<td>" + json.Items[0][i].registroRif + "</td>");
+                            tr.append("<td>" + json.Items[0][i].actividad + "</td>");
+                            tr.append("<td>" + json.Items[0][i].registroTeléfono + "</td>");
+                            tr.append("<td>" + json.Items[0][i].registroCelular + "</td>");
+                            tr.append("<td>" + json.Items[0][i].registroEmail + "</td>");
+                            tr.append("<td>" + json.Items[0][i].estado + "</td>");
+                            tr.append("<td>" + json.Items[0][i].municipio + "</td>");
+                            tr.append("<td>" + json.Items[0][i].parroquica + "</td>");
+                            tr.append("<td>" + json.Items[0][i].registroDirecionH + "</td>");
+                            tr.append("<td>" + json.Items[0][i].registroDirecionO + "</td>");
+                            tr.append("<td>" + json.Items[0][i].codigo_registro + "</td>");
+                            tr.append("<td>" + json.Items[0][i].notaria + "</td>");
+                            tr.append("<td>" + json.Items[0][i].fecha + "</td>");
+                            tr.append("<td>" + json.Items[0][i].numero + "</td>");
+                            tr.append("<td>" + json.Items[0][i].tomo + "</td>");
+                            tr.append("<td>" + json.Items[0][i].folio + "</td>");
+  
+                            tr.append("<td>" + html + "</td>");
+                           $('#registroinquilino').append(tr);
+                           
+                        //}
+                    }
+                    
+                }
+
+
                 if(json.error == 0){
                     
                     mensaje(json.mensaje,0);

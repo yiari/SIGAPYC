@@ -328,7 +328,7 @@ include("layout/menuNavegacion.php");
                                                         <label class="col-sm-12 col-form-label">Código:</label>
                                                         <div class="col-sm-12">
                                                             <div class="col-sm-12">
-                                                                <input for="registroPoder" type="text" class="form-control" id="registroPoder" name="registroPoder" >
+                                                                <input for="codigo_registro" type="text" class="form-control" id="codigo_registro" name="codigo_registro" >
                                                             </div>
                                                         </div>
                                                     </div>
@@ -336,7 +336,7 @@ include("layout/menuNavegacion.php");
                                                         <div class="row">
                                                             <label for="ced_prop" class="col-sm-12 col-form-label">Nombre del Registro:</label>
                                                             <div class="col-sm-12">
-                                                                <input for="nombreRegistro" type="text" class="form-control" id="nombreRegistro" name="nombreRegistro" >
+                                                                <input for="notaria" type="text" class="form-control" id="notaria" name="notaria" >
                                                             </div>
                                                         </div>
                                                     </div>

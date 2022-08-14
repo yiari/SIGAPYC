@@ -346,7 +346,7 @@ public function registrar($tabla,$datos,$archivos){
 
         $dbConexion = new conexcion();
         
-        $stmt = $dbConexion->conectar()->prepare("CALL usp_registroinquilinos(?,?)");
+        $stmt = $dbConexion->conectar()->prepare("CALL usp_consultar_inquilino(?,?)");
         $stmt -> bindParam(1,$idinquilino,PDO::PARAM_INT);
         $stmt ->bindParam(2,$tipoinquilino,PDO::PARAM_STR);
         
