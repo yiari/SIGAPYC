@@ -70,16 +70,12 @@ function cargarPropietarios(){
                             var htmlRepresentante="";
 
                             html = '<div class="btn-group" style="font-size:1.3em; letter-spacing:0.2em;">';
-                            html += '<a title="Ver" data-field-id="' + json.Items[0][i].id_prop + '"><i class="fa fa-search" alt=“Ver”></i></a>&nbsp;'
                             
+                            html += '<a title="Bitacora"  href="inicio.php?url=app/vistas/alquileres/verpropietarios&idpro=' + json.Items[0][i].id_prop  + '&codpro=' + json.Items[0][i].codigo  + '&codtip=' + json.Items[0][i].tipo  + '"><i class="fa fa-book"></i></a>&nbsp;';
                             
-
                             htmlPropietario='<a title="Editar Propietario" href="index.php?url=app/vistas/alquileres/editar_propietarios&idpro=' + json.Items[0][i].id_prop  + '&codpro=' + json.Items[0][i].codigo  + '&codtip=' + json.Items[0][i].tipo  + '"><i class="fa fa-edit" alt=“editar”></i></a>&nbsp;';
                             html += htmlPropietario;
 
-       
-                            html += '<a title="Bitacora" data-field-id="' + json.Items[0][i].id_prop + '"><i class="fa fa-book"></i></a>&nbsp;';
-                            
                             if(json.Items[0][i].tipo == 1){//PERSONA NATUARAL
 
                                 htmlApoderado='<a title="Apoderado" href="index.php?url=app/vistas/alquileres/apoderado&idpro=' + json.Items[0][i].id_prop  + '&codpro=' + json.Items[0][i].codigo  + '"><i class="fa fa-id-badge"></i></a>&nbsp;';

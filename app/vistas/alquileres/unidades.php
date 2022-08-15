@@ -5,9 +5,14 @@
 
         <div style="text-align: right;">
         <ol>
-                <a class="btn btn-outline-primary" href="index.php?url=app/vistas/alquileres/ingresar_unidad_inmueble" role="button">Nuevo</a>                
-                <a class="btn btn-outline-secondary" href="index.php?url=app/vistas/alquileres/inmuebles"  role="button">Atras</a>
+                <a class="btn btn-outline-primary codinmu" href="index.php?url=app/vistas/alquileres/ingresar_unidad_inmueble" role="button">Nuevo</a>                
+                
             </ol>
+        </div>
+
+        <div style="text-align: left;">
+            <span id="lblInmueble"><strong>INMUEBLE : </strong></span>
+            <br/><br/>
         </div>
         
         <!--tabla-->
@@ -17,7 +22,7 @@
                 UNIDADES DEL INMUEBLE
             </div>
             <div class="card-body">
-                <table id="datatablesSimple">
+                <table id="datosUnidad">
                     <thead>
                         <tr>
                             
@@ -27,7 +32,7 @@
                             <th>Inquilino</th>
                             <th>Estatus</th>
                             <th>Tipo</th>
-                            <th>Doc / Editar</th>
+                            <th>Acciones</th>
                      
  
                         </tr>
@@ -49,5 +54,5 @@ include_once "app/vistas/comunes/modalmensajes.php";
 include_once "app/vistas/comunes/modaleliminar.php";
 
 ?>
-
+<script src="js/comunes/funciones.js"></script>
 <script src="js/alquileres/cargar_unidades.js"></script>

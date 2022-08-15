@@ -287,9 +287,9 @@ public function registrar($tabla,$datos,$archivos){
     }
 
 
- public function seleccionarregistros($tabla,$idprop){
+ public function seleccionarregistros($tabla,$prmid_inmu){
 
-        If($idprop == null || $idprop == 0){
+        If($prmid_inmu == null || $prmid_inmu == 0){
 
               try {
 
@@ -329,7 +329,7 @@ public function registrar($tabla,$datos,$archivos){
                 $dbConexion = new conexcion();
                 
                 $stmt = $dbConexion->conectar()->prepare("CALL usp_cargarinmueble(?)" );
-                $stmt ->bindParam(1, $idprop, PDO::PARAM_INT);
+                $stmt ->bindParam(1, $prmid_inmu, PDO::PARAM_INT);
                 $stmt->execute();
                 $dataRegistro["Items"][] = $stmt->fetchAll();
       

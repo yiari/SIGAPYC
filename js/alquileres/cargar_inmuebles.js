@@ -8,12 +8,16 @@ function inicio(){
     */
     let idPropietario = getParameterByName('idpro');
     let prmCodPro = getParameterByName('codpro');
+
+    let idInmueble = getParameterByName('idinmu');
+    let prmCodInmu = getParameterByName('codinmu');
      /*--------------------------------------*/    
  
     codigoPropietario(prmCodPro);
+    
     nuevoInmueble(idPropietario,prmCodPro);
 
-    cargarInmueble(idPropietario);
+    cargarInmueble(idPropietario,idInmueble,prmCodInmu);
 
 
 
@@ -63,6 +67,9 @@ function cargarInmueble(prmDato){
 
     formData.append('opcion','C');
     formData.append('id_prop',prmDato);
+    formData.append('id_inmu',prmDato);
+    formData.append('cod_inmueble',prmDato);
+ 
     /*
     |-----------------------------------------------
     | AQUI SE LLAMA EL AJAX 
@@ -104,9 +111,13 @@ function cargarInmueble(prmDato){
                                     
                                     let prmFoto = json.Items[0][i].foto;
                                     let prmInquilino = json.Items[0][i].inquilino;
+                                   
+                                   
+                                    var htmlunidades="";
 
                                     console.log(prmFoto);
                                     console.log(prmInquilino);
+                                    console.log(htmlunidades);
                                 
                                    
                                     
@@ -130,11 +141,19 @@ function cargarInmueble(prmDato){
                                     
                                     var html="";
                                     html = '<div class="btn-group" style="font-size:1.3em; letter-spacing:0.2em;">';
+
+                                    html += '<a title="Bitacora" data-field-id="' + json.Items[0][i].id + '"><i class="fa fa-book"></i></a>&nbsp;';
+
                                     html += '<a title="Editar" data-field-id="' + json.Items[0][i].id  + '"><i class="fa fa-edit" alt=“editar”></i></a>&nbsp;';
-                                    html += '<a title="Ver" data-field-id="' + json.Items[0][i].id + '"><i class="fa fa-search" alt=“Ver”></i></a>&nbsp;';
-                                    html += '<a title="Contrato" data-field-id="' + json.Items[0][i].id + '"><i class="fa fa-file-pen"></i></a>&nbsp;';
-                                    html += '<a title="Bitacora" data-field-id="' + json.Items[0][i].id + '"><i class="fa fa-folder-open"></i></a>&nbsp;';
+
+                                    html += '<a title="Unidades_inmueble"  href="index.php?url=app/vistas/alquileres/unidades&idinmu=' + json.Items[0][i].id_inmu  + '&codinmu=' + json.Items[0][i].cod_inmueble  + '"><i class="fa fa-home"></i></a>&nbsp;'
+
+                                    html += '<a title="Beneficiario"  href="index.php?url=app/vistas/alquileres/beneficiarios&idpro=' + json.Items[0][i].id_prop  + '&codpro=' + json.Items[0][i].propietario  + '"><i class="fa fa-users"></i></a>&nbsp;'
+                                   
                                     html += '<a title="inquilino"  href="index.php?url=app/vistas/alquileres/asignar_inquilino&idpro=' + json.Items[0][i].id_prop  + '&codpro=' + json.Items[0][i].propietario  + '"><i class="fa fa-user-circle-o"></i></a>&nbsp;'
+                                    
+                                    html += '<a title="Mandato y Contratos"  href="index.php?url=app/vistas/alquileres/contratos_mandatos&idpro=' + json.Items[0][i].id_prop  + '&codpro=' + json.Items[0][i].propietario  + '"><i class="fa fa-file-text-o"></i></a>&nbsp;';
+                                   
                                     html += '<a title="Eliminar"  data-field-id="'  + json.Items[0][i].id + '"><i class="fa fa-trash" alt=“eliminar”></i></a>';
                                     html += '</div>'
                                     tr.append("<td>" + html + "</td>");
@@ -148,7 +167,7 @@ function cargarInmueble(prmDato){
                         tr.append("<td colspan=7 style='text-align:center'>NO HAY INFORMACION REGISTRADA</td>");
                         $('#datosInmuebles').append(tr);
 
-                    }
+                       }
 
                     new simpleDatatables.DataTable("#datosInmuebles");
 

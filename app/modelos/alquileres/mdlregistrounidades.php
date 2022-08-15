@@ -296,16 +296,17 @@ public function registrar($tabla,$datos,$archivos){
     }
 
 
- public function seleccionarregistros($tabla,$iten,$valor){
+ public function seleccionarregistros($tabla,$idprop){
 
-      If($iten == null && $valor == null){
+  If($idprop == null || $idprop == 0){
 
 
             try {
 
               $dbConexion = new conexcion();  
 
-                $stmt = $dbConexion->conectar()->prepare("CALL usp_cargarunidades()");
+                $stmt = $dbConexion->conectar()->prepare("CALL usp_cargarunidades(?)");
+                $stmt ->bindParam(1, $valor, PDO::PARAM_INT);
                 $stmt->execute();
                 $dataRegistro["Items"][] = $stmt->fetchAll();
       
@@ -336,9 +337,8 @@ public function registrar($tabla,$datos,$archivos){
 
           $dbConexion = new conexcion();
           
-          $stmt = $dbConexion->conectar()->prepare("CALL usp_cargarunidades()" );
-        
-          $stmt ->bindParam(":".$iten, $valor, PDO::PARAM_STR);
+          $stmt = $dbConexion->conectar()->prepare("CALL usp_cargarunidades(?)" );
+          $stmt ->bindParam(1, $idprop, PDO::PARAM_INT);
           $stmt->execute();
           $dataRegistro["Items"][] = $stmt->fetch();
 

@@ -1,12 +1,86 @@
 
 function inicio(){
 
-    cargarUnidades();
+
+    /*
+    |----------------------------------------
+    | ASI SE CAPTURAN LOS PARAMETROS
+    |---------------------------------------
+    */
+    let idInmueble = getParameterByName('idinmu');
+    let prmCodInmu = getParameterByName('codinmu');
+    let prmCodInmu1 = getParameterByName('codinmu1');
+
+
+    //let idPropietario = getParameterByName('idpro');
+    //let prmCodPro = getParameterByName('codpro');
+     /*--------------------------------------*/    
+ 
+    codigoInmueble(prmCodInmu);
+
+    nuevoUnidad(idInmueble,prmCodInmu);
+    
+    atrasInmueble(idInmueble,prmCodInmu);
+ 
+    cargarUnidades(idInmueble);
 
 }
 
 
-function cargarUnidades(){
+function codigoInmueble(prmDato){
+
+    var html = "";
+
+    
+    if(prmDato != 0 && prmDato != ""){
+        html='<strong>INMUEBLE : </strong>'  + prmDato +'</span>';
+    }
+    
+
+    $("#lblInmueble").html('');
+    $("#lblInmueble").html(html);
+
+
+
+}
+
+
+
+
+function nuevoUnidad(prmidInmu, prmCodInmu){
+
+    //if (isEmpty(prmDato) == false ){
+
+
+        var html = "";
+
+        if(prmidInmu != 0 && prmidInmu != ""){
+            html='index.php?url=app/vistas/alquileres/ingresar_unidad_inmueble&idinmu=' + prmidInmu  + '&codinmu=' + prmCodInmu;
+            $(".codinmu").prop("href", html);
+        }
+
+    //}
+
+}
+
+
+function atrasInmueble(prmidInmu, prmCodInmu){
+
+    //if (isEmpty(prmDato) == false ){
+
+
+        var html = "";
+        html='index.php?url=app/vistas/alquileres/inmuebles&idinmu=' + prmidInmu  + '&codinmu=' + prmCodInmu;
+    
+        $(".codinmu").prop("href", html);
+
+
+    //}
+
+}
+
+
+function cargarUnidades(prmDato){
     
     /*
     |-----------------------------------------------------
@@ -16,6 +90,7 @@ function cargarUnidades(){
     var formData = new FormData();
 
     formData.append('opcion','C');
+    formData.append('id_inmu',prmDato);
     /*
     |-----------------------------------------------
     | AQUI SE LLAMA EL AJAX 
@@ -48,18 +123,40 @@ function cargarUnidades(){
                 */
                 if(json.Items.length > 0){
                     var tr;
-                    for (var i = 0; i < json.Items[0].length; i++) {
+                    if(json.Items[0].length > 0){
+                        for (var i = 0; i < json.Items[0].length; i++) {
                 
                        // if (isEmpty(json.Items[0][i]) == false) {
                             tr = $('<tr/>');
+
+
+                            let prmFoto = json.Items[0][i].foto;
+                            let prmInquilino = json.Items[0][i].inquilino;
+                           
+                           
+                            var htmlunidades="";
+
+                            console.log(prmFoto);
+                            console.log(prmInquilino);
+                            console.log(htmlunidades);
+
+
                             
-                            tr.append("<td>" + json.Items[0][i].foto + "</td>");
+                            if(prmFoto == undefined){
+                                tr.append("<td style='text-align:center'>"+ '<img src="./app/iconos/sinfoto01.png" alt="sin foto" style="width:120px;height:120px;"></img>' + "</td>");
+                            } else {
+                                tr.append("<td>" + json.Items[0][i].foto + "</td>");
+                            }
+
                             tr.append("<td>" + json.Items[0][i].codigo + "</td>");
-                            tr.append("<td>" + json.Items[0][i].inmueble + "</td>");
-                            tr.append("<td>" + json.Items[0][i].inquilino + "</td>");
-                            tr.append("<td>" + json.Items[0][i].status + "</td>"); 
-                            tr.append("<td>" + json.Items[0][i].tipo + "</td>"); 
+
                             
+                            tr.append("<td>" + json.Items[0][i].inmueble + "</td>");
+
+                            tr.append("<td>" + json.Items[0][i].tipo + "</td>"); 
+                           
+                            tr.append("<td>" + statusinmuebles(json.Items[0][i].estatus) + "</td>");
+
                             
                             var html="";
                             html = '<div class="btn-group" style="font-size:1.3em; letter-spacing:0.2em;">';
@@ -71,14 +168,25 @@ function cargarUnidades(){
                             html += '<a title="Eliminar"  data-field-id="'  + json.Items[0][i].id + '"><i class="fa fa-trash" alt=“eliminar”></i></a>';
                             html += '</div>'
                             tr.append("<td>" + html + "</td>");
-                            $('#datatablesSimple').append(tr);
+                            $('#datosUnidad').append(tr);
                         //}
                     }
 
 
                     //editarRepresentante();
                     //validareliminarRepresentante();
-                }
+                } else {
+
+                    var tr;
+                    tr = $('<tr/>');
+                    tr.append("<td colspan=7 style='text-align:center'>NO HAY INFORMACION REGISTRADA</td>");
+                    $('#datosUnidad').append(tr);
+
+                   }
+
+                new simpleDatatables.DataTable("#datosUnidad");
+            
+            }
                 /************************************************ */
 
 

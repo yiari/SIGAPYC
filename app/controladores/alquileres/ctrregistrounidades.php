@@ -41,11 +41,11 @@ class ctrregistrounidades{
 
     /*tabla para visializar los inquiilonos registrados*/
 
-     public function seleccionarregistros(){
+     public function seleccionarregistros($prmid_inmu){
 
         $tabla = "inmuebles";
         $modelo =  new mdlregistrounidades();
-        $respuestas =  $modelo->seleccionarregistros($tabla,null,null);
+        $respuestas =  $modelo->seleccionarregistros($tabla,$prmid_inmu);
         return $respuestas;
     }
 

@@ -37,7 +37,7 @@ include("layout/menuNavegacion.php");
                             <th width="10%">Telefonos</th>
                             <th width="10%">Correo</th>
                             <th width="10%">Tipo</th>
-                             <th width="10%">Doc / Editar</th>
+                            <th>Acciones</th>
                        </tr>
                     </thead>
                    

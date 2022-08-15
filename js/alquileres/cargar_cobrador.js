@@ -33,7 +33,8 @@ function cargarCobrador(){
             $("#error").fadeOut();
         },
         success: function (data) {
-        var json = JSON.parse(data);
+        //var json = JSON.parse(data);
+        var json = (data);
         var html = "";
 /*
         console.log(json);
@@ -66,9 +67,8 @@ function cargarCobrador(){
                             
                             var html="";
                             html = '<div class="btn-group" style="font-size:1.3em; letter-spacing:0.2em;">';
+                            html += '<a title="Bitacora" data-field-id="' + json.Items[0][i].id + '"><i class="fa fa-book"></i></a>&nbsp;';
                             html += '<a title="Editar" data-field-id="' + json.Items[0][i].id  + '"><i class="fa fa-edit" alt=“editar”></i></a>&nbsp;';
-                            html += '<a title="Ver" data-field-id="' + json.Items[0][i].id + '"><i class="fa fa-search" alt=“Ver”></i></a>&nbsp;'
-                            html += '<a title="Bitacora" data-field-id="' + json.Items[0][i].id + '"><i class="fa fa-folder-open"></i></a>&nbsp;';
                             html += '<a title="Asignar Inmueble" href="index.php?url=app/vistas/alquileres/asignar_inmueble&idcobra=' + json.Items[0][i].id_cobrador  + '&codcobra=' + json.Items[0][i].codigo +'"><i class="fa fa-id-badge"></i></a>&nbsp;';
                             html += '<a title="Eliminar"  data-field-id="'  + json.Items[0][i].id + '"><i class="fa fa-trash" alt=“eliminar”></i></a>';
                             html += '</div>'

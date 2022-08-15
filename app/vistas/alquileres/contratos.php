@@ -14,7 +14,7 @@ include("layout/menuNavegacion.php");
         <div style="text-align: right;">
         <ol>
                 <a class="btn btn-outline-primary" href="index.php?url=app/vistas/alquileres/ingresar_contrato" role="button">Nuevo</a>                
-                <a class="btn btn-outline-secondary" href="" role="button">Imprimir</a>
+                
             </ol>
         </div>
         
@@ -59,11 +59,9 @@ include("layout/menuNavegacion.php");
                                     <td>
                                         <div class="btn-group" style="font-size:1.3em; letter-spacing:0.5em;">
 
-                                            <a href="#" title="Editar"><i class="fas fa-edit" ></i></a>&nbsp;
-                                            <a href='#' title="Ver" target='_blank'><i class="fas fa-search"></i></a> &nbsp;
-                                            <a href='#' title="Contrato" target='_blank'><i class="fa-solid fa-file-pen" ></i></a> &nbsp;
-                                         
-    
+                                            <a href="#" title="Editar"><i class="fa fa-edit" ></i></a>&nbsp;
+                                            <a href='#' title="Ver" target='_blank'><i class="fa fa-search"></i></a> &nbsp;
+                                          
                                         </div>
 
                                     </td>
@@ -76,3 +74,7 @@ include("layout/menuNavegacion.php");
     </div>
 
 </div>
+
+
+
+

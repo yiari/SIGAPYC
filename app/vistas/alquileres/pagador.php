@@ -29,7 +29,7 @@
                             <th>Inquilino</th>
                             <th>Telefono</th>
                             <th>correo</th>
-                            <th>Doc / Editar</th>
+                            <th>Acciones</th>
                      
  
                         </tr>

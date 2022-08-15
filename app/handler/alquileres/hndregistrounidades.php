@@ -204,6 +204,9 @@ if($operacion == "I"){
 
 if($operacion == "C"){
 
+
+   $prmid_inmu = $_POST["id_inmu"];
+
    /*
     |-------------------------------------------
     | AQUI CREO UNA INSTANCIA DE LA CLASE
@@ -217,7 +220,7 @@ if($operacion == "C"){
    | AQUI OBTENGO EL RESULTADO DE LA EJECUCION
    |---------------------------------------------
    */
-     $result = $registroUnidades->seleccionarregistros();
+     $result = $registroUnidades->seleccionarregistros($prmid_inmu);
     
     /*
     |-------------------------------------------

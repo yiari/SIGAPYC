@@ -116,7 +116,6 @@ function cargarPagador(prmDato, prmTipo){
                             var html="";
                             html = '<div class="btn-group" style="font-size:1.3em; letter-spacing:0.5em;">';
                             html += '<a href="javascript:void(0);" onclick="cargarPantalla(' + json.Items[0][i].id_paga + ')" title="Editar"><i class="fa fa-edit" alt=“editar”></i></a>&nbsp;';
-                            html += '<a title="Ver" data-field-id_paga="' + json.Items[0][i].id_paga + '"><i class="fa fa-search" alt=“Ver”></i></a>&nbsp;';
                             html += '<a title="Eliminar"  data-field-id_paga="'  + json.Items[0][i].id_paga + '"><i class="fa fa-trash" alt=“Eliminar”></i></a>';
                             
                            

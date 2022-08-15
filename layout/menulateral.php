@@ -61,7 +61,7 @@
 
 
             <!--bitacora-->
-
+            <!--
             <a class="nav-link collapsed"  href="#" data-bs-toggle="collapse" data-bs-target="#collapbitacora" aria-expanded="false" aria-controls="collapbitacora">
                 <div class="sb-nav-link-icon"><i class="fa fa-folder-open"></i></div>
                         BITACORA
@@ -75,7 +75,7 @@
                     <a class="nav-link" href="#">Finiquito</a> 
                 </nav>
             </div>
-
+        -->
 
 
            
