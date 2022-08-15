@@ -58,9 +58,9 @@ public function registrar($tabla,$datos,$archivos){
           $stmt -> bindParam(12, $datos["id_estado"], PDO::PARAM_INT);         
           $stmt -> bindParam(13, $datos["id_municipio"], PDO::PARAM_INT);      
           $stmt -> bindParam(14, $datos["id_parroquia"], PDO::PARAM_INT); 
-          $stmt -> bindParam(15, $datos["dir_prop"], PDO::PARAM_INT);
-          $stmt -> bindParam(16, $datos["ofi_prop"], PDO::PARAM_INT);     
-          $stmt -> bindParam(17, $datos["tipo_persona"], PDO::PARAM_STR);       
+          $stmt -> bindParam(15, $datos["dir_prop"], PDO::PARAM_STR);
+          $stmt -> bindParam(16, $datos["ofi_prop"], PDO::PARAM_STR);     
+          $stmt -> bindParam(17, $datos["tipo_persona"], PDO::PARAM_INT);       
           $stmt -> bindParam(18, $datos["rep_prop"], PDO::PARAM_STR);
           
             /*
@@ -320,7 +320,18 @@ public function registrar($tabla,$datos,$archivos){
 
               $dbConexion = new conexcion();  
 
-                $stmt = $dbConexion->conectar()->prepare("CALL usp_cargarpropietario()");
+              $datosBusqueda = array(
+                'id_prop' => '0',
+                'codigo_prop' =>  '',
+                'tipo_prop' => '0'
+              );
+
+
+                $stmt = $dbConexion->conectar()->prepare("CALL usp_cargarpropietario(?,?,?)");
+                $stmt -> bindParam(1,$datosBusqueda["id_prop"], PDO::PARAM_INT);
+                $stmt -> bindParam(2,$datosBusqueda["codigo_prop"], PDO::PARAM_STR);
+                $stmt -> bindParam(3,$datosBusqueda["tipo_prop"], PDO::PARAM_INT);
+
                 $stmt->execute();
                 $dataRegistro["Items"][] = $stmt->fetchAll();
       
@@ -351,11 +362,21 @@ public function registrar($tabla,$datos,$archivos){
 
           $dbConexion = new conexcion();
           
-          $stmt = $dbConexion->conectar()->prepare("CALL usp_cargarpropietario()");
-        
-          $stmt ->bindParam(":".$iten, $valor, PDO::PARAM_STR);
+          $datosBusqueda = array(
+            'id_prop' => '0',
+            'codigo_prop' =>  '',
+            'tipo_prop' => '0'
+          );
+
+
+            $stmt = $dbConexion->conectar()->prepare("CALL usp_cargarpropietario(?,?,?)");
+            $stmt -> bindParam(1,$datosBusqueda["id_prop"], PDO::PARAM_INT);
+            $stmt -> bindParam(2,$datosBusqueda["codigo_prop"], PDO::PARAM_STR);
+            $stmt -> bindParam(3,$datosBusqueda["tipo_prop"], PDO::PARAM_INT);
+
+          //$stmt ->bindParam(":".$iten, $valor, PDO::PARAM_STR);
           $stmt->execute();
-          $dataRegistro["Items"][] = $stmt->fetch();
+          $dataRegistro["Items"][] = $stmt->fetchAll();
 
           $dataRes = array(
             'error' => '0',
@@ -386,7 +407,74 @@ public function registrar($tabla,$datos,$archivos){
 
 
 
+
+  public function consultarpropietario($tabla,$items){
+
+    If($items == null){
+  
+  
+                  $dataRes = array(
+                    'error' => '1',
+                    'mensaje' =>  "Mensaje de Error: No hay registro para buscar."
+                  );
+            
+  
+    }else{
+  
+  
+      try {
+  
+        $dbConexion = new conexcion();
+        
+        $stmt = $dbConexion->conectar()->prepare("CALL usp_cargarpropietario(?,?,?)");
+        $stmt -> bindParam(1,$items["id_prop"], PDO::PARAM_INT);
+        $stmt -> bindParam(2,$items["codigo_prop"], PDO::PARAM_STR);
+        $stmt -> bindParam(3,$items["tipo_prop"], PDO::PARAM_INT);
+
+        $stmt->execute();
+        $dataRegistro["Items"][] = $stmt->fetch();
+  
+        $dataRes = array(
+          'error' => '0',
+          'mensaje' =>  'El registro se obtuvo.'
+        );
+        
+        
+        echo json_encode(array_merge($dataRegistro,$dataRes));
+  
+        } catch (\Throwable $th) {
+        
+            //$pdo->rollBack() ;
+            //echo "Mensaje de Error: " . $th->getMessage();
+            $dataRes = array(
+              'error' => '1',
+              'mensaje' =>  "Mensaje de Error: " . $th->getMessage()
+            );
+      
+            echo json_encode($dataRes);
+    
+        }
+  
+  
+  
+  
+    }
+  }
+
+
+
+
+
 }
+
+
+
+
+
+
+
+
+
 
 
 

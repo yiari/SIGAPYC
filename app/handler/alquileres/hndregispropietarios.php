@@ -218,6 +218,51 @@ if($operacion == "C"){
 
 
 
+/* 
+ |--------------------------------------------------------------
+ | AQUI SE EJECUTA LA OPERACION DE CONSULTAR DEL PROPIETARIO
+ |--------------------------------------------------------------
+*/
+
+if($operacion == "CP"){
+
+
+
+   $datos = array( 
+      "id_prop" => $_POST["idPropietario"],
+      "codigo_prop" => $_POST["codigoPropietario"],
+      "tipo_prop" => $_POST["tipoPropietario"]
+   );
+
+
+
+   /*
+    |-------------------------------------------
+    | AQUI CREO UNA INSTANCIA DE LA CLASE
+    |-------------------------------------------
+    */
+    
+    $registroPropietario =  new ctrregistropropietarios();
+
+   /* 
+   |---------------------------------------------
+   | AQUI OBTENGO EL RESULTADO DE LA EJECUCION
+   |---------------------------------------------
+   */
+     $result = $registroPropietario->consultarpropietario($datos);
+    
+    /*
+    |-------------------------------------------
+    | AQUI REGRESO EL RESULTADO AL AJAX
+    |-------------------------------------------
+    */
+    header('Content-Type: application/json');
+     return $result;
+     
+}
+
+
+
 
 /* 
  |--------------------------------------------------------------

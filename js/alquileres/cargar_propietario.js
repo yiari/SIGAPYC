@@ -65,12 +65,19 @@ function cargarPropietarios(){
                            
                             
                             var html="";
+                            var htmlPropietario = "";
                             var htmlApoderado="";
                             var htmlRepresentante="";
 
                             html = '<div class="btn-group" style="font-size:1.3em; letter-spacing:0.2em;">';
                             html += '<a title="Ver" data-field-id="' + json.Items[0][i].id_prop + '"><i class="fa fa-search" alt=“Ver”></i></a>&nbsp;'
-                            html += '<a title="Editar" data-field-id="' + json.Items[0][i].id_prop  + '"><i class="fa fa-edit" alt=“editar”></i></a>&nbsp;';
+                            
+                            
+
+                            htmlPropietario='<a title="Editar Propietario" href="index.php?url=app/vistas/alquileres/editar_propietarios&idpro=' + json.Items[0][i].id_prop  + '&codpro=' + json.Items[0][i].codigo  + '&codtip=' + json.Items[0][i].tipo  + '"><i class="fa fa-edit" alt=“editar”></i></a>&nbsp;';
+                            html += htmlPropietario;
+
+       
                             html += '<a title="Bitacora" data-field-id="' + json.Items[0][i].id_prop + '"><i class="fa fa-book"></i></a>&nbsp;';
                             
                             if(json.Items[0][i].tipo == 1){//PERSONA NATUARAL
