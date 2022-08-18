@@ -169,17 +169,17 @@ function guardarPropietarios(){
         return;
         }
     
-    if ($("#registroEstado").val() == "") {
-            mensaje("Debe colocar el campo el estado ",1);
-            return;
-            }
+    if ($("#cboEstados").val() == "") {
+        mensaje("Debe colocar el campo el estado ",1);
+        return;
+        }
 
-    if ($("#registroMunicipio").val() == "") {
+    if ($("#cboMunicipios").val() == "") {
         mensaje("Debe colocar el campo el municipio ",1);
         return;
         }
 
-    if ($("#registroParroquia").val() == "") {
+    if ($("#cboParroquia").val() == "") {
         mensaje("Debe colocar el campo el parroqui ",1);
         return;
         }
@@ -208,22 +208,6 @@ function guardarPropietarios(){
     }
 
 
-    if ($("#registroEstado").val() == "") {
-        mensaje("Debe indicar el estado de residencia del propietario",1);
-        return;
-        }
-    
-    if ($("#registroMunicipio").val() == "") {
-        mensaje("Debe indicar el Municipio de residencia del propietario",1);
-        return;
-        }
-
-    if ($("#registroParroquia").val() == "") {
-        mensaje("Debe indicar la parroquia de residencia del propietario",1);
-        return;
-        }
-    
-    
     if ($("#cboBancoN").val() == "") {
         mensaje("Debe indicar el banco del propietario",1);
         return;

@@ -145,15 +145,12 @@ if($operacion == "I"){
                   "cuenta_id_internacional" => $_POST["hidcuenta_id_internacional"],
                   "ban_extr" => $_POST["ban_extr"],
                   "age_extr" => $_POST["age_extr"],
-                  
                   "dc_extr" => $_POST["dc_extr"],
                   "cue_extr" => $_POST["cue_extr"],
                   "iba_extr" => $_POST["iba_extr"],
-                  "bic_extr" => $_POST["bic_extr"]
-                  
-                  
-                  
-                  );
+                  "bic_extr" => $_POST["bic_extr"]);
+
+
 
       //echo json_encode($datos);
      //die;

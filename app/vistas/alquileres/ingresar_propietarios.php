@@ -26,10 +26,16 @@ include("layout/menuNavegacion.php");
                                 <div class="card-body">
                                     <form class="form-sample" id="registrarpropietario" name="registrarpropietario" method="POST" action="" autocomplete="off" enctype="multipart/form-data">
                                         
-                                      <input type="hidden" id="tipo_persona" name="tipo_persona" value='1'>
+                                         <input type="hidden" id="id_usuario" name="id_usuario" value='1'>
+                                         
+                                        <input type="hidden" id="tipo_persona" name="tipo_persona" value='1'>
                                         <input type="hidden" id="hidpropietario" name="hidpropietario" value=''>
+
                                         <input type="hidden" id="hidcuenta_id_nacional" name="hidcuenta_id_nacional" value='0'>
                                         <input type="hidden" id="hidcuenta_id_internacional" name="hidcuenta_id_internacional" value='0'>
+
+                                        <input type="hidden" id="hidcuenta_id_paypal" name=" hidcuenta_id_paypal" value='0'>
+                                        <input type="hidden" id="hidcuenta_id_zelle" name="hidcuenta_id_zelle" value='0'>
                                         <!--
                                         <input type="hidden" id="registroCodigo" name="registroCodigo" value='0001'>
 -->
@@ -224,17 +230,20 @@ include("layout/menuNavegacion.php");
                                                 </div>
 
                                                 <div class="row">
-                                                    <div class="col-md-6">
+                                                   <div class="col-md-6">
                                                         <div class="input-group">
-                                                            <span class="input-group-text">Cuenta Paypal:</span>
-                                                            <input type="text" class="form-control" placeholder="correo" id="paypal" name="paypal" >
+                                                            <span for="cor_payp" class="input-group-text">Cuenta Paypal:</span>
+                                                            <input type="text" class="form-control" placeholder="correo" id="cor_payp" name="cor_payp" >
+                                                            <input type="hidden" id="nom_payp" name="nom_payp" value='0'>
                                                         </div>
                                                     </div>
 
                                                     <div class="col-md-6">
                                                         <div class="input-group">
                                                             <span class="input-group-text">Cuenta Zelle</span>
-                                                                  <input type="text" class="form-control" placeholder="correo" id="zeller" name="zeller" >
+                                                            <input type="text" class="form-control" placeholder="telefono" id="tel_zelle" name="tel_zelle">
+                                                            <input type="text" class="form-control" placeholder="correo" id="cor_zelle" name="cor_zelle">
+                                                            <input type="text" class="form-control" placeholder="nombre" id="nom_zelle" name="nom_zelle">
                                                         </div>
                                                     </div>
 
@@ -316,7 +325,7 @@ include("layout/menuNavegacion.php");
                                     <form class="form-sample" id="registrarpropietarioj" name="registrarpropietarioj" method="POST" action="" autocomplete="off" enctype="multipart/form-data">
                                         
                 
-
+                                         <input type="hidden" id="id_usuario" name="id_usuario" value='1'>
                                         <input type="hidden" id="tipo_personaj" name="tipo_personaj" value='2'>
                                         <input type="hidden" id="hiid_propj" name="hiid_propj" value=''>
                                         <input type="hidden" id="hidcuenta_id_nacionalj" name="hidcuenta_id_nacionalj" value='0'>

@@ -26,7 +26,7 @@ include("layout/menuNavegacion.php");
                             <!--inq_natural-->
                             <div class="card">
                                 <div class="card-body">
-                                    <form class="form-sample" id="buscarCodigo" name="buscarCodigo" method="POST" action="" autocomplete="off">
+                                    <form class="form-sample" id="buscarCodigo" name="buscarCodigo" method="POST" action="" autocomplete="on">
                                         <input type="hidden" id="idusuario" name="idusuario" value="0">
                                         <input type="hidden" id="idcobrador" name="idcobrador" value="0">
                                         <!--Datos Personales-->

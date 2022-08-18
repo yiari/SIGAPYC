@@ -140,8 +140,25 @@ if($operacion == "I"){
                   "dc_extr" => $_POST["dc_extr"],
                   "cue_extr" => $_POST["cue_extr"],
                   "iba_extr" => $_POST["iba_extr"],
-                  "bic_extr" => $_POST["bic_extr"]
-                  );
+                  "bic_extr" => $_POST["bic_extr"],
+                   /*
+                   |------------------------------------------
+                   | AQUI VAN LOS DATOS DE PAYPAL
+                   |------------------------------------------
+                   */
+                  "cuenta_id_paypal" => $_POST["hidcuenta_id_paypal"],
+                  "cor_payp" => $_POST["cor_payp"],
+                  "nom_payp" => $_POST["nom_payp"],
+                /*
+                   |------------------------------------------
+                   | AQUI VAN LOS DATOS DE ZELLE
+                   |------------------------------------------
+                   */
+                  "cuenta_id_zelle" => $_POST["hidcuenta_id_zelle"],
+                  "tel_zelle" => $_POST["tel_zelle"],
+                  "cor_zelle" => $_POST["cor_zelle"],
+                  "nom_zelle" => $_POST["nom_zelle"]);
+
 
 
 

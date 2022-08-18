@@ -50,6 +50,17 @@ class ctrregistroinmueble{
     }
 
 
+    /*tabla para visializar los inquiilonos registrados*/
+
+    public function seleccionarBeneficiario($prmid_prop,$prmTipoProp){
+
+        $tabla = "inmuebles";
+        $modelo =  new mdlregistroinmueble();
+        $respuestas =  $modelo->seleccionarregistros($tabla,$prmid_prop,$prmTipoProp);
+        return $respuestas;
+    }
+
+
      
 
 

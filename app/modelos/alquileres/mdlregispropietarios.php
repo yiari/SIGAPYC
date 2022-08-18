@@ -43,7 +43,7 @@ public function registrar($tabla,$datos,$archivos){
           | AQUI PREPARO LO QUE SERA LA LLAMADA AL PROCEDIMIENTO QUE REALIZARA LA OPERACION
           |----------------------------------------------------------------------------------
           */
-          $stmt = $dbConexion->conectar()->prepare("CALL usp_registropropietarios(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+          $stmt = $dbConexion->conectar()->prepare("CALL usp_registropropietarios(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
           $stmt -> bindParam(1, $datos["id_prop"], PDO::PARAM_INT); //ESTE ES EL ID DEL PROPIETARIO
           $stmt -> bindParam(2, $datos["cod_prop"], PDO::PARAM_STR);
           $stmt -> bindParam(3, $datos["mon_prop"], PDO::PARAM_STR);            
@@ -85,7 +85,6 @@ public function registrar($tabla,$datos,$archivos){
             */
 
             $stmt -> bindParam(25, $datos["cuenta_id_internacional"], PDO::PARAM_INT); //ESTE ES EL ID DEL REGISTRO EN LA TABLA CUENTAS_PROPIETARIOS_NACIONAL
-            
             $stmt -> bindParam(26, $datos["ban_extr"], PDO::PARAM_STR); 
             $stmt -> bindParam(27, $datos["age_extr"], PDO::PARAM_STR); 
             $stmt -> bindParam(28, $datos["dc_extr"], PDO::PARAM_STR);     
@@ -93,9 +92,26 @@ public function registrar($tabla,$datos,$archivos){
             $stmt -> bindParam(30, $datos["iba_extr"], PDO::PARAM_STR);
             $stmt -> bindParam(31, $datos["bic_extr"], PDO::PARAM_STR);
   
+            /*
+            |-----------------------------------------------
+            | AQUI VAN LOS DATOS DE LOS paypal
+            |-----------------------------------------------
+            */
 
+            $stmt -> bindParam(32, $datos["cuenta_id_paypal"], PDO::PARAM_INT); //ESTE ES EL ID DEL REGISTRO EN LA TABLA CUENTAS_PROPIETARIOS_INTERNACIONAL
+            $stmt -> bindParam(33, $datos["cor_payp"], PDO::PARAM_STR); 
+            $stmt -> bindParam(34, $datos["nom_payp"], PDO::PARAM_STR); 
 
+/*
+            |-----------------------------------------------
+            | AQUI VAN LOS DATOS DE LOS ZELLE
+            |-----------------------------------------------
+            */
 
+            $stmt -> bindParam(35, $datos["cuenta_id_zelle"], PDO::PARAM_INT); //ESTE ES EL ID DEL REGISTRO EN LA TABLA ZELLE_BENEFICIARIOJ
+            $stmt -> bindParam(36, $datos["tel_zelle"], PDO::PARAM_STR); 
+            $stmt -> bindParam(37, $datos["cor_zelle"], PDO::PARAM_STR); 
+            $stmt -> bindParam(38, $datos["nom_zelle"], PDO::PARAM_STR);
 
                   
           /*

@@ -8,6 +8,7 @@ function inicio(){
     */
     let idPropietario = getParameterByName('idpro');
     let prmCodPro = getParameterByName('codpro');
+    let prmTipo = getParameterByName('codtip');
 
     let idInmueble = getParameterByName('idinmu');
     let prmCodInmu = getParameterByName('codinmu');
@@ -17,7 +18,7 @@ function inicio(){
     
     nuevoInmueble(idPropietario,prmCodPro);
 
-    cargarInmueble(idPropietario,idInmueble,prmCodInmu);
+    cargarInmueble(idPropietario,idInmueble,prmTipo,prmCodInmu);
 
 
 
@@ -69,6 +70,9 @@ function cargarInmueble(prmDato){
     formData.append('id_prop',prmDato);
     formData.append('id_inmu',prmDato);
     formData.append('cod_inmueble',prmDato);
+    formData.append('tip_persona',prmDato);
+
+  
  
     /*
     |-----------------------------------------------
@@ -146,9 +150,9 @@ function cargarInmueble(prmDato){
 
                                     html += '<a title="Editar" data-field-id="' + json.Items[0][i].id  + '"><i class="fa fa-edit" alt=“editar”></i></a>&nbsp;';
 
-                                    html += '<a title="Unidades_inmueble"  href="index.php?url=app/vistas/alquileres/unidades&idinmu=' + json.Items[0][i].id_inmu  + '&codinmu=' + json.Items[0][i].cod_inmueble  + '"><i class="fa fa-home"></i></a>&nbsp;'
+                                    html += '<a title="Unidades_inmueble"  href="index.php?url=app/vistas/alquileres/unidades&idinmu=' + json.Items[0][i].id_inmu   + '&codinmu=' + json.Items[0][i].cod_inmueble  +'"><i class="fa fa-home"></i></a>&nbsp;'
 
-                                    html += '<a title="Beneficiario"  href="index.php?url=app/vistas/alquileres/beneficiarios&idpro=' + json.Items[0][i].id_prop  + '&codpro=' + json.Items[0][i].propietario  + '"><i class="fa fa-users"></i></a>&nbsp;'
+                                    html += '<a title="Beneficiario"  href="index.php?url=app/vistas/alquileres/inmueble_beneficiario&idpro=' + json.Items[0][i].id_prop  + '&codpro=' + json.Items[0][i].propietario + '&codtip=' + json.Items[0][i].tip_persona + '&idinmu=' + json.Items[0][i].id_inmu  + '"><i class="fa fa-users"></i></a>&nbsp;'
                                    
                                     html += '<a title="inquilino"  href="index.php?url=app/vistas/alquileres/asignar_inquilino&idpro=' + json.Items[0][i].id_prop  + '&codpro=' + json.Items[0][i].propietario  + '"><i class="fa fa-user-circle-o"></i></a>&nbsp;'
                                     

@@ -274,3 +274,40 @@ if($operacion == "C"){
      return $result;
      
 }
+
+
+/* 
+ |--------------------------------------------------------------
+ | AQUI SE EJECUTA LA OPERACION DE CONSULTAR TODOS LOS INQUILINOS
+ |--------------------------------------------------------------
+*/
+
+if($operacion == "BI"){
+
+   $prmid_prop = $_POST["id_prop"];
+   $prmTipoProp = $_POST["tipo_propietario"];
+
+   /*
+    |-------------------------------------------
+    | AQUI CREO UNA INSTANCIA DE LA CLASE
+    |-------------------------------------------
+    */
+    
+    $registroInmueble =  new ctrregistroinmueble();
+
+   /* 
+   |---------------------------------------------
+   | AQUI OBTENGO EL RESULTADO DE LA EJECUCION
+   |---------------------------------------------
+   */
+     $result = $registroInmueble->seleccionarBeneficiario($prmid_prop,$prmTipoProp);
+    
+    /*
+    |-------------------------------------------
+    | AQUI REGRESO EL RESULTADO AL AJAX
+    |-------------------------------------------
+    */
+    header('Content-Type: application/json');
+     return $result;
+     
+}

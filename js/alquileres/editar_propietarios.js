@@ -185,6 +185,8 @@ console.log("consultando");
                         $('#hidpropietario').val(json.Items[0].id_prop);
                         $('#hidcuenta_id_nacional').val(json.Items[0].id_banco_nacional);
                         $('#hidcuenta_id_internacional').val(json.Items[0].id_banco_internacional);
+                        $('#hidcuenta_id_paypal').val(json.Items[0].id_banco_internacional);
+                        $('#hidcuenta_id_zelle').val(json.Items[0].id_banco_internacional);
 
 
                         /*
@@ -235,11 +237,35 @@ console.log("consultando");
                         |------------------------------------------------------
                         */
 
+                       
+                        $('#ban_extr').val(json.Items[0].ban_extr);
+                        $('#age_extr').val(json.Items[0].age_extr);
+                        $('#dc_extr').val(json.Items[0].dc_extr);
+                        $('#cue_extr').val(json.Items[0].cue_extr);
+                        $('#iba_extr').val(json.Items[0].iba_extr);
+                        $('#bic_extr').val(json.Items[0].bic_extr);
 
 
+                       /*
+                        |------------------------------------------------------
+                        | DATOS PAYPAL
+                        |------------------------------------------------------
+                        */
 
+                     
+                        $('#cor_payp').val(json.Items[0].cor_payp);
+                        $('#nom_payp').val(json.Items[0].nom_payp);
 
-
+                        /*
+                        |------------------------------------------------------
+                        | DATOS zelle
+                        |------------------------------------------------------
+                        */
+                     
+                        $('#tel_zelle').val(json.Items[0].tel_zelle);
+                        $('#cor_zelle').val(json.Items[0].cor_zelle);
+                        $('#nom_zelle').val(json.Items[0].nom_zelle);
+                      
 
 
 
@@ -266,6 +292,12 @@ console.log("consultando");
 }
 
 
+
+
+
+    
+
+
 function validateEmail(email) {
 
     var re = /\S+@\S+\.\S+/;
@@ -273,6 +305,8 @@ function validateEmail(email) {
 
 
 }
+
+
 
 
 function guardarPropietarios(){
@@ -519,6 +553,12 @@ function limpiarFormulario(valor){
 
 }
 
+
+
+
+
+    
+
 function botones(opcion){
 
     if(opcion == 1){
@@ -642,6 +682,10 @@ function generarCodigoPropietario(){
    
 
 }
+
+
+
+
 
 
 function validarCodigoPropietario(){
