@@ -23,12 +23,30 @@ include("layout/menuNavegacion.php");
                         <form class="form-sample" id="local" name="local" method="POST"  autocomplete="off" enctype="multipart/form-data">
                             <input type="hidden" name="cod_cont">
                             <!--datos del inmueble-->
+                            
+                            
+                            
                             <div class="card">
+
+                                
+
                                 <div class="card-body">
+
+                                <div class="row">
+                                    <div class="col-md-5">
+                                            <label class="col-sm-12 col-form-label">Código Contaro:</label>
+                                            <div class="col-sm-12">
+                                                <input for="registroCodigo" type="text" class="form-control" id="registroCodigo" name="registroCodigo" autofocus readonly="yes" >
+                                            </div>
+                                    </div>
+                                </div><br>
+
+
                                        <div class="col text-center">
                                             <h5 class="card-title">Representante legal de la administradora</h5>
-                                        </div>
-                                   <div class="row">
+                                        </div><br>
+                                  
+                                    <div class="row">
                                         <div class="col-md-4">
                                             <label for="cboRepresentante" class="col-sm-10 col-form-label">Codigo:</label></br>
                                             <div class="col-sm-12">
@@ -58,35 +76,40 @@ include("layout/menuNavegacion.php");
                                 </div>
                             </div>
 
+                           
 </br>
 
                             <div class="card">
                                 <div class="card-body"> 
                                     <div class="col text-center">
                                         <h5 class="card-title">Datos del Inmueble</h5>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <label class="col-sm-12 col-form-label">Código:</label>
-                                          
-                                            <div class="col-sm-12">
-                                                <select class="form-control" id="cod_inmu" name="cod_inmu"  required autofocus>
-                                        
-                                                    <option selected disabled value=""></option>               
-                                                </select>
+                                    </div><br>
 
-                                            </div>
-                                            
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <label class="col-sm-12 col-form-label">Buscar Código inmueble :</label>
                                         </div>
-                                       
+                                    
+                                        <div class="col-md-4">
+                                                <input type="text" class="form-control" id="nom_prop" name="nom_prop">
+                                        </div>
+                                        <br>
                                         <div class="col-md-2">
+                                                <button type="submit" class="btn btn-primary mb-2">Buscar</button>
+                                        </div>                       
+                                    </div>
+
+
+                                    <div class="row">
+
+                                        <div class="col-md-5">
                                             <label class="col-sm-12 col-form-label">Tipo:</label>
                                             <div class="col-sm-12">
                                                <input type="text" class="form-control" id="tip_inmu" name="tip_inmu" readonly="yes">
                                               
                                             </div>
                                         </div>
-                                        <div class="col-md-1">
+                                        <div class="col-md-2">
                                             <label class="col-sm-12 col-form-label">Letra/N°:</label>
                                             <div class="col-sm-12">
                                                 <div class="col-sm-12">
@@ -94,7 +117,7 @@ include("layout/menuNavegacion.php");
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-3">
+                                        <div class="col-md-5">
                                             <div class="row">
                                                 <label for="ced_prop" class="col-sm-12 col-form-label">Actividad / Uso del Inmueble:</label>
                                                 <div class="col-sm-12">
@@ -102,120 +125,22 @@ include("layout/menuNavegacion.php");
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-2">
-                                            <label class="col-sm-12 col-form-label">Antigüedad:</label>
-                                            <div class="col-sm-12">
-                                                <input type="text" class="form-control" id="ant_inmu" name="ant_inmu" readonly="yes">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-2">
-                                            <label for="inputfecha" class="col-sm-12 col-form-label">Terreno:</label>
-                                            <div class="col-sm-12">
-                                                <input type="text" class="form-control" placeholder="Mtrs." id="mtr_inmu" name="mtr_inmu" readonly="yes">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-2">
-                                            <label for="inputfecha" class="col-sm-12 col-form-label">Construido:</label>
-                                            <div class="col-sm-12">
-                                                <input type="text" class="form-control" placeholder="Mtrs." id="mtr_cons" name="mtr_cons" readonly="yes">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-8">
-                                            <label class="col-sm-12 col-form-label">Ubicación:</label>
-                                            <div class="col-sm-12">
-                                                <input type="text" class="form-control" id="dir_inmu" name="dir_inmu" readonly="yes">
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-3">
-                                                <label class="col-sm-12 col-form-label">NORTE:</label>
-                                                <div class="col-sm-12">
-                                                    <div class="col-sm-12">
-                                                        <input type="text" class="form-control" id="lim_nort" name="lim_nort" readonly="yes">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <label class="col-sm-12 col-form-label">SUR:</label>
-                                                <div class="col-sm-12">
-                                                    <div class="col-sm-12">
-                                                        <input type="text" class="form-control" id="lim_sur" name="lim_sur" readonly="yes">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <label class="col-sm-12 col-form-label">ESTE:</label>
-                                                <div class="col-sm-12">
-                                                    <div class="col-sm-12">
-                                                        <input type="text" class="form-control" id="lim_este" name="lim_este" readonly="yes">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <label class="col-sm-12 col-form-label">OESTE:</label>
-                                                <div class="col-sm-12">
-                                                    <div class="col-sm-12">
-                                                        <input type="text" class="form-control" id="lim_oest" name="lim_oest" readonly="yes">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div><br>
 
-                                    <div class="col text-center">
-                                        <h5 class="card-title">Registro</h5>
                                     </div>
+
+
                                     <div class="row">
-                                        <div class="col-md-1">
-                                            <label class="col-sm-12 col-form-label">Número:</label>
-                                            <div class="col-sm-12">
+
+
+                                        <div class="col-md-12">
+                                                <label class="col-sm-12 col-form-label">Ubicación:</label>
                                                 <div class="col-sm-12">
-                                                    <input type="text" class="form-control" id="num_regi" name="num_regi" readonly="yes">
+                                                    <input type="text" class="form-control" id="dir_inmu" name="dir_inmu" readonly="yes">
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-4">
-                                            <div class="row">
-                                                <label for="ced_prop" class="col-sm-12 col-form-label">Nombre del Registro:</label>
-                                                <div class="col-sm-12">
-                                                    <input type="text" class="form-control" id="nom_regi" name="nom_regi" readonly="yes">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-2">
-                                            <label for="inputfecha" class="col-sm-12 col-form-label">Fecha:</label>
-                                            <div class="col-sm-12">
-                                                <input type="date" id="fec_regi" name="fec_regi" class="form-control" readonly="yes">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-1">
-                                            <label class="col-sm-12 col-form-label">Tomo:</label>
-                                            <div class="col-sm-12">
-                                                <input type="text" class="form-control" id="tom_regi" name="tom_regi" readonly="yes">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-1">
-                                            <label class="col-sm-12 col-form-label">Folio:</label>
-                                            <div class="col-sm-12">
-                                                <input type="text" class="form-control" id="fol_regi" name="fol_regi" readonly="yes">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-1">
-                                            <label class="col-sm-12 col-form-label">Asiento:</label>
-                                            <div class="col-sm-12">
-                                                <input type="text" class="form-control" id="asi_regi" name="asi_regi" readonly="yes">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-2">
-                                            <label class="col-sm-12 col-form-label">F. Catastral:</label>
-                                            <div class="col-sm-12">
-                                                <input type="text" class="form-control" id="fic_cata" name="fic_cata" readonly="yes">
-                                            </div>
-                                        </div>
+
                                     </div>
-                                </div>
                             </div><br>
                             
                             <!--Datos del propietario-->
@@ -294,25 +219,29 @@ include("layout/menuNavegacion.php");
                                     <div class="col text-center">
                                         <h5 class="card-title">Datos del Inquilino</h5>
                                     </div>
-                                    <div class="row">
-                                        
 
-                                        <div class="col-md-4">
-                                            <label for="cboinquilino" class="col-sm-10 col-form-label">Codigo:</label></br>
-                                            <div class="col-sm-12">
-                                                <select class="form-control"  id="cboinquilino" name="cboinquilino"></select>
-                                            </div>
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <label class="col-sm-12 col-form-label">Buscar codigo Inquilino :</label>
                                         </div>
-                                           
-                                        <div class="col-md-8">
+                                    
+                                        <div class="col-md-4">
+                                                <input type="text" class="form-control" id="nom_inqu" name="nom_inqu">
+                                        </div>
+                                        <br>
+                                        <div class="col-md-2">
+                                                <button type="submit" class="btn btn-primary mb-2">Buscar</button>
+                                        </div>                       
+                                    </div>
+
+
+                                    <div class="row">  
+                                        <div class="col-md-6">
                                             <label class="col-sm-12 col-form-label">Nombre o Razón social:</label>
                                             <div class="col-sm-12">
                                                 <input type="text" class="form-control" id="nom_inqu" name="nom_inqu" readonly="yes">
                                             </div>
                                         </div>
-
-                                    </div>
-                                    <div class="row">
                                         <div class="col-md-3">
                                             <label for="inputfecha" class="col-sm-12 col-form-label">Rif/Cedula :</label>
                                             <div class="col-sm-12">
@@ -325,6 +254,10 @@ include("layout/menuNavegacion.php");
                                                 <input type="text" class="form-control" id="tel_inqu" name="tel_inqu" readonly="yes">
                                             </div>
                                         </div>
+
+                                    </div>
+                                    <div class="row">
+                                        
                                         <div class="col-md-6">
                                             <label class="col-sm-12 col-form-label">Correo:</label>
                                             <div class="col-sm-12">
@@ -350,7 +283,7 @@ include("layout/menuNavegacion.php");
                                             <div class="row">
                                                 <label for="ced_prop" class="col-sm-12 col-form-label">CANON:</label>
                                                 <div class="col-sm-12">
-                                                    <input type="number" class="form-control" id="can_cont" name="can_cont" value="">
+                                                    <input type="text" class="form-control" id="can_cont" name="can_cont" value="">
                                                 </div>
                                             </div>
                                         </div>
@@ -378,7 +311,7 @@ include("layout/menuNavegacion.php");
                                             <div class="row">
                                                 <label for="ced_prop" class="col-sm-12 col-form-label">Periodo de Prorroga:</label>
                                                 <div class="col-sm-12">
-                                                    <input type="number" class="form-control" id="per_pror" name="per_pror" value="">
+                                                    <input type="text" class="form-control" id="per_pror" name="per_pror" value="">
                                                 </div>
                                             </div>
                                         </div>
@@ -390,7 +323,7 @@ include("layout/menuNavegacion.php");
                                             <div class="row">
                                                 <label for="ced_prop" class="col-sm-12 col-form-label">Día de Pago:</label>
                                                 <div class="col-sm-12">
-                                                    <input type="number" class="form-control" id="dia_pago" name="dia_pago" value="">
+                                                    <input type="text" class="form-control" id="dia_pago" name="dia_pago" value="">
                                                 </div>
                                             </div>
                                         </div>
@@ -406,7 +339,7 @@ include("layout/menuNavegacion.php");
                                             <div class="row">
                                                 <label for="ced_prop" class="col-sm-12 col-form-label">Peíodo de Inspección:</label>
                                                 <div class="col-sm-12">
-                                                    <input type="number" class="form-control" id="ins_cont" name="ins_cont" value="">
+                                                    <input type="text" class="form-control" id="ins_cont" name="ins_cont" value="">
                                                 </div>
                                             </div>
                                         </div>
@@ -433,7 +366,7 @@ include("layout/menuNavegacion.php");
                                             <div class="row">
                                                 <label for="ced_prop" class="col-sm-12 col-form-label">Gasto Administrativo:</label>
                                                 <div class="col-sm-12">
-                                                    <input type="number" class="form-control" id="adm_inmu" name="adm_inmu" value="">
+                                                    <input type="text" class="form-control" id="adm_inmu" name="adm_inmu" value="">
                                                 </div>
                                             </div>
                                         </div>
@@ -441,7 +374,7 @@ include("layout/menuNavegacion.php");
                                             <div class="row">
                                                 <label for="ced_prop" class="col-sm-12 col-form-label">Gasto de Papelería:</label>
                                                 <div class="col-sm-12">
-                                                    <input type="number" class="form-control" id="pap_inmu" name="pap_inmu" value="">
+                                                    <input type="text" class="form-control" id="pap_inmu" name="pap_inmu" value="1$" readonly="yes">
                                                 </div>
                                             </div>
                                         </div>
@@ -449,7 +382,7 @@ include("layout/menuNavegacion.php");
                                             <div class="row">
                                                 <label for="ced_prop" class="col-sm-12 col-form-label">IVA:</label>
                                                 <div class="col-sm-12">
-                                                    <input type="number" class="form-control" id="iva_inmu" name="iva_inmu" value="">
+                                                    <input type="text" class="form-control" id="iva_inmu" name="iva_inmu" value="16%"  readonly="yes">
                                                 </div>
                                             </div>
                                         </div>
@@ -457,7 +390,7 @@ include("layout/menuNavegacion.php");
                                             <div class="row">
                                                 <label for="ced_prop" class="col-sm-12 col-form-label">ISLR:</label>
                                                 <div class="col-sm-12">
-                                                    <input type="number" class="form-control" id="imp_inmu" name="imp_inmu" value="">
+                                                    <input type="text" class="form-control" id="imp_inmu" name="imp_inmu" value="3%" readonly="yes">
                                                 </div>
                                             </div>
                                         </div>
@@ -465,7 +398,7 @@ include("layout/menuNavegacion.php");
                                             <div class="row">
                                                 <label for="ced_prop" class="col-sm-12 col-form-label">Depósito:</label>
                                                 <div class="col-sm-12">
-                                                    <input type="text" class="form-control" id="dep_cont" name="dep_cont" value="">
+                                                    <input type="text" class="form-control" id="dep_cont" name="dep_cont" value="" readonly="yes">
                                                 </div>
                                             </div>
                                         </div>
