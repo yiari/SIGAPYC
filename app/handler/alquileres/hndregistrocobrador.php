@@ -214,7 +214,7 @@ if($operacion == "CAI"){
    | AQUI OBTENGO EL RESULTADO DE LA EJECUCION
    |---------------------------------------------
    */
-     $result = $registrocobrador->seleccionasignar($prmid_cobrador );
+     $result = $registrocobrador->seleccionasignar($prmid_cobrador);
     
     /*
     |-------------------------------------------

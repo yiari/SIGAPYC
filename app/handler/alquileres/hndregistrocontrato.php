@@ -76,6 +76,93 @@ if(isset($_POST["opcion"])) {
 }
    
 
+/* 
+ |-------------------------------------------
+ | AQUI SE EJECUTA LA OPERACION DE INSERTAR
+ |-------------------------------------------
+*/
+
+if($operacion == "I"){
+
+   /*
+    |-------------------------------------------
+    | AQUI CREO UNA INSTANCIA DE LA CLASE
+    |-------------------------------------------
+    */
+    
+    $registrocontrato =  new ctrregistrocontrato();
+
+   /*
+   |---------------------------------------------
+   | AQUI CARGO LOS DATOS PARA ALMACENAR
+   |---------------------------------------------
+   */
+    $datos = array(   "id" => $_POST["hidcontrato"],
+                     "cod_cont" => $_POST["registroCodigo"], 
+                     "id_inqu"  => $_POST["id_inquilino"],
+                     "id_inmu"  => $_POST["id_inmueble"],
+                     "id_unid"  => $_POST["id_unidad"],
+                     "id_prop"  => $_POST["id_propietario"],
+                     "repre_administradora" => $_POST["repre_administradora"],
+                     "can_cont" => $_POST["registroCanon"],
+                     "fec_desd" => $_POST["fec_desd"],
+                     "fec_hast" => $_POST["fec_hast"],
+                     "per_pror" => $_POST["per_pror"],
+                     "dia_pago" => $_POST["dia_pago"],
+                     "pas_cont" => $_POST["pas_cont"],
+                     "ins_cont" => $_POST["ins_cont"],
+                     "fec_cont" => $_POST["fec_cont"],
+                     "adm_inmu" => $_POST["adm_inmu"],
+                     "pap_inmu" => $_POST["pap_inmu"],
+                     "iva_inmu" => $_POST["iva_inmu"],
+                     "imp_inmu" => $_POST["imp_inmu"],
+                     "dep_cont" => $_POST["dep_cont"],
+                     "com_cont" => $_POST["com_cont"],
+                     "hab_cont" => $_POST["hab_cont"],
+                     "for_cont" => $_POST["for_cont"],
+                     "por_rete" => $_POST["por_rete"],
+                     "ret_cont" => $_POST["ret_cont"],
+                     "doc_cont" => $_POST["doc_cont"],
+                     "id_usuario"=> $_POST["id_usuario" ]);
+
+
+
+
+    /*
+   |-------------------------------------------------------------------------------------------------------------
+   | AQUI PASO LA RUTA DE LOS DOCUMENTOS
+   |-------------------------------------------------------------------------------------------------------------
+   |
+   | CUANDO SE PASAN DOCUMENTOS O ARCHIVOS, SIEMPRE SE DEBEN CAPTURAR DOS DATOS, POR CADA CAMPO ARCHIVO
+   |
+   | EJEMPLO: SI EL CAMPO SE LLAMA [cedu_docu] entonces se deben capturar los dos datos
+   |  $_FILES['cedu_docu']['name']; -> Este es el nombre real del archivo
+   |  $_FILES['cedu_docu']['tmp_name']; -> Este es un nombre temporal que se crea cuando se carga el archivo
+   |-------------------------------------------------------------------------------------------------------------
+   */
+                 
+     $capturarArchivos =  new ctrcapturararchivos();
+
+     $AchivosCargados = $capturarArchivos->GetPostedFiles();
+
+    // echo $resultado;
+
+   /* 
+   |---------------------------------------------
+   | AQUI OBTENGO EL RESULTADO DE LA EJECUCION
+   |---------------------------------------------
+   */
+     $result = $registrocontrato->registrar($datos,$AchivosCargados);
+    
+    /*
+    |-------------------------------------------
+    | AQUI REGRESO EL RESULTADO AL AJAX
+    |-------------------------------------------
+    */
+    header('Content-Type: application/json');
+     return $result;
+     
+}
 
 
 /* 
@@ -112,6 +199,84 @@ if($operacion == "C"){
      return $result;
      
 }
+
+
+
+/* 
+ |---------------------------------------------------------------------------
+ | AQUI SE EJECUTA LA OPERACION DE CONSULTAR TODOS LOS INMUEBLES y UNIDADES 
+ |----------------------------------------------------------------------------
+*/
+
+if($operacion == "BIU"){
+
+
+   $prmcodigo = $_POST["codigo"];
+   //$prmtipo = $_POST["tipo_propietario"];
+
+   /*
+    |-------------------------------------------
+    | AQUI CREO UNA INSTANCIA DE LA CLASE
+    |-------------------------------------------
+    */
+    
+    $registrocontrato =  new ctrregistrocontrato();
+
+   /* 
+   |---------------------------------------------
+   | AQUI OBTENGO EL RESULTADO DE LA EJECUCION
+   |---------------------------------------------
+   */
+     $result = $registrocontrato->seleccionasignar($prmcodigo);
+    
+    /*
+    |-------------------------------------------
+    | AQUI REGRESO EL RESULTADO AL AJAX
+    |-------------------------------------------
+    */
+    header('Content-Type: application/json');
+     return $result;
+     
+}
+
+
+
+/* 
+ |---------------------------------------------------------------------------
+ | AQUI SE EJECUTA LA OPERACION DE CONSULTAR TODOS LOS INMUEBLES 
+ |----------------------------------------------------------------------------
+*/
+
+if($operacion == "BI"){
+
+
+   $prmcodigo = $_POST["codigo"];
+
+   /*
+    |-------------------------------------------
+    | AQUI CREO UNA INSTANCIA DE LA CLASE
+    |-------------------------------------------
+    */
+    
+    $registrocontrato =  new ctrregistrocontrato();
+
+   /* 
+   |---------------------------------------------
+   | AQUI OBTENGO EL RESULTADO DE LA EJECUCION
+   |---------------------------------------------
+   */
+     $result = $registrocontrato->seleccionasignarinquilino($prmcodigo);
+    
+    /*
+    |-------------------------------------------
+    | AQUI REGRESO EL RESULTADO AL AJAX
+    |-------------------------------------------
+    */
+    header('Content-Type: application/json');
+     return $result;
+     
+}
+
 
 
 /* 

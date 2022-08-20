@@ -600,6 +600,52 @@ function codigoUnidad(tipo,letra,nombre,callback){
 
 }
 
+
+function codigo_contrato(tipo,letra,nombre,callback){
+
+
+    let text="";
+    let result="";
+
+    if(tipo.length >0){
+
+            $.ajax({
+                url: "app/vistas/comunes/generarcodigos.php",
+                method: 'POST',
+                data: {opcion:"codigoUnidad"},
+                success: function (data,status,xhr) {
+                    var json = data;
+                    
+                    /*
+                    |-----------------------------------------------------------
+                    | AQUI VERIFICO SI LA RESPUESTA ES JSON, SI NO ES JSON
+                    | EL RESULTADO SE CONVIERTE A JSON
+                    |-----------------------------------------------------------
+                    */
+            
+                    var respuestaHeader = xhr.getResponseHeader("Content-Type");
+                    var verificarHeader = respuestaHeader.search('text/html')
+            
+                    if(verificarHeader >= 0){
+                        json = JSON.parse(json);
+                    } 
+            
+                    /*---------------------------------------------------------*/
+            
+                    text = tipo;
+                    result = 'C-' + tipo + '-' +  completarconcero(json.valor, 4) + '-' + letra + '-' + nombre;
+
+                     callback(result);
+
+                }
+
+            });
+
+    }
+
+
+}
+
 /*
 |-------------------------------------------------
 | ESTO ES PARA DETERMINAR EL VALOR DE LA LETRA 

@@ -9,9 +9,6 @@
                         </ol>
                     </div>
 
-
-                   
-
                      <h4 class="card-title">Cobrador</h4>
                     <nav>
                         <div class="nav nav-tabs" id="nav-tab" role="tablist">

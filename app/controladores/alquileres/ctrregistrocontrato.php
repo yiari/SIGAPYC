@@ -29,10 +29,10 @@ class ctrregistrocontrato{
 
      public function registrar($datos,$archivos){
 
-            $tabla = "cobrador";
-            $modelo = new mdlregiscobrador();
+            $tabla = "contrato";
+            $modelo = new mdlregiscontrato();
 
-            $modelo =  new mdlregiscobrador();
+            $modelo =  new mdlregiscontrato();
             $respuesta = $modelo->registrar($tabla,$datos,$archivos);
 
             return $respuesta;
@@ -46,6 +46,26 @@ class ctrregistrocontrato{
         $tabla = "contrato";
         $modelo =  new mdlregiscontrato();
         $respuestas =  $modelo->seleccionarregistros($tabla,null,null);
+        return $respuestas;
+    }
+
+
+
+    public function seleccionasignar($codigo){
+
+        $tabla = "contrato";
+        $modelo =  new mdlregiscontrato();
+        $respuestas =  $modelo->seleccionasignar($tabla,$codigo);
+        return $respuestas;
+    }
+
+
+
+    public function seleccionasignarinquilino($codigo){
+
+        $tabla = "contrato";
+        $modelo =  new mdlregiscontrato();
+        $respuestas =  $modelo->seleccionasignarinquilino($tabla,$codigo,null);
         return $respuestas;
     }
 

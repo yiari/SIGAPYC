@@ -11,7 +11,7 @@ include("layout/menuNavegacion.php");
 
     
         
-        <h4 class="card-title">FICHA DEL PROPIETARIO </h4>
+        <h4 class="card-title">BITACORA DEL PROPIETARIO </h4>
       
         <div class="card-header">
             <div style="text-align: right;">
@@ -25,7 +25,16 @@ include("layout/menuNavegacion.php");
                         <!--datos_generales-->
                         <div class="card">
                             <div class="card-body">
-
+                                <form class="form-sample" id="registrarpropietario" name="registrarpropietario" method="POST" action="" autocomplete="off" enctype="multipart/form-data">
+                                        
+                                        <input type="hidden" id="id_usuario" name="id_usuario" value='1'>
+                                         <input type="hidden" id="tipo_persona" name="tipo_persona" value='1'>
+                                         <input type="hidden" id="hidpropietario" name="hidpropietario" value=''>
+                                         <input type="hidden" id="hidcuenta_id_nacional" name="hidcuenta_id_nacional" value='0'>
+                                         <input type="hidden" id="hidcuenta_id_internacional" name="hidcuenta_id_internacional" value='0'>
+ 
+                                         <input type="hidden" id="hidcuenta_id_paypal" name="hidcuenta_id_paypal" value='0'>
+                                         <input type="hidden" id="hidcuenta_id_zelle" name="hidcuenta_id_zelle" value='0'>
                                 <!--Datos del propietario-->
                                 <div class="card" id="Propietario">
                                     <div class="card-body">
@@ -36,28 +45,29 @@ include("layout/menuNavegacion.php");
                                             <div class="col-md-3">
                                                 <label class="col-sm-12 col-form-label">Código:</label>
                                                 <div class="col-sm-12">
-                                                    <input type="text" class="form-control" id="id_prop" name="id_prop" autofocus readonly="yes" value=''>
+                                                    <input type="text" class="form-control" id="registroCodigo" name="registroCodigo" autofocus readonly="yes" value=''>
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
                                                 <label class="col-sm-12 col-form-label">Nombre:</label>
                                                 <div class="col-sm-12">
-                                                    <input type="text" class="form-control" id="nom_prop" name="nom_prop" readonly="yes" value=''>
+                                                    <input type="text" class="form-control" id="registroNombre" name="registroNombre" readonly="yes" value=''>
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
                                                 <label class="col-sm-12 col-form-label">Apellido:</label>
                                                 <div class="col-sm-12">
-                                                    <input type="text" class="form-control" id="ape_prop" name="ape_prop" readonly="yes" value=''>
+                                                    <input type="text" class="form-control" id="registroApellido" name="registroApellido" readonly="yes" value=''>
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
-                                                <div class="row">
-                                                    <label for="ced_prop" class="col-sm-12 col-form-label">Cédula de Identidad</label>
-                                                    <div class="col-sm-9">
-                                                        <input type="text" class="form-control" id="ci_prop" name="ci_prop" readonly="yes" value=''>
-                                                    </div>
-                                                </div>
+                                                  <div class="row">
+                                                            <label for="registroNacionalidad" class="col-sm-12 col-form-label">Cédula de Identidad</label>
+                                                            
+                                                            <div class="col-sm-7">
+                                                                <input for="registroCedula" type="text" class="form-control" id="registroCedula" name="registroCedula" value='' readonly="yes" >
+                                                            </div>
+                                                        </div>
                                             </div>
                                             
                                         </div>
@@ -65,25 +75,25 @@ include("layout/menuNavegacion.php");
                                             <div class="col-md-3">
                                                 <label class="col-sm-5 col-form-label">Rif:</label>
                                                 <div class="col-sm-12">
-                                                    <input type="text" class="form-control" id="rif_prop" name="rif_prop" readonly="yes" value=''>
+                                                    <input type="text" class="form-control" id="registroRif" name="registroRif" readonly="yes" value=''>
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
                                                 <label class="col-sm-8 col-form-label">Teléfono local:</label>
                                                 <div class="col-sm-12">
-                                                    <input type="text" class="form-control" id="loc_prop" name="loc_prop" readonly="yes" value=''>
+                                                    <input type="text" class="form-control" id="registroTelefono" name="registroTelefono" readonly="yes" value=''>
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
                                                 <label class="col-sm-9 col-form-label">Celular:</label>
                                                 <div class="col-sm-12">
-                                                    <input type="text" class="form-control" id="cel_prop" name="cel_prop" readonly="yes" value=''>
+                                                    <input type="text" class="form-control" id="registroCelular" name="registroCelular" readonly="yes" value=''>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <label class="col-sm-3 col-form-label">Correo:</label>
                                                 <div class="col-sm-12">
-                                                    <input type="text" class="form-control" id="cor_prop" name="cor_prop" readonly="yes" value=''>
+                                                    <input type="text" class="form-control" id="registroEmail" name="registroEmail" readonly="yes" value=''>
                                                 </div>
                                             </div>
                                         </div>
@@ -93,94 +103,107 @@ include("layout/menuNavegacion.php");
                                 <!--datos bancarios-->
                                 <div class="card">
                                     <div class="card-body">
-                                        <div class="col text-center">
-                                            <h5 class="card-title">Datos bancarios</h5>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-3">
-                                                <label class="col-sm-10 col-form-label">Banco Nacional:</label>
-                                                <div class="col-sm-12">
-                                                    <input type="text" class="form-control" id="id_banc" name="id_banc"  readonly="yes" value=''>
+                                                <div class="col text-center">
+                                                    <h5 class="card-title">Datos cuentas Nacionales</h5>
                                                 </div>
-                                            </div>
-                                            <div class="col-md-5">
-                                                <label class="col-sm-9 col-form-label">Cuenta:</label>
-                                                <div class="col-sm-12">
-                                                    <input type="text" class="form-control" id="num_cuen" name="num_cuen" readonly="yes" value=''><br>
+                                                <div class="row">
+                                                    
+                                                        <div class="col-md-6">
+                                                            <label for="cboBancoN" class="col-sm-10 col-form-label">Bancos Nacional:</label></br>
+                                                            <div class="col-sm-12">
+                                                                <select class="form-control"  id="cboBancoN" name="cboBancoN" ></select>
+                                                            </div>
+                                                       </div>
+  
+                                                    <div class="col-md-6">
+                                                        <label class="col-sm-9 col-form-label">Cuenta:</label>
+                                                        <div class="col-sm-12">
+                                                            <input type="text" class="form-control" id="num_cuen" name="num_cuen" maxlength="20" readonly="yes"><br>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <label class="col-sm-9 col-form-label">Cuenta Paypal:</label>
-                                                <div class="col-sm-12">
-                                                    <input type="text" class="form-control" id="cor_payp" name="cor_payp" readonly="yes" value=''><br>
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="input-group">
+                                                            <span class="input-group-text">Pago Movil</span>
+                                                            <input type="text" placeholder="cedula" id="ced_pmov" name="ced_pmov" aria-label="Cédula" readonly="yes" class="form-control">
+                                                            <select class="form-control"  id="cboBancoNP" name="cboBancoNP"></select>
+                                                            <input type="text" placeholder="celular" id="cel_pmov" name="cel_pmov" aria-label="Celular" readonly="yes" class="form-control">
+                                                        </div><br>
+                                                    </div>  
                                                 </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-3">
-                                                <label class="col-sm-10 col-form-label">Banco Extranjero:</label>
-                                                <div class="col-sm-12">
-                                                    <input type="text" class="form-control" id="ban_extr" name="ban_extr" readonly="yes" value=''>
+
+                                                <div class="col text-center">
+                                                    <h5 class="card-title">Datos cuentas Internacionales</h5>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-2">
+                                                        <label class="col-sm-10 col-form-label">Banco Extranjero:</label>
+                                                        <div class="col-sm-12">
+                                                            <input type="text" class="form-control" id="ban_extr" name="ban_extr" readonly="yes">
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-1">
+                                                        <label class="col-sm-12 col-form-label">Agencia:</label>
+                                                        <div class="col-sm-12">
+                                                            <input type="text" class="form-control" id="age_extr" name="age_extr" readonly="yes">
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-1">
+                                                        <label class="col-sm-12 col-form-label">DC:</label>
+                                                        <div class="col-sm-12">
+                                                            <input type="text" class="form-control" id="dc_extr" name="dc_extr" readonly="yes"><br>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <label class="col-sm-12 col-form-label">Cuenta:</label>
+                                                        <div class="col-sm-12">
+                                                            <input type="text" class="form-control" id="cue_extr" name="cue_extr" readonly="yes"><br>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <label class="col-sm-12 col-form-label">IBAN:</label>
+                                                        <div class="col-sm-12">
+                                                            <input type="text" class="form-control" id="iba_extr" name="iba_extr" readonly="yes"><br>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <label class="col-sm-12 col-form-label">BIC o SWIFT:</label>
+                                                        <div class="col-sm-12">
+                                                            <input type="text" class="form-control" id="bic_extr" name="bic_extr" readonly="yes"><br>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                   <div class="col-md-6">
+                                                        <div class="input-group">
+                                                            <span for="cor_payp" class="input-group-text">Cuenta Paypal:</span>
+                                                            <input type="text" class="form-control" placeholder="correo" id="cor_payp" name="cor_payp" readonly="yes">
+                                                            <input type="hidden" id="nom_payp" name="nom_payp" value='0'>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-6">
+                                                        <div class="input-group">
+                                                            <span class="input-group-text">Cuenta Zelle</span>
+                                                            <input type="text" class="form-control" placeholder="telefono" id="tel_zelle" name="tel_zelle" readonly="yes">
+                                                            <input type="text" class="form-control" placeholder="correo" id="cor_zelle" name="cor_zelle" readonly="yes">
+                                                            <input type="text" class="form-control" placeholder="nombre" id="nom_zelle" name="nom_zelle" readonly="yes">
+                                                        </div>
+                                                    </div>
 
                                                 </div>
                                             </div>
-                                            <div class="col-md-2">
-                                                <label class="col-sm-12 col-form-label">Agencia:</label>
-                                                <div class="col-sm-12">
-                                                    <input type="text" class="form-control" id="age_extr" name="age_extr" readonly="yes" value=''>
-
-                                                </div>
-                                            </div>
-                                            <div class="col-md-1">
-                                                <label class="col-sm-12 col-form-label">DC:</label>
-                                                <div class="col-sm-12">
-                                                    <input type="text" class="form-control" id="dc_extr" name="dc_extr"readonly="yes"  value=''><br>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-2">
-                                                <label class="col-sm-12 col-form-label">Cuenta:</label>
-                                                <div class="col-sm-12">
-                                                    <input type="text" class="form-control" id="cue_extr" name="cue_extr" readonly="yes" value=''><br>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-2">
-                                                <label class="col-sm-12 col-form-label">IBAN:</label>
-                                                <div class="col-sm-12">
-                                                    <input type="text" class="form-control" id="iba_extr" name="iba_extr" readonly="yes" value=''><br>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-2">
-                                                <label class="col-sm-12 col-form-label">BIC o SWIFT:</label>
-                                                <div class="col-sm-12">
-                                                    <input type="text" class="form-control" id="bic_extr" name="bic_extr" readonly="yes" value=''><br>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="input-group">
-                                                    <span class="input-group-text">Pago Movil</span>
-                                                    <input type="text" placeholder="cedula" id="ced_pmov" name="ced_pmov" aria-label="Cédula" readonly="yes" value='' class="form-control">
-                                                    <input type="text" placeholder="banco" id="ban_pmov" name="ban_pmov" aria-label="Banco" value='' readonly="yes" class="form-control">
-                                                    <input type="text" placeholder="celular" id="cel_pmov" name="cel_pmov" aria-label="Celular" value='' readonly="yes" class="form-control">
-                                                </div><br>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="input-group">
-                                                    <span class="input-group-text">Cuenta Zelle</span>
-                                                    <input type="text" class="form-control" placeholder="telefono" id="tel_zell" name="tel_zell" readonly="yes" value=''>
-                                                    <input type="text" class="form-control" placeholder="correo" id="cor_zell" name="cor_zell" readonly="yes" value=''>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
                                 </div><br>
 
                             </div>
                         </div>
                     
                 </div>
+                <from>
 
                
                     <div class="col-12 grid-margin">
@@ -248,7 +271,31 @@ include("layout/menuNavegacion.php");
                                     </div>
 
                                     <div class="card-body">
+
+
+                                       <div class="row">
+                                            <div class="col-md-2">
+                                                <label for="inputfecha" class="col-sm-12 col-form-label">Desde:</label>
+                                                <div class="col-sm-12">
+                                                    <input type="date" id="fec_desd" name="fec_desd" class="form-control" value="">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <label for="inputfecha" class="col-sm-12 col-form-label">Hasta:</label>
+                                                <div class="col-sm-12">
+                                                    <input type="date" id="fec_hast" name="fec_hast" class="form-control" value="">
+                                                </div>
+                     
+                                            </div>
+                                            <div class="col-md-2">
+                                               <label for="inputfecha" class="col-sm-12 col-form-label">&nbsp; </label>
+                                                <button type="submit" class="btn btn-primary ">Buscar</button>
+                                            </div>
+                                                
+                                        </div><br>
+
                                         <div class="table-responsive">
+
                                             <table class="table table-bordered">
                                                 <thead>
                                                     <tr>
@@ -293,6 +340,26 @@ include("layout/menuNavegacion.php");
                                         ESTADO DE CUENTA
                                     </div>
                                     <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-md-2">
+                                                <label for="inputfecha" class="col-sm-12 col-form-label">Desde:</label>
+                                                <div class="col-sm-12">
+                                                    <input type="date" id="fec_desd" name="fec_desd" class="form-control" value="">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <label for="inputfecha" class="col-sm-12 col-form-label">Hasta:</label>
+                                                <div class="col-sm-12">
+                                                    <input type="date" id="fec_hast" name="fec_hast" class="form-control" value="">
+                                                </div>
+                     
+                                            </div>
+                                            <div class="col-md-2">
+                                               <label for="inputfecha" class="col-sm-12 col-form-label">&nbsp; </label>
+                                                <button type="submit" class="btn btn-primary ">Buscar</button>
+                                            </div>
+                                                
+                                        </div><br>
                                         <div class="table-responsive">
                                             <table class="table table-bordered">
                                                 <thead>
@@ -327,3 +394,16 @@ include("layout/menuNavegacion.php");
             </div>
     </div>
 </div>
+
+
+
+<?php 
+
+include_once "app/vistas/comunes/modalmensajes.php";
+include_once "app/vistas/comunes/modaleliminar.php";
+
+?>
+
+<script src="js/comunes/combos.js"></script>
+<script src="js/comunes/funciones.js"></script>
+<script src="js/alquileres/bitacora_propietario.js"></script>

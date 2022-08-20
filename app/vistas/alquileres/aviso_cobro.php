@@ -23,8 +23,7 @@ include("layout/menuNavegacion.php");
             <div style="text-align: center;">
                 <ol>
                     <a class="btn btn-outline-secondary" href="reportes.php" role="button">Todos</a>
-                    <a class="btn btn-outline-primary"    href="reportes.php" role="button">Por enviar</a>
-                    <a class="btn btn-outline-secondary" href="reportes.php" role="button">Enviados</a>
+                    <a class="btn btn-outline-primary" href="reportes.php" role="button">Enviados</a>
                     <a class="btn btn-outline-success"   href="reportes.php" role="button">En Proceso</a>
                 </ol>
             </div>
@@ -88,13 +87,14 @@ include("layout/menuNavegacion.php");
                                         <table class="table table-bordered">
                                         <thead>
                                             <tr>
-                                                <th>N° DE CONTROL</th>
-                                                <th>FECHA</th>
-                                                <th>INMUEBLE</th>
-                                                <th>MENSUALIDAD</th>
-                                                <th>ESTATUS</th>
-                                                <th>REPUESTA</th>
-                                                <th>ACCIONES</th>
+                                                <th>codigo</th>
+                                                <th>Fecha</th>
+                                                <th>Innquilino</th>
+                                                <th>Inmueble</th>
+                                                <th>Mensualidad</th>
+                                                <th>Estatus</th>
+                                                <th>Repuestas</th>
+                                                <th>Acciones</th>
                                                						
                                             </tr>
                                         </thead>
@@ -102,6 +102,7 @@ include("layout/menuNavegacion.php");
                                                 <tr>
                                                     <td>AV-22070423</td>
                                                     <td>01/08/2022</td>
+                                                    <td>IN-05-0001-Gabrial peraza</td>
                                                     <td>LO-0002-32A-cc.sambil</td>
                                                     <td>$760,00</td>
                                                     <td>EN PROCESO</td>
