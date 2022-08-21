@@ -71,7 +71,9 @@ function cargarContrato(){
                             var html="";
                             html = '<div class="btn-group" style="font-size:1.3em; letter-spacing:0.2em;">';
                             html += '<a title="Editar" data-field-id="' + json.Items[0][i].id  + '"><i class="fa fa-edit" alt=“editar”></i></a>&nbsp;';
-                            html += '<a title="Eliminar"  data-field-id="'  + json.Items[0][i].id + '"><i class="fa fa-trash" alt=“eliminar”></i></a>';
+                            html += '<a href="app/reportes/repcontrato.php?id=' + json.Items[0][i].id  +  '" title="Imprimir" target="_blank" ><i class="fa fa-print" alt=“imprimir”></i></a>&nbsp;';
+                            html += '<a title="Eliminar"  data-field-id="'  + json.Items[0][i].id + '"><i class="fa fa-trash" alt=“eliminar”></i></a>&nbsp;';
+                            
                             html += '</div>'
                             tr.append("<td>" + html + "</td>");
                             $('#datosContrato').append(tr);
@@ -101,6 +103,16 @@ function cargarContrato(){
     });
 
 }
+
+function imprimirReporte(){
+
+    console.log("aqui imrpimo el reporte");
+
+
+
+
+}
+
 
 $(document).ready(function() {
 

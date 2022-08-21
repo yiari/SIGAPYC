@@ -1,20 +1,29 @@
 <?php
 	//session_start();
 	date_default_timezone_set('America/Caracas') ;
-	require_once("fpdf/fpdf.php");
-	require_once("clases/clscontrato.php");
-	$id_prop=$_GET['id_prop'];
-	$id_cont=$_GET['id_cont'];
+
+	/*
+	|----------------------------------------
+	| INCLUYO LA CLASE CORRESPONDIENTE
+	|----------------------------------------
+	*/
+
+	include_once '../../app/modelos/conexcion.php';
+
+	/*-------------------------------------*/
+
+	require_once("../../fpdf/fpdf.php");
+	require_once("../../clases/rptcontrato.php");
+
+	$id_prop= 0;//$_GET['id_prop'];
+	$id_cont=$_GET['id'];
 	$txt="";
 	$fecha=Date('Y-m-d');
 
-	//$obj=new clsdato();
-	//$obj->abrir();
-	//echo $id_prop;
-	require "conexion.php";
+	ob_start();
 	$pdf = new FPDF();
-	$obj = new clscontrato();
-	$obj->set("id_cont",$id_cont);
+	$obj = new rptcontrato();
+	//$obj->set("id_cont",$id_cont);
 	$texto=$obj->texto($id_cont);
 	$pdf->AddPage();
 	$pdf->AliasnbPages();
@@ -44,9 +53,12 @@
 			$pdf->ln();
 			$pdf->ln();			
 		
-   
 	$pdf->Output();	
-	
+	//$fileName = 'contrato.pdf';
+	//$pdf->Output('I', $fileName);// ->header('Content-Type', 'application/pdf');
+	ob_end_flush(); 
+
+
 	function mes($fecha)
   {
      if ($fecha!="")
