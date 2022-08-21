@@ -34,10 +34,10 @@ public function registrar($tabla,$datos,$archivos){
   $prmMensaje = "";
   $prmIdcontrato = 0;
 
-  $fechadesde = str_replace($datos["fec_desd"],"-","");
-  $fechahasta = str_replace($datos["fec_hast"],"-","");
-  $fechaapatir = str_replace($datos["pas_cont"],"-","");
-  $fechacontrato = str_replace($datos["fec_cont"],"-","");
+  $fechadesde = str_replace("-","",$datos["fec_desd"]);
+  $fechahasta = str_replace("-","",$datos["fec_hast"]);
+  $fechaapatir = str_replace("-","",$datos["pas_cont"]);
+  $fechacontrato = str_replace("-","",$datos["fec_cont"]);
 
   
       try {
@@ -47,38 +47,39 @@ public function registrar($tabla,$datos,$archivos){
           | AQUI PREPARO LO QUE SERA LA LLAMADA AL PROCEDIMIENTO QUE REALIZARA LA OPERACION
           |----------------------------------------------------------------------------------
           */
-          $stmt = $dbConexion->conectar()->prepare("CALL usp_cargar_contrato(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+          $stmt = $dbConexion->conectar()->prepare("CALL usp_cargar_contrato(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
 
           $stmt -> bindParam(1, $datos["id"], PDO::PARAM_INT); //ESTE ES EL ID DEL Cobrador
           $stmt -> bindParam(2, $datos["cod_cont"], PDO::PARAM_STR);		 
-          $stmt -> bindParam(3, $datos["id_inqu "], PDO::PARAM_INT); 		
-          $stmt -> bindParam(4, $datos["id_inmu "], PDO::PARAM_INT); 		
-          $stmt -> bindParam(5, $datos["id_unid "], PDO::PARAM_INT); 		
-          $stmt -> bindParam(6, $datos["id_prop "], PDO::PARAM_INT); 		
-          $stmt -> bindParam(7, $datos["repre_administradora"], PDO::PARAM_STR); 
-          $stmt -> bindParam(8, $datos["can_cont"], PDO::PARAM_INT); 		
-          $stmt -> bindParam(9,  $fechadesde,PDO::PARAM_INT); 		
-          $stmt -> bindParam(10, $fechahasta,PDO::PARAM_INT);		
-          $stmt -> bindParam(11, $datos["per_pror"], PDO::PARAM_STR); 		
-          $stmt -> bindParam(12, $datos["dia_pago"], PDO::PARAM_INT); 		
-          $stmt -> bindParam(13, $fechaapatir,PDO::PARAM_INT); 		
-          $stmt -> bindParam(14, $datos["ins_cont"], PDO::PARAM_INT); 		
-          $stmt -> bindParam(15, $fechacontrato,PDO::PARAM_INT);		
-          $stmt -> bindParam(16, $datos["adm_inmu"], PDO::PARAM_INT); 		
-          $stmt -> bindParam(17, $datos["pap_inmu"], PDO::PARAM_INT); 		
-          $stmt -> bindParam(18, $datos["iva_inmu"], PDO::PARAM_INT); 		
-          $stmt -> bindParam(19, $datos["imp_inmu"], PDO::PARAM_INT); 		
-          $stmt -> bindParam(20, $datos["dep_cont"], PDO::PARAM_INT); 		
-          $stmt -> bindParam(21, $datos["com_cont"], PDO::PARAM_INT); 		
-          $stmt -> bindParam(22, $datos["hab_cont"], PDO::PARAM_STR); 		
-          $stmt -> bindParam(23, $datos["for_cont"], PDO::PARAM_STR); 		
-          $stmt -> bindParam(24, $datos["por_rete"], PDO::PARAM_INT); 		
-          $stmt -> bindParam(25, $datos["ret_cont"], PDO::PARAM_INT); 		
-          $stmt -> bindParam(26, $datos["doc_cont"], PDO::PARAM_STR); 				
-          $stmt -> bindParam(27, $datos["id_usuario"], PDO::PARAM_INT);  
-          
-          
+          $stmt -> bindParam(3, $datos["id_inqu"], PDO::PARAM_INT); 		
+          $stmt -> bindParam(4, $datos["id_inmu"], PDO::PARAM_INT); 		
+          $stmt -> bindParam(5, $datos["id_unid"], PDO::PARAM_INT); 		
+          $stmt -> bindParam(6, $datos["id_prop"], PDO::PARAM_INT); 
+          $stmt -> bindParam(7, $datos["tipo_prop"], PDO::PARAM_INT); 
+          $stmt -> bindParam(8, $datos["tipo_inqui"], PDO::PARAM_INT); 
 
+          $stmt -> bindParam(9, $datos["repre_administradora"], PDO::PARAM_STR); 
+          $stmt -> bindParam(10, $datos["can_cont"], PDO::PARAM_INT); 		
+          $stmt -> bindParam(11, $fechadesde,PDO::PARAM_INT); 		
+          $stmt -> bindParam(12, $fechahasta,PDO::PARAM_INT);		
+          $stmt -> bindParam(13, $datos["per_pror"], PDO::PARAM_STR); 		
+          $stmt -> bindParam(14, $datos["dia_pago"], PDO::PARAM_INT); 		
+          $stmt -> bindParam(15, $fechaapatir,PDO::PARAM_INT); 		
+          $stmt -> bindParam(16, $datos["ins_cont"], PDO::PARAM_INT); 		
+          $stmt -> bindParam(17, $fechacontrato,PDO::PARAM_INT);		
+          $stmt -> bindParam(18, $datos["adm_inmu"], PDO::PARAM_INT); 		
+          $stmt -> bindParam(19, $datos["pap_inmu"], PDO::PARAM_INT); 		
+          $stmt -> bindParam(20, $datos["iva_inmu"], PDO::PARAM_INT); 		
+          $stmt -> bindParam(21, $datos["imp_inmu"], PDO::PARAM_INT); 		
+          $stmt -> bindParam(22, $datos["dep_cont"], PDO::PARAM_INT); 		
+          $stmt -> bindParam(23, $datos["com_cont"], PDO::PARAM_INT); 		
+          $stmt -> bindParam(24, $datos["hab_cont"], PDO::PARAM_STR); 		
+          $stmt -> bindParam(25, $datos["for_cont"], PDO::PARAM_STR); 		
+          $stmt -> bindParam(26, $datos["por_rete"], PDO::PARAM_INT); 		
+          $stmt -> bindParam(27, $datos["ret_cont"], PDO::PARAM_INT); 		
+          $stmt -> bindParam(28, $datos["doc_cont"], PDO::PARAM_STR); 				
+          $stmt -> bindParam(29, $datos["id_usuario"], PDO::PARAM_INT);  
+          
                   
           /*
           |---------------------------------
@@ -378,7 +379,7 @@ public function registrar($tabla,$datos,$archivos){
 
               $dbConexion = new conexcion();  
 
-                $stmt = $dbConexion->conectar()->prepare("CALL usp_cargar_asignacion_cobrador(?)");
+                $stmt = $dbConexion->conectar()->prepare("CALL usp_consultarInmueble(?)");
                 $stmt -> bindParam(1,$codigo,PDO::PARAM_STR);
               
                 $stmt->execute();
@@ -411,7 +412,7 @@ public function registrar($tabla,$datos,$archivos){
 
           $dbConexion = new conexcion();
           
-          $stmt = $dbConexion->conectar()->prepare("CALL usp_cargar_asignacion_cobrador(?)" );
+          $stmt = $dbConexion->conectar()->prepare("CALL usp_consultarInmueble(?)" );
           $stmt -> bindParam(1,$codigo,PDO::PARAM_STR);
           $stmt->execute();
           $dataRegistro["Items"][] = $stmt->fetchAll();

@@ -30,8 +30,6 @@ class ctrregistrocontrato{
      public function registrar($datos,$archivos){
 
             $tabla = "contrato";
-            $modelo = new mdlregiscontrato();
-
             $modelo =  new mdlregiscontrato();
             $respuesta = $modelo->registrar($tabla,$datos,$archivos);
 

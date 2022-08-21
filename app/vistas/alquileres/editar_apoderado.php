@@ -44,6 +44,8 @@ include("layout/menuNavegacion.php");
                                              <input type="hidden" id="tipo_persona" name=" tipo_persona" value='1'>
                                              <input type="hidden" id="hidcuenta_id_nacional" name="hidcuenta_id_nacional" value='0'>
                                              <input type="hidden" id="hidcuenta_id_internacional" name="hidcuenta_id_internacional" value='0'>
+                                             <input type="hidden" id="hidcuenta_id_paypal" name=" hidcuenta_id_paypal" value='0'>
+                                            <input type="hidden" id="hidcuenta_id_zelle" name="hidcuenta_id_zelle" value='0'>
                                             
                                         
                                             <div class="col-md-5">
@@ -231,17 +233,20 @@ include("layout/menuNavegacion.php");
                                                 </div>
 
                                                 <div class="row">
-                                                    <div class="col-md-6">
+                                                   <div class="col-md-6">
                                                         <div class="input-group">
-                                                            <span class="input-group-text">Cuenta Paypal:</span>
-                                                            <input type="text" class="form-control" placeholder="correo" id="paypal" name="paypal" >
+                                                            <span for="cor_payp" class="input-group-text">Cuenta Paypal:</span>
+                                                            <input type="text" class="form-control" placeholder="correo" id="cor_payp" name="cor_payp" >
+                                                            <input type="hidden" id="nom_payp" name="nom_payp" value='0'>
                                                         </div>
                                                     </div>
 
                                                     <div class="col-md-6">
                                                         <div class="input-group">
                                                             <span class="input-group-text">Cuenta Zelle</span>
-                                                            <input type="text" class="form-control" placeholder="correo" id="zeller" name="zeller" >
+                                                            <input type="text" class="form-control" placeholder="telefono" id="tel_zelle" name="tel_zelle">
+                                                            <input type="text" class="form-control" placeholder="correo" id="cor_zelle" name="cor_zelle">
+                                                            <input type="text" class="form-control" placeholder="nombre" id="nom_zelle" name="nom_zelle">
                                                         </div>
                                                     </div>
 

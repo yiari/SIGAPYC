@@ -21,10 +21,12 @@ include("layout/menuNavegacion.php");
                 <div class="card">
                     <div class="card-body">
 
-                                <input type="hidden" id="id_prop" name="id_prop" value=''>
-                                <input type="hidden" id="id_inmu" name="id_inmu" value=''>
-                                <input type="hidden" id="id_unid" name="id_unid" value=''>
-                                <input type="hidden" id="id_inqu" name="id_inqu" value=''>
+                                <input type="hidden" id="id_prop" name="id_prop" value='0'>
+                                <input type="hidden" id="id_inmu" name="id_inmu" value='0'>
+                                <input type="hidden" id="id_unid" name="id_unid" value='0'>
+                                <input type="hidden" id="id_inqu" name="id_inqu" value='0'>
+                                <input type="hidden" id="tipo_inqui" name="tipo_inqui" value='0'>
+                                <input type="hidden" id="tipo_prop" name="tipo_prop" value='0'>
 
 
                         <form class="form-sample" id="buscarCodigo" name="buscarCodigo" method="POST" action="" autocomplete="on">
@@ -99,8 +101,10 @@ include("layout/menuNavegacion.php");
                                                 <thead>
                                                         <tr>
                                                             <th>Propietario</th>
+                                                            <th>Tipo</th>
                                                             <th>Inmueble</th>
                                                             <th>Unidad</th>
+                                                            <th>Opcion</th>
                                                         </tr>
                                                 </thead>
                                                 <tbody>
@@ -112,75 +116,7 @@ include("layout/menuNavegacion.php");
                             </div><br>
                             </form>
                             <!--Datos del propietario-->
-                           <!-- <div class="card" id="Propietario">
-                                <div class="card-body">
-                                    <div class="col text-center">
-                                        <h5 class="card-title">Datos del Propietario</h5>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <label class="col-sm-12 col-form-label">Código:</label>
-                                        
-                                            <div class="col-sm-12">
-                                                <input type="text" class="form-control" id="nom_prop" name="nom_prop" readonly="yes">
-                                            </div>
-
-                                        </div>
-                                        <div class="col-md-3">
-                                            <label class="col-sm-12 col-form-label">Nombre:</label>
-                                            <div class="col-sm-12">
-                                                <input type="text" class="form-control" id="nom_prop" name="nom_prop" readonly="yes">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <label class="col-sm-12 col-form-label">Apellido:</label>
-                                            <div class="col-sm-12">
-                                                <input type="text" class="form-control" id="ape_prop" name="ape_prop" readonly="yes">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-2">
-                                            <div class="row">
-                                                <label for="ced_prop" class="col-sm-12 col-form-label">Cédula de Identidad</label>
-                                                <div class="col-sm-9">
-                                                    <input type="text" class="form-control" id="ci_prop" name="ci_prop" readonly="yes">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        
-                                    </div>
-                                    <div class="row">
-
-                                        <div class="col-md-4">
-                                            <label class="col-sm-5 col-form-label">Rif:</label>
-                                            <div class="col-sm-12">
-                                                <input type="text" class="form-control" id="rif_prop" name="rif_prop" readonly="yes">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <label class="col-sm-8 col-form-label">Teléfono local:</label>
-                                            <div class="col-sm-12">
-                                                <input type="text" class="form-control" id="loc_prop" name="loc_prop" readonly="yes">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <label class="col-sm-9 col-form-label">Celular:</label>
-                                            <div class="col-sm-12">
-                                                <input type="text" class="form-control" id="cel_prop" name="cel_prop" readonly="yes">
-                                            </div>
-                                        </div>
-                                        
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <label class="col-sm-3 col-form-label">Correo:</label>
-                                            <div class="col-sm-12">
-                                                <input type="text" class="form-control" id="cor_prop" name="cor_prop" readonly="yes">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div><br>-->
+                          
                             <!--datos del inquilino-->
 
                             <form class="form-sample" id="buscarCodigoinquilino" name="buscarCodigoinquilino" method="POST" action="" autocomplete="on">
@@ -211,6 +147,7 @@ include("layout/menuNavegacion.php");
                                                             <tr>
                                                                 <th>Inquilino</th>
                                                                 <th>tipo</th>
+                                                                <th>Opcion</th>
                                                             
                                                             </tr>
                                                     </thead>
@@ -221,40 +158,7 @@ include("layout/menuNavegacion.php");
                                     </div>
                                 </div>
                             </div><br>
-                                <!--
-                                    <div class="row">  
-                                        <div class="col-md-6">
-                                            <label class="col-sm-12 col-form-label">Nombre o Razón social:</label>
-                                            <div class="col-sm-12">
-                                                <input type="text" class="form-control" id="nom_inqu" name="nom_inqu" readonly="yes">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <label for="inputfecha" class="col-sm-12 col-form-label">Rif/Cedula :</label>
-                                            <div class="col-sm-12">
-                                                <input type="text" id="ci_inqu" name="ci_inqu" class="form-control" readonly="yes">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <label class="col-sm-12 col-form-label">Teléfono:</label>
-                                            <div class="col-sm-12">
-                                                <input type="text" class="form-control" id="tel_inqu" name="tel_inqu" readonly="yes">
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                    <div class="row">
-                                        
-                                        <div class="col-md-6">
-                                            <label class="col-sm-12 col-form-label">Correo:</label>
-                                            <div class="col-sm-12">
-                                                <input type="text" class="form-control" id="cor_inqu" name="cor_inqu" readonly="yes">
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div><br>-->
+ 
                             </form>
 
 
@@ -265,11 +169,6 @@ include("layout/menuNavegacion.php");
 
                                  <input type="hidden" id="hidcontrato" name="hidcontrato" value=''>
                                  <input type="hidden" id="id_usuario" name="id_usuario" value='1'>
-                                    <input type="hidden" id="id_propietario" name="id_propietario" value=''>
-                                    <input type="hidden" id="id_inmueble" name="id_inmueble" value=''>
-                                    <input type="hidden" id="id_unidad" name="id_unidad" value=''>
-                                    <input type="hidden" id="id_inquilino" name="id_inquilino" value=''>
-
 
                                     <input type="hidden" id="repre_administradora" name="repre_administradora" value='1'>
                                 
@@ -282,7 +181,7 @@ include("layout/menuNavegacion.php");
                                         <div class="col-md-5">
                                                 <label class="col-sm-12 col-form-label">Código Contrato:</label>
                                                 <div class="col-sm-12">
-                                                    <input for="registroCodigo" type="text" class="form-control" id="registroCodigo" name="registroCodigo" autofocus  >
+                                                    <input for="registroCodigo" type="text" class="form-control" id="registroCodigo" name="registroCodigo" autofocus readonly  >
                                                 </div>
                                         </div>
                                     </div><br>
@@ -304,7 +203,7 @@ include("layout/menuNavegacion.php");
                                         <div class="col-md-2">
                                             <label for="fec_hast" class="col-sm-12 col-form-label">Hasta:</label>
                                             <div class="col-sm-12">
-                                                <input type="date" id="fec_hast" name="fec_desd" class="form-control" value="">
+                                                <input type="date" id="fec_hast" name="fec_hast" class="form-control" value="">
                                             </div>
                                         </div>
                                         <div class="col-md-3">

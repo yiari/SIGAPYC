@@ -601,18 +601,18 @@ function codigoUnidad(tipo,letra,nombre,callback){
 }
 
 
-function codigo_contrato(tipo,letra,nombre,callback){
+function codigoContrato(nombre,callback){
 
 
     let text="";
     let result="";
 
-    if(tipo.length >0){
+    if(nombre.length >0){
 
             $.ajax({
                 url: "app/vistas/comunes/generarcodigos.php",
                 method: 'POST',
-                data: {opcion:"codigoUnidad"},
+                data: {opcion:"codigoContrato"},
                 success: function (data,status,xhr) {
                     var json = data;
                     
@@ -632,8 +632,8 @@ function codigo_contrato(tipo,letra,nombre,callback){
             
                     /*---------------------------------------------------------*/
             
-                    text = tipo;
-                    result = 'C-' + tipo + '-' +  completarconcero(json.valor, 4) + '-' + letra + '-' + nombre;
+                    text = nombre;
+                    result = 'COT-' + completarconcero(json.valor, 4)  + '-' +  nombre;
 
                      callback(result);
 

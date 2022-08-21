@@ -99,10 +99,14 @@ if($operacion == "I"){
    */
     $datos = array(   "id" => $_POST["hidcontrato"],
                      "cod_cont" => $_POST["registroCodigo"], 
+                     
                      "id_inqu"  => $_POST["id_inquilino"],
                      "id_inmu"  => $_POST["id_inmueble"],
                      "id_unid"  => $_POST["id_unidad"],
                      "id_prop"  => $_POST["id_propietario"],
+                     "tipo_prop"  => $_POST["tipo_propietario"],
+                     "tipo_inqui"  => $_POST["tipo_inquilino"],
+
                      "repre_administradora" => $_POST["repre_administradora"],
                      "can_cont" => $_POST["registroCanon"],
                      "fec_desd" => $_POST["fec_desd"],
@@ -119,10 +123,10 @@ if($operacion == "I"){
                      "dep_cont" => $_POST["dep_cont"],
                      "com_cont" => $_POST["com_cont"],
                      "hab_cont" => $_POST["hab_cont"],
-                     "for_cont" => $_POST["for_cont"],
-                     "por_rete" => $_POST["por_rete"],
-                     "ret_cont" => $_POST["ret_cont"],
-                     "doc_cont" => $_POST["doc_cont"],
+                     "for_cont" => $_POST["for_pag"],
+                     "por_rete" => 0,//$_POST["por_rete"],
+                     "ret_cont" => 0,//$_POST["ret_cont"],
+                     "doc_cont" => 0, //$_POST["doc_cont"],
                      "id_usuario"=> $_POST["id_usuario" ]);
 
 

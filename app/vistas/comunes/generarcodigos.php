@@ -39,7 +39,7 @@ if(isset($_POST["opcion"])) {
  |-------------------------------------------
 */
 
-if($operacion == "codigoPropietario" || $operacion == "codigoApoderado" || $operacion == "codigoRepresentante"|| $operacion == "codigoBeneficiario" || $operacion == "codigoInquilino" || $operacion == "codigoPagador" || $operacion == "codigoInmueble" || $operacion == "codigoUnidad" || $operacion == "codigoCobrador"){
+if($operacion == "codigoPropietario" || $operacion == "codigoApoderado" || $operacion == "codigoRepresentante"|| $operacion == "codigoBeneficiario" || $operacion == "codigoInquilino" || $operacion == "codigoPagador" || $operacion == "codigoInmueble" || $operacion == "codigoUnidad" || $operacion == "codigoCobrador" || $operacion == "codigoContrato"){
 
         /* 
         |------------------------------------------------------------
@@ -61,7 +61,7 @@ if($operacion == "codigoPropietario" || $operacion == "codigoApoderado" || $oper
           |----------------------------------------------------------------------------------
           */
           $stmt = $dbConexion->conectar()->prepare("CALL usp_getcodigosregistros(?)");
-          $stmt -> bindParam(1, $operacion, PDO::PARAM_STR); //ESTE ES EL ID DEL PROPIETARIO
+          $stmt -> bindParam(1, $operacion, PDO::PARAM_STR); //ESTE ES EL CODIGO DE LA OPERACION
           $stmt->execute();
 
           $resultado = $stmt->fetchAll();
@@ -71,7 +71,7 @@ if($operacion == "codigoPropietario" || $operacion == "codigoApoderado" || $oper
 
             foreach ($resultado as $key=> $row) {
 
-                  $prmRespuesta = $row[0]; //AQUI OBTENGO EL ID DEL PROPIETARIO
+                  $prmRespuesta = $row[0]; //AQUI OBTENGO EL VALOR DE LA RESPUESTA
               
               }
             }

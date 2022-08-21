@@ -63,8 +63,8 @@ function cargarContrato(){
                             tr.append("<td>" + json.Items[0][i].inquilino + "</td>");
                             tr.append("<td>" + json.Items[0][i].inmuebles + "</td>");
                             tr.append("<td>" + json.Items[0][i].canon + "</td>"); 
-                            tr.append("<td>" + json.Items[0][i].desde + "</td>"); 
-                            tr.append("<td>" + json.Items[0][i].hasta + "</td>"); 
+                            tr.append("<td>" + fecha(json.Items[0][i].desde,'YYYYMMDD','DD/MM/YYYY') + "</td>"); 
+                            tr.append("<td>" + fecha(json.Items[0][i].hasta,'YYYYMMDD','DD/MM/YYYY') + "</td>"); 
                           
                          
                             

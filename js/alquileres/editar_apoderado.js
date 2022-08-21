@@ -8,13 +8,8 @@ function inicio(){
     |---------------------------------------
     */
 
-
-    let idPropietario = getParameterByName('idpro');
-    let codigoPropietario = getParameterByName('codpro');
-    let tipoPropietario = getParameterByName('codtip');
+    let codigoApoderado = getParameterByName('codapod');
     let idApoderado = getParameterByName('idapod');
-
-    
 
     /*--------------------------------------*/    
 

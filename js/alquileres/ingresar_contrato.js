@@ -2,6 +2,7 @@ function inicio(){
 
     buscarInmueble();
     buscarInquilino();
+
     guardaronContratos();
     cargarRepresentanteLegal();
 
@@ -92,9 +93,6 @@ function buscarInmueble(){
 
    formData.append('opcion','BIU'); /*consulta de asignacion de inmueble y unidades*/ 
    formData.append('codigo',prmDato);
-   formData.append('tipo',prmDato);
-   
-  
 
    /*
    |-----------------------------------------------
@@ -131,6 +129,8 @@ function buscarInmueble(){
                    var tr;
                     var contador = 0;
                    if(json.Items.length > 0){
+                    $("#datosAsignarInmueble > tbody").html("");
+                    let char = String.fromCharCode(39);
                    var tr;
                        for (var i = 0; i < json.Items[0].length; i++) {
                
@@ -140,15 +140,18 @@ function buscarInmueble(){
                            i.id_inmu as id_inmueble      
                            ,i.id_prop as id_propietario
                            ,u.id_unid as id_unidad
-                           ,p.cod_prop as cod_propietario
-                           ,i.cod_inmu as cod_inmueble 
-                           ,u.cod_inmu  as cod_unidad
                         */
-
+                       /*
+                           $("#id_prop").val(json.Items[0][i].id_propietario);
+                           $("#id_inmu").val(json.Items[0][i].id_inmueble);
+                           $("#id_unid").val(json.Items[0][i].id_unidad);
+                        */
                            tr.append("<td>" + json.Items[0][i].cod_propietario + "</td>");
+                           tr.append("<td>" + tipoPersona(json.Items[0][i].tipo_propietario) + "</td>");
                            tr.append("<td>" + json.Items[0][i].cod_inmueble + "</td>");
                            tr.append("<td>" + json.Items[0][i].cod_unidad + "</td>");
- 
+                           tr.append('<td class="text-center"><input type="radio" id="id_inmueble_' + json.Items[0][i].id_inmueble +  '" name="inmueble" onclick="seleccionarInmueble(' + json.Items[0][i].id_propietario + ',' + json.Items[0][i].id_inmueble + ',' + json.Items[0][i].id_unidad + ',' + json.Items[0][i].tipo_propietario + ',' + char + json.Items[0][i].cod_inmueble + char +')"></td>');
+
                            var html="";
                          /*  html = '<div class="btn-group" style="font-size:1.3em; letter-spacing:0.5em;">';
                            html += '<button onclick=vinculacion(' + contador + ') id="vincular' + contador + '"  class="vincular btn btn-success "data-field-idpropietario="' + json.Items[0][i].id_propietario + '"data-field-idinmueble="' + json.Items[0][i].id_inmueble + '"data-field-idunidad="'+ json.Items[0][i].Id_unidad + '"><i class="fa fa-plus" alt=vincular></i>&nbsp;Vincular</button>';
@@ -263,6 +266,8 @@ function buscarInquilino(){
                    var tr;
                     var contador = 0;
                    if(json.Items.length > 0){
+                    $("#datosinquilino > tbody").html("");
+
                    var tr;
                        for (var i = 0; i < json.Items[0].length; i++) {
                
@@ -276,9 +281,11 @@ function buscarInquilino(){
                            ,i.cod_inmu as cod_inmueble 
                            ,u.cod_inmu  as cod_unidad
                         */
+                           //$("#id_inqu").val(json.Items[0][i].id_inquilino);
 
                            tr.append("<td>" + json.Items[0][i].cod_inquilino + "</td>");
                            tr.append("<td>" + tipoPersona(json.Items[0][i].tipo) + "</td>");
+                           tr.append('<td class="text-center"><input type="radio" id="id_inquilino_' + json.Items[0][i].id_inquilino +  '" name="inquilino" value="'  + json.Items[0][i].id_inquilino + '" onclick="seleccionarInquilino(' + json.Items[0][i].id_inquilino + ',' + json.Items[0][i].tipo + ')"></td>');
                            
  
                            var html="";
@@ -321,6 +328,24 @@ function buscarInquilino(){
 }
 
 
+function seleccionarInquilino(valor,tipo){
+
+    $("#id_inqu").val(valor);
+    $("#tipo_inqui").val(tipo);
+
+}
+
+function seleccionarInmueble(id_propietario,id_inmueble,id_unidad,tipo_propietarioj,codigo_inmueble){
+
+    $("#id_prop").val(id_propietario);
+    $("#id_inmu").val(id_inmueble);
+    $("#id_unid").val(id_unidad);
+    $("#tipo_prop").val(tipo_propietarioj);
+
+    generarCodigoContrato(codigo_inmueble);
+
+}
+
 
 function guardaronContratos(){
 
@@ -351,6 +376,18 @@ function guardaronContratos(){
        // syncDelay(5000); //ESTO VA A ESPERAR 5 SEGUNDOS;
 
         /*-------------------------------------------------*/
+
+
+    if ($("#id_inmu").val() == "" || $("#id_inmu").val() == "0" || $("#id_inmu").val() == 0 ) {
+       mensaje("Debe seleccionar el inmueble",1);
+       return;
+   }
+
+
+    if ($("#id_inqu").val() == "" || $("#id_inqu").val() == "0" || $("#id_inqu").val() == 0 ) {
+       mensaje("Debe seleccionar el inquilino",1);
+       return;
+   }
 
 
    if ($("#registroCanon").val() == "") {
@@ -444,6 +481,14 @@ function guardaronContratos(){
         |-----------------------------------------------------
         */
         formData.append('opcion','I');
+        
+        formData.append('id_propietario',$('#id_prop').val());
+        formData.append('id_inmueble',$('#id_inmu').val());
+        formData.append('id_unidad',$('#id_unid').val());
+        formData.append('id_inquilino',$('#id_inqu').val());
+        formData.append('tipo_inquilino',$('#tipo_inqui').val());
+        formData.append('tipo_propietario' ,$('#tipo_prop').val());
+
         /*
         |-----------------------------------------------
         | AQUI SE LLAMA EL AJAX 
@@ -530,7 +575,17 @@ function mensaje(mensaje, condicion){
 
 }
 
+function generarCodigoContrato(nombre){
+  
+        var prmNombre= nombre;
 
+        $("#registroCodigo").val('');
+
+        codigoContrato(prmNombre,function(result){
+            $("#registroCodigo").val(result);
+        });
+
+}
 
 
 
