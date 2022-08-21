@@ -9,7 +9,9 @@ function inicio(){
    let idPropietario = getParameterByName('idpro');
    let prmCodPro = getParameterByName('codpro');
    let prmTipo = getParameterByName('codtip');
-    /*--------------------------------------*/    
+    /*--------------------------------------*/ 
+    
+    let idbeneficiario = getParameterByName('idbene');
 
     codigoPropietario(prmCodPro);
 
@@ -61,6 +63,7 @@ function cargarbeneficiarios(prmDato,prmTipo){
 
     formData.append('opcion','C');
     formData.append('id_prop',prmDato);
+   
     formData.append('tipo',prmTipo);
     /*
     |-----------------------------------------------
@@ -112,10 +115,12 @@ function cargarbeneficiarios(prmDato,prmTipo){
                          
                             
                             var html="";
+                            var htmlBeneficiario="";
+
                             html = '<div class="btn-group" style="font-size:1.3em; letter-spacing:0.2em;">';
-                            html += '<a title="Editar" data-field-id="' + json.Items[0][i].id  + '"><i class="fa fa-edit" alt=“editar”></i></a>&nbsp;';
-                            html += '<a title="Ver" data-field-id="' + json.Items[0][i].id + '"><i class="fa fa-search" alt=“Ver”></i></a>&nbsp;'
-                            html += '<a title="Bitacora" data-field-id="' + json.Items[0][i].id + '"><i class="fa fa-folder-open"></i></a>&nbsp;';
+                            html += '<a title="Bitacora" data-field-id="' + json.Items[0][i].id + '"><i class="fa fa-book"></i></a>&nbsp;';
+                            htmlBeneficiario='<a title="Editar Propietario" href="index.php?url=app/vistas/alquileres/editar_beneficiarios&idbene=' + json.Items[0][i].id_bene  + '&codbene=' + json.Items[0][i].codigo  + '&codtip=' + json.Items[0][i].tipo  + '"><i class="fa fa-edit" alt=“editar”></i></a>&nbsp;';
+                            html += htmlBeneficiario;
                             html += '<a title="Eliminar"  data-field-id="'  + json.Items[0][i].id + '"><i class="fa fa-trash" alt=“eliminar”></i></a>';
                             html += '</div>'
                             tr.append("<td>" + html + "</td>");

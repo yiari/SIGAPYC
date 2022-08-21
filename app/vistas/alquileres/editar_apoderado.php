@@ -44,8 +44,7 @@ include("layout/menuNavegacion.php");
                                              <input type="hidden" id="tipo_persona" name=" tipo_persona" value='1'>
                                              <input type="hidden" id="hidcuenta_id_nacional" name="hidcuenta_id_nacional" value='0'>
                                              <input type="hidden" id="hidcuenta_id_internacional" name="hidcuenta_id_internacional" value='0'>
-                                            <input type="hidden" id="hidcuenta_id_paypal" name=" hidcuenta_id_paypal" value='0'>
-                                            <input type="hidden" id="hidcuenta_id_zelle" name="hidcuenta_id_zelle" value='0'>
+                                            
                                         
                                             <div class="col-md-5">
                                                 <label class="col-sm-12 col-form-label">Código apoderado:</label>
@@ -172,7 +171,7 @@ include("layout/menuNavegacion.php");
                                                     <div class="col-md-6">
                                                         <label class="col-sm-9 col-form-label">Cuenta:</label>
                                                         <div class="col-sm-12">
-                                                            <input type="text" class="form-control" id="num_cuen" name="num_cuen" maxlength="20"><br>
+                                                            <input type="text" class="form-control" id="num_cuen" name="num_cuen" ><br>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -232,20 +231,17 @@ include("layout/menuNavegacion.php");
                                                 </div>
 
                                                 <div class="row">
-                                                   <div class="col-md-6">
+                                                    <div class="col-md-6">
                                                         <div class="input-group">
-                                                            <span for="cor_payp" class="input-group-text">Cuenta Paypal:</span>
-                                                            <input type="text" class="form-control" placeholder="correo" id="cor_payp" name="cor_payp" >
-                                                            <input type="hidden" id="nom_payp" name="nom_payp" value='0'>
+                                                            <span class="input-group-text">Cuenta Paypal:</span>
+                                                            <input type="text" class="form-control" placeholder="correo" id="paypal" name="paypal" >
                                                         </div>
                                                     </div>
 
                                                     <div class="col-md-6">
                                                         <div class="input-group">
                                                             <span class="input-group-text">Cuenta Zelle</span>
-                                                            <input type="text" class="form-control" placeholder="telefono" id="tel_zelle" name="tel_zelle">
-                                                            <input type="text" class="form-control" placeholder="correo" id="cor_zelle" name="cor_zelle">
-                                                            <input type="text" class="form-control" placeholder="nombre" id="nom_zelle" name="nom_zelle">
+                                                            <input type="text" class="form-control" placeholder="correo" id="zeller" name="zeller" >
                                                         </div>
                                                     </div>
 
@@ -377,7 +373,7 @@ include_once "app/vistas/comunes/modaleliminar.php";
 <script src="js/comunes/combos.js"></script>
 <script src="js/comunes/generadorcodigos.js"></script>
 <script src="js/comunes/funciones.js"></script>
-<script src="js/alquileres/ingresar_apoderado.js"></script>
+<script src="js/alquileres/editar_apoderado.js"></script>
 
 
  

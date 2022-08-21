@@ -174,7 +174,7 @@ if($operacion == "I"){
 
 if($operacion == "C"){
 
-   $prmid_prop = $_POST["id_propj"];
+   $prmid_prop = $_POST["id_prop"];
 
     /*
      |-------------------------------------------
@@ -200,3 +200,47 @@ if($operacion == "C"){
       return $result;
       
  }
+
+
+ /* 
+ |--------------------------------------------------------------
+ | AQUI SE EJECUTA LA OPERACION DE CONSULTAR DEL PROPIETARIO
+ |--------------------------------------------------------------
+*/
+
+if($operacion == "CR"){
+
+
+
+   $datos = array( 
+      "id_repr" => $_POST["idRepresentante"],
+      "cod_repr" => $_POST["codigoRepresentante"],
+      //"tipo_prop" => $_POST["tipoPropietario"]
+   );
+
+
+
+   /*
+    |-------------------------------------------
+    | AQUI CREO UNA INSTANCIA DE LA CLASE
+    |-------------------------------------------
+    */
+    
+    $registroRepresentante =  new ctrregistrorepresentante();
+
+   /* 
+   |---------------------------------------------
+   | AQUI OBTENGO EL RESULTADO DE LA EJECUCION
+   |---------------------------------------------
+   */
+     $result = $registroRepresentante->consultarRepresentante($datos);
+    
+    /*
+    |-------------------------------------------
+    | AQUI REGRESO EL RESULTADO AL AJAX
+    |-------------------------------------------
+    */
+    header('Content-Type: application/json');
+     return $result;
+     
+}

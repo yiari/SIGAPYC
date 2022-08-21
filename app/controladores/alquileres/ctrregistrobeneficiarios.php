@@ -50,6 +50,14 @@ class ctrregistrobeneficiarios{
     }
 
 
+    public function consultabeneficiario($datos){
+
+        $tabla = "propbeneficiarioietarios";
+        $modelo =  new mdlregisbenficiario();
+        $respuestas =  $modelo->consultabeneficiario($tabla,$datos);
+        return $respuestas;
+    }
+
      
 
 

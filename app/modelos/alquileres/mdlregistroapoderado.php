@@ -43,7 +43,7 @@ public function registrar($tabla,$datos,$archivos){
           | AQUI PREPARO LO QUE SERA LA LLAMADA AL PROCEDIMIENTO QUE REALIZARA LA OPERACION
           |----------------------------------------------------------------------------------
           */
-          $stmt = $dbConexion->conectar()->prepare("CALL usp_registroapoderado(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+          $stmt = $dbConexion->conectar()->prepare("CALL usp_registroapoderado(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
           $stmt -> bindParam(1,  $datos ["id_apod"],  PDO::PARAM_INT); //ESTE ES EL ID DEL APODRRADO
 		      $stmt -> bindParam(2,  $datos ["id_prop"],  PDO::PARAM_INT); //ESTE ES EL ID DEL PROPIETARIO
           $stmt -> bindParam(3,  $datos ["cod_apod"], PDO::PARAM_STR);
@@ -90,13 +90,34 @@ public function registrar($tabla,$datos,$archivos){
             */
 
             $stmt -> bindParam(30, $datos["cuenta_id_internacional"], PDO::PARAM_INT); //ESTE ES EL ID DEL REGISTRO EN LA TABLA CUENTAS_PROPIETARIOS_NACIONAL
-            
             $stmt -> bindParam(31, $datos["ban_extr"], PDO::PARAM_STR); 
             $stmt -> bindParam(32, $datos["age_extr"], PDO::PARAM_STR); 
             $stmt -> bindParam(33, $datos["dc_extr"], PDO::PARAM_STR);     
             $stmt -> bindParam(34, $datos["cue_extr"], PDO::PARAM_STR);       
             $stmt -> bindParam(35, $datos["iba_extr"], PDO::PARAM_STR);
             $stmt -> bindParam(36, $datos["bic_extr"], PDO::PARAM_STR);
+
+
+            /*
+            |-----------------------------------------------
+            | AQUI VAN LOS DATOS DE LOS paypal
+            |-----------------------------------------------
+            */
+
+            $stmt -> bindParam(37, $datos["cuenta_id_paypal"], PDO::PARAM_INT); //ESTE ES EL ID DEL REGISTRO EN LA TABLA CUENTAS_PROPIETARIOS_INTERNACIONAL
+            $stmt -> bindParam(38, $datos["cor_payp"], PDO::PARAM_STR); 
+            $stmt -> bindParam(39, $datos["nom_payp"], PDO::PARAM_STR); 
+
+/*
+            |-----------------------------------------------
+            | AQUI VAN LOS DATOS DE LOS ZELLE
+            |-----------------------------------------------
+            */
+
+            $stmt -> bindParam(40, $datos["cuenta_id_zelle"], PDO::PARAM_INT); //ESTE ES EL ID DEL REGISTRO EN LA TABLA ZELLE_BENEFICIARIOJ
+            $stmt -> bindParam(41, $datos["tel_zelle"], PDO::PARAM_STR); 
+            $stmt -> bindParam(42, $datos["cor_zelle"], PDO::PARAM_STR); 
+            $stmt -> bindParam(43, $datos["nom_zelle"], PDO::PARAM_STR);
   
                   
           /*
@@ -213,7 +234,7 @@ public function registrar($tabla,$datos,$archivos){
           $dbConexion = new conexcion();
           $valor = 0;
           
-          $stmt = $dbConexion->conectar()->prepare("CALL usp_cargarapoderado(?)");
+          $stmt = $dbConexion->conectar()->prepare("CALL usp_cargar_table_apoderado(?)");
           $stmt ->bindParam(1, $valor, PDO::PARAM_INT);
           $stmt->execute();
           $dataRegistro["Items"][] = $stmt->fetchAll();
@@ -246,7 +267,7 @@ public function registrar($tabla,$datos,$archivos){
 
               $dbConexion = new conexcion();
               
-              $stmt = $dbConexion->conectar()->prepare("CALL usp_cargarapoderado(?)");
+              $stmt = $dbConexion->conectar()->prepare("CALL usp_cargar_table_apoderado(?)");
               $stmt ->bindParam(1, $idprop, PDO::PARAM_INT);
               $stmt->execute();
               $dataRegistro["Items"][] = $stmt->fetchAll();
@@ -276,5 +297,59 @@ public function registrar($tabla,$datos,$archivos){
 
 
      }
+
+
+     public function consultarApoderado($tabla,$items){
+
+      If($items == null){
+    
+    
+                    $dataRes = array(
+                      'error' => '1',
+                      'mensaje' =>  "Mensaje de Error: No hay registro para buscar."
+                    );
+              
+    
+      }else{
+    
+    
+        try {
+    
+          $dbConexion = new conexcion();
+          
+          $stmt = $dbConexion->conectar()->prepare("CALL usp_cargarapoderado(?)");
+          $stmt -> bindParam(1,$items["id_apod"], PDO::PARAM_INT);
+          //$stmt -> bindParam(2,$items["cod_apod"], PDO::PARAM_STR);
+          //$stmt -> bindParam(3,$items["tipo_prop"], PDO::PARAM_INT);
+  
+          $stmt->execute();
+          $dataRegistro["Items"][] = $stmt->fetch();
+    
+          $dataRes = array(
+            'error' => '0',
+            'mensaje' =>  'El registro se obtuvo.'
+          );
+          
+          
+          echo json_encode(array_merge($dataRegistro,$dataRes));
+    
+          } catch (\Throwable $th) {
+          
+              //$pdo->rollBack() ;
+              //echo "Mensaje de Error: " . $th->getMessage();
+              $dataRes = array(
+                'error' => '1',
+                'mensaje' =>  "Mensaje de Error: " . $th->getMessage()
+              );
+        
+              echo json_encode($dataRes);
+      
+          }
+    
+    
+    
+    
+      }
+    }
 
 }

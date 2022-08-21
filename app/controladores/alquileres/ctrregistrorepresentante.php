@@ -50,6 +50,14 @@ class ctrregistrorepresentante{
     }
 
 
+    public function consultarRepresentante($datos){
+
+        $tabla = "representante";
+        $modelo =  new mdlregistrorepresentante();
+        $respuestas =  $modelo->consultarRepresentante($tabla,$datos);
+        return $respuestas;
+    }
+
      
 
 

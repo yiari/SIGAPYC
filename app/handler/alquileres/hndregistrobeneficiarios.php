@@ -247,6 +247,51 @@ if($operacion == "C"){
 
 
 
+/* 
+ |--------------------------------------------------------------
+ | AQUI SE EJECUTA LA OPERACION DE CONSULTAR DEL Beneficiario
+ |--------------------------------------------------------------
+*/
+
+if($operacion == "CB"){
+
+
+
+   $datos = array( 
+      "id_bene" => $_POST["idbeneficiario"],
+      "cod_bene" => $_POST["codigoBeneficiario"],
+      "tipo_persona" => $_POST["tipoBeneficiario"]
+   );
+
+
+
+   /*
+    |-------------------------------------------
+    | AQUI CREO UNA INSTANCIA DE LA CLASE
+    |-------------------------------------------
+    */
+    
+    $registroBenefesiarios =  new ctrregistrobeneficiarios();
+
+   /* 
+   |---------------------------------------------
+   | AQUI OBTENGO EL RESULTADO DE LA EJECUCION
+   |---------------------------------------------
+   */
+     $result = $registroBenefesiarios->consultabeneficiario($datos);
+    
+    /*
+    |-------------------------------------------
+    | AQUI REGRESO EL RESULTADO AL AJAX
+    |-------------------------------------------
+    */
+    header('Content-Type: application/json');
+     return $result;
+     
+}
+
+
+
 
 /* 
  |--------------------------------------------------------------

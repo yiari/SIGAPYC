@@ -50,6 +50,15 @@ class ctrregistroapoderado{
     }
 
 
+    public function consultarApoderado($datos){
+
+        $tabla = "propietarios";
+        $modelo =  new mdlregistroapoderado();
+        $respuestas =  $modelo->consultarApoderado($tabla,$datos);
+        return $respuestas;
+    }
+
+
      
 
 

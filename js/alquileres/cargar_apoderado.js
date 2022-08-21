@@ -8,11 +8,13 @@ function inicio(){
     */
    let idPropietario = getParameterByName('idpro');
    let prmCodPro = getParameterByName('codpro');
+
+   let idApoderado = getParameterByName('idapod');
     /*--------------------------------------*/    
 
     codigoPropietario(prmCodPro);
 
-    cargarApoderado(idPropietario);
+    cargarApoderado(idPropietario,idApoderado);
 
     nuevoApoderado(idPropietario,prmCodPro);
 
@@ -56,6 +58,7 @@ function cargarApoderado(prmDato){
 
     formData.append('opcion','C');
     formData.append('id_prop',prmDato);
+    formData.append('id_apod',prmDato);
     /*
     |-----------------------------------------------
     | AQUI SE LLAMA EL AJAX 
@@ -111,9 +114,11 @@ console.log("Items Resultados: " + json.Items[0].length);
                                     tr.append("<td>" + json.Items[0][i].correo + "</td>"); 
                                     
                                     var html="";
+                                    var htmlapoderado = "";
+
                                     html = '<div class="btn-group" style="font-size:1.3em; letter-spacing:0.5em;">';
-                                    html += '<a title="edit" data-field-id="' + json.Items[0][i].id_apod  + '"><i class="fa fa-edit" alt=“editar”></i></a>&nbsp;';
-                                    html += '<a title="ver" data-field-id="' + json.Items[0][i].id_apod + '"><i class="fa fa-search"></i></a>&nbsp;';
+                                    htmlapoderado='<a title="Editar Apoderado" href="index.php?url=app/vistas/alquileres/editar_apoderado&idapod=' + json.Items[0][i].id_apod  + '&codpro=' + json.Items[0][i].codigo  + '&codtip=' + json.Items[0][i].tipo  + '"><i class="fa fa-edit" alt=“editar”></i></a>&nbsp;';
+                                    html += htmlapoderado;
                                     html += '<a title="eliminar"  data-field-id="'  + json.Items[0][i].id_apod + '"><i class="fa fa-trash" alt=“eliminar”></i></a>';
                                     html += '</div>'
                                     tr.append("<td>" + html + "</td>");

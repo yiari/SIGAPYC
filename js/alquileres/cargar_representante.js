@@ -9,15 +9,17 @@ function inicio(){
     */
    let idPropietario = getParameterByName('idpro');
    let prmCodPro = getParameterByName('codpro');
+
+   let idRepresentante = getParameterByName('idrepr');
     /*--------------------------------------*/    
 
     codigoPropietario(prmCodPro);
 
-    cargarRepresentante(idPropietario);
+    cargarRepresentante(idPropietario,idRepresentante);
 
     nuevoRepresentante(idPropietario,prmCodPro);
 
-   
+
 
 }
 
@@ -52,6 +54,7 @@ function nuevoRepresentante(prmIdPro, prmCodPro){
 
 
 
+
 function cargarRepresentante(prmDato){
 
     /*
@@ -62,7 +65,8 @@ function cargarRepresentante(prmDato){
     var formData = new FormData();
 
     formData.append('opcion','C');
-    formData.append('id_propj',prmDato);
+    formData.append('id_prop',prmDato);
+    formData.append('id_repr',prmDato);
     /*
     |-----------------------------------------------
     | AQUI SE LLAMA EL AJAX 
@@ -84,8 +88,12 @@ function cargarRepresentante(prmDato){
 /*
         console.log(json);
         console.log("Este es el Mensaje: " + json.mensaje);
-        console.log("Items: " + json.Items.length);
-        console.log("Items Resultados: " + json.Items[0].length);
+*/
+       // console.log("Items: " + json.Items.length);
+
+/*
+console.log("Items Resultados: " + json.Items[0].length);
+
         console.log("Email Resultados: " + json.Items[0][1].email);
 */
                 /*
@@ -95,33 +103,39 @@ function cargarRepresentante(prmDato){
                 */
                 if(json.Items.length > 0){
                     var tr;
-
+                    
                     if(json.Items[0].length > 0){
                     
-                        for (var i = 0; i < json.Items[0].length; i++) {
-                
-                       // if (isEmpty(json.Items[0][i]) == false) {
-                            tr = $('<tr/>');
+                            for (var i = 0; i < json.Items[0].length; i++) {
+                        
+                                console.log("valor recorrido: " + i);
+
+
+                            // if (isEmpty(json.Items[0][i]) == false) {
+                                tr = $('<tr/>');
                             
                            
-                            tr.append("<td>" + json.Items[0][i].codigo + "</td>");
-                            tr.append("<td>" + json.Items[0][i].nombre + "</td>");
-                            tr.append("<td>" + json.Items[0][i].cedula + "</td>");
-                            tr.append("<td>" + json.Items[0][i].telefono + "</td>");
-                            tr.append("<td>" + json.Items[0][i].correo + "</td>"); 
-                            tr.append("<td>" + json.Items[0][i].propietraio + "</td>");
-                           
-                            
-                            var html="";
-                            html = '<div class="btn-group" style="font-size:1.3em; letter-spacing:0.5em;">';
-                            html += '<a title="edit" data-field-id="' + json.Items[0][i].id_repr  + '"><i class="fa fa-edit" alt=“editar”></i></a>&nbsp;';
-                            html += '<a title="ver" data-field-id="' + json.Items[0][i].id_repr + '"><i class="fa fa-search"></i></a>&nbsp;';
-                            html += '<a title="eliminar"  data-field-id="'  + json.Items[0][i].id_repr + '"><i class="fa fa-trash" alt=“eliminar”></i></a>';
-                            html += '</div>'
-                            tr.append("<td>" + html + "</td>");
-                            $('#datosRepresentante').append(tr);
-                        //}
-                    }
+                                tr.append("<td>" + json.Items[0][i].codigo + "</td>");
+                                tr.append("<td>" + json.Items[0][i].nombre + "</td>");
+                                tr.append("<td>" + json.Items[0][i].cedula + "</td>");
+                                tr.append("<td>" + json.Items[0][i].telefono + "</td>");
+                                tr.append("<td>" + json.Items[0][i].correo + "</td>"); 
+                                tr.append("<td>" + json.Items[0][i].propietraio + "</td>");
+                               
+                                
+                                var html="";
+                                var htmlrepresentante = "";
+    
+                                html = '<div class="btn-group" style="font-size:1.3em; letter-spacing:0.5em;">';
+                                htmlrepresentante='<a title="Editar Representante" href="index.php?url=app/vistas/alquileres/editar_representante&idrepr=2'   + '&codpro=' + json.Items[0][i].codigo  +  '"><i class="fa fa-edit" alt=“editar”></i></a>&nbsp;';
+                                html += htmlrepresentante;
+                                html += '<a title="eliminar"  data-field-id="'  + json.Items[0][i].id_repr + '"><i class="fa fa-trash" alt=“eliminar”></i></a>';
+                                html += '</div>'
+                                tr.append("<td>" + html + "</td>");
+                                $('#datosRepresentante').append(tr);
+                                //}
+                            }
+                    
                         } else {
 
                         var tr;
@@ -137,9 +151,6 @@ function cargarRepresentante(prmDato){
                     new simpleDatatables.DataTable("#datosRepresentante");
 
                 } 
-                    //editarRepresentante();
-                    //validareliminarRepresentante();
-                
                 /************************************************ */
 
 
@@ -150,6 +161,7 @@ function cargarRepresentante(prmDato){
     });
 
 }
+
 
 
 
