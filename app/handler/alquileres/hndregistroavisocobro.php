@@ -76,12 +76,26 @@ if($operacion == "C"){
     
     $registroaviso =  new ctrregistroavisocobro();
 
+   /*
+   |---------------------------------------------
+   | AQUI CARGO LOS DATOS PARA ALMACENAR
+   |---------------------------------------------
+   */
+
+   $parametro = "";
+
+   if(isset($_POST["nom_inqu"])){
+      $parametro = $_POST["nom_inqu"];
+   } 
+
+    $datos = array("nom_inqu"=> $parametro);
+
    /* 
    |---------------------------------------------
    | AQUI OBTENGO EL RESULTADO DE LA EJECUCION
    |---------------------------------------------
    */
-     $result = $registroaviso->seleccionarregistros();
+     $result = $registroaviso->seleccionarregistros($datos);
     
     /*
     |-------------------------------------------

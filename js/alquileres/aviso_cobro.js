@@ -30,6 +30,7 @@ function cargarAvisoCobro(){
     var formData = new FormData();
 
     formData.append('opcion','C');
+    formData.append('nom_inqu',"");
  
     /*
     |-----------------------------------------------
@@ -69,7 +70,8 @@ console.log("Items Resultados: " + json.Items[0].length);
                     var tr;
                     
                     if(json.Items[0].length > 0){
-                    
+                        $("#datosAvisoCobro > tbody").html("");
+
                             for (var i = 0; i < json.Items[0].length; i++) {
                         
                                 console.log("valor recorrido: " + i);
@@ -95,8 +97,10 @@ console.log("Items Resultados: " + json.Items[0].length);
                                   
 
                                     html = '<div class="btn-group" style="font-size:1.3em; letter-spacing:0.5em;">';
-                                    html += '<a title="PDF"  data-field-id="'  + json.Items[0][i].id + '"><i class="fa fa-file-pdf-o" alt=“PDF”></i></a>';
-                                    html += '<a title="Excel"  data-field-id="'  + json.Items[0][i].id + '"><i class="fa fa-file-excel-o " alt=“Excel”></i></a>';
+                                    html += '<a title="Respuesta"  data-field-id="'  + json.Items[0][i].id_aviso + '"><i class="fa fa-info-circle"" alt=“Respuesta”></i></a>';
+                                    html += '<a title="PDF" href="app/documentos/avcobro.pdf"  data-field-id="'  + json.Items[0][i].id_aviso + '" target="_blank"><i class="fa fa-file-pdf-o" alt=“PDF” ></i></a>';
+                                    html += '<a title="Excel"  data-field-id="'  + json.Items[0][i].id_aviso + '"><i class="fa fa-file-excel-o " alt=“Excel”></i></a>';
+                                   
                                    
                                     html += '</div>'
                                     tr.append("<td>" + html + "</td>");
@@ -143,7 +147,7 @@ function buscarInquilino(){
 
 
 
-    $("#buscarCodigoinquilino").on('submit', function(evt) {
+   // $("#buscarCodigoinquilino").on('submit', function(evt) {
 
 
    /*
@@ -151,16 +155,16 @@ function buscarInquilino(){
    | AQUI SE PREVIENE QUE EL FORMULARIO CONTINUE 
    |-----------------------------------------------
    */
-   evt.preventDefault();
+  // evt.preventDefault();
    /**********************************************/       
 
- 
+ /*
         if ($("#nom_inqu").val() == "") {
             mensaje("Debe indicar el codigo de inquilino",1);
-            console.log("Aqui llegue al mensaje");
+            //console.log("Aqui llegue al mensaje");
             return;
         }
-
+*/
 
         prmDato = $("#nom_inqu").val();
 
@@ -171,8 +175,8 @@ function buscarInquilino(){
    */
    var formData = new FormData();
 
-   formData.append('opcion','BI'); /*consulta de asignacion de inquilino*/ 
-   formData.append('codigo',prmDato);
+   formData.append('opcion','C'); /*consulta de asignacion de inquilino*/ 
+   formData.append('nom_inqu',prmDato);
    
   
 
@@ -210,7 +214,8 @@ function buscarInquilino(){
                 var tr;
                 
                 if(json.Items[0].length > 0){
-                
+                    $("#datosAvisoCobro > tbody").html("");
+
                         for (var i = 0; i < json.Items[0].length; i++) {
                     
                             console.log("valor recorrido: " + i);
@@ -270,7 +275,7 @@ function buscarInquilino(){
        }
    });
 
-});
+//});
 
 
 }

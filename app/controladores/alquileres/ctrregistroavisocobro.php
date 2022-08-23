@@ -41,11 +41,11 @@ class ctrregistroavisocobro{
 
     /*tabla para visializar los usuarios registrados*/
 
-     public function seleccionarregistros(){
+     public function seleccionarregistros($datos){
 
         $tabla = "aviso_cobro";
         $modelo =  new mdlregistroavisocobro();
-        $respuestas =  $modelo->seleccionarregistros($tabla,null,null);
+        $respuestas =  $modelo->seleccionarregistros($tabla,$datos);
         return $respuestas;
     }
 

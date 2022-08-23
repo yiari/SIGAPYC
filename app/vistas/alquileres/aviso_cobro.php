@@ -13,7 +13,7 @@ include("layout/menuNavegacion.php");
         
         <h4 class="card-title">AVISO DE COBRO</h4>
 
-        <form class="form-sample" id="buscarCodigoinquilino" name="buscarCodigoinquilino" method="POST" action="" autocomplete="on">
+        
         
           <div class="card-header">
             <div style="text-align: right;">
@@ -45,37 +45,42 @@ include("layout/menuNavegacion.php");
                                         Información
                                     </div>
 
-                                    <div class="card-body">
-                                                <div class="row">
-                                                        <div class="col-sm-2">
-                                                        
-                                                            <select class="form-select" id="registroNacionalidad" name="registroNacionalidad" >
-                                                                <option selected disabled value="">seleccion de mes</option>
-                                                                <option value="1">Enero</option>
-                                                                <option value="2">Febrero</option>
-                                                                <option value="3">Marzo</option>
-                                                                <option value="4">Abril</option>
-                                                                <option value="5">Mayo</option>
-                                                                <option value="6">Junio</option>
-                                                                <option value="7">Julio</option>
-                                                                <option value="8">Agosto</option>
-                                                                <option value="9">Septiembre</option>
-                                                                <option value="10">Octubre</option>
-                                                                <option value="11">Noviembre</option>
-                                                                <option value="12">Diciembre</option>
-                                                            </select>
-                                                        </div>
+                                         <div class="card-body">
+
+                                                    <div class="row">
+                                                            <div class="col-sm-2">
                                                             
-                                                      
-                                                        <div class="col-md-2">
-                                                                <input type="text" class="form-control" id="nom_inqu" name="nom_inqu" placeholder="Buscar Cliente:">
-                                                        </div>
-                                                        <br>
-                                                        <div class="col-md-2">
-                                                                <button type="submit" class="btn btn-primary mb-2">Buscar</button>
-                                                        </div>
+                                                                <select class="form-select" id="registroNacionalidad" name="registroNacionalidad" >
+                                                                    <option selected disabled value="">seleccion de mes</option>
+                                                                    <option value="1">Enero</option>
+                                                                    <option value="2">Febrero</option>
+                                                                    <option value="3">Marzo</option>
+                                                                    <option value="4">Abril</option>
+                                                                    <option value="5">Mayo</option>
+                                                                    <option value="6">Junio</option>
+                                                                    <option value="7">Julio</option>
+                                                                    <option value="8">Agosto</option>
+                                                                    <option value="9">Septiembre</option>
+                                                                    <option value="10">Octubre</option>
+                                                                    <option value="11">Noviembre</option>
+                                                                    <option value="12">Diciembre</option>
+                                                                </select>
+                                                            </div>
+                                                                
                                                             
-                                              </div><br>
+
+                                                                <div class="col-md-6">
+                                                                        <input type="text" class="form-control" id="nom_inqu" name="nom_inqu" placeholder="Buscar Cliente:">
+                                                                </div>
+                                                                <br>
+                                                                <div class="col-md-2">
+                                                                        <button type="button" class="btn btn-primary mb-2" onclick="buscarInquilino();">Buscar</button>
+                                                                </div>
+                                                    </div>
+                                         
+                                        </div>
+                                              
+                                              <br>
 
 
                                     <div class="table-responsive">
@@ -91,7 +96,7 @@ include("layout/menuNavegacion.php");
                                                 <th>Pagos Pendientes</th>
                                                 <th>abono</th>
                                                 <th>Estatus</th>
-                                                <th>Repuestas</th>
+                                                <th>Respuestas</th>
                                                 <th>Acciones</th>
                                                						
                                             </tr>
@@ -109,7 +114,7 @@ include("layout/menuNavegacion.php");
                     </div>
 
             </div>
-       </form>
+      
     </div>
 </div>
 

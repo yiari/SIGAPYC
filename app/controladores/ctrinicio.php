@@ -16,7 +16,7 @@ public function cargarpantallainicio(){
 
 }
 
-echo "Esto viede desde inicio";
+//echo "Esto viede desde inicio";
 
 //Configuración del algoritmo de encriptación
 //Debes cambiar esta cadena, debe ser larga y unica
