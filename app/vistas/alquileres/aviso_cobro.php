@@ -84,14 +84,17 @@ include("layout/menuNavegacion.php");
 
 
                                     <div class="table-responsive">
-                                        <table class="table table-bordered">
+                                        <table id="datosAvisoCobro">
                                         <thead>
                                             <tr>
                                                 <th>codigo</th>
                                                 <th>Fecha</th>
-                                                <th>Innquilino</th>
+                                                <th>Inquilino</th>
                                                 <th>Inmueble</th>
+                                                <th>unidad</th>
                                                 <th>Mensualidad</th>
+                                                <th>Pagos Pendientes</th>
+                                                <th>abono</th>
                                                 <th>Estatus</th>
                                                 <th>Repuestas</th>
                                                 <th>Acciones</th>
@@ -99,26 +102,7 @@ include("layout/menuNavegacion.php");
                                             </tr>
                                         </thead>
                                         <tbody>
-                                                <tr>
-                                                    <td>AV-22070423</td>
-                                                    <td>01/08/2022</td>
-                                                    <td>IN-05-0001-Gabrial peraza</td>
-                                                    <td>LO-0002-32A-cc.sambil</td>
-                                                    <td>$760,00</td>
-                                                    <td>EN PROCESO</td>
-                                                    <td>MÉTODO DE PAGO DIVISA, CANCELARÁ EL 08-08-2022</td>
-
-
-                                                    						
-                                                </tr>
-                                                <tr>
-                                                    <td>12-0001-00 TORRE CANAIMA</td>
-                                                    <td>MEZZANINA NRO.2</td>
-                                                    <td>$120</td>
-                                                    <td>$30</td>
-                                                    <td></td>
-                                                    <td>Finiquitado</td>
-                                                </tr>
+                                               
                                         </tbody>
                                         </table>
                                     </div>
@@ -132,3 +116,7 @@ include("layout/menuNavegacion.php");
             </div>
     </div>
 </div>
+
+
+<script src="js/comunes/funciones.js"></script>
+<script src="js/alquileres/aviso_cobro.js"></script>
