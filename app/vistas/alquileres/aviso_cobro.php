@@ -45,14 +45,10 @@ include("layout/menuNavegacion.php");
 
                                     <div class="card-body">
                                                 <div class="row">
-
-                                                       <div class="col-md-2">
-                                                             <label for="registroNacionalidad" class="col-sm-6 col-form-label">Mes:</label>
-                                                        </div>
                                                         <div class="col-sm-2">
                                                         
                                                             <select class="form-select" id="registroNacionalidad" name="registroNacionalidad" >
-                                                                <option selected disabled value=""></option>
+                                                                <option selected disabled value="">seleccion de mes</option>
                                                                 <option value="1">Enero</option>
                                                                 <option value="2">Febrero</option>
                                                                 <option value="3">Marzo</option>
@@ -68,12 +64,9 @@ include("layout/menuNavegacion.php");
                                                             </select>
                                                         </div>
                                                             
-                                                        <div class="col-md-2">
-                                                            <label class="col-sm-12 col-form-label">Buscar Cliente:</label>
-                                                        </div>
-                                                    
-                                                        <div class="col-md-2">
-                                                                <input type="text" class="form-control" id="nom_prop" name="nom_prop">
+                                                      
+                                                        <div class="col-md-6">
+                                                                <input type="text" class="form-control" id="nom_prop" name="nom_prop" placeholder="Buscar Cliente:">
                                                         </div>
                                                         <br>
                                                         <div class="col-md-2">
