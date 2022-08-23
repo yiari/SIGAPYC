@@ -60,6 +60,20 @@ function syncDelay(milliseconds){
 
  }
 
+ function statusAvisoCobro(valor){
+
+  let resultado = "";
+
+  if(valor == "1"){
+    resultado = "Enviado";
+  } else if (valor == "2"){
+    resultado = "En Proceso";
+  }
+
+  return resultado;
+
+ }
+
 
 
  /*

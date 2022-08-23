@@ -15,7 +15,7 @@ include("layout/menuNavegacion.php");
                     </div>
 
                 <div style="text-align: left;">
-                    <span id="lblPropietario"><strong>PROPIETARIO : </strong></span>
+                    <span id="lblAviso"><strong>PROPIETARIO : </strong></span>
                     <br/><br/>
                 </div>
 
