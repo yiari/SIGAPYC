@@ -12,8 +12,10 @@ include("layout/menuNavegacion.php");
     
         
         <h4 class="card-title">AVISO DE COBRO</h4>
-      
-        <div class="card-header">
+
+        <form class="form-sample" id="buscarCodigoinquilino" name="buscarCodigoinquilino" method="POST" action="" autocomplete="on">
+        
+          <div class="card-header">
             <div style="text-align: right;">
                 <ol>
                     <a class="btn btn-outline-secondary" href="reportes.php" role="button">Imprimir</a>
@@ -65,8 +67,8 @@ include("layout/menuNavegacion.php");
                                                         </div>
                                                             
                                                       
-                                                        <div class="col-md-6">
-                                                                <input type="text" class="form-control" id="nom_prop" name="nom_prop" placeholder="Buscar Cliente:">
+                                                        <div class="col-md-2">
+                                                                <input type="text" class="form-control" id="nom_inqu" name="nom_inqu" placeholder="Buscar Cliente:">
                                                         </div>
                                                         <br>
                                                         <div class="col-md-2">
@@ -107,6 +109,7 @@ include("layout/menuNavegacion.php");
                     </div>
 
             </div>
+       </form>
     </div>
 </div>
 
