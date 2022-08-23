@@ -24,9 +24,11 @@ include("layout/menuNavegacion.php");
 
             <div style="text-align: center;">
                 <ol>
-                    <a class="btn btn-outline-secondary" href="reportes.php" role="button">Todos</a>
-                    <a class="btn btn-outline-primary" href="reportes.php" role="button">Enviados</a>
-                    <a class="btn btn-outline-success"   href="reportes.php" role="button">En Proceso</a>
+                   
+                    <button type="button" class="btn btn-outline-secondary" onclick="buscarEstatus(0);">Todos</button>
+                    <button type="button" class="btn btn-outline-primary" onclick="buscarEstatus(1);">Enviados</button>
+                    <button type="button" class="btn btn-outline-success" onclick="buscarEstatus(2);">En Proceso</button>
+
                 </ol>
             </div>
             <div class="tab-content" id="nav-tabContent">

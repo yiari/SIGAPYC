@@ -83,12 +83,22 @@ if($operacion == "C"){
    */
 
    $parametro = "";
+   $estatus = 0;
 
    if(isset($_POST["nom_inqu"])){
       $parametro = $_POST["nom_inqu"];
    } 
 
-    $datos = array("nom_inqu"=> $parametro);
+
+   if(isset($_POST["estatus"])){
+      $estatus = $_POST["estatus"];
+   } 
+
+
+    $datos = array(
+         "nom_inqu"=> $parametro,
+         "estatus"=> $estatus
+   );
 
    /* 
    |---------------------------------------------
