@@ -102,23 +102,23 @@ function consultarGestionCliente(idInqu,tipoInqu){
     
     
                             //<input type="hidden" id="tipo_persona" name="tipo_persona" value='1'>
-                            $('#hidinquilino').val(json.Items[0].id_prop);
+                            $('#hidinquilino').val(json.Items[0].id_inqu);
                            
                             /*
                             |------------------------------------------------------
                             | DATOS PRINCIPALES
                             |------------------------------------------------------
                             */
-                            $('#registroNombre').val(json.Items[0].nom_prop);
-                            $('#registroApellido').val(json.Items[0].ape_prop);
+                            $('#registroNombre').val(json.Items[0].registroNombre);
+                            
   
-                            $('#registroCedula').val(json.Items[0].cedula_prop);
-                            $('#registroRif').val(json.Items[0].rif_prop);
-                            $('#registroTelefono').val(json.Items[0].telefono_prop);
-                            $('#registroCelular').val(json.Items[0].cel_prop);
-                            $('#registroEmail').val(json.Items[0].correo_prop);
+                            $('#registroCedula').val(json.Items[0].registroCedula);
+                            $('#registroRif').val(json.Items[0].registroRif);
+                            $('#registroTelefono').val(json.Items[0].registroTeléfono);
+                            $('#registroCelular').val(json.Items[0].registroCedula);
+                            $('#registroEmail').val(json.Items[0].registroEmail);
  
-                            $("#registroCodigo").val(json.Items[0].cod_prop);
+                            $("#registroCodigo").val(json.Items[0].registroCodigo);
     
     
     
