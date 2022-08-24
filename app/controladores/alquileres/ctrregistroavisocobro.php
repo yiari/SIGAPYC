@@ -39,6 +39,16 @@ class ctrregistroavisocobro{
 
     }
 
+
+    public function consultarinquilino($datos){
+
+        $tabla = "propietarios";
+        $modelo =  new mdlregistroavisocobro();
+        $respuestas =  $modelo->consultarinquilino($tabla,$datos);
+        return $respuestas;
+    }
+     
+
     /*tabla para visializar los usuarios registrados*/
 
      public function seleccionarregistros($datos){

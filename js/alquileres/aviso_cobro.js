@@ -90,6 +90,7 @@ console.log("Items Resultados: " + json.Items[0].length);
                                     tr.append("<td>" + json.Items[0][i].mensualidad + "</td>");
                                     tr.append("<td>" + json.Items[0][i].pendiente + "</td>");
                                     tr.append("<td>" + json.Items[0][i].abono + "</td>"); 
+                                    tr.append("<td>" + json.Items[0][i].saldo + "</td>"); 
                                     tr.append("<td>" + statusAvisoCobro(json.Items[0][i].estatus) + "</td>");
                                     tr.append("<td>" + json.Items[0][i].repuestas + "</td>");
 
@@ -99,7 +100,7 @@ console.log("Items Resultados: " + json.Items[0].length);
                                   
 
                                     html = '<div class="btn-group" style="font-size:1.3em; letter-spacing:0.5em;">';
-                                    html += '<a title="Respuesta"  href="index.php?url=app/vistas/alquileres/gestion_cliente&id=' + json.Items[0][i].id_aviso + '&codaviso=' + json.Items[0][i].codigo  + '"><i class="fa fa-info-circle"" alt=“Respuesta”></i></a>';
+                                    html += '<a title="Respuesta"  href="index.php?url=app/vistas/alquileres/gestion_cliente&id=' + json.Items[0][i].id_aviso + '&codaviso=' + json.Items[0][i].codigo  + '&idInqu=' + json.Items[0][i].id_inqu  + '&codInqu=' + json.Items[0][i].inquilino  +  '&tipoInqu=' + json.Items[0][i].tipo  +'"><i class="fa fa-info-circle"" alt=“Respuesta”></i></a>';
                                     html += '<a title="PDF" href="app/documentos/avcobro.pdf"  data-field-id="'  + json.Items[0][i].id_aviso + '" target="_blank"><i class="fa fa-file-pdf-o" alt=“PDF” ></i></a>';
                                     html += '<a title="Excel"  data-field-id="'  + json.Items[0][i].id_aviso + '"><i class="fa fa-file-excel-o " alt=“Excel”></i></a>';
                                    
@@ -233,7 +234,8 @@ function buscarInquilino(){
                                 tr.append("<td>" + json.Items[0][i].unidad + "</td>");
                                 tr.append("<td>" + json.Items[0][i].mensualidad + "</td>");
                                 tr.append("<td>" + json.Items[0][i].pendiente + "</td>");
-                                tr.append("<td>" + json.Items[0][i].abono + "</td>"); 
+                                tr.append("<td>" + json.Items[0][i].abono + "</td>");
+                                tr.append("<td>" + json.Items[0][i].saldo + "</td>");  
                                 tr.append("<td>" + statusAvisoCobro(json.Items[0][i].estatus) + "</td>");
                                 tr.append("<td>" + json.Items[0][i].repuestas + "</td>");
 
@@ -376,6 +378,7 @@ function buscarEstatus(prmValor){
                                  tr.append("<td>" + json.Items[0][i].mensualidad + "</td>");
                                  tr.append("<td>" + json.Items[0][i].pendiente + "</td>");
                                  tr.append("<td>" + json.Items[0][i].abono + "</td>"); 
+                                 tr.append("<td>" + json.Items[0][i].saldo + "</td>"); 
                                  tr.append("<td>" + statusAvisoCobro(json.Items[0][i].estatus) + "</td>");
                                  tr.append("<td>" + json.Items[0][i].repuestas + "</td>");
  

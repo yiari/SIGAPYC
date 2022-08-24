@@ -69,7 +69,7 @@ class mdlregistroavisocobro{
 
 
 
-  public function consultarpropietario($tabla,$items){
+  public function consultarinquilino($tabla,$items){
 
     If($items == null){
   
@@ -87,10 +87,9 @@ class mdlregistroavisocobro{
   
         $dbConexion = new conexcion();
         
-        $stmt = $dbConexion->conectar()->prepare("CALL usp_cargarpropietario(?,?,?)");
-        $stmt -> bindParam(1,$items["id_prop"], PDO::PARAM_INT);
-        $stmt -> bindParam(2,$items["codigo_prop"], PDO::PARAM_STR);
-        $stmt -> bindParam(3,$items["tipo_prop"], PDO::PARAM_INT);
+        $stmt = $dbConexion->conectar()->prepare("CALL usp_consultaclienteinquilino(?,?)");
+        $stmt -> bindParam(1,$items["id_inqu"], PDO::PARAM_INT);
+        $stmt -> bindParam(2,$items["tipo_inqu"], PDO::PARAM_INT);
 
         $stmt->execute();
         $dataRegistro["Items"][] = $stmt->fetch();

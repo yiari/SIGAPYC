@@ -119,6 +119,50 @@ if($operacion == "C"){
 
 
 
+/* 
+ |--------------------------------------------------------------
+ | AQUI SE EJECUTA LA OPERACION DE CONSULTAR DEL PROPIETARIO
+ |--------------------------------------------------------------
+*/
+
+if($operacion == "GC"){
+
+
+
+   $datos = array( 
+      "id_inqu" => $_POST["idinquilino"],
+      //"inquilino" => $_POST["codigoinquilino"],
+      "tipo_inqu" => $_POST["tipoInquilino"]
+   );
+
+
+
+   /*
+    |-------------------------------------------
+    | AQUI CREO UNA INSTANCIA DE LA CLASE
+    |-------------------------------------------
+    */
+    
+    $registroaviso =  new ctrregistroavisocobro();
+
+   /* 
+   |---------------------------------------------
+   | AQUI OBTENGO EL RESULTADO DE LA EJECUCION
+   |---------------------------------------------
+   */
+     $result = $registroaviso->consultarinquilino($datos);
+    
+    /*
+    |-------------------------------------------
+    | AQUI REGRESO EL RESULTADO AL AJAX
+    |-------------------------------------------
+    */
+    header('Content-Type: application/json');
+     return $result;
+     
+}
+
+
 
 
 

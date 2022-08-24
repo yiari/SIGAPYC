@@ -367,7 +367,7 @@ include("layout/menuNavegacion.php");
     </div>
 
 
-    <?php 
+<?php 
 
 include_once "app/vistas/comunes/modalmensajes.php";
 include_once "app/vistas/comunes/modaleliminar.php";

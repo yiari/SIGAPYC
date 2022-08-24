@@ -25,8 +25,12 @@ include("layout/menuNavegacion.php");
            
 
             <form class="form-sample" id="" name="" method="POST" action="" autocomplete="off" >
+
+                            <input type="hidden" id="id_usuario" name="id_usuario" value='1'>
+                            <input type="hidden" id="hidinquilino" name="hidinquilino" value=''>
+
                  <!--Datos del propietario-->
-                <div class="card" id="Propietario">
+                <div class="card" >
                                 
                 <div class="card-body">
                     <div class="col text-center">
@@ -37,50 +41,38 @@ include("layout/menuNavegacion.php");
                 </br>
                     <div class="row">
 
-                       <div class="col-md-3">
-                            <label class="col-sm-12 col-form-label">Nombre:</label>
+                       <div class="col-md-6">
+                            <label for="registroCodigo" class="col-sm-12 col-form-label">Codigo:</label>
                             <div class="col-sm-12">
-                                <input type="text" class="form-control" id="nom_prop" name="nom_prop" readonly="yes">
+                                <input type="text" class="form-control" id="registroCodigo" name="registroCodigo" readonly="yes">
                             </div>
                         </div>
                         
-                        <div class="col-md-3">
-                            <label class="col-sm-12 col-form-label">Nombre:</label>
+                        <div class="col-md-6">
+                            <label for ="registroNombre" class="col-sm-12 col-form-label">Nombre y Apellido:</label>
                             <div class="col-sm-12">
-                                <input type="text" class="form-control" id="nom_prop" name="nom_prop" readonly="yes">
+                                <input type="text" class="form-control" id="registroNombre" name="registroNombre" readonly="yes">
                             </div>
                         </div>
-                        <div class="col-md-3">
-                            <label class="col-sm-12 col-form-label">Apellido:</label>
-                            <div class="col-sm-12">
-                                <input type="text" class="form-control" id="ape_prop" name="ape_prop" readonly="yes">
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                                <label for="ced_prop" class="col-sm-12 col-form-label">Cédula de Identidad</label>
-                                <div class="col-sm-12">
-                                    <input type="text" class="form-control" id="ci_prop" name="ci_prop" readonly="yes">
-                                </div>
-                        </div>
-                        
+                       
                     </div>
                     <div class="row">
                         <div class="col-md-3">
-                            <label class="col-sm-8 col-form-label">Teléfono local:</label>
+                            <label for="registroTelefono" class="col-sm-8 col-form-label">Teléfono local:</label>
                             <div class="col-sm-12">
-                                <input type="text" class="form-control" id="loc_prop" name="loc_prop" readonly="yes">
+                                <input type="text" class="form-control" id="registroTelefono" name="registroTelefono" readonly="yes">
                             </div>
                         </div>
                         <div class="col-md-3">
-                            <label class="col-sm-9 col-form-label">Celular:</label>
+                            <label for="registroCelular" class="col-sm-9 col-form-label">Celular:</label>
                             <div class="col-sm-12">
-                                <input type="text" class="form-control" id="cel_prop" name="cel_prop" readonly="yes">
+                                <input type="text" class="form-control" id="registroCelular" name="registroCelular" readonly="yes">
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <label class="col-sm-3 col-form-label">Correo:</label>
+                            <label for="registroEmail" class="col-sm-3 col-form-label">Correo:</label>
                             <div class="col-sm-12">
-                                <input type="text" class="form-control" id="cor_prop" name="cor_prop" readonly="yes">
+                                <input type="text" class="form-control" id="registroEmail" name="registroEmail" readonly="yes">
                             </div>
                         </div>
                     </div>
@@ -130,8 +122,16 @@ include("layout/menuNavegacion.php");
                                     <div class="card-body">
                                         <form class="form-sample" id="" name="" method="POST" action="" autocomplete="off" >
                                                 <div class="row">
+
+                                                      <div class="col-sm-4">
+                                                            <select class="form-select" id="registroNacionalidad" name="registroNacionalidad">
+                                                                <option selected disabled value="">seleccione tipo pago</option>
+                                                                <option value="1">Abono</option>
+                                                                <option value="2">Total</option>
+                                                            </select>
+                                                        </div>
                                                         
-                                                        <div class="col-sm-6">
+                                                        <div class="col-sm-4">
                                                             <select class="form-select" id="registroNacionalidad" name="registroNacionalidad">
                                                                 <option selected disabled value="">seleccione un metodo de pago</option>
                                                                 <option value="1">Transferencia</option>
@@ -139,7 +139,7 @@ include("layout/menuNavegacion.php");
                                                             </select>
                                                         </div>
 
-                                                        <div class="col-sm-6">
+                                                        <div class="col-sm-4">
                                                             <select class="form-select" id="registroNacionalidad" name="registroNacionalidad">
                                                                 <option selected disabled value="">seleccione la moneda</option>
                                                                 <option value="1">Divisa</option>
@@ -257,7 +257,6 @@ include_once "app/vistas/comunes/modaleliminar.php";
 ?>
 
 <script src="js/comunes/combos.js"></script>
-<script src="js/comunes/generadorcodigos.js"></script>
 <script src="js/comunes/funciones.js"></script>
 <script src="js/alquileres/ingresar_gestioncliente.js"></script>
 

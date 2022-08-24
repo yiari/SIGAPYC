@@ -1,13 +1,23 @@
 function inicio(){
 
-    /*
-    |----------------------------------------
-    | ASI SE CAPTURAN LOS PARAMETROS
-    |---------------------------------------
-    */
+ 
+      /*
+       |----------------------------------------
+       | ASI SE CAPTURAN LOS PARAMETROS
+       |---------------------------------------
+       */
+     
+   
+       let idaviso = getParameterByName('id');
+       let prmCodaviso = getParameterByName('codaviso');
+       let idinquilino = getParameterByName('idInqu');
+       let codigoInquilino = getParameterByName('codInqu');
+       let tipoInquilino = getParameterByName('tipoInqu');
+   
+       consultarGestionCliente(idinquilino,tipoInquilino);
     
     //let idAviso = getParameterByName('id');
-    let prmCodaviso = getParameterByName('codaviso');
+    
     /*--------------------------------------*/    
 
     codigoAvisoCobro(prmCodaviso);
@@ -30,108 +40,113 @@ function codigoAvisoCobro(prmDato){
 
 
 
-function validateEmail(email) {
-
-    var re = /\S+@\S+\.\S+/;
-    return re.test(email);
-
-
-}
-
-
-
-function guardarGestionCliente(){
-
-    $("#registrarapoderado").on('submit', function(evt) {
-   /*
-   |-----------------------------------------------
-   | AQUI SE PREVIENE QUE EL FORMULARIO CONTINUE 
-   |-----------------------------------------------
-   */
-   evt.preventDefault();
-   /**********************************************/        
-
-  
 
 
 
 
-
-
-
+function consultarGestionCliente(idInqu,tipoInqu){
    
-   /*
-        |-----------------------------------------------
-        | LIMPIA EL CAMPO MENSAJE 
-        |-----------------------------------------------
-        */
-        $("#error").html("Ejecutando...");
-        /*
-        |-----------------------------------------------
-        | AQUI SE CAPTURA LOS DATOS DEL FORMULARIO 
-        |-----------------------------------------------
-        */
-        var formData = new FormData(this);
-        /*
-        |-----------------------------------------------------
-        | AQUI SE AGREGA UN PARAMETRO ADICIONAL AL FORMULARIO 
-        |-----------------------------------------------------
-        */
-        formData.append('opcion','I');
-        /*
-        |-----------------------------------------------
-        | AQUI SE LLAMA EL AJAX 
-        |-----------------------------------------------
-        */
-        $.ajax({
-            url: "app/handler/alquileres/hndregistroapoderados.php",
-            type: "POST",
-            data: formData, //new FormData(this),
-            contentType: false,
-            dataType: "json",
-            cache: false,
-            processData: false,
-            beforeSend: function () {
-                //$("#preview").fadeOut();
-                $("#error").fadeOut();
-            },
-            success: function (data) {
-            var json = data;
-            var html = "";
-
-                //console.log("Mensaje del JSON: " + json.mensaje);
-
-                if(json.error == 0){
+    console.log("consultando");
+    
+          /*
+            |-----------------------------------------------
+            | LIMPIA EL CAMPO MENSAJE 
+            |-----------------------------------------------
+            */
+            $("#error").html("Ejecutando...");
+            /*
+            |-----------------------------------------------
+            | AQUI SE CAPTURA LOS DATOS DEL FORMULARIO 
+            |-----------------------------------------------
+            */
+            var formData = new FormData();
+            /*
+            |-----------------------------------------------------
+            | AQUI SE AGREGA UN PARAMETRO ADICIONAL AL FORMULARIO 
+            |-----------------------------------------------------
+            */
+            formData.append('opcion','GC');
+    
+            formData.append('idinquilino',idInqu);
+            //formData.append('codigoInquilino',codInqu);
+            formData.append('tipoInquilino',tipoInqu);
+          
+            
+            /*
+            |-----------------------------------------------
+            | AQUI SE LLAMA EL AJAX 
+            |-----------------------------------------------
+            */
+            $.ajax({
+                url: "app/handler/alquileres/hndregistroavisocobro.php",
+                type: "POST",
+                data: formData, //new FormData(this),
+                contentType: false,
+                dataType: "json",
+                cache: false,
+                processData: false,
+                beforeSend: function () {
+                    //$("#preview").fadeOut();
+                    $("#error").fadeOut();
+                },
+                success: function (data) {
+                var json = data;
+                var html = "";
+                let idPropietario = 0;
+                    console.log("Mensaje del JSON: " + json);
+    
+                    if(json.error == 0){
+                        
+                        //mensaje(json.mensaje,0);
+                        if(json.Items.length > 0){
+    
+    
+                            //<input type="hidden" id="tipo_persona" name="tipo_persona" value='1'>
+                            $('#hidinquilino').val(json.Items[0].id_prop);
+                           
+                            /*
+                            |------------------------------------------------------
+                            | DATOS PRINCIPALES
+                            |------------------------------------------------------
+                            */
+                            $('#registroNombre').val(json.Items[0].nom_prop);
+                            $('#registroApellido').val(json.Items[0].ape_prop);
+  
+                            $('#registroCedula').val(json.Items[0].cedula_prop);
+                            $('#registroRif').val(json.Items[0].rif_prop);
+                            $('#registroTelefono').val(json.Items[0].telefono_prop);
+                            $('#registroCelular').val(json.Items[0].cel_prop);
+                            $('#registroEmail').val(json.Items[0].correo_prop);
+ 
+                            $("#registroCodigo").val(json.Items[0].cod_prop);
+    
+    
+    
+                        }
+    
+                    }else {
+    
+                        mensaje(json.mensaje,1);
+    
+                        //$("#mensaje").html(html).fadeIn();
+                    }
+    
+    
+    
+                },
+                error: function (e) {
+                    //$("#error").html(e).fadeIn();
+                    mensaje(e,1);
                     
-                    mensaje(json.mensaje,0);
-
-                    //$("#mensaje").html(html).fadeIn();
-                    //limpiarCampos();
-                    limpiarFormulario(1);
-                    //botones(0);
-
-                }else {
-
-                    mensaje(json.mensaje,1);
-
-                    //$("#mensaje").html(html).fadeIn();
                 }
+            });
+    
+    
+    }
 
 
 
-            },
-            error: function (e) {
-                //$("#error").html(e).fadeIn();
-                mensaje(e,1);
-                
-            }
-        });
 
-
-
-    });
-
-}
 
 
 
