@@ -18,7 +18,10 @@ include("layout/menuNavegacion.php");
           <div class="card-header">
             <div style="text-align: right;">
                 <ol>
-                    <a class="btn btn-outline-secondary" href="reportes.php" role="button">Imprimir</a>
+                    <a class="btn btn-outline-danger" href="#" role="button"><i class="fa fa-file-pdf-o" alt=“PDF” ></i> PDF</a>
+              
+                
+                    <a class="btn btn-outline-success" href="#" role="button"><i class="fa fa-file-excel-o " alt=“Excel”></i> Execel</a>
                 </ol>
             </div>
 
@@ -38,10 +41,7 @@ include("layout/menuNavegacion.php");
                         <div class="card">
                             <div class="card-body">
                                 <!--tabla-->
-                                <div class="card mb-4">
-                                    
-                                
-                                
+                             
                                    <div class="card-header">
                                         <i class='fas fa-house-user'></i>&nbsp;
                                         Información
@@ -83,34 +83,35 @@ include("layout/menuNavegacion.php");
                                         </div>
                                               
                                               <br>
+                                        <div class="card-body">
 
-
-                                    <div class="table-responsive">
-                                        <table id="datosAvisoCobro">
-                                        <thead>
-                                            <tr>
-                                                <th>codigo</th>
-                                                <th>Fecha</th>
-                                                <th>Inquilino</th>
-                                                <th>Inmueble</th>
-                                                <th>unidad</th>
-                                                <th>Mensualidad</th>
-                                                <th>Pagos Pendientes</th>
-                                                <th>abono</th>
-                                                <th>Saldo</th>
-                                                <th>Estatus</th>
-                                                <th>Respuestas</th>
-                                                <th>Acciones</th>
-                                               						
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                               
-                                        </tbody>
-                                        </table>
-                                    </div>
-                                        
-                                    </div>
+                                            <div class="table-responsive">
+                                                <table id="datosAvisoCobro">
+                                                <thead>
+                                                    <tr>
+                                                        <th>codigo</th>
+                                                        <th>Fecha</th>
+                                                        <th>Inquilino</th>
+                                                        <th>Inmueble</th>
+                                                        <th>unidad</th>
+                                                        <th>Mensualidad</th>
+                                                        <th>Pagos Pendientes</th>
+                                                        <th>abono</th>
+                                                        <th>Saldo</th>
+                                                        <th>Estatus</th>
+                                                        <th>Respuestas</th>
+                                                        <th>Acciones</th>
+                                                                            
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    
+                                                </tbody>
+                                                </table>
+                                            </div>
+                                            
+                                        </div>
+                                
                                 </div>
                             </div>
                         </div>
