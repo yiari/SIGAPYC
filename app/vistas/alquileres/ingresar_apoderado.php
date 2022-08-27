@@ -84,7 +84,7 @@ include("layout/menuNavegacion.php");
                                                             </select>
                                                         </div>
                                                         <div class="col-sm-9">
-                                                            <input type="text" class="form-control" id="registroCedula" name="registroCedula">
+                                                            <input type="text" class="form-control" id="registroCedula" name="registroCedula" maxlength="11">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -94,19 +94,19 @@ include("layout/menuNavegacion.php");
                                                 <div class="col-md-2">
                                                     <label for="registroRif" class="col-sm-5 col-form-label">Rif:</label>
                                                     <div class="col-sm-12">
-                                                        <input type="text" class="form-control" id="registroRif" name="registroRif" >
+                                                        <input type="text" class="form-control" id="registroRif" name="registroRif" maxlength="14">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-2">
                                                     <label for="registroTelefono" class="col-sm-8 col-form-label">Teléfono local:</label>
                                                     <div class="col-sm-12">
-                                                        <input type="text" class="form-control" id="registroTelefono" name="registroTelefono">
+                                                        <input type="text" class="form-control" id="registroTelefono" name="registroTelefono" maxlength="11">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-2">
                                                     <label for="registroCelular" class="col-sm-9 col-form-label">Celular:</label>
                                                     <div class="col-sm-12">
-                                                        <input type="text" class="form-control" id="registroCelular" name="registroCelular">
+                                                        <input type="text" class="form-control" id="registroCelular" name="registroCelular" maxlength="11">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
@@ -153,7 +153,7 @@ include("layout/menuNavegacion.php");
                                                     </div>
                                                 </div>
                                             </div>
-
+                                            <!--
                                             <h5 class="card-title">Datos bancarios</h5>
                                             <div class="card">
                                             <div class="card-body">
@@ -251,7 +251,7 @@ include("layout/menuNavegacion.php");
 
                                                 </div>
                                             </div>
-                                        </div><br>
+                                        </div><br>-->
 
                                             <h5 class="card-title">Datos del Poder</h5>
                                             <div class="row">
@@ -272,19 +272,19 @@ include("layout/menuNavegacion.php");
                                                 <div class="col-md-2">
                                                     <label for="num_pode" class="col-sm-12 col-form-label">Número:</label>
                                                     <div class="col-sm-12">
-                                                        <input type="text" class="form-control" id="num_pode" name="num_pode"><br>
+                                                        <input type="text" class="form-control" id="num_pode" name="num_pode" maxlength="11"><br>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-2">
                                                     <label for="tom_pode" class="col-sm-9 col-form-label">Tomo:</label>
                                                     <div class="col-sm-12">
-                                                        <input type="text" class="form-control" id="tom_pode" name="tom_pode"><br>
+                                                        <input type="text" class="form-control" id="tom_pode" name="tom_pode" maxlength="11"><br>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-3">
                                                     <label for="fol_pode" class="col-sm-9 col-form-label">Folio o asiento real:</label>
                                                     <div class="col-sm-12">
-                                                        <input type="text" class="form-control" id="fol_pode" name="fol_pode"><br>
+                                                        <input type="text" class="form-control" id="fol_pode" name="fol_pode" maxlength="11"><br>
                                                     </div>
                                                 </div>
                                             </div>

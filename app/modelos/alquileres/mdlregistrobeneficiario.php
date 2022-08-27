@@ -52,7 +52,7 @@ public function registrar($tabla,$datos,$archivos){
           $stmt -> bindParam(5, $datos["mon_bene"], PDO::PARAM_STR);            
           $stmt -> bindParam(6, $datos["ape_bene"], PDO::PARAM_STR);          
           $stmt -> bindParam(7, $datos["nac_bene"], PDO::PARAM_INT);   
-          $stmt -> bindParam(8, $datos["cel_bene"], PDO::PARAM_STR);       
+          $stmt -> bindParam(8, $datos["ci_bene"], PDO::PARAM_STR);       
           $stmt -> bindParam(9, $datos["rif_bene"], PDO::PARAM_STR);                    
           $stmt -> bindParam(10, $datos["loc_bene"], PDO::PARAM_STR);     
           $stmt -> bindParam(11, $datos["cel_bene"], PDO::PARAM_STR);          
@@ -60,9 +60,9 @@ public function registrar($tabla,$datos,$archivos){
           $stmt -> bindParam(13, $datos["id_estado"], PDO::PARAM_INT);         
           $stmt -> bindParam(14, $datos["id_municipio"], PDO::PARAM_INT);      
           $stmt -> bindParam(15, $datos["id_parroquia"], PDO::PARAM_INT); 
-          $stmt -> bindParam(16, $datos["dir_bene"], PDO::PARAM_INT);
-          $stmt -> bindParam(17, $datos["ofi_bene"], PDO::PARAM_INT);     
-          $stmt -> bindParam(18, $datos["tipo_persona"], PDO::PARAM_STR);       
+          $stmt -> bindParam(16, $datos["dir_bene"], PDO::PARAM_STR);
+          $stmt -> bindParam(17, $datos["ofi_bene"], PDO::PARAM_STR);     
+          $stmt -> bindParam(18, $datos["tipo_persona"], PDO::PARAM_INT);       
          
           
             /*
@@ -393,7 +393,7 @@ public function registrar($tabla,$datos,$archivos){
           $valor = 0;
           
           $stmt = $dbConexion->conectar()->prepare("CALL usp_cargarbeneficiario(?,?)");
-          $stmt ->bindParam(1, $valor, PDO::PARAM_INT);
+          $stmt ->bindParam(1, $idprop, PDO::PARAM_INT);
           $stmt ->bindParam(2, $tipo, PDO::PARAM_INT);
           $stmt->execute();
           $dataRegistro["Items"][] = $stmt->fetchAll();

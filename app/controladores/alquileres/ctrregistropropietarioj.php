@@ -39,7 +39,13 @@ class ctrregistropropietarioj{
 
     }
 
-    
+    public function consultarpropietario($datos){
+
+        $tabla = "propietarios_juridico";
+        $modelo =  new mdlregispropietariosj();
+        $respuestas =  $modelo->consultarpropietario($tabla,$datos);
+        return $respuestas;
+    }
 
 
      

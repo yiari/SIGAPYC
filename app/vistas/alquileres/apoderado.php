@@ -6,7 +6,7 @@
         <div style="text-align: right;">
              <ol>
                 <a class="btn btn-outline-primary codpro" href="index.php?url=app/vistas/alquileres/ingresar_apoderado" role="button">Nuevo</a>                
-                <a class="btn btn-outline-secondary" href="index.php?url=app/vistas/alquileres/propietarios"  role="button">Atras</a>
+                <a class="btn btn-outline-secondary " href="index.php?url=app/vistas/alquileres/propietarios"  role="button">Atras</a>
             </ol>
         </div>
         
@@ -26,12 +26,13 @@
                         <tr>
 
                             <th>Codigo</th>
-                            <th>Nombre</th>
-                            <th>Propietario</th>
+                            <th>Notaria o Registro</th>
+                            <th>Fecha Poder</th>
                             <th>Telefono</th>
                             <th>correo</th>
                             <th>Doc / Editar</th>
                      
+        
  
                         </tr>
                     </thead>

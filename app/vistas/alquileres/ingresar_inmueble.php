@@ -77,7 +77,7 @@ include("layout/menuNavegacion.php");
                         <div class="col-md-3">
                             <label class="col-sm-5 col-form-label">Rif:</label>
                             <div class="col-sm-12">
-                                <input type="text" class="form-control" id="rif_prop" name="rif_prop" readonly="yes">
+                                <input type="text" class="form-control" id="rif_prop" name="rif_prop" readonly="yes" >
                             </div>
                         </div>
                     </div>
@@ -158,7 +158,7 @@ include("layout/menuNavegacion.php");
                                     <label  for="registroletra" class="col-sm-12 col-form-label">Letra/N°:</label>
                                     <div class="col-sm-12">
                                         <div class="col-sm-12">
-                                            <input type="text" class="form-control" id="registroletra" name="registroletra">
+                                            <input type="text" class="form-control" id="registroletra" name="registroletra" maxlength="4">
                                         </div>
                                     </div>
                                 </div>
@@ -166,7 +166,7 @@ include("layout/menuNavegacion.php");
                                     <div class="row">
                                         <label for="registrNombre" class="col-sm-12 col-form-label">Nombre del Inmueble:</label>
                                         <div class="col-sm-12">
-                                            <input type="text" class="form-control"  id="registrNombre" name="registrNombre">
+                                            <input type="text" class="form-control"  id="registrNombre" name="registrNombre" maxlength="10">
                                         </div>
                                     </div>
                                 </div>
@@ -267,13 +267,13 @@ include("layout/menuNavegacion.php");
                                     <div class="col-md-2">
                                         <label for="ban_inmu" class="col-sm-12 col-form-label">Baños:</label>
                                         <div class="col-sm-12">
-                                            <input type="text" class="form-control" placeholder="Nro." id="ban_inmu" name="ban_inmu" >
+                                            <input type="text" class="form-control" placeholder="Nro." id="ban_inmu" name="ban_inmu" maxlength="2" >
                                         </div>
                                     </div>
                                     <div class="col-md-2">
                                         <label for="est_inmu" class="col-sm-12 col-form-label">Pto. Estacionamiento</label>
                                         <div class="col-sm-12">
-                                            <input type="text" class="form-control" placeholder="Nro." id="est_inmu" name="est_inmu">
+                                            <input type="text" class="form-control" placeholder="Nro." id="est_inmu" name="est_inmu" maxlength="2">
                                         </div>
                                     </div>
                                     <div class="col-md-2">
@@ -285,7 +285,7 @@ include("layout/menuNavegacion.php");
                                 </div>
                                 <div class="row">
                                     <div class="col-md-3">
-                                        <label for="lim_nort" class="col-sm-12 col-form-label">NOR-OESTE:</label>
+                                        <label for="lim_nort" class="col-sm-12 col-form-label">Norte:</label>
                                         <div class="col-sm-12">
                                             <div class="col-sm-12">
                                                 <input type="text" class="form-control" id="lim_nort" name="lim_nort">
@@ -293,7 +293,7 @@ include("layout/menuNavegacion.php");
                                         </div>
                                     </div>
                                     <div class="col-md-3">
-                                        <label  for="lim_sur" class="col-sm-12 col-form-label">SUR-OESTE:</label>
+                                        <label  for="lim_sur" class="col-sm-12 col-form-label">Sur:</label>
                                         <div class="col-sm-12">
                                             <div class="col-sm-12">
                                                 <input type="text" class="form-control" id="lim_sur" name="lim_sur" >
@@ -301,7 +301,7 @@ include("layout/menuNavegacion.php");
                                         </div>
                                     </div>
                                     <div class="col-md-3">
-                                        <label for="lim_este" class="col-sm-12 col-form-label">ESTE:</label>
+                                        <label for="lim_este" class="col-sm-12 col-form-label">Este:</label>
                                         <div class="col-sm-12">
                                             <div class="col-sm-12">
                                                 <input type="text" class="form-control" id="lim_este" name="lim_este" >
@@ -309,7 +309,7 @@ include("layout/menuNavegacion.php");
                                         </div>
                                     </div>
                                     <div class="col-md-3">
-                                        <label for="lim_oest" class="col-sm-12 col-form-label">OESTE:</label>
+                                        <label for="lim_oest" class="col-sm-12 col-form-label">Oeste:</label>
                                         <div class="col-sm-12">
                                             <div class="col-sm-12">
                                                 <input type="text" class="form-control" id="lim_oest" name="lim_oest" >
@@ -330,7 +330,7 @@ include("layout/menuNavegacion.php");
                                         <label for="num_regi" class="col-sm-12 col-form-label">Código:</label>
                                         <div class="col-sm-12">
                                             <div class="col-sm-12">
-                                                <input type="text" class="form-control" id="num_regi" name="num_regi" >
+                                                <input type="text" class="form-control" id="num_regi" name="num_regi" maxlength="10" >
                                             </div>
                                         </div>
                                     </div>
@@ -351,25 +351,25 @@ include("layout/menuNavegacion.php");
                                     <div class="col-md-2">
                                         <label for="tom_regi" class="col-sm-12 col-form-label">Tomo:</label>
                                         <div class="col-sm-12">
-                                            <input type="text" class="form-control" id="tom_regi" name="tom_regi">
+                                            <input type="text" class="form-control" id="tom_regi" name="tom_regi" maxlength="10">
                                         </div>
                                     </div>
                                     <div class="col-md-1">
                                         <label for="fol_regi" class="col-sm-12 col-form-label">Folio:</label>
                                         <div class="col-sm-12">
-                                            <input type="text" class="form-control" id="fol_regi" name="fol_regi">
+                                            <input type="text" class="form-control" id="fol_regi" name="fol_regi" maxlength="10">
                                         </div>
                                     </div>
                                     <div class="col-md-1">
                                         <label for="asi_regi" class="col-sm-12 col-form-label">Asiento:</label>
                                         <div class="col-sm-12">
-                                            <input type="text" class="form-control" id="asi_regi" name="asi_regi">
+                                            <input type="text" class="form-control" id="asi_regi" name="asi_regi" maxlength="10">
                                         </div>
                                     </div>
                                     <div class="col-md-2">
                                         <label for="fic_cata" class="col-sm-12 col-form-label">F. Catastral:</label>
                                         <div class="col-sm-12">
-                                            <input type="text" class="form-control" id="fic_cata" name="fic_cata">
+                                            <input type="text" class="form-control" id="fic_cata" name="fic_cata" maxlength="10">
                                         </div>
                                     </div>
                                     

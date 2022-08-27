@@ -108,8 +108,8 @@ console.log("Items Resultados: " + json.Items[0].length);
                                     
                                 
                                     tr.append("<td>" + json.Items[0][i].codigo + "</td>");
-                                    tr.append("<td>" + json.Items[0][i].nombre + "</td>");
-                                    tr.append("<td>" + json.Items[0][i].propietario + "</td>");
+                                    tr.append("<td>" + json.Items[0][i].nombre_poder + "</td>");
+                                    tr.append("<td>" + fecha(json.Items[0][i].fecha_poder,'YYYYMMDD','DD/MM/YYYY') + "</td>");
                                     tr.append("<td>" + json.Items[0][i].telefono + "</td>");
                                     tr.append("<td>" + json.Items[0][i].correo + "</td>"); 
                                     
@@ -117,7 +117,7 @@ console.log("Items Resultados: " + json.Items[0].length);
                                     var htmlapoderado = "";
 
                                     html = '<div class="btn-group" style="font-size:1.3em; letter-spacing:0.5em;">';
-                                    htmlapoderado='<a title="Editar Apoderado" href="index.php?url=app/vistas/alquileres/editar_apoderado&idapod=' + json.Items[0][i].id_apod  + '&codapod=' + json.Items[0][i].codigo  + '"><i class="fa fa-edit" alt=“editar”></i></a>&nbsp;';
+                                    htmlapoderado='<a title="Editar Apoderado" href="index.php?url=app/vistas/alquileres/editar_apoderado&idapod=' + json.Items[0][i].id_apod  + '&codapod=' + json.Items[0][i].codigo  + '&idpro=' + json.Items[0][i].id_prop  + '&codpro=' + json.Items[0][i].cod_prop  + '"><i class="fa fa-edit" alt=“editar”></i></a>&nbsp;';
                                     html += htmlapoderado;
                                     html += '<a title="eliminar"  data-field-id="'  + json.Items[0][i].id_apod + '"><i class="fa fa-trash" alt=“eliminar”></i></a>';
                                     html += '</div>'

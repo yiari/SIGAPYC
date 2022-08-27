@@ -302,17 +302,17 @@ function guardarRepresentante(){
         return;
         }
     
-    if ($("#registroEstado").val() == "") {
+    if ($("#cboEstados").val() == "") {
             mensaje("Debe colocar el campo el estado ",1);
             return;
             }
 
-    if ($("#registroMunicipio").val() == "") {
+    if ($("#cboMunicipios").val() == "") {
         mensaje("Debe colocar el campo el municipio ",1);
         return;
         }
 
-    if ($("#registroParroquia").val() == "") {
+    if ($("#cboParroquia").val() == "") {
         mensaje("Debe colocar el campo el parroqui ",1);
         return;
         }

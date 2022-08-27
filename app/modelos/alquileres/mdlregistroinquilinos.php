@@ -338,33 +338,43 @@ public function registrar($tabla,$datos,$archivos){
 
 
 
-  public function consultarInquilino($idinquilino,$tipoinquilino){
+  public function consultarInquilino($tabla,$items){
 
-
-
+    If($items == null){
+  
+  
+                  $dataRes = array(
+                    'error' => '1',
+                    'mensaje' =>  "Mensaje de Error: No hay registro para buscar."
+                  );
+            
+  
+    }else{
+  
+  
       try {
-
+  
         $dbConexion = new conexcion();
         
-        $stmt = $dbConexion->conectar()->prepare("CALL usp_consultar_inquilino(?,?)");
-        $stmt -> bindParam(1,$idinquilino,PDO::PARAM_INT);
-        $stmt ->bindParam(2,$tipoinquilino,PDO::PARAM_STR);
-        
-         $stmt->execute();
-        $dataRegistro["Items"][] = $stmt->fetch();
+        $stmt = $dbConexion->conectar()->prepare("CALL usp_cargar_editar_Inquilino(?)");
+        $stmt -> bindParam(1,$items["id_inqu"], PDO::PARAM_INT);
+       
 
+        $stmt->execute();
+        $dataRegistro["Items"][] = $stmt->fetch();
+  
         $dataRes = array(
           'error' => '0',
-          'mensaje' =>  'El registro se realizo con exito.'
+          'mensaje' =>  'El registro se obtuvo.'
         );
         
         
         echo json_encode(array_merge($dataRegistro,$dataRes));
-
+  
         } catch (\Throwable $th) {
         
             //$pdo->rollBack() ;
-           // echo "Mensaje de Error: " . $th->getMessage();
+            //echo "Mensaje de Error: " . $th->getMessage();
             $dataRes = array(
               'error' => '1',
               'mensaje' =>  "Mensaje de Error: " . $th->getMessage()
@@ -373,8 +383,13 @@ public function registrar($tabla,$datos,$archivos){
             echo json_encode($dataRes);
     
         }
+  
+  
+  
+  
+    }
+  }
 
-}
 
 
 

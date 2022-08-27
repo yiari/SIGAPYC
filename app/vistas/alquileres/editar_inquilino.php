@@ -13,10 +13,7 @@ include("layout/menuNavegacion.php");
                     </ol>
                 </div>
 
-                <div style="text-align: left;">
-                    <span id="lblinquilino"><strong>INQUILINO : </strong></span>
-                         <br/><br/>
-                </div>
+               
 
             <h4 class="card-title">Inquilinos</h4>
                 <nav>
@@ -34,8 +31,6 @@ include("layout/menuNavegacion.php");
                                     <form class="form-sample" id="registroinquilino" name="registroinquilino" method="POST" action="" autocomplete="off" enctype="multipart/form-data">
                                          
                                          <input type="hidden" id="id_usuario" name="id_usuario" value='1'>
-
-                                     
                                         <input type="hidden" id="tipo_persona" name="tipo_persona" value='1'>
                                         <input type="hidden" id="hidinquilino" name="hidinquilino" value=''>
                                         <!--<input type="hidden" id="registroCodigo" name="registroCodigo" value='0001'>-->
@@ -77,7 +72,7 @@ include("layout/menuNavegacion.php");
                                                                 </select>
                                                             </div>
                                                             <div class="col-sm-9">
-                                                                <input for="registroCedula" type="text" class="form-control" id="registroCedula" name="registroCedula" >
+                                                                <input for="registroCedula" type="text" class="form-control" id="registroCedula" name="registroCedula" maxlength="11">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -86,19 +81,19 @@ include("layout/menuNavegacion.php");
                                                     <div class="col-md-2">
                                                         <label class="col-sm-5 col-form-label">Rif:</label>
                                                         <div class="col-sm-12">
-                                                            <input for="registroRif" type="text" class="form-control" id="registroRif" name="registroRif">
+                                                            <input for="registroRif" type="text" class="form-control" id="registroRif" name="registroRif" maxlength="14">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-2">
                                                         <label class="col-sm-8 col-form-label">Teléfono local:</label>
                                                         <div class="col-sm-12">
-                                                            <input for="registroTeléfono" type="text" class="form-control" id="registroTeléfono" name="registroTeléfono">
+                                                            <input for="registroTelefono" type="text" class="form-control" id="registroTelefono" name="registroTelefono" maxlength="11">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-2">
                                                         <label class="col-sm-9 col-form-label">Celular:</label>
                                                         <div class="col-sm-12">
-                                                            <input for="registroCelular" type="text" class="form-control" id="registroCelular" name="registroCelular">
+                                                            <input for="registroCelular" type="text" class="form-control" id="registroCelular" name="registroCelular" maxlength="11">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
@@ -239,8 +234,7 @@ include("layout/menuNavegacion.php");
 
                                         <div class="container">
                                             <div class="col-12 btn btn-align-center">
-                                               <button type="submit" class="btn btn-primary mb-2">Guardar</button>
-                                               <button type="button" class="btn btn-danger mb-2 cancelar" style="display:none;">Cancelar</button>
+                                                 <button type="submit" class="btn btn-primary mb-2">Guardar</button>
                                             </div>
                                         </div>
                                     </form>
@@ -284,7 +278,7 @@ include("layout/menuNavegacion.php");
                                                     <div class="col-md-3">
                                                         <label class="col-sm-12 col-form-label">Rif Jurídico:</label>
                                                         <div class="col-sm-12">
-                                                            <input for="registroRifj" type="text" class="form-control" id="registroRifj" name="registroRifj" >
+                                                            <input for="registroRifj" type="text" class="form-control" id="registroRifj" name="registroRifj" maxlength="14" >
                                                         </div>
                                                     </div>
                                                     <div class="col-md-5">
@@ -304,13 +298,13 @@ include("layout/menuNavegacion.php");
                                                     <div class="col-md-3">
                                                         <label class="col-sm-9 col-form-label">Celular:</label>
                                                         <div class="col-sm-12">
-                                                            <input  for="registroCelularj" type="text" class="form-control" id="registroCelularj" name="registroCelularj">
+                                                            <input  for="registroCelularj" type="text" class="form-control" id="registroCelularj" name="registroCelularj" maxlength="11">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-4">
                                                         <label class="col-sm-3 col-form-label">Correo:</label>
                                                         <div class="col-sm-12">
-                                                            <input for="registroEmailj" type="email" class="form-control" id="registroEmailj" name="registroEmailj" >
+                                                            <input for="registroEmailj" type="email" class="form-control" id="registroEmailj" name="registroEmailj" maxlength="11" >
                                                         </div>
                                                     </div>
                                                 </div>
@@ -328,7 +322,7 @@ include("layout/menuNavegacion.php");
                                                         <label class="col-sm-12 col-form-label">Código:</label>
                                                         <div class="col-sm-12">
                                                             <div class="col-sm-12">
-                                                                <input for="codigo_registro" type="text" class="form-control" id="codigo_registro" name="codigo_registro" >
+                                                                <input for="codigo_registro" type="text" class="form-control" id="codigo_registro" name="codigo_registro" maxlength="11">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -343,25 +337,25 @@ include("layout/menuNavegacion.php");
                                                     <div class="col-md-3">
                                                         <label for="inputfecha" class="col-sm-12 col-form-label">Fecha:</label>
                                                         <div class="col-sm-12">
-                                                            <input for="fechaRegistro" type="date" id="fechaRegistro" name="fechaRegistro" class="form-control"d>
+                                                            <input for="fechaRegistro" type="date" id="fechaRegistro" name="fechaRegistro" class="form-control">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-1">
                                                         <label class="col-sm-12 col-form-label">Número:</label>
                                                         <div class="col-sm-12">
-                                                            <input for="numeroRegistro" type="text" class="form-control" id="numeroRegistro" name="numeroRegistro">
+                                                            <input for="numeroRegistro" type="text" class="form-control" id="numeroRegistro" name="numeroRegistro" maxlength="11">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-1">
                                                         <label class="col-sm-12 col-form-label">Tomo:</label>
                                                         <div class="col-sm-12">
-                                                            <input for="tomoRegistro" type="text" class="form-control" id="tomoRegistro" name="tomoRegistro" >
+                                                            <input for="tomoRegistro" type="text" class="form-control" id="tomoRegistro" name="tomoRegistro" maxlength="11">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-2">
                                                         <label class="col-sm-12 col-form-label">Expediente:</label>
                                                         <div class="col-sm-12">
-                                                            <input for="foliRegistro"  type="text" class="form-control" id="foliRegistro" name="foliRegistro" >
+                                                            <input for="foliRegistro"  type="text" class="form-control" id="foliRegistro" name="foliRegistro" maxlength="11" >
                                                         </div>
                                                     </div>
                                                 </div>

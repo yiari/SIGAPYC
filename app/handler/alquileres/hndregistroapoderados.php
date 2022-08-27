@@ -123,49 +123,50 @@ if($operacion == "I"){
                     "fec_pode" => $_POST["fec_pode"],
                     "num_pode" => $_POST["num_pode"],
                     "tom_pode" => $_POST["tom_pode"],
-                    "fol_pode" => $_POST["fol_pode"],
+                    "fol_pode" => $_POST["fol_pode"]
                    /*
                    |------------------------------------------
                    | AQUI VAN LOS DATOS DE LOS BANCOS NACIONALES
                    |------------------------------------------
                    */
-                  "cuenta_id_nacional" => $_POST["hidcuenta_id_nacional"],
+                  /*
+                   "cuenta_id_nacional" => $_POST["hidcuenta_id_nacional"],
                   "cuenta_id_banco" => $_POST["cboBancoN"],
                   "num_cuenta_nacional" => $_POST["num_cuen"],
 
                   "pagomovil_cedula" => $_POST["ced_pmov"],
                   "pagomovil_id_banco" => $_POST["cboBancoNP"],
-                  "pagomovil_telefono" => $_POST["cel_pmov"],
+                  "pagomovil_telefono" => $_POST["cel_pmov"],*/
                 
-                                     /*
+                  /*
                    |------------------------------------------
                    | AQUI VAN LOS DATOS DE LOS BANCOS INTERNACIONALES
                    |------------------------------------------
-                   */
+                  
                   "cuenta_id_internacional" => $_POST["hidcuenta_id_internacional"],
                   "ban_extr" => $_POST["ban_extr"],
                   "age_extr" => $_POST["age_extr"],
                   "dc_extr" => $_POST["dc_extr"],
                   "cue_extr" => $_POST["cue_extr"],
                   "iba_extr" => $_POST["iba_extr"],
-                  "bic_extr" => $_POST["bic_extr"],
+                  "bic_extr" => $_POST["bic_extr"], */
                
                  /* |------------------------------------------
                   | AQUI VAN LOS DATOS DE PAYPAL
                   |------------------------------------------
-                  */
+                  
                  "cuenta_id_paypal" => $_POST["hidcuenta_id_paypal"],
                  "cor_payp" => $_POST["cor_payp"],
-                 "nom_payp" => $_POST["nom_payp"],
+                 "nom_payp" => $_POST["nom_payp"], */
                /*
                   |------------------------------------------
                   | AQUI VAN LOS DATOS DE ZELLE
                   |------------------------------------------
-                  */
+                  
                  "cuenta_id_zelle" => $_POST["hidcuenta_id_zelle"],
                  "tel_zelle" => $_POST["tel_zelle"],
                  "cor_zelle" => $_POST["cor_zelle"],
-                 "nom_zelle" => $_POST["nom_zelle"]);
+                 "nom_zelle" => $_POST["nom_zelle"]*/ );
 
 
 

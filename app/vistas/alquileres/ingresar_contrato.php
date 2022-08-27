@@ -210,7 +210,7 @@ include("layout/menuNavegacion.php");
                                             <div class="row">
                                                 <label for="dur_cont" class="col-sm-12 col-form-label">Duración:</label>
                                                 <div class="col-sm-12">
-                                                    <input type="text" class="form-control" id="dur_cont" name="dur_cont" value="">
+                                                    <input type="text" class="form-control" id="dur_cont" name="dur_cont" value="" maxlength="11">
                                                 </div>
                                             </div>
                                         </div>
@@ -218,7 +218,7 @@ include("layout/menuNavegacion.php");
                                             <div class="row">
                                                 <label for="per_pror" class="col-sm-12 col-form-label">Periodo de Prorroga:</label>
                                                 <div class="col-sm-12">
-                                                    <input type="text" class="form-control" id="per_pror" name="per_pror" value="">
+                                                    <input type="text" class="form-control" id="per_pror" name="per_pror" value="" maxlength="11">
                                                 </div>
                                             </div>
                                         </div>
@@ -246,7 +246,7 @@ include("layout/menuNavegacion.php");
                                             <div class="row">
                                                 <label for="ced_prop" class="col-sm-12 col-form-label">Peíodo de Inspección:</label>
                                                 <div class="col-sm-12">
-                                                    <input type="text" class="form-control" id="ins_cont" name="ins_cont" value="">
+                                                    <input type="text" class="form-control" id="ins_cont" name="ins_cont" value="" maxlength="11">
                                                 </div>
                                             </div>
                                         </div>
@@ -273,7 +273,7 @@ include("layout/menuNavegacion.php");
                                             <div class="row">
                                                 <label for="ced_prop" class="col-sm-12 col-form-label">Gasto Administrativo:</label>
                                                 <div class="col-sm-12">
-                                                    <input type="text" class="form-control" id="adm_inmu" name="adm_inmu" value="">
+                                                    <input type="text" class="form-control" id="adm_inmu" name="adm_inmu" value="" maxlength="11">
                                                 </div>
                                             </div>
                                         </div>
@@ -305,7 +305,7 @@ include("layout/menuNavegacion.php");
                                             <div class="row">
                                                 <label for="ced_prop" class="col-sm-12 col-form-label">Depósito:</label>
                                                 <div class="col-sm-12">
-                                                    <input type="text" class="form-control" id="dep_cont" name="dep_cont" value="" >
+                                                    <input type="text" class="form-control" id="dep_cont" name="dep_cont" value="" maxlength="11" >
                                                 </div>
                                             </div>
                                         </div>
@@ -313,7 +313,7 @@ include("layout/menuNavegacion.php");
                                             <div class="row">
                                                 <label for="com_cont" class="col-sm-12 col-form-label">% Comisión:</label>
                                                 <div class="col-sm-12">
-                                                    <input type="text" class="form-control" id="com_cont" name="com_cont" value="">
+                                                    <input type="text" class="form-control" id="com_cont" name="com_cont" value="" maxlength="11">
                                                 </div>
                                             </div>
                                         </div>
@@ -323,7 +323,7 @@ include("layout/menuNavegacion.php");
                                             <div class="row">
                                                 <label for="ced_prop" class="col-sm-12 col-form-label">Derecho Hab:</label>
                                                 <div class="col-sm-12">
-                                                    <input type="text" class="form-control" id="hab_cont" name="hab_cont" value="">
+                                                    <input type="text" class="form-control" id="hab_cont" name="hab_cont" value="" maxlength="11">
                                                 </div>
                                             </div>
                                         </div>

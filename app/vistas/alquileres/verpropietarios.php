@@ -14,10 +14,14 @@ include("layout/menuNavegacion.php");
         <h4 class="card-title">BITACORA DEL PROPIETARIO </h4>
       
         <div class="card-header">
+
+
             <div style="text-align: right;">
-                <ol>
-                    <a class="btn btn-outline-secondary" href="reportes.php" role="button">Imprimir</a>
-                </ol>
+               
+                         <ol>          
+                            <a class="btn btn-outline-secondary " href="index.php?url=app/vistas/alquileres/propietarios"  role="button">Atras</a>
+                            <a href="app/reportes/repfichaPropietario.php" target="_blank" class="btn btn-outline-secondary" href="reportes.php" role="button"><i class="fa fa-file-pdf-o" alt=“PDF” ></i> Imprimir</a>
+                         </ol>
             </div>
             <div class="tab-content" id="nav-tabContent">
 

@@ -22,6 +22,17 @@ function inicio(){
     guardarRepresentante();
 
 
+     /*
+    |--------------------------------------------------
+    | TODOS LOS CAMPOS DE TEXTO ESCRIBEN EN MAYUSCULA
+    |--------------------------------------------------
+    */
+    $("input[type=text]").keyup(function() {
+        $(this).val($(this).val().toUpperCase());
+    });
+    /*------------------------------------------------*/
+
+
     jQuery("#registroNombre").on('input', function (evt) {
         jQuery(this).val(jQuery(this).val().replace(/[^A-Za-z ]/g, ''));
     });
@@ -138,12 +149,12 @@ function guardarRepresentante(){
             return;
             }
 
-    if ($("#registroMunicipio").val() == "") {
+    if ($("#cboMunicipios").val() == "") {
         mensaje("Debe colocar el campo el municipio ",1);
         return;
         }
 
-    if ($("#registroParroquia").val() == "") {
+    if ($("#cboParroquia").val() == "") {
         mensaje("Debe colocar el campo el parroqui ",1);
         return;
         }

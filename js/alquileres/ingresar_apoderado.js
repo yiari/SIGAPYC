@@ -18,10 +18,10 @@ function inicio(){
     guardarApoderado();
     generarCodigoApoderado();
   
-    cargarBancos('cboBancoN');
-    cargarBancos('cboBancoJ');
-    cargarBancos('cboBancop');
-    cargarBancos('cboBancoNP');
+    //cargarBancos('cboBancoN');
+    //cargarBancos('cboBancoJ');
+    //cargarBancos('cboBancop');
+    //cargarBancos('cboBancoNP');
 
  /*
     |--------------------------------------------------
@@ -42,10 +42,8 @@ function inicio(){
     });
 
 
-
-
     jQuery("#registroCedula").on('input', function (evt) {
-        jQuery(this).val(jQuery(this).val().replace(/[^0-9]/g, ''));
+        jQuery(this).val(jQuery(this).val().replace(/[^0-9.]/g, ''));
     });
 
     jQuery("#registroTelefono").on('input', function (evt) {
@@ -56,17 +54,7 @@ function inicio(){
         jQuery(this).val(jQuery(this).val().replace(/[^0-9]/g, ''));
     });
 
-    jQuery("#num_cuen").on('input', function (evt) {
-        jQuery(this).val(jQuery(this).val().replace(/[^0-9]/g, ''));
-    });
-
-    jQuery("#ced_pmov").on('input', function (evt) {
-        jQuery(this).val(jQuery(this).val().replace(/[^0-9]/g, ''));
-    });
-
-    jQuery("#cel_pmov").on('input', function (evt) {
-        jQuery(this).val(jQuery(this).val().replace(/[^0-9]/g, ''));
-    });
+    
 
 
 
@@ -197,7 +185,7 @@ function guardarApoderado(){
         return;
         }
     
-    
+    /*
     if ($("#cboBancoN").val() == "") {
         mensaje("Debe indicar el banco del apoderado",1);
         return;
@@ -226,7 +214,7 @@ function guardarApoderado(){
 
         }
 
-
+*/
 
    
    /*

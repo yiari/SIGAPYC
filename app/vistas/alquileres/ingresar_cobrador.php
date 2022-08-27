@@ -64,7 +64,7 @@
                                                             </select>
                                                         </div>
                                                         <div class="col-sm-9">
-                                                            <input for="registroCedula"  type="text" class="form-control" id="registroCedula" name="registroCedula" >
+                                                            <input for="registroCedula"  type="text" class="form-control" id="registroCedula" name="registroCedula" maxlength="11" >
                                                         </div>
                                                     </div>
                                                 </div>
@@ -74,19 +74,19 @@
                                                 <div class="col-md-2">
                                                     <label for="registrorif" class="col-sm-5 col-form-label">Rif:</label>
                                                     <div class="col-sm-12">
-                                                        <input type="text" class="form-control" id="registrorif" name="registrorif" >
+                                                        <input type="text" class="form-control" id="registrorif" name="registrorif" maxlength="14">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-2">
                                                     <label for="registroTelefono" class="col-sm-8 col-form-label">Teléfono local:</label>
                                                     <div class="col-sm-12">
-                                                        <input type="text" class="form-control" id="registroTelefono" name="registroTelefono">
+                                                        <input type="text" class="form-control" id="registroTelefono" name="registroTelefono" maxlength="11">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-2">
                                                     <label for="registroCelular" class="col-sm-9 col-form-label">Celular:</label>
                                                     <div class="col-sm-12">
-                                                        <input type="text" class="form-control" id="registroCelular" name="registroCelular">
+                                                        <input type="text" class="form-control" id="registroCelular" name="registroCelular" maxlength="11">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">

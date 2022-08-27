@@ -8,16 +8,23 @@ function inicio(){
     |---------------------------------------
     */
 
+    $('#id_prop').val(getParameterByName('idpro'));
+    let idPropietario = getParameterByName('idpro');
+    let prmCodPro = getParameterByName('codpro');
+
     let codigoApoderado = getParameterByName('codapod');
     let idApoderado = getParameterByName('idapod');
 
-    /*--------------------------------------*/    
+    /*--------------------------------------*/  
+
+    codigoPropietario(prmCodPro);
+    atrasApoderado(idPropietario,prmCodPro);  
 
 
     generarCodigoApoderado();
     cargarEstados();
-    cargarBancos('cboBancoN');
-    cargarBancos('cboBancoNP');
+    //cargarBancos('cboBancoN');
+    //cargarBancos('cboBancoNP');
     
    
     guardarApoderado();
@@ -55,17 +62,7 @@ function inicio(){
         jQuery(this).val(jQuery(this).val().replace(/[^0-9]/g, ''));
     });
 
-    jQuery("#num_cuen").on('input', function (evt) {
-        jQuery(this).val(jQuery(this).val().replace(/[^0-9]/g, ''));
-    });
-
-    jQuery("#ced_pmov").on('input', function (evt) {
-        jQuery(this).val(jQuery(this).val().replace(/[^0-9]/g, ''));
-    });
-
-    jQuery("#cel_pmov").on('input', function (evt) {
-        jQuery(this).val(jQuery(this).val().replace(/[^0-9]/g, ''));
-    });
+    
 
 
    
@@ -78,6 +75,33 @@ function inicio(){
 consultarApoderado(idApoderado,codigoApoderado);
 
 
+
+}
+
+
+function codigoPropietario(prmDato){
+
+    var html = "";
+
+    html='<strong>PROPIETARIO : </strong>'  + prmDato +'</span>';
+
+    $("#lblPropietario").html('');
+    $("#lblPropietario").html(html);
+
+}
+
+function atrasApoderado(prmIdPro, prmCodPro){
+
+    //if (isEmpty(prmDato) == false ){
+
+
+        var html = "";
+        html='index.php?url=app/vistas/alquileres/apoderado&idpro=' + prmIdPro  + '&codpro=' + prmCodPro;
+    
+        $(".codpro").prop("href", html);
+
+
+    //}
 
 }
 
@@ -108,6 +132,8 @@ console.log("consultando");
 
         formData.append('idApoderado',id);
         formData.append('codigoApoderado',codigo);
+       
+
         //formData.append('tipoPropietario',tipo);
         
         /*
@@ -199,25 +225,28 @@ console.log("consultando");
 
                         $("#registroCodigo").val(json.Items[0].cod_apod);
 
-                        /*
-                        |------------------------------------------------------
-                        | DATOS BANCOS NACIONALES
-                        |------------------------------------------------------
-                        */
-                        
-                        $("select[name='cboBancoN']").val(json.Items[0].id_banco).change();
-                        $('#num_cuen').val(json.Items[0].num_cuen);
-                        $('#ced_pmov').val(json.Items[0].pagomovil_cedula);
-                        $("select[name='cboBancoNP']").val(json.Items[0].pagomovil_id_banco).change();
-                        $('#cel_pmov').val(json.Items[0].pagomovil_telefono);
-                        
-                        
+
                         $('#cod_pode').val(json.Items[0].cod_pode);
                         $('#not_pode').val(json.Items[0].not_pode);
                         $('#fec_pode').val(json.Items[0].fec_pode);
                         $('#num_pode').val(json.Items[0].num_pode);
                         $('#tom_pode').val(json.Items[0].tom_pode);
                         $('#fol_pode').val(json.Items[0].fol_pode);
+
+                        /*
+                        |------------------------------------------------------
+                        | DATOS BANCOS NACIONALES
+                        |------------------------------------------------------
+                       
+                        
+                        $("select[name='cboBancoN']").val(json.Items[0].id_banco).change();
+                        $('#num_cuen').val(json.Items[0].num_cuen);
+                        $('#ced_pmov').val(json.Items[0].pagomovil_cedula);
+                        $("select[name='cboBancoNP']").val(json.Items[0].pagomovil_id_banco).change();
+                        $('#cel_pmov').val(json.Items[0].pagomovil_telefono); */
+                        
+                        
+                       
 
 		  
                         
@@ -226,7 +255,7 @@ console.log("consultando");
                         |------------------------------------------------------
                         | DATOS BANCOS INTERNACIONALES
                         |------------------------------------------------------
-                        */
+                       
 
                        
                         $('#ban_extr').val(json.Items[0].ban_extr);
@@ -234,28 +263,28 @@ console.log("consultando");
                         $('#dc_extr').val(json.Items[0].dc_extr);
                         $('#cue_extr').val(json.Items[0].cue_extr);
                         $('#iba_extr').val(json.Items[0].iba_extr);
-                        $('#bic_extr').val(json.Items[0].bic_extr);
+                        $('#bic_extr').val(json.Items[0].bic_extr); */
 
 
                        /*
                         |------------------------------------------------------
                         | DATOS PAYPAL
                         |------------------------------------------------------
-                        */
+                       
 
                      
                         $('#cor_payp').val(json.Items[0].cor_payp);
-                        $('#nom_payp').val(json.Items[0].nom_payp);
+                        $('#nom_payp').val(json.Items[0].nom_payp); */
 
                         /*
                         |------------------------------------------------------
                         | DATOS zelle
                         |------------------------------------------------------
-                        */
+                       
                      
                         $('#tel_zelle').val(json.Items[0].tel_zelle);
                         $('#cor_zelle').val(json.Items[0].cor_zelle);
-                        $('#nom_zelle').val(json.Items[0].nom_zelle);
+                        $('#nom_zelle').val(json.Items[0].nom_zelle); */
                       
 
 
@@ -389,7 +418,7 @@ function guardarApoderado(){
         return;
         }
     
-    
+    /*
     if ($("#cboBancoN").val() == "") {
         mensaje("Debe indicar el banco del apoderado",1);
         return;
@@ -417,7 +446,7 @@ function guardarApoderado(){
 
 
         }
-
+*/
 
 
    

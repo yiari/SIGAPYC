@@ -14,7 +14,14 @@ function inicio(){
     let tipoPropietario = getParameterByName('codtip');
 
 
-    
+    if(tipoPropietario == 1){
+        $("#nav-prop_juridico-tab").hide();
+        $("#nav-prop_juridico").hide();
+
+    } else if (tipoPropietario == 2) { 
+        $("#nav-prop_natural-tab").hide(); 
+        $("#nav-prop_natural").hide();
+    }
 
     /*--------------------------------------*/    
 
@@ -79,8 +86,8 @@ function inicio(){
     |------------------------------
     */
 
-/*
-    guardarPropietariosj();
+
+    //guardarPropietariosj();
     generarCodigoPropietarioj();
   
     cargarBancos('cboBancoj');
@@ -109,7 +116,7 @@ function inicio(){
         jQuery(this).val(jQuery(this).val().replace(/[^0-9]/g, ''));
     });
 
-*/
+
 
 /*
 |------------------------------------------------------------------------------------------------
@@ -117,9 +124,14 @@ function inicio(){
 |-------------------------------------------------------------------------------------------------
 */
 
-consultarPropietario(idPropietario,codigoPropietario,tipoPropietario);
 
+if(tipoPropietario == 1){
 
+    consultarPropietario(idPropietario,codigoPropietario,tipoPropietario);
+
+} else if (tipoPropietario == 2) { 
+    consultarPropietarioJuridico(idPropietario,codigoPropietario,tipoPropietario);
+}
 
 }
 
@@ -151,6 +163,8 @@ console.log("consultando");
         formData.append('idPropietario',id);
         formData.append('codigoPropietario',codigo);
         formData.append('tipoPropietario',tipo);
+
+    
         
         /*
         |-----------------------------------------------
@@ -290,6 +304,164 @@ console.log("consultando");
 
 
 }
+
+
+
+
+function consultarPropietarioJuridico(id,codigo,tipo){
+
+    console.log("consultando");
+    
+          /*
+            |-----------------------------------------------
+            | LIMPIA EL CAMPO MENSAJE 
+            |-----------------------------------------------
+            */
+            $("#error").html("Ejecutando...");
+            /*
+            |-----------------------------------------------
+            | AQUI SE CAPTURA LOS DATOS DEL FORMULARIO 
+            |-----------------------------------------------
+            */
+            var formData = new FormData();
+            /*
+            |-----------------------------------------------------
+            | AQUI SE AGREGA UN PARAMETRO ADICIONAL AL FORMULARIO 
+            |-----------------------------------------------------
+            */
+            formData.append('opcion','CP');
+    
+            formData.append('idPropietario',id);
+            formData.append('codigoPropietario',codigo);
+            formData.append('tipoPropietario',tipo);
+    
+        
+            
+            /*
+            |-----------------------------------------------
+            | AQUI SE LLAMA EL AJAX 
+            |-----------------------------------------------
+            */
+            $.ajax({
+                url: "app/handler/alquileres/hndregispropietariosj.php",
+                type: "POST",
+                data: formData, //new FormData(this),
+                contentType: false,
+                dataType: "json",
+                cache: false,
+                processData: false,
+                beforeSend: function () {
+                    //$("#preview").fadeOut();
+                    $("#error").fadeOut();
+                },
+                success: function (data) {
+                var json = data;
+                var html = "";
+                let idPropietario = 0;
+                    console.log("Mensaje del JSON: " + json);
+    
+                    if(json.error == 0){
+                        
+                        //mensaje(json.mensaje,0);
+                        if(json.Items.length > 0){
+    
+    
+                            //<input type="hidden" id="tipo_persona" name="tipo_persona" value='1'>
+                            $('#hidpropietariojuridico').val(json.Items[0].id_propj);
+                            $('#hidcuenta_id_nacionalj').val(json.Items[0].id_banco_nacionalj);
+                            $('#hidcuenta_id_internacionalj').val(json.Items[0].id_banco_internacionalj);
+                            $('#hidcuenta_id_paypalj').val(json.Items[0].id_banco_internacionalj);
+                            $('#hidcuenta_id_zellej').val(json.Items[0].id_banco_internacionalj);
+    
+    
+                            /*
+                            |------------------------------------------------------
+                            | DATOS PRINCIPALES
+                            |------------------------------------------------------
+                            */
+
+                           
+                            $('#registroNombrej').val(json.Items[0].nom_propj);
+                            $('#registroRifj').val(json.Items[0].rif_propj);
+                            $('#registroTelefonoj').val(json.Items[0].tel_proj);
+                            $('#registroEmailj').val(json.Items[0].cor_proj);
+                            $('#registroactividad').val(json.Items[0].act_proj);
+
+                            $('#registroDirecionH').val(json.Items[0].dir_proj);
+                            $("#registroCodigoj").val(json.Items[0].cod_prop);
+    
+                            /*
+                            |------------------------------------------------------
+                            | DATOS BANCOS NACIONALES
+                            |------------------------------------------------------
+                            */
+                            
+                            $("select[name='cboBancoj']").val(json.Items[0].id_bancoj).change();
+                            $('#num_cuenj').val(json.Items[0].num_cuenj);
+                            $('#ced_pmovj').val(json.Items[0].pagomovil_cedulaj);
+                            $("select[name='cboBancop']").val(json.Items[0].pagomovil_id_bancoj).change();
+                            $('#cel_pmov').val(json.Items[0].pagomovil_telefonoj);
+                            
+                            /*
+                            |------------------------------------------------------
+                            | DATOS BANCOS INTERNACIONALES
+                            |------------------------------------------------------
+                            */
+    
+                           
+                            $('#ban_extrj').val(json.Items[0].ban_extrj);
+                            $('#age_extrj').val(json.Items[0].age_extrj);
+                            $('#dc_extrj').val(json.Items[0].dc_extrj);
+                            $('#cue_extrj').val(json.Items[0].cue_extrj);
+                            $('#iba_extrj').val(json.Items[0].iba_extrj);
+                            $('#bic_extrj').val(json.Items[0].bic_extrj);
+    
+    
+                           /*
+                            |------------------------------------------------------
+                            | DATOS PAYPAL
+                            |------------------------------------------------------
+                            */
+    
+                         
+                            $('#cor_paypj').val(json.Items[0].cor_paypj);
+                            $('#nom_paypj').val(json.Items[0].nom_paypj);
+    
+                            /*
+                            |------------------------------------------------------
+                            | DATOS zelle
+                            |------------------------------------------------------
+                            */
+                         
+                            $('#tel_zellej').val(json.Items[0].tel_zelle);
+                            $('#cor_zellej').val(json.Items[0].cor_zelle);
+                            $('#nom_zellej').val(json.Items[0].nom_zelle);
+                          
+    
+    
+    
+                        }
+    
+                    }else {
+    
+                        mensaje(json.mensaje,1);
+    
+                        //$("#mensaje").html(html).fadeIn();
+                    }
+    
+    
+    
+                },
+                error: function (e) {
+                    //$("#error").html(e).fadeIn();
+                    mensaje(e,1);
+                    
+                }
+            });
+    
+    
+    }
+    
 
 
 
@@ -598,56 +770,7 @@ function mensaje(mensaje, condicion){
 
 
 
-function mensajeNatural(idpro, codigopro){
 
-    
-    var htmlContenido="";
-    var htmlApoderado="";
-    var htmlInmueble="";
-   
-    htmlContenido='<i class="fa fa-check-circle fa-2x" aria-hidden="true" style="color:#29bf1d;"></i>&nbsp' + codigopro;
-
-    htmlApoderado='<a href="index.php?url=app/vistas/alquileres/ingresar_apoderado&idpro=' + idpro + '&codpro=' + codigopro + '" class="btn btn-primary">Apoderado</a>';
-    htmlInmueble='<a href="index.php?url=app/vistas/alquileres/ingresar_inmueble&idpro=' + idpro + '&codpro=' + codigopro + '" class="btn btn-primary">Inmueble</a>';
-
-    $('#spanMsgProNatu').html('');
-    $('#spanApoderado').html('');
-    $('#spanInmueble').html('');
-
-    $('#spanMsgProNatu').html(htmlContenido);
-    $('#spanApoderado').html(htmlApoderado);
-    $('#spanInmueble').html(htmlInmueble);
-
-    //open the modal
-    $('#msgModalProNatu').modal('show');
-
-}
-
-
-/*function mensajeJuridico(idpro, codigopro){
-
-    var htmlContenido="";
-    var htmlRepresentante="";
-    var htmlInmueble="";
-   
-    htmlContenido='<i class="fa fa-check-circle fa-2x" aria-hidden="true" style="color:#29bf1d;"></i>&nbsp';
-
-    htmlRepresentante='<a href="index.php?url=app/vistas/alquileres/representante&idpro=' + idpro + '&codpro=' + codigopro + '" class="btn btn-primary">Representante</a>';
-    htmlInmueble='<a href="index.php?url=app/vistas/alquileres/inmuebles&idpro=' + idpro + '&codpro=' + codigopro + '" class="btn btn-primary">Inmueble</a>';
-
-    $('#spanMsgProJuri').html('');
-    $('#spanRepresentante').html('');
-    $('#spanInmueble').html('');
-
-    $('#spanMsgProJuri').html(htmlContenido);
-    $('#spanRepresentante').html(htmlRepresentante);
-    $('#spanInmueble').html(htmlInmueble);
-
-    //open the modal
-    $('#msgModalProJuri').modal('show');
-
-
-}*/
 
 
 
@@ -682,6 +805,30 @@ function generarCodigoPropietario(){
    
 
 }
+
+
+function generarCodigoPropietarioj(){
+
+
+    $("#registroNombrej").on('keyup', function () {
+
+        var prmNombre= this.value;
+      
+
+        $("#registroCodigoj").val('');
+
+        codigoPropietarioj(prmNombre,function(result){
+            $("#registroCodigoj").val(result);
+        });
+
+
+    });
+
+   
+   
+
+}
+
 
 
 

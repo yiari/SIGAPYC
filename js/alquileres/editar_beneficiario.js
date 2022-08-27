@@ -16,12 +16,24 @@ function inicio(){
     let idBeneficiario = getParameterByName('idbene');
     let codigoBeneficiario = getParameterByName('codbene');
     let tipoBeneficiario = getParameterByName('codtip');
-
-
+    
     
 
-    /*--------------------------------------*/    
+    if(tipoBeneficiario == 1){
+        $("#nav-juridica_bene-tab").hide();
+        $("#nav-juridica_bene").hide();
 
+    } else if (tipoBeneficiario == 2) { 
+        $("#nav-bene_natural-tab").hide(); 
+        $("#nav-bene_natural").hide();
+    }
+
+    //codigoPropietario(prmCodPro);
+    //atrasbeneficiario(idPropietario,prmCodPro,prmTipo);
+
+    /*--------------------------------------*/    
+    //codigoPropietario(prmCodPro);
+   // atrasBeneficiario(idPropietario,prmCodPro);  
 
     generarCodigoBeneficiario()
     cargarEstados();
@@ -31,6 +43,7 @@ function inicio(){
    
     guardarBeneficiario();
     
+   
     
     /*
     |--------------------------------------------------
@@ -53,7 +66,7 @@ function inicio(){
 
 
     jQuery("#registroCedula").on('input', function (evt) {
-        jQuery(this).val(jQuery(this).val().replace(/[^0-9]/g, ''));
+        jQuery(this).val(jQuery(this).val().replace(/[^0-9'.']/g, ''));
     });
 
     jQuery("#registroTelefono").on('input', function (evt) {
@@ -88,6 +101,33 @@ function inicio(){
 consultarBeneficiario(idBeneficiario,codigoBeneficiario,tipoBeneficiario);
 
 
+
+}
+
+
+function codigoPropietario(prmDato){
+
+    var html = "";
+
+    html='<strong>PROPIETARIO : </strong>'  + prmDato +'</span>';
+
+    $("#lblPropietario").html('');
+    $("#lblPropietario").html(html);
+
+}
+
+function atrasbeneficiario(prmIdPro,prmCodPro,prmTipo){
+
+    //if (isEmpty(prmDato) == false ){
+
+
+        var html = "";
+        html='index.php?url=app/vistas/alquileres/beneficiarios&idpro=' + prmIdPro  + '&codpro=' + prmCodPro + '&codtip=' + prmTipo;
+    
+        $(".codpro").prop("href", html);
+
+
+    //}
 
 }
 
@@ -170,7 +210,7 @@ console.log("consultando");
 
                         
                         $('#registroCedula').val(json.Items[0].ci_bene);
-                        $('#registroRif').val(json.Items[0].rif_bene);
+                        $('#registrorif').val(json.Items[0].rif_bene);
                         $('#registroTelefono').val(json.Items[0].loc_bene);
                         $('#registroCelular').val(json.Items[0].cel_bene);
                         $('#registroEmail').val(json.Items[0].cor_bene);

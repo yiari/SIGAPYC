@@ -10,7 +10,16 @@ include("layout/menuNavegacion.php");
 <div class="container">
     <div class="card-header">
 
+                <div style="text-align: right;">
+                        <ol>          
+                            <a class="btn btn-outline-secondary " href="index.php?url=app/vistas/alquileres/propietarios"  role="button">Atras</a>
+                        </ol>
+                </div>
+
             <h4 class="card-title">Propietarios</h4>
+
+
+                 
                 <nav>
                     <div class="nav nav-tabs" id="nav-tab" role="tablist">
                         <button class="nav-link " id="nav-prop_natural-tab" data-bs-toggle="tab" data-bs-target="#nav-prop_natural" type="button" role="tab" aria-controls="nav-prop_natural" aria-selected="true">Persona Natural</button>
@@ -597,6 +606,5 @@ include_once "app/vistas/comunes/modalprojuri.php";
 <script src="js/comunes/generadorcodigos.js"></script>
 <script src="js/comunes/funciones.js"></script>
 <script src="js/alquileres/editar_propietarios.js"></script>
-<!--
-<script src="js/alquileres/editar_propietarios_juridico.js"></script>
--->
+
+

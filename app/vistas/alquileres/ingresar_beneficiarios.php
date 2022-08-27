@@ -79,7 +79,7 @@
                                                             </select>
                                                         </div>
                                                         <div class="col-sm-9">
-                                                            <input for="registroCedula"  type="text" class="form-control" id="registroCedula" name="registroCedula" >
+                                                            <input for="registroCedula"  type="text" class="form-control" id="registroCedula" name="registroCedula" maxlength="10" >
                                                         </div>
                                                     </div>
                                                 </div>
@@ -89,19 +89,19 @@
                                                 <div class="col-md-2">
                                                     <label for="registrorif" class="col-sm-5 col-form-label">Rif:</label>
                                                     <div class="col-sm-12">
-                                                        <input type="text" class="form-control" id="registrorif" name="registrorif" >
+                                                        <input type="text" class="form-control" id="registrorif" name="registrorif" maxlength="15">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-2">
                                                     <label for="registroTelefono" class="col-sm-8 col-form-label">Teléfono local:</label>
                                                     <div class="col-sm-12">
-                                                        <input type="text" class="form-control" id="registroTelefono" name="registroTelefono">
+                                                        <input type="text" class="form-control" id="registroTelefono" name="registroTelefono" maxlength="11">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-2">
                                                     <label for="registroCelular" class="col-sm-9 col-form-label">Celular:</label>
                                                     <div class="col-sm-12">
-                                                        <input type="text" class="form-control" id="registroCelular" name="registroCelular">
+                                                        <input type="text" class="form-control" id="registroCelular" name="registroCelular" maxlength="11">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
@@ -175,9 +175,9 @@
                                                     <div class="col-md-12">
                                                         <div class="input-group">
                                                             <span class="input-group-text">Pago Movil</span>
-                                                            <input type="text" placeholder="cedula" id="ced_pmov" name="ced_pmov" aria-label="Cédula" value='' class="form-control">
+                                                            <input type="text" placeholder="cedula" id="ced_pmov" name="ced_pmov" aria-label="Cédula" value='' class="form-control" maxlength="10">
                                                             <select class="form-control"  id="cboBancoNP" name="cboBancoNP"></select>
-                                                            <input type="text" placeholder="celular" id="cel_pmov" name="cel_pmov" aria-label="Celular" value='' class="form-control">
+                                                            <input type="text" placeholder="celular" id="cel_pmov" name="cel_pmov" aria-label="Celular" value='' class="form-control" maxlength="11">
                                                         </div><br>
                                                     </div>  
                                                 </div>
@@ -196,32 +196,32 @@
                                                     <div class="col-md-1">
                                                         <label for="age_extr" class="col-sm-12 col-form-label">Agencia:</label>
                                                         <div class="col-sm-12">
-                                                            <input type="text" class="form-control" id="age_extr" name="age_extr" >
+                                                            <input type="text" class="form-control" id="age_extr" name="age_extr" maxlength="10">
 
                                                         </div>
                                                     </div>
                                                     <div class="col-md-1">
                                                         <label for="dc_extr" class="col-sm-12 col-form-label">DC:</label>
                                                         <div class="col-sm-12">
-                                                            <input type="text" class="form-control" id="dc_extr" name="dc_extr" ><br>
+                                                            <input type="text" class="form-control" id="dc_extr" name="dc_extr" maxlength="10"><br>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-2">
                                                         <label for="cue_extr" class="col-sm-12 col-form-label">Cuenta:</label>
                                                         <div class="col-sm-12">
-                                                            <input type="text" class="form-control" id="cue_extr" name="cue_extr" ><br>
+                                                            <input type="text" class="form-control" id="cue_extr" name="cue_extr" maxlength="20"><br>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-4">
                                                         <label for="iba_extr" class="col-sm-12 col-form-label">IBAN:</label>
                                                         <div class="col-sm-12">
-                                                            <input type="text" class="form-control" id="iba_extr" name="iba_extr" ><br>
+                                                            <input type="text" class="form-control" id="iba_extr" name="iba_extr" maxlength="10"><br>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-2">
                                                         <label for="bic_extr" class="col-sm-12 col-form-label">BIC o SWIFT:</label>
                                                         <div class="col-sm-12">
-                                                            <input type="text" class="form-control" id="bic_extr" name="bic_extr" ><br>
+                                                            <input type="text" class="form-control" id="bic_extr" name="bic_extr" maxlength="10"><br>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -237,7 +237,7 @@
                                                     <div class="col-md-6">
                                                         <div class="input-group">
                                                             <span class="input-group-text">Cuenta Zelle</span>
-                                                            <input type="text" class="form-control" placeholder="telefono" id="tel_zelle" name="tel_zelle">
+                                                            <input type="text" class="form-control" placeholder="telefono" id="tel_zelle" name="tel_zelle" maxlength="11">
                                                             <input type="text" class="form-control" placeholder="correo" id="cor_zelle" name="cor_zelle">
                                                             <input type="text" class="form-control" placeholder="nombre" id="nom_zelle" name="nom_zelle">
                                                         </div>
@@ -344,7 +344,7 @@
                                                 <div class="col-md-3">
                                                     <label for="registrorifj" class="col-sm-12 col-form-label">Rif Jurídico:</label>
                                                     <div class="col-sm-12">
-                                                        <input type="text" class="form-control" id="registrorifj" name="registrorifj">
+                                                        <input type="text" class="form-control" id="registrorifj" name="registrorifj" maxlength="15">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-5">
@@ -358,7 +358,7 @@
                                             <div class="col-md-4">
                                                     <label for="registroCelularj" class="col-sm-8 col-form-label">Celular:</label>
                                                     <div class="col-sm-12">
-                                                        <input type="text" class="form-control" id="registroCelularj" name="registroCelularj">
+                                                        <input type="text" class="form-control" id="registroCelularj" name="registroCelularj" maxlength="11">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-8">
@@ -403,9 +403,9 @@
                                                     <div class="col-md-12">
                                                         <div class="input-group">
                                                             <span class="input-group-text">Pago Movil</span>
-                                                            <input type="text" placeholder="cedula" id="ced_pmovj" name="ced_pmovj" aria-label="Cédula" value='' class="form-control">
+                                                            <input type="text" placeholder="cedula" id="ced_pmovj" name="ced_pmovj" aria-label="Cédula" value='' class="form-control" maxlength="10">
                                                             <select class="form-control"  id="cboBancop" name="cboBancop"></select>
-                                                            <input type="text" placeholder="celular" id="cel_pmovj" name="cel_pmovj" aria-label="Celular" value='' class="form-control">
+                                                            <input type="text" placeholder="celular" id="cel_pmovj" name="cel_pmovj" aria-label="Celular" value='' class="form-control" maxlength="11">
                                                         </div><br>
                                                     </div>  
                                                 </div>
@@ -417,39 +417,39 @@
                                                     <div class="col-md-2">
                                                         <label for="ban_extrj" class="col-sm-10 col-form-label">Banco Extranjero:</label>
                                                         <div class="col-sm-12">
-                                                            <input type="text" class="form-control" id="ban_extrj" name="ban_extrj" >
+                                                            <input type="text" class="form-control" id="ban_extrj" name="ban_extrj" maxlength="20">
 
                                                         </div>
                                                     </div>
                                                     <div class="col-md-1">
                                                         <label for="age_extrj" class="col-sm-12 col-form-label">Agencia:</label>
                                                         <div class="col-sm-12">
-                                                            <input type="text" class="form-control" id="age_extrj" name="age_extrj" >
+                                                            <input type="text" class="form-control" id="age_extrj" name="age_extrj" maxlength="10">
 
                                                         </div>
                                                     </div>
                                                     <div class="col-md-1">
                                                         <label for="dc_extrj" class="col-sm-12 col-form-label">DC:</label>
                                                         <div class="col-sm-12">
-                                                            <input type="text" class="form-control" id="dc_extrj" name="dc_extrj" ><br>
+                                                            <input type="text" class="form-control" id="dc_extrj" name="dc_extrj" maxlength="10"><br>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-2">
                                                         <label for="cue_extrj" class="col-sm-12 col-form-label">Cuenta:</label>
                                                         <div class="col-sm-12">
-                                                            <input type="text" class="form-control" id="cue_extrj" name="cue_extrj" ><br>
+                                                            <input type="text" class="form-control" id="cue_extrj" name="cue_extrj" maxlength="10"><br>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-4">
                                                         <label for="iba_extrj" class="col-sm-12 col-form-label">IBAN:</label>
                                                         <div class="col-sm-12">
-                                                            <input type="text" class="form-control" id="iba_extrj" name="iba_extrj" ><br>
+                                                            <input type="text" class="form-control" id="iba_extrj" name="iba_extrj" maxlength="10"><br>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-2">
                                                         <label for="bic_extrj" class="col-sm-12 col-form-label">BIC o SWIFT:</label>
                                                         <div class="col-sm-12">
-                                                            <input type="text" class="form-control" id="bic_extrj" name="bic_extrj" ><br>
+                                                            <input type="text" class="form-control" id="bic_extrj" name="bic_extrj" maxlength="10"><br>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -466,7 +466,7 @@
                                                     <div class="col-md-6">
                                                         <div class="input-group">
                                                             <span class="input-group-text">Cuenta Zelle</span>
-                                                            <input type="text" class="form-control" placeholder="telefono" id="tel_zellej" name="tel_zellej" >
+                                                            <input type="text" class="form-control" placeholder="telefono" id="tel_zellej" name="tel_zellej" maxlength="11">
                                                             <input type="text" class="form-control" placeholder="correo" id="cor_zellej" name="cor_zellej" >
                                                             <input type="text" class="form-control" placeholder="nombre" id="nom_zellej" name="nom_zellej" >
                                                         </div>

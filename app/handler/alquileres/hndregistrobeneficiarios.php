@@ -104,7 +104,7 @@ if($operacion == "I"){
                     "mon_bene" => $_POST["registroNombre"],
                     "ape_bene" => $_POST["registroApellido"],
                     "nac_bene" => $_POST["registroNacionalidad"],
-                    "cel_bene" => $_POST["registroCedula"],
+                    "ci_bene" => $_POST["registroCedula"],
                     "rif_bene" => $_POST["registrorif"],
                     "loc_bene" => $_POST["registroTelefono"],  
                     "cel_bene" => $_POST["registroCelular"],

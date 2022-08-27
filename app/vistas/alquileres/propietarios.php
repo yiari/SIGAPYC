@@ -31,12 +31,12 @@ include("layout/menuNavegacion.php");
                 <table id="datosPropietarios">
                     <thead>
                         <tr>
-                            <th width="10%">Código</th>
-                            <th width="10%">Nombre</th>
-                            <th width="10%">Cedula o rif</th>
-                            <th width="10%">Telefonos</th>
-                            <th width="10%">Correo</th>
-                            <th width="10%">Tipo</th>
+                            <th>Código</th>
+                            <th>Nombre</th>
+                            <th>Cedula o rif</th>
+                            <th>Telefonos</th>
+                            <th>Correo</th>
+                            <th>Tipo</th>
                             <th>Acciones</th>
                        </tr>
                     </thead>

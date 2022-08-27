@@ -92,7 +92,7 @@ function cargarPropietarios(){
                             
                             html += '<a title="Inmuebles" href="index.php?url=app/vistas/alquileres/inmuebles&idpro=' + json.Items[0][i].id_prop  + '&codpro=' + json.Items[0][i].codigo  +  '&codtip=' + json.Items[0][i].tipo  +'"><i class="fa fa-home"></i></a>&nbsp;';
                            
-                            html += '<a title="Eliminar"  data-field-id="'  + json.Items[0][i].id_prop + '"><i class="fa fa-trash" alt=“eliminar”></i></a>';
+                            html += '<a title="Eliminar"  data-field-id="'  + json.Items[0][i].id_prop + '"><i class="fa fa-user-times" alt=“eliminar”></i></a>';
                             html += '</div>'
                             tr.append("<td>" + html + "</td>");
                             $('#datosPropietarios').append(tr);

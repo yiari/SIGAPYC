@@ -103,7 +103,7 @@ if($operacion == "I"){
                     "nac_inqu" => $_POST["registroNacionalidad"],
                     "ci_inqu"  => $_POST["registroCedula"],
                     "rif_inqu" => $_POST["registroRif"],
-                    "loc_inqu" => $_POST["registroTeléfono"],
+                    "loc_inqu" => $_POST["registroTelefono"],
                     "cel_inqu" => $_POST["registroCelular"],
                     "cor_inqu" => $_POST["registroEmail"],
                     "est_inqu" => $_POST["cboEstados"],
@@ -198,8 +198,11 @@ if($operacion == "C"){
 
 if($operacion == "CI"){
 
-   $idinquilino = $_POST["idinquilino"];
-   $tipoinquilino = $_POST["tipo"];
+   $datos = array( 
+      "id_inqu" => $_POST["idInquilino"],
+      "cod_inqu " => $_POST["codigoInquilino"],
+      "tip_inqu" => $_POST["tipoInquilino"]
+   );
 
    /*
     |-------------------------------------------
@@ -214,7 +217,7 @@ if($operacion == "CI"){
    | AQUI OBTENGO EL RESULTADO DE LA EJECUCION
    |---------------------------------------------
    */
-     $result = $registroInquilino->consultarInquilino($idinquilino,$tipoinquilino);
+     $result = $registroInquilino->consultarInquilino($datos);
     
     /*
     |-------------------------------------------

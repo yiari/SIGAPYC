@@ -45,7 +45,7 @@ function inicio(){
     });
 
     jQuery("#registroCedula").on('input', function (evt) {
-        jQuery(this).val(jQuery(this).val().replace(/[^0-9]/g, ''));
+        jQuery(this).val(jQuery(this).val().replace(/[^0-9'.']/g, ''));
     });
 
     jQuery("#registroTelefono").on('input', function (evt) {
@@ -61,7 +61,7 @@ function inicio(){
     });
 
     jQuery("#ced_pmov").on('input', function (evt) {
-        jQuery(this).val(jQuery(this).val().replace(/[^0-9]/g, ''));
+        jQuery(this).val(jQuery(this).val().replace(/[^0-9'.']/g, ''));
     });
 
     jQuery("#cel_pmov").on('input', function (evt) {
@@ -86,7 +86,7 @@ function inicio(){
     });
 
     jQuery("#registroCedulaj").on('input', function (evt) {
-        jQuery(this).val(jQuery(this).val().replace(/[^0-9]/g, ''));
+        jQuery(this).val(jQuery(this).val().replace(/[^0-9'.']/g, ''));
     });
 
     jQuery("#num_cuenj").on('input', function (evt) {
@@ -94,7 +94,7 @@ function inicio(){
     });
 
     jQuery("#ced_pmovj").on('input', function (evt) {
-        jQuery(this).val(jQuery(this).val().replace(/[^0-9]/g, ''));
+        jQuery(this).val(jQuery(this).val().replace(/[^0-9'.']/g, ''));
     });
 
     jQuery("#cel_pmovj").on('input', function (evt) {
