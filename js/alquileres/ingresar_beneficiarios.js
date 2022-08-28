@@ -368,6 +368,10 @@ function limpiarFormulario(valor){
 }
 
 
+
+
+
+
 function generarCodigoBeneficiario(){
 
 
@@ -377,12 +381,12 @@ function generarCodigoBeneficiario(){
         var prmApellido=$("#registroApellido").val();
 
         $("#registroCodigo").val('');
-
-        codigoBeneficiario(prmNombre,function(result){
+        codigoApoderado(prmNombre + ' ' + prmApellido,function(result){
             $("#registroCodigo").val(result);
         });
-
-
+        /*
+        $("#registroCodigo").val(codigoApoderado(prmNombre + ' ' + prmApellido));
+        */
     });
 
     $("#registroApellido").on('keyup', function () {
@@ -391,15 +395,16 @@ function generarCodigoBeneficiario(){
         var prmApellido=this.value;
 
         $("#registroCodigo").val('');
-        codigoBeneficiario(prmNombre ,function(result){
+        codigoApoderado(prmNombre + ' ' + prmApellido,function(result){
             $("#registroCodigo").val(result);
         });
-
+        /*
+        $("#registroCodigo").val(codigoApoderado(prmNombre + ' ' + prmApellido));
+        */
     });
    
 
 }
-
 
 
 

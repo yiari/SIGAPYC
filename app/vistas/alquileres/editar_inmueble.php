@@ -26,9 +26,7 @@ include("layout/menuNavegacion.php");
             <form class="form-sample" id="buscarPropietario" name="buscarPropietario" method="POST" action="" autocomplete="off" style="display: none;">
                  <!--Datos del propietario-->
                 <div class="card" id="Propietario">
-
-                                        
-                                                
+                          
                 <div class="card-body">
                     <div class="col text-center">
                         <h5 class="card-title">Datos del Propietario</h5>
@@ -162,7 +160,7 @@ include("layout/menuNavegacion.php");
                                     <div class="row">
                                         <label for="registrNombre" class="col-sm-12 col-form-label">Nombre del Inmueble:</label>
                                         <div class="col-sm-12">
-                                            <input type="text" class="form-control"  id="registrNombre" name="registrNombre" maxlength="10">
+                                            <input type="text" class="form-control"  id="registrNombre" name="registrNombre" maxlength="25">
                                         </div>
                                     </div>
                                 </div>

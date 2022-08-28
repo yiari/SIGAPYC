@@ -74,7 +74,6 @@ public function registrar($tabla,$datos,$archivos){
           $stmt -> bindParam(28,$datos["fic_cata"],PDO::PARAM_STR); // Numero del ficha castratal
           $stmt -> bindParam(29,$datos["num_regi"],PDO::PARAM_STR); // Numero del codigo del registro
           $stmt -> bindParam(30,$datos["tipo_persona"],PDO::PARAM_INT); // Numero del  Ficha Catastral
-          $stmt -> bindParam(30,$datos["tipo_persona"],PDO::PARAM_INT); // Numero del  Ficha Catastral
           $stmt -> bindParam(31,$datos["id_gastos"],PDO::PARAM_INT); // id gastos fijos
           $stmt -> bindParam(32,$datos["gasto_administrativo"],PDO::PARAM_INT); // gastos fijos administrativo
           $stmt -> bindParam(33,$datos["gastos_papeleria"],PDO::PARAM_INT); // gastos fijos papeleria
@@ -297,7 +296,7 @@ public function registrar($tabla,$datos,$archivos){
                 $valor = 0;
                 
                 $stmt = $dbConexion->conectar()->prepare("CALL usp_cargarinmueble(?)" );
-                $stmt ->bindParam(1, $valor, PDO::PARAM_INT);
+                $stmt ->bindParam(1, $prmid_inmu, PDO::PARAM_INT);
                 $stmt->execute();
                 $dataRegistro["Items"][] = $stmt->fetchAll();
 

@@ -41,7 +41,7 @@ function codigoPropietario(prmDato){
 
 }
 
-function nuevoInmueble(prmIdPro, prmCodPro){
+function nuevoInmueble(prmIdPro, prmCodPro, prmTipo){
 
     //if (isEmpty(prmDato) == false ){
 
@@ -49,7 +49,7 @@ function nuevoInmueble(prmIdPro, prmCodPro){
         var html = "";
 
         if(prmIdPro != 0 && prmIdPro != ""){
-            html='index.php?url=app/vistas/alquileres/ingresar_inmueble&idpro=' + prmIdPro  + '&codpro=' + prmCodPro;
+            html='index.php?url=app/vistas/alquileres/ingresar_inmueble&idpro=' + prmIdPro  + '&codpro=' + prmCodPro + '&codtip=' + prmTipo;
             $(".codpro").prop("href", html);
         }
 
@@ -68,6 +68,7 @@ function cargarInmueble(prmDato){
 
     formData.append('opcion','C');
     formData.append('id_prop',prmDato);
+    formData.append('tipo_propietario',prmDato);
     formData.append('id_inmu',prmDato);
     formData.append('cod_inmueble',prmDato);
     formData.append('tip_persona',prmDato);
