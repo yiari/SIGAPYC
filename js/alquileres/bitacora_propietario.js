@@ -15,9 +15,27 @@ function inicio(){
     let tipoPropietario = getParameterByName('codtip');
 
     consultarPropietario(idPropietario,codigoPropietario,tipoPropietario);
-
+    imprimirDocumento(idPropietario, codigoPropietario, tipoPropietario);
 
 }
+
+
+function imprimirDocumento(prmIdPro, prmCodPro, prmTipo){
+
+    //if (isEmpty(prmDato) == false ){
+
+
+        var html = "";
+
+        if(prmIdPro != 0 && prmIdPro != ""){
+            html='app/reportes/repfichapropietario.php?idpro=' + prmIdPro  + '&codpro=' + prmCodPro + '&codtip=' + prmTipo;
+            $(".codpro").prop("href", html);
+        }
+
+    //}
+
+}
+
 
 function consultarPropietario(id,codigo,tipo){
 

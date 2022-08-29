@@ -43,43 +43,45 @@ public function registrar($tabla,$datos,$archivos){
           | AQUI PREPARO LO QUE SERA LA LLAMADA AL PROCEDIMIENTO QUE REALIZARA LA OPERACION
           |----------------------------------------------------------------------------------
           */
-          $stmt = $dbConexion->conectar()->prepare("CALL usp_registroinmueble(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+          $stmt = $dbConexion->conectar()->prepare("CALL usp_registroinmueble(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
           $stmt -> bindParam(1, $datos["id_inmu"],PDO::PARAM_INT); //id del imnumeble
           $stmt -> bindParam(2, $datos["id_prop"],PDO::PARAM_INT); //id propietraio
-          $stmt -> bindParam(3, $datos["cod_inmu"],PDO::PARAM_STR); // codigo del inmueble
-          $stmt -> bindParam(4, $datos["tip_inmu"],PDO::PARAM_INT); // tipo de inmuebles
-          $stmt -> bindParam(5, $datos["act_inmu"],PDO::PARAM_STR); //actividad del inmueble
-          $stmt -> bindParam(6, $datos["ant_inmu"],PDO::PARAM_STR); //antiguedad del inmueble 
-          $stmt -> bindParam(7, $datos["cod_esta"],PDO::PARAM_INT); // estado
-          $stmt -> bindParam(8, $datos["cod_muni"],PDO::PARAM_INT); // municipio
-          $stmt -> bindParam(9, $datos["cod_parr"],PDO::PARAM_INT); // parroquia
-          $stmt -> bindParam(10,$datos["dir_inmu"],PDO::PARAM_STR); // direccion 
-          $stmt -> bindParam(11,$datos["pun_inmu"],PDO::PARAM_STR); // punto de referencia
-          $stmt -> bindParam(12,$datos["equ_inmu"],PDO::PARAM_STR); // equipado
-          $stmt -> bindParam(13,$datos["mtr_inmu"],PDO::PARAM_INT); // metros del inmueble
-          $stmt -> bindParam(14,$datos["mtr_cons"],PDO::PARAM_INT); // metros de construccion
-          $stmt -> bindParam(15,$datos["hab_inmu"],PDO::PARAM_INT); // cantidad de habitacion
-          $stmt -> bindParam(16,$datos["ban_inmu"],PDO::PARAM_INT); // cantidad e baño
-          $stmt -> bindParam(17,$datos["est_inmu"],PDO::PARAM_INT); // cantidad de puesto de estacionamiento
-          $stmt -> bindParam(18,$datos["ser_inmu"],PDO::PARAM_STR); // metros de la area de servicio
-          $stmt -> bindParam(19,$datos["lim_nort"],PDO::PARAM_STR); // limites norte
-          $stmt -> bindParam(20,$datos["lim_sur"],PDO::PARAM_STR); // limites sur
-          $stmt -> bindParam(21,$datos["lim_este"],PDO::PARAM_STR); // limites este
-          $stmt -> bindParam(22,$datos["lim_oest"],PDO::PARAM_STR); // limites oeste
-          $stmt -> bindParam(23,$datos["nom_regi"],PDO::PARAM_STR); // nombre3 del registro
-          $stmt -> bindParam(24,$datos["fec_regi"],PDO::PARAM_INT); // fecha del registro
-          $stmt -> bindParam(25,$datos["tom_regi"],PDO::PARAM_STR); // tomo del registro
-          $stmt -> bindParam(26,$datos["fol_regi"],PDO::PARAM_STR); // foli del registro
-          $stmt -> bindParam(27,$datos["asi_regi"],PDO::PARAM_STR); // asiento del registro
-          $stmt -> bindParam(28,$datos["fic_cata"],PDO::PARAM_STR); // Numero del ficha castratal
-          $stmt -> bindParam(29,$datos["num_regi"],PDO::PARAM_STR); // Numero del codigo del registro
-          $stmt -> bindParam(30,$datos["tipo_persona"],PDO::PARAM_INT); // Numero del  Ficha Catastral
-          $stmt -> bindParam(31,$datos["id_gastos"],PDO::PARAM_INT); // id gastos fijos
-          $stmt -> bindParam(32,$datos["gasto_administrativo"],PDO::PARAM_INT); // gastos fijos administrativo
-          $stmt -> bindParam(33,$datos["gastos_papeleria"],PDO::PARAM_INT); // gastos fijos papeleria
+          $stmt -> bindParam(3, $datos["tipo_propietario"],PDO::PARAM_INT); //tipo propietraio
+          $stmt -> bindParam(4, $datos["cod_inmu"],PDO::PARAM_STR); // codigo del inmueble
+          $stmt -> bindParam(5, $datos["tip_inmu"],PDO::PARAM_INT); // tipo de inmuebles
+          $stmt -> bindParam(6, $datos["act_inmu"],PDO::PARAM_STR); //actividad del inmueble
+          $stmt -> bindParam(7, $datos["ant_inmu"],PDO::PARAM_STR); //antiguedad del inmueble 
+          $stmt -> bindParam(8, $datos["cod_esta"],PDO::PARAM_INT); // estado
+          $stmt -> bindParam(9, $datos["cod_muni"],PDO::PARAM_INT); // municipio
+          $stmt -> bindParam(10, $datos["cod_parr"],PDO::PARAM_INT); // parroquia
+          $stmt -> bindParam(11,$datos["dir_inmu"],PDO::PARAM_STR); // direccion 
+          $stmt -> bindParam(12,$datos["pun_inmu"],PDO::PARAM_STR); // punto de referencia
+          $stmt -> bindParam(13,$datos["equ_inmu"],PDO::PARAM_STR); // equipado
+          $stmt -> bindParam(14,$datos["mtr_inmu"],PDO::PARAM_INT); // metros del inmueble
+          $stmt -> bindParam(15,$datos["mtr_cons"],PDO::PARAM_INT); // metros de construccion
+          $stmt -> bindParam(16,$datos["hab_inmu"],PDO::PARAM_INT); // cantidad de habitacion
+          $stmt -> bindParam(17,$datos["ban_inmu"],PDO::PARAM_INT); // cantidad e baño
+          $stmt -> bindParam(18,$datos["est_inmu"],PDO::PARAM_INT); // cantidad de puesto de estacionamiento
+          $stmt -> bindParam(19,$datos["ser_inmu"],PDO::PARAM_STR); // metros de la area de servicio
+          $stmt -> bindParam(20,$datos["lim_nort"],PDO::PARAM_STR); // limites norte
+          $stmt -> bindParam(21,$datos["lim_sur"],PDO::PARAM_STR); // limites sur
+          $stmt -> bindParam(22,$datos["lim_este"],PDO::PARAM_STR); // limites este
+          $stmt -> bindParam(23,$datos["lim_oest"],PDO::PARAM_STR); // limites oeste
+          $stmt -> bindParam(24,$datos["nom_regi"],PDO::PARAM_STR); // nombre3 del registro
+          $stmt -> bindParam(25,$datos["fec_regi"],PDO::PARAM_INT); // fecha del registro
+          $stmt -> bindParam(26,$datos["tom_regi"],PDO::PARAM_STR); // tomo del registro
+          $stmt -> bindParam(27,$datos["fol_regi"],PDO::PARAM_STR); // foli del registro
+          $stmt -> bindParam(28,$datos["asi_regi"],PDO::PARAM_STR); // asiento del registro
+          $stmt -> bindParam(29,$datos["fic_cata"],PDO::PARAM_STR); // Numero del ficha castratal
+          $stmt -> bindParam(30,$datos["num_regi"],PDO::PARAM_STR); // Numero del codigo del registro
+          $stmt -> bindParam(31,$datos["tipo_persona"],PDO::PARAM_INT); // Numero del  Ficha Catastral
+          $stmt -> bindParam(32,$datos["id_gastos"],PDO::PARAM_INT); // id gastos fijos
+          $stmt -> bindParam(33,$datos["gasto_administrativo"],PDO::PARAM_INT); // gastos fijos administrativo
+          $stmt -> bindParam(34,$datos["gastos_papeleria"],PDO::PARAM_INT); // gastos fijos papeleria
 
-          $stmt -> bindParam(34,$datos["tieneunidades"],PDO::PARAM_INT); // Indicador si el inmueble tiene unidades o no
-          $stmt -> bindParam(35,$datos["cantunidades"],PDO::PARAM_INT); // Cantidad de unidades del inmueble en caso de tenerla
+          $stmt -> bindParam(35,$datos["tieneunidades"],PDO::PARAM_INT); // Indicador si el inmueble tiene unidades o no
+          $stmt -> bindParam(36,$datos["cantunidades"],PDO::PARAM_INT); // Cantidad de unidades del inmueble en caso de tenerla
+          $stmt -> bindParam(37,$datos["posee_beneficiario"],PDO::PARAM_INT); // Cantidad de unidades del inmueble en caso de tenerla
 
           //$stmt -> bindParam(19,$datos["sta_inmu"],PDO::PARAM_INT); // estado del inmueble 1-Disponible 0-desactivado 2-Alquilado 
        
@@ -286,17 +288,19 @@ public function registrar($tabla,$datos,$archivos){
     }
 
 
- public function seleccionarregistros($tabla,$prmid_inmu){
+ public function seleccionarregistros($tabla,$datos){
 
-        If($prmid_inmu == null || $prmid_inmu == 0){
+
 
               try {
 
                 $dbConexion = new conexcion();
                 $valor = 0;
                 
-                $stmt = $dbConexion->conectar()->prepare("CALL usp_cargarinmueble(?)" );
-                $stmt ->bindParam(1, $prmid_inmu, PDO::PARAM_INT);
+                $stmt = $dbConexion->conectar()->prepare("CALL usp_cargarinmueble(?,?)" );
+                $stmt ->bindParam(1, $datos["id_prop"], PDO::PARAM_INT);
+                $stmt ->bindParam(2, $datos["tipo_propietario"], PDO::PARAM_INT);
+
                 $stmt->execute();
                 $dataRegistro["Items"][] = $stmt->fetchAll();
 
@@ -321,40 +325,7 @@ public function registrar($tabla,$datos,$archivos){
             
                 }
 
-        } else {
-
-              try {
-
-                $dbConexion = new conexcion();
-                
-                $stmt = $dbConexion->conectar()->prepare("CALL usp_cargarinmueble(?)" );
-                $stmt ->bindParam(1, $prmid_inmu, PDO::PARAM_INT);
-                $stmt->execute();
-                $dataRegistro["Items"][] = $stmt->fetchAll();
-      
-                $dataRes = array(
-                  'error' => '0',
-                  'mensaje' =>  'El registro se obtuvo con exito.'
-                );
-                
-                
-                echo json_encode(array_merge($dataRegistro,$dataRes));
-      
-                } catch (\Throwable $th) {
-                
-                    //$pdo->rollBack() ;
-                    //echo "Mensaje de Error: " . $th->getMessage();
-                    $dataRes = array(
-                      'error' => '1',
-                      'mensaje' =>  "Mensaje de Error: " . $th->getMessage()
-                    );
-              
-                    echo json_encode($dataRes);
-            
-                }
-
-
-        }
+        
 
 
     

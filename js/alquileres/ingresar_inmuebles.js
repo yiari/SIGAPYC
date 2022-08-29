@@ -7,9 +7,13 @@ function inicio(){
     |---------------------------------------
     */
     $('#id_prop').val(getParameterByName('idpro'));
+    $('#tipo_propietario').val(getParameterByName('codtip'));
+
     let idPropietario = getParameterByName('idpro');
     let prmCodPro = getParameterByName('codpro');
     let prmTipo = getParameterByName('codtip');
+
+
     /*--------------------------------------*/    
     codigoPropietario(prmCodPro);
     atrasInmueble(idPropietario,prmCodPro,prmTipo);
@@ -86,6 +90,12 @@ function guardarInmueble(){
    evt.preventDefault();
    /**********************************************/        
 
+if ($("#cbobeneficiarios").val() == "") {
+    mensaje("Debe indicar si el inmueble posee beneficiarios",1);
+    return;
+}
+
+
  
 if ($("#cboinmueble").val() == "") {
     mensaje("Debe indicar el tipo de inmueble",1);
@@ -147,7 +157,10 @@ if ($("#cboParroquia").val() == "") {
      return;
      }
 
-
+     if ($("#equ_inmu").val() == "") {
+        mensaje("Debe indicar si el inmueble esta equipado",1);
+        return;
+    }
 
    /*
    |-----------------------------------------------

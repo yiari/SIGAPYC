@@ -106,9 +106,11 @@ include("layout/menuNavegacion.php");
         <form class="form-sample" id="registroinmueble" name="registroinmueble" method="POST" action="" autocomplete="off" enctype="multipart/form-data">
                 
                 <input type="hidden" id="tipo_persona" name="tipo_persona" value='1'>
-                <input type="hidden" id="id_prop" name="id_prop" value='1'>
+                <input type="hidden" id="tipo_propietario" name="tipo_propietario" value='0'>
+                <input type="hidden" id="id_prop" name="id_prop" value='0'>
                 <input type="hidden" id="hidinmueble" name="hidinmueble" value=''>
                 <input type="hidden" id="hid_gastos" name="hid_gastos" value='0'>
+                
         
         <div class="tab-content" id="nav-tabContent">
             <div class="tab-pane fade show active" id="nav-info_propinmu" role="tabpanel" aria-labelledby="nav-info_propinmu-tab">
@@ -138,6 +140,17 @@ include("layout/menuNavegacion.php");
                                         </div>
                                         <input type="text" id="unidades"  name="unidades" class="form-control" maxlength="3" placeholder="Cantidad de unidades" disabled>
                                     </div>
+                                </div>
+
+                                <div class="col-sm-3">
+                                        <label for="beneficiarios" >El Inmueble posee beneficiarios?</label>
+                                            <div class="col-sm-12">
+                                                <select class="form-select" id="cbobeneficiarios" name="cbobeneficiarios" >
+                                                    <option  value="">Seleccione...</option>    
+                                                    <option  value="1">SI</option>
+                                                    <option  value="2">NO</option>
+                                                </select>
+                                            </div>
                                 </div>
 
                             </div>
@@ -223,7 +236,7 @@ include("layout/menuNavegacion.php");
                                             <label for="equ_inmu" class="col-sm-12 col-form-label">Equipado</label>
                                             <div class="col-sm-12">
                                                 <select class="form-select" id="equ_inmu" name="equ_inmu" >
-                                                    <option selected disabled value=""></option>
+                                                    <option  value="">Seleccione...</option>
                                                     <option  value="1">SI</option>
                                                     <option  value="2">NO</option>
                                                 </select>

@@ -17,10 +17,13 @@ function inicio(){
     if(tipoPropietario == 1){
         $("#nav-prop_juridico-tab").hide();
         $("#nav-prop_juridico").hide();
+        $("#nav-prop_natural").addClass('show').addClass('active');
 
     } else if (tipoPropietario == 2) { 
         $("#nav-prop_natural-tab").hide(); 
         $("#nav-prop_natural").hide();
+
+        $("#nav-prop_juridico").addClass('show').addClass('active');
     }
 
     /*--------------------------------------*/    
@@ -367,7 +370,7 @@ function consultarPropietarioJuridico(id,codigo,tipo){
     
     
                             //<input type="hidden" id="tipo_persona" name="tipo_persona" value='1'>
-                            $('#hidpropietariojuridico').val(json.Items[0].id_propj);
+                            $('#hiid_propj').val(json.Items[0].id_propj);
                             $('#hidcuenta_id_nacionalj').val(json.Items[0].id_banco_nacionalj);
                             $('#hidcuenta_id_internacionalj').val(json.Items[0].id_banco_internacionalj);
                             $('#hidcuenta_id_paypalj').val(json.Items[0].id_banco_internacionalj);
@@ -381,13 +384,14 @@ function consultarPropietarioJuridico(id,codigo,tipo){
                             */
 
                            
-                            $('#registroNombrej').val(json.Items[0].nom_propj);
-                            $('#registroRifj').val(json.Items[0].rif_propj);
+                            $('#registroNombrej').val(json.Items[0].nom_proj);
+                            $('#registroRifj').val(json.Items[0].rif_proj);
                             $('#registroTelefonoj').val(json.Items[0].tel_proj);
                             $('#registroEmailj').val(json.Items[0].cor_proj);
                             $('#registroactividad').val(json.Items[0].act_proj);
 
-                            $('#registroDirecionH').val(json.Items[0].dir_proj);
+                            $('#registroDirecionj').val(json.Items[0].dir_proj);
+                            $('#registroCelularj').val(json.Items[0].tel_proj);
                             $("#registroCodigoj").val(json.Items[0].cod_prop);
     
                             /*

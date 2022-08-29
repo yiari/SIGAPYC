@@ -10,16 +10,19 @@
         <!--tabla-->
 
         <div class="card-header">
-
+                <input type="hidden" id="resuma" value="0">
+                
                 <div style="text-align: right;">
                     <ol>
                                            
-                            <a class="btn btn-outline-secondary" href="index.php?url=app/vistas/alquileres/inmuebles"  role="button">Atras</a>
+                            <a class="btn btn-outline-secondary codpro" href="index.php?url=app/vistas/alquileres/inmuebles"  role="button">Atras</a>
                     </ol>
                 </div>
 
                 <div style="text-align: left;">
                     <span id="lblPropietario"><strong>PROPIETARIO : </strong></span>
+                    <br/><br/>
+                    <span id="lblInmueble"><strong>INMUEBLE SELECCIONADO : </strong></span>
                     <br/><br/>
                 </div>
         
@@ -27,22 +30,15 @@
                                 <div class="card mb-4">
                                     <div class="card-header">
                                     <i class="fa-solid fa-city"></i>&nbsp;
-                                        
+                                        BENEFICIARIOS - INMUEBLES
                                     </div>
                                     <div class="card-body">
-                                        <table id="datosBeneficiario">
+                                        <table id="datosBeneficiario" class="tabla_custom">
                                             <thead>
                                                 <tr>
-                                                    
-                                                    
-                                                    <th>Beneficiario</th>
-                                                    <th>Doc. Identidad:</th>
-                                                    <th>Inmueble</th>
-                                                    <th>Correo</th>
-                                                    <th>tipo</th>
-                                                    <th>% Part.</th>
-                                                    <th>Doc / Editar</th>
-                                            
+                                                    <th style="width: 40%;">Codigo</th>
+                                                    <th style="width: 40%;">Nombre</th>
+                                                    <th style="width: 15%;">Porcentajes</th>
                                                 </tr>
                                             </thead>
                                             

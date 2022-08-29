@@ -20,7 +20,7 @@ include("layout/menuNavegacion.php");
                
                          <ol>          
                             <a class="btn btn-outline-secondary " href="index.php?url=app/vistas/alquileres/propietarios"  role="button">Atras</a>
-                            <a href="app/reportes/repfichaPropietario.php" target="_blank" class="btn btn-outline-secondary" href="reportes.php" role="button"><i class="fa fa-file-pdf-o" alt=“PDF” ></i> Imprimir</a>
+                            <a href="app/reportes/repfichaPropietario.php" target="_blank" class="btn btn-outline-secondary codpro" role="button"><i class="fa fa-file-pdf-o" alt=“PDF” ></i> Imprimir</a>
                          </ol>
             </div>
             <div class="tab-content" id="nav-tabContent">

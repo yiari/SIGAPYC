@@ -45,7 +45,7 @@ include("layout/menuNavegacion.php");
                                         <input type="hidden" id="hidcuenta_id_zelle" name="hidcuenta_id_zelle" value='0'>
                                         <!--
                                         <input type="hidden" id="registroCodigo" name="registroCodigo" value='0001'>
--->
+                                            -->
                                         <!--datos personales-->
                                         <div class="card">
                                             <div class="card-body">
@@ -324,6 +324,8 @@ include("layout/menuNavegacion.php");
                             </div>
                         </div>
                     </div>
+
+
                     <div class="tab-pane fade" id="nav-prop_juridico" role="tabpanel" aria-labelledby="nav-prop_juridico-tab">
                         <div class="col-12 grid-margin">
                             <!--Jurídico-->
@@ -581,6 +583,7 @@ include("layout/menuNavegacion.php");
                             </div>
                         </div>
                     </div>
+
                 </div>
          
             </div>

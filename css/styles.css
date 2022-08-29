@@ -11698,3 +11698,31 @@ body {
   border-radius: 0.25rem !important;
 }
 
+.link_apagado{
+
+  /*background-color: #dcdcdc;*/
+  color: #959595 !important;
+  text-decoration: none !important;
+  
+}
+
+.tabla_custom{
+    width: 100%;
+}
+
+.tabla_custom .tabla_custom.th, .tabla_custom.td {
+  border: 0px solid #000;
+  padding-bottom: 10px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.campo_numero{
+  
+    width: 90%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    text-align: center;
+  
+}

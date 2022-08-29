@@ -103,6 +103,7 @@ if (isset($_POST["chkunidades"])){
 
   $datos = array(   "id_inmu"   => $_POST["hidinmueble"],
                      "id_prop"    => $_POST["id_prop"],
+                     "tipo_propietario"    => $_POST["id_prop"],
                      "cod_inmu"   => $_POST["registroCodigo"],
                      "tip_inmu"   => $_POST["cboinmueble"],
                      "act_inmu"   => $_POST["registroUso"],
@@ -141,7 +142,8 @@ if (isset($_POST["chkunidades"])){
                      "gasto_administrativo" => $_POST["gasto_admi"],
                      "gastos_papeleria" => $_POST["gasto_papel"],
                      "tieneunidades" => 1,
-                     "cantunidades" => $_POST["unidades"]
+                     "cantunidades" => $_POST["unidades"],
+                     "posee_beneficiario" => $_POST["cbobeneficiarios"]
                   
                   );
 
@@ -155,6 +157,7 @@ if (isset($_POST["chkunidades"])){
 
     $datos = array( "id_inmu"   => $_POST["hidinmueble"],
                     "id_prop"    => $_POST["id_prop"],
+                    "tipo_propietario"    => $_POST["id_prop"],
                     "cod_inmu"   => $_POST["registroCodigo"],
                     "tip_inmu"   => $_POST["cboinmueble"],
                     "act_inmu"   => $_POST["registroUso"],
@@ -193,7 +196,8 @@ if (isset($_POST["chkunidades"])){
                   "gasto_administrativo" => $_POST["gasto_admi"],
                   "gastos_papeleria" => $_POST["gasto_papel"],
                   "tieneunidades" => 0,
-                  "cantunidades" => 0
+                  "cantunidades" => 0,
+                  "posee_beneficiario" => $_POST["cbobeneficiarios"]
                );
 
 
@@ -248,7 +252,11 @@ if (isset($_POST["chkunidades"])){
 
 if($operacion == "C"){
 
-   $prmid_prop = $_POST["id_prop"];
+
+   $datos = array( 
+      "id_prop"   => $_POST["id_prop"],
+      "tipo_propietario"   => $_POST["tipo_propietario"]
+   );
 
    /*
     |-------------------------------------------
@@ -263,7 +271,7 @@ if($operacion == "C"){
    | AQUI OBTENGO EL RESULTADO DE LA EJECUCION
    |---------------------------------------------
    */
-     $result = $registroInmueble->seleccionarregistros($prmid_prop);
+     $result = $registroInmueble->seleccionarregistros($datos);
     
     /*
     |-------------------------------------------
