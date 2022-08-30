@@ -100,12 +100,12 @@ public function registrar($tabla,$datos,$archivos){
             */
 
             $stmt -> bindParam(26, $datos["cuenta_id_zellej"], PDO::PARAM_INT);
-            $stmt -> bindParam(27, $datos["tel_zellj"], PDO::PARAM_STR);
-            $stmt -> bindParam(28, $datos["cor_zellj"], PDO::PARAM_STR);
-            $stmt -> bindParam(29, $datos["nom_zellj"], PDO::PARAM_STR); 
+            $stmt -> bindParam(27, $datos["tel_zellej"], PDO::PARAM_STR);
+            $stmt -> bindParam(28, $datos["cor_zellej"], PDO::PARAM_STR);
+            $stmt -> bindParam(29, $datos["nom_zellej"], PDO::PARAM_STR); 
 
 
-
+           
 
                   
           /*

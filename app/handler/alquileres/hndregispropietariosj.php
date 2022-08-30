@@ -116,9 +116,10 @@ if($operacion == "I"){
                    "cuenta_id_bancoj" => $_POST["cboBancoj"],
                    "num_cuenta_nacionalj" => $_POST["num_cuenj"],
  
-                   "pagomovil_cedulaj" => $_POST["ced_pmovj"],
+                   "pagomovil_cedulaj" => $_POST["pagomovil_cedulaj"],
                    "pagomovil_id_bancoj" => $_POST["cboBancop"],
-                   "pagomovil_telefonoj" => $_POST["cel_pmovj"],
+                   "pagomovil_telefonoj" => $_POST["pagomovil_telefonoj"],
+                 
                  
                    /*
                     |------------------------------------------
@@ -150,10 +151,10 @@ if($operacion == "I"){
                     |------------------------------------------
                     */
                     "cuenta_id_zellej" => $_POST["hidcuenta_id_zellej"],
-                    "tel_zellj" => $_POST["tel_zellj"],
-                    "cor_zellj" => $_POST["cor_zellj"] ,
-                    "nom_zellj" => $_POST["cor_zellj"] );
-				
+                    "tel_zellej" => $_POST["tel_zellej"],
+                    "cor_zellej" => $_POST["cor_zellej"] ,
+                    "nom_zellej" => $_POST["nom_zellej"] );
+                   
 
                    
 

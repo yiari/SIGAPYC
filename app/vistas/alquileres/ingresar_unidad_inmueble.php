@@ -10,7 +10,7 @@ include("layout/menuNavegacion.php");
             
                     <div style="text-align: right;">
                         <ol>          
-                            <a class="btn btn-outline-secondary" href="index.php?url=app/vistas/alquileres/inmuebles"  role="button">Atras</a>
+                            <a class="btn btn-outline-secondary " href="index.php?url=app/vistas/alquileres/unidades"  role="button">Atras</a>
                         </ol>
                     </div>
 
@@ -22,14 +22,16 @@ include("layout/menuNavegacion.php");
             </nav>
 
         <form class="form-sample" id="registrounidades" name="registrounidades" method="POST" action="" autocomplete="off" enctype="multipart/form-data">
-                
+               
+        
+               <input type="hidden" id="Id_usuario" name="Id_usuario" value='1'>
                 <input type="hidden" id="tipo_persona" name="tipo_persona" value='1'>
-                <input type="hidden" id="id_inmu" name="id_inmu" value='1'>
+                <input type="hidden" id="id_inmu" name="id_inmu" value=''>
                 <input type="hidden" id="hidunidad" name="hidunidad" value=''>
                 <input type="hidden" id="hid_gastos" name="hid_gastos" value='0'>
                 <input type="hidden" id="hidgastos_especial" name="hidgastos_especial" value='0'>
 
-                <input type="hidden" id="registroCodigo" name="registroCodigo" value='U-'>
+               
         
         <div class="tab-content" id="nav-tabContent">
             <div class="tab-pane fade show active" id="nav-info_propinmu" role="tabpanel" aria-labelledby="nav-info_propinmu-tab">
@@ -396,7 +398,7 @@ include("layout/menuNavegacion.php");
                                             <div class="row">
                                                 <div class="input-group">
                                                     <span class="input-group-text">Datos Bancarios:</span>
-                                                    <select class="form-control"  id="cboBancoNP" name="cboBancoNP"></select>
+                                                    <select class="form-control"  id="cboBancoN" name="cboBancoN"></select>
                                                     <input type="text" placeholder="cuenta" id="ced_pmov" name="ced_pmov" aria-label="Cédula" value='' class="form-control">
                                                     <input type="text" placeholder="cedula" id="cel_pmov" name="cel_pmov" aria-label="Celular" value='' class="form-control">
                                                 </div><br>

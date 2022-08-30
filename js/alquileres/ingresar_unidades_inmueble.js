@@ -1,6 +1,25 @@
 function inicio(){
 
 
+      /*
+    |----------------------------------------
+    | ASI SE CAPTURAN LOS PARAMETROS
+    |---------------------------------------
+    */
+    $('#id_inmu').val(getParameterByName('idinmu'));
+    $('#tipo_propietario').val(getParameterByName('codinmu'));
+
+    let idInmueble = getParameterByName('idinmu');
+    let prmCodInmu = getParameterByName('codinmu');
+
+    cargarEstados();
+    cargartipo_inmueble();
+    cargarBancos('cboBancoN');
+    cargarBancos('cboBancoNP');
+    guardarunidades();
+    generarCodigoUnidad();
+
+
      /*
     |--------------------------------------------------
     | TODOS LOS CAMPOS DE TEXTO ESCRIBEN EN MAYUSCULA
@@ -12,15 +31,13 @@ function inicio(){
     /*------------------------------------------------*/
 
     
-    cargarEstados();
-    cargartipo_inmueble();
-    cargarBancos('cboBancoNP');
-    guardarunidades();
-    generarCodigoUnidad();
     
    
     
     }
+
+
+   
     
     
     
@@ -84,6 +101,9 @@ function inicio(){
          mensaje("Debe indicar la dirección de habitación del unidad ",1);
          return;
          }
+
+
+    
     
     
     

@@ -39,6 +39,7 @@ include("layout/menuNavegacion.php");
  
                                          <input type="hidden" id="hidcuenta_id_paypal" name="hidcuenta_id_paypal" value='0'>
                                          <input type="hidden" id="hidcuenta_id_zelle" name="hidcuenta_id_zelle" value='0'>
+
                                 <!--Datos del propietario-->
                                 <div class="card" id="Propietario">
                                     <div class="card-body">
@@ -46,13 +47,14 @@ include("layout/menuNavegacion.php");
                                             <h5 class="card-title">Datos del Personales</h5>
                                         </div>
                                         <div class="row">
+
                                             <div class="col-md-3">
-                                                <label class="col-sm-12 col-form-label">Código:</label>
+                                                <label class="col-sm-12 col-form-label">Códigos Propietario:</label>
                                                 <div class="col-sm-12">
                                                     <input type="text" class="form-control" id="registroCodigo" name="registroCodigo" autofocus readonly="yes" value=''>
                                                 </div>
                                             </div>
-                                            <div class="col-md-3">
+                                            <!--<div class="col-md-3">
                                                 <label class="col-sm-12 col-form-label">Nombre:</label>
                                                 <div class="col-sm-12">
                                                     <input type="text" class="form-control" id="registroNombre" name="registroNombre" readonly="yes" value=''>
@@ -102,10 +104,10 @@ include("layout/menuNavegacion.php");
                                             </div>
                                         </div>
                                     </div>
-                                </div><br>
+                                </div><br>-->
 
                                 <!--datos bancarios-->
-                                <div class="card">
+                                <!--<div class="card">
                                     <div class="card-body">
                                                 <div class="col text-center">
                                                     <h5 class="card-title">Datos cuentas Nacionales</h5>
@@ -201,7 +203,7 @@ include("layout/menuNavegacion.php");
 
                                                 </div>
                                             </div>
-                                </div><br>
+                                </div><br>-->
 
                             </div>
                         </div>

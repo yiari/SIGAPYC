@@ -22,7 +22,7 @@ include("layout/menuNavegacion.php");
                     
                     <div class="nav nav-tabs" id="nav-tab" role="tablist">
                         <button class="nav-link " id="nav-prop_natural-tab" data-bs-toggle="tab" data-bs-target="#nav-prop_natural" type="button" role="tab" aria-controls="nav-prop_natural" aria-selected="true">Persona Natural</button>
-                        <button class="nav-link" id="nav-prop_juridico-tab" data-bs-toggle="tab" data-bs-target="#nav-prop_juridico" type="button" role="tab" aria-controls="nav-prop_juridico" aria-selected="true">Persona Jurídica</button>
+                        <button class="nav-link" id="nav-prop_juridico-tab" data-bs-toggle="tab" data-bs-target="#nav-prop_juridico" type="button" role="tab" aria-controls="nav-prop_juridico" aria-selected="false">Persona Jurídica</button>
                     </div>
                 </nav>
                 <div class="tab-content" id="nav-tabContent">
@@ -339,7 +339,9 @@ include("layout/menuNavegacion.php");
                                         <input type="hidden" id="hidcuenta_id_nacionalj" name="hidcuenta_id_nacionalj" value='0'>
                                         <input type="hidden" id="hidcuenta_id_internacionalj" name="hidcuenta_id_internacionalj" value='0'>
                                         <input type="hidden" id="hidcuenta_id_paypalj" name="hidcuenta_id_paypalj" value='0'>
-                                        <input type="hidden" id="hidcuenta_id_zellej" name="hidcuenta_id_zellej" value='0'>
+                                        <input type="hidden" id="hidcuenta_id_zellej" name="hidcuenta_id_zellej" value='0'> 
+                                        <input type="hidden" id="hiid_propj" name="hiid_propj" value=''>
+
 
                                         <!--Datos Personales-->
                                         <div class="card">
@@ -486,9 +488,9 @@ include("layout/menuNavegacion.php");
                                                     <div class="col-md-6">
                                                         <div class="input-group">
                                                             <span class="input-group-text">Cuenta Zelle</span>
-                                                            <input for="tel_zellj" type="text" class="form-control" placeholder="Telefono" id="tel_zellj" name="tel_zellj" maxlength="11">
-                                                            <input for="cor_zellj" type="text" class="form-control" placeholder="Correo" id="cor_zellj" name="cor_zellj" >
-                                                            <input for="nom_zellj" type="text" class="form-control" placeholder="Nombre" id="nom_zellj" name="nom_zellj" >
+                                                            <input for="tel_zellej" type="text" class="form-control" placeholder="Telefono" id="tel_zellej" name="tel_zellej" maxlength="11">
+                                                            <input for="cor_zellej" type="text" class="form-control" placeholder="Correo" id="cor_zellej" name="cor_zellej" >
+                                                            <input for="nom_zellej" type="text" class="form-control" placeholder="Nombre" id="nom_zellej" name="nom_zellej" >
                                                         </div>
                                                     </div>
 

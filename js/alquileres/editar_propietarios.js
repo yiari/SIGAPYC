@@ -115,7 +115,7 @@ function inicio(){
         jQuery(this).val(jQuery(this).val().replace(/[^0-9]/g, ''));
     });
 
-    jQuery("#tel_zellj").on('input', function (evt) {
+    jQuery("#tel_zellej").on('input', function (evt) {
         jQuery(this).val(jQuery(this).val().replace(/[^0-9]/g, ''));
     });
 
@@ -135,6 +135,9 @@ if(tipoPropietario == 1){
 } else if (tipoPropietario == 2) { 
     consultarPropietarioJuridico(idPropietario,codigoPropietario,tipoPropietario);
 }
+
+guardarPropietariosj();
+
 
 }
 
@@ -402,9 +405,9 @@ function consultarPropietarioJuridico(id,codigo,tipo){
                             
                             $("select[name='cboBancoj']").val(json.Items[0].id_bancoj).change();
                             $('#num_cuenj').val(json.Items[0].num_cuenj);
-                            $('#ced_pmovj').val(json.Items[0].pagomovil_cedulaj);
+                            $('#pagomovil_cedulaj').val(json.Items[0].pagomovil_cedulaj);
                             $("select[name='cboBancop']").val(json.Items[0].pagomovil_id_bancoj).change();
-                            $('#cel_pmov').val(json.Items[0].pagomovil_telefonoj);
+                            $('#pagomovil_telefonoj').val(json.Items[0].pagomovil_telefonoj);
                             
                             /*
                             |------------------------------------------------------
@@ -437,9 +440,9 @@ function consultarPropietarioJuridico(id,codigo,tipo){
                             |------------------------------------------------------
                             */
                          
-                            $('#tel_zellej').val(json.Items[0].tel_zelle);
-                            $('#cor_zellej').val(json.Items[0].cor_zelle);
-                            $('#nom_zellej').val(json.Items[0].nom_zelle);
+                            $('#tel_zellej').val(json.Items[0].tel_zellej);
+                            $('#cor_zellej').val(json.Items[0].cor_zellej);
+                            $('#nom_zellej').val(json.Items[0].nom_zellej);
                           
     
     
@@ -551,20 +554,7 @@ function guardarPropietarios(){
         return;
         }
     
-    if ($("#registroEstado").val() == "") {
-            mensaje("Debe colocar el campo el estado ",1);
-            return;
-            }
 
-    if ($("#registroMunicipio").val() == "") {
-        mensaje("Debe colocar el campo el municipio ",1);
-        return;
-        }
-
-    if ($("#registroParroquia").val() == "") {
-        mensaje("Debe colocar el campo el parroqui ",1);
-        return;
-        }
     
     if ($("#registroDirecionH").val() == "") {
         mensaje("Debe indicar la dirección de habitación del propietario ",1);
@@ -850,6 +840,206 @@ function validarCodigoPropietario(){
     });
 
 }
+
+
+
+function guardarPropietariosj(){
+
+    $("#registrarpropietarioj").on('submit', function(evt) {
+   /*
+   |-----------------------------------------------
+   | AQUI SE PREVIENE QUE EL FORMULARIO CONTINUE 
+   |-----------------------------------------------
+   */
+   evt.preventDefault();
+   /**********************************************/        
+
+/*
+   mensajeNatural();
+   return;
+*/
+
+
+        /*
+        |---------------------------------------------------
+        | AQUI VALIDO EL CODIGO DEL PROPIETARIO ANTES
+        | DE GUARDAR, POR SI SE HA GENERADO OTRO DOCUMENTO
+        |---------------------------------------------------
+        */
+   
+      //  validarCodigoPropietario();
+
+       // syncDelay(5000); //ESTO VA A ESPERAR 5 SEGUNDOS;
+
+        /*-------------------------------------------------*/
+
+
+   if ($("#registroNombrej").val() == "") {
+       mensaje("Debe indicar el Nombre o Razón Social del propietario",1);
+       return;
+   }
+
+
+    if ($("#registroRifj").val() == "") {
+        mensaje("Debe indicar el rif Jurídico del propietario",1);
+        return;
+        }
+
+    
+    if ($("#registroactividad").val() == "") {
+        mensaje("Debe indicar la  actividad comercial del propietario ",1);
+        return;
+        }
+    
+    if ($("#registroDirecionj").val() == "") {
+        mensaje("Debe indicar la  dirección fiscal del propietario ",1);
+        return;
+        }
+    
+    if ($("#registroCelularj").val() == "") {
+        mensaje("Debe indicar el celular del propietario",1);
+        return;
+        }
+    
+    if ($("#registroEmailj").val() == "") {
+        mensaje("Debe indicar una direccion de correo valida",1);
+        return;
+    } else {
+        var respuesta = validateEmail($("#registroEmailj").val());
+
+        if (respuesta == false) {
+            mensaje("La direccion de correo es invalida",1);
+            return;
+        }
+    }
+
+    if ($("#cboBancoj").val() == "") {
+        mensaje("Debe indicar el banco del propietario",1);
+        return;
+        }
+
+    if ($("#num_cuenj").val() == "") {
+        mensaje("Debe indicar el numero de cuenta del banco",1);
+        return;
+        } else {
+
+            var numcuentaTMP = $("#num_cuenj").val(); 
+
+            if (numcuentaTMP.length<20){
+                mensaje("El Numero de cuenta debe ser de 20 digitos.",1);
+                return;
+
+            } else {
+
+                if(validarCuentaBanco('cboBancoj',numcuentaTMP) == false){
+                    mensaje("El Numero de cuenta registrado no concuerda con el banco seleccionado.",1);
+                    return;
+                }
+
+            } 
+
+
+        }
+
+
+
+        /*
+        |-----------------------------------------------
+        | LIMPIA EL CAMPO MENSAJE 
+        |-----------------------------------------------
+        */
+        $("#error").html("Ejecutando...");
+        /*
+        |-----------------------------------------------
+        | AQUI SE CAPTURA LOS DATOS DEL FORMULARIO 
+        |-----------------------------------------------
+        */
+        var formData = new FormData(this);
+        /*
+        |-----------------------------------------------------
+        | AQUI SE AGREGA UN PARAMETRO ADICIONAL AL FORMULARIO 
+        |-----------------------------------------------------
+        */
+        formData.append('opcion','I');
+        /*
+        |-----------------------------------------------
+        | AQUI SE LLAMA EL AJAX 
+        |-----------------------------------------------
+        */
+        $.ajax({
+            url: "app/handler/alquileres/hndregispropietariosj.php",
+            type: "POST",
+            data: formData, //new FormData(this),
+            contentType: false,
+            dataType: "json",
+            cache: false,
+            processData: false,
+            beforeSend: function () {
+                //$("#preview").fadeOut();
+                $("#error").fadeOut();
+            },
+            success: function (data) {
+            var json = data;
+            var html = "";
+            let idPropietario = 0;
+                console.log("Mensaje del JSON: " + json);
+
+                if(json.error == 0){
+                    
+                    mensaje(json.mensaje,0);
+                    /*
+                    if(json.Items.length > 0){
+
+                        //console.log("Datos del Propietario: " + json.Items[0].ID_PROPIETARIO);
+                        idPropietario = json.Items[0].ID_PROPIETARIO;
+
+                    }
+
+                    if(idPropietario > 0){
+                        mensajeNatural(idPropietario,  $("#registroCodigo").val());
+                        limpiarFormulario(1);
+                        botones(0);
+                        
+                    } else {
+                        mensaje("Hubo un problema con el codigo de propietario.",1);
+                    }
+                    */
+
+                }else {
+
+                    mensaje(json.mensaje,1);
+
+                    //$("#mensaje").html(html).fadeIn();
+                }
+
+
+
+            },
+            error: function (e) {
+                //$("#error").html(e).fadeIn();
+                mensaje(e,1);
+                
+            }
+        });
+
+
+
+    });
+
+}
+
+
+function limpiarFormulario(valor){
+
+    if(valor == 1){
+        document.getElementById("guardarPropietariosj").reset();
+    }
+
+}
+
+
+
+
 
 
 

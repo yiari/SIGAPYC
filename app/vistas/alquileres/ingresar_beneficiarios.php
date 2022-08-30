@@ -317,15 +317,16 @@
                                     <div class="card-body">
                                         <h5 class="card-title">Datos Jurídicos</h5>
                                         <form class="form-sample" id="registrarbeneficiarioj" name="registrarbeneficiarioj" method="POST" action="guarda.php" autocomplete="off" enctype="multipart/form-data" enctype="multipart/form-data">
+                                                
                                                 <input type="hidden" id="id_usuario" name="id_usuario" value='1'>
                                                 <input type="hidden" id="tipo_personaj" name="tipo_personaj" value='2'>
                                                 <input type="hidden" id="hidbeneficiarioj" name="hidbeneficiarioj" value=''>
-                                                <input type="hidden" id="id_propietarioj" name="id_propietarioj" value='0'>
+                                                <input type="hidden" id="hiid_propj" name="hiid_propj" value='0'>
                                                 <input type="hidden" id="hidcuenta_id_nacionalj" name="hidcuenta_id_nacionalj" value='0'>
                                                 <input type="hidden" id="hidcuenta_id_internacionalj" name="hidcuenta_id_internacionalj" value='0'>
                                                 <input type="hidden" id="hidcuenta_id_paypalj" name="hidcuenta_id_paypalj" value='0'>
                                                 <input type="hidden" id="hidcuenta_id_zellej" name="hidcuenta_id_zellej" value='0'>
-                                                <input type="hidden" id="tipo_propietarioj" name="tipo_propietarioj" value='0'>
+                                                
                                                 
 
                                             <div class="col-md-5">

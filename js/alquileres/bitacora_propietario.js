@@ -13,7 +13,8 @@ function inicio(){
     let idPropietario = getParameterByName('idpro');
     let codigoPropietario = getParameterByName('codpro');
     let tipoPropietario = getParameterByName('codtip');
-
+   
+    
     consultarPropietario(idPropietario,codigoPropietario,tipoPropietario);
     imprimirDocumento(idPropietario, codigoPropietario, tipoPropietario);
 
@@ -33,6 +34,18 @@ function imprimirDocumento(prmIdPro, prmCodPro, prmTipo){
         }
 
     //}
+
+}
+
+
+function codigoPropietario(prmDato){
+
+    var html = "";
+
+    html='<strong>PROPIETARIO : </strong>'  + prmDato +'</span>';
+
+    $("#lblPropietario").html('');
+    $("#lblPropietario").html(html);
 
 }
 

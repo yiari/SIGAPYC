@@ -9,20 +9,21 @@ function inicio(){
     */
     let idInmueble = getParameterByName('idinmu');
     let prmCodInmu = getParameterByName('codinmu');
-    let prmCodInmu1 = getParameterByName('codinmu1');
-
+    
 
     //let idPropietario = getParameterByName('idpro');
     //let prmCodPro = getParameterByName('codpro');
      /*--------------------------------------*/    
  
-    codigoInmueble(prmCodInmu);
+     codigoInmueble(prmCodInmu);
 
-    nuevoUnidad(idInmueble,prmCodInmu);
+     cargarUnidades(idInmueble,prmCodInmu);
+
+    //nuevoUnidad(idInmueble,prmCodInmu);
     
     atrasInmueble(idInmueble,prmCodInmu);
  
-    cargarUnidades(idInmueble);
+   
 
 }
 
@@ -45,23 +46,26 @@ function codigoInmueble(prmDato){
 }
 
 
-
-
-function nuevoUnidad(prmidInmu, prmCodInmu){
+function nuevoUnidad(prmidInmu,prmCodInmu){
 
     //if (isEmpty(prmDato) == false ){
 
 
         var html = "";
 
-        if(prmidInmu != 0 && prmidInmu != ""){
-            html='index.php?url=app/vistas/alquileres/ingresar_unidad_inmueble&idinmu=' + prmidInmu  + '&codinmu=' + prmCodInmu;
-            $(".codinmu").prop("href", html);
+        if(prmIdPro != 0 && prmIdPro != ""){
+            html='index.php?url=app/vistas/alquileres/ingresar_unidad_inmueble&idinmu=' + prmidInmu ;
+            $(".codpro").prop("href", html);
         }
 
     //}
 
 }
+
+
+
+
+
 
 
 function atrasInmueble(prmidInmu, prmCodInmu){
@@ -80,7 +84,7 @@ function atrasInmueble(prmidInmu, prmCodInmu){
 }
 
 
-function cargarUnidades(prmDato){
+function cargarUnidades(idInmueble,prmCodInmu){
     
     /*
     |-----------------------------------------------------
@@ -90,7 +94,8 @@ function cargarUnidades(prmDato){
     var formData = new FormData();
 
     formData.append('opcion','C');
-    formData.append('id_inmu',prmDato);
+    formData.append('id_inmu',idInmueble);
+    formData.append('cod_inmueble',prmCodInmu);
     /*
     |-----------------------------------------------
     | AQUI SE LLAMA EL AJAX 
@@ -148,7 +153,7 @@ function cargarUnidades(prmDato){
                                 tr.append("<td>" + json.Items[0][i].foto + "</td>");
                             }
 
-                            tr.append("<td>" + json.Items[0][i].codigo + "</td>");
+                            tr.append("<td>" + json.Items[0][i].Codigos + "</td>");
 
                             
                             tr.append("<td>" + json.Items[0][i].inmueble + "</td>");

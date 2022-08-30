@@ -424,9 +424,9 @@ include("layout/menuNavegacion.php");
                                                     <div class="col-md-12">
                                                         <div class="input-group">
                                                             <span class="input-group-text">Pago Movil</span>
-                                                            <input type="text" placeholder="cedula" id="ced_pmovj" name="ced_pmovj" aria-label="Cédula" value='' class="form-control">
+                                                            <input type="text" placeholder="cedula" id="pagomovil_cedulaj" name="pagomovil_cedulaj" aria-label="Cédula" value='' class="form-control">
                                                             <select class="form-control"  id="cboBancop" name="cboBancop"></select>
-                                                            <input type="text" placeholder="celular" id="cel_pmovj" name="cel_pmovj" aria-label="Celular" value='' class="form-control">
+                                                            <input type="text" placeholder="celular" id="pagomovil_telefonoj" name="pagomovil_telefonoj" aria-label="Celular" value='' class="form-control">
                                                         </div><br>
                                                     </div>  
                                                 </div>
@@ -487,9 +487,9 @@ include("layout/menuNavegacion.php");
                                                     <div class="col-md-6">
                                                         <div class="input-group">
                                                             <span class="input-group-text">Cuenta Zelle</span>
-                                                            <input for="tel_zellj" type="text" class="form-control" placeholder="Telefono" id="tel_zellj" name="tel_zellj" >
-                                                            <input for="cor_zellj" type="text" class="form-control" placeholder="Correo" id="cor_zellj" name="cor_zellj" >
-                                                            <input for="nom_zellj" type="text" class="form-control" placeholder="Nombre" id="nom_zellj" name="nom_zellj" >
+                                                            <input for="tel_zellej" type="text" class="form-control" placeholder="Telefono" id="tel_zellej" name="tel_zellej" >
+                                                            <input for="cor_zellej" type="text" class="form-control" placeholder="Correo" id="cor_zellej" name="cor_zellej" >
+                                                            <input for="nom_zellej" type="text" class="form-control" placeholder="Nombre" id="nom_zellej" name="nom_zellej" >
                                                         </div>
                                                     </div>
 
@@ -598,8 +598,7 @@ include("layout/menuNavegacion.php");
 
 include_once "app/vistas/comunes/modalmensajes.php";
 include_once "app/vistas/comunes/modaleliminar.php";
-include_once "app/vistas/comunes/modalpronatu.php";
-include_once "app/vistas/comunes/modalprojuri.php";
+
 
  
 

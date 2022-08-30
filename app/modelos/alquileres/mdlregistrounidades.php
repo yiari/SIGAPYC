@@ -45,7 +45,7 @@ public function registrar($tabla,$datos,$archivos){
           */
           $stmt = $dbConexion->conectar()->prepare("CALL usp_registrarunideades(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
           $stmt -> bindParam(1, $datos["id_unid"],PDO::PARAM_INT); //id del uniades
-          $stmt -> bindParam(2, $datos["id_inmu"],PDO::PARAM_INT); //id propietraio
+          $stmt -> bindParam(2, $datos["id_inmu"],PDO::PARAM_INT); //id inmueble
           $stmt -> bindParam(3, $datos["cod_inmu"],PDO::PARAM_STR); // codigo del inmueble
           $stmt -> bindParam(4, $datos["tip_inmu"],PDO::PARAM_INT); // tipo de inmuebles
           $stmt -> bindParam(5, $datos["act_inmu"],PDO::PARAM_STR); //actividad del inmueble
@@ -296,9 +296,9 @@ public function registrar($tabla,$datos,$archivos){
     }
 
 
- public function seleccionarregistros($tabla,$idprop){
+ public function seleccionarregistros($tabla,$idinmu){
 
-  If($idprop == null || $idprop == 0){
+  If($idinmu == null || $idinmu == 0){
 
 
             try {
@@ -306,7 +306,7 @@ public function registrar($tabla,$datos,$archivos){
               $dbConexion = new conexcion();  
 
                 $stmt = $dbConexion->conectar()->prepare("CALL usp_cargarunidades(?)");
-                $stmt ->bindParam(1, $valor, PDO::PARAM_INT);
+                $stmt ->bindParam(1, $idinmu, PDO::PARAM_INT);
                 $stmt->execute();
                 $dataRegistro["Items"][] = $stmt->fetchAll();
       
@@ -338,7 +338,7 @@ public function registrar($tabla,$datos,$archivos){
           $dbConexion = new conexcion();
           
           $stmt = $dbConexion->conectar()->prepare("CALL usp_cargarunidades(?)" );
-          $stmt ->bindParam(1, $idprop, PDO::PARAM_INT);
+          $stmt ->bindParam(1, $idinmu, PDO::PARAM_INT);
           $stmt->execute();
           $dataRegistro["Items"][] = $stmt->fetch();
 
