@@ -340,7 +340,7 @@ public function registrar($tabla,$datos,$archivos){
           $stmt = $dbConexion->conectar()->prepare("CALL usp_cargarunidades(?)" );
           $stmt ->bindParam(1, $idinmu, PDO::PARAM_INT);
           $stmt->execute();
-          $dataRegistro["Items"][] = $stmt->fetch();
+          $dataRegistro["Items"][] = $stmt->fetchAll();
 
           $dataRes = array(
             'error' => '0',

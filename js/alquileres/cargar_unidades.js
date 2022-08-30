@@ -19,7 +19,7 @@ function inicio(){
 
      cargarUnidades(idInmueble,prmCodInmu);
 
-    //nuevoUnidad(idInmueble,prmCodInmu);
+    nuevoUnidad(idInmueble,prmCodInmu);
     
     atrasInmueble(idInmueble,prmCodInmu);
  
@@ -53,8 +53,8 @@ function nuevoUnidad(prmidInmu,prmCodInmu){
 
         var html = "";
 
-        if(prmIdPro != 0 && prmIdPro != ""){
-            html='index.php?url=app/vistas/alquileres/ingresar_unidad_inmueble&idinmu=' + prmidInmu ;
+        if(prmidInmu != 0 && prmidInmu != ""){
+            html='index.php?url=app/vistas/alquileres/ingresar_unidad_inmueble&idinmu=' + prmidInmu + '&codinmu=' + prmCodInmu;
             $(".codpro").prop("href", html);
         }
 
@@ -153,15 +153,16 @@ function cargarUnidades(idInmueble,prmCodInmu){
                                 tr.append("<td>" + json.Items[0][i].foto + "</td>");
                             }
 
-                            tr.append("<td>" + json.Items[0][i].Codigos + "</td>");
-
+                            tr.append("<td>" + json.Items[0][i].codigo + "</td>");
                             
                             tr.append("<td>" + json.Items[0][i].inmueble + "</td>");
 
-                            tr.append("<td>" + json.Items[0][i].tipo + "</td>"); 
-                           
+                            tr.append("<td>SIN INQUILINO</td>");
+
+
                             tr.append("<td>" + statusinmuebles(json.Items[0][i].estatus) + "</td>");
 
+                            tr.append("<td>" + json.Items[0][i].tipo + "</td>"); 
                             
                             var html="";
                             html = '<div class="btn-group" style="font-size:1.3em; letter-spacing:0.2em;">';
@@ -180,6 +181,7 @@ function cargarUnidades(idInmueble,prmCodInmu){
 
                     //editarRepresentante();
                     //validareliminarRepresentante();
+
                 } else {
 
                     var tr;

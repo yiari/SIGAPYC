@@ -12,6 +12,8 @@ function inicio(){
     let idInmueble = getParameterByName('idinmu');
     let prmCodInmu = getParameterByName('codinmu');
 
+    atrasUnidad(idInmueble, prmCodInmu);
+
     cargarEstados();
     cargartipo_inmueble();
     cargarBancos('cboBancoN');
@@ -37,7 +39,20 @@ function inicio(){
     }
 
 
-   
+    function atrasUnidad(prmidInmu, prmCodInmu){
+
+        //if (isEmpty(prmDato) == false ){
+    
+    
+            var html = "";
+            html='index.php?url=app/vistas/alquileres/unidades&idinmu=' + prmidInmu  + '&codinmu=' + prmCodInmu;
+        
+            $(".codinmu").prop("href", html);
+    
+    
+        //}
+    
+    }
     
     
     
