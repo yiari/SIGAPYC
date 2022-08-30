@@ -8,9 +8,9 @@ function inicio(){
     */
 
 
-    //let idPropietario = getParameterByName('idpro');
-    //let codigoPropietario = getParameterByName('codpro');
-    //let tipoPropietario = getParameterByName('codtip');
+    let idPropietario = getParameterByName('idpro');
+    let prmCodPro = getParameterByName('codpro');
+    let prmTipo = getParameterByName('codtip');
 
 
     let idBeneficiario = getParameterByName('idbene');
@@ -22,10 +22,12 @@ function inicio(){
     if(tipoBeneficiario == 1){
         $("#nav-juridica_bene-tab").hide();
         $("#nav-juridica_bene").hide();
+        $("#nav-bene_natural").addClass('show').addClass('active');
 
     } else if (tipoBeneficiario == 2) { 
         $("#nav-bene_natural-tab").hide(); 
         $("#nav-bene_natural").hide();
+        $("#nav-juridica_bene").addClass('show').addClass('active');
     }
 
     //codigoPropietario(prmCodPro);
@@ -40,6 +42,7 @@ function inicio(){
     cargarBancos('cboBancoN');
     cargarBancos('cboBancoNP');
     
+    atrasbeneficiario(idPropietario,prmCodPro,prmTipo);
    
     guardarBeneficiario();
     
@@ -89,7 +92,33 @@ function inicio(){
         jQuery(this).val(jQuery(this).val().replace(/[^0-9]/g, ''));
     });
 
+   
+    generarCodigoBeneficiarioj();
+    cargarBancos('cboBancoj');
+    cargarBancos('cboBancop');
+ 
 
+   
+
+    jQuery("#registroCelularj").on('input', function (evt) {
+        jQuery(this).val(jQuery(this).val().replace(/[^0-9]/g, ''));
+    });
+
+    jQuery("#ced_pmovj").on('input', function (evt) {
+        jQuery(this).val(jQuery(this).val().replace(/[^0-9]/g, ''));
+    });
+
+    jQuery("#cel_pmovj").on('input', function (evt) {
+        jQuery(this).val(jQuery(this).val().replace(/[^0-9]/g, ''));
+    });
+
+     jQuery("#num_cuenj").on('input', function (evt) {
+        jQuery(this).val(jQuery(this).val().replace(/[^0-9]/g, ''));
+    });
+
+    jQuery("#tel_zellej").on('input', function (evt) {
+        jQuery(this).val(jQuery(this).val().replace(/[^0-9]/g, ''));
+    });
    
 
 /*
@@ -98,11 +127,20 @@ function inicio(){
 |-------------------------------------------------------------------------------------------------
 */
 
-consultarBeneficiario(idBeneficiario,codigoBeneficiario,tipoBeneficiario);
+if(tipoBeneficiario == 1){
+
+    consultarBeneficiario(idBeneficiario,codigoBeneficiario,tipoBeneficiario);
+
+} else if (tipoBeneficiario == 2) { 
+    consultarBeneficiarioJuridico(idBeneficiario,codigoBeneficiario,tipoBeneficiario);
+}
 
 
 
 }
+
+
+
 
 
 function codigoPropietario(prmDato){
@@ -298,6 +336,166 @@ console.log("consultando");
 
 
 }
+
+
+
+
+
+
+function consultarBeneficiarioJuridico(id,codigo,tipo){
+
+    console.log("consultando");
+    
+          /*
+            |-----------------------------------------------
+            | LIMPIA EL CAMPO MENSAJE 
+            |-----------------------------------------------
+            */
+            $("#error").html("Ejecutando...");
+            /*
+            |-----------------------------------------------
+            | AQUI SE CAPTURA LOS DATOS DEL FORMULARIO 
+            |-----------------------------------------------
+            */
+            var formData = new FormData();
+            /*
+            |-----------------------------------------------------
+            | AQUI SE AGREGA UN PARAMETRO ADICIONAL AL FORMULARIO 
+            |-----------------------------------------------------
+            */
+            formData.append('opcion','CB');
+    
+            formData.append('idbeneficiario',id);
+            formData.append('codigoBeneficiario',codigo);
+            formData.append('tipoBeneficiario',tipo);
+            
+            /*
+            |-----------------------------------------------
+            | AQUI SE LLAMA EL AJAX 
+            |-----------------------------------------------
+            */
+            $.ajax({
+                url: "app/handler/alquileres/hndregistrobeneficiariosj.php",
+                type: "POST",
+                data: formData, //new FormData(this),
+                contentType: false,
+                dataType: "json",
+                cache: false,
+                processData: false,
+                beforeSend: function () {
+                    //$("#preview").fadeOut();
+                    $("#error").fadeOut();
+                },
+                success: function (data) {
+                var json = data;
+                var html = "";
+                let idPropietario = 0;
+                    console.log("Mensaje del JSON: " + json);
+    
+                    if(json.error == 0){
+                        
+                        //mensaje(json.mensaje,0);
+                        if(json.Items.length > 0){
+    
+    
+                            //<input type="hidden" id="tipo_persona" name="tipo_persona" value='1'>
+                            $('#hidbeneficiarioj').val(json.Items[0].id_bene);
+                            $('#hidcuenta_id_nacionalj').val(json.Items[0].id_banco_nacionalj);
+                            $('#hidcuenta_id_internacionalj').val(json.Items[0].id_banco_internacionalj);
+                            $('#hidcuenta_id_paypalj').val(json.Items[0].id_banco_internacionalj);
+                            $('#hidcuenta_id_zellej').val(json.Items[0].id_banco_internacionalj);
+    
+                           
+                            /*
+                            |------------------------------------------------------
+                            | DATOS PRINCIPALES
+                            |------------------------------------------------------
+                            */
+                            $('#registroNombrej').val(json.Items[0].nom_benej);
+                            $('#registroRifj').val(json.Items[0].rif_benej);
+                            $('#registroTelefonoj').val(json.Items[0].tel_benej);
+                            $('#registroEmailj').val(json.Items[0].cor_benej);
+                            $('#registroActividad').val(json.Items[0].act_benej);
+    
+    
+                            $('#registroDirecionj').val(json.Items[0].dir_benej);
+                            $('#registroCelularj').val(json.Items[0].cel_benej);
+                            $("#registroCodigoj").val(json.Items[0].cod_bene);
+    
+  
+                            /*
+                            |------------------------------------------------------
+                            | DATOS BANCOS NACIONALES
+                            |------------------------------------------------------
+                            */
+                            
+                            $("select[name='cboBancoN']").val(json.Items[0].id_bancoj).change();
+                            $('#num_cuenj').val(json.Items[0].num_cuenj);
+                            $('#ced_pmovj').val(json.Items[0].pagomovil_cedulaj);
+                            $("select[name='cboBancoNP']").val(json.Items[0].pagomovil_id_bancoj).change();
+                            $('#cel_pmovj').val(json.Items[0].pagomovil_telefonoj);
+                            
+                            /*
+                            |------------------------------------------------------
+                            | DATOS BANCOS INTERNACIONALES
+                            |------------------------------------------------------
+                            */
+    
+                           
+                            $('#ban_extrj').val(json.Items[0].ban_extrj);
+                            $('#age_extrj').val(json.Items[0].age_extrj);
+                            $('#dc_extrj').val(json.Items[0].dc_extrj);
+                            $('#cue_extrj').val(json.Items[0].cue_extrj);
+                            $('#iba_extrj').val(json.Items[0].iba_extrj);
+                            $('#bic_extrj').val(json.Items[0].bic_extrj);
+    
+    
+                           /*
+                            |------------------------------------------------------
+                            | DATOS PAYPAL
+                            |------------------------------------------------------
+                            */
+    
+                         
+                            $('#cor_paypj').val(json.Items[0].cor_paypj);
+                            $('#nom_paypj').val(json.Items[0].nom_paypj);
+    
+                            /*
+                            |------------------------------------------------------
+                            | DATOS zelle
+                            |------------------------------------------------------
+                            */
+                         
+                            $('#tel_zellej').val(json.Items[0].tel_zellej);
+                            $('#cor_zellej').val(json.Items[0].cor_zellej);
+                            $('#nom_zellej').val(json.Items[0].nom_zellej);
+                          
+    
+    
+    
+                        }
+    
+                    }else {
+    
+                        mensaje(json.mensaje,1);
+    
+                        //$("#mensaje").html(html).fadeIn();
+                    }
+    
+    
+    
+                },
+                error: function (e) {
+                    //$("#error").html(e).fadeIn();
+                    mensaje(e,1);
+                    
+                }
+            });
+    
+    
+    }
+    
+    
 
 
 
@@ -596,6 +794,29 @@ function generarCodigoBeneficiario(){
         });
 
     });
+   
+
+}
+
+
+
+function generarCodigoBeneficiarioj(){
+
+
+    $("#registroNombrej").on('keyup', function () {
+
+        var prmNombre= this.value;
+       
+
+        $("#registroCodigoj").val('');
+
+        codigoBeneficiarioj(prmNombre,function(result){
+            $("#registroCodigoj").val(result);
+        });
+
+
+    });
+
    
 
 }

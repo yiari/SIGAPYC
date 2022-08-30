@@ -38,7 +38,7 @@ function guardarBeneficiarioJ(){
         }
 
     if ($("#registroActividad").val() == "") {
-        mensaje("Debe indicar la dirección de la oficina del beneficiario ",1);
+        mensaje("Debe indicar la actividad comencial del beneficiario ",1);
         return;
         }
 

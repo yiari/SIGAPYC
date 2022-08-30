@@ -85,7 +85,7 @@ function inicio(){
         jQuery(this).val(jQuery(this).val().replace(/[^A-Za-z ]/g, ''));
     });
 
-    jQuery("#registroCedulaj").on('input', function (evt) {
+    jQuery("#registroCelularj").on('input', function (evt) {
         jQuery(this).val(jQuery(this).val().replace(/[^0-9'.']/g, ''));
     });
 
@@ -310,6 +310,170 @@ function guardarBeneficiario(){
         */
         $.ajax({
             url: "app/handler/alquileres/hndregistrobeneficiarios.php",
+            type: "POST",
+            data: formData, //new FormData(this),
+            contentType: false,
+            dataType: "json",
+            cache: false,
+            processData: false,
+            beforeSend: function () {
+                //$("#preview").fadeOut();
+                $("#error").fadeOut();
+            },
+            success: function (data) {
+            var json = data;
+            var html = "";
+
+                //console.log("Mensaje del JSON: " + json.mensaje);
+
+                if(json.error == 0){
+                    
+                    mensaje(json.mensaje,0);
+
+                    //$("#mensaje").html(html).fadeIn();
+                    limpiarFormulario(1);
+                    //limpiarTabla();
+                    botones(0);
+
+                }else {
+
+                    mensaje(json.mensaje,1);
+
+                    //$("#mensaje").html(html).fadeIn();
+                }
+
+
+
+            },
+            error: function (e) {
+                //$("#error").html(e).fadeIn();
+                mensaje(e,1);
+                
+            }
+        });
+
+
+
+    });
+
+}
+
+
+
+function guardarBeneficiarioJ(){
+
+    $("#registrarbeneficiarioj").on('submit', function(evt) {
+   /*
+   |-----------------------------------------------
+   | AQUI SE PREVIENE QUE EL FORMULARIO CONTINUE 
+   |-----------------------------------------------
+   */
+   evt.preventDefault();
+   /**********************************************/        
+
+
+   //mensajeNatural();
+   //return;
+
+
+   if ($("#registroNombrej").val() == "") {
+       mensaje("Debe indicar el nombre del beneficiario juridico",1);
+       return;
+   }
+
+
+    if ($("#registroRifj").val() == "") {
+        mensaje("Debe indicar el rif del beneficiario",1);
+        return;
+        }
+
+    if ($("#registroCelularj").val() == "") {
+        mensaje("Debe indicar el celular del beneficiario juridico",1);
+        return;
+        }
+    
+   
+    if ($("#registroDirecionHj").val() == "") {
+        mensaje("Debe indicar la dirección de habitación del beneficiario ",1);
+        return;
+        }
+
+    if ($("#registroActividad").val() == "") {
+        mensaje("Debe indicar la actividad comencial del beneficiario ",1);
+        return;
+        }
+
+    
+
+    if ($("#registroEmailj").val() == "") {
+        mensaje("Debe indicar una direccion de correo valida",1);
+        return;
+    } else {
+        var respuesta = validateEmail($("#registroEmailj").val());
+
+        if (respuesta == false) {
+            mensaje("La direccion de correo es invalida",1);
+            return;
+        }
+    }
+
+
+    if ($("#cboBancoj").val() == "") {
+        mensaje("Debe indicar el banco del beneficiario",1);
+        return;
+        }
+
+    if ($("#num_cuenj").val() == "") {
+        mensaje("Debe indicar el numero de cuenta del banco",1);
+        return;
+        } else {
+
+            var numcuentaTMP = $("#num_cuenj").val(); 
+
+            if (numcuentaTMP.length<20){
+                mensaje("El Numero de cuenta debe ser de 20 digitos.",1);
+                return;
+
+            } else {
+
+                if(validarCuentaBanco('cboBancoj',numcuentaTMP) == false){
+                    mensaje("El Numero de cuenta registrado no concuerda con el banco seleccionado.",1);
+                    return;
+                }
+
+            } 
+
+
+        }
+
+
+        
+ 
+   /*
+        |-----------------------------------------------
+        | LIMPIA EL CAMPO MENSAJE 
+        |-----------------------------------------------
+        */
+        $("#error").html("Ejecutando...");
+        /*
+        |-----------------------------------------------
+        | AQUI SE CAPTURA LOS DATOS DEL FORMULARIO 
+        |-----------------------------------------------
+        */
+        var formData = new FormData(this);
+        /*
+        |-----------------------------------------------------
+        | AQUI SE AGREGA UN PARAMETRO ADICIONAL AL FORMULARIO 
+        |-----------------------------------------------------
+        */
+        formData.append('opcion','I');
+        /*
+        |-----------------------------------------------
+        | AQUI SE LLAMA EL AJAX 
+        |-----------------------------------------------
+        */
+        $.ajax({
+            url: "app/handler/alquileres/hndregistrobeneficiariosj.php",
             type: "POST",
             data: formData, //new FormData(this),
             contentType: false,

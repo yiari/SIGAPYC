@@ -19,8 +19,7 @@ function inicio(){
 
     nuevoBeneficiario(idPropietario,prmCodPro,prmTipo);
 
-
-    
+  
 
 }
 
@@ -50,6 +49,9 @@ function nuevoBeneficiario(prmIdPro, prmCodPro, prmTipo){
     //}
 
 }
+
+
+
 
 
 function cargarbeneficiarios(prmDato,prmTipo){
