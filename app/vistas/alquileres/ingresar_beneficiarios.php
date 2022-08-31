@@ -344,9 +344,9 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-md-3">
-                                                    <label for="registrorifj" class="col-sm-12 col-form-label">Rif Jurídico:</label>
+                                                    <label for="registroRifj" class="col-sm-12 col-form-label">Rif Jurídico:</label>
                                                     <div class="col-sm-12">
-                                                        <input type="text" class="form-control" id="registrorifj" name="registrorifj" maxlength="15">
+                                                        <input type="text" class="form-control" id="registroRifj" name="registroRifj" maxlength="15">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-5">
@@ -372,9 +372,9 @@
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-12">
-                                                    <label for="registroDirecionHj" class="col-sm-12 col-form-label">Dirección Fiscal:</label>
+                                                    <label for="registroDirecionj" class="col-sm-12 col-form-label">Dirección Fiscal:</label>
                                                     <div class="col-sm-12">
-                                                        <input type="text" class="form-control" id="registroDirecionHj" name="registroDirecionHj"><br>
+                                                        <input type="text" class="form-control" id="registroDirecionj" name="registroDirecionj"><br>
                                                     </div>
                                                 </div>
                                             </div>

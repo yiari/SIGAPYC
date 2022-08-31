@@ -136,7 +136,7 @@ if(tipoPropietario == 1){
     consultarPropietarioJuridico(idPropietario,codigoPropietario,tipoPropietario);
 }
 
-guardarPropietariosj();
+guardarPropietariosjuridico();
 
 
 }
@@ -843,7 +843,7 @@ function validarCodigoPropietario(){
 
 
 
-function guardarPropietariosj(){
+function guardarPropietariosjuridico(){
 
     $("#registrarpropietarioj").on('submit', function(evt) {
    /*

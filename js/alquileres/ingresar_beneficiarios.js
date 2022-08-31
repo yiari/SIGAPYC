@@ -7,7 +7,7 @@ function inicio(){
     |---------------------------------------
     */
     $('#id_prop').val(getParameterByName('idpro'));
-    $('#id_propj').val(getParameterByName('idpro'));
+    $('#id_propietarioj').val(getParameterByName('idpro'));
     $('#tipo_propietario').val(getParameterByName('codtip'));
     $('#tipo_propietarioj').val(getParameterByName('codtip'));
 

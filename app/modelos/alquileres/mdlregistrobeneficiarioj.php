@@ -51,9 +51,9 @@ public function registrar($tabla,$datos,$archivos){
           $stmt -> bindParam(4, $datos["cod_bene"], PDO::PARAM_STR);
           $stmt -> bindParam(5, $datos["mon_benej"], PDO::PARAM_STR);                  
           $stmt -> bindParam(6, $datos["rif_benej"], PDO::PARAM_STR);
-          $stmt -> bindParam(7, $datos["act_benej"], PDO::PARAM_STR);
-          $stmt -> bindParam(8, $datos["cor_benej"], PDO::PARAM_STR);
-          $stmt -> bindParam(9, $datos["cel_benej"], PDO::PARAM_STR);                          
+          $stmt -> bindParam(7, $datos["cor_benej"], PDO::PARAM_STR);
+          $stmt -> bindParam(8, $datos["cel_benej"], PDO::PARAM_STR);
+          $stmt -> bindParam(9, $datos["act_benej"], PDO::PARAM_STR);                          
           $stmt -> bindParam(10, $datos["dir_benej"], PDO::PARAM_STR);   
           $stmt -> bindParam(11, $datos["tipo_persona"], PDO::PARAM_STR);       
          

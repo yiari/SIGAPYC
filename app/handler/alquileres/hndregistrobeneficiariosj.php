@@ -102,11 +102,11 @@ if($operacion == "I"){
                     "tipo_propietarioj"   =>   $_POST["tipo_propietarioj"],
                     "cod_bene" => $_POST["registroCodigoj"],
                     "mon_benej" => $_POST["registroNombrej"],
-                    "rif_benej" => $_POST["registrorifj"], 
-                    "act_benej" => $_POST["registroActividad"],
+                    "rif_benej" => $_POST["registroRifj"], 
                     "cor_benej" => $_POST["registroEmailj"],
                     "cel_benej" => $_POST["registroCelularj"],
-                    "dir_benej" => $_POST["registroDirecionHj"],
+                    "act_benej" => $_POST["registroActividad"],
+                    "dir_benej" => $_POST["registroDirecionj"],
                     "tipo_persona" => $_POST["tipo_personaj"],
                 
                    /*

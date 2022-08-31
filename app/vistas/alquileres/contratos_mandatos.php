@@ -79,35 +79,18 @@ include("layout/menuNavegacion.php");
                 MANDATOS
             </div>
             <div class="card-body">
-                <table id="">
+                <table id="datosMandatos">
                     <thead>
                         <tr>
-                            <th>#</th>
-                            <th>Propietario</th>
+                            <th>codigos</th>
                             <th>Inmueble</th>
-                            <th>Unidade</th>
+                            <th>Unidad</th>
                             <th>Acciones</th>
                        
                         </tr>
                     </thead>
                     <tbody>
                     
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-
-                                    <td>
-                                        <div class="btn-group" style="font-size:1.3em; letter-spacing:0.5em;">
-
-                                            <a href="#" title="Editar"><i class="fa fa-edit" ></i></a>&nbsp;
-                                            <a href='app/vistas/alquileres/documentos/repmandato.php' title="Ver" target='_blank'><i class="fa fa-search"></i></a> &nbsp;
-                                          
-                                        </div>
-
-                                    </td>
-                        
-
                     </tbody>
                 </table>
             </div>
@@ -115,6 +98,16 @@ include("layout/menuNavegacion.php");
     </div>
 
 </div>
+
+
+<?php 
+
+include_once "app/vistas/comunes/modalmensajes.php";
+include_once "app/vistas/comunes/modaleliminar.php";
+
+?>
+<script src="js/comunes/funciones.js"></script>
+<script src="js/alquileres/cargar_contratos_mandatos.js"></script>
 
 
 
