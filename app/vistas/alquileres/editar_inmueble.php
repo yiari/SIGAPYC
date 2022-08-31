@@ -23,82 +23,6 @@ include("layout/menuNavegacion.php");
            <h4 class="card-title">Inmuebles</h4><br>
             
 
-            <form class="form-sample" id="buscarPropietario" name="buscarPropietario" method="POST" action="" autocomplete="off" style="display: none;">
-                 <!--Datos del propietario-->
-                <div class="card" id="Propietario">
-                          
-                <div class="card-body">
-                    <div class="col text-center">
-                        <h5 class="card-title">Datos del Propietario</h5>
-                    </div>
-                </br>
-                    <div class="row">
-                        <div class="col-md-3">
-                            <label class="col-sm-12 col-form-label">Buscar Código Propietario:</label>
-                        </div>
-                    
-                        <div class="col-md-4">
-                                <input type="text" class="form-control" id="nom_prop" name="nom_prop">
-                            
-                        </div>
-
-                        <div class="col-md-2">
-                                <button type="submit" class="btn btn-primary mb-2">Buscar</button>
-                        </div>
-                        
-                    </div>
-                </br>
-                    <div class="row">
-                        
-                        <div class="col-md-3">
-                            <label class="col-sm-12 col-form-label">Nombre:</label>
-                            <div class="col-sm-12">
-                                <input type="text" class="form-control" id="nom_prop" name="nom_prop" readonly="yes">
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <label class="col-sm-12 col-form-label">Apellido:</label>
-                            <div class="col-sm-12">
-                                <input type="text" class="form-control" id="ape_prop" name="ape_prop" readonly="yes">
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                                <label for="ced_prop" class="col-sm-12 col-form-label">Cédula de Identidad</label>
-                                <div class="col-sm-12">
-                                    <input type="text" class="form-control" id="ci_prop" name="ci_prop" readonly="yes">
-                                </div>
-                        </div>
-                        <div class="col-md-3">
-                            <label class="col-sm-5 col-form-label">Rif:</label>
-                            <div class="col-sm-12">
-                                <input type="text" class="form-control" id="rif_prop" name="rif_prop" readonly="yes" >
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-3">
-                            <label class="col-sm-8 col-form-label">Teléfono local:</label>
-                            <div class="col-sm-12">
-                                <input type="text" class="form-control" id="loc_prop" name="loc_prop" readonly="yes">
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <label class="col-sm-9 col-form-label">Celular:</label>
-                            <div class="col-sm-12">
-                                <input type="text" class="form-control" id="cel_prop" name="cel_prop" readonly="yes">
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <label class="col-sm-3 col-form-label">Correo:</label>
-                            <div class="col-sm-12">
-                                <input type="text" class="form-control" id="cor_prop" name="cor_prop" readonly="yes">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                </div><br>
-                <!--info_propietario-->
-            </form>
 
 
         <form class="form-sample" id="registroinmueble" name="registroinmueble" method="POST" action="" autocomplete="off" enctype="multipart/form-data">
@@ -136,6 +60,17 @@ include("layout/menuNavegacion.php");
                                         </div>
                                         <input type="text" id="unidades"  name="unidades" class="form-control" maxlength="3" placeholder="Cantidad de unidades" disabled>
                                     </div>
+                                </div>
+
+                                <div class="col-sm-3">
+                                        <label for="cbobeneficiarios" >El Inmueble posee beneficiarios?</label>
+                                            <div class="col-sm-12">
+                                                <select class="form-select" id="cbobeneficiarios" name="cbobeneficiarios" >
+                                                    <option  value="">Seleccione...</option>    
+                                                    <option  value="1">SI</option>
+                                                    <option  value="2">NO</option>
+                                                </select>
+                                            </div>
                                 </div>
 
                             </div>
@@ -535,6 +470,6 @@ include_once "app/vistas/comunes/modaleliminar.php";
 <script src="js/comunes/combos.js"></script>
 <script src="js/comunes/generadorcodigos.js"></script>
 <script src="js/comunes/funciones.js"></script>
-<script src="js/alquileres/ingresar_inmuebles.js"></script>
+<script src="js/alquileres/editar_inmueble.js"></script>
 
 

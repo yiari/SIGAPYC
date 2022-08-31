@@ -11,22 +11,21 @@ function inicio(){
     let idPropietario = getParameterByName('idpro');
     let prmCodPro = getParameterByName('codpro');
 
-    let codigoInmueble = getParameterByName('codinm');
-    let idInmueble = getParameterByName('idainm');
+    let codigoInmueble = getParameterByName('codinmu');
+    let idInmueble = getParameterByName('idinmu');
 
     /*--------------------------------------*/  
 
     codigoPropietario(prmCodPro);
     atrasInmueble(idPropietario,prmCodPro);  
+    cargartipo_inmueble();
 
-
-    generarCodigoApoderado();
+    generarCodigoInmueble();
     cargarEstados();
-    //cargarBancos('cboBancoN');
-    //cargarBancos('cboBancoNP');
+   
     
    
-    guardarApoderado();
+    
     
     
     /*
@@ -55,9 +54,9 @@ function inicio(){
 |-------------------------------------------------------------------------------------------------
 */
 
-consultarApoderado(idInmueble,codigoInmueble);
+    consultarInmueble(idInmueble,codigoInmueble);
 
-
+    guardarInmueble();
 
 }
 
@@ -111,7 +110,7 @@ console.log("consultando");
         | AQUI SE AGREGA UN PARAMETRO ADICIONAL AL FORMULARIO 
         |-----------------------------------------------------
         */
-        formData.append('opcion','CA');
+        formData.append('opcion','CI');
 
         formData.append('idInmueble',id);
         formData.append('codigoInmueble',codigo);
@@ -164,75 +163,54 @@ console.log("consultando");
                         $('#registrNombre').val(json.Items[0].act_inmu); 
                         $('#registroletra').val(json.Items[0].ape_apod);
                         
-                        $('#registrNombre').val(json.Items[0].act_inmu);
+                        $('#registroUso').val(json.Items[0].act_inmu); 
+                        $('#registroAntiguedad').val(json.Items[0].ant_inmu);
+                        
+                        $('#pun_inmu').val(json.Items[0].pun_inmu);
+                        
+                        $('#registroletra').val(json.Items[0].letra); 
 
+
+                        $("select[name='cboEstados']").val(json.Items[0].cod_esta).change();
+                        setTimeout(function(){ $("select[name='cboMunicipios']").val(json.Items[0].cod_muni ).change() }, 2000);
+                        setTimeout(function(){ $("select[name='cboParroquia']").val(json.Items[0].cod_parr).change() }, 4000);
 
                         
-                        $('#registroCedula').val(json.Items[0].ci_apod);
-                        $('#registroRif').val(json.Items[0].rif_apod);
-                        $('#registroTelefono').val(json.Items[0].loc_apod);
-                        $('#registroCelular').val(json.Items[0].cel_apod);
-                        $('#registroEmail').val(json.Items[0].cor_apod);
-
-
-                        $("select[name='cboEstados']").val(json.Items[0].est_apod).change();
-                        setTimeout(function(){ $("select[name='cboMunicipios']").val(json.Items[0].mun_apod).change() }, 2000);
-                        setTimeout(function(){ $("select[name='cboParroquia']").val(json.Items[0].par_apod).change() }, 4000);
-
-                        
-                        $('#registroDirecionH').val(json.Items[0].dir_apod);
-                        $('#registroDirecionO').val(json.Items[0].ofi_apod);
-
+                        $('#registroDirecionH').val(json.Items[0].dir_inmu);
 
                         $("#registroCodigo").val(json.Items[0].cod_inmu);
 
 
-                        $('#cod_pode').val(json.Items[0].cod_pode);
-                        $('#not_pode').val(json.Items[0].not_pode);
-                        $('#fec_pode').val(json.Items[0].fec_pode);
-                        $('#num_pode').val(json.Items[0].num_pode);
-                        $('#tom_pode').val(json.Items[0].tom_pode);
-                        $('#fol_pode').val(json.Items[0].fol_pode);
+                        $('#equ_inmu').val(json.Items[0].equ_inmu);
+                        $('#mtr_inmu').val(json.Items[0].mtr_inmu);
+                        $('#mtr_cons').val(json.Items[0].mtr_cons);
+                        $('#hab_inmu').val(json.Items[0].hab_inmu);
+                        $('#ban_inmu').val(json.Items[0].ban_inmu);
+                        $('#est_inmu').val(json.Items[0].est_inmu);
+                        $('#ser_inmu').val(json.Items[0].ser_inmu);
+                        $('#est_inmu').val(json.Items[0].est_inmu);
 
 
-                     /*   id_inmu 
-                     
-                        ,cod_inmu 
-                        ,tieneunidades
-                        ,unidades 
-                        ,tip_inmu 
-                        ,act_inmu 
-                        ,ant_inmu 
-                        ,cod_esta 
-                        ,cod_muni 
-                        ,cod_parr 
-                        ,dir_inmu 
-                        ,pun_inmu 
-                        ,equ_inmu 
-                        ,mtr_inmu 
-                        ,mtr_cons 
-                        ,hab_inmu 
-                        ,ban_inmu 
-                        ,est_inmu 
-                        ,ser_inmu 
-                        ,sta_inmu 
-                        ,lim_nort 
-                        ,lim_sur  
-                        ,lim_este 
-                        ,lim_oest 
-                        ,nom_regi 
-                        ,fec_regi 
-                        ,tom_regi 
-                        ,fol_regi 
-                        ,asi_regi 
-                        ,fic_cata 
-                        ,num_regi */
-
-                       
-
-                      
+                        $('#lim_nort').val(json.Items[0].lim_nort);
+                        $('#lim_sur').val(json.Items[0].lim_sur);
+                        $('#lim_este').val(json.Items[0].lim_este);
+                        $('#lim_oest').val(json.Items[0].lim_oest);
 
 
+
+                        $('#num_regi').val(json.Items[0].num_regi);
+                        $('#nom_regi').val(json.Items[0].nom_regi);
+                        $('#fec_regi').val(json.Items[0].fec_regi);
+                        $('#tom_regi').val(json.Items[0].tom_regi);
+                        $('#fol_regi').val(json.Items[0].fol_regi);
+
+                        $('#asi_regi').val(json.Items[0].asi_regi);
+                        $('#fic_cata').val(json.Items[0].fic_cata); 
+                        
+
+                        $("select[name='cbobeneficiarios']").val(json.Items[0].posee_beneficiario).change();
+
+      
 
                     }
 
@@ -269,7 +247,10 @@ function guardarInmueble(){
    evt.preventDefault();
    /**********************************************/        
 
- 
+   if ($("#cbobeneficiarios").val() == "") {
+    mensaje("Debe indicar si el inmueble posee beneficiarios",1);
+    return;
+}
 if ($("#cboinmueble").val() == "") {
     mensaje("Debe indicar el tipo de inmueble",1);
     return;
@@ -482,13 +463,7 @@ function mensaje(mensaje, condicion){
 
 }
 
-
-
-
-
-
-
-    
+ 
 
 
 function validateEmail(email) {
@@ -498,3 +473,13 @@ function validateEmail(email) {
 
 
 }
+
+
+$(document).ready(function() {
+
+
+    inicio();
+
+
+
+});

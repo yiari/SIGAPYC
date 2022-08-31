@@ -142,7 +142,7 @@ if (isset($_POST["chkunidades"])){
                      "gasto_administrativo" => $_POST["gasto_admi"],
                      "gastos_papeleria" => $_POST["gasto_papel"],
                      "tieneunidades" => 1,
-                     "cantunidades" => $_POST["unidades"],
+                     "unidades" => $_POST["unidades"],
                      "posee_beneficiario" => $_POST["cbobeneficiarios"]
                   
                   );
@@ -185,6 +185,7 @@ if (isset($_POST["chkunidades"])){
                     "asi_regi"   => $_POST["asi_regi"],
                     "fic_cata"   => $_POST["fic_cata"],
                     "num_regi"   => $_POST["num_regi"],
+                    "letra"   => $_POST["registroletra"],
                     "tipo_persona"   => $_POST["tipo_persona"],
 
                      /*
@@ -319,3 +320,48 @@ if($operacion == "BI"){
      return $result;
      
 }
+
+
+
+/* 
+ |--------------------------------------------------------------
+ | AQUI SE EJECUTA LA OPERACION DE CONSULTAR DEL Beneficiario
+ |--------------------------------------------------------------
+*/
+
+if($operacion == "CI"){
+
+
+
+   $datos = array( 
+      "id_inmu" => $_POST["idInmueble"],
+      "cod_inmu" => $_POST["codigoInmueble"],
+     
+   );
+
+   /*
+    |-------------------------------------------
+    | AQUI CREO UNA INSTANCIA DE LA CLASE
+    |-------------------------------------------
+    */
+    
+    $registroInmueble =  new ctrregistroinmueble();
+
+   /* 
+   |---------------------------------------------
+   | AQUI OBTENGO EL RESULTADO DE LA EJECUCION
+   |---------------------------------------------
+   */
+     $result = $registroInmueble->consultainmueble($datos);
+    
+    /*
+    |-------------------------------------------
+    | AQUI REGRESO EL RESULTADO AL AJAX
+    |-------------------------------------------
+    */
+    header('Content-Type: application/json');
+     return $result;
+     
+}
+
+

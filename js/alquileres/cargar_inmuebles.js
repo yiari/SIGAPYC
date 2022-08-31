@@ -147,7 +147,7 @@ function cargarInmueble(idPropietario,idInmueble,prmTipo,prmCodInmu){
 
                                     html += '<a title="Bitacora" data-field-id="' + json.Items[0][i].id + '"><i class="fa fa-book"></i></a>&nbsp;';
 
-                                    html += '<a title="Editar" data-field-id="' + json.Items[0][i].id  + '"><i class="fa fa-edit" alt=“editar”></i></a>&nbsp;';
+                                    html += '<a title="Editar" href="index.php?url=app/vistas/alquileres/editar_inmueble&idinmu=' + json.Items[0][i].id_inmu   + '&codinmu=' + json.Items[0][i].codigo  +  '"><i class="fa fa-edit" alt=“editar”></i></a>&nbsp;';
 
 
                                     if(json.Items[0][i].tieneunidades > 0){

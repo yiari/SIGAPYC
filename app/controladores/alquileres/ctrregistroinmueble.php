@@ -41,13 +41,23 @@ class ctrregistroinmueble{
 
     /*tabla para visializar los inquiilonos registrados*/
 
-     public function seleccionarregistros($datos){
+     public function consultainmueble($datos){
+
+        $tabla = "inmuebles";
+        $modelo =  new mdlregistroinmueble();
+        $respuestas =  $modelo->consultainmueble($tabla,$datos);
+        return $respuestas;
+    }
+
+
+    public function seleccionarregistros($datos){
 
         $tabla = "inmuebles";
         $modelo =  new mdlregistroinmueble();
         $respuestas =  $modelo->seleccionarregistros($tabla,$datos);
         return $respuestas;
     }
+
 
 
     /*tabla para visializar los inquiilonos registrados*/

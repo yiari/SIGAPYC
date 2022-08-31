@@ -43,7 +43,7 @@ public function registrar($tabla,$datos,$archivos){
           | AQUI PREPARO LO QUE SERA LA LLAMADA AL PROCEDIMIENTO QUE REALIZARA LA OPERACION
           |----------------------------------------------------------------------------------
           */
-          $stmt = $dbConexion->conectar()->prepare("CALL usp_registroinmueble(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+          $stmt = $dbConexion->conectar()->prepare("CALL usp_registroinmueble(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
           $stmt -> bindParam(1, $datos["id_inmu"],PDO::PARAM_INT); //id del imnumeble
           $stmt -> bindParam(2, $datos["id_prop"],PDO::PARAM_INT); //id propietraio
           $stmt -> bindParam(3, $datos["tipo_propietario"],PDO::PARAM_INT); //tipo propietraio
@@ -74,14 +74,15 @@ public function registrar($tabla,$datos,$archivos){
           $stmt -> bindParam(28,$datos["asi_regi"],PDO::PARAM_STR); // asiento del registro
           $stmt -> bindParam(29,$datos["fic_cata"],PDO::PARAM_STR); // Numero del ficha castratal
           $stmt -> bindParam(30,$datos["num_regi"],PDO::PARAM_STR); // Numero del codigo del registro
-          $stmt -> bindParam(31,$datos["tipo_persona"],PDO::PARAM_INT); // Numero del  Ficha Catastral
-          $stmt -> bindParam(32,$datos["id_gastos"],PDO::PARAM_INT); // id gastos fijos
-          $stmt -> bindParam(33,$datos["gasto_administrativo"],PDO::PARAM_INT); // gastos fijos administrativo
-          $stmt -> bindParam(34,$datos["gastos_papeleria"],PDO::PARAM_INT); // gastos fijos papeleria
+          $stmt -> bindParam(31,$datos["letra"],PDO::PARAM_STR); // Numero del letra
+          $stmt -> bindParam(32,$datos["tipo_persona"],PDO::PARAM_INT); // Numero del  Ficha Catastral
+          $stmt -> bindParam(33,$datos["id_gastos"],PDO::PARAM_INT); // id gastos fijos
+          $stmt -> bindParam(34,$datos["gasto_administrativo"],PDO::PARAM_INT); // gastos fijos administrativo
+          $stmt -> bindParam(35,$datos["gastos_papeleria"],PDO::PARAM_INT); // gastos fijos papeleria
 
-          $stmt -> bindParam(35,$datos["tieneunidades"],PDO::PARAM_INT); // Indicador si el inmueble tiene unidades o no
-          $stmt -> bindParam(36,$datos["cantunidades"],PDO::PARAM_INT); // Cantidad de unidades del inmueble en caso de tenerla
-          $stmt -> bindParam(37,$datos["posee_beneficiario"],PDO::PARAM_INT); // Cantidad de unidades del inmueble en caso de tenerla
+          $stmt -> bindParam(36,$datos["tieneunidades"],PDO::PARAM_INT); // Indicador si el inmueble tiene unidades o no
+          $stmt -> bindParam(37,$datos["cantunidades"],PDO::PARAM_INT); // Cantidad de unidades del inmueble en caso de tenerla
+          $stmt -> bindParam(38,$datos["posee_beneficiario"],PDO::PARAM_INT); // Cantidad de unidades del inmueble en caso de tenerla
 
           //$stmt -> bindParam(19,$datos["sta_inmu"],PDO::PARAM_INT); // estado del inmueble 1-Disponible 0-desactivado 2-Alquilado 
        
@@ -407,6 +408,59 @@ public function registrar($tabla,$datos,$archivos){
 
 
 
+}
+
+
+public function consultainmueble($tabla,$items){
+
+  If($items == null){
+
+
+                $dataRes = array(
+                  'error' => '1',
+                  'mensaje' =>  "Mensaje de Error: No hay registro para buscar."
+                );
+          
+
+  }else{
+
+
+    try {
+
+      $dbConexion = new conexcion();
+      
+      $stmt = $dbConexion->conectar()->prepare("CALL usp_cargar_editar_inmueble(?)");
+      $stmt -> bindParam(1,$items["id_inmu"], PDO::PARAM_INT);
+     
+
+      $stmt->execute();
+      $dataRegistro["Items"][] = $stmt->fetch();
+
+      $dataRes = array(
+        'error' => '0',
+        'mensaje' =>  'El registro se obtuvo.'
+      );
+      
+      
+      echo json_encode(array_merge($dataRegistro,$dataRes));
+
+      } catch (\Throwable $th) {
+      
+          //$pdo->rollBack() ;
+          //echo "Mensaje de Error: " . $th->getMessage();
+          $dataRes = array(
+            'error' => '1',
+            'mensaje' =>  "Mensaje de Error: " . $th->getMessage()
+          );
+    
+          echo json_encode($dataRes);
+  
+      }
+
+
+
+
+  }
 }
 
 
