@@ -48,7 +48,7 @@ include("layout/menuNavegacion.php");
                                         </div>
                                         <div class="row">
 
-                                            <div class="col-md-3">
+                                            <div class="col-md-6">
                                                 <label class="col-sm-12 col-form-label">Códigos Propietario:</label>
                                                 <div class="col-sm-12">
                                                     <input type="text" class="form-control" id="registroCodigo" name="registroCodigo" autofocus readonly="yes" value=''>
@@ -220,40 +220,27 @@ include("layout/menuNavegacion.php");
                                 <div class="card mb-4">
                                     <div class="card-header">
                                         <i class='fas fa-house-user'></i>&nbsp;
-                                        INMUEBLES
+                                        INMUEBLES SIN UNIDADES
                                     </div>
 
                                     <div class="card-body">
 
                                     <div class="table-responsive">
-                                        <table class="table table-bordered">
+                                        <table id="datosInmuebles">
                                         <thead>
                                             <tr>
-                                                <th>Código</th>
-                                                <th>Tipo</th>
+                                                <th>Foto</th>
+                                                <th>inmueble</th>
+                                                <th>inquilino</th>
                                                 <th>Canon</th>
+                                                <th>Estatus</th>
                                                 <th>Gastos Fijos</th>
                                                 <th>Gastos Especiales</th>
-                                                <th>Estatus</th>
+                                                
                                             </tr>
                                         </thead>
                                         <tbody>
-                                                <tr>
-                                                    <td>22-0723-00 DORAL MEXICO</td>
-                                                    <td>Apartamento</td>
-                                                    <td>$320</td>
-                                                    <td>$20</td>
-                                                    <td>Posee</td>
-                                                    <td>Activo</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>12-0001-00 TORRE CANAIMA</td>
-                                                    <td>MEZZANINA NRO.2</td>
-                                                    <td>$120</td>
-                                                    <td>$30</td>
-                                                    <td>No posee</td>
-                                                    <td>Finiquitado</td>
-                                                </tr>
+                                                
                                         </tbody>
                                         </table>
                                     </div>

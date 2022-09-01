@@ -334,6 +334,52 @@ public function registrar($tabla,$datos,$archivos){
 
 
 
+  public function consultainmueblesinunidades($tabla,$datos){
+
+
+
+    try {
+
+      $dbConexion = new conexcion();
+      $valor = 0;
+      
+      $stmt = $dbConexion->conectar()->prepare("CALL usp_cosultar_inmueblesin(?,?)" );
+      $stmt ->bindParam(1, $datos["id_prop"], PDO::PARAM_INT);
+      $stmt ->bindParam(2, $datos["tipo_propietario"], PDO::PARAM_INT);
+
+      $stmt->execute();
+      $dataRegistro["Items"][] = $stmt->fetchAll();
+
+      $dataRes = array(
+        'error' => '0',
+        'mensaje' =>  'El registro se obtuvo con exito.'
+      );
+      
+      
+      echo json_encode(array_merge($dataRegistro,$dataRes));
+
+      } catch (\Throwable $th) {
+      
+          //$pdo->rollBack() ;
+          //echo "Mensaje de Error: " . $th->getMessage();
+          $dataRes = array(
+            'error' => '1',
+            'mensaje' =>  "Mensaje de Error: " . $th->getMessage()
+          );
+    
+          echo json_encode($dataRes);
+  
+      }
+
+
+
+
+
+}
+
+
+
+
   public function seleccionarBeneficiario($tabla,$prmid_prop,$prmTipoProp){
 
     If($prmid_prop == null || $prmTipoProp == 0){

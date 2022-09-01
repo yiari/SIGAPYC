@@ -50,6 +50,15 @@ class ctrregistroinmueble{
     }
 
 
+    public function consultainmueblesinunidades($datos){
+
+        $tabla = "inmuebles";
+        $modelo =  new mdlregistroinmueble();
+        $respuestas =  $modelo->consultainmueblesinunidades($tabla,$datos);
+        return $respuestas;
+    }
+
+
     public function seleccionarregistros($datos){
 
         $tabla = "inmuebles";

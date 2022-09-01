@@ -67,7 +67,7 @@ function syncDelay(milliseconds){
   if(valor == "1"){
     resultado = "Enviado";
   } else if (valor == "2"){
-    resultado = "En Proceso";
+    resultado = "Pendiente";
   }
 
   return resultado;

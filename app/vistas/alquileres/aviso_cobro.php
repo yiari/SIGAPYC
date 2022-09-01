@@ -30,7 +30,7 @@ include("layout/menuNavegacion.php");
                    
                     <button type="button" class="btn btn-outline-secondary" onclick="buscarEstatus(0);">Todos</button>
                     <button type="button" class="btn btn-outline-primary" onclick="buscarEstatus(1);">Enviados</button>
-                    <button type="button" class="btn btn-outline-success" onclick="buscarEstatus(2);">En Proceso</button>
+                    <button type="button" class="btn btn-outline-success" onclick="buscarEstatus(2);">Pendiente</button>
 
                 </ol>
             </div>

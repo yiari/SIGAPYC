@@ -14,48 +14,15 @@ function inicio(){
     let prmCodInmu = getParameterByName('codinmu');
      /*--------------------------------------*/    
  
-    codigoPropietario(prmCodPro);
-    
-    nuevoInmueble(idPropietario,prmCodPro,prmTipo);
-
+   
     cargarInmueble(idPropietario,idInmueble,prmTipo,prmCodInmu);
 
 
 
 }
 
-function codigoPropietario(prmDato){
-
-    var html = "";
-
-    
-    if(prmDato != 0 && prmDato != ""){
-        html='<strong>PROPIETARIO : </strong>'  + prmDato +'</span>';
-    }
-    
-
-    $("#lblPropietario").html('');
-    $("#lblPropietario").html(html);
 
 
-
-}
-
-function nuevoInmueble(prmIdPro, prmCodPro, prmTipo){
-
-    //if (isEmpty(prmDato) == false ){
-
-
-        var html = "";
-
-        if(prmIdPro != 0 && prmIdPro != ""){
-            html='index.php?url=app/vistas/alquileres/ingresar_inmueble&idpro=' + prmIdPro  + '&codpro=' + prmCodPro + '&codtip=' + prmTipo;
-            $(".codpro").prop("href", html);
-        }
-
-    //}
-
-}
 
 function cargarInmueble(idPropietario,idInmueble,prmTipo,prmCodInmu){
 
@@ -66,7 +33,7 @@ function cargarInmueble(idPropietario,idInmueble,prmTipo,prmCodInmu){
     */
     var formData = new FormData();
 
-    formData.append('opcion','C');
+    formData.append('opcion','CB');
     formData.append('id_prop',idPropietario);
     formData.append('tipo_propietario',prmTipo);
     formData.append('id_inmu',idInmueble);
@@ -144,31 +111,7 @@ function cargarInmueble(idPropietario,idInmueble,prmTipo,prmCodInmu){
                                     tr.append("<td>" + statusinmuebles(json.Items[0][i].estatus) + "</td>");
                                     
                                     var html="";
-                                    html = '<div class="btn-group" style="font-size:1.3em; letter-spacing:0.2em;">';
-
-                                    html += '<a title="Bitacora" data-field-id="' + json.Items[0][i].id + '"><i class="fa fa-book"></i></a>&nbsp;';
-
-                                    html += '<a title="Editar" href="index.php?url=app/vistas/alquileres/editar_inmueble&idinmu=' + json.Items[0][i].id_inmu   + '&codinmu=' + json.Items[0][i].codigo  +  '"><i class="fa fa-edit" alt=“editar”></i></a>&nbsp;';
-
-
-                                    if(json.Items[0][i].tieneunidades > 0){
-                                        html += '<a title="Unidades_inmueble"  href="index.php?url=app/vistas/alquileres/unidades&idinmu=' + json.Items[0][i].id_inmu   + '&codinmu=' + json.Items[0][i].codigo  +'"><i class="fa fa-home"></i></a>&nbsp;';
-                                    } else {
-                                        html += '<a href="javascript:void" class="link_apagado"><i class="fa fa-home"></i></a>&nbsp;';
-                                    }
-
-                                    if(json.Items[0][i].posee_beneficiario == 2 || json.Items[0][i].posee_beneficiario == 0 ){
-                                        html += '<a href="javascript:void" class="link_apagado"><i class="fa fa-users"></i></a>&nbsp;';
-                                    } else if (json.Items[0][i].posee_beneficiario == 1)  {
-                                        html += '<a title="Beneficiario"  href="index.php?url=app/vistas/alquileres/inmueble_beneficiario&idpro=' + json.Items[0][i].id_prop  + '&codpro=' + json.Items[0][i].propietario + '&codtip=' + json.Items[0][i].tipo_propietario + '&idinmu=' + json.Items[0][i].id_inmu  + '&codinmu=' + json.Items[0][i].codigo  + '"><i class="fa fa-users"></i></a>&nbsp;';
-                                    }
-                                    
-                                   
-                                    /*html += '<a title="inquilino"  href="index.php?url=app/vistas/alquileres/asignar_inquilino&idpro=' + json.Items[0][i].id_prop  + '&codpro=' + json.Items[0][i].propietario  + '"><i class="fa fa-user-circle-o"></i></a>&nbsp;';*/
-                                    
-                                    html += '<a title="Mandato y Contratos"  href="index.php?url=app/vistas/alquileres/contratos_mandatos&idinmu=' + json.Items[0][i].id_inmu   + '&codinmu=' + json.Items[0][i].codigo  + '"><i class="fa fa-file-text-o"></i></a>&nbsp;';
-                                   
-                                    html += '<a title="Eliminar"  data-field-id="'  + json.Items[0][i].id + '"><i class="fa fa-trash" alt=“eliminar”></i></a>';
+     
                                     html += '</div>'
                                     tr.append("<td>" + html + "</td>");
                                     $('#datosInmuebles').append(tr);
