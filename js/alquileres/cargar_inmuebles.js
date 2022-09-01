@@ -88,8 +88,26 @@ function cargarInmueble(idPropietario,idInmueble,prmTipo,prmCodInmu){
             //$("#preview").fadeOut();
             $("#error").fadeOut();
         },
-        success: function (data) {
+        success: function (data,status,xhr) {
         var json = data;
+
+        /*
+        |-----------------------------------------------------------
+        | AQUI VERIFICO SI LA RESPUESTA ES JSON, SI NO ES JSON
+        | EL RESULTADO SE CONVIERTE A JSON
+        |-----------------------------------------------------------
+        */
+
+        var respuestaHeader = xhr.getResponseHeader("Content-Type");
+        var verificarHeader = respuestaHeader.search('text/html')
+
+        if(verificarHeader >= 0){
+            json = JSON.parse(json);
+        } 
+
+        /*---------------------------------------------------------*/
+
+
         var html = "";
 /*
         console.log(json);

@@ -310,7 +310,7 @@ public function registrar($tabla,$datos,$archivos){
                   'mensaje' =>  'El registro se obtuvo con exito.'
                 );
                 
-                
+
                 echo json_encode(array_merge($dataRegistro,$dataRes));
 
                 } catch (\Throwable $th) {
@@ -515,3 +515,4 @@ public function consultainmueble($tabla,$items){
 
 
 }
+
