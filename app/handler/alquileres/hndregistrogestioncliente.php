@@ -137,7 +137,7 @@ if($operacion == "I"){
                | AQUI OBTENGO EL RESULTADO DE LA EJECUCION
                |---------------------------------------------
                */
-               $result = $registroApoderado->registrar($datos,$AchivosCargados);
+               $result = $registrorespuestas->registrar($datos,$AchivosCargados);
                
                /*
                |-------------------------------------------
@@ -150,44 +150,6 @@ if($operacion == "I"){
             }
 
 
-/* 
- |--------------------------------------------------------------
- | AQUI SE EJECUTA LA OPERACION DE CONSULTAR TODOS LOS USUARIOS
- |--------------------------------------------------------------
-*/
-
-if($operacion == "C"){
-
-
-     $prmid_prop = $_POST["id_prop"];
-
-    /*
-     |-------------------------------------------
-     | AQUI CREO UNA INSTANCIA DE LA CLASE
-     |-------------------------------------------
-     */
-     
-     $registroApoderado =  new ctrregistroapoderado();
- 
-    /* 
-    |---------------------------------------------
-    | AQUI OBTENGO EL RESULTADO DE LA EJECUCION
-    |---------------------------------------------
-    */
-      $result = $registroApoderado->seleccionarregistros($prmid_prop);
-     
-     /*
-     |-------------------------------------------
-     | AQUI REGRESO EL RESULTADO AL AJAX
-     |-------------------------------------------
-     */
-    if (!headers_sent()) {
-      //AGREGAR CABECERA SI NO LA TIENE
-      header('Content-Type: application/json');
-} 
-      return $result;
-      
- }
 
 
  

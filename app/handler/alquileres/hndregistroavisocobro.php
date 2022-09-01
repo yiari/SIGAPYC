@@ -166,6 +166,75 @@ if($operacion == "GC"){
 }
 
 
+/* 
+ |-------------------------------------------
+ | AQUI SE EJECUTA LA OPERACION DE INSERTAR
+ |-------------------------------------------
+*/
+
+if($operacion == "I"){
+
+   /*
+    |-------------------------------------------
+    | AQUI CREO UNA INSTANCIA DE LA CLASE
+    |-------------------------------------------
+    */
+    
+    $registroaviso =  new ctrregistroavisocobro ();
+
+   /*
+   |---------------------------------------------
+   | AQUI CARGO LOS DATOS PARA ALMACENAR
+   |---------------------------------------------
+   */
+    $datos = array( "id_respuesta"  => $_POST["hidrespuesta"],
+                    "id_aviso"  => $_POST["id_aviso"],
+                    "respuesta" => $_POST["registrorespuesta"],);
+
+
+
+
+      //echo json_encode($datos);
+     //die;
+
+
+         /*
+         |-------------------------------------------------------------------------------------------------------------
+         | AQUI PASO LA RUTA DE LOS DOCUMENTOS
+         |-------------------------------------------------------------------------------------------------------------
+         |
+         | CUANDO SE PASAN DOCUMENTOS O ARCHIVOS, SIEMPRE SE DEBEN CAPTURAR DOS DATOS, POR CADA CAMPO ARCHIVO
+         |
+         | EJEMPLO: SI EL CAMPO SE LLAMA [cedu_docu] entonces se deben capturar los dos datos
+         |  $_FILES['cedu_docu']['name']; -> Este es el nombre real del archivo
+         |  $_FILES['cedu_docu']['tmp_name']; -> Este es un nombre temporal que se crea cuando se carga el archivo
+         |-------------------------------------------------------------------------------------------------------------
+         */
+                     
+                  $capturarArchivos =  new ctrcapturararchivos();
+
+                  $AchivosCargados = $capturarArchivos->GetPostedFiles();
+
+                  // echo $resultado;
+
+
+               /* 
+               |---------------------------------------------
+               | AQUI OBTENGO EL RESULTADO DE LA EJECUCION
+               |---------------------------------------------
+               */
+               $result = $registroaviso->registrar($datos,$AchivosCargados);
+               
+               /*
+               |-------------------------------------------
+               | AQUI REGRESO EL RESULTADO AL AJAX
+               |-------------------------------------------
+               */
+               header('Content-Type: application/json');
+               return $result;
+               
+            }
+
 
 
 

@@ -39,24 +39,7 @@ class ctrregistrogestioncliente{
 
     }
 
-    /*tabla para visializar los apoderados registrados*/
-
-     public function seleccionarregistros($id_prop){
-
-        $tabla = "apoderado";
-        $modelo =  new mdlregistroapoderado();
-        $respuestas =  $modelo->seleccionarregistros($tabla,$id_prop);
-        return $respuestas;
-    }
-
-
-    public function consultarApoderado($datos){
-
-        $tabla = "propietarios";
-        $modelo =  new mdlregistroapoderado();
-        $respuestas =  $modelo->consultarApoderado($tabla,$datos);
-        return $respuestas;
-    }
+   
 
 
      

@@ -24,9 +24,9 @@ include("layout/menuNavegacion.php");
            <h4 class="card-title">Gestion del Cliente</h4><br>
            
 
-            <form class="form-sample" id="" name="" method="POST" action="" autocomplete="off" >
+           
 
-                            <input type="hidden" id="id_usuario" name="id_usuario" value='1'>
+                            
                             <input type="hidden" id="hidinquilino" name="hidinquilino" value=''>
 
                  <!--Datos del propietario-->
@@ -77,7 +77,7 @@ include("layout/menuNavegacion.php");
                         </div>
                     </div>
                 </div>
-                <form>
+             
                 </div><br>
 
                     <nav>
@@ -104,7 +104,7 @@ include("layout/menuNavegacion.php");
                                         <div class="card-body">
                                             <div class="input-group">
                                                 <span class="input-group-text">Estatus Gestion</span>
-                                                    <textarea class="form-control" aria-label="With textarea"></textarea>
+                                                    <textarea  id="registrorespuesta" name="registrorespuesta" class="form-control" aria-label="With textarea"></textarea>
                                             </div>
                                             <div class="container">
                                                 <div class="col-12 btn btn-align-center">
@@ -261,7 +261,6 @@ include_once "app/vistas/comunes/modaleliminar.php";
 
 ?>
 
-<script src="js/comunes/combos.js"></script>
 <script src="js/comunes/funciones.js"></script>
 <script src="js/alquileres/ingresar_gestioncliente.js"></script>
 

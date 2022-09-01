@@ -6,14 +6,16 @@ function inicio(){
        | ASI SE CAPTURAN LOS PARAMETROS
        |---------------------------------------
        */
-     
+       $('#id_aviso').val(getParameterByName('idaviso'));
    
-       let idaviso = getParameterByName('id');
+      
        let prmCodaviso = getParameterByName('codaviso');
        let idinquilino = getParameterByName('idInqu');
-       let codigoInquilino = getParameterByName('codInqu');
+       //let codigoInquilino = getParameterByName('codInqu');
        let tipoInquilino = getParameterByName('tipoInqu');
    
+
+      
        consultarGestionCliente(idinquilino,tipoInquilino);
     
     //let idAviso = getParameterByName('id');
@@ -21,9 +23,7 @@ function inicio(){
     /*--------------------------------------*/    
 
     codigoAvisoCobro(prmCodaviso);
-    cargarBancos('cboBancoN');
-    cargarBancos('cboBancop');
-
+    guardarRespuestas();
 
 }
 
@@ -37,9 +37,6 @@ function codigoAvisoCobro(prmDato){
     $("#lblAvisoCobro").html(html);
 
 }
-
-
-
 
 
 
@@ -146,7 +143,100 @@ function consultarGestionCliente(idInqu,tipoInqu){
 
 
 
+    function guardarRespuestas(){
 
+        $("#registrarespuestas").on('submit', function(evt) {
+       /*
+       |-----------------------------------------------
+       | AQUI SE PREVIENE QUE EL FORMULARIO CONTINUE 
+       |-----------------------------------------------
+       */
+       evt.preventDefault();
+       /**********************************************/        
+    
+      
+    
+       if ($("#registrorespuesta").val() == "") {
+           mensaje("Debe indicar la respuesta del cliente",1);
+           return;
+       }
+    
+     
+    
+       
+       /*
+            |-----------------------------------------------
+            | LIMPIA EL CAMPO MENSAJE 
+            |-----------------------------------------------
+            */
+            $("#error").html("Ejecutando...");
+            /*
+            |-----------------------------------------------
+            | AQUI SE CAPTURA LOS DATOS DEL FORMULARIO 
+            |-----------------------------------------------
+            */
+            var formData = new FormData(this);
+            /*
+            |-----------------------------------------------------
+            | AQUI SE AGREGA UN PARAMETRO ADICIONAL AL FORMULARIO 
+            |-----------------------------------------------------
+            */
+            formData.append('opcion','I');
+            /*
+            |-----------------------------------------------
+            | AQUI SE LLAMA EL AJAX 
+            |-----------------------------------------------
+            */
+            $.ajax({
+                url: "app/handler/alquileres/hndregistroavisocobro.php",
+                type: "POST",
+                data: formData, //new FormData(this),
+                contentType: false,
+                dataType: "json",
+                cache: false,
+                processData: false,
+                beforeSend: function () {
+                    //$("#preview").fadeOut();
+                    $("#error").fadeOut();
+                },
+                success: function (data) {
+                var json = data;
+                var html = "";
+    
+                    //console.log("Mensaje del JSON: " + json.mensaje);
+    
+                    if(json.error == 0){
+                        
+                        mensaje(json.mensaje,0);
+    
+                        //$("#mensaje").html(html).fadeIn();
+                        //limpiarCampos();
+                        limpiarFormulario(1);
+                        //botones(0);
+    
+                    }else {
+    
+                        mensaje(json.mensaje,1);
+    
+                        //$("#mensaje").html(html).fadeIn();
+                    }
+    
+    
+    
+                },
+                error: function (e) {
+                    //$("#error").html(e).fadeIn();
+                    mensaje(e,1);
+                    
+                }
+            });
+    
+    
+    
+        });
+    
+    }
+    
 
 
 

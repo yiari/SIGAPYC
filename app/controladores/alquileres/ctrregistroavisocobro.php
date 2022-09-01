@@ -27,17 +27,18 @@ class ctrregistroavisocobro{
         */ 
     }
 
-     public function registrar($datos,$archivos){
+    public function registrar($datos,$archivos){
 
-            $tabla = "propietarios";
-            $modelo = new mdlregispropietarios();
+        $tabla = "gestion_respuesta";
+        $modelo = new mdlregistroavisocobro();
 
-            $modelo =  new mdlregispropietarios();
-            $respuesta = $modelo->registrar($tabla,$datos,$archivos);
+        $modelo =  new mdlregistroavisocobro();
+        $respuesta = $modelo->registrar($tabla,$datos,$archivos);
 
-            return $respuesta;
+        return $respuesta;
 
-    }
+}
+
 
 
     public function consultarinquilino($datos){
