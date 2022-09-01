@@ -93,7 +93,12 @@ include("layout/menuNavegacion.php");
 
                         <div class="tab-pane fade show active" id="nav-bene_natural" role="tabpanel" aria-labelledby="nav-bene_natural-tab">
                             <div class="col-12 grid-margin">
-                                <form class="form-sample" id="" name="" method="POST" action="" autocomplete="off" >
+                                <form class="form-sample" id="registrorespuesta" name="registrorespuesta" method="POST" action="" autocomplete="off" >
+
+                                             <input type="hidden" id="id_usuario" name="id_usuario" value='1'>
+                                             <input type="hidden"  id="hidrespuesta" name="hidrespuesta" value='' >
+                                             <input type="hidden" id="id_aviso" name="id_aviso" value="0">
+
                                     <!--bene_natural-->
                                     <div class="card">
                                         <div class="card-body">

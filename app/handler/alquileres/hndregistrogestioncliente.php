@@ -6,7 +6,7 @@
 | INCLUYO LA CLASE CORRESPONDIENTE
 |----------------------------------------
 */
-include_once '../../../app/controladores/alquileres/ctrregistroapoderados.php';
+include_once '../../../app/controladores/alquileres/ctrregistrogestioncliente.php';
 include_once '../../../app/controladores/comunes/ctrcapturararchivos.php';
 
 
@@ -18,7 +18,7 @@ include_once '../../../app/controladores/comunes/ctrcapturararchivos.php';
 |-------------------------------------------------
 */
 
-if (class_exists('ctrregistroapoderado')) 
+if (class_exists('ctrregistrogestioncliente')) 
 {
    //$o_miClase = new ctrregistrousuarios();
 }
@@ -94,79 +94,16 @@ if($operacion == "I"){
     |-------------------------------------------
     */
     
-    $registroApoderado =  new ctrregistroapoderado();
+    $registrorespuestas =  new ctrregistrogestioncliente();
 
    /*
    |---------------------------------------------
    | AQUI CARGO LOS DATOS PARA ALMACENAR
    |---------------------------------------------
    */
-    $datos = array( "id_apod"  => $_POST["hidapoderado"],
-                    "id_prop"  => $_POST["id_prop"],
-                    "cod_apod" => $_POST["registroCodigo"],
-                    "nom_apod" => $_POST["registroNombre"],
-                    "ape_apod" => $_POST["registroApellido"],
-                    "nac_apod" => $_POST["registroNacionalidad"],
-                    "ci_apod"  => $_POST["registroCedula"],
-                    "rif_apod" => $_POST["registroRif"],
-                    "loc_apod" => $_POST["registroTelefono"],
-                    "cel_apod" => $_POST["registroCelular"],  
-                    "cor_apod" => $_POST["registroEmail"],
-                    "est_apod" => $_POST["cboEstados"],                 
-                    "mun_apod" => $_POST["cboMunicipios"],
-                    "par_apod" => $_POST["cboParroquia"],
-                    "dir_apod" => $_POST["registroDirecionH"],
-                    "ofi_apod" => $_POST["registroDirecionO"],
-                    "tip_apod" => $_POST["tipo_persona"],
-                    "cod_pode" => $_POST["cod_pode"],
-                    "not_pode" => $_POST["not_pode"],
-                    "fec_pode" => $_POST["fec_pode"],
-                    "num_pode" => $_POST["num_pode"],
-                    "tom_pode" => $_POST["tom_pode"],
-                    "fol_pode" => $_POST["fol_pode"]
-                   /*
-                   |------------------------------------------
-                   | AQUI VAN LOS DATOS DE LOS BANCOS NACIONALES
-                   |------------------------------------------
-                   */
-                  /*
-                   "cuenta_id_nacional" => $_POST["hidcuenta_id_nacional"],
-                  "cuenta_id_banco" => $_POST["cboBancoN"],
-                  "num_cuenta_nacional" => $_POST["num_cuen"],
-
-                  "pagomovil_cedula" => $_POST["ced_pmov"],
-                  "pagomovil_id_banco" => $_POST["cboBancoNP"],
-                  "pagomovil_telefono" => $_POST["cel_pmov"],*/
-                
-                  /*
-                   |------------------------------------------
-                   | AQUI VAN LOS DATOS DE LOS BANCOS INTERNACIONALES
-                   |------------------------------------------
-                  
-                  "cuenta_id_internacional" => $_POST["hidcuenta_id_internacional"],
-                  "ban_extr" => $_POST["ban_extr"],
-                  "age_extr" => $_POST["age_extr"],
-                  "dc_extr" => $_POST["dc_extr"],
-                  "cue_extr" => $_POST["cue_extr"],
-                  "iba_extr" => $_POST["iba_extr"],
-                  "bic_extr" => $_POST["bic_extr"], */
-               
-                 /* |------------------------------------------
-                  | AQUI VAN LOS DATOS DE PAYPAL
-                  |------------------------------------------
-                  
-                 "cuenta_id_paypal" => $_POST["hidcuenta_id_paypal"],
-                 "cor_payp" => $_POST["cor_payp"],
-                 "nom_payp" => $_POST["nom_payp"], */
-               /*
-                  |------------------------------------------
-                  | AQUI VAN LOS DATOS DE ZELLE
-                  |------------------------------------------
-                  
-                 "cuenta_id_zelle" => $_POST["hidcuenta_id_zelle"],
-                 "tel_zelle" => $_POST["tel_zelle"],
-                 "cor_zelle" => $_POST["cor_zelle"],
-                 "nom_zelle" => $_POST["nom_zelle"]*/ );
+    $datos = array( "id_respuesta"  => $_POST["hidrespuesta"],
+                    "id_aviso"  => $_POST["id_aviso"],
+                    "respuesta" => $_POST["registrorespuesta"],);
 
 
 
@@ -253,45 +190,4 @@ if($operacion == "C"){
  }
 
 
- /* 
- |--------------------------------------------------------------
- | AQUI SE EJECUTA LA OPERACION DE CONSULTAR DEL PROPIETARIO
- |--------------------------------------------------------------
-*/
-
-if($operacion == "CA"){
-
-
-
-   $datos = array( 
-      "id_apod" => $_POST["idApoderado"],
-      "cod_apod" => $_POST["codigoApoderado"],
-      //"tipo_prop" => $_POST["tipoPropietario"]
-   );
-
-
-
-   /*
-    |-------------------------------------------
-    | AQUI CREO UNA INSTANCIA DE LA CLASE
-    |-------------------------------------------
-    */
-    
-    $registroApoderado =  new ctrregistroapoderado();
-
-   /* 
-   |---------------------------------------------
-   | AQUI OBTENGO EL RESULTADO DE LA EJECUCION
-   |---------------------------------------------
-   */
-     $result = $registroApoderado->consultarApoderado($datos);
-    
-    /*
-    |-------------------------------------------
-    | AQUI REGRESO EL RESULTADO AL AJAX
-    |-------------------------------------------
-    */
-    header('Content-Type: application/json');
-     return $result;
-     
-}
+ 
