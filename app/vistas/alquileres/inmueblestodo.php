@@ -20,12 +20,13 @@
                 INMUEBLES
             </div>
             <div class="card-body">
-                <table id="datosInmuebles">
+                <table id="datosInmueblesTodo">
                     <thead>
                         <tr>
 
                             <th>Foto</th>    
                             <th>Codigo</th>
+                            <th>Propietario</th>
                             <th>Inquilino</th>
                             <th>Tipo</th>
                             <th>Estatus</th>
