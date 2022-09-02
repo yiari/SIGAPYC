@@ -16,15 +16,27 @@ include("layout/menuNavegacion.php");
 
 
                     <div style="text-align: left;">
-                    <span id="lblAvisoCobro"><strong>AVISO DE COBRO : </strong></span>
-                    <br/><br/>
-                </div>
+                        <span id="lblAvisoCobro"><strong>AVISO DE COBRO : </strong></span>
+                      <br/><br/>
+                   </div>
+                   <div style="text-align: left;">
+                        <span id="lblInquilino"><strong>INQUILINO : </strong></span>
+                      <br/><br/>
+                   </div>
+
+
+                   <div style="text-align: left;">
+                        <span id="lblMonto"><strong>MONTO : </strong></span>
+                      <br/><br/>
+                   </div>
+
+                  
 
               
            <h4 class="card-title">Gestion del Cliente</h4><br>
            
 
-           
+            <form class="form-sample" id="" name="" method="POST" action="" autocomplete="off" >
 
                             
                             <input type="hidden" id="hidinquilino" name="hidinquilino" value=''>
@@ -77,13 +89,16 @@ include("layout/menuNavegacion.php");
                         </div>
                     </div>
                 </div>
-             
+            </form>
+
+
                 </div><br>
 
                     <nav>
                         <div class="nav nav-tabs" id="nav-tab" role="tablist">
                             <button class="nav-link active" id="nav-bene_natural-tab" data-bs-toggle="tab" data-bs-target="#nav-bene_natural" type="button" role="tab" aria-controls="nav-bene_natural" aria-selected="true">Gestion de respuestas</button>
                             <button class="nav-link" id="nav-juridica_bene-tab" data-bs-toggle="tab" data-bs-target="#nav-juridica_bene" type="button" role="tab" aria-controls="nav-juridica_bene" aria-selected="false">Registro de Pagos</button>
+                            <button class="nav-link" id="nav-pago-abono-tab" data-bs-toggle="tab" data-bs-target="#nav-pago-abono" type="button" role="tab" aria-controls="nav-pago-abono" aria-selected="false">Abono de Pagos</button>
                         </div>
                     </nav>
               
@@ -93,7 +108,7 @@ include("layout/menuNavegacion.php");
 
                         <div class="tab-pane fade show active" id="nav-bene_natural" role="tabpanel" aria-labelledby="nav-bene_natural-tab">
                             <div class="col-12 grid-margin">
-                                <form class="form-sample" id="registrorespuesta" name="registrorespuesta" method="POST" action="" autocomplete="off" >
+                                <form class="form-sample" id="registrarespuestas" name="registrarespuestas" method="POST" action="" autocomplete="off" >
 
                                              <input type="hidden" id="id_usuario" name="id_usuario" value='1'>
                                              <input type="hidden"  id="hidrespuesta" name="hidrespuesta" value='' >
@@ -109,7 +124,7 @@ include("layout/menuNavegacion.php");
                                             <div class="container">
                                                 <div class="col-12 btn btn-align-center">
                                                 
-                                                    <button type="submit" class="btn btn-primary mb-2">Guardar</button>
+                                                     <button type="submit" class="btn btn-primary mb-2">Guardar</button>
                                             
                                                 </div>
                                             </div> 
@@ -127,23 +142,7 @@ include("layout/menuNavegacion.php");
                                     <div class="card-body">
                                         <form class="form-sample" id="" name="" method="POST" action="" autocomplete="off" >
                                                 <div class="row">
-
-                                                      <div class="col-sm-4">
-                                                            <select class="form-select" id="registroNacionalidad" name="registroNacionalidad">
-                                                                <option selected disabled value="">seleccione tipo pago</option>
-                                                                <option value="1">Abono</option>
-                                                                <option value="2">Total</option>
-                                                            </select>
-                                                        </div>
                                                         
-                                                        <div class="col-sm-4">
-                                                            <select class="form-select" id="registroNacionalidad" name="registroNacionalidad">
-                                                                <option selected disabled value="">seleccione un metodo de pago</option>
-                                                                <option value="1">Transferencia</option>
-                                                                <option value="2">Pago movil</option>
-                                                            </select>
-                                                        </div>
-
                                                         <div class="col-sm-4">
                                                             <select class="form-select" id="registroNacionalidad" name="registroNacionalidad">
                                                                 <option selected disabled value="">seleccione la moneda</option>
@@ -242,6 +241,137 @@ include("layout/menuNavegacion.php");
                                 </div>
                             </div>
                         </div>
+
+                        <div class="tab-pane fade" id="nav-pago-abono" role="tabpanel" aria-labelledby="nav-pago-abono-tab">
+                            <div class="col-12 grid-margin">
+
+                            <div class="card">
+                                    <div class="card-body">
+                                        <form class="form-sample" id="registrarabono" name="registrarabono" method="POST" action="" autocomplete="off" >
+                                       
+                                                 <input type="hidden" id="hidabono" name="hidabono" value="">
+                                                 <input type="hidden" id="id_inqu" name="id_inqu" value="">
+                                                 <input type="hidden" id="id_inmu" name="id_inmu" value="">
+                                                
+                                        
+                                        
+                                        
+                                                <div class="col text-center">
+                                                    <h5 class="card-title">Medodo de pago </h5>
+                                                </div>
+                                                <div class="row">
+                                                        <div class="col-sm-12">
+                                                            <label for="transferencia">Tranferencias</label>
+                                                                <div class="input-group mb-3">
+                                                                    <div class="input-group-prepend">
+                                                                        <div class="input-group-text">
+                                                                            <input type="checkbox" id="chktranferencia" name="chktranferencia"  onchange="checkAgregarTranferencia();">
+                                                                    </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-12">
+                                                            <div class="row">
+                                                    
+                                                                    <div class="col-md-4">
+                                                                        <div class="col-sm-12">
+                                                                            <select class="form-control"  id="cboBancoNP" name="cboBancoNP" disabled></select>
+                                                                        </div>
+                                                                </div>
+                                                                <div class="col-sm-4">
+                                                                        <input for="numero"  type="text" class="form-control" id="numero" name="numero" placeholder="No de referencia:" disabled>
+                                                                    </div>
+            
+                                                                    <div class="col-md-4">
+                                                                            <input  for="cuentabancaria" type="text" class="form-control" id="cuentabancaria" name="cuentabancaria" placeholder="Monto:" disabled>
+                                                                
+                                                                    </div>           
+                                                            </div>
+                                                        </div><br>
+                                                        
+                                                </div>
+                                                        
+                                                </div><br>
+
+                                                <div class="col-sm-12">
+                                                        <label for="pagomovil">Pago Movil</label>
+                                                            <div class="input-group mb-3">
+                                                                <div class="input-group-prepend">
+                                                                    <div class="input-group-text">
+                                                                        <input type="checkbox" id="chkpagomovil" name="chkpagomovil"  onchange="checkAgregarPagoMovil();">
+                                                                </div>
+                                                        </div>
+                                                 </div>
+
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="input-group">
+                        
+                                                            <select class="form-control"  id="cboBancoj" name="cboBancoj" disabled></select>
+                                                            <input type="text" placeholder="cedula" id="cedula" name="cedula" aria-label="Cédula" value='' class="form-control" disabled>
+                                                            <input type="text" placeholder="celular" id="celular" name="celular" aria-label="Celular" value='' class="form-control" disabled>
+                                                            <input type="text" placeholder="Monto" id="monto" name="monto" aria-label="monto" value='' class="form-control" disabled>
+                                                        </div><br>
+                                                    </div>  
+                                                </div>
+<!--
+                                                <div class="col text-center">
+                                                    <h5 class="card-title">Datos cuentas Internacionales</h5>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <label for="ban_extrj" class="col-sm-10 col-form-label">Banco Extranjero:</label>
+                                                        <div class="col-sm-12">
+                                                            <input type="text" class="form-control" id="ban_extrj" name="ban_extrj" >
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <label for="age_extrj" class="col-sm-12 col-form-label">Monto:</label>
+                                                        <div class="col-sm-12">
+                                                            <input type="text" class="form-control" id="age_extrj" name="age_extrj" >
+
+                                                        </div>
+                                                    </div>
+       
+                                                </div><br>
+
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="input-group">
+                                                            <span class="input-group-text">Cuenta Paypal:</span>
+                                                            <input type="text" class="form-control" placeholder="correo" id="cor_paypj" name="cor_paypj" >
+                                                             <input type="text" class="form-control" placeholder="monto" id="cor_paypj" name="cor_paypj" >
+                                                            
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-6">
+                                                        <div class="input-group">
+                                                            <span class="input-group-text">Cuenta Zelle</span>
+                                                            <input type="text" class="form-control" placeholder="telefono" id="tel_zellej" name="tel_zellej" >
+                                                            <input type="text" class="form-control" placeholder="correo" id="cor_zellej" name="cor_zellej" >
+                                                            <input type="text" class="form-control" placeholder="nombre" id="nom_zellej" name="nom_zellej" >
+                                                            <input type="text" class="form-control" placeholder="monto" id="nom_zellej" name="nom_zellej" >
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            
+                                      
+                                            </div>-->
+                                            <div class="container">
+                                                    <div class="col-12 btn btn-align-center">
+                                                    
+                                                        <button type="submit" class="btn btn-primary mb-2">Guardar</button>
+                                                
+                                                    </div>
+                                             </div> 
+                                        
+                                    <form>
+                                </div>
+                            </div>
+                        </div>
+                    
                     
                     </div>
           
@@ -261,6 +391,7 @@ include_once "app/vistas/comunes/modaleliminar.php";
 
 ?>
 
+<script src="js/comunes/combos.js"></script>
 <script src="js/comunes/funciones.js"></script>
 <script src="js/alquileres/ingresar_gestioncliente.js"></script>
 

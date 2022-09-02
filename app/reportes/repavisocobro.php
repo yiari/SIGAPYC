@@ -27,6 +27,35 @@ $pdf->useTemplate($tplId, null, null, $templateSize['width'], $templateSize['hei
 
 
 /*
+|------------------------------------------------
+| AQUI CONSULTO LOS PARAMETROS QUE DEBO RECIBIR
+|------------------------------------------------
+*/
+//idpro=13&codpro=P-01-0036-ALEJADRA%20 PERAZA &codtip=1
+
+$idinqu_temp = 0;
+$codinqu_temp = "";
+//$codtip_temp = 0;
+
+
+if(isset($_GET["idpro"])) {
+  
+    $idpro_temp = $_GET["idpro"];
+}
+
+
+if(isset($_GET["codpro"])) {
+  
+    $codpro_temp = $_GET["codpro"];
+}
+
+
+if(isset($_GET["codtip"])) {
+  
+    $codtip_temp = $_GET["codtip"];
+}
+
+/*
         |---------------------------------------------
         | CONFIGURACIONES DOCUMENTO
         |---------------------------------------------

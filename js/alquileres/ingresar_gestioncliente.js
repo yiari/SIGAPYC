@@ -7,24 +7,36 @@ function inicio(){
        |---------------------------------------
        */
        $('#id_aviso').val(getParameterByName('idaviso'));
+       $('#codinqu').val(getParameterByName('codInqu'));
+       $('#mensualidad').val(getParameterByName('monto'));
    
       
        let prmCodaviso = getParameterByName('codaviso');
        let idinquilino = getParameterByName('idInqu');
-       //let codigoInquilino = getParameterByName('codInqu');
+       let codigoInquilino = getParameterByName('codInqu');
        let tipoInquilino = getParameterByName('tipoInqu');
+
+       let prmmonto = getParameterByName('monto');
    
 
       
-       consultarGestionCliente(idinquilino,tipoInquilino);
+       cargarBancos('cboBancoN');
+       cargarBancos('cboBancop');
+       cargarBancos('cboBancoj');
+       cargarBancos('cboBancoNP');
     
     //let idAviso = getParameterByName('id');
     
     /*--------------------------------------*/    
-
-    codigoAvisoCobro(prmCodaviso);
     guardarRespuestas();
 
+    guardarAbono();
+
+    codigoAvisoCobro(prmCodaviso);
+    consultarGestionCliente(idinquilino,tipoInquilino);
+    montoAvisoCobro(prmmonto);
+    //codigoInquilino(codigoInquilino);
+   
 }
 
 function codigoAvisoCobro(prmDato){
@@ -37,6 +49,75 @@ function codigoAvisoCobro(prmDato){
     $("#lblAvisoCobro").html(html);
 
 }
+
+function montoAvisoCobro(prmDato){
+
+    var html = "";
+
+    html='<strong>MONTO : </strong>'  + prmDato +'</span>';
+
+    $("#lblMonto").html('');
+    $("#lblMonto").html(html);
+
+}
+
+
+function codigoInquilino(prmDato){
+
+    var html = "";
+
+    html='<strong>INQUILINO : </strong>'  + prmDato +'</span>';
+
+    $("#lblInquilino").html('');
+    $("#lblInquilino").html(html);
+
+}
+
+
+function checkAgregarTranferencia(){
+
+    if($('input[name="chktranferencia"]').is(':checked'))
+    {
+        //checked
+        $("#cboBancoNP").attr("disabled", false);
+        $("#numero").attr("disabled", false);
+        $("#cuentabancaria").attr("disabled", false);
+    }
+    else
+    {
+        //unchecked
+        $("#cboBancoNP").attr("disabled", true);
+        $("#numero").attr("disabled", true);
+        $("#cuentabancaria").attr("disabled", true);
+
+    }
+
+}
+
+
+
+function checkAgregarPagoMovil(){
+
+    if($('input[name="chkpagomovil"]').is(':checked'))
+    {
+        //checked
+        $("#cboBancoj").attr("disabled", false);
+        $("#cedula").attr("disabled", false);
+        $("#celular").attr("disabled", false);
+        $("#monto").attr("disabled", false);
+    }
+    else
+    {
+        //unchecked
+        $("#cboBancoj").attr("disabled", true);
+        $("#cedula").attr("disabled", true);
+        $("#celular").attr("disabled", true);
+        $("#monto").attr("disabled", true);
+
+    }
+
+}
+
 
 
 
@@ -124,7 +205,7 @@ function consultarGestionCliente(idInqu,tipoInqu){
                     }else {
     
                         mensaje(json.mensaje,1);
-    
+                        
                         //$("#mensaje").html(html).fadeIn();
                     }
     
@@ -211,7 +292,7 @@ function consultarGestionCliente(idInqu,tipoInqu){
     
                         //$("#mensaje").html(html).fadeIn();
                         //limpiarCampos();
-                        limpiarFormulario(1);
+                        //limpiarFormulario(1);
                         //botones(0);
     
                     }else {
@@ -236,6 +317,104 @@ function consultarGestionCliente(idInqu,tipoInqu){
         });
     
     }
+
+
+
+
+    function guardarAbono(){
+
+        $("#registrarabono").on('submit', function(evt) {
+       /*
+       |-----------------------------------------------
+       | AQUI SE PREVIENE QUE EL FORMULARIO CONTINUE 
+       |-----------------------------------------------
+       */
+       evt.preventDefault();
+       /**********************************************/        
+    
+      
+    
+       if ($("#chktranferencia").val() == "") {
+           mensaje("Debe indicar un metodods  de pago",1);
+           return;
+       }
+    
+     
+    
+       
+       /*
+            |-----------------------------------------------
+            | LIMPIA EL CAMPO MENSAJE 
+            |-----------------------------------------------
+            */
+            $("#error").html("Ejecutando...");
+            /*
+            |-----------------------------------------------
+            | AQUI SE CAPTURA LOS DATOS DEL FORMULARIO 
+            |-----------------------------------------------
+            */
+            var formData = new FormData(this);
+            /*
+            |-----------------------------------------------------
+            | AQUI SE AGREGA UN PARAMETRO ADICIONAL AL FORMULARIO 
+            |-----------------------------------------------------
+            */
+            formData.append('opcion','IA');
+            /*
+            |-----------------------------------------------
+            | AQUI SE LLAMA EL AJAX 
+            |-----------------------------------------------
+            */
+            $.ajax({
+                url: "app/handler/alquileres/hndregistroavisocobro.php",
+                type: "POST",
+                data: formData, //new FormData(this),
+                contentType: false,
+                dataType: "json",
+                cache: false,
+                processData: false,
+                beforeSend: function () {
+                    //$("#preview").fadeOut();
+                    $("#error").fadeOut();
+                },
+                success: function (data) {
+                var json = data;
+                var html = "";
+    
+                    //console.log("Mensaje del JSON: " + json.mensaje);
+    
+                    if(json.error == 0){
+                        
+                        mensaje(json.mensaje,0);
+    
+                        //$("#mensaje").html(html).fadeIn();
+                        //limpiarCampos();
+                        //limpiarFormulario(1);
+                        //botones(0);
+    
+                    }else {
+    
+                        mensaje(json.mensaje,1);
+    
+                        //$("#mensaje").html(html).fadeIn();
+                    }
+    
+    
+    
+                },
+                error: function (e) {
+                    //$("#error").html(e).fadeIn();
+                    mensaje(e,1);
+                    
+                }
+            });
+    
+    
+    
+        });
+    
+    }
+    
     
 
 

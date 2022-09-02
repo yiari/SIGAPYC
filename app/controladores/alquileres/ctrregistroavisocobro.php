@@ -37,7 +37,20 @@ class ctrregistroavisocobro{
 
         return $respuesta;
 
-}
+    }
+
+
+    public function registrarabono($datos,$archivos){
+
+        $tabla = "gestion_respuesta";
+        $modelo = new mdlregistroavisocobro();
+
+        $modelo =  new mdlregistroavisocobro();
+        $respuesta = $modelo->registrarabono($tabla,$datos,$archivos);
+
+        return $respuesta;
+
+    }
 
 
 
