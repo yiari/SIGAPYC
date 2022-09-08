@@ -321,7 +321,7 @@ include("layout/menuNavegacion.php");
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-3">
+                                   <!-- <div class="col-md-3">
                                         <div class="row">
                                             <label for="iva" class="col-sm-12 col-form-label">IVA:</label>
                                             <div class="col-sm-12">
@@ -338,7 +338,7 @@ include("layout/menuNavegacion.php");
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div>-->
                                 
                       
                          </div>

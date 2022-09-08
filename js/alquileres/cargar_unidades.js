@@ -8,8 +8,6 @@ function inicio(){
     |---------------------------------------
     */
 
-    $('#id_unid').val(getParameterByName('idunidad'));
-    $('#cod_inmu').val(getParameterByName('codUnidad'));
 
     let idPropietario = getParameterByName('idpro');
     let prmCodPro = getParameterByName('codpro');
@@ -18,7 +16,7 @@ function inicio(){
     let idInmueble = getParameterByName('idinmu');
     let prmCodInmu = getParameterByName('codinmu');
 
-    let idUnidad = getParameterByName('idunidad');
+    let idUnidad = getParameterByName('idunid');
     let prmCodunidad = getParameterByName('codUnidad');
     
 
@@ -95,7 +93,7 @@ function atrasInmueble(prmidInmu, prmCodInmu,idPropietario,prmCodPro,prmTipo){
 }
 
 
-function cargarUnidades(idInmueble,prmCodInmu,idPropietario,prmcodPropietario,prmTipo,prmIdUnidad,prmCodUnidad){
+function cargarUnidades(idInmueble,prmCodInmu,prmIdUnidad,prmCodUnidad){
     
     /*
     |-----------------------------------------------------
@@ -108,11 +106,8 @@ function cargarUnidades(idInmueble,prmCodInmu,idPropietario,prmcodPropietario,pr
  
     formData.append('id_inmu',idInmueble);
     formData.append('cod_inmueble',prmCodInmu);
-    formData.append('id_prop',idPropietario);
-    formData.append('cod_prop',prmcodPropietario);
-    formData.append('tipo_propietario',prmTipo);
     formData.append('id_unid',prmIdUnidad);
-    formData.append('cod_unidad',prmCodUnidad);
+    formData.append('cod_unid',prmCodUnidad);
     /*
     |-----------------------------------------------
     | AQUI SE LLAMA EL AJAX 
@@ -175,7 +170,6 @@ function cargarUnidades(idInmueble,prmCodInmu,idPropietario,prmcodPropietario,pr
 
                             tr.append("<td>" + json.Items[0][i].codigo + "</td>");
                             
-                            tr.append("<td>" + json.Items[0][i].inmueble + "</td>");
 
                             tr.append("<td>SIN INQUILINO</td>");
 
@@ -188,16 +182,16 @@ function cargarUnidades(idInmueble,prmCodInmu,idPropietario,prmcodPropietario,pr
                             html = '<div class="btn-group" style="font-size:1.3em; letter-spacing:0.2em;">';
                             html += '<a title="Bitacora" data-field-id="' + json.Items[0][i].id_unid + '"><i class="fa fa-book"></i></a>&nbsp;';
                            
-                            html += '<a title="Editar" href="index.php?url=app/vistas/alquileres/editar_unidad_inmueble&idunidad="' + json.Items[0][i].id_unid  + '"><i class="fa fa-edit" alt=“editar”></i></a>&nbsp;';
+                            html += '<a title="Editar" href="index.php?url=app/vistas/alquileres/editar_unidad_inmueble&idunid=' + json.Items[0][i].id_unid  +  '&codUnidad=' + json.Items[0][i].codigo  +  '&idinmu=' + json.Items[0][i].id_inmu +  '&codinmu=' + json.Items[0][i].codigo +'"><i class="fa fa-edit" alt=“editar”></i></a>&nbsp;';
 
                             
                             if(json.Items[0][i].posee_beneficiario == 2 || json.Items[0][i].posee_beneficiario == 0 ){
                                 html += '<a href="javascript:void" class="link_apagado"><i class="fa fa-users"></i></a>&nbsp;';
                             } else if (json.Items[0][i].posee_beneficiario == 1)  {
-                                html += '<a title="Beneficiario"  href="index.php?url=app/vistas/alquileres/inmueble_beneficiario&idpro=' + json.Items[0][i].id_prop  + '&codpro=' + json.Items[0][i].propietario + '&codtip=' + json.Items[0][i].tipo_propietario + '&idinmu=' + json.Items[0][i].id_inmu  + '&codinmu=' + json.Items[0][i].codigo  + '"><i class="fa fa-users"></i></a>&nbsp;';
+                                html += '<a title="Beneficiario"  href="index.php?url=app/vistas/alquileres/inmueble_beneficiario&idunid=' + json.Items[0][i].id_unid + '&idpro=' + json.Items[0][i].id_prop  + '&codpro=' + json.Items[0][i].propietario + '&codtip=' + json.Items[0][i].tipo_propietario + '&idinmu=' + json.Items[0][i].id_inmu  + '&codinmu=' + json.Items[0][i].codigo  + '"><i class="fa fa-users"></i></a>&nbsp;';
                             }
 
-                            html += '<a title="Mandato y Contratos"  href="index.php?url=app/vistas/alquileres/contratos_mandatos&idinmu=' + json.Items[0][i].id_inmu   + '&codinmu=' + json.Items[0][i].codigo  + '"><i class="fa fa-file-text-o"></i></a>&nbsp;';
+                            html += '<a title="Mandato y Contratos"  href="index.php?url=app/vistas/alquileres/contratos_mandatos&idunid=' + json.Items[0][i].id_unid + '&idpro=' + json.Items[0][i].id_prop  + '&codpro=' + json.Items[0][i].propietario + '&codtip=' + json.Items[0][i].tipo_propietario + '&idinmu=' + json.Items[0][i].id_inmu  + '&codinmu=' + json.Items[0][i].codigo  +  '"><i class="fa fa-file-text-o"></i></a>&nbsp;';
                            
                             html += '<a title="Eliminar"  data-field-id="'  + json.Items[0][i].id + '"><i class="fa fa-trash" alt=“eliminar”></i></a>';
                             html += '</div>'

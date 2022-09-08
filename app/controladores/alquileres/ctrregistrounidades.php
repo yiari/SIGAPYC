@@ -50,6 +50,15 @@ class ctrregistrounidades{
     }
 
 
+    public function consultaunidad($datos){
+
+        $tabla = "unidades_inmuebles";
+        $modelo =  new mdlregistrounidades();
+        $respuestas =  $modelo->consultaunidad($tabla,$datos);
+        return $respuestas;
+    }
+
+
      
 
 

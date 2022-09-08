@@ -5,8 +5,9 @@
 
         <div style="text-align: right;">
             <ol>
+                <a class="btn btn-outline-secondary" href="index.php?url=app/vistas/alquileres/propietarios"  role="button">Atras</a>   
                 <a class="btn btn-outline-primary codpro" href="index.php?url=app/vistas/alquileres/ingresar_inmueble" role="button">Nuevo</a>
-                <a class="btn btn-outline-secondary" href="index.php?url=app/vistas/alquileres/propietarios"  role="button">Atras</a>                
+                             
                
             </ol>
         </div>

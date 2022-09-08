@@ -29,7 +29,6 @@
                             
                             <th>Fotos</th>
                             <th>Codigo</th>
-                            <th>Inmueble</th>
                             <th>Inquilino</th>
                             <th>Estatus</th>
                             <th>Tipo</th>

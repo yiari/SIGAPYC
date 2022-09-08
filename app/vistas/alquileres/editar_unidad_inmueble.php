@@ -10,7 +10,7 @@ include("layout/menuNavegacion.php");
             
                     <div style="text-align: right;">
                         <ol>          
-                            <a class="btn btn-outline-secondary codinmu" href="index.php?url=app/vistas/alquileres/unidades"  role="button">Atras</a>
+                            <a class="btn btn-outline-secondary codUnidad" href="index.php?url=app/vistas/alquileres/unidades"  role="button">Atras</a>
                         </ol>
                     </div>
 
@@ -28,7 +28,7 @@ include("layout/menuNavegacion.php");
                 <input type="hidden" id="tipo_persona" name="tipo_persona" value='1'>
                 <input type="hidden" id="id_inmu" name="id_inmu" value=''>
                 <input type="hidden" id="hidunidad" name="hidunidad" value=''>
-                <input type="hidden" id="hid_gastos" name="hid_gastos" value='0'>
+                <input type="hidden" id="id_gastos" name="id_gastos" value='0'>
                 <input type="hidden" id="hidgastos_especial" name="hidgastos_especial" value='0'>
 
                
@@ -51,7 +51,7 @@ include("layout/menuNavegacion.php");
                                     <input type="text" class="form-control" id="registroCodigo" name="registroCodigo" autofocus readonly="yes" >
                                 </div>
                                 <div class="col-sm-3">
-                                        <label for="beneficiarios" >La Unidad posee beneficiarios?</label>
+                                        <label for="cbobeneficiarios" >La Unidad posee beneficiarios?</label>
                                             <div class="col-sm-12">
                                                 <select class="form-select" id="cbobeneficiarios" name="cbobeneficiarios" >
                                                     <option  value="">Seleccione...</option>    
@@ -321,6 +321,7 @@ include("layout/menuNavegacion.php");
                                             </div>
                                         </div>
                                     </div>
+                                    <!--
                                     <div class="col-md-3">
                                         <div class="row">
                                             <label for="iva" class="col-sm-12 col-form-label">IVA:</label>
@@ -338,7 +339,7 @@ include("layout/menuNavegacion.php");
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div>-->
                                 
                       
                          </div>
@@ -569,4 +570,4 @@ include_once "app/vistas/comunes/modaleliminar.php";
 <script src="js/comunes/combos.js"></script>
 <script src="js/comunes/generadorcodigos.js"></script>
 <script src="js/comunes/funciones.js"></script>
-<script src="js/alquileres/ingresar_unidades_inmueble.js"></script>
+<script src="js/alquileres/editar_unidad.js"></script>

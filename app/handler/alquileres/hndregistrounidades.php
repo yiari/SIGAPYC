@@ -134,11 +134,11 @@ if($operacion == "I"){
                    | AQUI VAN LOS DATOS DE LOS GASTOS FIJOS
                    |------------------------------------------
                    */
-                  "id_gastos" => $_POST["hid_gastos"],
+                  "id_gastos" => $_POST["id_gastos"],
                   "gasto_admi" => $_POST["gasto_admi"],
                   "gasto_papel" => $_POST["gasto_papel"],
-                   "iva" => $_POST["iva"],
-                   "isrl" => $_POST["isrl"],
+                   "iva" => 16,
+                   "isrl" => 3,
 
 
                     /*
@@ -233,6 +233,49 @@ if($operacion == "C"){
       //AGREGAR CABECERA SI NO LA TIENE
       header('Content-Type: application/json');
 } 
+     return $result;
+     
+}
+
+
+
+/* 
+ |--------------------------------------------------------------
+ | AQUI SE EJECUTA LA OPERACION DE CONSULTAR DEL Beneficiario
+ |--------------------------------------------------------------
+*/
+
+if($operacion == "CU"){
+
+
+
+   $datos = array( 
+      "id_unid" => $_POST["idUnidad"],
+      "cod_unid" => $_POST["codigoUnidad"],
+     
+   );
+
+   /*
+    |-------------------------------------------
+    | AQUI CREO UNA INSTANCIA DE LA CLASE
+    |-------------------------------------------
+    */
+    
+    $registroInmueble =  new ctrregistrounidades();
+
+   /* 
+   |---------------------------------------------
+   | AQUI OBTENGO EL RESULTADO DE LA EJECUCION
+   |---------------------------------------------
+   */
+     $result = $registroInmueble->consultaunidad($datos);
+    
+    /*
+    |-------------------------------------------
+    | AQUI REGRESO EL RESULTADO AL AJAX
+    |-------------------------------------------
+    */
+    header('Content-Type: application/json');
      return $result;
      
 }

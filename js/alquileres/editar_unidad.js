@@ -7,23 +7,32 @@ function inicio(){
     |---------------------------------------
     */
 
-   
+    $('#id_unid').val(getParameterByName('idunid'));
+    $('#cod_inmu').val(getParameterByName('codUnidad'));
 
     let idPropietario = getParameterByName('idpro');
     let prmCodPro = getParameterByName('codpro');
     let prmTipo = getParameterByName('codtip');
 
-    let codigoInmueble = getParameterByName('codinmu');
     let idInmueble = getParameterByName('idinmu');
+    let prmCodInmu = getParameterByName('codinmu');
+
+    let idUnidad = getParameterByName('idunid');
+    let prmCodunidad = getParameterByName('codUnidad');
 
     /*--------------------------------------*/  
 
     codigoPropietario(prmCodPro);
-    atrasInmueble(idPropietario,prmCodPro,prmTipo,idInmueble,codigoInmueble);
+
+    atrasInmueble(idUnidad,prmCodunidad,idInmueble,prmCodInmu);
+    
     cargartipo_inmueble();
 
-    generarCodigoInmueble();
+    generarCodigoUnidad();
     cargarEstados();
+    cargarBancos('cboBancoNP');
+
+    cargarBancos('cboBancoN');
    
     
    
@@ -56,9 +65,9 @@ function inicio(){
 |-------------------------------------------------------------------------------------------------
 */
 
-    consultarInmueble(idInmueble,codigoInmueble);
+     consultarUnidad(idUnidad,prmCodunidad);
 
-    guardarInmueble();
+    guardarunidades();
 
 }
 
@@ -74,15 +83,15 @@ function codigoPropietario(prmDato){
 
 }
 
-function atrasInmueble(prmIdPro, prmCodPro,prmCodTipo,prmIdInmu,prmCodInmu,prmCodTipo){
+function atrasInmueble(prmIdInmu,prmCodUnid,prmidInmu,prmcodInmu){
 
     //if (isEmpty(prmDato) == false ){
 
 
         var html = "";
-        html='index.php?url=app/vistas/alquileres/inmuebles&idpro=' + prmIdPro  + '&codpro=' + prmCodPro  + '&codtip=' + prmCodTipo + '&idinmu=' + prmIdInmu + '&codinmu=' + prmCodInmu;
+        html='index.php?url=app/vistas/alquileres/unidades&idunid=' + prmIdInmu  + '&codUnidad=' + prmCodUnid + '&idinmu=' + prmidInmu + '&codinmu=' + prmcodInmu ;
     
-        $(".codpro").prop("href", html);
+        $(".codUnidad").prop("href", html);
 
 
     //}
@@ -91,7 +100,7 @@ function atrasInmueble(prmIdPro, prmCodPro,prmCodTipo,prmIdInmu,prmCodInmu,prmCo
 
 
 
-function consultarInmueble(id,codigo){
+function consultarUnidad(id,codigo){
 
 console.log("consultando");
 
@@ -112,10 +121,10 @@ console.log("consultando");
         | AQUI SE AGREGA UN PARAMETRO ADICIONAL AL FORMULARIO 
         |-----------------------------------------------------
         */
-        formData.append('opcion','CI');
+        formData.append('opcion','CU');
 
-        formData.append('idInmueble',id);
-        formData.append('codigoInmueble',codigo);
+        formData.append('idUnidad',id);
+        formData.append('codigoUnidad',codigo);
        
 
         //formData.append('tipoPropietario',tipo);
@@ -126,7 +135,7 @@ console.log("consultando");
         |-----------------------------------------------
         */
         $.ajax({
-            url: "app/handler/alquileres/hndregistroinmueble.php",
+            url: "app/handler/alquileres/hndregistrounidades.php",
             type: "POST",
             data: formData, //new FormData(this),
             contentType: false,
@@ -150,15 +159,14 @@ console.log("consultando");
 
 
                         //<input type="hidden" id="tipo_persona" name="tipo_persona" value='1'>
-                        $('#hidinmueble').val(json.Items[0].id_inmu );
+                        $('#hidunidad').val(json.Items[0].id_unid );
 
                          /*
                         |------------------------------------------------------
                         | DATOS PRINCIPALES
                         |------------------------------------------------------
                         */
-                        $('#tieneunidades').val(json.Items[0].tieneunidades);
-                        $('#unidades').val(json.Items[0].unidades);
+                       
                         $("select[name='cboinmueble']").val(json.Items[0].tip_inmu).change();
 
 
@@ -211,12 +219,11 @@ console.log("consultando");
                         
 
                         $("select[name='cbobeneficiarios']").val(json.Items[0].posee_beneficiario).change();
-
-                        $('#prmid_gastos').val(json.Items[0].id_gastos); 
-                        $('#prmgasto_admi').val(json.Items[0].gasto_admi); 
-                        $('#prmgasto_papel').val(json.Items[0].gasto_papel); 
-
-
+                        
+                        $('#id_gastos').val(json.Items[0].id_gastos); 
+                        $('#gasto_admi').val(json.Items[0].gasto_admi); 
+                        $('#gasto_papel').val(json.Items[0].gasto_papel); 
+      
 
                     }
 
@@ -237,6 +244,147 @@ console.log("consultando");
             }
         });
 
+
+}
+
+
+
+function  guardarunidades(){
+    
+    $("#registrounidades").on('submit', function(evt) {
+   /*
+   |-----------------------------------------------
+   | AQUI SE PREVIENE QUE EL FORMULARIO CONTINUE 
+   |-----------------------------------------------
+   */
+   evt.preventDefault();
+   /**********************************************/        
+
+ 
+   if ($("#cboinmueble").val() == "") {
+    mensaje("Debe indicar el tipo de inmueble",1);
+    return;
+}
+
+if ($("#registroletra").val() == "") {
+    mensaje("Debe indicar la letra o número de la unidad",1);
+    return;
+}
+
+
+
+ if ($("#registrNombre").val() == "") {
+     mensaje("Debe indicar el nombre del unidad",1);
+     return;
+     }
+
+if ($("#registroUso").val() == "") {
+mensaje("Debe indicar el uso del unidad",1);
+return;
+}
+
+if ($("#registroAntiguedad").val() == "") {
+        mensaje("Debe indicar la  antiguedad del unidad",1);
+        return;
+        }
+ 
+ 
+if ($("#cboEstados").val() == "") {
+    mensaje("Debe indicar el estado de residencia del unidad",1);
+    return;
+    }
+
+if ($("#cboMunicipios").val() == "") {
+    mensaje("Debe indicar el Municipio de residencia del unidad",1);
+    return;
+    }
+
+if ($("#cboParroquia").val() == "") {
+    mensaje("Debe indicar la parroquia de residencia del unidad",1);
+    return;
+    }
+ 
+ if ($("#registroDirecionH").val() == "") {
+     mensaje("Debe indicar la dirección de habitación del unidad ",1);
+     return;
+     }
+
+
+
+
+
+
+   /*
+   |-----------------------------------------------
+   | LIMPIA EL CAMPO MENSAJE 
+   |-----------------------------------------------
+   */
+   $("#error").html("Ejecutando...");
+   /*
+   |-----------------------------------------------
+   | AQUI SE CAPTURA LOS DATOS DEL FORMULARIO 
+   |-----------------------------------------------
+   */
+   var formData = new FormData(this);
+   /*
+   |-----------------------------------------------------
+   | AQUI SE AGREGA UN PARAMETRO ADICIONAL AL FORMULARIO 
+   |-----------------------------------------------------
+   */
+   formData.append('opcion','I');
+   /*
+   |-----------------------------------------------
+   | AQUI SE LLAMA EL AJAX 
+   |-----------------------------------------------
+   */
+   $.ajax({
+       url: "app/handler/alquileres/hndregistrounidades.php",
+       type: "POST",
+       data: formData, //new FormData(this),
+       contentType: false,
+       dataType: "json",
+       cache: false,
+       processData: false,
+       beforeSend: function () {
+           //$("#preview").fadeOut();
+           $("#error").fadeOut();
+       },
+       success: function (data) {
+       var json = data;
+       var html = "";
+
+           console.log("Mensaje del JSON: " + json.mensaje);
+
+           if(json.error == 0){
+               
+               mensaje(json.mensaje,0);
+
+               //$("#mensaje").html(html).fadeIn();
+               limpiarFormulario(1);
+               //limpiarTabla();
+               //botones(0);
+               cargarInmueble();
+
+           }else {
+
+               mensaje(json.mensaje,1);
+
+               //$("#mensaje").html(html).fadeIn();
+           }
+
+
+
+       },
+       error: function (e) {
+           //$("#error").html(e).fadeIn();
+           mensaje(e,1);
+           
+       }
+   });
+
+
+
+});
 
 }
 
@@ -395,7 +543,7 @@ if ($("#cboParroquia").val() == "") {
 
 
 
-function generarCodigoInmueble(){
+function generarCodigoUnidad(){
 
     
 
@@ -408,7 +556,7 @@ function generarCodigoInmueble(){
 
         $("#registroCodigo").val('');
 
-        codigoInmueble(prmTipoInmueble,prmLetraInmueble,prmNombreInmueble,function(result){
+        codigoUnidad(prmTipoInmueble,prmLetraInmueble,prmNombreInmueble,function(result){
             $("#registroCodigo").val(result);
         });
 
@@ -424,7 +572,7 @@ function generarCodigoInmueble(){
 
         $("#registroCodigo").val('');
 
-        codigoInmueble(prmTipoInmueble,prmLetraInmueble,prmNombreInmueble,function(result){
+        codigoUnidad(prmTipoInmueble,prmLetraInmueble,prmNombreInmueble,function(result){
             $("#registroCodigo").val(result);
         });
 
@@ -438,7 +586,7 @@ function generarCodigoInmueble(){
 
         $("#registroCodigo").val('');
 
-        codigoInmueble(prmTipoInmueble,prmLetraInmueble,prmNombreInmueble,function(result){
+        codigoUnidad(prmTipoInmueble,prmLetraInmueble,prmNombreInmueble,function(result){
             $("#registroCodigo").val(result);
         });
 
