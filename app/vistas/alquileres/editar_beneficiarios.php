@@ -8,11 +8,7 @@
                         <a class="btn btn-outline-secondary codpro" href="index.php?url=app/vistas/alquileres/beneficiarios"  role="button">Atras</a>
                         </ol>
                     </div>
-                    
-                    <div style="text-align: left;">
-                    <span id="lblPropietario"><strong>PROPIETARIO : </strong></span>
-                    <br/><br/>
-                     </div>
+                   
 
             
 

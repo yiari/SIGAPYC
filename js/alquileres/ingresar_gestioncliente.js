@@ -9,6 +9,10 @@ function inicio(){
        $('#id_aviso').val(getParameterByName('idaviso'));
        $('#codinqu').val(getParameterByName('codInqu'));
        $('#mensualidad').val(getParameterByName('monto'));
+
+       $('#id_inqu').val(getParameterByName('idInqu'));
+
+       
    
       
        let prmCodaviso = getParameterByName('codaviso');
@@ -80,15 +84,15 @@ function checkAgregarTranferencia(){
     {
         //checked
         $("#cboBancoNP").attr("disabled", false);
-        $("#numero").attr("disabled", false);
-        $("#cuentabancaria").attr("disabled", false);
+        $("#referencia").attr("disabled", false);
+        $("#monto").attr("disabled", false);
     }
     else
     {
         //unchecked
         $("#cboBancoNP").attr("disabled", true);
-        $("#numero").attr("disabled", true);
-        $("#cuentabancaria").attr("disabled", true);
+        $("#referencia").attr("disabled", true);
+        $("#monto").attr("disabled", true);
 
     }
 
@@ -102,17 +106,15 @@ function checkAgregarPagoMovil(){
     {
         //checked
         $("#cboBancoj").attr("disabled", false);
-        $("#cedula").attr("disabled", false);
-        $("#celular").attr("disabled", false);
-        $("#monto").attr("disabled", false);
+        $("#operacion").attr("disabled", false);
+        $("#monto_movil").attr("disabled", false);
     }
     else
     {
         //unchecked
         $("#cboBancoj").attr("disabled", true);
-        $("#cedula").attr("disabled", true);
-        $("#celular").attr("disabled", true);
-        $("#monto").attr("disabled", true);
+        $("#operacion").attr("disabled", true);
+        $("#monto_movil").attr("disabled", true);
 
     }
 
@@ -263,6 +265,9 @@ function consultarGestionCliente(idInqu,tipoInqu){
             |-----------------------------------------------------
             */
             formData.append('opcion','I');
+
+            formData.append('id_aviso',$('#id_aviso').val());
+            formData.append('id_usuario',$('#id_usuario').val());
             /*
             |-----------------------------------------------
             | AQUI SE LLAMA EL AJAX 
@@ -292,7 +297,7 @@ function consultarGestionCliente(idInqu,tipoInqu){
     
                         //$("#mensaje").html(html).fadeIn();
                         //limpiarCampos();
-                        //limpiarFormulario(1);
+                        limpiarFormulario(1);
                         //botones(0);
     
                     }else {
@@ -334,11 +339,51 @@ function consultarGestionCliente(idInqu,tipoInqu){
     
       
     
-       if ($("#chktranferencia").val() == "") {
-           mensaje("Debe indicar un metodods  de pago",1);
-           return;
+       
+       if($('input[name="chktranferencia"]').is(':checked'))
+       {
+           //checked
+
+           if ($("#cboBancoNP").val() == "") {
+            mensaje("Debe indicar el banco de donde se realizo la transferencia",1);
+            return;
+            }
+       
+           if($("#referencia").val() == "" || $("#referencia").val() == "0" || $("#referencia").val() == 0){
+               mensaje("Debe indicar el numero de referencia",1);
+               return;
+           }
+
+           if($("#monto").val() == "" || $("#monto").val() == "0" || $("#monto").val() == 0){
+            mensaje("Debe indicar el monto abonado por el cliente",1);
+            return;
+        }
+ 
+       
        }
-    
+
+
+       if($('input[name="chkpagomovil"]').is(':checked'))
+       {
+           //checked
+
+           if ($("#cboBancoj").val() == "") {
+            mensaje("Debe indicar el banco de donde se realizo el pago movil",1);
+            return;
+            }
+       
+           if($("#operacion").val() == "" || $("#operacion").val() == "0" || $("#operacion").val() == 0){
+               mensaje("Debe indicar el numero de referencia",1);
+               return;
+           }
+
+           if($("#monto_movil").val() == "" || $("#monmonto_movilto").val() == "0" || $("#monto_movil").val() == 0){
+            mensaje("Debe indicar el monto abonado por el cliente",1);
+            return;
+        }
+ 
+       
+       }
      
     
        
@@ -360,6 +405,11 @@ function consultarGestionCliente(idInqu,tipoInqu){
             |-----------------------------------------------------
             */
             formData.append('opcion','IA');
+            formData.append('id_aviso',$('#id_aviso').val());
+            formData.append('id_inmueble',$('#id_inmu').val());
+            formData.append('id_unidad',$('#id_unid').val());
+            formData.append('id_inquilino',$('#id_inqu').val());
+            formData.append('id_usuario',$('#id_usuario').val());
             /*
             |-----------------------------------------------
             | AQUI SE LLAMA EL AJAX 
@@ -389,13 +439,13 @@ function consultarGestionCliente(idInqu,tipoInqu){
     
                         //$("#mensaje").html(html).fadeIn();
                         //limpiarCampos();
-                        //limpiarFormulario(1);
+                        limpiarFormulario(1);
                         //botones(0);
     
                     }else {
     
                         mensaje(json.mensaje,1);
-    
+                        limpiarFormulario(1);
                         //$("#mensaje").html(html).fadeIn();
                     }
     
@@ -448,16 +498,20 @@ function mensaje(mensaje, condicion){
 function limpiarFormulario(valor){
 
     if(valor == 1){
-        document.getElementById("#registrarapoderado").reset();
+        document.getElementById("#registrarabono").reset();
     }
 
 }
 
 
 
+function limpiarFormulario(valor){
 
+    if(valor == 1){
+        document.getElementById("#registrarabono").reset();
+    }
 
-
+}
 
 
 

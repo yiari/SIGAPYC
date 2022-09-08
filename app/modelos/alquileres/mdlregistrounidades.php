@@ -43,7 +43,7 @@ public function registrar($tabla,$datos,$archivos){
           | AQUI PREPARO LO QUE SERA LA LLAMADA AL PROCEDIMIENTO QUE REALIZARA LA OPERACION
           |----------------------------------------------------------------------------------
           */
-          $stmt = $dbConexion->conectar()->prepare("CALL usp_registrarunideades(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+          $stmt = $dbConexion->conectar()->prepare("CALL usp_registrarunideades(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
           $stmt -> bindParam(1, $datos["id_unid"],PDO::PARAM_INT); //id del uniades
           $stmt -> bindParam(2, $datos["id_inmu"],PDO::PARAM_INT); //id inmueble
           $stmt -> bindParam(3, $datos["cod_inmu"],PDO::PARAM_STR); // codigo del inmueble
@@ -74,19 +74,20 @@ public function registrar($tabla,$datos,$archivos){
           $stmt -> bindParam(28,$datos["fic_cata"],PDO::PARAM_STR); // Numero del ficha castratal
           $stmt -> bindParam(29,$datos["num_regi"],PDO::PARAM_STR); // Numero del codigo del registro
           $stmt -> bindParam(30,$datos["tipo_persona"],PDO::PARAM_INT); // tipo 
+          $stmt -> bindParam(31,$datos["posee_beneficiario"],PDO::PARAM_INT); // si la unidad tendra beneficiario
+          $stmt -> bindParam(32,$datos["letra"],PDO::PARAM_STR); // Numero del codigo del registro
+          $stmt -> bindParam(33,$datos["id_gastos"],PDO::PARAM_INT); // id gastos fijos
+          $stmt -> bindParam(34,$datos["gasto_admi"],PDO::PARAM_INT); // gastos fijos administrativo
+          $stmt -> bindParam(35,$datos["gasto_papel"],PDO::PARAM_INT); // gastos fijos papeleria
+          $stmt -> bindParam(36,$datos["iva"],PDO::PARAM_INT); // gastos iva
+          $stmt -> bindParam(37,$datos["isrl"],PDO::PARAM_INT); // gastos isrl
 
-          $stmt -> bindParam(31,$datos["id_gastos"],PDO::PARAM_INT); // id gastos fijos
-          $stmt -> bindParam(32,$datos["gasto_admi"],PDO::PARAM_INT); // gastos fijos administrativo
-          $stmt -> bindParam(33,$datos["gasto_papel"],PDO::PARAM_INT); // gastos fijos papeleria
-          $stmt -> bindParam(34,$datos["iva"],PDO::PARAM_INT); // gastos iva
-          $stmt -> bindParam(35,$datos["isrl"],PDO::PARAM_INT); // gastos isrl
-
-          $stmt -> bindParam(36,$datos["id_gesp"],PDO::PARAM_INT); // gastos especilaes
-          $stmt -> bindParam(37,$datos["servicio"],PDO::PARAM_STR); // gastos servicios
-          $stmt -> bindParam(38,$datos["monto"],PDO::PARAM_INT); // gastos montos del servicio
-          $stmt -> bindParam(39,$datos["id_banco"],PDO::PARAM_INT); // gastos especilaes
-          $stmt -> bindParam(40,$datos["num_cuenta"],PDO::PARAM_INT); // gastos servicios
-          $stmt -> bindParam(41,$datos["cedula"],PDO::PARAM_STR); // gastos montos del servicio
+          $stmt -> bindParam(38,$datos["id_gesp"],PDO::PARAM_INT); // gastos especilaes
+          $stmt -> bindParam(39,$datos["servicio"],PDO::PARAM_STR); // gastos servicios
+          $stmt -> bindParam(40,$datos["monto"],PDO::PARAM_INT); // gastos montos del servicio
+          $stmt -> bindParam(41,$datos["id_banco"],PDO::PARAM_INT); // gastos especilaes
+          $stmt -> bindParam(42,$datos["num_cuenta"],PDO::PARAM_INT); // gastos servicios
+          $stmt -> bindParam(43,$datos["cedula"],PDO::PARAM_STR); // gastos montos del servicio
           
           
 

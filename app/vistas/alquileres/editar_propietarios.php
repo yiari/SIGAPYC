@@ -389,9 +389,9 @@ include("layout/menuNavegacion.php");
                                                         </div>
                                                     </div>
                                                     <div class="col-md-5">
-                                                        <label for="registroEmailj" class="col-sm-3 col-form-label">Correo:</label>
+                                                        <label class="col-sm-3 col-form-label">Correo:</label>
                                                         <div class="col-sm-12">
-                                                            <input type="email" class="form-control" id="registroEmailj" name="registroEmailj">
+                                                            <input for="registroEmailj" type="text" class="form-control" id="registroEmailj" name="registroEmailj">
                                                         </div>
                                                     </div>
                                                 </div>

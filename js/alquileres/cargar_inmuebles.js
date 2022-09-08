@@ -57,7 +57,7 @@ function nuevoInmueble(prmIdPro, prmCodPro, prmTipo){
 
 }
 
-function cargarInmueble(idPropietario,idInmueble,prmTipo,prmCodInmu){
+function cargarInmueble(idPropietario,idInmueble,prmTipo,prmCodInmu,prmcodPropietario){
 
     /*
     |-----------------------------------------------------
@@ -68,6 +68,7 @@ function cargarInmueble(idPropietario,idInmueble,prmTipo,prmCodInmu){
 
     formData.append('opcion','C');
     formData.append('id_prop',idPropietario);
+    formData.append('cod_prop',prmcodPropietario);
     formData.append('tipo_propietario',prmTipo);
     formData.append('id_inmu',idInmueble);
     formData.append('cod_inmueble',prmCodInmu);
@@ -166,11 +167,11 @@ function cargarInmueble(idPropietario,idInmueble,prmTipo,prmCodInmu){
 
                                     html += '<a title="Bitacora" data-field-id="' + json.Items[0][i].id + '"><i class="fa fa-book"></i></a>&nbsp;';
 
-                                    html += '<a title="Editar" href="index.php?url=app/vistas/alquileres/editar_inmueble&idinmu=' + json.Items[0][i].id_inmu   + '&codinmu=' + json.Items[0][i].codigo  +  '"><i class="fa fa-edit" alt=“editar”></i></a>&nbsp;';
+                                    html += '<a title="Editar" href="index.php?url=app/vistas/alquileres/editar_inmueble&idinmu=' + json.Items[0][i].id_inmu   + '&codinmu=' + json.Items[0][i].codigo  +  '&idpro=' + json.Items[0][i].id_prop  + '&codpro=' + json.Items[0][i].propietario  +  '&codtip=' + json.Items[0][i].tipo_propietario  +'"><i class="fa fa-edit" alt=“editar”></i></a>&nbsp;';
 
 
                                     if(json.Items[0][i].tieneunidades > 0){
-                                        html += '<a title="Unidades_inmueble"  href="index.php?url=app/vistas/alquileres/unidades&idinmu=' + json.Items[0][i].id_inmu   + '&codinmu=' + json.Items[0][i].codigo  +'"><i class="fa fa-home"></i></a>&nbsp;';
+                                        html += '<a title="Unidades_inmueble"  href="index.php?url=app/vistas/alquileres/unidades&idinmu=' + json.Items[0][i].id_inmu   + '&codinmu=' + json.Items[0][i].codigo  +  '&idpro=' + json.Items[0][i].id_prop  + '&codpro=' + json.Items[0][i].propietario  +  '&codtip=' + json.Items[0][i].tipo_propietario  +'"><i class="fa fa-home"></i></a>&nbsp;'; 
                                     } else {
                                         html += '<a href="javascript:void" class="link_apagado"><i class="fa fa-home"></i></a>&nbsp;';
                                     }

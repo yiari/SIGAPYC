@@ -33,6 +33,7 @@ class mdlregistroavisocobro{
     $prmError = 0;
     $prmMensaje = "";
     $prmIdrespuestas = 0;
+    
   
     //$fecha = str_replace("-","",$datos["fec_pode"]);
   
@@ -171,7 +172,7 @@ class mdlregistroavisocobro{
       */
       $prmError = 0;
       $prmMensaje = "";
-      $prmIdrespuestas = 0;
+      $prmIdabono = 0;
     
       //$fecha = str_replace("-","",$datos["fec_pode"]);
     
@@ -183,13 +184,13 @@ class mdlregistroavisocobro{
               | AQUI PREPARO LO QUE SERA LA LLAMADA AL PROCEDIMIENTO QUE REALIZARA LA OPERACION
               |----------------------------------------------------------------------------------
               */
-              $stmt = $dbConexion->conectar()->prepare("CALL usp_registro_abono(?,?,?,?,?,?,?,?,?,?,?)");
+              $stmt = $dbConexion->conectar()->prepare("CALL usp_registro_abono(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
               $stmt -> bindParam(1,$datos ["id_abono"],  PDO::PARAM_INT); //ESTE ES EL ID respuesta
               $stmt -> bindParam(2,$datos ["id_aviso"],  PDO::PARAM_INT); //ESTE ES EL ID DEL avios de cobro
               $stmt -> bindParam(3,$datos ["id_inqu"], PDO::PARAM_INT); // 
               $stmt -> bindParam(4,$datos ["id_inmu"], PDO::PARAM_INT); // 
-              $stmt -> bindParam(5,$datos ["id_unidad"], PDO::PARAM_INT); // 
-              $stmt -> bindParam(6,$datos ["tranferencia"], PDO::PARAM_INT); //
+              $stmt -> bindParam(5,$datos ["id_unid"], PDO::PARAM_INT); // 
+              $stmt -> bindParam(6,$datos ["transferencia"], PDO::PARAM_INT); //
               $stmt -> bindParam(7,$datos ["pago_movil"], PDO::PARAM_INT); //
               $stmt -> bindParam(8,$datos["id_usuario"], PDO::PARAM_INT); 
               
@@ -197,6 +198,13 @@ class mdlregistroavisocobro{
               $stmt -> bindParam(10,$datos ["id_banco"], PDO::PARAM_INT); //
               $stmt -> bindParam(11,$datos ["referencia"], PDO::PARAM_STR); //
               $stmt -> bindParam(12,$datos["monto"], PDO::PARAM_INT);
+
+
+
+              $stmt -> bindParam(13, $datos["id_movil"],PDO::PARAM_INT);
+              $stmt -> bindParam(14,$datos ["id_banco_movil"], PDO::PARAM_INT); //
+              $stmt -> bindParam(15,$datos ["operacion"], PDO::PARAM_STR); //
+              $stmt -> bindParam(16,$datos["monto_movil"], PDO::PARAM_INT);
 
             
               /*
@@ -228,7 +236,7 @@ class mdlregistroavisocobro{
                     */
     
                     if($prmError == 0){
-                      $prmIdapoderado = $row[2]; //AQUI OBTENGO EL ID DEL PAGADOR
+                      $prmIdabono = $row[2]; //AQUI OBTENGO EL ID DEL PAGADOR
                     }
                     $prmMensaje =  $row[1]; //COLUMNA DEL MENSAJE
                   }
@@ -265,9 +273,9 @@ class mdlregistroavisocobro{
                 'mensaje' =>  $prmMensaje
               );
     
-              if( $prmIdrespuestas > 0 ){
+              if( $prmIdabono > 0 ){
     
-                $dataRegistro["Items"][] = ["ID_RESPUESTAS" => $prmIdrespuestas];
+                $dataRegistro["Items"][] = ["ID_ABONOS" => $prmIdabono];
               
                 echo json_encode(array_merge($dataRegistro,$dataRes));
     

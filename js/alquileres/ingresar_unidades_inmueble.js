@@ -7,12 +7,21 @@ function inicio(){
     |---------------------------------------
     */
     $('#id_inmu').val(getParameterByName('idinmu'));
-    $('#tipo_propietario').val(getParameterByName('codinmu'));
+    $('#cod_inmu').val(getParameterByName('codinmu'));
+
+    $('#id_prop').val(getParameterByName('idpro'));
+    $('#cod_prop').val(getParameterByName('codpro'));
+    $('#tipo_propietario').val(getParameterByName('codtip'));
+
+
+    let idPropietario = getParameterByName('idpro');
+    let prmCodPro = getParameterByName('codpro');
+    let prmTipo = getParameterByName('codtip');
 
     let idInmueble = getParameterByName('idinmu');
     let prmCodInmu = getParameterByName('codinmu');
 
-    atrasUnidad(idInmueble, prmCodInmu);
+    atrasUnidad(idInmueble, prmCodInmu,idPropietario,prmCodPro,prmTipo);
 
     cargarEstados();
     cargartipo_inmueble();
@@ -34,18 +43,16 @@ function inicio(){
 
     
     
-   
-    
     }
 
 
-    function atrasUnidad(prmidInmu, prmCodInmu){
+    function atrasUnidad(prmidInmu, prmCodInmu,idPropietario,prmCodPro,prmTipo){
 
         //if (isEmpty(prmDato) == false ){
     
     
             var html = "";
-            html='index.php?url=app/vistas/alquileres/unidades&idinmu=' + prmidInmu  + '&codinmu=' + prmCodInmu;
+            html='index.php?url=app/vistas/alquileres/unidades&idinmu=' + prmidInmu  + '&codinmu=' + prmCodInmu + '&idpro=' + idPropietario + '&codpro=' + prmCodPro + '&codtip=' + prmTipo;
         
             $(".codinmu").prop("href", html);
     

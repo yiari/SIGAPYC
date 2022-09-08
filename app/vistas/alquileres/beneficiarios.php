@@ -36,11 +36,10 @@
                                                     
                                                     
                                                     <th>Codigo</th>
-                                                    <th>nombre</th>
                                                     <th>Cedula o rif</th>
                                                     <th>telefono</th>
                                                     <th>correo</th>
-                                                    <th>Propietario</th>
+                                                    <th>% Participacion</th>
                                                     <th>tipo</th>
                                                     <th>Doc / Editar</th>
                                             

@@ -120,14 +120,14 @@ console.log("Items Resultados: " + json.Items[0].length);
                                 tr.append("<td>" + json.Items[0][i].cedula + "</td>");
                                 tr.append("<td>" + json.Items[0][i].telefono + "</td>");
                                 tr.append("<td>" + json.Items[0][i].correo + "</td>"); 
-                                tr.append("<td>" + json.Items[0][i].propietraio + "</td>");
+                               
                                
                                 
                                 var html="";
                                 var htmlrepresentante = "";
     
                                 html = '<div class="btn-group" style="font-size:1.3em; letter-spacing:0.5em;">';
-                                htmlrepresentante='<a title="Editar Representante" href="index.php?url=app/vistas/alquileres/editar_representante&idrepr=2'   + '&codpro=' + json.Items[0][i].codigo  +  '"><i class="fa fa-edit" alt=“editar”></i></a>&nbsp;';
+                                htmlrepresentante='<a title="Editar Representante" href="index.php?url=app/vistas/alquileres/editar_representante&idrepr=2'   + '&codrepre=' + json.Items[0][i].codigo  +  '&idpro=' + json.Items[0][i].id_prop  +  '&codpro=' + json.Items[0][i].cod_prop  + '"><i class="fa fa-edit" alt=“editar”></i></a>&nbsp;';
                                 html += htmlrepresentante;
                                 html += '<a title="eliminar"  data-field-id="'  + json.Items[0][i].id_repr + '"><i class="fa fa-trash" alt=“eliminar”></i></a>';
                                 html += '</div>'

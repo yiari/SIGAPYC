@@ -80,7 +80,7 @@ public function registrar($tabla,$datos,$archivos){
           $stmt -> bindParam(34,$datos["gasto_administrativo"],PDO::PARAM_INT); // gastos fijos administrativo
           $stmt -> bindParam(35,$datos["gastos_papeleria"],PDO::PARAM_INT); // gastos fijos papeleria
 
-          $stmt -> bindParam(36,$datos["tieneunidades"],PDO::PARAM_INT); // Indicador si el inmueble tiene unidades o no
+          $stmt -> bindParam(36,$datos["unidades"],PDO::PARAM_INT); // Indicador si el inmueble tiene unidades o no
           $stmt -> bindParam(37,$datos["cantunidades"],PDO::PARAM_INT); // Cantidad de unidades del inmueble en caso de tenerla
           $stmt -> bindParam(38,$datos["posee_beneficiario"],PDO::PARAM_INT); // Cantidad de unidades del inmueble en caso de tenerla
 
@@ -343,7 +343,7 @@ public function registrar($tabla,$datos,$archivos){
       $dbConexion = new conexcion();
       $valor = 0;
       
-      $stmt = $dbConexion->conectar()->prepare("CALL usp_cosultar_inmueblesin(?,?)" );
+      $stmt = $dbConexion->conectar()->prepare("CALL usp_consultar_inmueblesinunidad(?,?)" );
       $stmt ->bindParam(1, $datos["id_prop"], PDO::PARAM_INT);
       $stmt ->bindParam(2, $datos["tipo_propietario"], PDO::PARAM_INT);
 
@@ -376,6 +376,50 @@ public function registrar($tabla,$datos,$archivos){
 
 
 }
+
+
+
+
+public function consultainmuebleconunidades($tabla,$datos){
+
+
+
+  try {
+
+    $dbConexion = new conexcion();
+    $valor = 0;
+    
+    $stmt = $dbConexion->conectar()->prepare("CALL usp_consulta_inmuebluconunidad(?,?)" );
+    $stmt ->bindParam(1, $datos["id_prop"], PDO::PARAM_INT);
+    $stmt ->bindParam(2, $datos["tipo_propietario"], PDO::PARAM_INT);
+
+    $stmt->execute();
+    $dataRegistro["Items"][] = $stmt->fetchAll();
+
+    $dataRes = array(
+      'error' => '0',
+      'mensaje' =>  'El registro se obtuvo con exito.'
+    );
+    
+    
+    echo json_encode(array_merge($dataRegistro,$dataRes));
+
+    } catch (\Throwable $th) {
+    
+        //$pdo->rollBack() ;
+        //echo "Mensaje de Error: " . $th->getMessage();
+        $dataRes = array(
+          'error' => '1',
+          'mensaje' =>  "Mensaje de Error: " . $th->getMessage()
+        );
+  
+        echo json_encode($dataRes);
+
+    }
+
+
+}
+
 
 
 

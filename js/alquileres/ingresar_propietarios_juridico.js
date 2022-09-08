@@ -182,6 +182,15 @@ function guardarPropietariosj(){
 }
 
 
+function validateEmail(email) {
+
+    var re = /\S+@\S+\.\S+/;
+    return re.test(email);
+
+
+}
+
+
 function limpiarFormulario(valor){
 
     if(valor == 1){

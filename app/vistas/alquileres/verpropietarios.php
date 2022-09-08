@@ -226,16 +226,54 @@ include("layout/menuNavegacion.php");
                                     <div class="card-body">
 
                                     <div class="table-responsive">
-                                        <table id="datosInmuebles">
+                                        <table  id="datosInmuebles" >
                                         <thead>
                                             <tr>
                                                 <th>Foto</th>
                                                 <th>inmueble</th>
                                                 <th>inquilino</th>
-                                                <th>Canon</th>
+                                                <th>tipo</th>
+                                                <th style='text-align:rigth'>Canon</th>
                                                 <th>Estatus</th>
-                                                <th>Gastos Fijos</th>
-                                                <th>Gastos Especiales</th>
+                                                
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                
+                                        </tbody>
+                                        </table>
+                                    </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 grid-margin">
+                        <!--inmuebles-->
+                        <div class="card">
+                            <div class="card-body">
+                                <!--tabla-->
+                                <div class="card mb-4">
+                                    <div class="card-header">
+                                        <i class='fas fa-house-user'></i>&nbsp;
+                                        INMUEBLES CON UNIDADES
+                                    </div>
+
+                                    <div class="card-body">
+
+                                    <div class="table-responsive">
+                                        <table  id="datosUniades" >
+                                        <thead>
+                                            <tr>
+                                                <th>Foto</th>
+                                                <th>inmueble</th>
+                                                <th>unidad</th>
+                                                <th>inquilino</th>
+                                                <th>tipo</th>
+                                                <th style='text-align:rigth'>Canon</th>
+                                                <th>Estatus</th>
                                                 
                                             </tr>
                                         </thead>
@@ -304,11 +342,11 @@ include("layout/menuNavegacion.php");
                                                 <tbody>
                                                     
                                                     <tr>
-                                                        <td>0098</td>
-                                                        <td>14-may-2022</td>
-                                                        <td>22-0723-00 DORAL MEXICO</td>
-                                                        <td>$320</td>
-                                                        <td>Pendiente</td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
                                                         <td></td>
                                                     </tr>
                                                    
@@ -367,12 +405,12 @@ include("layout/menuNavegacion.php");
                                                 </thead>
                                                 <tbody>
                                                     <tr>
-                                                        <td>070058</td>
-                                                        <td>3-jun-2022</td>
-                                                        <td>Emisión de factura por servicios administrativos</td>
-                                                        <td>Bs 320</td>
-                                                        <td>Bs 20</td>
-                                                        <td>factura</td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
                                                     </tr>
  
                                                 </tbody>

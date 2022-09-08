@@ -253,6 +253,34 @@ if($operacion == "IA"){
     
     $registroaviso =  new ctrregistroavisocobro ();
 
+if (isset($_POST["chktranferencia"])&& isset($_POST["chkpagomovil"])){
+
+
+
+               $datos = array( "id_abono"  => $_POST["hidabono"],
+               "id_aviso"  => $_POST["id_aviso"],
+
+               "id_inqu"  => $_POST["id_inquilino"],
+               "id_inmu"  => $_POST["id_inmueble"],
+               "id_unid"  => $_POST["id_unidad"],
+
+               "id_usuario" => $_POST["id_usuario"],
+               "transferencia" => 1,
+               "pago_movil" => 1,
+               
+               "id_transfe" => $_POST["id_tranferencia"],
+               "id_banco" => $_POST["cboBancoNP"],
+               "referencia" => $_POST["referencia"],
+               "monto" => $_POST["monto"],
+            
+               "id_movil" => $_POST["id_movil"],
+               "id_banco_movil" => $_POST["cboBancoj"],
+               "operacion" => $_POST["operacion"],
+               "monto_movil" => $_POST["monto_movil"]
+            
+               );
+
+} elseif (isset($_POST["chktranferencia"])){
    /*
    |---------------------------------------------
    | AQUI CARGO LOS DATOS PARA ALMACENAR
@@ -260,19 +288,52 @@ if($operacion == "IA"){
    */
     $datos = array( "id_abono"  => $_POST["hidabono"],
                     "id_aviso"  => $_POST["id_aviso"],
-                    "id_inqu" => $_POST["id_inqu"],
-                    "id_inmu" => $_POST["id_inmu"],
-                    "id_unidad" => $_POST["id_unidad"],
+
+                    "id_inqu"  => $_POST["id_inquilino"],
+                     "id_inmu"  => $_POST["id_inmueble"],
+                     "id_unid"  => $_POST["id_unidad"],
+
                     "id_usuario" => $_POST["id_usuario"],
-                    "tranferencia" => $_POST["tranferencia"],
-                    "pago_movil" => $_POST["pago_movil"],
-
-                    "id_transfe" => $_POST["tranferencias"],
-                    "id_banco" => $_POST["id_banco"],
-                    "referencia" => $_POST["referencia"],
-                    "monto" => $_POST["monto"]);
+                    "transferencia" => 1,
+                    "pago_movil" => 0,
                     
+                    "id_transfe" => $_POST["id_tranferencia"],
+                    "id_banco" => $_POST["cboBancoNP"],
+                    "referencia" => $_POST["referencia"],
+                    "monto" => $_POST["monto"],
+                  
+                    "id_movil" => 0,
+                    "id_banco_movil" => 0,
+                    "operacion" => 0,
+                    "monto_movil" => 0
+                  
+                     );
+                    
+} elseif(isset($_POST["chkpagomovil"])) {
 
+
+   $datos = array( "id_abono"  => $_POST["hidabono"],
+                    "id_aviso"  => $_POST["id_aviso"],
+
+                     "id_inqu"  => $_POST["id_inquilino"],
+                     "id_inmu"  => $_POST["id_inmueble"],
+                     "id_unid"  => $_POST["id_unidad"],
+
+                    "id_usuario" => $_POST["id_usuario"],
+                    "transferencia" => 0,
+                    "pago_movil" => 1,
+
+                    "id_transfe" => 0,
+                    "id_banco" => 0,
+                    "referencia" =>'',
+                    "monto" => 0,
+                  
+                    "id_movil" => $_POST["id_movil"],
+                    "id_banco_movil" => $_POST["cboBancoj"],
+                    "operacion" => $_POST["operacion"],
+                    "monto_movil" => $_POST["monto_movil"]);
+
+}
 
 
       //echo json_encode($datos);

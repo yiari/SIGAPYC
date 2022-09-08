@@ -126,6 +126,8 @@ if($operacion == "I"){
                     "fic_cata"   => $_POST["fic_cata"],
                     "num_regi"   => $_POST["num_regi"],
                     "tipo_persona"   => $_POST["tipo_persona"],
+                    "posee_beneficiario" => $_POST["cbobeneficiarios"],
+                    "letra" => $_POST["registroletra"],
 
                      /*
                    |------------------------------------------

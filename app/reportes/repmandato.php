@@ -1,7 +1,7 @@
 <?php
 	//session_start();
 	date_default_timezone_set('America/Caracas') ;
-	require_once("../../fpdf/fpdf.php");
+	//require_once("../../fpdf/fpdf.php");
 	//$id_prop=$_GET['id_prop'];
 	
 	$fecha=Date('Y-m-d');

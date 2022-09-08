@@ -42,7 +42,66 @@ function inicio(){
         jQuery(this).val(jQuery(this).val().replace(/[^0-9]/g, ''));
     });
 
+    jQuery("#registroAntiguedad").on('input', function (evt) {
+        jQuery(this).val(jQuery(this).val().replace(/[^0-9]/g, ''));
+    });
 
+    jQuery("#mtr_inmu").on('input', function (evt) {
+        jQuery(this).val(jQuery(this).val().replace(/[^0-9]/g, ''));
+    });
+
+    jQuery("#mtr_cons").on('input', function (evt) {
+        jQuery(this).val(jQuery(this).val().replace(/[^0-9]/g, ''));
+    });
+
+    jQuery("#hab_inmu").on('input', function (evt) {
+        jQuery(this).val(jQuery(this).val().replace(/[^0-9]/g, ''));
+    });
+
+    jQuery("#ban_inmu").on('input', function (evt) {
+        jQuery(this).val(jQuery(this).val().replace(/[^0-9]/g, ''));
+    });
+
+    jQuery("#est_inmu").on('input', function (evt) {
+        jQuery(this).val(jQuery(this).val().replace(/[^0-9]/g, ''));
+    });
+
+    jQuery("#ser_inmu").on('input', function (evt) {
+        jQuery(this).val(jQuery(this).val().replace(/[^0-9]/g, ''));
+    });
+
+    jQuery("#num_regi").on('input', function (evt) {
+        jQuery(this).val(jQuery(this).val().replace(/[^0-9]/g, ''));
+    });
+
+    jQuery("#tom_regi").on('input', function (evt) {
+        jQuery(this).val(jQuery(this).val().replace(/[^0-9]/g, ''));
+    });
+
+    jQuery("#fol_regi").on('input', function (evt) {
+        jQuery(this).val(jQuery(this).val().replace(/[^0-9]/g, ''));
+    });
+
+    jQuery("#asi_regi").on('input', function (evt) {
+        jQuery(this).val(jQuery(this).val().replace(/[^0-9]/g, ''));
+    });
+
+    jQuery("#fic_cata").on('input', function (evt) {
+        jQuery(this).val(jQuery(this).val().replace(/[^0-9]/g, ''));
+    });
+
+    jQuery("#gasto_admi").on('input', function (evt) {
+        jQuery(this).val(jQuery(this).val().replace(/[^0-9]/g, ''));
+    });
+
+    jQuery("#gasto_papel").on('input', function (evt) {
+        jQuery(this).val(jQuery(this).val().replace(/[^0-9]/g, ''));
+    });
+
+    
+
+
+    
 
 }
 

@@ -11,7 +11,11 @@ include("layout/menuNavegacion.php");
 
         <div class="card-header">
 
-                
+             <div style="text-align: right;">
+                        <ol>          
+                            <a class="btn btn-outline-secondary codpro" href="index.php?url=app/vistas/alquileres/representante"  role="button">Atras</a>
+                        </ol>
+                </div>
 
               
                 <h4 class="card-title">Datos del Representante Lega</h4>

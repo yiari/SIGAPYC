@@ -18,9 +18,6 @@ include("layout/menuNavegacion.php");
           <div class="card-header">
             <div style="text-align: right;">
                 <ol>
-                    <a class="btn btn-outline-danger" href="#" role="button"><i class="fa fa-file-pdf-o" alt=“PDF” ></i> PDF</a>
-              
-                
                     <a class="btn btn-outline-success" href="#" role="button"><i class="fa fa-file-excel-o " alt=“Excel”></i> Execel</a>
                 </ol>
             </div>

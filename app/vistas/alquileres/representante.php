@@ -31,7 +31,7 @@
                             <th>cedula</th>
                             <th>Telefono</th>
                             <th>correo</th>
-                            <th>Propietario</th>
+                            
                             
                             <th>Doc / Editar</th>
                      

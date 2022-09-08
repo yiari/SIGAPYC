@@ -103,7 +103,7 @@ if (isset($_POST["chkunidades"])){
 
   $datos = array(   "id_inmu"   => $_POST["hidinmueble"],
                      "id_prop"    => $_POST["id_prop"],
-                     "tipo_propietario"    => $_POST["id_prop"],
+                     "tipo_propietario"    => $_POST["tipo_propietario"],
                      "cod_inmu"   => $_POST["registroCodigo"],
                      "tip_inmu"   => $_POST["cboinmueble"],
                      "act_inmu"   => $_POST["registroUso"],
@@ -157,7 +157,7 @@ if (isset($_POST["chkunidades"])){
 
     $datos = array( "id_inmu"   => $_POST["hidinmueble"],
                     "id_prop"    => $_POST["id_prop"],
-                    "tipo_propietario"    => $_POST["id_prop"],
+                    "tipo_propietario"    => $_POST["tipo_propietario"],
                     "cod_inmu"   => $_POST["registroCodigo"],
                     "tip_inmu"   => $_POST["cboinmueble"],
                     "act_inmu"   => $_POST["registroUso"],
@@ -197,7 +197,7 @@ if (isset($_POST["chkunidades"])){
                   "gasto_administrativo" => $_POST["gasto_admi"],
                   "gastos_papeleria" => $_POST["gasto_papel"],
                   "tieneunidades" => 0,
-                  "cantunidades" => 0,
+                  "unidades" => 0,
                   "posee_beneficiario" => $_POST["cbobeneficiarios"]
                );
 
@@ -247,7 +247,7 @@ if (isset($_POST["chkunidades"])){
 
 /* 
  |--------------------------------------------------------------
- | AQUI SE EJECUTA LA OPERACION DE CONSULTAR TODOS LOS INQUILINOS
+ | AQUI SE EJECUTA LA OPERACION DE CONSULTAR INMUEBLES
  |--------------------------------------------------------------
 */
 
@@ -290,12 +290,12 @@ if($operacion == "C"){
 
 
 /* 
- |--------------------------------------------------------------
- | AQUI SE EJECUTA LA OPERACION DE CONSULTAR TODOS LOS INQUILINOS
- |--------------------------------------------------------------
+ |----------------------------------------------------------------------
+ | AQUI SE EJECUTA LA OPERACION DE CONSULTAR LOS INMUEBLES SIN UNINDAES
+ |---------------------------------------------------------------------
 */
 
-if($operacion == "CB"){
+if($operacion == "CIS"){
 
 
    $datos = array( 
@@ -316,7 +316,48 @@ if($operacion == "CB"){
    | AQUI OBTENGO EL RESULTADO DE LA EJECUCION
    |---------------------------------------------
    */
-     $result = $registroInmueble->seleccionarregistros($datos);
+     $result = $registroInmueble->consultainmueblesinunidades($datos);
+    
+    /*
+    |-------------------------------------------
+    | AQUI REGRESO EL RESULTADO AL AJAX
+    |-------------------------------------------
+    */
+    header('Content-Type: application/json');
+     return $result;
+     
+}
+
+
+
+/* 
+ |----------------------------------------------------------------------
+ | AQUI SE EJECUTA LA OPERACION DE CONSULTAR LOS INMUEBLES SIN UNINDAES
+ |---------------------------------------------------------------------
+*/
+
+if($operacion == "CIC"){
+
+
+   $datos = array( 
+      "id_prop"   => $_POST["id_prop"],
+      "tipo_propietario"   => $_POST["tipo_propietario"]
+   );
+
+   /*
+    |-------------------------------------------
+    | AQUI CREO UNA INSTANCIA DE LA CLASE
+    |-------------------------------------------
+    */
+    
+    $registroInmueble =  new ctrregistroinmueble();
+
+   /* 
+   |---------------------------------------------
+   | AQUI OBTENGO EL RESULTADO DE LA EJECUCION
+   |---------------------------------------------
+   */
+     $result = $registroInmueble->consultainmuebleconunidades($datos);
     
     /*
     |-------------------------------------------

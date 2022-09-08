@@ -98,7 +98,7 @@ include("layout/menuNavegacion.php");
                                     <div class="row">
                                         <label for="registrNombre" class="col-sm-12 col-form-label">Nombre del Inmueble:</label>
                                         <div class="col-sm-12">
-                                            <input type="text" class="form-control"  id="registrNombre" name="registrNombre" maxlength="10">
+                                            <input type="text" class="form-control"  id="registrNombre" name="registrNombre" maxlength="50">
                                         </div>
                                     </div>
                                 </div>

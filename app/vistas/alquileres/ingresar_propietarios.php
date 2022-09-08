@@ -8,7 +8,7 @@ include("layout/menuNavegacion.php");
 
 
 <div class="container">
-    <div class="card-header">
+            <div class="card-header">
 
 
                  <div style="text-align: right;">
@@ -17,7 +17,7 @@ include("layout/menuNavegacion.php");
                         </ol>
                     </div>
 
-            <h4 class="card-title">Propietarios</h4>
+                 <h4 class="card-title">Propietarios</h4>
                 <nav>
                     
                     <div class="nav nav-tabs" id="nav-tab" role="tablist">
@@ -44,9 +44,7 @@ include("layout/menuNavegacion.php");
 
                                         <input type="hidden" id="hidcuenta_id_paypal" name=" hidcuenta_id_paypal" value='0'>
                                         <input type="hidden" id="hidcuenta_id_zelle" name="hidcuenta_id_zelle" value='0'>
-                                        <!--
-                                        <input type="hidden" id="registroCodigo" name="registroCodigo" value='0001'>
--->
+                                       
                                         <!--datos personales-->
                                         <div class="card">
                                             <div class="card-body">
@@ -325,7 +323,7 @@ include("layout/menuNavegacion.php");
                             </div>
                         </div>
                     </div>
-                    <div class="tab-pane fade show active" id="nav-prop_juridico" role="tabpanel" aria-labelledby="nav-prop_juridico-tab">
+                    <div class="tab-pane fade show " id="nav-prop_juridico" role="tabpanel" aria-labelledby="nav-prop_juridico-tab">
                         <div class="col-12 grid-margin">
                             <!--Jurídico-->
                             <div class="card">
@@ -390,10 +388,12 @@ include("layout/menuNavegacion.php");
                                                         </div>
                                                     </div>
                                                     <div class="col-md-5">
-                                                        <label for="registroEmailj" class="col-sm-3 col-form-label">Correo:</label>
+                                                        <label  class="col-sm-3 col-form-label">Correo:</label>
                                                         <div class="col-sm-12">
-                                                            <input type="email" class="form-control" id="registroEmailj" name="registroEmailj">
+                                                            <input for="registroEmailj" type="text" type="email" class="form-control" id="registroEmailj" name="registroEmailj">
                                                         </div>
+
+                                                        
                                                     </div>
                                                 </div>
                                             </div>
@@ -425,9 +425,9 @@ include("layout/menuNavegacion.php");
                                                     <div class="col-md-12">
                                                         <div class="input-group">
                                                             <span class="input-group-text">Pago Movil</span>
-                                                            <input type="text" placeholder="cedula" id="ced_pmovj" name="ced_pmovj" aria-label="Cédula" maxlength="11" class="form-control">
+                                                            <input type="text" placeholder="cedula" id="pagomovil_cedulaj" name="pagomovil_cedulaj" aria-label="Cédula" maxlength="11" class="form-control">
                                                             <select class="form-control"  id="cboBancop" name="cboBancop"></select>
-                                                            <input type="text" placeholder="celular" id="cel_pmovj" name="cel_pmovj" aria-label="Celular" maxlength="11" class="form-control">
+                                                            <input type="text" placeholder="celular" id="pagomovil_telefonoj" name="pagomovil_telefonoj" aria-label="Celular" maxlength="11" class="form-control">
                                                         </div><br>
                                                     </div>  
                                                 </div>

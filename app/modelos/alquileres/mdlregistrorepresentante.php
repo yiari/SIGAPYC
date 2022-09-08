@@ -33,6 +33,8 @@ public function registrar($tabla,$datos,$archivos){
   $prmMensaje = "";
   $prmIdrepresentante = 0;
 
+  $fecharegistro = str_replace("-","",$datos["fec_regi"]);
+
 
 
   
@@ -45,7 +47,7 @@ public function registrar($tabla,$datos,$archivos){
           */
           $stmt = $dbConexion->conectar()->prepare("CALL usp_registrarrepresentante(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
           $stmt -> bindParam(1,  $datos ["id_repr"],  PDO::PARAM_INT); //ESTE ES EL ID DEL APODRRADO
-		       $stmt -> bindParam(2,  $datos ["id_prop"],  PDO::PARAM_INT); //ESTE ES EL ID DEL PROPIETARIO
+		      $stmt -> bindParam(2,  $datos ["id_prop"],  PDO::PARAM_INT); //ESTE ES EL ID DEL PROPIETARIO
           $stmt -> bindParam(3,  $datos ["cod_repr"], PDO::PARAM_STR);
           $stmt -> bindParam(4,  $datos ["nom_repr"], PDO::PARAM_STR);            
           $stmt -> bindParam(5,  $datos ["ape_repr"], PDO::PARAM_STR);          
@@ -64,7 +66,7 @@ public function registrar($tabla,$datos,$archivos){
           
           $stmt -> bindParam(18, $datos ["cod_regi"], PDO::PARAM_STR);
           $stmt -> bindParam(19, $datos ["not_regi"], PDO::PARAM_STR);
-          $stmt -> bindParam(20, $datos ["fec_regi"], PDO::PARAM_INT);
+          $stmt -> bindParam(20, $fecharegistro,PDO::PARAM_INT);
           $stmt -> bindParam(21, $datos ["num_regi"], PDO::PARAM_STR);
           $stmt -> bindParam(22, $datos ["tom_regi"], PDO::PARAM_STR);
           $stmt -> bindParam(23, $datos ["fol_regi"], PDO::PARAM_STR);
@@ -187,7 +189,7 @@ public function registrar($tabla,$datos,$archivos){
         $valor = 0;
         
         $stmt = $dbConexion->conectar()->prepare("CALL usp_cargarrepresentante(?)");
-        $stmt ->bindParam(1, $valor, PDO::PARAM_INT);
+        $stmt ->bindParam(1, $idprop, PDO::PARAM_INT);
         $stmt->execute();
         $dataRegistro["Items"][] = $stmt->fetchAll();
 

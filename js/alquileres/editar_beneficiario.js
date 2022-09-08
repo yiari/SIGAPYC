@@ -8,7 +8,9 @@ function inicio(){
     */
     $('#id_propietarioj').val(getParameterByName('idpro'));
     $('#tipo_propietarioj').val(getParameterByName('codtip'));
+    $('#id').val(getParameterByName('idbene'));
 
+    
     let idPropietario = getParameterByName('idpro');
     let prmCodPro = getParameterByName('codpro');
     let prmTipo = getParameterByName('codtip');
@@ -400,7 +402,7 @@ function consultarBeneficiarioJuridico(id,codigo,tipo){
     
     
                             //<input type="hidden" id="tipo_persona" name="tipo_persona" value='1'>
-                            $('#hidbeneficiarioj').val(json.Items[0].id_bene);
+                            $('#hidbeneficiarioj').val(json.Items[0].id);
                             $('#hidcuenta_id_nacionalj').val(json.Items[0].id_banco_nacionalj);
                             $('#hidcuenta_id_internacionalj').val(json.Items[0].id_banco_internacionalj);
                             $('#hidcuenta_id_paypalj').val(json.Items[0].id_banco_internacionalj);
@@ -414,7 +416,6 @@ function consultarBeneficiarioJuridico(id,codigo,tipo){
                             */
                             $('#registroNombrej').val(json.Items[0].nom_benej);
                             $('#registroRifj').val(json.Items[0].rif_benej);
-                            $('#registroTelefonoj').val(json.Items[0].tel_benej);
                             $('#registroEmailj').val(json.Items[0].cor_benej);
                             $('#registroActividad').val(json.Items[0].act_benej);
     
@@ -767,6 +768,7 @@ function mensaje(mensaje, condicion){
 
 
 
+
 function generarCodigoBeneficiario(){
 
 
@@ -776,12 +778,12 @@ function generarCodigoBeneficiario(){
         var prmApellido=$("#registroApellido").val();
 
         $("#registroCodigo").val('');
-
-        codigoBeneficiario(prmNombre,function(result){
+        codigoApoderado(prmNombre + ' ' + prmApellido,function(result){
             $("#registroCodigo").val(result);
         });
-
-
+        /*
+        $("#registroCodigo").val(codigoApoderado(prmNombre + ' ' + prmApellido));
+        */
     });
 
     $("#registroApellido").on('keyup', function () {
@@ -790,10 +792,12 @@ function generarCodigoBeneficiario(){
         var prmApellido=this.value;
 
         $("#registroCodigo").val('');
-        codigoBeneficiario(prmNombre ,function(result){
+        codigoApoderado(prmNombre + ' ' + prmApellido,function(result){
             $("#registroCodigo").val(result);
         });
-
+        /*
+        $("#registroCodigo").val(codigoApoderado(prmNombre + ' ' + prmApellido));
+        */
     });
    
 

@@ -7,8 +7,19 @@ function inicio(){
     | ASI SE CAPTURAN LOS PARAMETROS
     |---------------------------------------
     */
+
+    $('#id_unid').val(getParameterByName('idunidad'));
+    $('#cod_inmu').val(getParameterByName('codUnidad'));
+
+    let idPropietario = getParameterByName('idpro');
+    let prmCodPro = getParameterByName('codpro');
+    let prmTipo = getParameterByName('codtip');
+
     let idInmueble = getParameterByName('idinmu');
     let prmCodInmu = getParameterByName('codinmu');
+
+    let idUnidad = getParameterByName('idunidad');
+    let prmCodunidad = getParameterByName('codUnidad');
     
 
     //let idPropietario = getParameterByName('idpro');
@@ -17,11 +28,11 @@ function inicio(){
  
      codigoInmueble(prmCodInmu);
 
-     cargarUnidades(idInmueble,prmCodInmu);
+     cargarUnidades(idInmueble,prmCodInmu,idUnidad,prmCodunidad);
 
-    nuevoUnidad(idInmueble,prmCodInmu);
+    nuevoUnidad(idInmueble, prmCodInmu,idPropietario,prmCodPro,prmTipo);
     
-    atrasInmueble(idInmueble,prmCodInmu);
+    atrasInmueble(idInmueble,prmCodInmu,idPropietario,prmCodPro,prmTipo);
  
    
 
@@ -46,7 +57,7 @@ function codigoInmueble(prmDato){
 }
 
 
-function nuevoUnidad(prmidInmu,prmCodInmu){
+function nuevoUnidad(prmidInmu,prmCodInmu,idPropietario,prmCodPro,prmTipo){
 
     //if (isEmpty(prmDato) == false ){
 
@@ -54,7 +65,7 @@ function nuevoUnidad(prmidInmu,prmCodInmu){
         var html = "";
 
         if(prmidInmu != 0 && prmidInmu != ""){
-            html='index.php?url=app/vistas/alquileres/ingresar_unidad_inmueble&idinmu=' + prmidInmu + '&codinmu=' + prmCodInmu;
+            html='index.php?url=app/vistas/alquileres/ingresar_unidad_inmueble&idinmu=' + prmidInmu  + '&codinmu=' + prmCodInmu  + '&idpro=' + idPropietario + '&codpro=' + prmCodPro + '&codtip=' + prmTipo;
             $(".codpro").prop("href", html);
         }
 
@@ -68,13 +79,13 @@ function nuevoUnidad(prmidInmu,prmCodInmu){
 
 
 
-function atrasInmueble(prmidInmu, prmCodInmu){
+function atrasInmueble(prmidInmu, prmCodInmu,idPropietario,prmCodPro,prmTipo){
 
     //if (isEmpty(prmDato) == false ){
 
 
         var html = "";
-        html='index.php?url=app/vistas/alquileres/inmuebles&idinmu=' + prmidInmu  + '&codinmu=' + prmCodInmu;
+        html='index.php?url=app/vistas/alquileres/inmuebles&idinmu=' + prmidInmu  + '&codinmu=' + prmCodInmu  + '&idpro=' + idPropietario + '&codpro=' + prmCodPro + '&codtip=' + prmTipo;
     
         $(".codinmu").prop("href", html);
 
@@ -84,7 +95,7 @@ function atrasInmueble(prmidInmu, prmCodInmu){
 }
 
 
-function cargarUnidades(idInmueble,prmCodInmu){
+function cargarUnidades(idInmueble,prmCodInmu,idPropietario,prmcodPropietario,prmTipo,prmIdUnidad,prmCodUnidad){
     
     /*
     |-----------------------------------------------------
@@ -94,8 +105,14 @@ function cargarUnidades(idInmueble,prmCodInmu){
     var formData = new FormData();
 
     formData.append('opcion','C');
+ 
     formData.append('id_inmu',idInmueble);
     formData.append('cod_inmueble',prmCodInmu);
+    formData.append('id_prop',idPropietario);
+    formData.append('cod_prop',prmcodPropietario);
+    formData.append('tipo_propietario',prmTipo);
+    formData.append('id_unid',prmIdUnidad);
+    formData.append('cod_unidad',prmCodUnidad);
     /*
     |-----------------------------------------------
     | AQUI SE LLAMA EL AJAX 
@@ -113,6 +130,9 @@ function cargarUnidades(idInmueble,prmCodInmu){
         },
         success: function (data) {
         var json = data;
+
+        
+
         var html = "";
 /*
         console.log(json);
@@ -166,10 +186,19 @@ function cargarUnidades(idInmueble,prmCodInmu){
                             
                             var html="";
                             html = '<div class="btn-group" style="font-size:1.3em; letter-spacing:0.2em;">';
-                            html += '<a title="Editar" data-field-id="' + json.Items[0][i].id  + '"><i class="fa fa-edit" alt=“editar”></i></a>&nbsp;';
-                            html += '<a title="Ver" data-field-id="' + json.Items[0][i].id + '"><i class="fa fa-search" alt=“Ver”></i></a>&nbsp;';
-                            html += '<a title="Contrato" data-field-id="' + json.Items[0][i].id + '"><i class="fa fa-file-pen"></i></a>&nbsp;';
-                            html += '<a title="Bitacora" data-field-id="' + json.Items[0][i].id + '"><i class="fa fa-folder-open"></i></a>&nbsp;';
+                            html += '<a title="Bitacora" data-field-id="' + json.Items[0][i].id_unid + '"><i class="fa fa-book"></i></a>&nbsp;';
+                           
+                            html += '<a title="Editar" href="index.php?url=app/vistas/alquileres/editar_unidad_inmueble&idunidad="' + json.Items[0][i].id_unid  + '"><i class="fa fa-edit" alt=“editar”></i></a>&nbsp;';
+
+                            
+                            if(json.Items[0][i].posee_beneficiario == 2 || json.Items[0][i].posee_beneficiario == 0 ){
+                                html += '<a href="javascript:void" class="link_apagado"><i class="fa fa-users"></i></a>&nbsp;';
+                            } else if (json.Items[0][i].posee_beneficiario == 1)  {
+                                html += '<a title="Beneficiario"  href="index.php?url=app/vistas/alquileres/inmueble_beneficiario&idpro=' + json.Items[0][i].id_prop  + '&codpro=' + json.Items[0][i].propietario + '&codtip=' + json.Items[0][i].tipo_propietario + '&idinmu=' + json.Items[0][i].id_inmu  + '&codinmu=' + json.Items[0][i].codigo  + '"><i class="fa fa-users"></i></a>&nbsp;';
+                            }
+
+                            html += '<a title="Mandato y Contratos"  href="index.php?url=app/vistas/alquileres/contratos_mandatos&idinmu=' + json.Items[0][i].id_inmu   + '&codinmu=' + json.Items[0][i].codigo  + '"><i class="fa fa-file-text-o"></i></a>&nbsp;';
+                           
                             html += '<a title="Eliminar"  data-field-id="'  + json.Items[0][i].id + '"><i class="fa fa-trash" alt=“eliminar”></i></a>';
                             html += '</div>'
                             tr.append("<td>" + html + "</td>");

@@ -9,9 +9,10 @@ function inicio(){
 
 
     let idPropietario = getParameterByName('idpro');
-    let codigoPropietario = getParameterByName('codpro');
+    let prmCodRepr = getParameterByName('codrepre');
     let tipoPropietario = getParameterByName('codtip');
     let idRepresentante = getParameterByName('idrepr');
+    let codpropietario = getParameterByName('codpro');
 
     
 
@@ -23,7 +24,7 @@ function inicio(){
     cargarBancos('cboBancoN');
     cargarBancos('cboBancoNP');
     
-   
+    atrasRepresentante(idRepresentante,prmCodRepr,idPropietario,codpropietario);
     guardarRepresentante();
     
     
@@ -82,6 +83,22 @@ function inicio(){
 consultarRepresentante(idRepresentante,codigoRepresentante);
 
 
+
+}
+
+
+function atrasRepresentante( prmidRepre, prmCodRpre, prmIdPro,prmcodpropietario){
+
+    //if (isEmpty(prmDato) == false ){
+
+
+        var html = "";
+        html='index.php?url=app/vistas/alquileres/representante&idrepr=' + prmidRepre  + '&codrepre=' + prmCodRpre + '&idpro=' + prmIdPro + '&codpro=' + prmcodpropietario;
+    
+        $(".codpro").prop("href", html);
+
+
+    //}
 
 }
 
@@ -186,32 +203,6 @@ console.log("consultando");
                         $('#tom_regi').val(json.Items[0].tom_regi);
                         $('#fol_regi').val(json.Items[0].fol_regi);
 
-		  /*
-                        a.id_repr  
-                        , a.id_prop  
-                        , a.cod_repr 
-                        , a.nom_repr 
-                        , a.ape_repr 
-                        , a.nac_repr 
-                        , a.ci_repr  
-                        , a.rif_repr 
-                        , a.loc_repr 
-                        , a.cel_repr 
-                        , a.cor_repr 
-                        , a.est_repr 
-                        , a.mun_repr 
-                        , a.par_repr 
-                        , a.dir_repr 
-                        , a.ofi_repr 
-                        , a.tip_repr 
-                        , a.cod_regi 
-                        , a.not_regi 
-                        , a.fec_regi 
-                        , a.num_regi 
-                        , a.tom_regi 
-                        , a.fol_regi 
-                      
-*/
 
 
                     }

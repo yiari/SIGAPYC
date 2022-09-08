@@ -18,6 +18,7 @@ function inicio(){
     
     consultarPropietario(idPropietario,codigoPropietario,tipoPropietario);
     cargarInmueble(idPropietario,tipoPropietario);
+    cargarInmuebleConUnidad(idPropietario,tipoPropietario);
     imprimirDocumento(idPropietario, codigoPropietario, tipoPropietario);
    
 }
@@ -227,7 +228,7 @@ function consultarPropietario(id,codigo,tipo){
         */
         var formData = new FormData();
     
-        formData.append('opcion','CB');
+        formData.append('opcion','CIS');
         formData.append('id_prop',idPropietario);
         formData.append('tipo_propietario',tipoPropietario);
        
@@ -300,13 +301,15 @@ function consultarPropietario(id,codigo,tipo){
                                         }
     
                                         tr.append("<td>" + json.Items[0][i].tipo + "</td>"); 
+
+                                        tr.append("<td style='text-align:rigth'>" + json.Items[0][i].canon + "</td>"); 
                                  
                                         tr.append("<td>" + statusinmuebles(json.Items[0][i].estatus) + "</td>");
                                         
                                         var html="";
          
                                         html += '</div>'
-                                        tr.append("<td>" + html + "</td>");
+                                        
                                         $('#datosInmuebles').append(tr);
                                     //}
                                 }
@@ -320,6 +323,127 @@ function consultarPropietario(id,codigo,tipo){
                            }
     
                         new simpleDatatables.DataTable("#datosInmuebles");
+    
+                    }
+                    /************************************************ */
+    
+    
+            },
+            error: function (e) {
+                $("#error").html(e).fadeIn();
+            }
+        });
+    
+    }
+
+
+
+
+
+    function cargarInmuebleConUnidad(idPropietario,tipoPropietario){
+
+        /*
+        |-----------------------------------------------------
+        | AQUI SE AGREGA UN PARAMETRO ADICIONAL AL FORMULARIO 
+        |-----------------------------------------------------
+        */
+        var formData = new FormData();
+    
+        formData.append('opcion','CIC');
+        formData.append('id_prop',idPropietario);
+        formData.append('tipo_propietario',tipoPropietario);
+       
+     
+     
+        /*
+        |-----------------------------------------------
+        | AQUI SE LLAMA EL AJAX 
+        |-----------------------------------------------
+        */
+        $.ajax({
+            url: "app/handler/alquileres/hndregistroinmueble.php",
+            data: formData,
+            processData: false,
+            contentType: false,
+            type: 'POST',
+            beforeSend: function () {
+                //$("#preview").fadeOut();
+                $("#error").fadeOut();
+            },
+            success: function (data) {
+            var json = data;
+            var html = "";
+    /*
+            console.log(json);
+            console.log("Este es el Mensaje: " + json.mensaje);
+            console.log("Items: " + json.Items.length);
+            console.log("Items Resultados: " + json.Items[0].length);
+            console.log("Email Resultados: " + json.Items[0][1].email);
+    */
+                    /*
+                    |------------------------------------------------------
+                    | AQUI SE CARGA LA INFORMACION EN LA TABLA
+                    |------------------------------------------------------
+                    */
+                    if(json.Items.length > 0){
+                        var tr;
+                        if(json.Items[0].length > 0){
+                                for (var i = 0; i < json.Items[0].length; i++) {
+                            
+                                // if (isEmpty(json.Items[0][i]) == false) {
+                                        tr = $('<tr/>');
+    
+                                        
+                                        let prmFoto = json.Items[0][i].foto;
+                                        let prmInquilino = json.Items[0][i].inquilino;
+                                       
+                                       
+                                        var htmlunidades="";
+    
+                                        console.log(prmFoto);
+                                        console.log(prmInquilino);
+                                        console.log(htmlunidades);
+                                    
+                                       
+                                        
+                                        if(prmFoto == undefined){
+                                            tr.append("<td style='text-align:center'>"+ '<img src="./app/iconos/sinfoto01.png" alt="sin foto" style="width:120px;height:120px;"></img>' + "</td>");
+                                        } else {
+                                            tr.append("<td>" + json.Items[0][i].foto + "</td>");
+                                        }
+                                        tr.append("<td>" + json.Items[0][i].inmueble + "</td>");
+                                        tr.append("<td>" + json.Items[0][i].unidad + "</td>");
+                                        /*tr.append("<td>" + json.Items[0][i].propietario + "</td>");*/
+                                        
+                                        if(prmInquilino == undefined){
+                                            tr.append("<td>SIN INQUILINO</td>");
+                                        } else {
+                                            tr.append("<td>" + json.Items[0][i].inquilino + "</td>");
+                                        }
+    
+                                        tr.append("<td>" + json.Items[0][i].tipo + "</td>"); 
+
+                                        tr.append("<td style='text-align:rigth'>" + json.Items[0][i].canon + "</td>"); 
+                                 
+                                        tr.append("<td>" + statusinmuebles(json.Items[0][i].estatus) + "</td>");
+                                        
+                                        var html="";
+         
+                                        html += '</div>'
+                                        
+                                        $('#datosUniades').append(tr);
+                                    //}
+                                }
+                        } else {
+    
+                            var tr;
+                            tr = $('<tr/>');
+                            tr.append("<td colspan=7 style='text-align:center'>NO HAY INFORMACION REGISTRADA</td>");
+                            $('#datosUniades').append(tr);
+    
+                           }
+    
+                        new simpleDatatables.DataTable("#datosUniades");
     
                     }
                     /************************************************ */

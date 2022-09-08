@@ -7,9 +7,11 @@ function inicio(){
     |---------------------------------------
     */
 
-    $('#id_prop').val(getParameterByName('idpro'));
+   
+
     let idPropietario = getParameterByName('idpro');
     let prmCodPro = getParameterByName('codpro');
+    let prmTipo = getParameterByName('codtip');
 
     let codigoInmueble = getParameterByName('codinmu');
     let idInmueble = getParameterByName('idinmu');
@@ -17,7 +19,7 @@ function inicio(){
     /*--------------------------------------*/  
 
     codigoPropietario(prmCodPro);
-    atrasInmueble(idPropietario,prmCodPro);  
+    atrasInmueble(idPropietario,prmCodPro,prmTipo,idInmueble,codigoInmueble);
     cargartipo_inmueble();
 
     generarCodigoInmueble();
@@ -72,13 +74,13 @@ function codigoPropietario(prmDato){
 
 }
 
-function atrasInmueble(prmIdPro, prmCodPro){
+function atrasInmueble(prmIdPro, prmCodPro,prmCodTipo,prmIdInmu,prmCodInmu,prmCodTipo){
 
     //if (isEmpty(prmDato) == false ){
 
 
         var html = "";
-        html='index.php?url=app/vistas/alquileres/inmuebles&idpro=' + prmIdPro  + '&codpro=' + prmCodPro;
+        html='index.php?url=app/vistas/alquileres/inmuebles&idpro=' + prmIdPro  + '&codpro=' + prmCodPro  + '&codtip=' + prmCodTipo + '&idinmu=' + prmIdInmu + '&codinmu=' + prmCodInmu;
     
         $(".codpro").prop("href", html);
 
