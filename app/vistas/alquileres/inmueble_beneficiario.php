@@ -25,6 +25,13 @@
                     <span id="lblInmueble"><strong>INMUEBLE SELECCIONADO : </strong></span>
                     <br/><br/>
                 </div>
+
+                <form method="POST" id="registrarbeneficiario">
+
+                    <input type="hidden"  id="id_propietario" name="id_propietario" value="0">
+                    <input type="hidden"  id="id_inmueble" name="id_inmueble" value="0">
+                    <input type="hidden"  id="id_unidad" name="id_unidad" value="0">
+               
         
         <!--tabla-->
                                 <div class="card mb-4">
@@ -49,6 +56,9 @@
                                         </table>
                                     </div>
                                 </div>
+
+
+                    </form>
         </div>
    
 

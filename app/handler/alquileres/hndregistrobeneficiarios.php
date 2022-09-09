@@ -208,6 +208,51 @@ if($operacion == "I"){
 
 
 
+
+/* 
+ |--------------------------------------------------------------
+ | AQUI SE EJECUTA LA OPERACION INSERTAR INMUEBLE BENEFICIARIO
+ |--------------------------------------------------------------
+*/
+
+if($operacion == "IB"){
+
+
+   $prmid_propietario = $_POST["id_propietario"];
+   $prmid_inmueble = $_POST["id_inmueble"];
+   $prmid_unidad = $_POST["id_unidad"];
+
+   /*
+    |-------------------------------------------
+    | AQUI CREO UNA INSTANCIA DE LA CLASE
+    |-------------------------------------------
+    */
+    
+    //$registroBenefesiarios =  new ctrregistrobeneficiarios();
+
+   /* 
+   |---------------------------------------------
+   | AQUI OBTENGO EL RESULTADO DE LA EJECUCION
+   |---------------------------------------------
+   */
+    // $result = $registroBenefesiarios->seleccionarregistros($prmid_prop,$prmtipo);
+    
+    /*
+    |-------------------------------------------
+    | AQUI REGRESO EL RESULTADO AL AJAX
+    |-------------------------------------------
+    */
+    if (!headers_sent()) {
+      //AGREGAR CABECERA SI NO LA TIENE
+      header('Content-Type: application/json');
+   } 
+     return $result;
+     
+}
+
+
+
+
 /* 
  |--------------------------------------------------------------
  | AQUI SE EJECUTA LA OPERACION DE CONSULTAR TODOS LOS USUARIOS

@@ -188,10 +188,10 @@ function cargarUnidades(idInmueble,prmCodInmu,prmIdUnidad,prmCodUnidad){
                             if(json.Items[0][i].posee_beneficiario == 2 || json.Items[0][i].posee_beneficiario == 0 ){
                                 html += '<a href="javascript:void" class="link_apagado"><i class="fa fa-users"></i></a>&nbsp;';
                             } else if (json.Items[0][i].posee_beneficiario == 1)  {
-                                html += '<a title="Beneficiario"  href="index.php?url=app/vistas/alquileres/inmueble_beneficiario&idunid=' + json.Items[0][i].id_unid + '&idpro=' + json.Items[0][i].id_prop  + '&codpro=' + json.Items[0][i].propietario + '&codtip=' + json.Items[0][i].tipo_propietario + '&idinmu=' + json.Items[0][i].id_inmu  + '&codinmu=' + json.Items[0][i].codigo  + '"><i class="fa fa-users"></i></a>&nbsp;';
+                                html += '<a title="Beneficiario"  href="index.php?url=app/vistas/alquileres/inmueble_beneficiario&idunid=' + json.Items[0][i].id_unid + '&idpro=' + json.Items[0][i].id_prop  + '&codpro=' + json.Items[0][i].codpro + '&codtip=' + json.Items[0][i].tipo_propietario + '&idinmu=' + json.Items[0][i].id_inmu  + '&codinmu=' + json.Items[0][i].codigo  + '"><i class="fa fa-users"></i></a>&nbsp;';
                             }
 
-                            html += '<a title="Mandato y Contratos"  href="index.php?url=app/vistas/alquileres/contratos_mandatos&idunid=' + json.Items[0][i].id_unid + '&idpro=' + json.Items[0][i].id_prop  + '&codpro=' + json.Items[0][i].propietario + '&codtip=' + json.Items[0][i].tipo_propietario + '&idinmu=' + json.Items[0][i].id_inmu  + '&codinmu=' + json.Items[0][i].codigo  +  '"><i class="fa fa-file-text-o"></i></a>&nbsp;';
+                            html += '<a title="Mandato y Contratos"  href="index.php?url=app/vistas/alquileres/contratos_mandatos&idunid=' + json.Items[0][i].id_unid + '&idpro=' + json.Items[0][i].id_prop  + '&codpro=' + json.Items[0][i].codpro + '&codtip=' + json.Items[0][i].tipo_propietario + '&idinmu=' + json.Items[0][i].id_inmu  + '&codinmu=' + json.Items[0][i].codigo  +  '"><i class="fa fa-file-text-o"></i></a>&nbsp;';
                            
                             html += '<a title="Eliminar"  data-field-id="'  + json.Items[0][i].id + '"><i class="fa fa-trash" alt=“eliminar”></i></a>';
                             html += '</div>'

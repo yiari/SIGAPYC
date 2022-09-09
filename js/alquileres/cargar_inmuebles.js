@@ -176,11 +176,22 @@ function cargarInmueble(idPropietario,idInmueble,prmTipo,prmCodInmu,prmcodPropie
                                         html += '<a href="javascript:void" class="link_apagado"><i class="fa fa-home"></i></a>&nbsp;';
                                     }
 
-                                    if(json.Items[0][i].posee_beneficiario == 2 || json.Items[0][i].posee_beneficiario == 0 ){
+
+                                    if(json.Items[0][i].tieneunidades > 0){
+
                                         html += '<a href="javascript:void" class="link_apagado"><i class="fa fa-users"></i></a>&nbsp;';
-                                    } else if (json.Items[0][i].posee_beneficiario == 1)  {
-                                        html += '<a title="Beneficiario"  href="index.php?url=app/vistas/alquileres/inmueble_beneficiario&idpro=' + json.Items[0][i].id_prop  + '&codpro=' + json.Items[0][i].propietario + '&codtip=' + json.Items[0][i].tipo_propietario + '&idinmu=' + json.Items[0][i].id_inmu  + '&codinmu=' + json.Items[0][i].codigo  + '"><i class="fa fa-users"></i></a>&nbsp;';
+
+                                    } else {
+
+                                        if(json.Items[0][i].posee_beneficiario == 2 || json.Items[0][i].posee_beneficiario == 0 ){
+                                            html += '<a href="javascript:void" class="link_apagado"><i class="fa fa-users"></i></a>&nbsp;';
+                                        } else if (json.Items[0][i].posee_beneficiario == 1)  {
+                                            html += '<a title="Beneficiario"  href="index.php?url=app/vistas/alquileres/inmueble_beneficiario&idpro=' + json.Items[0][i].id_prop  + '&codpro=' + json.Items[0][i].propietario + '&codtip=' + json.Items[0][i].tipo_propietario + '&idinmu=' + json.Items[0][i].id_inmu  + '&codinmu=' + json.Items[0][i].codigo  + '"><i class="fa fa-users"></i></a>&nbsp;';
+                                        }
+
                                     }
+
+
                                     
                                    
                                     /*html += '<a title="inquilino"  href="index.php?url=app/vistas/alquileres/asignar_inquilino&idpro=' + json.Items[0][i].id_prop  + '&codpro=' + json.Items[0][i].propietario  + '"><i class="fa fa-user-circle-o"></i></a>&nbsp;';*/

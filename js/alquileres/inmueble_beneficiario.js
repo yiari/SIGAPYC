@@ -10,14 +10,31 @@ function inicio(){
    let prmTipo = getParameterByName('codtip');
    let prmIdInmu = getParameterByName('idinmu');
    let prmCodInmu = getParameterByName('codinmu');
+   let prmIdUnidad = getParameterByName('idunid');
     /*--------------------------------------*/    
 
     codigoPropietario(prmCodPro,prmCodInmu);
 
     cargarInmuebleBeneficiario(idPropietario,prmTipo);
 
-    atrasInmueble(idPropietario,prmCodPro,prmTipo)
+    atrasInmueble(idPropietario,prmCodPro,prmTipo);
     
+    cargarValores(idPropietario,prmIdInmu,prmIdUnidad);
+
+
+}
+
+
+function cargarValores(prmIdPropietario,prmIdInmueble,prmIdUnidad){
+
+    var A = document.getElementById("id_propietario");
+    A.value = prmIdPropietario;
+
+    var B = document.getElementById("id_inmueble");
+    B.value = prmIdInmueble;
+
+    var C = document.getElementById("id_unidad");
+    C.value = prmIdUnidad;
 
 }
 
@@ -33,6 +50,20 @@ function codigoPropietario(prmDato, prmCodiInmueble){
     $("#lblInmueble").html('');
     $("#lblInmueble").html(html);
 
+}
+
+
+function codigoPropietario(prmDato, prmCodiInmueble){
+
+    var html = "";
+
+    html='<strong>PROPIETARIO : </strong>'  + prmDato +'</span>';
+    $("#lblPropietario").html('');
+    $("#lblPropietario").html(html);
+
+    html='<strong>INMUEBLE SELECCIONADO : </strong>'  + prmCodiInmueble +'</span>';
+    $("#lblInmueble").html('');
+    $("#lblInmueble").html(html);
 
 }
 
@@ -99,6 +130,7 @@ function cargarInmuebleBeneficiario(prmDato,prmTipo){
 
                     if(json.Items[0].length > 0){
                         
+
                         for (var i = 0; i < json.Items[0].length; i++) {
                 
                        // if (isEmpty(json.Items[0][i]) == false) {
@@ -112,7 +144,8 @@ function cargarInmuebleBeneficiario(prmDato,prmTipo){
                             var html="";
                             html = '<div class="btn-group" style="font-size:1.3em; letter-spacing:0.2em;">';
                             html += '<input type="checkbox" class="chksumarporcentaje" id="chkunidades_' + json.Items[0][i].id_bene +'" name="chkporcentajes[]"  onchange="checkPorcentaje(' + json.Items[0][i].id_bene + ');">&nbsp;';
-                            html += '<input type="text" class="form-control campo_numero" id="idben_' + json.Items[0][i].id_bene + '" onchange="sumar();" maxlength="3" placeholder="%" disabled>'
+                            html += '<input type="text" class="form-control campo_numero" id="idben_' + json.Items[0][i].id_bene + '" name="txtporcentajes[]" onchange="sumar();" maxlength="3" placeholder="%" disabled>'
+                            html += '<input type="hidden" name="hidIdBen[]"  value="' + json.Items[0][i].id_bene + '" >'
                             html += '</div>'
                             tr.append('<td style="text-align:center;">' + html + '</td>');
                             $('#datosBeneficiario').append(tr);
@@ -126,9 +159,11 @@ function cargarInmuebleBeneficiario(prmDato,prmTipo){
 
 
                         tr = $('<tr/>');
-                        tr.append('<td colspan="3" style="text-align:right;"><button type="button" class="btn btn-primary" onclick="">Guardar</button></td>');
+                        tr.append('<td colspan="3" style="text-align:right;"><button type="submit" class="btn btn-primary">Guardar</button></td>');
                         $('#datosBeneficiario').append(tr);
 
+
+                        GuardarBeneficiario();
 
                     }else {
 
@@ -152,6 +187,59 @@ function cargarInmuebleBeneficiario(prmDato,prmTipo){
             $("#error").html(e).fadeIn();
         }
     });
+
+}
+
+
+function GuardarBeneficiario(){
+
+    $("#registrarbeneficiario").on('submit', function(evt) {
+        /*
+        |-----------------------------------------------
+        | AQUI SE PREVIENE QUE EL FORMULARIO CONTINUE 
+        |-----------------------------------------------
+        */
+        evt.preventDefault();
+        /**********************************************/    
+
+        /*
+        |-----------------------------------------------------
+        | AQUI SE AGREGA UN PARAMETRO ADICIONAL AL FORMULARIO 
+        |-----------------------------------------------------
+        */
+        var formData = new FormData(this);
+
+        formData.append('opcion','IB');
+
+
+
+        $.ajax({
+            url: "app/handler/alquileres/hndregistrobeneficiarios.php",
+            data: formData,
+            processData: false,
+            contentType: false,
+            type: 'POST',
+            beforeSend: function () {
+                //$("#preview").fadeOut();
+                $("#error").fadeOut();
+            },
+            success: function (data) {
+            var json = data;
+            var html = "";
+
+
+            },
+            error: function (e) {
+                $("#error").html(e).fadeIn();
+            }
+        });
+
+
+
+
+
+    });
+
 
 }
 
