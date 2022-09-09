@@ -12,6 +12,8 @@ function inicio(){
     let idInquilino = getParameterByName('idinq');
     let prmCodInq = getParameterByName('codinq');
     let prmtipo = getParameterByName('codtip');
+
+    let tipoInquilino = getParameterByName('codtip');
     /*--------------------------------------*/   
 
     if(tipoInquilino == 1){
