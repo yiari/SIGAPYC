@@ -106,14 +106,14 @@ include("layout/menuNavegacion.php");
                                     <div class="row">
                                         <label for="registroUso" class="col-sm-12 col-form-label">Uso del Inmueble:</label>
                                         <div class="col-sm-12">
-                                            <input type="text" class="form-control" id="registroUso" name="registroUso">
+                                            <input type="text" class="form-control" id="registroUso" name="registroUso"  maxlength="50">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-2">
                                     <label for = "registroAntiguedad" class="col-sm-12 col-form-label">Antigüedad:</label>
                                     <div class="col-sm-12">
-                                        <input type="text" class="form-control" id="registroAntiguedad" name="registroAntiguedad">
+                                        <input type="text" class="form-control" id="registroAntiguedad" name="registroAntiguedad"  maxlength="4">
                                     </div>
                                 </div>
                             </div>
@@ -145,13 +145,13 @@ include("layout/menuNavegacion.php");
                                     <div class="col-md-5">
                                         <label for ="registroDirecionH" class="col-sm-12 col-form-label">Dirección:</label>
                                         <div class="col-sm-12">
-                                            <input type="text" class="form-control" id="registroDirecionH" name="registroDirecionH">
+                                            <input type="text" class="form-control" id="registroDirecionH" name="registroDirecionH" maxlength="250">
                                         </div>
                                     </div>
                                     <div class="col-md-5">
                                         <label for="pun_inmu" class="col-sm-12 col-form-label">Punto de Referencia:</label>
                                         <div class="col-sm-12">
-                                            <input type="text" class="form-control" id="pun_inmu" name="pun_inmu" >
+                                            <input type="text" class="form-control" id="pun_inmu" name="pun_inmu" maxlength="250" >
                                         </div>
                                     </div>
                                     <div class="col-md-2">
@@ -323,7 +323,7 @@ include("layout/menuNavegacion.php");
                                         <div class="row">
                                             <label for="gasto_admi" class="col-sm-12 col-form-label">Gasto de Administración:</label>
                                             <div class="col-sm-12">
-                                                <input type="text" class="form-control" id="gasto_admi" name="gasto_admi">
+                                                <input type="text" class="form-control" id="gasto_admi" name="gasto_admi" maxlength="10" >
                                             </div>
                                         </div>
                                     </div>
@@ -331,7 +331,7 @@ include("layout/menuNavegacion.php");
                                         <div class="row">
                                             <label for="gasto_papel" class="col-sm-12 col-form-label">Gasto de Papelería:</label>
                                             <div class="col-sm-12">
-                                                <input type="text" class="form-control" id="gasto_papel" name="gasto_papel">
+                                                <input type="text" class="form-control" id="gasto_papel" name="gasto_papel" maxlength="10" >
                                             </div>
                                         </div>
                                     </div>

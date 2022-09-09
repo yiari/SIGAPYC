@@ -12,7 +12,18 @@ function inicio(){
     let idInquilino = getParameterByName('idinq');
     let prmCodInq = getParameterByName('codinq');
     let prmtipo = getParameterByName('codtip');
-    /*--------------------------------------*/    
+    /*--------------------------------------*/   
+
+    if(tipoInquilino == 1){
+        $("#nav-inq_juridico-tab").hide();
+        $("#nav-inq_juridico").hide();
+        $("#nav-inq_natural").addClass('show').addClass('active');
+
+    } else if (tipoInquilino == 2) { 
+        $("#nav-inq_natural-tab").hide(); 
+        $("#nav-inq_natural").hide();
+        $("#nav-inq_juridico").addClass('show').addClass('active');
+    } 
 
     generarCodigoInquilino()
     cargarEstados();

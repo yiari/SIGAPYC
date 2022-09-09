@@ -76,7 +76,7 @@ include("layout/menuNavegacion.php");
                                     <label  for="registroletra" class="col-sm-12 col-form-label">Letra/N°:</label>
                                     <div class="col-sm-12">
                                         <div class="col-sm-12">
-                                            <input type="text" class="form-control" id="registroletra" name="registroletra">
+                                            <input type="text" class="form-control" id="registroletra" name="registroletra"  maxlength="4">
                                         </div>
                                     </div>
                                 </div>
@@ -84,7 +84,7 @@ include("layout/menuNavegacion.php");
                                     <div class="row">
                                         <label for="registrNombre" class="col-sm-12 col-form-label">Nombre del Inmueble:</label>
                                         <div class="col-sm-12">
-                                            <input type="text" class="form-control"  id="registrNombre" name="registrNombre">
+                                            <input type="text" class="form-control"  id="registrNombre" name="registrNombre"  maxlength="50">
                                         </div>
                                     </div>
                                 </div>
@@ -92,14 +92,14 @@ include("layout/menuNavegacion.php");
                                     <div class="row">
                                         <label for="registroUso" class="col-sm-12 col-form-label">Uso del Inmueble:</label>
                                         <div class="col-sm-12">
-                                            <input type="text" class="form-control" id="registroUso" name="registroUso">
+                                            <input type="text" class="form-control" id="registroUso" name="registroUso"  maxlength="50">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-2">
                                     <label for = "registroAntiguedad" class="col-sm-12 col-form-label">Antigüedad:</label>
                                     <div class="col-sm-12">
-                                        <input type="text" class="form-control" id="registroAntiguedad" name="registroAntiguedad">
+                                        <input type="text" class="form-control" id="registroAntiguedad" name="registroAntiguedad"  maxlength="4">
                                     </div>
                                 </div>
                             </div>
@@ -131,13 +131,13 @@ include("layout/menuNavegacion.php");
                                     <div class="col-md-5">
                                         <label for ="registroDirecionH" class="col-sm-12 col-form-label">Dirección:</label>
                                         <div class="col-sm-12">
-                                            <input type="text" class="form-control" id="registroDirecionH" name="registroDirecionH">
+                                            <input type="text" class="form-control" id="registroDirecionH" name="registroDirecionH"  maxlength="250">
                                         </div>
                                     </div>
                                     <div class="col-md-5">
                                         <label for="pun_inmu" class="col-sm-12 col-form-label">Punto de Referencia:</label>
                                         <div class="col-sm-12">
-                                            <input type="text" class="form-control" id="pun_inmu" name="pun_inmu" >
+                                            <input type="text" class="form-control" id="pun_inmu" name="pun_inmu" maxlength="250" >
                                         </div>
                                     </div>
                                     <div class="col-md-2">
@@ -185,13 +185,13 @@ include("layout/menuNavegacion.php");
                                     <div class="col-md-2">
                                         <label for="ban_inmu" class="col-sm-12 col-form-label">Baños:</label>
                                         <div class="col-sm-12">
-                                            <input type="text" class="form-control" placeholder="Nro." id="ban_inmu" name="ban_inmu" >
+                                            <input type="text" class="form-control" placeholder="Nro." id="ban_inmu" name="ban_inmu"  maxlength="2" >
                                         </div>
                                     </div>
                                     <div class="col-md-2">
                                         <label for="est_inmu" class="col-sm-12 col-form-label">Pto. Estacionamiento</label>
                                         <div class="col-sm-12">
-                                            <input type="text" class="form-control" placeholder="Nro." id="est_inmu" name="est_inmu">
+                                            <input type="text" class="form-control" placeholder="Nro." id="est_inmu" name="est_inmu" maxlength="4" >
                                         </div>
                                     </div>
                                     <div class="col-md-2">
@@ -248,7 +248,7 @@ include("layout/menuNavegacion.php");
                                         <label for="num_regi" class="col-sm-12 col-form-label">Código:</label>
                                         <div class="col-sm-12">
                                             <div class="col-sm-12">
-                                                <input type="text" class="form-control" id="num_regi" name="num_regi" >
+                                                <input type="text" class="form-control" id="num_regi" name="num_regi" maxlength="10" >
                                             </div>
                                         </div>
                                     </div>
@@ -269,25 +269,25 @@ include("layout/menuNavegacion.php");
                                     <div class="col-md-2">
                                         <label for="tom_regi" class="col-sm-12 col-form-label">Tomo:</label>
                                         <div class="col-sm-12">
-                                            <input type="text" class="form-control" id="tom_regi" name="tom_regi">
+                                            <input type="text" class="form-control" id="tom_regi" name="tom_regi" maxlength="4" >
                                         </div>
                                     </div>
                                     <div class="col-md-1">
                                         <label for="fol_regi" class="col-sm-12 col-form-label">Folio:</label>
                                         <div class="col-sm-12">
-                                            <input type="text" class="form-control" id="fol_regi" name="fol_regi">
+                                            <input type="text" class="form-control" id="fol_regi" name="fol_regi" maxlength="4" >
                                         </div>
                                     </div>
                                     <div class="col-md-1">
                                         <label for="asi_regi" class="col-sm-12 col-form-label">Asiento:</label>
                                         <div class="col-sm-12">
-                                            <input type="text" class="form-control" id="asi_regi" name="asi_regi">
+                                            <input type="text" class="form-control" id="asi_regi" name="asi_regi" maxlength="4" >
                                         </div>
                                     </div>
                                     <div class="col-md-2">
                                         <label for="fic_cata" class="col-sm-12 col-form-label">F. Catastral:</label>
                                         <div class="col-sm-12">
-                                            <input type="text" class="form-control" id="fic_cata" name="fic_cata">
+                                            <input type="text" class="form-control" id="fic_cata" name="fic_cata" >
                                         </div>
                                     </div>
                                     
@@ -309,7 +309,7 @@ include("layout/menuNavegacion.php");
                                         <div class="row">
                                             <label for="gasto_admi" class="col-sm-12 col-form-label">Gasto de Administración:</label>
                                             <div class="col-sm-12">
-                                                <input type="text" class="form-control" id="gasto_admi" name="gasto_admi">
+                                                <input type="text" class="form-control" id="gasto_admi" name="gasto_admi" maxlength="10" >
                                             </div>
                                         </div>
                                     </div>
@@ -317,7 +317,7 @@ include("layout/menuNavegacion.php");
                                         <div class="row">
                                             <label for="gasto_papel" class="col-sm-12 col-form-label">Gasto de Papelería:</label>
                                             <div class="col-sm-12">
-                                                <input type="text" class="form-control" id="gasto_papel" name="gasto_papel">
+                                                <input type="text" class="form-control" id="gasto_papel" name="gasto_papel" maxlength="10" >
                                             </div>
                                         </div>
                                     </div>

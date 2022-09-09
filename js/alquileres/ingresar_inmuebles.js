@@ -175,51 +175,82 @@ if($('input[name="chkunidades"]').is(':checked'))
 
 
 
-if ($("#registroletra").val() == "") {
-    mensaje("Debe indicar la letra o nuemro del inmueble",1);
-    return;
-}
+    if ($("#registroletra").val() == "") {
+        mensaje("Debe indicar la letra o nuemro del inmueble",1);
+        return;
+        }
 
- if ($("#registrNombre").val() == "") {
-     mensaje("Debe indicar el nombre del inmueble",1);
-     return;
-     }
+    if ($("#registrNombre").val() == "") {
+        mensaje("Debe indicar el nombre del inmueble",1);
+        return;
+        }
 
-if ($("#registroUso").val() == "") {
-mensaje("Debe indicar el uso del inmueble",1);
-return;
-}
+    if ($("#registroUso").val() == "") {
+        mensaje("Debe indicar el uso del inmueble",1);
+        return;
+        }
 
-if ($("#registroAntiguedad").val() == "") {
+    if ($("#registroAntiguedad").val() == "") {
         mensaje("Debe indicar la  antiguedad del inmueble",1);
         return;
         }
  
  
-if ($("#cboEstados").val() == "") {
-    mensaje("Debe indicar el estado de residencia del inmueble",1);
-    return;
-    }
+    if ($("#cboEstados").val() == "") {
+        mensaje("Debe indicar el estado de residencia del inmueble",1);
+        return;
+        }
 
-if ($("#cboMunicipios").val() == "") {
-    mensaje("Debe indicar el Municipio de residencia del inmueble",1);
-    return;
-    }
+    if ($("#cboMunicipios").val() == "") {
+        mensaje("Debe indicar el Municipio de residencia del inmueble",1);
+        return;
+        }
 
-if ($("#cboParroquia").val() == "") {
-    mensaje("Debe indicar la parroquia de residencia del inmueble",1);
-    return;
-    }
- 
- if ($("#registroDirecionH").val() == "") {
-     mensaje("Debe indicar la dirección de habitación del propietario ",1);
-     return;
-     }
+    if ($("#cboParroquia").val() == "") {
+        mensaje("Debe indicar la parroquia de residencia del inmueble",1);
+        return;
+        }
+    
+    if ($("#registroDirecionH").val() == "") {
+        mensaje("Debe indicar la dirección de habitación del propietario ",1);
+        return;
+        }
 
-     if ($("#equ_inmu").val() == "") {
+    if ($("#equ_inmu").val() == "") {
         mensaje("Debe indicar si el inmueble esta equipado",1);
         return;
-    }
+        }
+
+
+    if ($("#num_regi").val() == "") {
+        mensaje("Debe indicar el codigo del registro ",1);
+        return;
+        }
+
+    if ($("#nom_regi").val() == "") {
+        mensaje("Debe indicar el Nombre del registro ",1);
+        return;
+        }
+
+    if ($("#tom_regi").val() == "") {
+        mensaje("Debe indicar el tomo del registro ",1);
+        return;
+        }
+
+    if ($("#fol_regi").val() == "") {
+        mensaje("Debe indicar el folio del registro ",1);
+        return;
+        }
+
+    if ($("#asi_regi").val() == "") {
+        mensaje("Debe indicar el asiento del registro ",1);
+        return;
+        }
+
+    if ($("#fic_cata").val() == "") {
+        mensaje("Debe indicar el F. Catastral del registro ",1);
+        return;
+        }
 
    /*
    |-----------------------------------------------
