@@ -270,19 +270,19 @@ include("layout/menuNavegacion.php");
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-4">
-                                                        <label class="col-sm-12 col-form-label">Nombre o Razón Social:</label>
+                                                        <label for="registroNombrej" class="col-sm-12 col-form-label">Nombre o Razón Social:</label>
                                                         <div class="col-sm-12">
                                                             <input  for="registroNombrej" type="text" class="form-control" id="registroNombrej" name="registroNombrej" autofocus>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-3">
-                                                        <label class="col-sm-12 col-form-label">Rif Jurídico:</label>
+                                                        <label  for="registroRifj" class="col-sm-12 col-form-label">Rif Jurídico:</label>
                                                         <div class="col-sm-12">
                                                             <input for="registroRifj" type="text" class="form-control" id="registroRifj" name="registroRifj" maxlength="14" >
                                                         </div>
                                                     </div>
                                                     <div class="col-md-5">
-                                                        <label class="col-sm-12 col-form-label">Actividad Comercial:</label>
+                                                        <label for="registroactividad" class="col-sm-12 col-form-label">Actividad Comercial:</label>
                                                         <div class="col-sm-12">
                                                             <input for="registroactividad" type="text" class="form-control" id="registroactividad" name="registroactividad">
                                                         </div>
@@ -290,9 +290,9 @@ include("layout/menuNavegacion.php");
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-5">
-                                                        <label  class="col-sm-12 col-form-label">Dirección Fiscal:</label>
+                                                        <label  for="registroDirecionj" class="col-sm-12 col-form-label">Dirección Fiscal:</label>
                                                         <div class="col-sm-12">
-                                                            <input  for="registroDirecionj" type="text" class="form-control" id="registroDirecionj" name="registroDirecionj"><br>
+                                                            <input  for="registroDirecionj" type="text" class="form-control" id="registroDirecionj" name="registroDirecionj" maxlength="255" ><br>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-3">
@@ -304,7 +304,7 @@ include("layout/menuNavegacion.php");
                                                     <div class="col-md-4">
                                                         <label class="col-sm-3 col-form-label">Correo:</label>
                                                         <div class="col-sm-12">
-                                                            <input for="registroEmailj" type="email" class="form-control" id="registroEmailj" name="registroEmailj" maxlength="11" >
+                                                            <input for="registroEmailj" type="email" class="form-control" id="registroEmailj" name="registroEmailj" maxlength="20" >
                                                         </div>
                                                     </div>
                                                 </div>
@@ -322,40 +322,40 @@ include("layout/menuNavegacion.php");
                                                         <label class="col-sm-12 col-form-label">Código:</label>
                                                         <div class="col-sm-12">
                                                             <div class="col-sm-12">
-                                                                <input for="codigo_registro" type="text" class="form-control" id="codigo_registro" name="codigo_registro" maxlength="11">
+                                                                <input for="codigoNotaria" type="text" class="form-control" id="codigoNotaria" name="codigoNotaria" maxlength="11">
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-4">
                                                         <div class="row">
-                                                            <label for="ced_prop" class="col-sm-12 col-form-label">Nombre del Registro:</label>
+                                                            <label for="notaria" class="col-sm-12 col-form-label">Nombre del Registro:</label>
                                                             <div class="col-sm-12">
                                                                 <input for="notaria" type="text" class="form-control" id="notaria" name="notaria" >
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-3">
-                                                        <label for="inputfecha" class="col-sm-12 col-form-label">Fecha:</label>
+                                                        <label for="fechaRegistro" class="col-sm-12 col-form-label">Fecha:</label>
                                                         <div class="col-sm-12">
-                                                            <input for="fechaRegistro" type="date" id="fechaRegistro" name="fechaRegistro" class="form-control">
+                                                            <input  type="date" id="fechaRegistro" name="fechaRegistro" class="form-control">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-1">
-                                                        <label class="col-sm-12 col-form-label">Número:</label>
+                                                        <label  for="numeroRegistro" class="col-sm-12 col-form-label">Número:</label>
                                                         <div class="col-sm-12">
-                                                            <input for="numeroRegistro" type="text" class="form-control" id="numeroRegistro" name="numeroRegistro" maxlength="11">
+                                                            <input type="text" class="form-control" id="numeroRegistro" name="numeroRegistro" maxlength="11">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-1">
-                                                        <label class="col-sm-12 col-form-label">Tomo:</label>
+                                                        <label for="tomoRegistro" class="col-sm-12 col-form-label">Tomo:</label>
                                                         <div class="col-sm-12">
-                                                            <input for="tomoRegistro" type="text" class="form-control" id="tomoRegistro" name="tomoRegistro" maxlength="11">
+                                                            <input  type="text" class="form-control" id="tomoRegistro" name="tomoRegistro" maxlength="11">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-2">
-                                                        <label class="col-sm-12 col-form-label">Expediente:</label>
+                                                        <label for="foliRegistro" class="col-sm-12 col-form-label">Expediente:</label>
                                                         <div class="col-sm-12">
-                                                            <input for="foliRegistro"  type="text" class="form-control" id="foliRegistro" name="foliRegistro" maxlength="11" >
+                                                            <input  type="text" class="form-control" id="foliRegistro" name="foliRegistro" maxlength="11" >
                                                         </div>
                                                     </div>
                                                 </div>

@@ -25,6 +25,88 @@ $orientation = $templateSize['width'] > $templateSize['height'] ? 'L' : 'P';
 $pdf->AddPage($orientation, [$templateSize['width'], $templateSize['height']]);
 $pdf->useTemplate($tplId, null, null, $templateSize['width'], $templateSize['height'], true);
 
+/*
+|------------------------------------------------
+| AQUI CONSULTO LOS PARAMETROS QUE DEBO RECIBIR
+|------------------------------------------------
+*/
+//idpro=13&codpro=P-01-0036-ALEJADRA%20 PERAZA &codtip=1
+
+$idbene_temp = 0;
+$codnene_temp = "";
+$codtip_temp = 0;
+
+
+if(isset($_GET["idbene"])) {
+  
+    $idpro_temp = $_GET["idbene"];
+}
+
+
+if(isset($_GET["codbene"])) {
+  
+    $codpro_temp = $_GET["codbene"];
+}
+
+
+if(isset($_GET["codtip"])) {
+  
+    $codtip_temp = $_GET["codtip"];
+}
+
+
+if(isset($_GET["tip"])) {
+  
+    $codtip_temp = $_GET["codtip"];
+}
+
+/*
+|------------------------------------------- 
+| AQUI HAGO LA CONSULTA DE BASE DE DATOS
+|-------------------------------------------
+*/
+
+
+try {
+
+    $dbConexion = new conexcion();
+    $valor = 0;
+    
+    $stmt = $dbConexion->conectar()->prepare("CALL usp_verbeneficiario(?,?,?,?)" );
+    $stmt ->bindParam(1, $idbene_temp, PDO::PARAM_INT);
+    $stmt ->bindParam(2, $codnene_temp, PDO::PARAM_INT);
+    $stmt ->bindParam(3, $codtip_temp, PDO::PARAM_INT);
+    $stmt ->bindParam(3, $codprop_temp, PDO::PARAM_INT);
+
+
+    $stmt->execute();
+    $dataRegistro["Items"][] = $stmt->fetch();
+
+    $dataRes = array(
+      'error' => '0',
+      'mensaje' =>  'El registro se obtuvo con exito.'
+    );
+    
+    
+   $resultado = array_merge($dataRegistro,$dataRes);
+
+    } catch (\Throwable $th) {
+    
+        //$pdo->rollBack() ;
+        //echo "Mensaje de Error: " . $th->getMessage();
+        $dataRes = array(
+          'error' => '1',
+          'mensaje' =>  "Mensaje de Error: " . $th->getMessage()
+        );
+  
+        $resultado = $dataRes;
+
+    }
+
+if ($resultado['error'] == 0){
+//echo "imprimimos el PDF";
+//echo $resultado['items'][0]['cod_prop'];
+}
 
 /*
         |---------------------------------------------
@@ -77,55 +159,65 @@ $pdf->useTemplate($tplId, null, null, $templateSize['width'], $templateSize['hei
         $pdf->Cell(10, 3, $dataFecha, $bordeCelda, 0, 'L', $celdaVisible);
        
        
-        //AQUI ESCRIBO EL CODIGO DEL PROPIETARIO
+        //AQUI ESCRIBO EL CODIGO DEL BENEFICIARIO
         $pdf->SetFont('Times', 'B', 10);
         $pdf->SetTextColor($fontColorContenido['r'], $fontColorContenido['g'], $fontColorContenido['b']);
         $pdf->SetFillColor(2, 157, 116); //Fondo verde de celda
         $pdf->SetXY(149, 27);//AQUI SE AJUSTA LA POSICION DONDE SE DEBE COLOCAR EL TEXTO
         //Atención!! el parámetro true rellena la celda con el color elegido
-        $dataCodigo =  'P-12-0017-Mayerlin Hernandez';  //$dataResPersonal['nombrespastor'] . ' ' . $dataResPersonal['apellidospastor'];
+        //$dataCodigo =  'P-12-0017-Mayerlin Hernandez';  //$dataResPersonal['nombrespastor'] . ' ' . $dataResPersonal['apellidospastor'];
+        $dataCodigo =  $resultado['Items'][0]['beneficiario'];  //$dataResPersonal['nombrespastor'] . ' ' . $dataResPersonal['apellidospastor'];
         //$dataNombre = str_pad($dataResPersonal['nombrespastor'] . ' ' . $dataResPersonal['apellidospastor'], 50, '* ', STR_PAD_RIGHT);
         $pdf->Cell(10, 3, $dataCodigo, $bordeCelda, 0, 'L', $celdaVisible);
         
-        //AQUI ESCRIBO EL NONMBRE DEL PROPIETARIO
+        //AQUI ESCRIBO EL NONMBRE DEL BENEFICIARIO
         $pdf->SetFont('Times', 'B', 10);
         $pdf->SetTextColor($fontColorContenido['r'], $fontColorContenido['g'], $fontColorContenido['b']);
         $pdf->SetFillColor(2, 157, 116); //Fondo verde de celda
         $pdf->SetXY(149, 31);//AQUI SE AJUSTA LA POSICION DONDE SE DEBE COLOCAR EL TEXTO
         //Atención!! el parámetro true rellena la celda con el color elegido
-        $dataNombre =  'Mayerlin Hernandez';  //$dataResPersonal['nombrespastor'] . ' ' . $dataResPersonal['apellidospastor'];
+        $dataCodigo =  $resultado['Items'][0]['nombre'];  //$dataResPersonal['nombrespastor'] . ' ' . $dataResPersonal['apellidospastor'];
         //$dataNombre = str_pad($dataResPersonal['nombrespastor'] . ' ' . $dataResPersonal['apellidospastor'], 50, '* ', STR_PAD_RIGHT);
         $pdf->Cell(10, 3, $dataNombre, $bordeCelda, 0, 'L', $celdaVisible);
 
-        //AQUI ESCRIBO EL CEDULA DEL PROPIETARIO
+        //AQUI ESCRIBO EL CEDULA DEL BENEFICIARIO
         $pdf->SetFont('Times', 'B', 10);
         $pdf->SetTextColor($fontColorContenido['r'], $fontColorContenido['g'], $fontColorContenido['b']);
         $pdf->SetFillColor(2, 157, 116); //Fondo verde de celda
         $pdf->SetXY(149, 35.5);//AQUI SE AJUSTA LA POSICION DONDE SE DEBE COLOCAR EL TEXTO
         //Atención!! el parámetro true rellena la celda con el color elegido
-        $dataCedula =  '20.208.662';  //$dataResPersonal['nombrespastor'] . ' ' . $dataResPersonal['apellidospastor'];
+        $dataCodigo =  $resultado['Items'][0]['cedula'];
         //$dataNombre = str_pad($dataResPersonal['nombrespastor'] . ' ' . $dataResPersonal['apellidospastor'], 50, '* ', STR_PAD_RIGHT);
         $pdf->Cell(10, 3, $dataCedula, $bordeCelda, 0, 'L', $celdaVisible);
 
 
-         //AQUI ESCRIBO EL TELEFONO DEL PROPIETARIO
+         //AQUI ESCRIBO EL RIF DEL BENEFICIARIO
          $pdf->SetFont('Times', 'B', 10);
          $pdf->SetTextColor($fontColorContenido['r'], $fontColorContenido['g'], $fontColorContenido['b']);
          $pdf->SetFillColor(2, 157, 116); //Fondo verde de celda
          $pdf->SetXY(149, 41);//AQUI SE AJUSTA LA POSICION DONDE SE DEBE COLOCAR EL TEXTO
          //Atención!! el parámetro true rellena la celda con el color elegido
-         $dataTelefono =  '02128713350';  //$dataResPersonal['nombrespastor'] . ' ' . $dataResPersonal['apellidospastor'];
+         $dataCodigo =  $resultado['Items'][0]['rif'];
          //$dataNombre = str_pad($dataResPersonal['nombrespastor'] . ' ' . $dataResPersonal['apellidospastor'], 50, '* ', STR_PAD_RIGHT);
          $pdf->Cell(10, 3, $dataTelefono, $bordeCelda, 0, 'L', $celdaVisible);
 
+        //AQUI ESCRIBO EL TELEFONO DEL BENEFICIARIO
+        $pdf->SetFont('Times', 'B', 10);
+        $pdf->SetTextColor($fontColorContenido['r'], $fontColorContenido['g'], $fontColorContenido['b']);
+        $pdf->SetFillColor(2, 157, 116); //Fondo verde de celda
+        $pdf->SetXY(142, 45.5);//AQUI SE AJUSTA LA POSICION DONDE SE DEBE COLOCAR EL TEXTO
+        //Atención!! el parámetro true rellena la celda con el color elegido
+        $$dataCodigo =  $resultado['Items'][0]['telefono'];
+        //$dataNombre = str_pad($dataResPersonal['nombrespastor'] . ' ' . $dataResPersonal['apellidospastor'], 50, '* ', STR_PAD_RIGHT);
+        $pdf->Cell(10, 3, $dataCorreo, $bordeCelda, 0, 'L', $celdaVisible);
 
-         //AQUI ESCRIBO EL CORREO DEL PROPIETARIO
+         //AQUI ESCRIBO EL CORREO DEL BENEFICIARIO
          $pdf->SetFont('Times', 'B', 10);
          $pdf->SetTextColor($fontColorContenido['r'], $fontColorContenido['g'], $fontColorContenido['b']);
          $pdf->SetFillColor(2, 157, 116); //Fondo verde de celda
          $pdf->SetXY(142, 45.5);//AQUI SE AJUSTA LA POSICION DONDE SE DEBE COLOCAR EL TEXTO
          //Atención!! el parámetro true rellena la celda con el color elegido
-         $dataCorreo =  'mayerlin.hernandez27@gmail.com';  //$dataResPersonal['nombrespastor'] . ' ' . $dataResPersonal['apellidospastor'];
+         $$dataCodigo =  $resultado['Items'][0]['correo'];
          //$dataNombre = str_pad($dataResPersonal['nombrespastor'] . ' ' . $dataResPersonal['apellidospastor'], 50, '* ', STR_PAD_RIGHT);
          $pdf->Cell(10, 3, $dataCorreo, $bordeCelda, 0, 'L', $celdaVisible);
 

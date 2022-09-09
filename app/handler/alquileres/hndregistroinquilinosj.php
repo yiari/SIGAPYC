@@ -104,14 +104,13 @@ if($operacion == "I"){
                     "dir_inqj" => $_POST["registroDirecionj"],
                     "tel_inqj" => $_POST["registroCelularj"],
                     "cor_inqj" => $_POST["registroEmailj"],
-                    "cod_regi" => $_POST["registroPoder"],
-                    "not_regi" => $_POST["nombreRegistro"],
+                    "cod_regi" => $_POST["codigoNotaria"],
+                    "not_regi" => $_POST["notaria"],
                     "fec_regi" => $_POST["fechaRegistro"],
                     "num_regi" => $_POST["numeroRegistro"],
                     "tom_regi" => $_POST["tomoRegistro"],
                     "fol_regi" => $_POST["foliRegistro"],
                     "tip_inqu" => $_POST["tipo_personaj"]);
-
                          
 				
 
@@ -160,11 +159,17 @@ if($operacion == "I"){
 
 /* 
  |--------------------------------------------------------------
- | AQUI SE EJECUTA LA OPERACION DE CONSULTAR TODOS LOS USUARIOS
+ | AQUI SE EJECUTA LA OPERACION DE CONSULTAR TODOS LOS INQUILINOS
  |--------------------------------------------------------------
 */
 
-if($operacion == "C"){
+if($operacion == "CIJ"){
+
+   $datos = array( 
+      "id_inqu" => $_POST["idInquilino"],
+      "cod_inqu " => $_POST["codigoInquilino"],
+      "tip_inqu" => $_POST["tipoInquilino"]
+   );
 
    /*
     |-------------------------------------------
@@ -179,7 +184,7 @@ if($operacion == "C"){
    | AQUI OBTENGO EL RESULTADO DE LA EJECUCION
    |---------------------------------------------
    */
-     $result = $registroInquilinoj->seleccionarregistros();
+     $result = $registroInquilinoj->consultarInquilinoJuridico($datos);
     
     /*
     |-------------------------------------------
@@ -190,6 +195,7 @@ if($operacion == "C"){
      return $result;
      
 }
+
 
 
 

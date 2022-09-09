@@ -126,7 +126,7 @@ function inicio(){
 
 /*
 |------------------------------------------------------------------------------------------------
-| DESPUES DE CARGAR LAS FUNCIONES Y VALIDACIONES, ENTONCES SOLICITO LOS DATOS DEL PROPIETARIO
+| DESPUES DE CARGAR LAS FUNCIONES Y VALIDACIONES, ENTONCES SOLICITO LOS DATOS DEL BENEFICIARIO
 |-------------------------------------------------------------------------------------------------
 */
 

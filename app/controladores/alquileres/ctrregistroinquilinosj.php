@@ -39,16 +39,13 @@ class ctrregistroinquilinoj{
 
     }
 
-    /*tabla para visializar los usuarios registrados*/
+    public function consultarInquilinoJuridico($datos){
 
-     public function seleccionarregistros(){
-
-        $tabla = "inquilino_juridico";
+        $tabla = "inquilino";
         $modelo =  new mdlregistroinquilinosj();
-        $respuestas =  $modelo->seleccionarregistros($tabla,null,null);
+        $respuestas =  $modelo->consultarInquilinoJuridico($tabla,$datos);
         return $respuestas;
     }
-
 
      
 
