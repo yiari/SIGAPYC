@@ -10,38 +10,76 @@
             <div class="card-body">
 
                     <div class="col-sm-12">
-                    <span id="mensaje">&nbsp;</span>
+                        <span id="mensaje">&nbsp;</span>
                     </div>
 
 
-                    <form class="bg-light" method="post" id="registrarusuario">
-                            <input type="hidden" id="hidUsuario" name="hidUsuario" value="0">
+                    <form class="form-sample" id="buscarCodigo" name="buscarCodigo" method="POST" action="" autocomplete="on">
+                            
+                          <input type="hidden" id="hidUsuario" name="hidUsuario" value="0">
 
-                            <div class="form-group row">
-                                    <div class="col-sm-4 mb-4 mb-sm-0">
-                                            <label for="cboRoles" class="mr-sm-2">INMUEBLE:</label></br>
-                                            <select id="cboRoles" name="cboRoles"></select>
-                                    </div>
-                                  
-                                    <div class="col-sm-4 mb-3 mb-sm-0">
+
+                            <div class="card-body"> 
+                                        <div class="col text-center">
+                                            <h5 class="card-title">Datos del Generales</h5>
+                                        </div><br>
+
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <label class="col-sm-12 col-form-label">Buscar Código inmueble o propietario:</label>
+                                            </div>
+                                        
+                                            <div class="col-md-4">
+                                                    <input type="text" class="form-control" id="nom_prop" name="nom_prop">
+                                            </div>
+                                            <br>
+                                            <div class="col-md-2">
+                                                    <button type="submit" class="btn btn-primary mb-2">Buscar</button>
+                                            </div>                       
+                                        </div>
+
+                                    
+                                    
+                                        <div class="table-responsive">
+                                            <table class="table table-striped" id="datosAsignarInmueble">
+                                                    <thead>
+                                                            <tr>
+                                                                <th>Propietario</th>
+                                                                <th>Tipo</th>
+                                                                <th>Inmueble</th>
+                                                                <th>Unidad</th>
+                                                                <th>Opcion</th>
+                                                            </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    </tbody>
+                                            </table>
+                                        </div><br>
+                                    
+                          
+
+                            <div class="row">
+                                    
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
                                             <label for="registroGasto" class="mr-sm-2">Concepto:</label>
                                             <input type="text" class="form-control form-control-user" placeholder="concepto" id="registroGasto" name="registroGasto">
                                     </div>
-                                    <div class="col-sm-4 mb-3 mb-sm-0">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
                                             <label for="registroMonto" class="mr-sm-2">Monto:</label>
                                             <input type="text" class="form-control form-control-user" placeholder="monto" id="registroMonto" name="registroMonto">
                                     </div>
 
                                     
                             </div>
-
+                       </div>
                             
 
 
                             </br>
-
-                            <button type="submit" class="btn btn-primary mb-2">Guardar</button>
-                            <button type="button" class="btn btn-danger mb-2 cancelar" style="display:none;">Cancelar</button>
+                            <div class="col-12 btn btn-align-center">
+                                <button type="submit" class="btn btn-primary mb-2">Guardar</button>
+                                <button type="button" class="btn btn-danger mb-2 cancelar" style="display:none;">Cancelar</button>
+                            </div>
                     </form> 
 
             </div>

@@ -1,8 +1,10 @@
 function inicio(){
 
+    
+    
+    
     guardarUsuario();
-    cargarRoles();
-    cargarUsuarios();
+    buscarInmueble();
     
     limpiarCampos();
 
@@ -19,7 +21,150 @@ function inicio(){
 
 }
 
+function buscarInmueble(){
 
+
+
+    $("#buscarCodigo").on('submit', function(evt) {
+
+
+   /*
+   |-----------------------------------------------
+   | AQUI SE PREVIENE QUE EL FORMULARIO CONTINUE 
+   |-----------------------------------------------
+   */
+   evt.preventDefault();
+   /**********************************************/       
+
+ 
+        if ($("#nom_prop").val() == "") {
+            mensaje("Debe indicar el codigo de propietario, inmueble o unidad",1);
+            console.log("Aqui llegue al mensaje");
+            return;
+        }
+
+
+        prmDato = $("#nom_prop").val();
+
+   /*
+   |-----------------------------------------------------
+   | AQUI SE AGREGA UN PARAMETRO ADICIONAL AL FORMULARIO 
+   |-----------------------------------------------------
+   */
+   var formData = new FormData();
+
+   formData.append('opcion','BIU'); /*consulta de asignacion de inmueble y unidades*/ 
+   formData.append('codigo',prmDato);
+
+   /*
+   |-----------------------------------------------
+   | AQUI SE LLAMA EL AJAX 
+   |-----------------------------------------------
+   */
+   $.ajax({
+       url: "app/handler/alquileres/hndregistrocontrato.php",
+       data: formData,
+       processData: false,
+       contentType: false,
+       type: 'POST',
+       beforeSend: function () {
+           //$("#preview").fadeOut();
+           $("#error").fadeOut();
+       },
+       success: function (data) {
+       var json = data;
+       var html = "";
+/*
+       console.log(json);
+       console.log("Este es el Mensaje: " + json.mensaje);
+       console.log("Items: " + json.Items.length);
+       console.log("Items Resultados: " + json.Items[0].length);
+       console.log("Email Resultados: " + json.Items[0][1].email);
+*/
+               /*
+               |------------------------------------------------------
+               | AQUI SE CARGA LA INFORMACION EN LA TABLA
+               |------------------------------------------------------
+               */
+
+               if(json.Items.length > 0){
+                   var tr;
+                    var contador = 0;
+                   if(json.Items.length > 0){
+                    $("#datosAsignarInmueble > tbody").html("");
+                    let char = String.fromCharCode(39);
+                   var tr;
+                       for (var i = 0; i < json.Items[0].length; i++) {
+               
+                      // if (isEmpty(json.Items[0][i]) == false) {
+                           tr = $('<tr/>');
+                           /*
+                           i.id_inmu as id_inmueble      
+                           ,i.id_prop as id_propietario
+                           ,u.id_unid as id_unidad
+                        */
+                       /*
+                           $("#id_prop").val(json.Items[0][i].id_propietario);
+                           $("#id_inmu").val(json.Items[0][i].id_inmueble);
+                           $("#id_unid").val(json.Items[0][i].id_unidad);
+                        */
+                           tr.append("<td>" + json.Items[0][i].cod_propietario + "</td>");
+                           tr.append("<td>" + tipoPersona(json.Items[0][i].tipo_propietario) + "</td>");
+                           tr.append("<td>" + json.Items[0][i].cod_inmueble + "</td>");
+                           tr.append("<td>" + json.Items[0][i].cod_unidad + "</td>");
+                           tr.append('<td class="text-center"><input type="radio" id="id_inmueble_' + json.Items[0][i].id_inmueble +  '" name="inmueble" onclick="seleccionarInmueble(' + json.Items[0][i].id_propietario + ',' + json.Items[0][i].id_inmueble + ',' + json.Items[0][i].id_unidad + ',' + json.Items[0][i].tipo_propietario + ',' + char + json.Items[0][i].cod_inmueble + char +')"></td>');
+
+                           var html="";
+                         /*  html = '<div class="btn-group" style="font-size:1.3em; letter-spacing:0.5em;">';
+                           html += '<button onclick=vinculacion(' + contador + ') id="vincular' + contador + '"  class="vincular btn btn-success "data-field-idpropietario="' + json.Items[0][i].id_propietario + '"data-field-idinmueble="' + json.Items[0][i].id_inmueble + '"data-field-idunidad="'+ json.Items[0][i].Id_unidad + '"><i class="fa fa-plus" alt=vincular></i>&nbsp;Vincular</button>';
+                           html += '</div>'
+                           tr.append("<td>" + html + "</td>");*/
+                           $('#datosAsignarInmueble').append(tr);
+
+                           contador++;
+                       //}
+                   }
+
+                   //vinculacion();
+                   
+               } else {
+
+               var tr;
+               tr = $('<tr/>');
+               tr.append("<td colspan=6 style='text-align:center'>NO HAY INFORMACION REGISTRADA</td>");
+               $('#datosAsignarInmueble').append(tr);
+
+               }
+
+                new simpleDatatables.DataTable("#datosAsignarInmueble");
+
+           } 
+               /************************************************ */
+             
+
+       },
+       error: function (e) {
+           $("#error").html(e).fadeIn();
+       }
+   });
+
+});
+
+
+}
+
+
+
+function seleccionarInmueble(id_propietario,id_inmueble,id_unidad,tipo_propietarioj,codigo_inmueble){
+
+    $("#id_prop").val(id_propietario);
+    $("#id_inmu").val(id_inmueble);
+    $("#id_unid").val(id_unidad);
+    $("#tipo_prop").val(tipo_propietarioj);
+
+    generarCodigoContrato(codigo_inmueble);
+
+}
 
 function guardarUsuario(){
 
