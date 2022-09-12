@@ -33,47 +33,7 @@ include("layout/menuNavegacion.php");
 
                             <form class="form-sample" id="buscarCodigo" name="buscarCodigo" method="POST" action="" autocomplete="on">
 
-                                <div class="card">
-
-                                    <div class="card-body">
-
-                                    
-
-
-                                        <div class="col text-center">
-                                                <h5 class="card-title">Representante legal de la administradora</h5>
-                                            </div><br>
-                                    
-                                        <div class="row">
-                                            <div class="col-md-4">
-                                                <label for="cboRepresentante" class="col-sm-10 col-form-label">Codigo:</label></br>
-                                                <div class="col-sm-12">
-                                                    <select class="form-control"  id="cboRepresentante" name="cboRepresentante"></select>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-md-4">
-                                                <div class="row">
-                                                    <label for="ced_prop" class="col-sm-12 col-form-label">Cédula de Identidad</label>
-                                                    <div class="col-sm-12">
-                                                        <input type="text" class="form-control" id="" name="" readonly="yes">
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-md-4">
-                                                <div class="row">
-                                                    <label for="ced_prop" class="col-sm-12 col-form-label">Rif:</label>
-                                                    <div class="col-sm-12">
-                                                        <input type="text" class="form-control" id="" name="" readonly="yes">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-
+                                
                                 </br>
 
                                 <div class="card">
@@ -172,8 +132,25 @@ include("layout/menuNavegacion.php");
                                     <input type="hidden" id="hidcontrato" name="hidcontrato" value=''>
                                     <input type="hidden" id="id_usuario" name="id_usuario" value='1'>
 
-                                        <input type="hidden" id="repre_administradora" name="repre_administradora" value='1'>
-                                    
+                            <div class="card">
+
+                                <div class="card-body">
+
+                               
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label for="cboRepresentante" class="col-sm-10 col-form-label">Representante legal de la administradora:</label></br>
+                                            <div class="col-sm-12">
+                                                <select class="form-control"  id="cboRepresentante" name="cboRepresentante"></select>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <br>       
                                 <div class="card" >
                                     <div class="card-body">
                                         <div class="col text-center">

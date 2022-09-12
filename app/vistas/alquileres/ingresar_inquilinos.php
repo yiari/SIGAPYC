@@ -42,13 +42,30 @@ include("layout/menuNavegacion.php");
                                                 <div class="col text-center">
                                                     <h5 class="card-title">Datos del Inquilino Natural</h5>
                                                 </div>
+                                               
+                                                <div class="row">
 
-                                                <div class="col-md-5">
-                                                        <label class="col-sm-12 col-form-label">Código Inquilino:</label>
-                                                        <div class="col-sm-12">
+                                                        <div class="col-md-6">
+                                                            <label for="registroCodigo">Código:</label>
                                                             <input for="registroCodigo" type="text" class="form-control" id="registroCodigo" name="registroCodigo" autofocus readonly="yes" >
                                                         </div>
-                                                </div>
+
+                                                       
+
+                                                        <div class="col-sm-3">
+                                                                <label for="pagador" >El Inquilino posee pagador?</label>
+                                                                    <div class="col-sm-12">
+                                                                        <select class="form-select" id="cbopagador" name="cbopagador" >
+                                                                            <option  value="">Seleccione...</option>    
+                                                                            <option  value="1">SI</option>
+                                                                            <option  value="2">NO</option>
+                                                                        </select>
+                                                                    </div>
+                                                        </div>
+
+                                                    </div>
+
+                                                <br>
                                                 <div class="row">
                                                     <div class="col-md-4">
                                                         <label class="col-sm-3 col-form-label">Nombre:</label>
@@ -88,7 +105,7 @@ include("layout/menuNavegacion.php");
                                                     <div class="col-md-2">
                                                         <label class="col-sm-8 col-form-label">Teléfono local:</label>
                                                         <div class="col-sm-12">
-                                                            <input for="registroTeléfono" type="text" class="form-control" id="registroTeléfono" name="registroTeléfono" maxlength="11">
+                                                            <input for="registroTeléfono" type="text" class="form-control" id="registroTelefono" name="registroTelefono" maxlength="11">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-2">
@@ -264,12 +281,30 @@ include("layout/menuNavegacion.php");
                                                 <div class="col text-center">
                                                     <h5 class="card-title">Datos del Inquilino Jurídico</h5>
                                                 </div>
-                                                <div class="col-md-5">
-                                                        <label class="col-sm-12 col-form-label">Código Inquilino:</label>
-                                                        <div class="col-sm-12">
+                                               
+
+                                                <div class="row">
+
+                                                        <div class="col-md-6">
+                                                            <label for="registroCodigo">Código Inquilino:</label>
                                                             <input  for="registroCodigoj" type="text" class="form-control" id="registroCodigoj" name="registroCodigoj" autofocus readonly="yes" >
                                                         </div>
+
+                                                       
+
+                                                        <div class="col-sm-3">
+                                                                <label for="pagadorj" >El Inquilino posee pagador?</label>
+                                                                    <div class="col-sm-12">
+                                                                        <select class="form-select" id="cbopagadorj" name="cbopagadorj" >
+                                                                            <option  value="">Seleccione...</option>    
+                                                                            <option  value="1">SI</option>
+                                                                            <option  value="2">NO</option>
+                                                                        </select>
+                                                                    </div>
+                                                        </div>
+
                                                 </div>
+                                                <br>
                                                 <div class="row">
                                                     <div class="col-md-4">
                                                         <label class="col-sm-12 col-form-label">Nombre o Razón Social:</label>
@@ -286,7 +321,7 @@ include("layout/menuNavegacion.php");
                                                     <div class="col-md-5">
                                                         <label class="col-sm-12 col-form-label">Actividad Comercial:</label>
                                                         <div class="col-sm-12">
-                                                            <input for="registroactividad" type="text" class="form-control" id="registroactividad" name="registroactividad">
+                                                            <input for="registroactividad" type="text" class="form-control" id="registroactividad" name="registroactividad" maxlength="50">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -321,16 +356,16 @@ include("layout/menuNavegacion.php");
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-1">
-                                                        <label class="col-sm-12 col-form-label">Código:</label>
+                                                        <label  for="codigo" class="col-sm-12 col-form-label">Código:</label>
                                                         <div class="col-sm-12">
                                                             <div class="col-sm-12">
-                                                                <input for="registroPoder" type="text" class="form-control" id="registroPoder" name="registroPoder" >
+                                                                <input  type="text" class="form-control" id="codigo" name="codigo" >
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-4">
                                                         <div class="row">
-                                                            <label for="ced_prop" class="col-sm-12 col-form-label">Nombre del Registro:</label>
+                                                            <label for="nombreRegistro" class="col-sm-12 col-form-label">Nombre del Registro:</label>
                                                             <div class="col-sm-12">
                                                                 <input for="nombreRegistro" type="text" class="form-control" id="nombreRegistro" name="nombreRegistro" >
                                                             </div>

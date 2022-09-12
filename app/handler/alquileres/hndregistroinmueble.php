@@ -289,6 +289,49 @@ if($operacion == "C"){
 }
 
 
+
+
+/* 
+ |------------------------------------------------------------------
+ | AQUI SE EJECUTA LA OPERACION DE CONSULTAR INMUEBLES Y UNIDADES
+ |------------------------------------------------------------------
+*/
+
+if($operacion == "CT"){
+
+
+
+
+   /*
+    |-------------------------------------------
+    | AQUI CREO UNA INSTANCIA DE LA CLASE
+    |-------------------------------------------
+    */
+    
+    $registroInmueble =  new ctrregistroinmueble();
+
+   /* 
+   |---------------------------------------------
+   | AQUI OBTENGO EL RESULTADO DE LA EJECUCION
+   |---------------------------------------------
+   */
+     $result = $registroInmueble->consultatodos();
+    
+    /*
+    |-------------------------------------------
+    | AQUI REGRESO EL RESULTADO AL AJAX
+    |-------------------------------------------
+    */
+      if (!headers_sent()) {
+            //AGREGAR CABECERA SI NO LA TIENE
+            header('Content-Type: application/json');
+      } 
+   
+     return $result;
+     
+}
+
+
 /* 
  |----------------------------------------------------------------------
  | AQUI SE EJECUTA LA OPERACION DE CONSULTAR LOS INMUEBLES SIN UNINDAES

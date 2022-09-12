@@ -25,11 +25,13 @@
                         <tr>
 
                             <th>Foto</th>    
-                            <th>Codigo</th>
+                            <th>Inmueble</th>
+                            <th>Unidad</th>
                             <th>Propietario</th>
                             <th>Inquilino</th>
                             <th>Tipo</th>
                             <th>Estatus</th>
+                            <th>Canon</th>
                             <th>Acciones</th>
  
                         </tr>

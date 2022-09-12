@@ -58,7 +58,7 @@ public function registrar($tabla,$datos,$archivos){
           $stmt -> bindParam(7, $datos["tipo_prop"], PDO::PARAM_INT); 
           $stmt -> bindParam(8, $datos["tipo_inqui"], PDO::PARAM_INT); 
 
-          $stmt -> bindParam(9, $datos["repre_administradora"], PDO::PARAM_STR); 
+          $stmt -> bindParam(9, $datos["repre_administradora"], PDO::PARAM_INT); 
           $stmt -> bindParam(10, $datos["can_cont"], PDO::PARAM_INT); 		
           $stmt -> bindParam(11, $fechadesde,PDO::PARAM_INT); 		
           $stmt -> bindParam(12, $fechahasta,PDO::PARAM_INT);		
@@ -443,6 +443,46 @@ public function registrar($tabla,$datos,$archivos){
 
       }
   }
+
+
+
+
+  public function seleccionarcontratos($prmidinmu){
+
+
+
+    try {
+
+      $dbConexion = new conexcion();
+      
+      $stmt = $dbConexion->conectar()->prepare("CALL usp_consulta_contrato(?)");
+      $stmt ->bindParam(1, $prmidinmu, PDO::PARAM_INT);
+      $stmt->execute();
+      $dataRegistro["Items"][] = $stmt->fetchall();
+
+      $dataRes = array(
+        'error' => '0',
+        'mensaje' =>  'El registro se obtuvo con exito.'
+      );
+      
+      
+      echo json_encode(array_merge($dataRegistro,$dataRes));
+
+      } catch (\Throwable $th) {
+      
+          //$pdo->rollBack() ;
+          //echo "Mensaje de Error: " . $th->getMessage();
+          $dataRes = array(
+            'error' => '1',
+            'mensaje' =>  "Mensaje de Error: " . $th->getMessage()
+          );
+    
+          echo json_encode($dataRes);
+  
+      }
+
+
+}
 
 
 

@@ -111,7 +111,8 @@ if($operacion == "I"){
                     "par_inqu" => $_POST["cboParroquia"],
                     "dir_inqu" => $_POST["registroDirecionH"],
                     "ofi_inqu" => $_POST["registroDirecionO"],
-                    "tip_inqu" => $_POST["tipo_persona"]);
+                    "tip_inqu" => $_POST["tipo_persona"], 
+                    "posee_pagador" => $_POST["cbopagador"]);
 
       //echo json_encode($datos);
       //die;

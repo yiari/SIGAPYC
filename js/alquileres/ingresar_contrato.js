@@ -4,8 +4,10 @@ function inicio(){
     buscarInquilino();
 
     guardaronContratos();
-    cargarRepresentanteLegal();
-
+    cargarRepresentanteLegal('cboRepresentante');
+    limpiarFormulario(1);
+    limpiarTabla();
+    limpiarCampos();
  /*
     |--------------------------------------------------
     | TODOS LOS CAMPOS DE TEXTO ESCRIBEN EN MAYUSCULA
@@ -377,6 +379,7 @@ function guardaronContratos(){
 
         /*-------------------------------------------------*/
 
+       
 
     if ($("#id_inmu").val() == "" || $("#id_inmu").val() == "0" || $("#id_inmu").val() == 0 ) {
        mensaje("Debe seleccionar el inmueble",1);
@@ -388,6 +391,12 @@ function guardaronContratos(){
        mensaje("Debe seleccionar el inquilino",1);
        return;
    }
+
+   if ($("#cboRepresentante").val() == "" ) {
+    mensaje("Debe seleccionar el Representante legal de la administradora",1);
+    return;
+}
+
 
 
    if ($("#registroCanon").val() == "") {
@@ -518,7 +527,7 @@ function guardaronContratos(){
 
                     //$("#mensaje").html(html).fadeIn();
                     limpiarFormulario(1);
-                    //limpiarTabla();
+                    limpiarTabla();
                     botones(0);
 
                 }else {
@@ -550,6 +559,27 @@ function limpiarFormulario(valor){
     if(valor == 1){
         document.getElementById("registrarcontrato").reset();
     }
+
+}
+
+function limpiarTabla() {
+
+    $('#datosinquilino tbody').children().remove();
+
+}
+
+function limpiarTabla() {
+
+    $('#datosAsignarInmueble tbody').children().remove();
+
+}
+
+
+function limpiarCampos(){
+
+    $("#hidcontrato").val("");
+    $("#nom_inqu").val("");
+    $("#nom_prop").val("");
 
 }
 

@@ -104,14 +104,14 @@ if($operacion == "I"){
                     "dir_inqj" => $_POST["registroDirecionj"],
                     "tel_inqj" => $_POST["registroCelularj"],
                     "cor_inqj" => $_POST["registroEmailj"],
-                    "cod_regi" => $_POST["codigoNotaria"],
-                    "not_regi" => $_POST["notaria"],
+                    "cod_regi" => $_POST["codigo"],
+                    "not_regi" => $_POST["nombreRegistro"],
                     "fec_regi" => $_POST["fechaRegistro"],
                     "num_regi" => $_POST["numeroRegistro"],
                     "tom_regi" => $_POST["tomoRegistro"],
                     "fol_regi" => $_POST["foliRegistro"],
-                    "tip_inqu" => $_POST["tipo_personaj"]);
-                         
+                    "tip_inqu" => $_POST["tipo_personaj"],
+                    "posee_pagadorj" => $_POST["cbopagadorj"] ); 
 				
 
       //echo json_encode($datos);

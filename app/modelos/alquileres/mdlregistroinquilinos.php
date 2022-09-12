@@ -43,7 +43,7 @@ public function registrar($tabla,$datos,$archivos){
           | AQUI PREPARO LO QUE SERA LA LLAMADA AL PROCEDIMIENTO QUE REALIZARA LA OPERACION
           |----------------------------------------------------------------------------------
           */
-          $stmt = $dbConexion->conectar()->prepare("CALL usp_registroinquilinos(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+          $stmt = $dbConexion->conectar()->prepare("CALL usp_registroinquilinos(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
           $stmt -> bindParam(1,  $datos["id_inqu"], PDO::PARAM_INT);
           $stmt -> bindParam(2,  $datos["cod_inqu"],PDO::PARAM_STR); 
           $stmt -> bindParam(3,  $datos["nom_inqu"],PDO::PARAM_STR); 
@@ -59,7 +59,8 @@ public function registrar($tabla,$datos,$archivos){
           $stmt -> bindParam(13, $datos["par_inqu"],PDO::PARAM_INT); 
           $stmt -> bindParam(14, $datos["dir_inqu"],PDO::PARAM_STR); 
           $stmt -> bindParam(15, $datos["ofi_inqu"],PDO::PARAM_STR); 
-          $stmt -> bindParam(16, $datos["tip_inqu"],PDO::PARAM_STR); 
+          $stmt -> bindParam(16, $datos["tip_inqu"],PDO::PARAM_STR);
+          $stmt -> bindParam(17,$datos["posee_pagador"],PDO::PARAM_INT); 
 
 
           

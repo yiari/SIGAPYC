@@ -15,6 +15,11 @@ function guardarInquilinoJuridico(){
 
 
    //alert("llamo a las funciones juridicas");
+
+if ($("#cbopagadorj").val() == "") {
+    mensaje("Debe indicar si el inquilino posee pagador",1);
+    return;
+}
  
 if ($("#registroNombrej").val() == "") {
     mensaje("Debe indicar el Nombre o Razón Social del inquilino",1);

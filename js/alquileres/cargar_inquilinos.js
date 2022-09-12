@@ -76,7 +76,14 @@ function cargarInquilino(){
                             html += htmlInquilino;
                            
                             html += '<a title="Contrato" data-field-id="' + json.Items[0][i].id + '"><i class="fa fa-file-pen"></i></a>&nbsp;';
-                            html += '<a title="Pagador"  href="index.php?url=app/vistas/alquileres/pagador&idinq=' + json.Items[0][i].id  + '&codinq=' + json.Items[0][i].codigo  + '&codtip=' + json.Items[0][i].tipo  +'"><i class="fa fa-id-badge"></i></a>&nbsp;';
+
+                            if(json.Items[0][i].posee_pagador == 2 || json.Items[0][i].posee_pagador == 0 ){
+                                html += '<a href="javascript:void" class="link_apagado"><i class="fa fa-id-badge"></i></a>&nbsp;';
+                            } else if (json.Items[0][i].posee_pagador == 1)  {
+                                html += '<a title="Pagador" href="index.php?url=app/vistas/alquileres/pagador&idinq=' + json.Items[0][i].id  + '&codinq=' + json.Items[0][i].codigo  + '&codtip=' + json.Items[0][i].tipo  +'"><i class="fa fa-id-badge"></i></a>&nbsp;';
+                            }
+
+                            /*html += '<a title="Pagador"  href="index.php?url=app/vistas/alquileres/pagador&idinq=' + json.Items[0][i].id  + '&codinq=' + json.Items[0][i].codigo  + '&codtip=' + json.Items[0][i].tipo  +'"><i class="fa fa-id-badge"></i></a>&nbsp;';*/
                             html += '<a title="Eliminar"  data-field-id="'  + json.Items[0][i].id + '"><i class="fa fa-trash" alt=“eliminar”></i></a>';
                             html += '</div>'
                             tr.append("<td>" + html + "</td>");

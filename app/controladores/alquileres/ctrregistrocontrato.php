@@ -58,6 +58,15 @@ class ctrregistrocontrato{
     }
 
 
+    public function seleccionarcontratos($prmidinmu){
+
+        $tabla = "contrato";
+        $modelo =  new mdlregiscontrato();
+        $respuestas =  $modelo->seleccionarcontratos($prmidinmu,null);
+        return $respuestas;
+    }
+
+
 
     public function seleccionasignarinquilino($codigo){
 

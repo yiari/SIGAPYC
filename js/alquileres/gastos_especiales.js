@@ -335,7 +335,7 @@ function limpiarTabla() {
 
 function limpiarCampos(){
 
-    $("#hidUsuario").val("");
+    $("#hidgastos").val("");
     $("#registroGasto").val("");
     $("#registroMonto").val("");
     $("#nom_prop").val("");

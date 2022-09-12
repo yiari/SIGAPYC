@@ -232,7 +232,7 @@ function cargarInmueble(idPropietario,idInmueble,prmTipo,prmCodInmu,prmcodPropie
 
 
 
-function cargarInmuebletodo(idPropietario,idInmueble,prmTipo,prmCodInmu){
+function cargarInmuebletodo(){
 
     /*
     |-----------------------------------------------------
@@ -241,11 +241,8 @@ function cargarInmuebletodo(idPropietario,idInmueble,prmTipo,prmCodInmu){
     */
     var formData = new FormData();
 
-    formData.append('opcion','C');
-    formData.append('id_prop',idPropietario);
-    formData.append('tipo_propietario',prmTipo);
-    formData.append('id_inmu',idInmueble);
-    formData.append('cod_inmueble',prmCodInmu);
+    formData.append('opcion','CT');
+ 
  
  
     /*
@@ -323,7 +320,8 @@ function cargarInmuebletodo(idPropietario,idInmueble,prmTipo,prmCodInmu){
                                         tr.append("<td>" + json.Items[0][i].foto + "</td>");
                                     }
                                     
-                                    tr.append("<td>" + json.Items[0][i].codigo + "</td>");
+                                    tr.append("<td>" + json.Items[0][i].inmueble + "</td>");
+                                    tr.append("<td>" + json.Items[0][i].unidad + "</td>");
                                     tr.append("<td>" + json.Items[0][i].propietario + "</td>");
                                     
                                     if(prmInquilino == undefined){
@@ -335,6 +333,7 @@ function cargarInmuebletodo(idPropietario,idInmueble,prmTipo,prmCodInmu){
                                     tr.append("<td>" + json.Items[0][i].tipo + "</td>"); 
                              
                                     tr.append("<td>" + statusinmuebles(json.Items[0][i].estatus) + "</td>");
+                                    tr.append("<td>" + json.Items[0][i].canon + "</td>");
                                     
                                     var html="";
                                     html = '<div class="btn-group" style="font-size:1.3em; letter-spacing:0.2em;">';
@@ -359,7 +358,7 @@ function cargarInmuebletodo(idPropietario,idInmueble,prmTipo,prmCodInmu){
                                    
                                     /*html += '<a title="inquilino"  href="index.php?url=app/vistas/alquileres/asignar_inquilino&idpro=' + json.Items[0][i].id_prop  + '&codpro=' + json.Items[0][i].propietario  + '"><i class="fa fa-user-circle-o"></i></a>&nbsp;';*/
                                     
-                                    html += '<a title="Mandato y Contratos"  href="index.php?url=app/vistas/alquileres/contratos_mandatos&idinmu=' + json.Items[0][i].id_inmu   + '&codinmu=' + json.Items[0][i].codigo  + '"><i class="fa fa-file-text-o"></i></a>&nbsp;';
+                                    html += '<a title="Mandato y Contratos"  href="index.php?url=app/vistas/alquileres/contratos_mandatostodo&idinmu=' + json.Items[0][i].id_inmu   + '&codinmu=' + json.Items[0][i].inmueble  + '"><i class="fa fa-file-text-o"></i></a>&nbsp;';
                                    
                                     html += '<a title="Eliminar"  data-field-id="'  + json.Items[0][i].id + '"><i class="fa fa-trash" alt=“eliminar”></i></a>';
                                     html += '</div>'

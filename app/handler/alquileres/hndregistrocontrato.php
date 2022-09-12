@@ -107,7 +107,7 @@ if($operacion == "I"){
                      "tipo_prop"  => $_POST["tipo_propietario"],
                      "tipo_inqui"  => $_POST["tipo_inquilino"],
 
-                     "repre_administradora" => $_POST["repre_administradora"],
+                     "repre_administradora" => $_POST["cboRepresentante"],
                      "can_cont" => $_POST["registroCanon"],
                      "fec_desd" => $_POST["fec_desd"],
                      "fec_hast" => $_POST["fec_hast"],
@@ -203,6 +203,45 @@ if($operacion == "C"){
       //AGREGAR CABECERA SI NO LA TIENE
       header('Content-Type: application/json');
 } 
+     return $result;
+     
+}
+
+
+/* 
+ |---------------------------------------------------------------------------
+ | AQUI SE EJECUTA LA OPERACION DE CONSULTAR TODOS LOS INMUEBLES y UNIDADES 
+ |----------------------------------------------------------------------------
+*/
+
+if($operacion == "CO"){
+
+
+   $prmidinmu = $_POST["id_inmu"];
+   //$prmidCodInmu = $_POST["cod_inmu"];
+   //$prmtipo = $_POST["tipo_propietario"];
+
+   /*
+    |-------------------------------------------
+    | AQUI CREO UNA INSTANCIA DE LA CLASE
+    |-------------------------------------------
+    */
+    
+    $registrocontrato =  new ctrregistrocontrato();
+
+   /* 
+   |---------------------------------------------
+   | AQUI OBTENGO EL RESULTADO DE LA EJECUCION
+   |---------------------------------------------
+   */
+     $result = $registrocontrato->seleccionarcontratos($prmidinmu);
+    
+    /*
+    |-------------------------------------------
+    | AQUI REGRESO EL RESULTADO AL AJAX
+    |-------------------------------------------
+    */
+    header('Content-Type: application/json');
      return $result;
      
 }

@@ -55,6 +55,11 @@ function inicio(){
     });
 
 
+    jQuery("#registroCelularj").on('input', function (evt) {
+        jQuery(this).val(jQuery(this).val().replace(/[^0-9]/g, ''));
+    });
+
+
 
 
 
@@ -82,6 +87,10 @@ function guardarInquilino(){
    evt.preventDefault();
    /**********************************************/        
 
+   if ($("#cbopagador").val() == "") {
+    mensaje("Debe indicar si el inquilino posee pagador",1);
+    return;
+}
  
 if ($("#registroNombre").val() == "") {
     mensaje("Debe indicar el nombre del inquilino",1);
