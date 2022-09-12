@@ -15,11 +15,11 @@ function inicio(){
 
     codigoPropietario(prmCodPro,prmCodInmu);
 
-    cargarInmuebleBeneficiario(idPropietario,prmTipo);
-
     atrasInmueble(idPropietario,prmCodPro,prmTipo);
     
     cargarValores(idPropietario,prmIdInmu,prmIdUnidad);
+
+    cargarInmuebleBeneficiario(idPropietario,prmTipo,prmIdInmu,prmIdUnidad);
 
 
 }
@@ -34,7 +34,14 @@ function cargarValores(prmIdPropietario,prmIdInmueble,prmIdUnidad){
     B.value = prmIdInmueble;
 
     var C = document.getElementById("id_unidad");
-    C.value = prmIdUnidad;
+
+    if(prmIdUnidad == "" || prmIdUnidad == undefined){
+        C.value = 0;
+    } else {
+        C.value = prmIdUnidad;
+    }
+
+    
 
 }
 
@@ -83,7 +90,7 @@ function atrasInmueble(prmIdPro,prmCodPro,prmTipo){
 }
 
 
-function cargarInmuebleBeneficiario(prmDato,prmTipo){
+function cargarInmuebleBeneficiario(prmDato,prmTipo,prmIdInmueble,prmIdUnidad){
 
     /*
     |-----------------------------------------------------
@@ -95,6 +102,9 @@ function cargarInmuebleBeneficiario(prmDato,prmTipo){
     formData.append('opcion','C');
     formData.append('id_prop',prmDato);
     formData.append('tipo',prmTipo);
+    formData.append('id_inmueble',prmIdInmueble);
+    formData.append('id_unidad',prmIdUnidad);
+
     /*
     |-----------------------------------------------
     | AQUI SE LLAMA EL AJAX 
@@ -127,6 +137,7 @@ function cargarInmuebleBeneficiario(prmDato,prmTipo){
                 */
                 if(json.Items.length > 0){
                     var tr;
+                    var vlSumar = false;
 
                     if(json.Items[0].length > 0){
                         
@@ -142,13 +153,32 @@ function cargarInmuebleBeneficiario(prmDato,prmTipo){
                          
                             
                             var html="";
-                            html = '<div class="btn-group" style="font-size:1.3em; letter-spacing:0.2em;">';
-                            html += '<input type="checkbox" class="chksumarporcentaje" id="chkunidades_' + json.Items[0][i].id_bene +'" name="chkporcentajes[]"  onchange="checkPorcentaje(' + json.Items[0][i].id_bene + ');">&nbsp;';
-                            html += '<input type="text" class="form-control campo_numero" id="idben_' + json.Items[0][i].id_bene + '" name="txtporcentajes[]" onchange="sumar();" maxlength="3" placeholder="%" disabled>'
-                            html += '<input type="hidden" name="hidIdBen[]"  value="' + json.Items[0][i].id_bene + '" >'
-                            html += '</div>'
-                            tr.append('<td style="text-align:center;">' + html + '</td>');
-                            $('#datosBeneficiario').append(tr);
+                            
+                            if(json.Items[0][i].porcentaje > 0){
+                            
+                                html = '<div class="btn-group" style="font-size:1.3em; letter-spacing:0.2em;">';
+                                html += '<input type="checkbox" class="chksumarporcentaje"  id="chkunidades_' + json.Items[0][i].id_bene +'" name="chkporcentajes[' + i + '][' + json.Items[0][i].id_bene +  ']"  onchange="checkPorcentaje(' + json.Items[0][i].id_bene + ');" checked="checked">&nbsp;';
+                                html += '<input type="text" class="form-control campo_numero" id="idben_' + json.Items[0][i].id_bene + '" name="txtporcentajes[' + i + '][' + json.Items[0][i].id_bene + ']" onchange="sumar();" maxlength="3" placeholder="%" value="' + json.Items[0][i].porcentaje + '">'
+                                html += '<input type="hidden" name="hidTipoBene[' + i + '][' + json.Items[0][i].id_bene + ']"  value="' + json.Items[0][i].tipo + '" >'
+                                html += '</div>'
+                                tr.append('<td style="text-align:center;">' + html + '</td>');
+                                $('#datosBeneficiario').append(tr);
+                            
+                                vlSumar = true;
+
+                            } else {
+
+                                html = '<div class="btn-group" style="font-size:1.3em; letter-spacing:0.2em;">';
+                                html += '<input type="checkbox" class="chksumarporcentaje"  id="chkunidades_' + json.Items[0][i].id_bene +'" name="chkporcentajes[' + i + '][' + json.Items[0][i].id_bene +  ']"  onchange="checkPorcentaje(' + json.Items[0][i].id_bene + ');">&nbsp;';
+                                html += '<input type="text" class="form-control campo_numero" id="idben_' + json.Items[0][i].id_bene + '" name="txtporcentajes[' + i + '][' + json.Items[0][i].id_bene + ']" onchange="sumar();" maxlength="3" placeholder="%" disabled>'
+                                html += '<input type="hidden" name="hidTipoBene[' + i + '][' + json.Items[0][i].id_bene + ']"  value="' + json.Items[0][i].tipo + '" >'
+                                html += '</div>'
+                                tr.append('<td style="text-align:center;">' + html + '</td>');
+                                $('#datosBeneficiario').append(tr);
+    
+
+                            }
+
                         //}
                         }
 
@@ -162,6 +192,9 @@ function cargarInmuebleBeneficiario(prmDato,prmTipo){
                         tr.append('<td colspan="3" style="text-align:right;"><button type="submit" class="btn btn-primary">Guardar</button></td>');
                         $('#datosBeneficiario').append(tr);
 
+                        if (vlSumar == true){
+                            sumar();
+                        }
 
                         GuardarBeneficiario();
 
@@ -228,6 +261,20 @@ function GuardarBeneficiario(){
             var html = "";
 
 
+            if(json.error == 0){
+
+                    mensaje(json.mensaje,0);
+                    //limpiarFormulario(1);
+
+            }else {
+
+                mensaje(json.mensaje,1);
+
+                //$("#mensaje").html(html).fadeIn();
+            }
+
+
+
             },
             error: function (e) {
                 $("#error").html(e).fadeIn();
@@ -240,6 +287,28 @@ function GuardarBeneficiario(){
 
     });
 
+
+}
+
+
+function mensaje(mensaje, condicion){
+
+    var html="";
+
+    if(condicion == 0){//ESTOS SON MENSAJES CON EXITO
+
+        html='<i class="fa fa-check-circle fa-2x" aria-hidden="true" style="color:#29bf1d;"></i>&nbsp' + mensaje;
+
+    } else if (condicion == 1){//ESTOS SON MENSAJES CON ERROR
+
+        html='<i class="fa fa-times-circle fa-2x" aria-hidden="true" style="color:#bf1d1d;"></i>&nbsp' + mensaje;
+    }
+
+
+    $('#spanMsg').html('');
+    $('#spanMsg').html(html);
+    //open the modal
+    $('#msgModal').modal('show');
 
 }
 

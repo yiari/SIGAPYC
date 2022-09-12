@@ -458,4 +458,69 @@ public function registrar($tabla,$datos,$archivos){
 
      }
 
+
+
+
+
+
+
+
+public function InmueblesBeneficiarios($datos,$ids,$porcentajes,$tipos){
+
+      try {
+
+        $dbConexion = new conexcion();
+        $valor = 0;
+
+        $ids_beneficiarios = implode(",", $ids);
+        $porcentajes_beneficiarios = implode(",", $porcentajes);
+        $tipos_beneficiarios = implode(",", $tipos); 
+
+
+        
+        $stmt = $dbConexion->conectar()->prepare("CALL usp_vncular_inmueble_beneficiario(?,?,?,?,?,?,?)");
+        
+        $stmt -> bindParam(1, $datos["id_registro"], PDO::PARAM_INT); 
+        $stmt -> bindParam(2, $datos["id_propietario"], PDO::PARAM_INT); 
+        $stmt -> bindParam(3, $datos["id_inmueble"], PDO::PARAM_INT); 
+        $stmt -> bindParam(4, $datos["id_unidad"], PDO::PARAM_INT); 
+        $stmt -> bindParam(5, $ids_beneficiarios, PDO::PARAM_STR); 
+        $stmt -> bindParam(6, $porcentajes_beneficiarios, PDO::PARAM_STR); 
+        $stmt -> bindParam(7, $tipos_beneficiarios, PDO::PARAM_STR); 
+
+        $stmt->execute();
+        //$dataRegistro["Items"][] = $stmt->fetchAll();
+
+        $dataRes = array(
+          'error' => '0',
+          'mensaje' =>  'El registro se realizo con exito.'
+        );
+        
+        
+        echo json_encode($dataRes);
+
+        } catch (\Throwable $th) {
+        
+            //$pdo->rollBack() ;
+            //echo "Mensaje de Error: " . $th->getMessage();
+            $dataRes = array(
+              'error' => '1',
+              'mensaje' =>  "Mensaje de Error: " . $th->getMessage()
+            );
+      
+            echo json_encode($dataRes);
+    
+        }
+
+    
+
+  }
+
+
+
 }
+
+
+
+
+

@@ -72,4 +72,14 @@ class ctrregistrobeneficiarios{
     }
 
 
+    public function InmueblesBeneficiarios($datos,$ids,$porcentajes,$tipos){
+
+        $modelo =  new mdlregisbenficiario();
+        $respuesta = $modelo->InmueblesBeneficiarios($datos,$ids,$porcentajes,$tipos);
+
+        return $respuesta;
+
+    }
+
+
 }
