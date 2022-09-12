@@ -114,7 +114,7 @@ include("layout/menuNavegacion.php");
                                             </table>
                                         </div>
                                     
-                                </div>
+                                    </div>
                                 </div><br>
                                 </form>
                                 <!--Datos del propietario-->

@@ -12,6 +12,7 @@ function inicio(){
     let idInquilino = getParameterByName('idinq');
     let prmCodInq = getParameterByName('codinq');
     let prmtipo = getParameterByName('codtip');
+   
 
     let tipoInquilino = getParameterByName('codtip');
     /*--------------------------------------*/   
@@ -27,16 +28,11 @@ function inicio(){
         $("#nav-inq_juridico").addClass('show').addClass('active');
     } 
 
-    generarCodigoInquilino()
+    generarCodigoInquilino();
+
+    generarCodigoInquilinoj();
     cargarEstados();
-  
-
     guardarInquilino();
-   
-   
-
-   
-
 
     /*
     |--------------------------------------------------
@@ -68,15 +64,31 @@ function inicio(){
         jQuery(this).val(jQuery(this).val().replace(/[^0-9]/g, ''));
     });
 
-
+    generarCodigoInquilinoj();
     /*
     |------------------------------------------------------------------------------------------------
     | DESPUES DE CARGAR LAS FUNCIONES Y VALIDACIONES, ENTONCES SOLICITO LOS DATOS DEL PROPIETARIO
     |-------------------------------------------------------------------------------------------------
     */
+/*
+|------------------------------------------------------------------------------------------------
+| DESPUES DE CARGAR LAS FUNCIONES Y VALIDACIONES, ENTONCES SOLICITO LOS DATOS DEL BENEFICIARIO
+|-------------------------------------------------------------------------------------------------
+*/
 
+if(tipoInquilino == 1){
 
     consultarInquilino(idInquilino,prmCodInq,prmtipo);
+
+} else if (tipoInquilino == 2) { 
+
+    consultarInquilinoJuridico(idInquilino,prmCodInq,prmtipo);
+}
+
+   
+
+guardarInquilinoJuridico();
+   
 
 }
 
@@ -362,6 +374,252 @@ function consultarInquilino(id,codigo,tipo){
     });
     
     }
+
+
+
+    function consultarInquilinoJuridico(id,codigo,tipo){
+
+        console.log("consultando");
+        
+              /*
+                |-----------------------------------------------
+                | LIMPIA EL CAMPO MENSAJE 
+                |-----------------------------------------------
+                */
+                $("#error").html("Ejecutando...");
+                /*
+                |-----------------------------------------------
+                | AQUI SE CAPTURA LOS DATOS DEL FORMULARIO 
+                |-----------------------------------------------
+                */
+                var formData = new FormData();
+                /*
+                |-----------------------------------------------------
+                | AQUI SE AGREGA UN PARAMETRO ADICIONAL AL FORMULARIO 
+                |-----------------------------------------------------
+                */
+                formData.append('opcion','CIJ');
+        
+                formData.append('idInquilino',id);
+                formData.append('codigoInquilino',codigo);
+                formData.append('tipoInquilino',tipo);
+                
+                /*
+                |-----------------------------------------------
+                | AQUI SE LLAMA EL AJAX 
+                |-----------------------------------------------
+                */
+                $.ajax({
+                    url: "app/handler/alquileres/hndregistroinquilinosj.php",
+                    type: "POST",
+                    data: formData, //new FormData(this),
+                    contentType: false,
+                    dataType: "json",
+                    cache: false,
+                    processData: false,
+                    beforeSend: function () {
+                        //$("#preview").fadeOut();
+                        $("#error").fadeOut();
+                    },
+                    success: function (data) {
+                    var json = data;
+                    var html = "";
+                    let idPropietario = 0;
+                        console.log("Mensaje del JSON: " + json);
+        
+                        if(json.error == 0){
+                            
+                            //mensaje(json.mensaje,0);
+                            if(json.Items.length > 0){
+        
+   
+                                
+                                //<input type="hidden" id="tipo_persona" name="tipo_persona" value='1'>
+                                $('#hidinquilinoj').val(json.Items[0].id);
+    
+                                /*
+                                |------------------------------------------------------
+                                | DATOS PRINCIPALES
+                                |------------------------------------------------------
+                                */
+                                $('#registroNombrej').val(json.Items[0].nom_inqj);
+                                $('#registroRifj').val(json.Items[0].rif_inqj);
+                                $('#registroCelularj').val(json.Items[0].tel_inqj);
+                                $('#registroEmailj').val(json.Items[0].cor_inqj);
+                                $('#registroDirecionj').val(json.Items[0].dir_inqj);
+                                $("#registroCodigoj").val(json.Items[0].cod_inqu);
+                                $("#registroactividad").val(json.Items[0].act_inqj );
+
+
+
+                                $('#codigoNotaria').val(json.Items[0].cod_regi);
+                                $('#notaria').val(json.Items[0].not_regi);
+                                $('#fechaRegistro').val(json.Items[0].fec_regi);
+                                $('#numeroRegistro').val(json.Items[0].num_regi);
+                                $('#tomoRegistro').val(json.Items[0].tom_regi);
+                                $('#foliRegistro').val(json.Items[0].fol_regi);
+                               
+            
+        
+                               
+                               
+        
+                            }
+        
+                        }else {
+        
+                            mensaje(json.mensaje,1);
+        
+                            //$("#mensaje").html(html).fadeIn();
+                        }
+        
+        
+        
+                    },
+                    error: function (e) {
+                        //$("#error").html(e).fadeIn();
+                        mensaje(e,1);
+                        
+                    }
+                });
+        
+        
+    }
+
+
+
+    function guardarInquilinoJuridico(){
+
+  
+        $("#registroinquilinoj").on('submit', function(evt) {
+       /*
+       |-----------------------------------------------
+       | AQUI SE PREVIENE QUE EL FORMULARIO CONTINUE 
+       |-----------------------------------------------
+       */
+       evt.preventDefault();
+       /**********************************************/        
+    
+    
+       //alert("llamo a las funciones juridicas");
+     
+    if ($("#registroNombrej").val() == "") {
+        mensaje("Debe indicar el Nombre o Razón Social del inquilino",1);
+        return;
+    }
+    
+    
+    
+    if ($("#registroactividad").val() == "") {
+        mensaje("Debe indicar la Actividad Comercial del inquilino",1);
+        return;
+    }
+    
+    
+    if ($("#registroRifj").val() == "") {
+            mensaje("Debe indicar el rif del inquilino",1);
+            return;
+            }
+     
+    if ($("#registroDirecionj").val() == "") {
+        mensaje("Debe indicar la Dirección Fiscal del inquilino ",1);
+        return;
+        }
+     
+     if ($("#registroCelularj").val() == "") {
+         mensaje("Debe indicar el celular del inquilino",1);
+         return;
+         }
+    
+    
+     if ($("#registroEmailj").val() == "") {
+         mensaje("Debe indicar una direccion de correo valida",1);
+         return;
+     } else {
+         var respuesta = validateEmail($("#registroEmailj").val());
+    
+         if (respuesta == false) {
+             mensaje("La direccion de correo es invalida",1);
+             return;
+         }
+     }
+    
+    
+       /*
+       |-----------------------------------------------
+       | LIMPIA EL CAMPO MENSAJE 
+       |-----------------------------------------------
+       */
+       $("#error").html("Ejecutando...");
+       /*
+       |-----------------------------------------------
+       | AQUI SE CAPTURA LOS DATOS DEL FORMULARIO 
+       |-----------------------------------------------
+       */
+       var formData = new FormData(this);
+       /*
+       |-----------------------------------------------------
+       | AQUI SE AGREGA UN PARAMETRO ADICIONAL AL FORMULARIO 
+       |-----------------------------------------------------
+       */
+       formData.append('opcion','I');
+       /*
+       |-----------------------------------------------
+       | AQUI SE LLAMA EL AJAX 
+       |-----------------------------------------------
+       */
+       $.ajax({
+           url: "app/handler/alquileres/hndregistroinquilinosj.php",
+           type: "POST",
+           data: formData, //new FormData(this),
+           contentType: false,
+           dataType: "json",
+           cache: false,
+           processData: false,
+           beforeSend: function () {
+               //$("#preview").fadeOut();
+               $("#error").fadeOut();
+           },
+           success: function (data) {
+           var json = data;
+           var html = "";
+    
+               console.log("Mensaje del JSON: " + json.mensaje);
+    
+               if(json.error == 0){
+                   
+                   mensaje(json.mensaje,0);
+    
+                   //$("#mensaje").html(html).fadeIn();
+                   limpiarFormulario(1);
+                   //limpiarTabla();
+                   //botones(0);
+                   //cargarUsuarios();
+    
+               }else {
+    
+                   mensaje(json.mensaje,1);
+    
+                   //$("#mensaje").html(html).fadeIn();
+               }
+    
+    
+    
+           },
+           error: function (e) {
+               //$("#error").html(e).fadeIn();
+               mensaje(e,1);
+               
+           }
+       });
+    
+    
+    
+    });
+    
+    }
+    
+    
     
     
     
@@ -397,6 +655,24 @@ function consultarInquilino(id,codigo,tipo){
     
     }
 
+
+    function generarCodigoInquilinoj(){
+
+
+        $("#registroNombrej").on('keyup', function () {
+    
+            var prmNombre= this.value;
+          
+    
+            $("#registroCodigoj").val('');
+    
+            codigoInquilino(prmNombre,function(result){
+                $("#registroCodigoj").val(result);
+            });
+    
+    
+        });
+    }
 
     function mensaje(mensaje, condicion){
 

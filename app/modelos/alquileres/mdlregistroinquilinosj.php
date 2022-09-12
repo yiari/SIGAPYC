@@ -264,60 +264,39 @@ public function registrar($tabla,$datos,$archivos){
     }
 
 
- public function seleccionarregistros($tabla,$iten,$valor){
+    public function consultarInquilinoJuridico($tabla,$items){
 
-      If($iten == null && $valor == null){
-
-
-            try {
-
-              $dbConexion = new conexcion();  
-
-                $stmt = $dbConexion->conectar()->prepare("CALL usp_");
-                $stmt->execute();
-                $dataRegistro["Items"][] = $stmt->fetchAll();
-      
-                $dataRes = array(
-                  'error' => '0',
-                  'mensaje' =>  'El registro se realizo con exito.'
-                );
-                          
-                echo json_encode(array_merge($dataRegistro,$dataRes));
-      
-                } catch (\Throwable $th) {
-                
-                    //$pdo->rollBack() ;
-                    //echo "Mensaje de Error: " . $th->getMessage();
+      If($items == null){
+    
+    
                     $dataRes = array(
                       'error' => '1',
-                      'mensaje' =>  "Mensaje de Error: " . $th->getMessage()
+                      'mensaje' =>  "Mensaje de Error: No hay registro para buscar."
                     );
               
-                    echo json_encode($dataRes);
-            
-                }
-
+    
       }else{
-
-
+    
+    
         try {
-
+    
           $dbConexion = new conexcion();
           
-          $stmt = $dbConexion->conectar()->prepare("CALL usp_");
-        
-          $stmt ->bindParam(":".$iten, $valor, PDO::PARAM_STR);
+          $stmt = $dbConexion->conectar()->prepare("CALL usp_cagar_editar_inquilino_juridico(?)");
+          $stmt -> bindParam(1,$items["id_inqu"], PDO::PARAM_INT);
+         
+  
           $stmt->execute();
           $dataRegistro["Items"][] = $stmt->fetch();
-
+    
           $dataRes = array(
             'error' => '0',
-            'mensaje' =>  'El registro se realizo con exito.'
+            'mensaje' =>  'El registro se obtuvo.'
           );
           
           
           echo json_encode(array_merge($dataRegistro,$dataRes));
-
+    
           } catch (\Throwable $th) {
           
               //$pdo->rollBack() ;
@@ -330,12 +309,12 @@ public function registrar($tabla,$datos,$archivos){
               echo json_encode($dataRes);
       
           }
-
-
-
-
+    
+    
+    
+    
       }
-  }
+    }
 
 
   
