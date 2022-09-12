@@ -88,8 +88,8 @@ console.log("Items Resultados: " + json.Items[0].length);
                                     tr.append("<td>" + json.Items[0][i].inmueble + "</td>");
                                     tr.append("<td>" + json.Items[0][i].unidad + "</td>");
                                     tr.append("<td>" + json.Items[0][i].mensualidad + "</td>");
-                                    tr.append("<td>" + json.Items[0][i].pendiente + "</td>");
-                                    tr.append("<td>" + json.Items[0][i].abono + "</td>"); 
+                                    /*tr.append("<td>" + json.Items[0][i].pendiente + "</td>");
+                                    /*tr.append("<td>" + json.Items[0][i].abono + "</td>"); */
                                     tr.append("<td>" + json.Items[0][i].saldo + "</td>"); 
                                     tr.append("<td>" + statusAvisoCobro(json.Items[0][i].estatus) + "</td>");
                                     tr.append("<td>" + json.Items[0][i].repuestas + "</td>");
@@ -234,8 +234,8 @@ function buscarInquilino(){
                                 tr.append("<td>" + json.Items[0][i].unidad + "</td>");
                                 tr.append("<td>" + json.Items[0][i].mensualidad + "</td>");
                                 tr.append("<td>" + json.Items[0][i].pendiente + "</td>");
-                                tr.append("<td>" + json.Items[0][i].abono + "</td>");
-                                tr.append("<td>" + json.Items[0][i].saldo + "</td>");  
+                                /*tr.append("<td>" + json.Items[0][i].abono + "</td>");
+                                tr.append("<td>" + json.Items[0][i].saldo + "</td>");  */
                                 tr.append("<td>" + statusAvisoCobro(json.Items[0][i].estatus) + "</td>");
                                 tr.append("<td>" + json.Items[0][i].repuestas + "</td>");
 
@@ -376,8 +376,8 @@ function buscarEstatus(prmValor){
                                  tr.append("<td>" + json.Items[0][i].inmueble + "</td>");
                                  tr.append("<td>" + json.Items[0][i].unidad + "</td>");
                                  tr.append("<td>" + json.Items[0][i].mensualidad + "</td>");
-                                 tr.append("<td>" + json.Items[0][i].pendiente + "</td>");
-                                 tr.append("<td>" + json.Items[0][i].abono + "</td>"); 
+                                 /*tr.append("<td>" + json.Items[0][i].pendiente + "</td>");
+                                 tr.append("<td>" + json.Items[0][i].abono + "</td>"); */
                                  tr.append("<td>" + json.Items[0][i].saldo + "</td>"); 
                                  tr.append("<td>" + statusAvisoCobro(json.Items[0][i].estatus) + "</td>");
                                  tr.append("<td>" + json.Items[0][i].repuestas + "</td>");
