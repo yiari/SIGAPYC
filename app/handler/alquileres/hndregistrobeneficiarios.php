@@ -222,20 +222,62 @@ if($operacion == "IB"){
    $prmid_inmueble = $_POST["id_inmueble"];
    $prmid_unidad = $_POST["id_unidad"];
 
+   $prmPorcentajes = $_POST["txtporcentajes"];
+   $prmTipoBeneficiario = $_POST["hidTipoBene"];
+
+   $array = $prmPorcentajes; //filter_input_array($prmPorcentajes);
+   $newArrayID = array();
+   $newArrayVALORES = array();
+   $newArrayTIPOS = array();
+   $contador = 0;
+
+   foreach (array_keys($array) as $fieldKey) {
+       foreach ($array[$fieldKey] as $key=>$value) {
+   
+         //$newArrayID = [$key][$fieldKey] = $value;
+
+         $newArrayID[$contador] = $key;
+         $newArrayVALORES[$contador] = $value;
+
+
+         foreach (array_keys($prmTipoBeneficiario) as $fieldKey) {
+            foreach ($prmTipoBeneficiario[$fieldKey] as $key=>$value) {
+
+
+               if($newArrayID[$contador] == $key){
+                  $newArrayTIPOS[$contador] = $value;
+                  break;
+               }
+
+            }
+         }
+   
+         $contador++;
+
+         }
+   }  
+
+   $datos = array(
+      "id_registro" => 0, 
+      "id_propietario"   => $prmid_propietario,
+      "id_inmueble"   => $prmid_inmueble,
+      "id_unidad"   => $prmid_unidad,
+  );
+
    /*
     |-------------------------------------------
     | AQUI CREO UNA INSTANCIA DE LA CLASE
     |-------------------------------------------
     */
     
-    //$registroBenefesiarios =  new ctrregistrobeneficiarios();
+    $registroBenefeciarios =  new ctrregistrobeneficiarios();
 
    /* 
    |---------------------------------------------
    | AQUI OBTENGO EL RESULTADO DE LA EJECUCION
    |---------------------------------------------
    */
-    // $result = $registroBenefesiarios->seleccionarregistros($prmid_prop,$prmtipo);
+     $result = $registroBenefeciarios->InmueblesBeneficiarios($datos,$newArrayID,$newArrayVALORES,$newArrayTIPOS);
     
     /*
     |-------------------------------------------
