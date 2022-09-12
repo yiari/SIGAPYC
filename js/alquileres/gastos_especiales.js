@@ -3,20 +3,31 @@ function inicio(){
     
     
     
-    guardarUsuario();
+    guardaronGastos();
     buscarInmueble();
-    
+    //cargarMeses('cbomeses');
+    limpiarTabla();
     limpiarCampos();
+   
+/*
+    |--------------------------------------------------
+    | TODOS LOS CAMPOS DE TEXTO ESCRIBEN EN MAYUSCULA
+    |--------------------------------------------------
+    */
+    $("input[type=text]").keyup(function() {
+        $(this).val($(this).val().toUpperCase());
+    });
+    /*------------------------------------------------*/
 
-
-    jQuery("#registroNombre").on('input', function (evt) {
+    jQuery("#registroGasto").on('input', function (evt) {
         jQuery(this).val(jQuery(this).val().replace(/[^A-Za-z ]/g, ''));
     });
 
-    jQuery("#registroApellido").on('input', function (evt) {
-        jQuery(this).val(jQuery(this).val().replace(/[^A-Za-z ]/g, ''));
+    jQuery("#registroMonto").on('input', function (evt) {
+        jQuery(this).val(jQuery(this).val().replace(/[^0-9]/g, ''));
     });
-
+   
+    cargarGastosEspeciales();
 
 
 }
@@ -38,7 +49,7 @@ function buscarInmueble(){
 
  
         if ($("#nom_prop").val() == "") {
-            mensaje("Debe indicar el codigo de propietario, inmueble o unidad",1);
+            mensaje("Debe indicar el  inmueble o unidad",1);
             console.log("Aqui llegue al mensaje");
             return;
         }
@@ -108,8 +119,8 @@ function buscarInmueble(){
                            $("#id_inmu").val(json.Items[0][i].id_inmueble);
                            $("#id_unid").val(json.Items[0][i].id_unidad);
                         */
-                           tr.append("<td>" + json.Items[0][i].cod_propietario + "</td>");
-                           tr.append("<td>" + tipoPersona(json.Items[0][i].tipo_propietario) + "</td>");
+                           /*tr.append("<td>" + json.Items[0][i].cod_propietario + "</td>");
+                           tr.append("<td>" + tipoPersona(json.Items[0][i].tipo_propietario) + "</td>");*/
                            tr.append("<td>" + json.Items[0][i].cod_inmueble + "</td>");
                            tr.append("<td>" + json.Items[0][i].cod_unidad + "</td>");
                            tr.append('<td class="text-center"><input type="radio" id="id_inmueble_' + json.Items[0][i].id_inmueble +  '" name="inmueble" onclick="seleccionarInmueble(' + json.Items[0][i].id_propietario + ',' + json.Items[0][i].id_inmueble + ',' + json.Items[0][i].id_unidad + ',' + json.Items[0][i].tipo_propietario + ',' + char + json.Items[0][i].cod_inmueble + char +')"></td>');
@@ -155,77 +166,75 @@ function buscarInmueble(){
 
 
 
-function seleccionarInmueble(id_propietario,id_inmueble,id_unidad,tipo_propietarioj,codigo_inmueble){
+function seleccionarInmueble(id_propietario,id_inmueble,id_unidad,tipo_propietarioj){
 
     $("#id_prop").val(id_propietario);
     $("#id_inmu").val(id_inmueble);
     $("#id_unid").val(id_unidad);
     $("#tipo_prop").val(tipo_propietarioj);
 
-    generarCodigoContrato(codigo_inmueble);
+    //generarCodigoContrato(codigo_inmueble);
 
 }
 
-function guardarUsuario(){
+function guardaronGastos(){
 
-         $("#registrarusuario").on('submit', function(evt) {
+    $("#buscargastos").on('submit', function(evt) {
+   /*
+   |-----------------------------------------------
+   | AQUI SE PREVIENE QUE EL FORMULARIO CONTINUE 
+   |-----------------------------------------------
+   */
+   evt.preventDefault();
+   /**********************************************/        
+
+/*
+   mensajeNatural();
+   return;
+*/
+
+
         /*
-        |-----------------------------------------------
-        | AQUI SE PREVIENE QUE EL FORMULARIO CONTINUE 
-        |-----------------------------------------------
+        |---------------------------------------------------
+        | AQUI VALIDO EL CODIGO DEL PROPIETARIO ANTES
+        | DE GUARDAR, POR SI SE HA GENERADO OTRO DOCUMENTO
+        |---------------------------------------------------
         */
-        evt.preventDefault();
-        /**********************************************/        
+   
+      //  validarCodigoPropietario();
 
-        if ($("#cboRoles").val() == "") {
-            mensaje("Debe seleccionar el rol del usuario",1);
-            return;
-        }
+       // syncDelay(5000); //ESTO VA A ESPERAR 5 SEGUNDOS;
 
-        if ($("#registroNombre").val() == "") {
-            mensaje("Debe indicar el nombre del usuario",1);
-            return;
-        }
-    
-        if ($("#registroApellido").val() == "") {
-            mensaje("Debe indicar el apellido del usuario",1);
-            return;
-        }
-    
-        if ($("#registroUsuario").val() == "") {
-            mensaje("Debe indicar el usuario del sistema",1);
-            return;
-        }
-    
-        if ($("#registroEmail").val() == "") {
-            mensaje("Debe indicar una direccion de correo valida",1);
-            return;
-        } else {
-            var respuesta = validateEmail($("#registroEmail").val());
-    
-            if (respuesta == false) {
-                mensaje("La direccion de correo es invalida",1);
-                return;
-            }
-        }
-    
-        if( $("#hidUsuario").val() == ""){
+        /*-------------------------------------------------*/
 
-            if ($("#registroContrasena").val() == "") {
-                mensaje("Debe indicar la contraseña del usuario",1);
-                return;
-            } else {
-                
-                if ($("#registroContrasena").val().length < 8) {
-                    mensaje("La contraseña debe ser minimo de 8 caracteres",1);
-                    return;
-                }
-        
 
-            }
+    if ($("#id_inmu").val() == "" || $("#id_inmu").val() == "0" || $("#id_inmu").val() == 0 ) {
+       mensaje("Debe seleccionar el inmueble",1);
+       return;
+   }
 
-    
-        }
+   nom_prop
+
+
+   if ($("#nom_prop").val() == "") {
+    mensaje("Debe seleccionar el inmueble",1);
+    return;
+   }
+
+ 
+
+
+   if ($("#registroGasto").val() == "") {
+    mensaje("Debe indicar el concepto del gasto",1);
+    return;
+    }
+
+   if ($("#registroMonto").val() == "") {
+       mensaje("Debe indicar el monto del Gasto",1);
+       return;
+   }
+
+  
 
 
         /*
@@ -246,13 +255,18 @@ function guardarUsuario(){
         |-----------------------------------------------------
         */
         formData.append('opcion','I');
+        
+        formData.append('id_inmueble',$('#id_inmu').val());
+        formData.append('id_unidad',$('#id_unid').val());
+
+
         /*
         |-----------------------------------------------
         | AQUI SE LLAMA EL AJAX 
         |-----------------------------------------------
         */
         $.ajax({
-            url: "app/handler/admin/hndregistrousuarios.php",
+            url: "app/handler/alquileres/hndregistrogastosespeciales.php",
             type: "POST",
             data: formData, //new FormData(this),
             contentType: false,
@@ -266,18 +280,18 @@ function guardarUsuario(){
             success: function (data) {
             var json = data;
             var html = "";
-
-                console.log("Mensaje del JSON: " + json.mensaje);
+            let idPropietario = 0;
+                console.log("Mensaje del JSON: " + json);
 
                 if(json.error == 0){
                     
                     mensaje(json.mensaje,0);
 
                     //$("#mensaje").html(html).fadeIn();
-                    limpiarCampos();
+                    limpiarFormulario(1);
                     limpiarTabla();
+                    limpiarCampos();
                     botones(0);
-                    cargarUsuarios();
 
                 }else {
 
@@ -302,85 +316,38 @@ function guardarUsuario(){
 
 }
 
-function cargarUsuarios(){
 
-        /*
-        |-----------------------------------------------------
-        | AQUI SE AGREGA UN PARAMETRO ADICIONAL AL FORMULARIO 
-        |-----------------------------------------------------
-        */
-        var formData = new FormData();
+function limpiarFormulario(valor){
 
-        formData.append('opcion','C');
-        /*
-        |-----------------------------------------------
-        | AQUI SE LLAMA EL AJAX 
-        |-----------------------------------------------
-        */
-        $.ajax({
-            url: "app/handler/admin/hndregistrousuarios.php",
-            data: formData,
-            processData: false,
-            contentType: false,
-            type: 'POST',
-            beforeSend: function () {
-                //$("#preview").fadeOut();
-                $("#error").fadeOut();
-            },
-            success: function (data) {
-            var json = data;
-            var html = "";
-/*
-            console.log(json);
-            console.log("Este es el Mensaje: " + json.mensaje);
-            console.log("Items: " + json.Items.length);
-            console.log("Items Resultados: " + json.Items[0].length);
-            console.log("Email Resultados: " + json.Items[0][1].email);
-*/
-                    /*
-                    |------------------------------------------------------
-                    | AQUI SE CARGA LA INFORMACION EN LA TABLA
-                    |------------------------------------------------------
-                    */
-                    if(json.Items.length > 0){
-                        var tr;
-                        for (var i = 0; i < json.Items[0].length; i++) {
-                    
-                           // if (isEmpty(json.Items[0][i]) == false) {
-                                tr = $('<tr/>');
-                                
-                                tr.append("<td>" + (i+1) + "</td>");
-                                tr.append("<td>" + json.Items[0][i].nombre + "</td>");
-                                tr.append("<td>" + json.Items[0][i].apellido + "</td>");
-                                tr.append("<td>" + json.Items[0][i].email + "</td>");
-                                tr.append("<td>" + json.Items[0][i].fecha_creacion + "</td>"); 
-                                
-                                var html="";
-                                html = '<div class="btn-group">';
-                                html += '<button class="btn btn-warning edit" data-field-id="' + json.Items[0][i].id + '" data-field-nombre="' + json.Items[0][i].nombre + '" data-field-apellido="'+ json.Items[0][i].apellido + '" data-field-usuario="'+ json.Items[0][i].usuario + '" data-field-email="' + json.Items[0][i].email +  '"><i class="fa fa-edit" alt=“editar”></i>&nbsp;Editar</button>';
-                                html += '<button class="btn btn-danger delete" data-field-id="' + json.Items[0][i].id + '"><i class="fa fa-trash" alt=“eliminar”></i>&nbsp;Eliminar</button>';
-                                html += '</div>'
-                                tr.append("<td>" + html + "</td>");
-                                $('#tblUsuarios').append(tr);
-                            //}
-                        }
-
-
-                        editarUsuario();
-                        validareliminarUsuario();
-                    }
-                    /************************************************ */
-
-
-            },
-            error: function (e) {
-                $("#error").html(e).fadeIn();
-            }
-        });
+    if(valor == 1){
+        document.getElementById("#buscargastos").reset();
+    }
 
 }
 
-function cargarRoles(){
+
+function limpiarTabla() {
+
+    $('#datosAsignarInmueble tbody').children().remove();
+
+}
+
+
+function limpiarCampos(){
+
+    $("#hidUsuario").val("");
+    $("#registroGasto").val("");
+    $("#registroMonto").val("");
+    $("#nom_prop").val("");
+    $("#mes").val("");
+  
+
+}
+
+
+
+
+function cargarGastosEspeciales(){
 
     /*
     |-----------------------------------------------------
@@ -389,14 +356,18 @@ function cargarRoles(){
     */
     var formData = new FormData();
 
-    formData.append('opcion','CR');
+    formData.append('opcion','C');
+
+    //formData.append('id_inmu',prminmu);
+   
+  
     /*
     |-----------------------------------------------
     | AQUI SE LLAMA EL AJAX 
     |-----------------------------------------------
     */
     $.ajax({
-        url: "app/handler/admin/hndregistrousuarios.php",
+        url: "app/handler/alquileres/hndregistrogastosespeciales.php",
         data: formData,
         processData: false,
         contentType: false,
@@ -413,7 +384,7 @@ function cargarRoles(){
         console.log("Este es el Mensaje: " + json.mensaje);
         console.log("Items: " + json.Items.length);
         console.log("Items Resultados: " + json.Items[0].length);
-        console.log("Rol Resultados: " + json.Items[0][1].rol);
+        console.log("Email Resultados: " + json.Items[0][1].email);
 */
                 /*
                 |------------------------------------------------------
@@ -423,39 +394,42 @@ function cargarRoles(){
                 if(json.Items.length > 0){
                     var tr;
 
-                    /* 
-                    |-----------------------------------------
-                    | SELECCIONO EL COMBO ROLES Y LO LIMPIO
-                    |-----------------------------------------
-                    */
-
-                        $('#cboRoles') 
-                        .find('option') 
-                        .remove()
-                        .end()
-                        ;
-
-                    /* 
-                    |----------------------------------------
-                    | AQUI CARGO EL TEXTO POR DEFECTO
-                    |----------------------------------------
-                    */
-
-                        $('#cboRoles').append("<option value=''>Seleccione un rol...</option>"); 
-
-                    /* 
-                    |-------------------------------------------------
-                    | AQUI RECORRO LOS ITEMS Y LOS CARGO EN EL COMBO
-                    |--------------------------------------------------
-                    */
-
-                    for (var i = 0; i < json.Items[0].length; i++) {
-       
-                        $("#cboRoles").append($("<option></option>").val(json.Items[0][i].id).html(json.Items[0][i].rol)); 
-        
+                    if(json.Items[0].length > 0){
+                        for (var i = 0; i < json.Items[0].length; i++) {
+                
+                       // if (isEmpty(json.Items[0][i]) == false) {
+                            tr = $('<tr/>');
+                            
+                            tr.append("<td>" + (i+1) + "</td>");
+                            tr.append("<td>" + json.Items[0][i].mes_gasto + "</td>");
+                            tr.append("<td>" + json.Items[0][i].inmueble + "</td>");
+                            tr.append("<td>" + json.Items[0][i].unidad + "</td>");
+                            tr.append("<td>" + json.Items[0][i].concepto + "</td>");
+                            tr.append("<td>" + json.Items[0][i].monto + "</td>");
+                            tr.append("<td>" + json.Items[0][i].fecha + "</td>"); 
+                            
+                            var html="";
+                            html = '<div class="btn-group">';
+                            html += '<button class=" delete" data-field-id="' + json.Items[0][i].id_gesp + '"><i class="fa fa-trash" ></i>&nbsp;</button>';
+                            html += '</div>'
+                            tr.append("<td>" + html + "</td>");
+                            $('#gastosEspeciales').append(tr);
+                        //}
                     }
 
-                }
+
+                }else {
+
+                    var tr;
+                    tr = $('<tr/>');
+                    tr.append("<td colspan=6 style='text-align:center'>NO HAY INFORMACION REGISTRADA</td>");
+                    $('#gastosEspeciales').append(tr);
+
+                    }
+
+                new simpleDatatables.DataTable("#gastosEspeciales");
+
+            } 
                 /************************************************ */
 
 
@@ -467,22 +441,7 @@ function cargarRoles(){
 
 }
 
-function limpiarTabla() {
 
-    $('#tblUsuarios tbody').children().remove();
-
-}
-
-function limpiarCampos(){
-
-        $("#hidUsuario").val("");
-        $("#registroNombre").val("");
-        $("#registroApellido").val("");
-        $("#registroUsuario").val("");
-        $("#registroEmail").val("");
-        $("#registroContrasena").val("");
-
-}
 
 function botones(opcion){
 
@@ -520,37 +479,9 @@ function mensaje(mensaje, condicion){
 
 }
 
-function editarUsuario(){
-
-    $(".edit").click(function() {
-
-        var prmId = $(this).data('field-id');
-        var prmNombre = $(this).data('field-nombre');
-        var prmApellido = $(this).data('field-apellido');
-        var prmUsuario = $(this).data('field-usuario');
-        var prmEmail = $(this).data('field-email');
-
-        $("#hidUsuario").val(prmId);
-        $("#registroNombre").val(prmNombre);
-        $("#registroApellido").val(prmApellido);
-        $("#registroUsuario").val(prmUsuario);
-        $("#registroEmail").val(prmEmail);
-
-        botones(1);
-
-        cancelarRegistro();
-        /*
-        var vlEditar = '{{ route("editar-pastor",["id" => "VALOR"]) }}';
-        vlEditar = vlEditar.replace('VALOR', vlId);
-        */
-
-        //alert("El id del Registro es: " + vlId);
-    })
 
 
-}
-
-function validareliminarUsuario(){
+function validareliminargasto(){
 
     $(".delete").click(function() {
 
@@ -558,7 +489,7 @@ function validareliminarUsuario(){
         var vlEliminar = '#'; //'{{ route("eliminar-ministerial",["id" => "VALOR"]) }}';
         //vlEliminar = vlEliminar.replace('VALOR', vlId);
 
-        $('#spanDeleteOk').attr('onclick','eliminarUsuario(' + vlId + ')');
+        $('#spanDeleteOk').attr('onclick','eliminarGastos(' + vlId + ')');
 
         //pass the data in the modal body adding html elements
         //$('#spanDelete').html('');
@@ -571,7 +502,7 @@ function validareliminarUsuario(){
 
 }
 
-function eliminarUsuario(idusuario){
+function eliminarUsuario(idgastos){
 
     //mensaje("Eliminar el usuario con el ID: " + idusuario,0);
    
@@ -582,7 +513,7 @@ function eliminarUsuario(idusuario){
         */
         var formData = new FormData();
 
-        formData.append('idusuario',idusuario);
+        formData.append('id_gesp',idgastos);
         formData.append('opcion','D');
         /*
         |-----------------------------------------------
@@ -590,7 +521,7 @@ function eliminarUsuario(idusuario){
         |-----------------------------------------------
         */
         $.ajax({
-            url: "app/handler/admin/hndregistrousuarios.php",
+            url: "app/handler/alquileres/hndregistrogastosespeciales.php",
             data: formData,
             processData: false,
             contentType: false,
@@ -610,10 +541,10 @@ function eliminarUsuario(idusuario){
                         mensaje(json.mensaje,0);
     
                         //$("#mensaje").html(html).fadeIn();
-                        limpiarCampos();
-                        limpiarTabla();
+                        //limpiarCampos();
+                        //limpiarTabla();
                         botones(0);
-                        cargarUsuarios();
+                        //cargarUsuarios();
     
                     }else {
     
@@ -638,7 +569,7 @@ function eliminarUsuario(idusuario){
 function cancelarRegistro(){
     
     $(".cancelar").click(function() {
-        limpiarCampos();
+        //limpiarCampos();
         botones(0);
 
     })

@@ -66,6 +66,7 @@ function cargarbeneficiarios(prmDato,prmTipo){
     var formData = new FormData();
 
     formData.append('opcion','C');
+    
     formData.append('id_prop',prmDato);
    
     formData.append('tipo',prmTipo);

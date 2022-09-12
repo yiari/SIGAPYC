@@ -82,5 +82,14 @@ class ctrcombos{
     }
 
 
+    public function getmeses(){
+
+        
+        $modelo =  new mdlcombos();
+        $respuestas =  $modelo->getinquilinos();
+        return $respuestas;
+    }
+
+
 
 }

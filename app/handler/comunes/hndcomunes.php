@@ -298,3 +298,38 @@ if($operacion == "inquilino"){
      return $result;
      
 }
+
+
+/* 
+ |------------------------------------------------------------------
+ | AQUI SE EJECUTA LA OPERACION DE CONSULTAR LOS bANCOS nACIONALES
+ |------------------------------------------------------------------
+*/
+
+if($operacion == "meses"){
+
+   /*
+    |-------------------------------------------
+    | AQUI CREO UNA INSTANCIA DE LA CLASE
+    |-------------------------------------------
+    */
+    
+    $combo =  new ctrcombos();
+
+   /* 
+   |---------------------------------------------
+   | AQUI OBTENGO EL RESULTADO DE LA EJECUCION
+   |---------------------------------------------
+   */
+     $result = $combo->getmeses();
+    
+    /*
+    |-------------------------------------------
+    | AQUI REGRESO EL RESULTADO AL AJAX
+    |-------------------------------------------
+    */
+
+    // header('Content-Type: application/json');
+     return $result;
+     
+}
