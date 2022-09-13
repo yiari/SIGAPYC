@@ -32,7 +32,7 @@ function inicio(){
 
 
     jQuery("#registroCedula").on('input', function (evt) {
-        jQuery(this).val(jQuery(this).val().replace(/[^0-9]/g, ''));
+        jQuery(this).val(jQuery(this).val().replace(/[^0-9'.']/g, ''));
     });
 
     jQuery("#registroTelefono").on('input', function (evt) {
@@ -40,7 +40,7 @@ function inicio(){
     });
 
     jQuery("#registroCelular").on('input', function (evt) {
-        jQuery(this).val(jQuery(this).val().replace(/[^0-9'.']/g, ''));
+        jQuery(this).val(jQuery(this).val().replace(/[^0-9]/g, ''));
     });
 
     jQuery("#num_cuen").on('input', function (evt) {

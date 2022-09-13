@@ -276,8 +276,10 @@ if($operacion == "CP"){
     | AQUI REGRESO EL RESULTADO AL AJAX
     |-------------------------------------------
     */
-    header('Content-Type: application/json');
-     return $result;
+    if (!headers_sent()) {
+      //AGREGAR CABECERA SI NO LA TIENE
+      header('Content-Type: application/json');
+} 
      
 }
 
