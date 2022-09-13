@@ -31,17 +31,17 @@ class rptcontrato
                 $stmt ->bindParam(1, $valor, PDO::PARAM_STR);
                 $stmt->execute();
             
-                $dataRegistro["Items"][] = $stmt->fetch();
-      
+                $dataRegistro[] = $stmt->fetch();
+      /*
                 $dataRes = array(
                   'error' => '0',
                   'mensaje' =>  'El registro se realizo con exito.'
                 );
-                
+        */        
                 
                 //return json_encode(array_merge($dataRegistro,$dataRes));
-                return array_merge($dataRegistro,$dataRes);
-      
+                //return array_merge($dataRegistro,$dataRes);
+                return $dataRegistro;
         }
 
 
@@ -54,30 +54,30 @@ class rptcontrato
           print_r($fila);
           echo "</pre>";*/
     
-          $nom_inqu="";//$fila[0]['nom_inqu'];
+          $nom_inqu=$fila[0]['nom_inqui'];
           $ape_inqu="";//$fila[0]['ape_inqu'];
-          $ci_inqu="";//$fila[0]['ci_inqu'];
+          $ci_inqu=$fila[0]['ci_inqui'];
         //  echo $fila[0]['nom_prop'];
           $típ_inqu="";
-          $nom_prop="";//$fila[0]['nom_prop'];
+          $nom_prop=$fila[0]['nom_prop'];
           $ape_prop="";//$fila[0]['ape_prop'];
-          $ci_prop="";//$fila[0]['ci_prop'];
-          $rif_prop="";//$fila[0]['rif_prop'];
+          $ci_prop=$fila[0]['ci_prop'];
+          $rif_prop=$fila[0]['rif_prop'];
           $tip_inmu="";//$fila[0]['nom_tipo'];
           $let_inmu="";//$fila[0]['let_inmu'];
-          $dir_inmu="";//$fila[0]['dir_inmu'];
-          $mtr_inmu="";//$fila[0]['mtr_inmu'];
+          $dir_inmu=$fila[0]['dir_inmu'];
+          $mtr_inmu=$fila[0]['mtr_inmu'];
           $uso_inmu="";//$fila[0]['uso_inmu'];
-          $lim_nort="";//$fila[0]['lim_nort'];
-          $lim_sur="";//$fila[0]['lim_nort'];
-          $lim_este="";//$fila[0]['lim_este'];
-          $lim_oest="";//$fila[0]['lim_oest'];
+          $lim_nort=$fila[0]['lim_nort'];
+          $lim_sur=$fila[0]['lim_sur'];
+          $lim_este=$fila[0]['lim_este'];
+          $lim_oest=$fila[0]['lim_oest'];
           $med_letr="";
           $dur_cont="";//$fila[0]['dur_cont'];
-          $fec_desd="";//$fila[0]['fec_desd'];
-          $fec_hast="";//$fila[0]['fec_hast'];
-          $can_cont="";//$fila[0]['can_cont'];
-          $par_cont="";//$fila[0]['par_cont'];
+          $fec_desd=$fila[0]['fec_desd'];
+          $fec_hast=$fila[0]['fec_hast'];
+          $can_cont=$fila[0]['can_cont'];
+          $par_cont=$fila[0]['par_cont'];
 
           $tip_inqu = "";
           $nom_muni= "";

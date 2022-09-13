@@ -1,26 +1,42 @@
 <?php
 	//session_start();
 	date_default_timezone_set('America/Caracas') ;
-	//require_once("../../fpdf/fpdf.php");
-	//$id_prop=$_GET['id_prop'];
+	require_once("../../fpdf/fpdf.php");
+	
+	$id_prop=$_GET['id_prop'];
+	$tipo_prop=$_GET['tipo_prop'];
 	
 	$fecha=Date('Y-m-d');
 
 	//$obj=new clsdato();
 	//$obj->abrir();
-	echo $id_prop;
+	//echo $id_prop;
 	require "../../app/modelos/conexcion.php";
+	$dbConexion = new conexcion();
+
 	$pdf = new FPDF();
 	$pdf->AddPage();
 	$pdf->AliasnbPages();
 	$pdf->SetAutoPageBreak(true, 20);
 		$pdf->setFont("Arial","B",12);
 		$y = $pdf->GetY();
-		//$sql = "select * from propietario where id_prop='".$id_prop."'";
+
+		$sql = "";
+
+		if ($tipo_prop == 1){
+		
+			$sql = "select * from propietario where id_prop='".$id_prop."'";
+		
+		} elseif ($tipo_prop == 2){
+		
+			$sql = "select * from propietario_juridico where id_propj ='".$id_prop."'";
+		
+		}
+
 		//echo $sql;
-	    $tb = $mysqli->query($sql);
-	    $num = $tb->num_rows;
-	    $fila=$tb->fetch_assoc();
+	    $tb =  $dbConexion->conectar()->query($sql);
+	    //$num = $tb->num_rows;
+	    $fila=$tb->fetch();
 			$y = $pdf->GetY();
 			$pdf->cell(60,5,"Fecha: ".$fecha,0,1,"L");
 			$pdf->ln();	
