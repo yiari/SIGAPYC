@@ -91,6 +91,8 @@ function cargarPropietarios(){
                             html += '<a title= "Beneficiario" href="index.php?url=app/vistas/alquileres/beneficiarios&idpro=' + json.Items[0][i].id_prop  + '&codpro=' + json.Items[0][i].codigo  +  '&codtip=' + json.Items[0][i].tipo  +'"><i class="fa fa-user-circle-o"></i></a>&nbsp;';
                             
                             html += '<a title="Inmuebles" href="index.php?url=app/vistas/alquileres/inmuebles&idpro=' + json.Items[0][i].id_prop  + '&codpro=' + json.Items[0][i].codigo  +  '&codtip=' + json.Items[0][i].tipo  +'"><i class="fa fa-home"></i></a>&nbsp;';
+
+                             html += '<a title="Documento" href="index.php?url=app/vistas/alquileres/documentos&idpro=' + json.Items[0][i].id_prop  + '&codpro=' + json.Items[0][i].codigo  +  '&codtip=' + json.Items[0][i].tipo  +'"><i class="fa fa-address-card-o"></i></a>&nbsp;';
                            
                             html += '<a title="finiquitar"  data-field-id="'  + json.Items[0][i].id_prop + '"><i class="fa fa-user-times" alt=“eliminar”></i></a>';
                             html += '</div>'
