@@ -14,8 +14,8 @@ include_once '../../../app/modelos/alquileres/mdlregistrodocumento.php';
 |---------------------------------------------------------------
 */
 
-class ctrregistrodocumentos{
-
+class ctrregistrosdocumentos{
+     
     //protected string $tabla;
 
     public function __construct()

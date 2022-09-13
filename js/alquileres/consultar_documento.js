@@ -1,6 +1,18 @@
 function inicio(){
 
-    cargarDocumentosa();
+
+    /*
+    |----------------------------------------
+    | ASI SE CAPTURAN LOS PARAMETROS
+    |---------------------------------------
+    */
+    let idPropietario = getParameterByName('idpro');
+    let prmCodPro = getParameterByName('codpro');
+    let prmTipo = getParameterByName('codtip');
+     /*--------------------------------------*/    
+
+
+    cargarDocumentosa(idPropietario,prmCodPro,prmTipo);
 
 
 }
@@ -8,7 +20,7 @@ function inicio(){
 
 
 
-function cargarDocumentosa(){
+function cargarDocumentosa(idPropietario,codigoPropietario,tipoPropietario){
 
     /*
     |-----------------------------------------------------
@@ -18,6 +30,9 @@ function cargarDocumentosa(){
     var formData = new FormData();
 
     formData.append('opcion','C');
+    formData.append('id_prop',idPropietario);
+    formData.append('tipo_propietario',tipoPropietario);
+
     /*
     |-----------------------------------------------
     | AQUI SE LLAMA EL AJAX 
@@ -61,15 +76,14 @@ function cargarDocumentosa(){
                            
                             tr.append("<td>" + json.Items[0][i].propietario + "</td>");
                             tr.append("<td>" + json.Items[0][i].documento + "</td>");
-                            tr.append("<td>" + json.Items[0][i].ver + "</td>");
 
                             var html="";
                             
-                            html += '<a title="Ver"  href="inicio.php?url=app/vistas/alquileres/documentos&idpro=' + json.Items[0][i].id_prop  + '&codpro=' + json.Items[0][i].codigo  + '&codtip=' + json.Items[0][i].tipo  + '"><i class="fa fa-book"></i></a>&nbsp;';
+                            html += '<a title="Ver"  href="'+ json.Items[0][i].ver + '" target="_blank"><i class="fa fa-book"></i></a>&nbsp;';
                             html += '<a title="Eliminar"  data-field-id="'  + json.Items[0][i].id + '"><i class="fa fa-trash" alt=“eliminar”></i></a>';
                             html += '</div>'
                             tr.append("<td>" + html + "</td>");
-                            $('#datosinquidatosDocumentoslinos').append(tr);
+                            $('#datosDocumentos').append(tr);
                         //}
                     }
 

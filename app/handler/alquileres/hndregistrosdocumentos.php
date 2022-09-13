@@ -4,7 +4,7 @@
 |----------------------------------------
 | INCLUYO LA CLASE CORRESPONDIENTE
 |----------------------------------------
-*/
+*/                                                  
 include_once '../../../app/controladores/alquileres/ctrregistrosdocumentos.php';
 include_once '../../../app/controladores/comunes/ctrcapturararchivos.php';
 
@@ -87,7 +87,7 @@ if($operacion == "C"){
 
 
     $prmid_prop = $_POST["id_prop"];
-    $prmtipo = $_POST["tipo"];
+    $prmtipo = $_POST["tipo_propietario"];
 
    /*
     |-------------------------------------------
@@ -95,7 +95,7 @@ if($operacion == "C"){
     |-------------------------------------------
     */
     
-    $registroDocumentos =  new ctrregistrodocumentos();
+    $registroDocumentos =  new ctrregistrosdocumentos();
 
    /* 
    |---------------------------------------------

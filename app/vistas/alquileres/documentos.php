@@ -9,10 +9,6 @@
             </ol>
         </div>
         
-        <div style="text-align: left;">
-            <span id="lblPropietario"><strong>PROPIETARIO : </strong></span>
-            <br/><br/>
-        </div>
         <!--tabla-->
         <div class="card mb-4">
             <div class="card-header">
