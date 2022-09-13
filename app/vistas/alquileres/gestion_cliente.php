@@ -19,7 +19,8 @@ include("layout/menuNavegacion.php");
                         <span id="lblAvisoCobro"><strong>AVISO DE COBRO : </strong></span>
                       <br/><br/>
                    </div>
-                   
+
+                  
 
                    <div style="text-align: left;">
                         <span id="lblMonto"><strong>MONTO : </strong></span>
@@ -93,7 +94,7 @@ include("layout/menuNavegacion.php");
                     <nav>
                         <div class="nav nav-tabs" id="nav-tab" role="tablist">
                             <button class="nav-link active" id="nav-bene_natural-tab" data-bs-toggle="tab" data-bs-target="#nav-bene_natural" type="button" role="tab" aria-controls="nav-bene_natural" aria-selected="true">Gestion de respuestas</button>
-                            <button class="nav-link" id="nav-pago-abono-tab" data-bs-toggle="tab" data-bs-target="#nav-pago-abono" type="button" role="tab" aria-controls="nav-pago-abono" aria-selected="false">Abono de Pagos</button>
+                           <!-- <button class="nav-link" id="nav-pago-abono-tab" data-bs-toggle="tab" data-bs-target="#nav-pago-abono" type="button" role="tab" aria-controls="nav-pago-abono" aria-selected="false">Abono de Pagos</button>-->
                         </div>
                     </nav>          <input type="hidden" id="id_usuario" name="id_usuario" value='1'>
                                     <input type="hidden" id="id_aviso" name="id_aviso" value="0">

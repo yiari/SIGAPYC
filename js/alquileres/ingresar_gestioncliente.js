@@ -7,7 +7,7 @@ function inicio(){
        |---------------------------------------
        */
        $('#id_aviso').val(getParameterByName('idaviso'));
-       $('#codinqu').val(getParameterByName('codInqu'));
+       $('#inquilino').val(getParameterByName('codInqu'));
        $('#mensualidad').val(getParameterByName('monto'));
 
        $('#id_inqu').val(getParameterByName('idInqu'));
@@ -39,7 +39,7 @@ function inicio(){
     codigoAvisoCobro(prmCodaviso);
     consultarGestionCliente(idinquilino,tipoInquilino);
     montoAvisoCobro(prmmonto);
-    //codigoInquilino(codigoInquilino);
+    codigoInquilino(codigoInquilino);
    
 }
 

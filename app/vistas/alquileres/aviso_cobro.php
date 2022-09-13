@@ -92,9 +92,8 @@ include("layout/menuNavegacion.php");
                                                         <th>Inmueble</th>
                                                         <th>unidad</th>
                                                         <th>Mensualidad</th>
-                                                       <!-- <th>Pagos Pendientes</th>
-                                                        <th>abono</th>-->
-                                                        <th>Saldo</th>
+                                                        <th>Gastos especiales</th>
+                                                        <th>Total</th>
                                                         <th>Estatus</th>
                                                         <th>Respuestas</th>
                                                         <th>Acciones</th>

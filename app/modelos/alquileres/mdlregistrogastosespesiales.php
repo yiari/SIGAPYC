@@ -312,7 +312,7 @@ public function registrar($tabla,$datos,$archivos){
 
               $dbConexion = new conexcion();
               
-              $stmt = $dbConexion->conectar()->prepare("CALL uso_consulta_gastosespeciales()");
+              $stmt = $dbConexion->conectar()->prepare("CALL usp_consulta_gastosespeciales()");
               //$stmt ->bindParam(1, $idprop, PDO::PARAM_INT);
               $stmt->execute();
               $dataRegistro["Items"][] = $stmt->fetchAll();
