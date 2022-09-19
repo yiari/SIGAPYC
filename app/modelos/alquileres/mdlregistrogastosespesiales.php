@@ -44,15 +44,16 @@ public function registrar($tabla,$datos,$archivos){
           | AQUI PREPARO LO QUE SERA LA LLAMADA AL PROCEDIMIENTO QUE REALIZARA LA OPERACION
           |----------------------------------------------------------------------------------
           */
-          $stmt = $dbConexion->conectar()->prepare("CALL usp_registrargastosespeciles(?,?,?,?,?,?,?)");
+          $stmt = $dbConexion->conectar()->prepare("CALL usp_registrargastosespeciles(?,?,?,?,?,?,?,?)");
 
           $stmt -> bindParam(1, $datos["id_gesp"], PDO::PARAM_INT); //ESTE ES EL ID DEL gastos
           $stmt -> bindParam(2, $datos["id_inmu"], PDO::PARAM_INT); 		
           $stmt -> bindParam(3, $datos["id_unid"], PDO::PARAM_INT);
-          $stmt -> bindParam(4, $datos["concepto"], PDO::PARAM_STR); 
-          $stmt -> bindParam(5, $datos["monto"], PDO::PARAM_STR);
-          $stmt -> bindParam(6, $datos["mes"], PDO::PARAM_INT);
-          $stmt -> bindParam(7, $datos["id_usuario"], PDO::PARAM_INT);		
+          $stmt -> bindParam(4, $datos["id_inqu"], PDO::PARAM_INT);
+          $stmt -> bindParam(5, $datos["concepto"], PDO::PARAM_STR); 
+          $stmt -> bindParam(6, $datos["monto"], PDO::PARAM_STR);
+          $stmt -> bindParam(7, $datos["mes"], PDO::PARAM_INT);
+          $stmt -> bindParam(8, $datos["id_usuario"], PDO::PARAM_INT);		
 
           
                   
@@ -418,6 +419,61 @@ public function registrar($tabla,$datos,$archivos){
 
       }
   }
+
+
+
+  public function seleccionarconsultagastos($tabla,$items){
+
+    If($items == null){
+  
+  
+                  $dataRes = array(
+                    'error' => '1',
+                    'mensaje' =>  "Mensaje de Error: No hay registro para buscar."
+                  );
+            
+  
+    }else{
+  
+  
+      try {
+  
+        $dbConexion = new conexcion();
+        
+        $stmt = $dbConexion->conectar()->prepare("CALL usp_cosulta_gastosespeciles_por inmueble(?,?)");
+        $stmt -> bindParam(1,$items["id_inmu"], PDO::PARAM_INT);
+        $stmt -> bindParam(2,$items["id_unid"], PDO::PARAM_INT);
+
+        $stmt->execute();
+        $dataRegistro["Items"][] = $stmt->fetch();
+  
+        $dataRes = array(
+          'error' => '0',
+          'mensaje' =>  'El registro se obtuvo.'
+        );
+        
+        
+        echo json_encode(array_merge($dataRegistro,$dataRes));
+  
+        } catch (\Throwable $th) {
+        
+            //$pdo->rollBack() ;
+            //echo "Mensaje de Error: " . $th->getMessage();
+            $dataRes = array(
+              'error' => '1',
+              'mensaje' =>  "Mensaje de Error: " . $th->getMessage()
+            );
+      
+            echo json_encode($dataRes);
+    
+        }
+  
+  
+  
+  
+    }
+  }
+
 
 
 

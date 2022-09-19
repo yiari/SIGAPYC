@@ -54,6 +54,20 @@ class ctrregistroavisocobro{
 
 
 
+    public function registroReciboPedido($datos){
+
+        $tabla = "gestion_respuesta";
+        $modelo = new mdlregistroavisocobro();
+
+        $modelo =  new mdlregistroavisocobro();
+        $respuesta = $modelo->registroReciboPedido($datos);
+
+        return $respuesta;
+
+    }
+
+
+
     public function consultarinquilino($datos){
 
         $tabla = "propietarios";

@@ -47,6 +47,15 @@ class ctrregistrogastosespeciales{
     }
 
 
+    public function seleccionarconsultagastos($datos){
+
+        $tabla = "gastos_especiales";
+        $modelo =  new mdlregistrogastosespesiales();
+        $respuestas =  $modelo->seleccionarconsultagastos($tabla,$datos,null);
+        return $respuestas;
+    }
+
+
     public function eliminargastos($datos){
 
         $tabla = "users";

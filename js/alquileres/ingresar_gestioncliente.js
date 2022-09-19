@@ -7,18 +7,31 @@ function inicio(){
        |---------------------------------------
        */
        $('#id_aviso').val(getParameterByName('idaviso'));
-       $('#inquilino').val(getParameterByName('codInqu'));
-       $('#mensualidad').val(getParameterByName('monto'));
+       $('#codigo').val(getParameterByName('codaviso'));
 
-       $('#id_inqu').val(getParameterByName('idInqu'));
+       $('#id_inqu').val(getParameterByName('idinqu'));
+       $('#inquilino').val(getParameterByName('codinqu'));
+
+       $('#tipo_inqu').val(getParameterByName('tipoinqu'));
+
+       $('#total').val(getParameterByName('monto'));
+
+      
+
+       $('#id_inmu').val(getParameterByName('idinmu'));
+       $('#inmueble').val(getParameterByName('codinmu'));
+
+       $('#id_unid').val(getParameterByName('idunid'));
+       $('#unidad').val(getParameterByName('codunid'));
 
        
    
       
        let prmCodaviso = getParameterByName('codaviso');
-       let idinquilino = getParameterByName('idInqu');
-       let codigoInquilino = getParameterByName('codInqu');
-       let tipoInquilino = getParameterByName('tipoInqu');
+       let idinquilino = getParameterByName('idinqu');
+       let prmcodigoInquilino = getParameterByName('codinqu');
+      
+       let tipoInquilino = getParameterByName('tipoinqu');
 
        let prmmonto = getParameterByName('monto');
    
@@ -35,11 +48,17 @@ function inicio(){
     guardarRespuestas();
 
     guardarAbono();
+    guardarReciboPedido();
 
     codigoAvisoCobro(prmCodaviso);
     consultarGestionCliente(idinquilino,tipoInquilino);
+
     montoAvisoCobro(prmmonto);
-    codigoInquilino(codigoInquilino);
+    
+    codigoInquilino(prmcodigoInquilino);
+
+
+   
    
 }
 
@@ -62,6 +81,7 @@ function montoAvisoCobro(prmDato){
 
     $("#lblMonto").html('');
     $("#lblMonto").html(html);
+    $("#monto").val(prmDato);
 
 }
 
@@ -148,7 +168,7 @@ function consultarGestionCliente(idInqu,tipoInqu){
             formData.append('opcion','GC');
     
             formData.append('idinquilino',idInqu);
-            //formData.append('codigoInquilino',codInqu);
+            //formData.append('registroCodigo',codInqu);
             formData.append('tipoInquilino',tipoInqu);
           
             
@@ -410,6 +430,7 @@ function consultarGestionCliente(idInqu,tipoInqu){
             formData.append('id_unidad',$('#id_unid').val());
             formData.append('id_inquilino',$('#id_inqu').val());
             formData.append('id_usuario',$('#id_usuario').val());
+         
             /*
             |-----------------------------------------------
             | AQUI SE LLAMA EL AJAX 
@@ -467,6 +488,113 @@ function consultarGestionCliente(idInqu,tipoInqu){
     
     
 
+
+
+    function guardarReciboPedido(){
+
+        $("#registrarecibo").on('submit', function(evt) {
+       /*
+       |-----------------------------------------------
+       | AQUI SE PREVIENE QUE EL FORMULARIO CONTINUE 
+       |-----------------------------------------------
+       */
+       evt.preventDefault();
+       /**********************************************/        
+    
+       if ($("#mes").val() == "") {
+        mensaje("Debe seleccionar el mes del recibo o pedido",1);
+        return;
+    }
+ 
+    
+       if ($("#recibo").val() == "") {
+           mensaje("Debe indicar el monto del recibo o pedido",1);
+           return;
+       }
+    
+     
+    
+       
+       /*
+            |-----------------------------------------------
+            | LIMPIA EL CAMPO MENSAJE 
+            |-----------------------------------------------
+            */
+            $("#error").html("Ejecutando...");
+            /*
+            |-----------------------------------------------
+            | AQUI SE CAPTURA LOS DATOS DEL FORMULARIO 
+            |-----------------------------------------------
+            */
+            var formData = new FormData(this);
+            /*
+            |---------------------------------------------------------------------------------
+            | AQUI SE AGREGA UN PARAMETRO ADICIONAL AL FORMULARIO   PARA LOS RECIBI Y PEDIDOS
+            |---------------------------------------------------------------------------------
+            */
+            formData.append('opcion','RP');
+
+            formData.append('id_aviso',$('#id_aviso').val());
+            formData.append('id_inmueble',$('#id_inmu').val());
+            formData.append('id_unidad',$('#id_unid').val());
+            formData.append('id_inquilino',$('#id_inqu').val());
+            formData.append('id_usuario',$('#id_usuario').val());
+            
+
+            /*
+            |-----------------------------------------------
+            | AQUI SE LLAMA EL AJAX 
+            |-----------------------------------------------
+            */
+            $.ajax({
+                url: "app/handler/alquileres/hndregistroavisocobro.php",
+                type: "POST",
+                data: formData, //new FormData(this),
+                contentType: false,
+                dataType: "json",
+                cache: false,
+                processData: false,
+                beforeSend: function () {
+                    //$("#preview").fadeOut();
+                    $("#error").fadeOut();
+                },
+                success: function (data) {
+                var json = data;
+                var html = "";
+    
+                    //console.log("Mensaje del JSON: " + json.mensaje);
+    
+                    if(json.error == 0){
+                        
+                        mensaje(json.mensaje,0);
+    
+                        //$("#mensaje").html(html).fadeIn();
+                        //limpiarCampos();
+                        limpiarFormulario(1);
+                        //botones(0);
+    
+                    }else {
+    
+                        mensaje(json.mensaje,1);
+    
+                        //$("#mensaje").html(html).fadeIn();
+                    }
+    
+    
+    
+                },
+                error: function (e) {
+                    //$("#error").html(e).fadeIn();
+                    mensaje(e,1);
+                    
+                }
+            });
+    
+    
+    
+        });
+    
+    }
 
 
 

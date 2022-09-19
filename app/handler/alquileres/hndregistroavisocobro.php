@@ -134,7 +134,7 @@ if($operacion == "GC"){
 
    $datos = array( 
       "id_inqu" => $_POST["idinquilino"],
-      //"inquilino" => $_POST["codigoinquilino"],
+      //"registroCodigo" => $_POST["registroCodigo"],
       "tipo_inqu" => $_POST["tipoInquilino"]
    );
 
@@ -366,6 +366,63 @@ if (isset($_POST["chktranferencia"])&& isset($_POST["chkpagomovil"])){
                |---------------------------------------------
                */
                $result = $registroaviso->registrarabono($datos,$AchivosCargados);
+               
+               /*
+               |-------------------------------------------
+               | AQUI REGRESO EL RESULTADO AL AJAX
+               |-------------------------------------------
+               */
+               header('Content-Type: application/json');
+               return $result;
+               
+            }
+
+
+
+/* 
+ |-------------------------------------------
+ | AQUI SE EJECUTA LA OPERACION DE INSERTAR
+ |-------------------------------------------
+*/
+
+if($operacion == "RP"){
+
+   /*
+    |-------------------------------------------
+    | AQUI CREO UNA INSTANCIA DE LA CLASE
+    |-------------------------------------------
+    */
+    
+    $registroaviso =  new ctrregistroavisocobro ();
+
+   $datos = array( "id"  => $_POST["hidrecibo"],
+                   "id_aviso"  => $_POST["id_aviso"],
+                   "id_inqu"  => $_POST["id_inqu"],
+                   "id_inmu"  => $_POST["id_inmu"],
+                   "id_unid"  => $_POST["id_unid"],
+
+                   "cod_aviso"  => $_POST["codigo"],
+                   "cod_recibo"  => $_POST["cod_recibo"],
+                   "cod_pedido"  => $_POST["cod_pedido"],
+
+                   "tipo_inqu"  => $_POST["tipo_inqu"],
+
+                   "fecha"  => $_POST["fecha"],
+                   "mes"  => $_POST["mes"],
+                   "mensualidad" => $_POST["monto"],
+                   "monto_recibo" => $_POST["recibo"],
+                   "monto_pedido" => $_POST["pedido"],
+
+                   "id_usuario" => $_POST["id_usuario"] );
+
+
+
+               /* 
+               |---------------------------------------------
+               | AQUI OBTENGO EL RESULTADO DE LA EJECUCION
+               |---------------------------------------------
+               */
+               $result = $registroaviso->registroReciboPedido($datos);
                
                /*
                |-------------------------------------------

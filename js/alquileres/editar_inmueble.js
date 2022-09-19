@@ -74,7 +74,7 @@ function codigoPropietario(prmDato){
 
 }
 
-function atrasInmueble(prmIdPro, prmCodPro,prmCodTipo,prmIdInmu,prmCodInmu,prmCodTipo){
+function atrasInmueble(prmIdPro,prmCodPro,prmCodTipo,prmIdInmu,prmCodInmu,prmCodTipo){
 
     //if (isEmpty(prmDato) == false ){
 

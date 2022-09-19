@@ -145,10 +145,75 @@ if($operacion == "I"){
 }
 
 
+
+if($operacion == "IN"){
+
+   /*
+    |----------------------------------------------------------------
+    | AQUI CREO UNA INSTANCIA DE LA CLASE PARA LOS HASTOS CON INMUEBLES 
+    |------------------------------------------------------------------
+    */
+    
+    $registrogastos =  new ctrregistrogastosespeciales();
+
+   /*
+   |---------------------------------------------
+   | AQUI CARGO LOS DATOS PARA ALMACENAR
+   |---------------------------------------------
+   */
+    $datos = array(  "id_gesp" => $_POST["id_gesp"],
+                     "id_inmu"  => $_POST["id_inmueble"],
+                     "id_unid"  => $_POST["id_unidad"],
+                     "id_inqu"  => $_POST["id_inqu"],
+                     "concepto" => $_POST["registroGasto"],
+                     "monto" => $_POST["registroMonto"],
+                     "mes" => $_POST["mes"],
+                     "id_usuario"=> $_POST["id_usuario" ]);
+
+
+
+
+    /*
+   |-------------------------------------------------------------------------------------------------------------
+   | AQUI PASO LA RUTA DE LOS DOCUMENTOS
+   |-------------------------------------------------------------------------------------------------------------
+   |
+   | CUANDO SE PASAN DOCUMENTOS O ARCHIVOS, SIEMPRE SE DEBEN CAPTURAR DOS DATOS, POR CADA CAMPO ARCHIVO
+   |
+   | EJEMPLO: SI EL CAMPO SE LLAMA [cedu_docu] entonces se deben capturar los dos datos
+   |  $_FILES['cedu_docu']['name']; -> Este es el nombre real del archivo
+   |  $_FILES['cedu_docu']['tmp_name']; -> Este es un nombre temporal que se crea cuando se carga el archivo
+   |-------------------------------------------------------------------------------------------------------------
+   */
+                 
+     $capturarArchivos =  new ctrcapturararchivos();
+
+     $AchivosCargados = $capturarArchivos->GetPostedFiles();
+
+    // echo $resultado;
+
+   /* 
+   |---------------------------------------------
+   | AQUI OBTENGO EL RESULTADO DE LA EJECUCION
+   |---------------------------------------------
+   */
+     $result = $registrogastos->registrar($datos,$AchivosCargados);
+    
+    /*
+    |-------------------------------------------
+    | AQUI REGRESO EL RESULTADO AL AJAX
+    |-------------------------------------------
+    */
+    header('Content-Type: application/json');
+     return $result;
+     
+}
+
+
 /* 
- |--------------------------------------------------------------
- | AQUI SE EJECUTA LA OPERACION DE CONSULTAR TODOS LOS USUARIOS
- |--------------------------------------------------------------
+ |-----------------------------------------------------------------------------------
+ | AQUI SE EJECUTA LA OPERACION DE CONSULTAR TODOS LOS GASTOS ESPECILES SIN PARAMETROS 
+ |----------------------------------------------------------------------------------
 */
 
 if($operacion == "C"){
@@ -183,6 +248,51 @@ if($operacion == "C"){
      return $result;
      
 }
+
+
+
+/* 
+ |----------------------------------------------------------------------------------
+ | AQUI SE EJECUTA LA OPERACION DE CONSULTAR TODOS gastsos especioles por imnueble
+ |----------------------------------------------------------------------------------
+*/
+
+if($operacion == "GI"){
+
+
+   $datos = array( 
+      "id_inmu" => $_POST["id_inmu"],
+      "id_unid" => $_POST["id_unid"]
+   );
+   
+   
+      /*
+       |-------------------------------------------
+       | AQUI CREO UNA INSTANCIA DE LA CLASE
+       |-------------------------------------------
+       */
+       
+       $registrogastos =  new ctrregistrogastosespeciales();
+   
+      /* 
+      |---------------------------------------------
+      | AQUI OBTENGO EL RESULTADO DE LA EJECUCION
+      |---------------------------------------------
+      */
+        $result = $registrogastos->seleccionarconsultagastos($datos);
+       
+       /*
+       |-------------------------------------------
+       | AQUI REGRESO EL RESULTADO AL AJAX
+       |-------------------------------------------
+       */
+       if (!headers_sent()) {
+         //AGREGAR CABECERA SI NO LA TIENE
+         header('Content-Type: application/json');
+   } 
+        return $result;
+        
+   }
 
 
 

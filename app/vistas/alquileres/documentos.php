@@ -22,7 +22,7 @@
 
                             <th>Propietario</th>
                             <th>Documento</th>
-                            <th>Doc / Editar</th>
+                            <th>Acciones</th>
                      
         
  

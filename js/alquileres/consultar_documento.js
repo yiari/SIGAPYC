@@ -79,7 +79,7 @@ function cargarDocumentosa(idPropietario,codigoPropietario,tipoPropietario){
 
                             var html="";
                             
-                            html += '<a title="Ver"  href="'+ json.Items[0][i].ver + '" target="_blank"><i class="fa fa-book"></i></a>&nbsp;';
+                            html += '<a title="Ver"  href="'+ json.Items[0][i].ver + '" target="_blank"><i class="fa fa-eye fa-5" aria-hidden="true"></i></a>&nbsp;';
                             html += '<a title="Eliminar"  data-field-id="'  + json.Items[0][i].id + '"><i class="fa fa-trash" alt=“eliminar”></i></a>';
                             html += '</div>'
                             tr.append("<td>" + html + "</td>");
