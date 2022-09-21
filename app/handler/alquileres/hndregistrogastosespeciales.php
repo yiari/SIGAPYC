@@ -165,6 +165,7 @@ if($operacion == "IN"){
                      "id_inmu"  => $_POST["id_inmueble"],
                      "id_unid"  => $_POST["id_unidad"],
                      "id_inqu"  => $_POST["id_inqu"],
+                     "tipo_inqui"  => $_POST["tipo_inqui"],
                      "concepto" => $_POST["registroGasto"],
                      "monto" => $_POST["registroMonto"],
                      "mes" => $_POST["mes"],
@@ -260,11 +261,17 @@ if($operacion == "C"){
 if($operacion == "GI"){
 
 
-   $datos = array( 
+  /* $datos = array( 
       "id_inmu" => $_POST["id_inmu"],
-      "id_unid" => $_POST["id_unid"]
-   );
-   
+      "id_unid" => $_POST["id_unid"],
+      "id_inqu" => $_POST["id_inqu"],
+      "tipo_inqui" => $_POST["tipo_inqui"]
+   );*/
+   $prmid_inmu = $_POST["id_inmu"];
+   $prmid_unid = $_POST["id_unid"];
+   $prmid_innq = $_POST["id_inqu"];
+   $prmtipo_inqui = $_POST["tipo_inqui"];
+
    
       /*
        |-------------------------------------------
@@ -279,7 +286,7 @@ if($operacion == "GI"){
       | AQUI OBTENGO EL RESULTADO DE LA EJECUCION
       |---------------------------------------------
       */
-        $result = $registrogastos->seleccionarconsultagastos($datos);
+        $result = $registrogastos->seleccionarconsultagastos($prmid_inmu,$prmid_unid,$prmid_innq,$prmtipo_inqui);
        
        /*
        |-------------------------------------------

@@ -117,6 +117,124 @@ if($operacion == "C"){
 
 
 
+/* 
+ |--------------------------------------------------------------
+ | AQUI SE EJECUTA LA OPERACION DE CONSULTAR TODOS LOS USUARIOS
+ |--------------------------------------------------------------
+*/
+
+if($operacion == "DI"){
+
+
+   $prmid_inqui = $_POST["id_inqui"];
+   $prmtipo = $_POST["tipo_inquilino"];
+
+  /*
+   |-------------------------------------------
+   | AQUI CREO UNA INSTANCIA DE LA CLASE
+   |-------------------------------------------
+   */
+   
+   $registroDocumentos =  new ctrregistrosdocumentos();
+
+  /* 
+  |---------------------------------------------
+  | AQUI OBTENGO EL RESULTADO DE LA EJECUCION
+  |---------------------------------------------
+  */
+    $result = $registroDocumentos->documetoInquilino($prmid_inqui,$prmtipo);
+   
+   /*
+   |-------------------------------------------
+   | AQUI REGRESO EL RESULTADO AL AJAX
+   |-------------------------------------------
+   */
+   header('Content-Type: application/json');
+   return $result;
+    
+}
+
+
+
+/* 
+ |--------------------------------------------------------------
+ | AQUI SE EJECUTA LA OPERACION DE CONSULTAR TODOS LOS USUARIOS
+ |--------------------------------------------------------------
+*/
+
+if($operacion == "DB"){
+
+
+   $prmid_bene = $_POST["id_bene"];
+   $prmtipo = $_POST["tipo_beneficiario"];
+
+  /*
+   |-------------------------------------------
+   | AQUI CREO UNA INSTANCIA DE LA CLASE
+   |-------------------------------------------
+   */
+   
+   $registroDocumentos =  new ctrregistrosdocumentos();
+
+  /* 
+  |---------------------------------------------
+  | AQUI OBTENGO EL RESULTADO DE LA EJECUCION
+  |---------------------------------------------
+  */
+    $result = $registroDocumentos->documetoBeneficiario($prmid_bene,$prmtipo);
+   
+   /*
+   |-------------------------------------------
+   | AQUI REGRESO EL RESULTADO AL AJAX
+   |-------------------------------------------
+   */
+   header('Content-Type: application/json');
+   return $result;
+    
+}
+
+
+
+/* 
+ |--------------------------------------------------------------
+ | AQUI SE EJECUTA LA OPERACION DE CONSULTAR TODOS LOS USUARIOS
+ |--------------------------------------------------------------
+*/
+
+if($operacion == "DA"){
+
+
+   $prmid_apod = $_POST["id_apod"];
+   $prmtipo = $_POST["tipo_apoderado"];
+
+  /*
+   |-------------------------------------------
+   | AQUI CREO UNA INSTANCIA DE LA CLASE
+   |-------------------------------------------
+   */
+   
+   $registroDocumentos =  new ctrregistrosdocumentos();
+
+  /* 
+  |---------------------------------------------
+  | AQUI OBTENGO EL RESULTADO DE LA EJECUCION
+  |---------------------------------------------
+  */
+    $result = $registroDocumentos->documetoApoderado($prmid_apod,$tipo);
+   
+   /*
+   |-------------------------------------------
+   | AQUI REGRESO EL RESULTADO AL AJAX
+   |-------------------------------------------
+   */
+   header('Content-Type: application/json');
+   return $result;
+    
+}
+
+
+
+
 
 
 

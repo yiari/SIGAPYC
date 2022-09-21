@@ -44,16 +44,17 @@ public function registrar($tabla,$datos,$archivos){
           | AQUI PREPARO LO QUE SERA LA LLAMADA AL PROCEDIMIENTO QUE REALIZARA LA OPERACION
           |----------------------------------------------------------------------------------
           */
-          $stmt = $dbConexion->conectar()->prepare("CALL usp_registrargastosespeciles(?,?,?,?,?,?,?,?)");
+          $stmt = $dbConexion->conectar()->prepare("CALL usp_registrargastosespeciles(?,?,?,?,?,?,?,?,?)");
 
           $stmt -> bindParam(1, $datos["id_gesp"], PDO::PARAM_INT); //ESTE ES EL ID DEL gastos
           $stmt -> bindParam(2, $datos["id_inmu"], PDO::PARAM_INT); 		
           $stmt -> bindParam(3, $datos["id_unid"], PDO::PARAM_INT);
           $stmt -> bindParam(4, $datos["id_inqu"], PDO::PARAM_INT);
-          $stmt -> bindParam(5, $datos["concepto"], PDO::PARAM_STR); 
-          $stmt -> bindParam(6, $datos["monto"], PDO::PARAM_STR);
-          $stmt -> bindParam(7, $datos["mes"], PDO::PARAM_INT);
-          $stmt -> bindParam(8, $datos["id_usuario"], PDO::PARAM_INT);		
+          $stmt -> bindParam(5, $datos["tipo_inqui"], PDO::PARAM_INT);
+          $stmt -> bindParam(6, $datos["concepto"], PDO::PARAM_STR); 
+          $stmt -> bindParam(7, $datos["monto"], PDO::PARAM_STR);
+          $stmt -> bindParam(8, $datos["mes"], PDO::PARAM_INT);
+          $stmt -> bindParam(9, $datos["id_usuario"], PDO::PARAM_INT);		
 
           
                   
@@ -422,34 +423,26 @@ public function registrar($tabla,$datos,$archivos){
 
 
 
-  public function seleccionarconsultagastos($tabla,$items){
+  public function seleccionarconsultagastos($prmid_inmu,$prmid_unid,$prmid_innq,$prmtipo_inqui){
 
-    If($items == null){
-  
-  
-                  $dataRes = array(
-                    'error' => '1',
-                    'mensaje' =>  "Mensaje de Error: No hay registro para buscar."
-                  );
-            
-  
-    }else{
-  
+
   
       try {
   
         $dbConexion = new conexcion();
+        $valor = 0;
         
-        $stmt = $dbConexion->conectar()->prepare("CALL usp_cosulta_gastosespeciles_por inmueble(?,?)");
-        $stmt -> bindParam(1,$items["id_inmu"], PDO::PARAM_INT);
-        $stmt -> bindParam(2,$items["id_unid"], PDO::PARAM_INT);
-
+        $stmt = $dbConexion->conectar()->prepare("CALL usp_gastosespecioales_por_inmueble(?,?,?,?)");
+        $stmt ->bindParam(1, $prmid_inmu, PDO::PARAM_INT);
+        $stmt ->bindParam(2, $prmid_unid, PDO::PARAM_INT);
+        $stmt ->bindParam(3, $prmid_innq, PDO::PARAM_INT);
+        $stmt ->bindParam(4, $prmtipo_inqui, PDO::PARAM_INT);
         $stmt->execute();
-        $dataRegistro["Items"][] = $stmt->fetch();
+        $dataRegistro["Items"][] = $stmt->fetchAll();
   
         $dataRes = array(
           'error' => '0',
-          'mensaje' =>  'El registro se obtuvo.'
+          'mensaje' =>  'El registro se obtuvo con exito.'
         );
         
         
@@ -468,11 +461,10 @@ public function registrar($tabla,$datos,$archivos){
     
         }
   
+    } 
   
   
-  
-    }
-  }
+   
 
 
 

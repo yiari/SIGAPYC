@@ -11,7 +11,7 @@ function inicio(){
        $('#id_inqu').val(getParameterByName('idinqu'));
        $('#inquilino').val(getParameterByName('codinqu'));
 
-       $('#tipo_inqu').val(getParameterByName('tipoinqu'));
+       $('#tipo_inqui').val(getParameterByName('tipoinqu'));
 
        $('#total').val(getParameterByName('monto'));
 
@@ -21,29 +21,25 @@ function inicio(){
 
        $('#id_unid').val(getParameterByName('idunid'));
        $('#unidad').val(getParameterByName('codunid'));
-       $('#mes').val(getParameterByName('mes'));
+       $('#mes').val(getParameterByName('idmes'));
 
        
    
       
        let prmCodaviso = getParameterByName('codaviso');
-       let idinquilino = getParameterByName('idinqu');
+       let prmidinqu = getParameterByName('idinqu');
        let prmcodigoInquilino = getParameterByName('codinqu');
-      
-       let tipoInquilino = getParameterByName('tipoinqu');
-
+       let prmtipoinqu = getParameterByName('tipoinqu')
        let prmmonto = getParameterByName('monto');
-
        let prminmu = getParameterByName('idinmu');
        let prmunid = getParameterByName('idunid');
+       let prmmes = getParameterByName('idmes');
     
  
-    
-    guardaronGastos();
+    GastosEspecialesInmueble(prminmu,prmunid,prmidinqu,prmtipoinqu);
+    guardarGastos();
 
-    //guardarGastos();
-    buscarInmueble();
-    //cargarMeses('cbomeses');
+    
     limpiarTabla();
     limpiarCampos();
    
@@ -66,9 +62,6 @@ function inicio(){
     });
    
 
-
-    GastosEspecialesInmueble(prminmu,prmunid);
-    cargarGastosEspeciales();
 
     codigoAvisoCobro(prmCodaviso);
 
@@ -119,137 +112,6 @@ function codigoInquilino(prmDato){
 
 }
 
-function buscarInmueble(){
-
-
-
-    $("#buscarCodigo").on('submit', function(evt) {
-
-
-   /*
-   |-----------------------------------------------
-   | AQUI SE PREVIENE QUE EL FORMULARIO CONTINUE 
-   |-----------------------------------------------
-   */
-   evt.preventDefault();
-   /**********************************************/       
-
- 
-        if ($("#nom_prop").val() == "") {
-            mensaje("Debe indicar el  inmueble o unidad",1);
-            console.log("Aqui llegue al mensaje");
-            return;
-        }
-
-
-        prmDato = $("#nom_prop").val();
-
-   /*
-   |-----------------------------------------------------
-   | AQUI SE AGREGA UN PARAMETRO ADICIONAL AL FORMULARIO 
-   |-----------------------------------------------------
-   */
-   var formData = new FormData();
-
-   formData.append('opcion','BIU'); /*consulta de asignacion de inmueble y unidades*/ 
-   formData.append('codigo',prmDato);
-
-   /*
-   |-----------------------------------------------
-   | AQUI SE LLAMA EL AJAX 
-   |-----------------------------------------------
-   */
-   $.ajax({
-       url: "app/handler/alquileres/hndregistrocontrato.php",
-       data: formData,
-       processData: false,
-       contentType: false,
-       type: 'POST',
-       beforeSend: function () {
-           //$("#preview").fadeOut();
-           $("#error").fadeOut();
-       },
-       success: function (data) {
-       var json = data;
-       var html = "";
-/*
-       console.log(json);
-       console.log("Este es el Mensaje: " + json.mensaje);
-       console.log("Items: " + json.Items.length);
-       console.log("Items Resultados: " + json.Items[0].length);
-       console.log("Email Resultados: " + json.Items[0][1].email);
-*/
-               /*
-               |------------------------------------------------------
-               | AQUI SE CARGA LA INFORMACION EN LA TABLA
-               |------------------------------------------------------
-               */
-
-               if(json.Items.length > 0){
-                   var tr;
-                    var contador = 0;
-                   if(json.Items.length > 0){
-                    $("#datosAsignarInmueble > tbody").html("");
-                    let char = String.fromCharCode(39);
-                   var tr;
-                       for (var i = 0; i < json.Items[0].length; i++) {
-               
-                      // if (isEmpty(json.Items[0][i]) == false) {
-                           tr = $('<tr/>');
-                           /*
-                           i.id_inmu as id_inmueble      
-                           ,i.id_prop as id_propietario
-                           ,u.id_unid as id_unidad
-                        */
-                       /*
-                           $("#id_prop").val(json.Items[0][i].id_propietario);
-                           $("#id_inmu").val(json.Items[0][i].id_inmueble);
-                           $("#id_unid").val(json.Items[0][i].id_unidad);
-                        */
-                           /*tr.append("<td>" + json.Items[0][i].cod_propietario + "</td>");
-                           tr.append("<td>" + tipoPersona(json.Items[0][i].tipo_propietario) + "</td>");*/
-                           tr.append("<td>" + json.Items[0][i].cod_inmueble + "</td>");
-                           tr.append("<td>" + json.Items[0][i].cod_unidad + "</td>");
-                           tr.append('<td class="text-center"><input type="radio" id="id_inmueble_' + json.Items[0][i].id_inmueble +  '" name="inmueble" onclick="seleccionarInmueble(' + json.Items[0][i].id_propietario + ',' + json.Items[0][i].id_inmueble + ',' + json.Items[0][i].id_unidad + ',' + json.Items[0][i].tipo_propietario + ',' + char + json.Items[0][i].cod_inmueble + char +')"></td>');
-
-                           var html="";
-                         /*  html = '<div class="btn-group" style="font-size:1.3em; letter-spacing:0.5em;">';
-                           html += '<button onclick=vinculacion(' + contador + ') id="vincular' + contador + '"  class="vincular btn btn-success "data-field-idpropietario="' + json.Items[0][i].id_propietario + '"data-field-idinmueble="' + json.Items[0][i].id_inmueble + '"data-field-idunidad="'+ json.Items[0][i].Id_unidad + '"><i class="fa fa-plus" alt=vincular></i>&nbsp;Vincular</button>';
-                           html += '</div>'
-                           tr.append("<td>" + html + "</td>");*/
-                           $('#datosAsignarInmueble').append(tr);
-
-                           contador++;
-                       //}
-                   }
-
-                   //vinculacion();
-                   
-               } else {
-
-               var tr;
-               tr = $('<tr/>');
-               tr.append("<td colspan=6 style='text-align:center'>NO HAY INFORMACION REGISTRADA</td>");
-               $('#datosAsignarInmueble').append(tr);
-
-               }
-
-                new simpleDatatables.DataTable("#datosAsignarInmueble");
-
-           } 
-               /************************************************ */
-             
-
-       },
-       error: function (e) {
-           $("#error").html(e).fadeIn();
-       }
-   });
-
-});
-
-
-}
 
 
 
@@ -263,149 +125,6 @@ function seleccionarInmueble(id_inmueble,id_unidad){
     //generarCodigoContrato(codigo_inmueble);
 
 }
-
-function guardaronGastos(){
-
-    $("#buscargastos").on('submit', function(evt) {
-   /*
-   |-----------------------------------------------
-   | AQUI SE PREVIENE QUE EL FORMULARIO CONTINUE 
-   |-----------------------------------------------
-   */
-   evt.preventDefault();
-   /**********************************************/        
-
-/*
-   mensajeNatural();
-   return;
-*/
-
-
-        /*
-        |---------------------------------------------------
-        | AQUI VALIDO EL CODIGO DEL PROPIETARIO ANTES
-        | DE GUARDAR, POR SI SE HA GENERADO OTRO DOCUMENTO
-        |---------------------------------------------------
-        */
-   
-      //  validarCodigoPropietario();
-
-       // syncDelay(5000); //ESTO VA A ESPERAR 5 SEGUNDOS;
-
-        /*-------------------------------------------------*/
-
-
-    if ($("#id_inmu").val() == "" || $("#id_inmu").val() == "0" || $("#id_inmu").val() == 0 ) {
-       mensaje("Debe seleccionar el inmueble",1);
-       return;
-   }
-
-
-
-
-   if ($("#nom_prop").val() == "") {
-    mensaje("Debe seleccionar el inmueble",1);
-    return;
-   }
-
- 
-
-
-   if ($("#registroGasto").val() == "") {
-    mensaje("Debe indicar el concepto del gasto",1);
-    return;
-    }
-
-   if ($("#registroMonto").val() == "") {
-       mensaje("Debe indicar el monto del Gasto",1);
-       return;
-   }
-
-  
-
-
-        /*
-        |-----------------------------------------------
-        | LIMPIA EL CAMPO MENSAJE 
-        |-----------------------------------------------
-        */
-        $("#error").html("Ejecutando...");
-        /*
-        |-----------------------------------------------
-        | AQUI SE CAPTURA LOS DATOS DEL FORMULARIO 
-        |-----------------------------------------------
-        */
-        var formData = new FormData(this);
-        /*
-        |-----------------------------------------------------
-        | AQUI SE AGREGA UN PARAMETRO ADICIONAL AL FORMULARIO 
-        |-----------------------------------------------------
-        */
-        formData.append('opcion','I');
-    
-
-        formData.append('id_inmueble',$('#id_inmu').val());
-        formData.append('id_unidad',$('#id_unid').val());
-        formData.append('id_inquilino',$('#id_inqu').val());
-        formData.append('id_usuario',$('#id_usuario').val());
-
-
-        /*
-        |-----------------------------------------------
-        | AQUI SE LLAMA EL AJAX 
-        |-----------------------------------------------
-        */
-        $.ajax({
-            url: "app/handler/alquileres/hndregistrogastosespeciales.php",
-            type: "POST",
-            data: formData, //new FormData(this),
-            contentType: false,
-            dataType: "json",
-            cache: false,
-            processData: false,
-            beforeSend: function () {
-                //$("#preview").fadeOut();
-                $("#error").fadeOut();
-            },
-            success: function (data) {
-            var json = data;
-            var html = "";
-            let idPropietario = 0;
-                console.log("Mensaje del JSON: " + json);
-
-                if(json.error == 0){
-                    
-                    mensaje(json.mensaje,0);
-
-                    //$("#mensaje").html(html).fadeIn();
-                    limpiarFormulario(1);
-                    limpiarTabla();
-                    limpiarCampos();
-                    botones(0);
-
-                }else {
-
-                    mensaje(json.mensaje,1);
-
-                    //$("#mensaje").html(html).fadeIn();
-                }
-
-
-
-            },
-            error: function (e) {
-                //$("#error").html(e).fadeIn();
-                mensaje(e,1);
-                
-            }
-        });
-
-
-
-    });
-
-}
-
 
 
 
@@ -475,6 +194,10 @@ function guardarGastos(){
         
         formData.append('id_inmueble',$('#id_inmu').val());
         formData.append('id_unidad',$('#id_unid').val());
+        formData.append('id_inquilino',$('#id_inqu').val());
+        formData.append('id_usuario',$('#id_usuario').val());
+        formData.append('tipo_inquilino',$('#tipo_inqui').val());
+        formData.append('mes',$('#mes').val());
 
 
         /*
@@ -561,108 +284,7 @@ function limpiarCampos(){
 
 }
 
-
-
-
-function cargarGastosEspeciales(){
-
-    /*
-    |-----------------------------------------------------
-    | AQUI SE AGREGA UN PARAMETRO ADICIONAL AL FORMULARIO 
-    |-----------------------------------------------------
-    */
-    var formData = new FormData();
-
-    formData.append('opcion','C');
-
-    //formData.append('id_inmu',prminmu);
-   
-  
-    /*
-    |-----------------------------------------------
-    | AQUI SE LLAMA EL AJAX 
-    |-----------------------------------------------
-    */
-    $.ajax({
-        url: "app/handler/alquileres/hndregistrogastosespeciales.php",
-        data: formData,
-        processData: false,
-        contentType: false,
-        type: 'POST',
-        beforeSend: function () {
-            //$("#preview").fadeOut();
-            $("#error").fadeOut();
-        },
-        success: function (data) {
-        var json = data;
-        var html = "";
-/*
-        console.log(json);
-        console.log("Este es el Mensaje: " + json.mensaje);
-        console.log("Items: " + json.Items.length);
-        console.log("Items Resultados: " + json.Items[0].length);
-        console.log("Email Resultados: " + json.Items[0][1].email);
-*/
-                /*
-                |------------------------------------------------------
-                | AQUI SE CARGA LA INFORMACION EN LA TABLA
-                |------------------------------------------------------
-                */
-                if(json.Items.length > 0){
-                    var tr;
-
-                    if(json.Items[0].length > 0){
-                        for (var i = 0; i < json.Items[0].length; i++) {
-                
-                       // if (isEmpty(json.Items[0][i]) == false) {
-                            tr = $('<tr/>');
-                            
-                            tr.append("<td>" + (i+1) + "</td>");
-                            tr.append("<td>" + json.Items[0][i].mes_gasto + "</td>");
-                            tr.append("<td>" + json.Items[0][i].inmueble + "</td>");
-                            tr.append("<td>" + json.Items[0][i].unidad + "</td>");
-                            tr.append("<td>" + json.Items[0][i].concepto + "</td>");
-                            tr.append("<td>" + json.Items[0][i].monto + "</td>");
-                            tr.append("<td>" + json.Items[0][i].fecha + "</td>"); 
-                            
-                            var html="";
-                            html = '<div class="btn-group">';
-                            html += '<button class=" delete" data-field-id="' + json.Items[0][i].id_gesp + '"><i class="fa fa-trash" ></i>&nbsp;</button>';
-                            html += '</div>'
-                            tr.append("<td>" + html + "</td>");
-                            $('#gastosEspeciales').append(tr);
-                        //}
-                    }
-
-
-                }else {
-
-                    var tr;
-                    tr = $('<tr/>');
-                    tr.append("<td colspan=6 style='text-align:center'>NO HAY INFORMACION REGISTRADA</td>");
-                    $('#gastosEspeciales').append(tr);
-
-                    }
-
-                new simpleDatatables.DataTable("#gastosEspeciales");
-
-            } 
-                /************************************************ */
-
-
-        },
-        error: function (e) {
-            $("#error").html(e).fadeIn();
-        }
-    });
-
-}
-
-
-
-
-
-function GastosEspecialesInmueble(prminmu,prmunid){
+function GastosEspecialesInmueble(prmDato,prmunid,prmidinqu,prmtipoinqu){
 
     /*
     |-----------------------------------------------------
@@ -673,10 +295,11 @@ function GastosEspecialesInmueble(prminmu,prmunid){
 
     formData.append('opcion','GI');
 
-    formData.append('id_inmu',prminmu);
+    formData.append('id_inmu',prmDato);
     formData.append('id_unid',prmunid);
-   
-  
+    formData.append('id_inqu',prmidinqu);
+    formData.append('tipo_inqui',prmtipoinqu);
+
     /*
     |-----------------------------------------------
     | AQUI SE LLAMA EL AJAX 
@@ -707,43 +330,43 @@ function GastosEspecialesInmueble(prminmu,prmunid){
                 | AQUI SE CARGA LA INFORMACION EN LA TABLA
                 |------------------------------------------------------
                 */
+
                 if(json.Items.length > 0){
                     var tr;
-
-                    if(json.Items[0].length > 0){
+                
+                    if(json.Items.length > 0){
+                    var tr;
                         for (var i = 0; i < json.Items[0].length; i++) {
                 
                        // if (isEmpty(json.Items[0][i]) == false) {
-                            tr = $('<tr/>');
-                            
-                            tr.append("<td>" + (i+1) + "</td>");
-                            tr.append("<td>" + json.Items[0][i].mes_gasto + "</td>");
-                            tr.append("<td>" + json.Items[0][i].inmueble + "</td>");
-                            tr.append("<td>" + json.Items[0][i].unidad + "</td>");
-                            tr.append("<td>" + json.Items[0][i].concepto + "</td>");
-                            tr.append("<td>" + json.Items[0][i].monto + "</td>");
-                            tr.append("<td>" + json.Items[0][i].fecha + "</td>"); 
-                            
-                            var html="";
-                            html = '<div class="btn-group">';
-                            html += '<button class=" delete" data-field-id="' + json.Items[0][i].id_gesp + '"><i class="fa fa-trash" ></i>&nbsp;</button>';
-                            html += '</div>'
-                            tr.append("<td>" + html + "</td>");
-                            $('#gastosEspecialesinmueble').append(tr);
+                                tr = $('<tr/>');
+                                    
+                                tr.append("<td>" + (i+1) + "</td>");
+                                tr.append("<td>" + json.Items[0][i].mes_gasto + "</td>");
+                                tr.append("<td>" + json.Items[0][i].inmueble + "</td>");
+                                tr.append("<td>" + json.Items[0][i].concepto + "</td>");
+                                tr.append("<td>" + json.Items[0][i].monto + "</td>");
+                                tr.append("<td>" + json.Items[0][i].fecha_creacion + "</td>"); 
+                                
+                                var html="";
+                                html = '<div class="btn-group">';
+                                html += '<button class=" delete" data-field-id="' + json.Items[0][i].id_gesp + '"><i class="fa fa-trash" ></i>&nbsp;</button>';
+                                html += '</div>'
+                                tr.append("<td>" + html + "</td>");
+                                $('#Especiales').append(tr);
                         //}
                     }
+                    
+                } else {
 
+                var tr;
+                tr = $('<tr/>');
+                tr.append("<td colspan=6 style='text-align:center'>NO HAY INFORMACION REGISTRADA</td>");
+                $('#Especiales').append(tr);
 
-                }else {
+                }
 
-                    var tr;
-                    tr = $('<tr/>');
-                    tr.append("<td colspan=6 style='text-align:center'>NO HAY INFORMACION REGISTRADA</td>");
-                    $('#gastosEspecialesinmueble').append(tr);
-
-                    }
-
-                new simpleDatatables.DataTable("#gastosEspecialesinmueble");
+                 new simpleDatatables.DataTable("#Especiales");
 
             } 
                 /************************************************ */
@@ -756,6 +379,7 @@ function GastosEspecialesInmueble(prminmu,prmunid){
     });
 
 }
+
 
 
 

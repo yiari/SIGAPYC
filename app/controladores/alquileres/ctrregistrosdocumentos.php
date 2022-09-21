@@ -33,11 +33,41 @@ class ctrregistrosdocumentos{
 
      public function seleccionarregistros($id_prop,$tipo){
 
-        $tabla = "beneficiario";
+        $tabla = "documentos";
         $modelo =  new mdlregistrodocumento();
         $respuestas =  $modelo->seleccionarregistros($tabla,$id_prop,$tipo);
         return $respuestas;
     }
+
+
+    public function documetoInquilino($id_inqui,$tipo){
+
+        $tabla = "documentos";
+        $modelo =  new mdlregistrodocumento();
+        $respuestas =  $modelo->documetoInquilino($tabla,$id_inqui,$tipo);
+        return $respuestas;
+    }
+
+
+    public function documetoBeneficiario($prmid_bene,$tipo){
+
+        $tabla = "documentos";
+        $modelo =  new mdlregistrodocumento();
+        $respuestas =  $modelo->documetoBeneficiario($tabla,$prmid_bene,$tipo);
+        return $respuestas;
+    }
+
+
+    public function documetoApoderado($prmid_apod,$tipo){
+
+        $tabla = "documentos";
+        $modelo =  new mdlregistrodocumento();
+        $respuestas =  $modelo->documetoApoderado($prmid_apod,$tipo);
+        return $respuestas;
+    }
+
+
+
 
 
 

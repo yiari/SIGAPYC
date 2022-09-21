@@ -126,6 +126,7 @@ function cargarbeneficiarios(prmDato,prmTipo){
                             html += '<a title="Bitacora" href="index.php?url=app/vistas/alquileres/verbeneficiario&idbene=' + json.Items[0][i].id_bene  + '&codbene=' + json.Items[0][i].codigo  + '&codtip=' + json.Items[0][i].tipo +'"><i class="fa fa-book"></i></a>&nbsp;';
                             htmlBeneficiario='<a title="Editar Beneficiario" href="index.php?url=app/vistas/alquileres/editar_beneficiarios&idbene=' + json.Items[0][i].id_bene  + '&codbene=' + json.Items[0][i].codigo  + '&codtip=' + json.Items[0][i].tipo  + '&idpro=' + json.Items[0][i].id_prop  + '&codpro=' + json.Items[0][i].propietario +'"><i class="fa fa-edit" alt=“editar”></i></a>&nbsp;';
                             html += htmlBeneficiario;
+                            html += '<a title="Documento" href="index.php?url=app/vistas/alquileres/documentosbeneficiaro&idbene=' + json.Items[0][i].id_bene  + '&codbene=' + json.Items[0][i].codigo  + '&codtip=' + json.Items[0][i].tipo  + '&idpro=' + json.Items[0][i].id_prop  + '&codpro=' + json.Items[0][i].propietario +'"><i class="fa fa-address-card-o"></i></a>&nbsp;';
                             html += '<a title="Eliminar"  data-field-id="'  + json.Items[0][i].id + '"><i class="fa fa-trash" alt=“eliminar”></i></a>';
                             html += '</div>'
                             tr.append("<td>" + html + "</td>");

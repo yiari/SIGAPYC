@@ -5,13 +5,13 @@
 
         <div style="text-align: right;">
              <ol>               
-                <a class="btn btn-outline-secondary " href="index.php?url=app/vistas/alquileres/propietarios"  role="button">Atras</a>
+                <a class="btn btn-outline-secondary " href="index.php?url=app/vistas/alquileres/inquilinos"  role="button">Atras</a>
             </ol>
         </div>
 
 
         <div style="text-align: left;">
-            <span id="lblPropietario"><strong>PROPIETARIO : </strong></span>
+            <span id="lblPropietario"><strong>INQUILINOS : </strong></span>
             <br/><br/>
         </div>
         
@@ -22,7 +22,7 @@
                 DOCUMENTOS CONSIGNADOS
             </div>
             <div class="card-body">
-                <table id="datosDocumentos">
+                <table id="DocumentosInquilinos">
                     <thead>
                         <tr>
 

@@ -25,10 +25,11 @@
                             
                             <form class="form-sample" id="buscargastos" name="buscargastos" method="POST" action="" autocomplete="on">
 
-                                   <input type="hidden" id="id_gesp" name="id_gesp" value='0'>
+                                    <input type="hidden" id="id_gesp" name="id_gesp" value='0'>
                                     <input type="hidden" id="id_inmu" name="id_inmu" value='0'>
                                     <input type="hidden" id="id_unid" name="id_unid" value='0'>
                                     <input type="hidden" id="id_inqu" name="id_inqu" value='0'>
+                                    <input type="hidden" id="tipo_inqui" name="tipo_inqui" value='0'>
                                     <input type="hidden" id="id_usuario" name="id_usuario" value='0'>
                                     <input type="hidden" id="mes" name="mes" value=''>
 
@@ -80,13 +81,12 @@
                     <div class="card-body">
 
                             <div class="table-responsive">
-                            <table class="table table-striped" id="gastosEspecialesinmueble">
+                            <table class="table table-striped" id="Especiales">
                                     <thead>
                                             <tr>
                                             <th>#</th>
                                             <th>Mes_gasto</th>
                                             <th>Inmueble</th>
-                                            <th>Unidad</th>
                                             <th>Concepto</th>
                                             <th>Monto</th>
                                             <th>fecha</th>

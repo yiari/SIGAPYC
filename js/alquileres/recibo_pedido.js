@@ -1,19 +1,7 @@
 function inicio(){
 
-    /*
-    |----------------------------------------
-    | ASI SE CAPTURAN LOS PARAMETROS
-    |---------------------------------------
-    */
-   //let idAviso = getParameterByName('idaviso');
-   //let prmCodAviso = getParameterByName('codaviso');
 
-   
-    /*--------------------------------------*/    
-
-    
-
-    cargarAvisoCobro();
+    cargarReciboPedido();
 
    
 
@@ -21,7 +9,7 @@ function inicio(){
 
 
 
-function cargarAvisoCobro(){
+function cargarReciboPedido(){
 
     /*
     |-----------------------------------------------------
@@ -30,9 +18,8 @@ function cargarAvisoCobro(){
     */
     var formData = new FormData();
 
-    formData.append('opcion','C');
-    formData.append('nom_inqu',"");
-    formData.append('estatus',0);
+    formData.append('opcion','CRP');
+  
  
     /*
     |-----------------------------------------------
@@ -40,7 +27,7 @@ function cargarAvisoCobro(){
     |-----------------------------------------------
     */
     $.ajax({
-        url: "app/handler/alquileres/hndregistroavisocobro.php",
+        url: "app/handler/alquileres/hndregistrorecibopedido.php",
         data: formData,
         processData: false,
         contentType: false,
@@ -81,19 +68,19 @@ console.log("Items Resultados: " + json.Items[0].length);
 
                             // if (isEmpty(json.Items[0][i]) == false) {
                                     tr = $('<tr/>');
-                                   
-                                 
 
-                                    tr.append("<td>" + json.Items[0][i].codigo + "</td>");
-                                    tr.append("<td>" + fecha(json.Items[0][i].fecha,'YYYYMMDD','DD/MM/YYYY') + "</td>");
-                                    tr.append("<td>" + json.Items[0][i].inquilino + "</td>");
+                                    tr.append("<td>" + json.Items[0][i].nombre_mes + "</td>");
+                                    tr.append("<td>" + json.Items[0][i].id_inqu + "</td>");
                                     tr.append("<td>" + json.Items[0][i].inmueble + "</td>");
-                                    /*tr.append("<td>" + unidades(json.Items[0][i].unidad) + "</td>");*/
+                                    tr.append("<td>" + json.Items[0][i].cod_aviso + "</td>");
+                                    tr.append("<td>" + json.Items[0][i].cod_recibo + "</td>");
+                                    tr.append("<td>" + json.Items[0][i].cod_Pedido + "</td>");
+                                    
+                                    tr.append("<td>" + json.Items[0][i].monto_recibo + "</td>");
+                                    tr.append("<td>" + json.Items[0][i].monto_pedido + "</td>");
                                     tr.append("<td>" + json.Items[0][i].mensualidad + "</td>");
-                                    tr.append("<td>" + json.Items[0][i].gastos_esp + "</td>"); 
-                                    tr.append("<td>" + json.Items[0][i].total + "</td>");
-                                    tr.append("<td>" + statusAvisoCobro(json.Items[0][i].estatus) + "</td>");
-                                    tr.append("<td>" + json.Items[0][i].repuestas + "</td>");
+                                   /* tr.append("<td>" + statusAvisoCobro(json.Items[0][i].estatus) + "</td>");*/
+                                   
 
                                   
                                     
@@ -101,17 +88,13 @@ console.log("Items Resultados: " + json.Items[0].length);
                                   
 
                                     html = '<div class="btn-group" style="font-size:1.3em; letter-spacing:0.5em;">';
-                                    html += '<a title="Respuesta"  href="index.php?url=app/vistas/alquileres/gestion_cliente&idaviso=' + json.Items[0][i].id_aviso + '&codaviso=' + json.Items[0][i].codigo  + '&idinqu=' + json.Items[0][i].id_inqu  + '&codinqu=' + json.Items[0][i].inquilino  +  '&tipoinqu=' + json.Items[0][i].tipo  + '&monto=' + json.Items[0][i].total  + '&codinqu=' + json.Items[0][i].inquilino +  '&idinqu=' + json.Items[0][i].id_inqu  +'"><i class="fa fa-exclamation-circle"></i></a>';
-                                    html += '<a title="Gastos_especilaes"  href="index.php?url=app/vistas/alquileres/gastos_especiales&idaviso=' + json.Items[0][i].id_aviso + '&codaviso=' + json.Items[0][i].codigo  + '&idinqu=' + json.Items[0][i].id_inqu  + '&codinqu=' + json.Items[0][i].inquilino  +  '&tipoinqu=' + json.Items[0][i].tipo  + '&monto=' + json.Items[0][i].total +  '&idinqu=' + json.Items[0][i].id_inqu  +   '&idinmu=' + json.Items[0][i].id_inmu  +   '&codinmu=' + json.Items[0][i].inmueble  +   '&idunid=' + json.Items[0][i].id_unid  +   '&codunid=' + json.Items[0][i].unidad  + '&idmes=' + json.Items[0][i].mes  +'"><i class="fa fa-money"></i></a>';
-                                   
-                                    html += '<a title="recibo y Pedido"  href="index.php?url=app/vistas/alquileres/gestion_recibo_pedido&idaviso=' + json.Items[0][i].id_aviso + '&codaviso=' + json.Items[0][i].codigo  + '&idinqu=' + json.Items[0][i].id_inqu  + '&codinqu=' + json.Items[0][i].inquilino  +  '&tipoinqu=' + json.Items[0][i].tipo  + '&monto=' + json.Items[0][i].total +  '&idinqu=' + json.Items[0][i].id_inqu  +   '&idinmu=' + json.Items[0][i].id_inmu  +   '&codinmu=' + json.Items[0][i].inmueble  +   '&idunid=' + json.Items[0][i].id_unid  +   '&codunid=' + json.Items[0][i].unidad  +'"><i class="fa fa-tags"></i></a>';
-                                    html += '<a title="PDF"  href="app/reportes/repavisocobro.php"  data-field-id= "'  + json.Items[0][i].id_aviso + '" target="_blank"><i class="fa fa-file-pdf-o" alt=“PDF” ></i></a>';
+                                    html += '<a title="PDF"  href="app/reportes/reprecibo.php"  data-field-id= "'  + json.Items[0][i].id_aviso + '" target="_blank"><i class="fa fa-file-pdf-o" alt=“PDF” ></i></a>';
                                     html += '<a title="Enviar notificación"  data-field-id="'  + json.Items[0][i].id_aviso + '"><i class="fa fa-envelope-open-o " alt=“email”></i></a>';
                                    
                                    
                                     html += '</div>'
                                     tr.append("<td>" + html + "</td>");
-                                    $('#datosAvisoCobro').append(tr);
+                                    $('#datosReciboPedido').append(tr);
                                 //}
                             }
                     
@@ -120,14 +103,14 @@ console.log("Items Resultados: " + json.Items[0].length);
                         var tr;
                         tr = $('<tr/>');
                         tr.append("<td colspan=6 style='text-align:center'>NO HAY INFORMACION REGISTRADA</td>");
-                        $('#datosAvisoCobro').append(tr);
+                        $('#datosReciboPedido').append(tr);
 
                         }
 
 
 
 
-                    new simpleDatatables.DataTable("#datosAvisoCobro");
+                    new simpleDatatables.DataTable("#datosReciboPedido");
 
                 } 
                 /************************************************ */
@@ -140,6 +123,9 @@ console.log("Items Resultados: " + json.Items[0].length);
     });
 
 }
+
+
+
 
 
 function limpiarTabla() {
@@ -230,12 +216,12 @@ function buscarInquilino(){
 
                         // if (isEmpty(json.Items[0][i]) == false) {
                                 tr = $('<tr/>');
-                               
 
                                 tr.append("<td>" + json.Items[0][i].codigo + "</td>");
                                 tr.append("<td>" + fecha(json.Items[0][i].fecha,'YYYYMMDD','DD/MM/YYYY') + "</td>");
                                 tr.append("<td>" + json.Items[0][i].inquilino + "</td>");
                                 tr.append("<td>" + json.Items[0][i].inmueble + "</td>");
+                                tr.append("<td>" + json.Items[0][i].unidad + "</td>");
                                 tr.append("<td>" + json.Items[0][i].mensualidad + "</td>");
                                 tr.append("<td>" + json.Items[0][i].gastos_esp + "</td>");
                                 tr.append("<td>" + json.Items[0][i].total + "</td>");
@@ -248,10 +234,8 @@ function buscarInquilino(){
                               
 
                                 html = '<div class="btn-group" style="font-size:1.3em; letter-spacing:0.5em;">';
-                                html += '<a title="Respuesta"  href="index.php?url=app/vistas/alquileres/gestion_cliente&idaviso=' + json.Items[0][i].id_aviso + '&codaviso=' + json.Items[0][i].codigo  + '&idinqu=' + json.Items[0][i].id_inqu  + '&codinqu=' + json.Items[0][i].inquilino  +  '&tipoinqu=' + json.Items[0][i].tipo  + '&monto=' + json.Items[0][i].total  + '&codinqu=' + json.Items[0][i].inquilino +  '&idinqu=' + json.Items[0][i].id_inqu  +'"><i class="fa fa-exclamation-circle"></i></a>';
-                                html += '<a title="Gastos_especilaes"  href="index.php?url=app/vistas/alquileres/gastos_especiales&idaviso=' + json.Items[0][i].id_aviso + '&codaviso=' + json.Items[0][i].codigo  + '&idinqu=' + json.Items[0][i].id_inqu  + '&codinqu=' + json.Items[0][i].inquilino  +  '&tipoinqu=' + json.Items[0][i].tipo  + '&monto=' + json.Items[0][i].total +  '&idinqu=' + json.Items[0][i].id_inqu  +   '&idinmu=' + json.Items[0][i].id_inmu  +   '&codinmu=' + json.Items[0][i].inmueble  +   '&idunid=' + json.Items[0][i].id_unid  +   '&codunid=' + json.Items[0][i].unidad  + '&idmes=' + json.Items[0][i].mes  +'"><i class="fa fa-money"></i></a>';
-                                   
-                                html += '<a title="recibo y Pedido"  href="index.php?url=app/vistas/alquileres/gestion_recibo_pedido&idaviso=' + json.Items[0][i].id_aviso + '&codaviso=' + json.Items[0][i].codigo  + '&idinqu=' + json.Items[0][i].id_inqu  + '&codinqu=' + json.Items[0][i].inquilino  +  '&tipoinqu=' + json.Items[0][i].tipo  + '&monto=' + json.Items[0][i].total +  '&idinqu=' + json.Items[0][i].id_inqu  +   '&idinmu=' + json.Items[0][i].id_inmu  +   '&codinmu=' + json.Items[0][i].inmueble  +   '&idunid=' + json.Items[0][i].id_unid  +   '&codunid=' + json.Items[0][i].unidad  +'"><i class="fa fa-tags"></i></a>';
+                                html += '<a title="Respuesta"  href="index.php?url=app/vistas/alquileres/gestion_recibo_pedido&idaviso=' + json.Items[0][i].id_aviso + '&codaviso=' + json.Items[0][i].codigo  + '&idinqu=' + json.Items[0][i].id_inqu  + '&codinqu=' + json.Items[0][i].inquilino  +  '&tipoinqu=' + json.Items[0][i].tipo  + '&monto=' + json.Items[0][i].total  + '&codinqu=' + json.Items[0][i].inquilino  +  '&idinqu=' + json.Items[0][i].id_inqu  +'"><i class="fa fa-tags"></i></a>';
+                                html += '<a title="recibo y Pedido"  href="index.php?url=app/vistas/alquileres/gestion_cliente&idaviso=' + json.Items[0][i].id_aviso + '&codaviso=' + json.Items[0][i].codigo  + '&idinqu=' + json.Items[0][i].id_inqu  + '&codinqu=' + json.Items[0][i].inquilino  +  '&tipoInqu=' + json.Items[0][i].tipo  + '&monto=' + json.Items[0][i].total + '&codinqu=' + json.Items[0][i].inquilino  +  '&idinqu=' + json.Items[0][i].id_inqu  +'"><i class="fa fa-exclamation-circle"></i></a>';
                                 html += '<a title="PDF" href="app/documentos/avcobro.pdf"  data-field-id="'  + json.Items[0][i].id_aviso + '" target="_blank"><i class="fa fa-file-pdf-o" alt=“PDF” ></i></a>';
                                 html += '<a title="Enviar notificación"  data-field-id="'  + json.Items[0][i].id_aviso + '"><i class="fa fa-envelope-open-o " alt=“email”></i></a>';
                                    
@@ -375,16 +359,12 @@ function buscarEstatus(prmValor){
  
                          // if (isEmpty(json.Items[0][i]) == false) {
                                  tr = $('<tr/>');
-
-                              
  
                                  tr.append("<td>" + json.Items[0][i].codigo + "</td>");
                                  tr.append("<td>" + fecha(json.Items[0][i].fecha,'YYYYMMDD','DD/MM/YYYY') + "</td>");
                                  tr.append("<td>" + json.Items[0][i].inquilino + "</td>");
                                  tr.append("<td>" + json.Items[0][i].inmueble + "</td>");
-                                 
-
-                                /* tr.append("<td>" + unidades(json.Items[0][i].unidad) + "</td>");*/
+                                 tr.append("<td>" + json.Items[0][i].unidad + "</td>");
                                  tr.append("<td>" + json.Items[0][i].mensualidad + "</td>");
                                  tr.append("<td>" + json.Items[0][i].gastos_esp + "</td>");
                                  tr.append("<td>" + json.Items[0][i].total + "</td>"); 
@@ -397,10 +377,8 @@ function buscarEstatus(prmValor){
                                
  
                                  html = '<div class="btn-group" style="font-size:1.3em; letter-spacing:0.5em;">';
-                                 html += '<a title="Respuesta"  href="index.php?url=app/vistas/alquileres/gestion_cliente&idaviso=' + json.Items[0][i].id_aviso + '&codaviso=' + json.Items[0][i].codigo  + '&idinqu=' + json.Items[0][i].id_inqu  + '&codinqu=' + json.Items[0][i].inquilino  +  '&tipoinqu=' + json.Items[0][i].tipo  + '&monto=' + json.Items[0][i].total  + '&codinqu=' + json.Items[0][i].inquilino +  '&idinqu=' + json.Items[0][i].id_inqu  +'"><i class="fa fa-exclamation-circle"></i></a>';
-                                 html += '<a title="Gastos_especilaes"  href="index.php?url=app/vistas/alquileres/gastos_especiales&idaviso=' + json.Items[0][i].id_aviso + '&codaviso=' + json.Items[0][i].codigo  + '&idinqu=' + json.Items[0][i].id_inqu  + '&codinqu=' + json.Items[0][i].inquilino  +  '&tipoinqu=' + json.Items[0][i].tipo  + '&monto=' + json.Items[0][i].total +  '&idinqu=' + json.Items[0][i].id_inqu  +   '&idinmu=' + json.Items[0][i].id_inmu  +   '&codinmu=' + json.Items[0][i].inmueble  +   '&idunid=' + json.Items[0][i].id_unid  +   '&codunid=' + json.Items[0][i].unidad  + '&idmes=' + json.Items[0][i].mes  +'"><i class="fa fa-money"></i></a>';
-                                   
-                                 html += '<a title="recibo y Pedido"  href="index.php?url=app/vistas/alquileres/gestion_recibo_pedido&idaviso=' + json.Items[0][i].id_aviso + '&codaviso=' + json.Items[0][i].codigo  + '&idinqu=' + json.Items[0][i].id_inqu  + '&codinqu=' + json.Items[0][i].inquilino  +  '&tipoinqu=' + json.Items[0][i].tipo  + '&monto=' + json.Items[0][i].total +  '&idinqu=' + json.Items[0][i].id_inqu  +   '&idinmu=' + json.Items[0][i].id_inmu  +   '&codinmu=' + json.Items[0][i].inmueble  +   '&idunid=' + json.Items[0][i].id_unid  +   '&codunid=' + json.Items[0][i].unidad  +'"><i class="fa fa-tags"></i></a>';
+                                 html += '<a title="Respuesta"  href="index.php?url=app/vistas/alquileres/gestion_recibo_pedido&idaviso=' + json.Items[0][i].id_aviso + '&codaviso=' + json.Items[0][i].codigo  + '&idinqu=' + json.Items[0][i].id_inqu  + '&codinqu=' + json.Items[0][i].inquilino  +  '&tipoinqu=' + json.Items[0][i].tipo  + '&monto=' + json.Items[0][i].total  + '&codinqu=' + json.Items[0][i].inquilino  +  '&idinqu=' + json.Items[0][i].id_inqu  +'"><i class="fa fa-tags"></i></a>';
+                                 html += '<a title="recibo y Pedido"  href="index.php?url=app/vistas/alquileres/gestion_cliente&idaviso=' + json.Items[0][i].id_aviso + '&codaviso=' + json.Items[0][i].codigo  + '&idinqu=' + json.Items[0][i].id_inqu  + '&codinqu=' + json.Items[0][i].inquilino  +  '&tipoinqu=' + json.Items[0][i].tipo  + '&monto=' + json.Items[0][i].total + '&codinqu=' + json.Items[0][i].inquilino  +  '&idinqu=' + json.Items[0][i].id_inqu  +'"><i class="fa fa-exclamation-circle"></i></a>';
                                  html += '<a title="PDF" href="app/documentos/avcobro.pdf"  data-field-id="'  + json.Items[0][i].id_aviso + '" target="_blank"><i class="fa fa-file-pdf-o" alt=“PDF” ></i></a>';
                                  html += '<a title="Enviar notificación"  data-field-id="'  + json.Items[0][i].id_aviso + '"><i class="fa fa-envelope-open-o " alt=“email”></i></a>';
                                 

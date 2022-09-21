@@ -11,7 +11,7 @@
 
 
         <div style="text-align: left;">
-            <span id="lblPropietario"><strong>PROPIETARIO : </strong></span>
+            <span id="lblPropietario"><strong>APODERADO : </strong></span>
             <br/><br/>
         </div>
         
@@ -22,7 +22,7 @@
                 DOCUMENTOS CONSIGNADOS
             </div>
             <div class="card-body">
-                <table id="datosDocumentos">
+                <table id="DocumentosApoderados">
                     <thead>
                         <tr>
 

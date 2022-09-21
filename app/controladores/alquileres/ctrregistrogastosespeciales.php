@@ -47,11 +47,11 @@ class ctrregistrogastosespeciales{
     }
 
 
-    public function seleccionarconsultagastos($datos){
+    public function seleccionarconsultagastos($prmid_inmu,$prmid_unid,$prmid_innq,$prmtipo_inqui){
 
         $tabla = "gastos_especiales";
         $modelo =  new mdlregistrogastosespesiales();
-        $respuestas =  $modelo->seleccionarconsultagastos($tabla,$datos,null);
+        $respuestas =  $modelo->seleccionarconsultagastos($prmid_inmu,$prmid_unid,$prmid_innq,$prmtipo_inqui);
         return $respuestas;
     }
 

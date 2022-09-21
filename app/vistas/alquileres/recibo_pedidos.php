@@ -11,7 +11,7 @@ include("layout/menuNavegacion.php");
 
     
         
-        <h4 class="card-title">AVISO DE COBRO</h4>
+        <h4 class="card-title">RECIBO Y PEDIDOS</h4>
 
         
         
@@ -26,8 +26,8 @@ include("layout/menuNavegacion.php");
                 <ol>
                    
                     <button type="button" class="btn btn-outline-secondary" onclick="buscarEstatus(0);">Todos</button>
-                    <button type="button" class="btn btn-outline-primary" onclick="buscarEstatus(1);">Enviados</button>
-                    <button type="button" class="btn btn-outline-success" onclick="buscarEstatus(2);">Pendiente</button>
+                    <button type="button" class="btn btn-outline-primary" onclick="buscarEstatus(1);">Recibo</button>
+                    <button type="button" class="btn btn-outline-success" onclick="buscarEstatus(2);">Pedidos</button>
 
                 </ol>
             </div>
@@ -63,15 +63,7 @@ include("layout/menuNavegacion.php");
                                                                 </select>
                                                             </div>
                                                                 
-                                                            
 
-                                                                <div class="col-md-6">
-                                                                        <input type="text" class="form-control" id="nom_inqu" name="nom_inqu" placeholder="Buscar Cliente:">
-                                                                </div>
-                                                                <br>
-                                                                <div class="col-md-2">
-                                                                        <button type="button" class="btn btn-primary mb-2" onclick="buscarInquilino();">Buscar</button>
-                                                                </div>
                                                     </div>
                                          
                                         </div>
@@ -80,19 +72,24 @@ include("layout/menuNavegacion.php");
                                         <div class="card-body">
 
                                             <div class="table-responsive">
-                                                <table id="datosAvisoCobro">
+                                                <table id="datosReciboPedido">
                                                 <thead>
                                                     <tr>
-                                                        <th>codigo</th>
-                                                        <th>Fecha</th>
+                                                        
+                                                        <th>mes</th>
                                                         <th>Inquilino</th>
                                                         <th>Inmueble</th>
-                                                        <th>Mensualidad</th>
-                                                        <th>Gastos especiales</th>
+                                                        <th>Aviso Cobro</th>
+                                                        <th>Recibo</th>
+                                                        <th>Pedido</th>
+                                                      
+                                                        <th>monto_recibo</th>
+                                                        <th>monto_pedido</th>
                                                         <th>Total</th>
-                                                        <th>Estatus</th>
-                                                        <th>Respuestas</th>
+                                                 
                                                         <th>Acciones</th>
+
+
                                                                             
                                                     </tr>
                                                 </thead>
@@ -116,4 +113,4 @@ include("layout/menuNavegacion.php");
 
 
 <script src="js/comunes/funciones.js"></script>
-<script src="js/alquileres/aviso_cobro.js"></script>
+<script src="js/alquileres/recibo_pedido.js"></script>

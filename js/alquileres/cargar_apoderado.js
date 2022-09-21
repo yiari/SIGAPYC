@@ -6,10 +6,16 @@ function inicio(){
     | ASI SE CAPTURAN LOS PARAMETROS
     |---------------------------------------
     */
+
+    $('#tip_apod').val(getParameterByName('codtipo'));
+
+
    let idPropietario = getParameterByName('idpro');
    let prmCodPro = getParameterByName('codpro');
 
    let idApoderado = getParameterByName('idapod');
+
+ 
     /*--------------------------------------*/    
 
     codigoPropietario(prmCodPro);
@@ -116,9 +122,10 @@ console.log("Items Resultados: " + json.Items[0].length);
                                     var html="";
                                     var htmlapoderado = "";
 
-                                    html = '<div class="btn-group" style="font-size:1.3em; letter-spacing:0.5em;">';
+                                    html = '<div class="btn-group" style="font-size:1.3em; letter-spacing:0.2em;">';
                                     htmlapoderado='<a title="Editar Apoderado" href="index.php?url=app/vistas/alquileres/editar_apoderado&idapod=' + json.Items[0][i].id_apod  + '&codapod=' + json.Items[0][i].codigo  + '&idpro=' + json.Items[0][i].id_prop  + '&codpro=' + json.Items[0][i].cod_prop  + '"><i class="fa fa-edit" alt=“editar”></i></a>&nbsp;';
                                     html += htmlapoderado;
+                                    html += '<a title="Documento" href="index.php?url=app/vistas/alquileres/documentosapoderado&idapod=' + json.Items[0][i].id_apod  + '&codapod=' + json.Items[0][i].codigo  +  '&codtipo=' + json.Items[0][i].tip_apod  + '&idpro=' + json.Items[0][i].id_prop  + '&codpro=' + json.Items[0][i].cod_prop  + '"><i class="fa fa-address-card-o"></i></a>&nbsp;';
                                     html += '<a title="eliminar"  data-field-id="'  + json.Items[0][i].id_apod + '"><i class="fa fa-trash" alt=“eliminar”></i></a>';
                                     html += '</div>'
                                     tr.append("<td>" + html + "</td>");

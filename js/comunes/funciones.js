@@ -75,6 +75,115 @@ function syncDelay(milliseconds){
  }
 
 
+ function unidades(valor){
+
+  let resultado = "";
+
+  if(valor == null){
+    resultado = "SIN UNIDAD";
+  } else if (valor == "0"){
+    resultado = "SIN UNIDAD";
+  }
+
+  return resultado;
+
+ }
+
+ function documento(valor){
+
+  let resultado = "";
+
+  if(valor == "regmen_docu"){
+    resultado = "Registro mercantil";
+  } 
+
+  if(valor == "cedu_docu"){
+    resultado = "Cédula";
+  } 
+
+  if(valor == "ced_docu"){
+    resultado = "Cédula";
+  } 
+  
+
+  if(valor == "rif_docu"){
+    resultado = "Rif";
+  }
+
+  if(valor == "autopro_docu"){
+    resultado = "Autorización del Propietario";
+  }
+
+  if(valor == "refper_docu"){
+    resultado = "Referencias Personales";
+  }
+
+  if(valor == "reffam_docu"){
+    resultado = "Referencias Familiares";
+  }
+
+  if(valor == "ponot_docu"){
+    resultado = "Poder notariado";
+  }
+
+  if(valor == "regnot_docu"){
+    resultado = "Registros Notariado";
+  }
+
+  if(valor == "fica_docu"){
+    resultado = "Ficha Catastral";
+  }
+
+  if(valor == "propi_docu"){
+    resultado = "Documento de Propiedad";
+  }
+
+  if(valor == "derfren_docu"){
+    resultado = "Planilla Derecho de Frente";
+  }
+
+  if(valor == "serv_docu"){
+    resultado = "Servicios";
+  }
+
+  if(valor == "serv_docu"){
+    resultado = "Servicios";
+  }
+
+  if(valor == "refban_docu"){
+    resultado = "Referencias Bancarias";
+  }
+
+  if(valor == "refcom_docu"){
+    resultado = "Referencias Comerciales";
+  }
+
+  if(valor == "refarre_docu"){
+    resultado = "Referencia del Arrendandor Actual";
+  }
+
+  if(valor == "conarre_docu"){
+    resultado = "Contrato de Arrendamiento";
+  }
+
+  if(valor == "actcons_docu"){
+    resultado = "Acta Constitutiva";
+  }
+
+  if(valor == "actultasam_docu"){
+    resultado = "Acta de última Asamblea";
+  }
+
+
+  return resultado;
+
+ }
+ 
+
+
+
+
+
 
  /*
  |---------------------------------------------------------
