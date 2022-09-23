@@ -507,10 +507,30 @@ function consultarGestionCliente(idInqu,tipoInqu){
     }
  
     
+      
+
        if ($("#recibo").val() == "") {
-           mensaje("Debe indicar el monto del recibo o pedido",1);
-           return;
-       }
+      
+        var mensualidad = $("#mensualidad").val(); 
+        var monto = $("#recibo").val();
+
+        if (monto==""){
+                mensaje("Debe indicar el monto del recibo o pedido",1);
+                document.fvalida.monto.focus()
+                return 0;
+        }else{
+                if (monto < mensualidad){
+                        mensaje("El es menor del recibo es menos que el total a cancelar.",1);
+                        document.fvalida.monto.focus()
+                        return 0;
+                }
+        } 
+
+    }
+
+            
+
+
     
      
     

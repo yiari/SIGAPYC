@@ -20,14 +20,19 @@ include("layout/menuNavegacion.php");
                
                          <ol>          
                             <a class="btn btn-outline-secondary " href="index.php?url=app/vistas/alquileres/propietarios"  role="button">Atras</a>
-                            <a href="app/reportes/repfichaPropietario.php" target="_blank" class="btn btn-outline-secondary codpro" role="button"><i class="fa fa-file-pdf-o" alt=“PDF” ></i> Imprimir</a>
+                            <a href="app/reportes/repfichapropietario.php" target="_blank" class="btn btn-outline-secondary codpro" role="button"><i class="fa fa-file-pdf-o" alt=“PDF” ></i> Imprimir</a>
                          </ol>
             </div>
             <div class="tab-content" id="nav-tabContent">
 
+                    
+
                     <div class="col-12 grid-margin">
                         <!--datos_generales-->
                         <div class="card">
+
+
+
                             <div class="card-body">
                                 <form class="form-sample" id="registrarpropietario" name="registrarpropietario" method="POST" action="" autocomplete="off" enctype="multipart/form-data">
                                         
@@ -54,156 +59,7 @@ include("layout/menuNavegacion.php");
                                                     <input type="text" class="form-control" id="registroCodigo" name="registroCodigo" autofocus readonly="yes" value=''>
                                                 </div>
                                             </div>
-                                            <!--<div class="col-md-3">
-                                                <label class="col-sm-12 col-form-label">Nombre:</label>
-                                                <div class="col-sm-12">
-                                                    <input type="text" class="form-control" id="registroNombre" name="registroNombre" readonly="yes" value=''>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <label class="col-sm-12 col-form-label">Apellido:</label>
-                                                <div class="col-sm-12">
-                                                    <input type="text" class="form-control" id="registroApellido" name="registroApellido" readonly="yes" value=''>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                  <div class="row">
-                                                            <label for="registroNacionalidad" class="col-sm-12 col-form-label">Cédula de Identidad</label>
-                                                            
-                                                            <div class="col-sm-7">
-                                                                <input for="registroCedula" type="text" class="form-control" id="registroCedula" name="registroCedula" value='' readonly="yes" >
-                                                            </div>
-                                                        </div>
-                                            </div>
                                             
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-3">
-                                                <label class="col-sm-5 col-form-label">Rif:</label>
-                                                <div class="col-sm-12">
-                                                    <input type="text" class="form-control" id="registroRif" name="registroRif" readonly="yes" value=''>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <label class="col-sm-8 col-form-label">Teléfono local:</label>
-                                                <div class="col-sm-12">
-                                                    <input type="text" class="form-control" id="registroTelefono" name="registroTelefono" readonly="yes" value=''>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <label class="col-sm-9 col-form-label">Celular:</label>
-                                                <div class="col-sm-12">
-                                                    <input type="text" class="form-control" id="registroCelular" name="registroCelular" readonly="yes" value=''>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <label class="col-sm-3 col-form-label">Correo:</label>
-                                                <div class="col-sm-12">
-                                                    <input type="text" class="form-control" id="registroEmail" name="registroEmail" readonly="yes" value=''>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div><br>-->
-
-                                <!--datos bancarios-->
-                                <!--<div class="card">
-                                    <div class="card-body">
-                                                <div class="col text-center">
-                                                    <h5 class="card-title">Datos cuentas Nacionales</h5>
-                                                </div>
-                                                <div class="row">
-                                                    
-                                                        <div class="col-md-6">
-                                                            <label for="cboBancoN" class="col-sm-10 col-form-label">Bancos Nacional:</label></br>
-                                                            <div class="col-sm-12">
-                                                                <select class="form-control"  id="cboBancoN" name="cboBancoN" ></select>
-                                                            </div>
-                                                       </div>
-  
-                                                    <div class="col-md-6">
-                                                        <label class="col-sm-9 col-form-label">Cuenta:</label>
-                                                        <div class="col-sm-12">
-                                                            <input type="text" class="form-control" id="num_cuen" name="num_cuen" maxlength="20" readonly="yes"><br>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-12">
-                                                        <div class="input-group">
-                                                            <span class="input-group-text">Pago Movil</span>
-                                                            <input type="text" placeholder="cedula" id="ced_pmov" name="ced_pmov" aria-label="Cédula" readonly="yes" class="form-control">
-                                                            <select class="form-control"  id="cboBancoNP" name="cboBancoNP"></select>
-                                                            <input type="text" placeholder="celular" id="cel_pmov" name="cel_pmov" aria-label="Celular" readonly="yes" class="form-control">
-                                                        </div><br>
-                                                    </div>  
-                                                </div>
-
-                                                <div class="col text-center">
-                                                    <h5 class="card-title">Datos cuentas Internacionales</h5>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-2">
-                                                        <label class="col-sm-10 col-form-label">Banco Extranjero:</label>
-                                                        <div class="col-sm-12">
-                                                            <input type="text" class="form-control" id="ban_extr" name="ban_extr" readonly="yes">
-
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-1">
-                                                        <label class="col-sm-12 col-form-label">Agencia:</label>
-                                                        <div class="col-sm-12">
-                                                            <input type="text" class="form-control" id="age_extr" name="age_extr" readonly="yes">
-
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-1">
-                                                        <label class="col-sm-12 col-form-label">DC:</label>
-                                                        <div class="col-sm-12">
-                                                            <input type="text" class="form-control" id="dc_extr" name="dc_extr" readonly="yes"><br>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-2">
-                                                        <label class="col-sm-12 col-form-label">Cuenta:</label>
-                                                        <div class="col-sm-12">
-                                                            <input type="text" class="form-control" id="cue_extr" name="cue_extr" readonly="yes"><br>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-4">
-                                                        <label class="col-sm-12 col-form-label">IBAN:</label>
-                                                        <div class="col-sm-12">
-                                                            <input type="text" class="form-control" id="iba_extr" name="iba_extr" readonly="yes"><br>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-2">
-                                                        <label class="col-sm-12 col-form-label">BIC o SWIFT:</label>
-                                                        <div class="col-sm-12">
-                                                            <input type="text" class="form-control" id="bic_extr" name="bic_extr" readonly="yes"><br>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="row">
-                                                   <div class="col-md-6">
-                                                        <div class="input-group">
-                                                            <span for="cor_payp" class="input-group-text">Cuenta Paypal:</span>
-                                                            <input type="text" class="form-control" placeholder="correo" id="cor_payp" name="cor_payp" readonly="yes">
-                                                            <input type="hidden" id="nom_payp" name="nom_payp" value='0'>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="col-md-6">
-                                                        <div class="input-group">
-                                                            <span class="input-group-text">Cuenta Zelle</span>
-                                                            <input type="text" class="form-control" placeholder="telefono" id="tel_zelle" name="tel_zelle" readonly="yes">
-                                                            <input type="text" class="form-control" placeholder="correo" id="cor_zelle" name="cor_zelle" readonly="yes">
-                                                            <input type="text" class="form-control" placeholder="nombre" id="nom_zelle" name="nom_zelle" readonly="yes">
-                                                        </div>
-                                                    </div>
-
-                                                </div>
-                                            </div>
-                                </div><br>-->
 
                             </div>
                         </div>

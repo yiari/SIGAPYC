@@ -32,11 +32,47 @@ function inicio(){
 
     let idapoderado = getParameterByName('idapod');
     let prmCodapode = getParameterByName('codapod');
+    let prmTipoApod = 1;
     
     
 
     codigoApoderado(prmCodapode)
-    documentoApoderado(idapoderado,prmCodapode);
+    documentoApoderado(idapoderado,prmCodapode,prmTipoApod);
+
+
+
+    let idrepresentante = getParameterByName('idrepr');
+    let prmCodrepr = getParameterByName('codrepre');
+    let prmTipoRepr = 2;
+
+
+    documentoRepresentante(idrepresentante,prmCodrepr,prmTipoRepr);
+    codigoRepresentante(prmCodrepr);
+
+    let idpagador  = getParameterByName('idpaga');
+    let prmCodPaga = getParameterByName('codpaga');
+    let prmTipoPaga = getParameterByName('codtip');
+
+    codigopPagador(prmCodPaga);
+    documentoPagador(idpagador,prmCodPaga,prmTipoPaga);
+
+
+    let idinmueble  = getParameterByName('idinmu');
+    let prmCodInmu = getParameterByName('codinmu');
+    let prmTipoInmu = 1;
+
+    codigopInmuebles(prmCodInmu);
+    documentoInmueble(idinmueble,prmCodInmu,prmTipoInmu);
+
+
+    let idunidad  = getParameterByName('idunid');
+    let prmCodUnid = getParameterByName('codunid');
+    let prmTipoUnid = 1;
+
+
+    codigopUnidad(prmCodUnid);
+    documentoUnidad(idunidad,prmCodUnid,prmTipoUnid)
+
 }
 
 
@@ -68,8 +104,8 @@ function codigoInquilino(prmDato){
     }
     
 
-    $("#lblPropietario").html('');
-    $("#lblPropietario").html(html);
+    $("#lblInmueble").html('');
+    $("#lblInmueble").html(html);
 
 
 
@@ -106,6 +142,76 @@ function codigoApoderado(prmDato){
 
     $("#lblPropietario").html('');
     $("#lblPropietario").html(html);
+
+
+
+}
+
+
+function codigoRepresentante(prmDato){
+
+    var html = "";
+
+    
+    if(prmDato != 0 && prmDato != ""){
+        html='<strong>REPRESENTANTE : </strong>'  + prmDato +'</span>';
+    }
+    
+
+    $("#lblRepresentante").html('');
+    $("#lblRepresentante").html(html);
+
+
+
+}
+
+function codigopPagador(prmDato){
+
+    var html = "";
+
+    
+    if(prmDato != 0 && prmDato != ""){
+        html='<strong>PAGADOR : </strong>'  + prmDato +'</span>';
+    }
+    
+
+    $("#lblPagador").html('');
+    $("#lblPagador").html(html);
+
+
+
+}
+
+function codigopInmuebles(prmDato){
+
+    var html = "";
+
+    
+    if(prmDato != 0 && prmDato != ""){
+        html='<strong>INMUEBLE : </strong>'  + prmDato +'</span>';
+    }
+    
+
+    $("#lblInmueble").html('');
+    $("#lblInmueble").html(html);
+
+
+
+}
+
+
+function codigopUnidad(prmDato){
+
+    var html = "";
+
+    
+    if(prmDato != 0 && prmDato != ""){
+        html='<strong>UNIDAD : </strong>'  + prmDato +'</span>';
+    }
+    
+
+    $("#lblUnidad").html('');
+    $("#lblUnidad").html(html);
 
 
 
@@ -465,6 +571,369 @@ function documentoApoderado(idapoderado,prmCodapod,prmTipoApod){
                     }
 
                     new simpleDatatables.DataTable("#DocumentosApoderados");
+               
+                }   
+
+        },
+        error: function (e) {
+            $("#error").html(e).fadeIn();
+        }
+    });
+
+}
+
+
+
+
+function documentoRepresentante(idrepresentante,prmCodrepr,prmTipoRepr){
+
+    /*
+    |-----------------------------------------------------
+    | AQUI SE AGREGA UN PARAMETRO ADICIONAL AL FORMULARIO 
+    |-----------------------------------------------------
+    */
+    var formData = new FormData();
+
+    formData.append('opcion','DR');
+    formData.append('id_repr',idrepresentante);
+    formData.append('tipo_representante',prmTipoRepr);
+
+    /*
+    |-----------------------------------------------
+    | AQUI SE LLAMA EL AJAX 
+    |-----------------------------------------------
+    */
+    $.ajax({
+        url: "app/handler/alquileres/hndregistrosdocumentos.php",
+        data: formData,
+        processData: false,
+        contentType: false,
+        type: 'POST',
+        beforeSend: function () {
+            //$("#preview").fadeOut();
+            $("#error").fadeOut();
+        },
+        success: function (data) {
+        var json = data;
+        var html = "";
+/*
+        console.log(json);
+        console.log("Este es el Mensaje: " + json.mensaje);
+        console.log("Items: " + json.Items.length);
+        console.log("Items Resultados: " + json.Items[0].length);
+        console.log("Email Resultados: " + json.Items[0][1].email);
+*/
+                /*
+                |------------------------------------------------------
+                | AQUI SE CARGA LA INFORMACION EN LA TABLA
+                |------------------------------------------------------
+                */
+                if(json.Items.length > 0){
+                    var tr;
+
+                    if(json.Items[0].length > 0){
+                        
+                        for (var i = 0; i < json.Items[0].length; i++) {
+                
+                       // if (isEmpty(json.Items[0][i]) == false) {
+                            tr = $('<tr/>');
+                            
+                         
+                            tr.append("<td>" + documento(json.Items[0][i].documento) + "</td>");
+                           
+
+                            var html="";
+                            
+                            html += '<a title="Ver"  href="'+ json.Items[0][i].ver + '" target="_blank"><i class="fa fa-eye" aria-hidden="true"></i></a>&nbsp;';
+                            html += '<a title="Eliminar"  data-field-id="'  + json.Items[0][i].id + '"><i class="fa fa-trash fa-5" alt=“eliminar”></i></a>';
+                            html += '</div>'
+                            tr.append("<td>" + html + "</td>");
+                            $('#DocumentosRepresentante').append(tr);
+                        //}
+                    }
+
+                } else {
+
+                    var tr;
+                    tr = $('<tr/>');
+                    tr.append("<td colspan=6 style='text-align:center'>NO HAY INFORMACION REGISTRADA</td>");
+                    $('#DocumentosRepresentante').append(tr);
+
+                    }
+
+                    new simpleDatatables.DataTable("#DocumentosRepresentante");
+               
+                }   
+
+        },
+        error: function (e) {
+            $("#error").html(e).fadeIn();
+        }
+    });
+
+}
+
+
+
+
+function documentoPagador(idpagador,prmCodPaga,prmTipoPaga){
+
+    /*
+    |-----------------------------------------------------
+    | AQUI SE AGREGA UN PARAMETRO ADICIONAL AL FORMULARIO 
+    |-----------------------------------------------------
+    */
+    var formData = new FormData();
+
+    formData.append('opcion','DP');
+    formData.append('id_paga',idpagador);
+    formData.append('tipo_pagador',prmTipoPaga);
+
+    /*
+    |-----------------------------------------------
+    | AQUI SE LLAMA EL AJAX 
+    |-----------------------------------------------
+    */
+    $.ajax({
+        url: "app/handler/alquileres/hndregistrosdocumentos.php",
+        data: formData,
+        processData: false,
+        contentType: false,
+        type: 'POST',
+        beforeSend: function () {
+            //$("#preview").fadeOut();
+            $("#error").fadeOut();
+        },
+        success: function (data) {
+        var json = data;
+        var html = "";
+/*
+        console.log(json);
+        console.log("Este es el Mensaje: " + json.mensaje);
+        console.log("Items: " + json.Items.length);
+        console.log("Items Resultados: " + json.Items[0].length);
+        console.log("Email Resultados: " + json.Items[0][1].email);
+*/
+                /*
+                |------------------------------------------------------
+                | AQUI SE CARGA LA INFORMACION EN LA TABLA
+                |------------------------------------------------------
+                */
+                if(json.Items.length > 0){
+                    var tr;
+
+                    if(json.Items[0].length > 0){
+                        
+                        for (var i = 0; i < json.Items[0].length; i++) {
+                
+                       // if (isEmpty(json.Items[0][i]) == false) {
+                            tr = $('<tr/>');
+                            
+                         
+                            tr.append("<td>" + documento(json.Items[0][i].documento) + "</td>");
+                           
+
+                            var html="";
+                            
+                            html += '<a title="Ver"  href="'+ json.Items[0][i].ver + '" target="_blank"><i class="fa fa-eye" aria-hidden="true"></i></a>&nbsp;';
+                            html += '<a title="Eliminar"  data-field-id="'  + json.Items[0][i].id + '"><i class="fa fa-trash fa-5" alt=“eliminar”></i></a>';
+                            html += '</div>'
+                            tr.append("<td>" + html + "</td>");
+                            $('#datosPagador').append(tr);
+                        //}
+                    }
+
+                } else {
+
+                    var tr;
+                    tr = $('<tr/>');
+                    tr.append("<td colspan=6 style='text-align:center'>NO HAY INFORMACION REGISTRADA</td>");
+                    $('#datosPagador').append(tr);
+
+                    }
+
+                    new simpleDatatables.DataTable("#datosPagador");
+               
+                }   
+
+        },
+        error: function (e) {
+            $("#error").html(e).fadeIn();
+        }
+    });
+
+}
+
+
+
+function documentoInmueble(idinmueble,prmCodInmu,prmTipoInmu){
+
+    /*
+    |-----------------------------------------------------
+    | AQUI SE AGREGA UN PARAMETRO ADICIONAL AL FORMULARIO 
+    |-----------------------------------------------------
+    */
+    var formData = new FormData();
+
+    formData.append('opcion','DIN');
+    formData.append('id_inmu',idinmueble);
+    formData.append('tipo_inmueble',prmTipoInmu);
+
+    /*
+    |-----------------------------------------------
+    | AQUI SE LLAMA EL AJAX 
+    |-----------------------------------------------
+    */
+    $.ajax({
+        url: "app/handler/alquileres/hndregistrosdocumentos.php",
+        data: formData,
+        processData: false,
+        contentType: false,
+        type: 'POST',
+        beforeSend: function () {
+            //$("#preview").fadeOut();
+            $("#error").fadeOut();
+        },
+        success: function (data) {
+        var json = data;
+        var html = "";
+/*
+        console.log(json);
+        console.log("Este es el Mensaje: " + json.mensaje);
+        console.log("Items: " + json.Items.length);
+        console.log("Items Resultados: " + json.Items[0].length);
+        console.log("Email Resultados: " + json.Items[0][1].email);
+*/
+                /*
+                |------------------------------------------------------
+                | AQUI SE CARGA LA INFORMACION EN LA TABLA
+                |------------------------------------------------------
+                */
+                if(json.Items.length > 0){
+                    var tr;
+
+                    if(json.Items[0].length > 0){
+                        
+                        for (var i = 0; i < json.Items[0].length; i++) {
+                
+                       // if (isEmpty(json.Items[0][i]) == false) {
+                            tr = $('<tr/>');
+                            
+                         
+                            tr.append("<td>" + documento(json.Items[0][i].documento) + "</td>");
+                           
+
+                            var html="";
+                            
+                            html += '<a title="Ver"  href="'+ json.Items[0][i].ver + '" target="_blank"><i class="fa fa-eye" aria-hidden="true"></i></a>&nbsp;';
+                            html += '<a title="Eliminar"  data-field-id="'  + json.Items[0][i].id + '"><i class="fa fa-trash fa-5" alt=“eliminar”></i></a>';
+                            html += '</div>'
+                            tr.append("<td>" + html + "</td>");
+                            $('#datosInmueble').append(tr);
+                        //}
+                    }
+
+                } else {
+
+                    var tr;
+                    tr = $('<tr/>');
+                    tr.append("<td colspan=6 style='text-align:center'>NO HAY INFORMACION REGISTRADA</td>");
+                    $('#datosInmueble').append(tr);
+
+                    }
+
+                    new simpleDatatables.DataTable("#datosInmueble");
+               
+                }   
+
+        },
+        error: function (e) {
+            $("#error").html(e).fadeIn();
+        }
+    });
+
+}
+
+
+
+
+function documentoUnidad(idUnidad,prmCodUnid,prmTipoUnid){
+
+    /*
+    |-----------------------------------------------------
+    | AQUI SE AGREGA UN PARAMETRO ADICIONAL AL FORMULARIO 
+    |-----------------------------------------------------
+    */
+    var formData = new FormData();
+
+    formData.append('opcion','DU');
+    formData.append('id_unid',idUnidad);
+    formData.append('tipo_unidad',prmTipoUnid);
+
+    /*
+    |-----------------------------------------------
+    | AQUI SE LLAMA EL AJAX 
+    |-----------------------------------------------
+    */
+    $.ajax({
+        url: "app/handler/alquileres/hndregistrosdocumentos.php",
+        data: formData,
+        processData: false,
+        contentType: false,
+        type: 'POST',
+        beforeSend: function () {
+            //$("#preview").fadeOut();
+            $("#error").fadeOut();
+        },
+        success: function (data) {
+        var json = data;
+        var html = "";
+/*
+        console.log(json);
+        console.log("Este es el Mensaje: " + json.mensaje);
+        console.log("Items: " + json.Items.length);
+        console.log("Items Resultados: " + json.Items[0].length);
+        console.log("Email Resultados: " + json.Items[0][1].email);
+*/
+                /*
+                |------------------------------------------------------
+                | AQUI SE CARGA LA INFORMACION EN LA TABLA
+                |------------------------------------------------------
+                */
+                if(json.Items.length > 0){
+                    var tr;
+
+                    if(json.Items[0].length > 0){
+                        
+                        for (var i = 0; i < json.Items[0].length; i++) {
+                
+                       // if (isEmpty(json.Items[0][i]) == false) {
+                            tr = $('<tr/>');
+                            
+                         
+                            tr.append("<td>" + documento(json.Items[0][i].documento) + "</td>");
+                           
+
+                            var html="";
+                            
+                            html += '<a title="Ver"  href="'+ json.Items[0][i].ver + '" target="_blank"><i class="fa fa-eye" aria-hidden="true"></i></a>&nbsp;';
+                            html += '<a title="Eliminar"  data-field-id="'  + json.Items[0][i].id + '"><i class="fa fa-trash fa-5" alt=“eliminar”></i></a>';
+                            html += '</div>'
+                            tr.append("<td>" + html + "</td>");
+                            $('#datosUnidad').append(tr);
+                        //}
+                    }
+
+                } else {
+
+                    var tr;
+                    tr = $('<tr/>');
+                    tr.append("<td colspan=6 style='text-align:center'>NO HAY INFORMACION REGISTRADA</td>");
+                    $('#datosInmueble').append(tr);
+
+                    }
+
+                    new simpleDatatables.DataTable("#datosInmueble");
                
                 }   
 

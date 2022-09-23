@@ -220,7 +220,162 @@ if($operacion == "DA"){
   | AQUI OBTENGO EL RESULTADO DE LA EJECUCION
   |---------------------------------------------
   */
-    $result = $registroDocumentos->documetoApoderado($prmid_apod,$tipo);
+    $result = $registroDocumentos->documetoApoderado($prmid_apod,$prmtipo);
+   
+   /*
+   |-------------------------------------------
+   | AQUI REGRESO EL RESULTADO AL AJAX
+   |-------------------------------------------
+   */
+   header('Content-Type: application/json');
+   return $result;
+    
+}
+
+
+
+/* 
+ |--------------------------------------------------------------
+ | AQUI SE EJECUTA LA OPERACION DE CONSULTAR TODOS LOS USUARIOS
+ |--------------------------------------------------------------
+*/
+
+if($operacion == "DR"){
+
+
+   $prmid_repre = $_POST["id_repr"];
+   $prmtipo = $_POST["tipo_representante"];
+
+  /*
+   |-------------------------------------------
+   | AQUI CREO UNA INSTANCIA DE LA CLASE
+   |-------------------------------------------
+   */
+   
+   $registroDocumentos =  new ctrregistrosdocumentos();
+
+  /* 
+  |---------------------------------------------
+  | AQUI OBTENGO EL RESULTADO DE LA EJECUCION
+  |---------------------------------------------
+  */
+    $result = $registroDocumentos->documetoPresentante($prmid_repre,$prmtipo);
+   
+   /*
+   |-------------------------------------------
+   | AQUI REGRESO EL RESULTADO AL AJAX
+   |-------------------------------------------
+   */
+   header('Content-Type: application/json');
+   return $result;
+    
+}
+
+
+/* 
+ |--------------------------------------------------------------
+ | AQUI SE EJECUTA LA OPERACION DE CONSULTAR TODOS LOS USUARIOS
+ |--------------------------------------------------------------
+*/
+
+if($operacion == "DP"){
+
+
+   $prmid_paga = $_POST["id_paga"];
+   $prmtipo = $_POST["tipo_pagador"];
+
+  /*
+   |-------------------------------------------
+   | AQUI CREO UNA INSTANCIA DE LA CLASE
+   |-------------------------------------------
+   */
+   
+   $registroDocumentos =  new ctrregistrosdocumentos();
+
+  /* 
+  |---------------------------------------------
+  | AQUI OBTENGO EL RESULTADO DE LA EJECUCION
+  |---------------------------------------------
+  */
+    $result = $registroDocumentos->documetoPagador($prmid_paga,$prmtipo);
+   
+   /*
+   |-------------------------------------------
+   | AQUI REGRESO EL RESULTADO AL AJAX
+   |-------------------------------------------
+   */
+   header('Content-Type: application/json');
+   return $result;
+    
+}
+
+
+
+/* 
+ |--------------------------------------------------------------
+ | AQUI SE EJECUTA LA OPERACION DE CONSULTAR TODOS LOS USUARIOS
+ |--------------------------------------------------------------
+*/
+
+if($operacion == "DIN"){
+
+
+   $prmid_inmu = $_POST["id_inmu"];
+   $prmtipo = $_POST["tipo_inmueble"];
+
+  /*
+   |-------------------------------------------
+   | AQUI CREO UNA INSTANCIA DE LA CLASE
+   |-------------------------------------------
+   */
+   
+   $registroDocumentos =  new ctrregistrosdocumentos();
+
+  /* 
+  |---------------------------------------------
+  | AQUI OBTENGO EL RESULTADO DE LA EJECUCION
+  |---------------------------------------------
+  */
+    $result = $registroDocumentos->documetoInmueble($prmid_inmu,$prmtipo);
+   
+   /*
+   |-------------------------------------------
+   | AQUI REGRESO EL RESULTADO AL AJAX
+   |-------------------------------------------
+   */
+   header('Content-Type: application/json');
+   return $result;
+    
+}
+
+
+
+/* 
+ |--------------------------------------------------------------
+ | AQUI SE EJECUTA LA OPERACION DE CONSULTAR TODOS LOS USUARIOS
+ |--------------------------------------------------------------
+*/
+
+if($operacion == "DU"){
+
+
+   $prmid_unid = $_POST["id_unid"];
+   $prmtipo = $_POST["tipo_unidad"];
+
+  /*
+   |-------------------------------------------
+   | AQUI CREO UNA INSTANCIA DE LA CLASE
+   |-------------------------------------------
+   */
+   
+   $registroDocumentos =  new ctrregistrosdocumentos();
+
+  /* 
+  |---------------------------------------------
+  | AQUI OBTENGO EL RESULTADO DE LA EJECUCION
+  |---------------------------------------------
+  */
+    $result = $registroDocumentos->documetoUnidad($prmid_unid,$prmtipo);
    
    /*
    |-------------------------------------------

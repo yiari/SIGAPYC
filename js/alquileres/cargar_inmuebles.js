@@ -198,6 +198,10 @@ function cargarInmueble(idPropietario,idInmueble,prmTipo,prmCodInmu,prmcodPropie
                                     
                                     html += '<a title="Mandato y Contratos"  href="index.php?url=app/vistas/alquileres/contratos_mandatos&idinmu=' + json.Items[0][i].id_inmu   + '&codinmu=' + json.Items[0][i].codigo  + '"><i class="fa fa-file-text-o"></i></a>&nbsp;';
                                    
+
+                                    html += '<a title="Documento" href="index.php?url=app/vistas/alquileres/documentosinmueble&idinmu=' + json.Items[0][i].id_inmu   + '&codinmu=' + json.Items[0][i].codigo  + '"><i class="fa fa-address-card-o"></i></a>&nbsp;';
+
+
                                     html += '<a title="Eliminar"  data-field-id="'  + json.Items[0][i].id + '"><i class="fa fa-trash" alt=“eliminar”></i></a>';
                                     html += '</div>'
                                     tr.append("<td>" + html + "</td>");

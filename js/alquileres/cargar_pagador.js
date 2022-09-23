@@ -11,10 +11,12 @@ function inicio(){
     let prmCodInq = getParameterByName('codinq');
     let prmTipo = getParameterByName('codtip');
     /*--------------------------------------*/    
-
+    let idpagador = getParameterByName('idpaga');
+   
+   
     codigoInquilino(prmCodInq);
 
-    cargarPagador(idInquilino, prmTipo);
+    cargarPagador(idInquilino,prmTipo,idpagador);
 
     nuevoPagador(idInquilino,prmCodInq, prmTipo);
 
@@ -116,6 +118,8 @@ function cargarPagador(prmDato, prmTipo){
                             var html="";
                             html = '<div class="btn-group" style="font-size:1.3em; letter-spacing:0.5em;">';
                             html += '<a href="javascript:void(0);" onclick="cargarPantalla(' + json.Items[0][i].id_paga + ')" title="Editar"><i class="fa fa-edit" alt=“editar”></i></a>&nbsp;';
+                           
+                            html += '<a title="Documento" href="index.php?url=app/vistas/alquileres/documentospagador&idpaga=' + json.Items[0][i].id_paga  + '&codpaga=' + json.Items[0][i].codigo  +  '&codtip=' + json.Items[0][i].tipo  + '"><i class="fa fa-address-card-o"></i></a>&nbsp;';
                             html += '<a title="Eliminar"  data-field-id_paga="'  + json.Items[0][i].id_paga + '"><i class="fa fa-trash" alt=“Eliminar”></i></a>';
                             
                            

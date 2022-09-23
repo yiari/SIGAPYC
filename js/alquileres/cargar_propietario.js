@@ -78,7 +78,7 @@ function cargarPropietarios(){
 
                             if(json.Items[0][i].tipo == 1){//PERSONA NATUARAL
 
-                                htmlApoderado='<a title="Apoderado" href="index.php?url=app/vistas/alquileres/apoderado&idpro=' + json.Items[0][i].id_prop  + '&codpro=' + json.Items[0][i].codigo  + '"><i class="fa fa-id-badge"></i></a>&nbsp;';
+                                htmlApoderado='<a title="Apoderado" href="index.php?url=app/vistas/alquileres/apoderado&idpro=' + json.Items[0][i].id_prop  + '&codpro=' + json.Items[0][i].codigo  + '&codtip=' + json.Items[0][i].tipo  + '"><i class="fa fa-id-badge"></i></a>&nbsp;';
                                 html += htmlApoderado;
 
                             }else if (json.Items[0][i].tipo == 2){//PERSONA JURIDICA

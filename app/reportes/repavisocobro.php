@@ -8,6 +8,7 @@ use setasign\Fpdi\Fpdi;
 
 // setup the autoload function
 require_once('../../vendor/autoload.php');
+include_once '../../app/modelos/conexcion.php';
 
 // initiate FPDI
 $pdf = new Fpdi();
@@ -33,26 +34,68 @@ $pdf->useTemplate($tplId, null, null, $templateSize['width'], $templateSize['hei
 */
 //idpro=13&codpro=P-01-0036-ALEJADRA%20 PERAZA &codtip=1
 
-$idinqu_temp = 0;
-$codinqu_temp = "";
+$idaviso_temp = 0;
+$codaviso_temp = "";
 //$codtip_temp = 0;
 
 
-if(isset($_GET["idpro"])) {
+if(isset($_GET["idaviso"])) {
   
-    $idpro_temp = $_GET["idpro"];
+    $idaviso_temp = $_GET["idaviso"];
 }
 
 
 if(isset($_GET["codpro"])) {
   
-    $codpro_temp = $_GET["codpro"];
+    $codaviso_temp = $_GET["codpro"];
 }
 
 
-if(isset($_GET["codtip"])) {
+/*
+|------------------------------------------- 
+| AQUI HAGO LA CONSULTA DE BASE DE DATOS
+|-------------------------------------------
+*/
+
+
+try {
+
+    $dbConexion = new conexcion();
+    $valor = 0;
+    
+    $stmt = $dbConexion->conectar()->prepare("CALL usp_veravisocobro(?,?)" );
+    $stmt ->bindParam(1, $idaviso_temp, PDO::PARAM_INT);
+    $stmt ->bindParam(2, $codaviso_temp, PDO::PARAM_STR);
   
-    $codtip_temp = $_GET["codtip"];
+
+
+    $stmt->execute();
+    $dataRegistro["Items"][] = $stmt->fetch();
+
+    $dataRes = array(
+      'error' => '0',
+      'mensaje' =>  'El registro se obtuvo con exito.'
+    );
+    
+    
+   $resultado = array_merge($dataRegistro,$dataRes);
+
+    } catch (\Throwable $th) {
+    
+        //$pdo->rollBack() ;
+        //echo "Mensaje de Error: " . $th->getMessage();
+        $dataRes = array(
+          'error' => '1',
+          'mensaje' =>  "Mensaje de Error: " . $th->getMessage()
+        );
+  
+        $resultado = $dataRes;
+
+    }
+
+if ($resultado['error'] == 0){
+//echo "imprimimos el PDF";
+//echo $resultado['items'][0]['cod_prop'];
 }
 
 /*
@@ -113,7 +156,7 @@ if(isset($_GET["codtip"])) {
          $pdf->SetFillColor(2, 157, 116); //Fondo verde de celda
          $pdf->SetXY(57, 98.7);//AQUI SE AJUSTA LA POSICION DONDE SE DEBE COLOCAR EL TEXTO
          //Atención!! el parámetro true rellena la celda con el color elegido
-         $dataNombre =  'YIMAR ARIANA ALVAREZ PEREZ ';  //$dataResPersonal['nombrespastor'] . ' ' . $dataResPersonal['apellidospastor'];
+         $dataNombre =  $resultado['Items'][0]['nombre'] ;  //$dataResPersonal['nombrespastor'] . ' ' . $dataResPersonal['apellidospastor'];
          //$dataNombre = str_pad($dataResPersonal['nombrespastor'] . ' ' . $dataResPersonal['apellidospastor'], 50, '* ', STR_PAD_RIGHT);
          $pdf->Cell(10, 3, $dataNombre, $bordeCelda, 0, 'L', $celdaVisible);
 

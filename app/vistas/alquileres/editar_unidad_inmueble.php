@@ -28,7 +28,7 @@ include("layout/menuNavegacion.php");
                 <input type="hidden" id="tipo_persona" name="tipo_persona" value='1'>
                 <input type="hidden" id="id_inmu" name="id_inmu" value=''>
                 <input type="hidden" id="hidunidad" name="hidunidad" value=''>
-                <input type="hidden" id="id_gastos" name="id_gastos" value='0'>
+                <input type="hidden" id="hid_gastos" name="hid_gastos" value='0'>
                 <input type="hidden" id="hidgastos_especial" name="hidgastos_especial" value='0'>
 
                

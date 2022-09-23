@@ -124,8 +124,7 @@ function cargarUnidades(idInmueble,prmCodInmu,prmIdUnidad,prmCodUnidad){
             $("#error").fadeOut();
         },
         success: function (data) {
-        var json = data;
-
+        var json = JSON.parse(data);
         
 
         var html = "";
@@ -192,7 +191,9 @@ function cargarUnidades(idInmueble,prmCodInmu,prmIdUnidad,prmCodUnidad){
                             }
 
                             html += '<a title="Mandato y Contratos"  href="index.php?url=app/vistas/alquileres/contratos_mandatos&idunid=' + json.Items[0][i].id_unid + '&idpro=' + json.Items[0][i].id_prop  + '&codpro=' + json.Items[0][i].codpro + '&codtip=' + json.Items[0][i].tipo_propietario + '&idinmu=' + json.Items[0][i].id_inmu  + '&codinmu=' + json.Items[0][i].codigo  +  '"><i class="fa fa-file-text-o"></i></a>&nbsp;';
-                           
+                            
+                            html += '<a title="Documento" href="index.php?url=app/vistas/alquileres/documentosunidades&idunid=' + json.Items[0][i].id_unid + '&idpro=' + json.Items[0][i].id_prop  + '&codpro=' + json.Items[0][i].codpro + '&codtip=' + json.Items[0][i].tipo_propietario + '&idinmu=' + json.Items[0][i].id_inmu  + '&codinmu=' + json.Items[0][i].codigo  + '"><i class="fa fa-address-card-o"></i></a>&nbsp;';
+                            
                             html += '<a title="Eliminar"  data-field-id="'  + json.Items[0][i].id + '"><i class="fa fa-trash" alt=“eliminar”></i></a>';
                             html += '</div>'
                             tr.append("<td>" + html + "</td>");

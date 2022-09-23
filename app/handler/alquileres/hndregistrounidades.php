@@ -134,7 +134,7 @@ if($operacion == "I"){
                    | AQUI VAN LOS DATOS DE LOS GASTOS FIJOS
                    |------------------------------------------
                    */
-                  "id_gastos" => $_POST["id_gastos"],
+                  "id_gastos" => $_POST["hid_gastos"],
                   "gasto_admi" => $_POST["gasto_admi"],
                   "gasto_papel" => $_POST["gasto_papel"],
                    "iva" => 16,
