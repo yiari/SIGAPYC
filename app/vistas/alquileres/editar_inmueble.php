@@ -28,9 +28,11 @@ include("layout/menuNavegacion.php");
         <form class="form-sample" id="registroinmueble" name="registroinmueble" method="POST" action="" autocomplete="off" enctype="multipart/form-data">
                 
                 <input type="hidden" id="tipo_persona" name="tipo_persona" value='1'>
-                <input type="hidden" id="id_prop" name="id_prop" value='1'>
+                <input type="hidden" id="tipo_propietario" name="tipo_propietario" value='0'>
+                <input type="hidden" id="id_prop" name="id_prop" value='0'>
                 <input type="hidden" id="hidinmueble" name="hidinmueble" value=''>
                 <input type="hidden" id="hid_gastos" name="hid_gastos" value='0'>
+                <input type="hidden" id="id_inqu" name="id_inqu" value='0'>
         
         <div class="tab-content" id="nav-tabContent">
             <div class="tab-pane fade show active" id="nav-info_propinmu" role="tabpanel" aria-labelledby="nav-info_propinmu-tab">

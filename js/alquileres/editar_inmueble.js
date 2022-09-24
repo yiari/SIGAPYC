@@ -12,6 +12,7 @@ function inicio(){
     let idPropietario = getParameterByName('idpro');
     let prmCodPro = getParameterByName('codpro');
     let prmTipo = getParameterByName('codtip');
+    let tipo_propietario = getParameterByName('codtip');
 
     let codigoInmueble = getParameterByName('codinmu');
     let idInmueble = getParameterByName('idinmu');
@@ -19,10 +20,10 @@ function inicio(){
     /*--------------------------------------*/  
 
     codigoPropietario(prmCodPro);
-    atrasInmueble(idPropietario,prmCodPro,prmTipo,idInmueble,codigoInmueble);
+    atrasInmueble(idPropietario,prmCodPro,tipo_propietario,idInmueble,codigoInmueble);
     cargartipo_inmueble();
 
-    generarCodigoInmueble();
+    
     cargarEstados();
    
     
@@ -74,13 +75,13 @@ function codigoPropietario(prmDato){
 
 }
 
-function atrasInmueble(prmIdPro,prmCodPro,prmCodTipo,prmIdInmu,prmCodInmu,prmCodTipo){
+function atrasInmueble(prmIdPro,prmCodPro,prmTipo,prmIdInmu,prmCodInmu,prmCodTipo){
 
     //if (isEmpty(prmDato) == false ){
 
 
         var html = "";
-        html='index.php?url=app/vistas/alquileres/inmuebles&idpro=' + prmIdPro  + '&codpro=' + prmCodPro  + '&codtip=' + prmCodTipo + '&idinmu=' + prmIdInmu + '&codinmu=' + prmCodInmu;
+        html='index.php?url=app/vistas/alquileres/inmuebles&idpro=' + prmIdPro  + '&codpro=' + prmCodPro  + '&codtip=' + prmTipo + '&idinmu=' + prmIdInmu + '&codinmu=' + prmCodInmu;
     
         $(".codpro").prop("href", html);
 
@@ -152,6 +153,11 @@ console.log("consultando");
                         //<input type="hidden" id="tipo_persona" name="tipo_persona" value='1'>
                         $('#hidinmueble').val(json.Items[0].id_inmu );
 
+                        $('#tipo_propietario').val(json.Items[0].tipo_propietario );
+                        $('#id_prop').val(json.Items[0].id_prop );
+
+                        
+
                          /*
                         |------------------------------------------------------
                         | DATOS PRINCIPALES
@@ -162,7 +168,7 @@ console.log("consultando");
                         $("select[name='cboinmueble']").val(json.Items[0].tip_inmu).change();
 
 
-                        $('#registrNombre').val(json.Items[0].act_inmu); 
+                        $('#registrNombre').val(json.Items[0].nom_inmu); 
                         $('#registroletra').val(json.Items[0].ape_apod);
                         
                         $('#registroUso').val(json.Items[0].act_inmu); 
@@ -212,9 +218,9 @@ console.log("consultando");
 
                         $("select[name='cbobeneficiarios']").val(json.Items[0].posee_beneficiario).change();
 
-                        $('#prmid_gastos').val(json.Items[0].id_gastos); 
-                        $('#prmgasto_admi').val(json.Items[0].gasto_admi); 
-                        $('#prmgasto_papel').val(json.Items[0].gasto_papel); 
+                        $('#id_gastos').val(json.Items[0].id_gastos); 
+                        $('#gasto_admi').val(json.Items[0].gasto_admi); 
+                        $('#gasto_papel').val(json.Items[0].gasto_papel); 
 
 
 
@@ -227,7 +233,7 @@ console.log("consultando");
                     //$("#mensaje").html(html).fadeIn();
                 }
 
-
+                generarCodigoInmueble();
 
             },
             error: function (e) {

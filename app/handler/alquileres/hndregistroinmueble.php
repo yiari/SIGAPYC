@@ -131,6 +131,8 @@ if (isset($_POST["chkunidades"])){
                      "asi_regi"   => $_POST["asi_regi"],
                      "fic_cata"   => $_POST["fic_cata"],
                      "num_regi"   => $_POST["num_regi"],
+                     "letra"   => $_POST["registroletra"],
+                     "nom_inmu"   => $_POST["registrNombre"],
                      "tipo_persona"   => $_POST["tipo_persona"],
 
                         /*
@@ -143,7 +145,8 @@ if (isset($_POST["chkunidades"])){
                      "gastos_papeleria" => $_POST["gasto_papel"],
                      "tieneunidades" => 1,
                      "unidades" => $_POST["unidades"],
-                     "posee_beneficiario" => $_POST["cbobeneficiarios"]
+                     "posee_beneficiario" => $_POST["cbobeneficiarios"],
+                     "id_inqu" => $_POST["id_inqu"]
                   
                   );
 
@@ -186,7 +189,9 @@ if (isset($_POST["chkunidades"])){
                     "fic_cata"   => $_POST["fic_cata"],
                     "num_regi"   => $_POST["num_regi"],
                     "letra"   => $_POST["registroletra"],
+                    "nom_inmu"   => $_POST["registrNombre"],
                     "tipo_persona"   => $_POST["tipo_persona"],
+                   
 
                      /*
                    |------------------------------------------

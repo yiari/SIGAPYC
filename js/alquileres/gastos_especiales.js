@@ -36,7 +36,7 @@ function inicio(){
        let prmmes = getParameterByName('idmes');
     
  
-    GastosEspecialesInmueble(prminmu,prmunid,prmidinqu,prmtipoinqu);
+    GastosEspecialesInmueble(prminmu,prmunid,prmidinqu,prmtipoinqu,prmmes);
     guardarGastos();
 
     

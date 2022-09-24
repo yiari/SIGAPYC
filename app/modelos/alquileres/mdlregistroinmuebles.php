@@ -43,7 +43,7 @@ public function registrar($tabla,$datos,$archivos){
           | AQUI PREPARO LO QUE SERA LA LLAMADA AL PROCEDIMIENTO QUE REALIZARA LA OPERACION
           |----------------------------------------------------------------------------------
           */
-          $stmt = $dbConexion->conectar()->prepare("CALL usp_registroinmueble(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+          $stmt = $dbConexion->conectar()->prepare("CALL usp_registroinmueble(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
           $stmt -> bindParam(1, $datos["id_inmu"],PDO::PARAM_INT); //id del imnumeble
           $stmt -> bindParam(2, $datos["id_prop"],PDO::PARAM_INT); //id propietraio
           $stmt -> bindParam(3, $datos["tipo_propietario"],PDO::PARAM_INT); //tipo propietraio
@@ -75,16 +75,19 @@ public function registrar($tabla,$datos,$archivos){
           $stmt -> bindParam(29,$datos["fic_cata"],PDO::PARAM_STR); // Numero del ficha castratal
           $stmt -> bindParam(30,$datos["num_regi"],PDO::PARAM_STR); // Numero del codigo del registro
           $stmt -> bindParam(31,$datos["letra"],PDO::PARAM_STR); // Numero del letra
-          $stmt -> bindParam(32,$datos["tipo_persona"],PDO::PARAM_INT); // Numero del  Ficha Catastral
-          $stmt -> bindParam(33,$datos["id_gastos"],PDO::PARAM_INT); // id gastos fijos
-          $stmt -> bindParam(34,$datos["gasto_administrativo"],PDO::PARAM_INT); // gastos fijos administrativo
-          $stmt -> bindParam(35,$datos["gastos_papeleria"],PDO::PARAM_INT); // gastos fijos papeleria
+          $stmt -> bindParam(32,$datos["nom_inmu"],PDO::PARAM_STR); // nombre imnueble
+          $stmt -> bindParam(33,$datos["tipo_persona"],PDO::PARAM_INT); // Numero del  Ficha Catastral
 
-          $stmt -> bindParam(36,$datos["unidades"],PDO::PARAM_INT); // Indicador si el inmueble tiene unidades o no
-          $stmt -> bindParam(37,$datos["cantunidades"],PDO::PARAM_INT); // Cantidad de unidades del inmueble en caso de tenerla
-          $stmt -> bindParam(38,$datos["posee_beneficiario"],PDO::PARAM_INT); // Cantidad de unidades del inmueble en caso de tenerla
+          $stmt -> bindParam(34,$datos["id_gastos"],PDO::PARAM_INT); // id gastos fijos
+          $stmt -> bindParam(35,$datos["gasto_administrativo"],PDO::PARAM_INT); // gastos fijos administrativo
+          $stmt -> bindParam(36,$datos["gastos_papeleria"],PDO::PARAM_INT); // gastos fijos papeleria
 
-          $stmt -> bindParam(39,$datos["id_inqu"],PDO::PARAM_INT); // id del inquilinoa
+          $stmt -> bindParam(37,$datos["unidades"],PDO::PARAM_INT); // Indicador si el inmueble tiene unidades o no
+          $stmt -> bindParam(38,$datos["cantunidades"],PDO::PARAM_INT); // Cantidad de unidades del inmueble en caso de tenerla
+          $stmt -> bindParam(39,$datos["posee_beneficiario"],PDO::PARAM_INT); // Cantidad de unidades del inmueble en caso de tenerla
+
+       
+          $stmt -> bindParam(40,$datos["nom_inmu"],PDO::PARAM_STR); // nombre imnueble
 
           //$stmt -> bindParam(19,$datos["sta_inmu"],PDO::PARAM_INT); // estado del inmueble 1-Disponible 0-desactivado 2-Alquilado 
        
