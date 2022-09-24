@@ -35,7 +35,7 @@ function cargarContrato(){
         },
         success: function (data) {
 
-        var json = JSON.parse(data);
+        var json = data;
         var html = "";
 /*
         console.log(json);

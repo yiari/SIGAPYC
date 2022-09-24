@@ -161,6 +161,8 @@ console.log("consultando");
                         //<input type="hidden" id="tipo_persona" name="tipo_persona" value='1'>
                         $('#hidunidad').val(json.Items[0].id_unid );
 
+                         $('#id_inqu').val(json.Items[0].id_inqu );
+
                          /*
                         |------------------------------------------------------
                         | DATOS PRINCIPALES
@@ -170,10 +172,11 @@ console.log("consultando");
                         $("select[name='cboinmueble']").val(json.Items[0].tip_inmu).change();
 
 
-                        $('#registrNombre').val(json.Items[0].act_inmu); 
-                        $('#registroletra').val(json.Items[0].ape_apod);
                         
+                        $('#registroletra').val(json.Items[0].ape_apod);
+                        $('#registrNombre').val(json.Items[0].nom_inmu); 
                         $('#registroUso').val(json.Items[0].act_inmu); 
+                        
                         $('#registroAntiguedad').val(json.Items[0].ant_inmu);
                         
                         $('#pun_inmu').val(json.Items[0].pun_inmu);

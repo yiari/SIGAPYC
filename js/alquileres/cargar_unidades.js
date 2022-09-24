@@ -124,7 +124,7 @@ function cargarUnidades(idInmueble,prmCodInmu,prmIdUnidad,prmCodUnidad){
             $("#error").fadeOut();
         },
         success: function (data) {
-        var json = JSON.parse(data);
+        var json =data;
         
 
         var html = "";

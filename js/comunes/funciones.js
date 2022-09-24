@@ -118,8 +118,20 @@ function syncDelay(milliseconds){
     resultado = "Referencias Personales";
   }
 
+  if(valor == "refper_docu1"){
+    resultado = "Referencias Personales";
+  }
+
   if(valor == "reffam_docu"){
     resultado = "Referencias Familiares";
+  }
+
+  if(valor == "reffam_docu1"){
+    resultado = "Referencias Familiares";
+  }
+
+  if(valor == "ref_docu1"){
+    resultado = "Referencias Personales";
   }
 
   if(valor == "ponot_docu"){
