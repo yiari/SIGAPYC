@@ -33,6 +33,7 @@ include("layout/menuNavegacion.php");
                 <input type="hidden" id="id_prop" name="id_prop" value='0'>
                 <input type="hidden" id="hidinmueble" name="hidinmueble" value=''>
                 <input type="hidden" id="hid_gastos" name="hid_gastos" value='0'>
+                <input type="hidden" id="id_inqu" name="id_inqu" value='0'>
                 
         
         <div class="tab-content" id="nav-tabContent">

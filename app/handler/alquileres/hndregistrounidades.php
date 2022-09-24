@@ -128,6 +128,7 @@ if($operacion == "I"){
                     "tipo_persona"   => $_POST["tipo_persona"],
                     "posee_beneficiario" => $_POST["cbobeneficiarios"],
                     "letra" => $_POST["registroletra"],
+                    "id_inqu" => $_POST["id_inqu"],
 
                      /*
                    |------------------------------------------

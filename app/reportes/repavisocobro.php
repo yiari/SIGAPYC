@@ -45,9 +45,9 @@ if(isset($_GET["idaviso"])) {
 }
 
 
-if(isset($_GET["codpro"])) {
+if(isset($_GET["codaviso"])) {
   
-    $codaviso_temp = $_GET["codpro"];
+    $codaviso_temp = $_GET["codaviso"];
 }
 
 
@@ -116,7 +116,7 @@ if ($resultado['error'] == 0){
             'g' => 0,
             'b' => 0
         );
-
+        
 
         /*
     |-----------------------------------------------------------------
@@ -159,6 +159,7 @@ if ($resultado['error'] == 0){
          $dataNombre =  $resultado['Items'][0]['nombre'] ;  //$dataResPersonal['nombrespastor'] . ' ' . $dataResPersonal['apellidospastor'];
          //$dataNombre = str_pad($dataResPersonal['nombrespastor'] . ' ' . $dataResPersonal['apellidospastor'], 50, '* ', STR_PAD_RIGHT);
          $pdf->Cell(10, 3, $dataNombre, $bordeCelda, 0, 'L', $celdaVisible);
+         
 
 
          //AQUI ESCRIBO EL MES  EMICION DE EL AVIOS DE COBRO
@@ -167,7 +168,7 @@ if ($resultado['error'] == 0){
          $pdf->SetFillColor(2, 157, 116); //Fondo verde de celda
          $pdf->SetXY(70, 124.5);//AQUI SE AJUSTA LA POSICION DONDE SE DEBE COLOCAR EL TEXTO
          //Atención!! el parámetro true rellena la celda con el color elegido
-         $dataMes =  'SEPTIEMBRE';  //$dataResPersonal['nombrespastor'] . ' ' . $dataResPersonal['apellidospastor'];
+         $dataMes = $resultado['Items'][0]['nombre_mes'];  //$dataResPersonal['nombrespastor'] . ' ' . $dataResPersonal['apellidospastor'];
          //$dataNombre = str_pad($dataResPersonal['nombrespastor'] . ' ' . $dataResPersonal['apellidospastor'], 50, '* ', STR_PAD_RIGHT);
          $pdf->Cell(10, 3, $dataMes, $bordeCelda, 0, 'L', $celdaVisible);
 
@@ -178,7 +179,7 @@ if ($resultado['error'] == 0){
           $pdf->SetFillColor(2, 157, 116); //Fondo verde de celda
           $pdf->SetXY(120.5, 124.8);//AQUI SE AJUSTA LA POSICION DONDE SE DEBE COLOCAR EL TEXTO
           //Atención!! el parámetro true rellena la celda con el color elegido
-          $dataMontoLetra =  'SETECIENTOS CINCUENTA DOLARES AMERICANOS';  //$dataResPersonal['nombrespastor'] . ' ' . $dataResPersonal['apellidospastor'];
+          $dataMontoLetra =  '';  //$dataResPersonal['nombrespastor'] . ' ' . $dataResPersonal['apellidospastor'];
           //$dataNombre = str_pad($dataResPersonal['nombrespastor'] . ' ' . $dataResPersonal['apellidospastor'], 50, '* ', STR_PAD_RIGHT);
           $pdf->Cell(10, 3, $dataMontoLetra, $bordeCelda, 0, 'L', $celdaVisible);
 
@@ -190,7 +191,7 @@ if ($resultado['error'] == 0){
           $pdf->SetFillColor(2, 157, 116); //Fondo verde de celda
           $pdf->SetXY(40, 132);//AQUI SE AJUSTA LA POSICION DONDE SE DEBE COLOCAR EL TEXTO
           //Atención!! el parámetro true rellena la celda con el color elegido
-          $dataMontonNuemero = '$750,00';  //$dataResPersonal['nombrespastor'] . ' ' . $dataResPersonal['apellidospastor'];
+          $dataMontonNuemero = $resultado['Items'][0]['total'];  //$dataResPersonal['nombrespastor'] . ' ' . $dataResPersonal['apellidospastor'];
           //$dataNombre = str_pad($dataResPersonal['nombrespastor'] . ' ' . $dataResPersonal['apellidospastor'], 50, '* ', STR_PAD_RIGHT);
           $pdf->Cell(10, 3, $dataMontonNuemero, $bordeCelda, 0, 'L', $celdaVisible);
 
@@ -201,7 +202,7 @@ if ($resultado['error'] == 0){
            $pdf->SetFillColor(2, 157, 116); //Fondo verde de celda
            $pdf->SetXY(95, 131);//AQUI SE AJUSTA LA POSICION DONDE SE DEBE COLOCAR EL TEXTO
            //Atención!! el parámetro true rellena la celda con el color elegido
-           $dataCodigoContrato = 'AV-00001-COT-0003-AP-0001';  //$dataResPersonal['nombrespastor'] . ' ' . $dataResPersonal['apellidospastor'];
+           $dataCodigoContrato = $resultado['Items'][0]['cod_aviso']; //$dataResPersonal['nombrespastor'] . ' ' . $dataResPersonal['apellidospastor'];
            //$dataNombre = str_pad($dataResPersonal['nombrespastor'] . ' ' . $dataResPersonal['apellidospastor'], 50, '* ', STR_PAD_RIGHT);
            $pdf->Cell(10, 3, $dataCodigoContrato, $bordeCelda, 0, 'L', $celdaVisible);
 
@@ -210,9 +211,9 @@ if ($resultado['error'] == 0){
             $pdf->SetFont('Times', 'B', 9);
             $pdf->SetTextColor($fontColorContenido['r'], $fontColorContenido['g'], $fontColorContenido['b']);
             $pdf->SetFillColor(2, 157, 116); //Fondo verde de celda
-            $pdf->SetXY(98,139);//AQUI SE AJUSTA LA POSICION DONDE SE DEBE COLOCAR EL TEXTO
+            $pdf->SetXY(94,139);//AQUI SE AJUSTA LA POSICION DONDE SE DEBE COLOCAR EL TEXTO
             //Atención!! el parámetro true rellena la celda con el color elegido
-            $dataMesPagar =  'AGOSTO';  //$dataResPersonal['nombrespastor'] . ' ' . $dataResPersonal['apellidospastor'];
+            $dataMesPagar =  $resultado['Items'][0]['nombre_mes'];  //$dataResPersonal['nombrespastor'] . ' ' . $dataResPersonal['apellidospastor'];
             //$dataNombre = str_pad($dataResPersonal['nombrespastor'] . ' ' . $dataResPersonal['apellidospastor'], 50, '* ', STR_PAD_RIGHT);
             $pdf->Cell(10, 3, $dataMesPagar, $bordeCelda, 0, 'L', $celdaVisible);
 

@@ -198,7 +198,8 @@ if (isset($_POST["chkunidades"])){
                   "gastos_papeleria" => $_POST["gasto_papel"],
                   "tieneunidades" => 0,
                   "unidades" => 0,
-                  "posee_beneficiario" => $_POST["cbobeneficiarios"]
+                  "posee_beneficiario" => $_POST["cbobeneficiarios"],
+                  "id_inqu" => $_POST["id_inqu"]
                );
 
 

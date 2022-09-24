@@ -37,7 +37,7 @@ function cargarReciboPedido(){
             $("#error").fadeOut();
         },
         success: function (data) {
-        var json = data;
+        var json = JSON.parse(data);
         var html = "";
 /*
         console.log(json);
@@ -88,7 +88,7 @@ console.log("Items Resultados: " + json.Items[0].length);
                                   
 
                                     html = '<div class="btn-group" style="font-size:1.3em; letter-spacing:0.5em;">';
-                                    html += '<a title="PDF"  href="app/reportes/reprecibo.php"  data-field-id= "'  + json.Items[0][i].id_aviso + '" target="_blank"><i class="fa fa-file-pdf-o" alt=“PDF” ></i></a>';
+                                    html += '<a title="PDF"  href="app/reportes/reprecibo.php?id='  + json.Items[0][i].id +'&codreci=' +json.Items[0][i].cod_recibo +'" target="_blank"><i class="fa fa-file-pdf-o" alt=“PDF” ></i></a>';
                                     html += '<a title="Enviar notificación"  data-field-id="'  + json.Items[0][i].id_aviso + '"><i class="fa fa-envelope-open-o " alt=“email”></i></a>';
                                    
                                    

@@ -30,6 +30,7 @@ include("layout/menuNavegacion.php");
                 <input type="hidden" id="hidunidad" name="hidunidad" value=''>
                 <input type="hidden" id="hid_gastos" name="hid_gastos" value='0'>
                 <input type="hidden" id="hidgastos_especial" name="hidgastos_especial" value='0'>
+                <input type="hidden" id="id_inqu" name="id_inqu" value='0'>
 
                
         
