@@ -96,6 +96,13 @@ if($operacion == "I"){
    | AQUI CARGO LOS DATOS PARA ALMACENAR
    |---------------------------------------------
    */
+
+    $poseeBeneficiario =  $_POST["cbobeneficiarios"];
+
+    if ($poseeBeneficiario == 0){
+      $poseeBeneficiario = 2;
+    }
+
     $datos = array( "id_unid"   => $_POST["hidunidad"],
                     "id_inmu"    => $_POST["id_inmu"],
                     "cod_inmu"   => $_POST["registroCodigo"],
@@ -126,7 +133,7 @@ if($operacion == "I"){
                     "fic_cata"   => $_POST["fic_cata"],
                     "num_regi"   => $_POST["num_regi"],
                     "tipo_persona"   => $_POST["tipo_persona"],
-                    "posee_beneficiario" => $_POST["cbobeneficiarios"],
+                    "posee_beneficiario" => $poseeBeneficiario,
                     "letra" => $_POST["registroletra"],
                     "id_inqu" => $_POST["id_inqu"],
                     "nom_inmu" => $_POST["registrNombre"],

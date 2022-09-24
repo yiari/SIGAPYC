@@ -31,8 +31,6 @@ class ctrregistrounidades{
 
             $tabla = "inmuebles";
             $modelo = new mdlregistrounidades();
-
-            $modelo =  new mdlregistrounidades();
             $respuesta = $modelo->registrar($tabla,$datos,$archivos);
 
             return $respuesta;

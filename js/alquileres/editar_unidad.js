@@ -28,7 +28,7 @@ function inicio(){
     
     cargartipo_inmueble();
 
-    generarCodigoUnidad();
+    //
     cargarEstados();
     cargarBancos('cboBancoNP');
 
@@ -68,6 +68,7 @@ function inicio(){
      consultarUnidad(idUnidad,prmCodunidad);
 
     guardarunidades();
+
 
 }
 
@@ -237,6 +238,7 @@ console.log("consultando");
                     //$("#mensaje").html(html).fadeIn();
                 }
 
+                generarCodigoUnidad();
 
 
             },
