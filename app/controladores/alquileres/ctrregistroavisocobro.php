@@ -75,6 +75,14 @@ class ctrregistroavisocobro{
         $respuestas =  $modelo->consultarinquilino($tabla,$datos);
         return $respuestas;
     }
+
+    public function consultartasa($datos){
+
+        $tabla = "tasa_cambio";
+        $modelo =  new mdlregistroavisocobro();
+        $respuestas =  $modelo->consultartasa($tabla,$datos);
+        return $respuestas;
+    }
      
 
     /*tabla para visializar los usuarios registrados*/

@@ -5,7 +5,9 @@ include("layout/menuNavegacion.php");
 ?>
 
     <div class="container">
+    <div class="col-8 grid-margin">
 
+            <h4 class="card-title">Generar Recibos / Pedidos</h4><br>
             <div class="card-header">
             
                     <div style="text-align: right;">
@@ -14,9 +16,13 @@ include("layout/menuNavegacion.php");
                         </ol>
                     </div>
 
-                    <h4 class="card-title">Generar Recibos / Pedidos</h4><br>
+        
+                    <div style="text-align: left;">
+                        <span id="lblTasaCambio"><strong>PROMEDIO TASA CAMBIO Bs/$ : &nbsp; </strong></span>
+                                        
+                    </div>
                        
-                    <form class="form-sample" id="registrarecibo" name="registrarecibo" method="POST" action="" autocomplete="off" >
+                      <form class="form-sample" id="registrarecibo" name="registrarecibo" method="POST" action="" autocomplete="off" >
 
                                     <input type="hidden" id="id_usuario" name="id_usuario" value='1'>
                                     <input type="hidden" id="hidrecibo" name="hidrecibo" value=''>
@@ -39,6 +45,10 @@ include("layout/menuNavegacion.php");
                                     <input type="hidden" id="fecha" name="fecha" value='0'>
                                     <input type="hidden" id="monto" name="monto" value='0'>
                                     <input type="hidden" id="tipo_inqu" name="tipo_inqu" value=''>
+
+                                    <input type="hidden" id="mes" name="mes" value=''>
+                                   
+
                             <!--Datos del propietario-->
                                 <div class="row">
 
@@ -59,28 +69,21 @@ include("layout/menuNavegacion.php");
                                             <span id="lblMonto"><strong>MONTO : &nbsp; </strong></span>
                                         
                                     </div>
+
+                                    
                                 </div>
 
-                  <br>
+                             <br>
 
-                    
-                    <div class="tab-content" id="nav-tabContent">
-
-                       
-                            <div class="col-12 grid-margin">
-                                
-
-                                   
-
-                                    <br>
-                                
+                                <div class="col-12 grid-margin">
                                     <div class="content">
+                                   
                                         <div class="card">
                                                 <div class="card-body">
-                                                   
+                                                    
                                                             <div class="row">
                                                         
-                                                                    <div class="col-md-4">
+                                                                   <!-- <div class="col-md-4">
                                                 
                                                                             <select class="form-select" id="mes" name="mes" >
                                                                                 <option selected disabled value="">seleccion de mes</option>
@@ -97,21 +100,36 @@ include("layout/menuNavegacion.php");
                                                                                 <option value="11">Noviembre</option>
                                                                                 <option value="12">Diciembre</option>
                                                                             </select>
-                                                                    </div><br>
+                                                                    </div><br>-->
 
-                                                                    <div class="input-group-prepend">
-                                                                        
-                                                                            <div class="col-md-4">
-                                                                                    <label for="recibo">Recibo</label>
-                                                                                    <input type="text" class="form-control" id="recibo" name="recibo" placeholder=" Monto del recibo:">
-                                                                            </div> </br> 
-                                                                            <div class="col-md-4 ">
-                                                                                <label for="pedido">Pedido</label>
-                                                                                <input type="text" class="form-control"  id="pedido" name="pedido"  placeholder=" Monto del Pedido">
-                                                                            </div> </br> 
+                                                                    <div class="row p-2">
+                                       
+                                                                        <div class="col-md-2 ">
+                                                                         <label for="recibo">Recibo:</label> 
+                                                                        </div>
+
+                                                                        <div class="col-md-5">
+                                                                           <input type="text" class="form-control" id="recibo" name="recibo" placeholder=" Monto del recibo:">
+                                                                        </div>
+                                    
+                                                                    </div>
+                                                                    <br>
+                                                                    <div class="row p-2">
+                                       
+                                                                        <div class="col-md-2">
+                                                                          <label for="pedido">Pedido:</label>
+                                                                        </div>
+
+                                                                        <div class="col-md-5">  
+                                                                            <input type="text" class="form-control"  id="pedido" name="pedido"  placeholder=" Monto del Pedido">
+                                                                        </div>
+                                    
+                                                                    </div>
+
                                                                     
-                                                                    </div> 
 
+
+                                                                    
                                                                 <br>
                                                                 
                                                             </div>
@@ -125,21 +143,20 @@ include("layout/menuNavegacion.php");
                                                                     </div>
                                                             </div> 
                                                     
-                                                  
+                                                    </div>
                                                 
                                             </div> 
                                         </div> 
-                                  </div>  
-                                <form>
-                            </div>
-                   
-                
-                </div>
-            
+                                    </div>  
+                        
+                                </div>
+
+                      <form>
             </div>
-   
     </div>
-    
+</div>
+
+
 
 <?php 
 

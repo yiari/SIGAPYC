@@ -78,7 +78,7 @@ function buscarInmueble(){
 
  
         if ($("#nom_prop").val() == "") {
-            mensaje("Debe indicar el codigo de propietario, inmueble o unidad",1);
+            mensaje("Debe indicar el codigo inmueble o unidad",1);
             console.log("Aqui llegue al mensaje");
             return;
         }

@@ -165,6 +165,42 @@ if($operacion == "GC"){
      
 }
 
+if($operacion == "TC"){
+
+
+
+   $datos = array( 
+      "cambio" => $_POST["cambio"],
+     
+   );
+
+
+
+   /*
+    |-------------------------------------------
+    | AQUI CREO UNA INSTANCIA DE LA CLASE
+    |-------------------------------------------
+    */
+    
+    $registrotasa =  new ctrregistroavisocobro();
+
+   /* 
+   |---------------------------------------------
+   | AQUI OBTENGO EL RESULTADO DE LA EJECUCION
+   |---------------------------------------------
+   */
+     $result = $registrotasa->consultartasa($datos);
+    
+    /*
+    |-------------------------------------------
+    | AQUI REGRESO EL RESULTADO AL AJAX
+    |-------------------------------------------
+    */
+    header('Content-Type: application/json');
+     return $result;
+     
+}
+
 
 /* 
  |-------------------------------------------

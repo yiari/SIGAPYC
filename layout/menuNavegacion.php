@@ -18,6 +18,7 @@
                     <i class="fa fa-exclamation-circle"></i> Aviso de cobro
                     </button>
                     <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="index.php?url=app/vistas/alquileres/tasa_cambio">Tasa de cambio BCV</a></li>
                     <li><a class="dropdown-item" href="index.php?url=app/vistas/alquileres/aviso_cobro"> Gestionar Aviso de cobro</a></li>
                     <li><a class="dropdown-item" href="index.php?url=app/vistas/alquileres/consulta_gastos_especiales">Listas de Gastos especiales</a></li>
                     <li><a class="dropdown-item" href="index.php?url=app/vistas/alquileres/recibo_pedidos">Lista Pedidos Y Recibos</a></li>

@@ -33,10 +33,10 @@ function inicio(){
        let prmmonto = getParameterByName('monto');
        let prminmu = getParameterByName('idinmu');
        let prmunid = getParameterByName('idunid');
-       let prmmes = getParameterByName('idmes');
+     
     
  
-    GastosEspecialesInmueble(prminmu,prmunid,prmidinqu,prmtipoinqu,prmmes);
+    GastosEspecialesInmueble(prminmu,prmunid,prmidinqu,prmtipoinqu);
     guardarGastos();
 
     
@@ -157,18 +157,19 @@ function guardarGastos(){
        // syncDelay(5000); //ESTO VA A ESPERAR 5 SEGUNDOS;
 
         /*-------------------------------------------------*/
+    if ($("#registroGasto").val() == "") {
+            mensaje("Debe indicar el concepto del gasto",1);
+        return;
+       }
 
 
- 
-   if ($("#registroGasto").val() == "") {
-    mensaje("Debe indicar el concepto del gasto",1);
-    return;
-    }
-
-   if ($("#registroMonto").val() == "") {
+    if ($("#registroMonto").val() == "") {
        mensaje("Debe indicar el monto del Gasto",1);
        return;
-   }
+    }
+
+
+  
 
   
 

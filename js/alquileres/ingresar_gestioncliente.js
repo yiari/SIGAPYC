@@ -13,16 +13,18 @@ function inicio(){
        $('#inquilino').val(getParameterByName('codinqu'));
 
        $('#tipo_inqu').val(getParameterByName('tipoinqu'));
-
        $('#total').val(getParameterByName('monto'));
-
-      
 
        $('#id_inmu').val(getParameterByName('idinmu'));
        $('#inmueble').val(getParameterByName('codinmu'));
 
        $('#id_unid').val(getParameterByName('idunid'));
        $('#unidad').val(getParameterByName('codunid'));
+
+       $('#mes').val(getParameterByName('idmes'));
+
+
+       $('#cambio').val(getParameterByName('tasacambio'));
 
        
    
@@ -34,9 +36,34 @@ function inicio(){
        let tipoInquilino = getParameterByName('tipoinqu');
 
        let prmmonto = getParameterByName('monto');
-   
 
+       let prmCambio = getParameterByName('tasacambio');
+   
       
+       jQuery("#recibo").on('input', function (evt) {
+        jQuery(this).val(jQuery(this).val().replace(/[^0-9'.']/g, ''));
+       });
+
+
+       jQuery("#pedido").on('input', function (evt) {
+        jQuery(this).val(jQuery(this).val().replace(/[^0-9'.']/g, ''));
+       });
+
+       jQuery("#pedido").keypress(function() {
+       
+        validarReciboPedido($('#recibo').val(),$('#pedido').val(),$('#monto').val());
+
+       });
+      
+       jQuery("#pedido").keypress(function() {
+       
+        validarReciboPedido($('#recibo').val(),$('#pedido').val(),$('#monto').val());
+
+       });
+
+
+
+       
        cargarBancos('cboBancoN');
        cargarBancos('cboBancop');
        cargarBancos('cboBancoj');
@@ -57,6 +84,10 @@ function inicio(){
     
     codigoInquilino(prmcodigoInquilino);
 
+    consultaTasaCambio(prmCambio);
+
+    tasaCambio(prmCambio);
+
 
    
    
@@ -70,6 +101,18 @@ function codigoAvisoCobro(prmDato){
 
     $("#lblAvisoCobro").html('');
     $("#lblAvisoCobro").html(html);
+
+}
+
+function tasaCambio(prmDato){
+
+    var html = "";
+
+    html='<strong>PROMEDIO TASA CAMBIO Bs/$ : </strong>'  + prmDato +'</span>';
+
+    $("#lblTasaCambio").html('');
+    $("#lblTasaCambio").html(html);
+    $("#cambio").val(prmDato);
 
 }
 
@@ -243,6 +286,99 @@ function consultarGestionCliente(idInqu,tipoInqu){
     
     
     }
+
+
+
+
+    function consultaTasaCambio(prmcambio){
+   
+        console.log("consultando");
+        
+              /*
+                |-----------------------------------------------
+                | LIMPIA EL CAMPO MENSAJE 
+                |-----------------------------------------------
+                */
+                $("#error").html("Ejecutando...");
+                /*
+                |-----------------------------------------------
+                | AQUI SE CAPTURA LOS DATOS DEL FORMULARIO 
+                |-----------------------------------------------
+                */
+                var formData = new FormData();
+                /*
+                |-----------------------------------------------------
+                | AQUI SE AGREGA UN PARAMETRO ADICIONAL AL FORMULARIO 
+                |-----------------------------------------------------
+                */
+                formData.append('opcion','TC');
+        
+                formData.append('cambio',prmcambio);
+              
+              
+                
+                /*
+                |-----------------------------------------------
+                | AQUI SE LLAMA EL AJAX 
+                |-----------------------------------------------
+                */
+                $.ajax({
+                    url: "app/handler/alquileres/hndregistroavisocobro.php",
+                    type: "POST",
+                    data: formData, //new FormData(this),
+                    contentType: false,
+                    dataType: "json",
+                    cache: false,
+                    processData: false,
+                    beforeSend: function () {
+                        //$("#preview").fadeOut();
+                        $("#error").fadeOut();
+                    },
+                    success: function (data) {
+                    var json = data;
+                    var html = "";
+                    let idPropietario = 0;
+                        console.log("Mensaje del JSON: " + json);
+        
+                        if(json.error == 0){
+                            
+                            //mensaje(json.mensaje,0);
+                            if(json.Items.length > 0){
+        
+        
+                                //<input type="hidden" id="tipo_persona" name="tipo_persona" value='1'>
+                                $('#hid').val(json.Items[0].id_inqu);
+                               
+                                /*
+                                |------------------------------------------------------
+                                | DATOS PRINCIPALES
+                                |------------------------------------------------------
+                                */
+                                $('#tasacambio').val(json.Items[0].cambio);
+                                
+      
+        
+                            }
+        
+                        }else {
+        
+                            mensaje(json.mensaje,1);
+                            
+                            //$("#mensaje").html(html).fadeIn();
+                        }
+        
+        
+        
+                    },
+                    error: function (e) {
+                        //$("#error").html(e).fadeIn();
+                        mensaje(e,1);
+                        
+                    }
+                });
+        
+        
+        }
 
 
 
@@ -487,8 +623,13 @@ function consultarGestionCliente(idInqu,tipoInqu){
     }
     
     
+    function validarReciboPedido(prmrecibo,prmpedido){
 
+        alert ('estuy en validar');
+        $suma =  prmrecibo + prmpedido ;
+       
 
+    }
 
     function guardarReciboPedido(){
 
@@ -501,38 +642,21 @@ function consultarGestionCliente(idInqu,tipoInqu){
        evt.preventDefault();
        /**********************************************/        
     
-       if ($("#mes").val() == "") {
-        mensaje("Debe seleccionar el mes del recibo o pedido",1);
-        return;
-    }
- 
-    
-      
+       
 
        if ($("#recibo").val() == "") {
       
-        var mensualidad = $("#mensualidad").val(); 
-        var monto = $("#recibo").val();
-
-        if (monto==""){
+      
                 mensaje("Debe indicar el monto del recibo o pedido",1);
                 document.fvalida.monto.focus()
                 return 0;
-        }else{
-                if (monto < mensualidad){
-                        mensaje("El es menor del recibo es menos que el total a cancelar.",1);
-                        document.fvalida.monto.focus()
-                        return 0;
-                }
+       
         } 
 
-    }
-
-            
-
-
     
-     
+
+
+
     
        
        /*
@@ -559,6 +683,7 @@ function consultarGestionCliente(idInqu,tipoInqu){
             formData.append('id_unidad',$('#id_unid').val());
             formData.append('id_inquilino',$('#id_inqu').val());
             formData.append('id_usuario',$('#id_usuario').val());
+            formData.append('mes',$('#mes').val());
             
 
             /*
