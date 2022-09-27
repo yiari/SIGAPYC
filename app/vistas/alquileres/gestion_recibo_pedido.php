@@ -45,6 +45,7 @@ include("layout/menuNavegacion.php");
                                     <input type="hidden" id="fecha" name="fecha" value='0'>
                                     <input type="hidden" id="monto" name="monto" value='0'>
                                     <input type="hidden" id="tipo_inqu" name="tipo_inqu" value=''>
+                                    <input type="hidden" id="hidTasa" name="hidTasa" value='0'>
 
                                     <input type="hidden" id="mes" name="mes" value=''>
                                    
@@ -137,11 +138,16 @@ include("layout/menuNavegacion.php");
                                                     
                                                                 <div class="container">
                                                                     <div class="col-12 btn btn-align-center">
+                                                                        <span id="errmsg"><strong>&nbsp;</strong></span>
+                                                                       
+                                                                
+                                                                    </div>
+                                                                    <div class="col-12 btn btn-align-center">
                                                                     
                                                                         <button type="submit" class="btn btn-primary mb-2">Guardar</button>
                                                                 
                                                                     </div>
-                                                            </div> 
+                                                                </div> 
                                                     
                                                     </div>
                                                 

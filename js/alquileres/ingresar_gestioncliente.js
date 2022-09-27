@@ -24,7 +24,7 @@ function inicio(){
        $('#mes').val(getParameterByName('idmes'));
 
 
-       $('#cambio').val(getParameterByName('tasacambio'));
+       //$('#cambio').val(getParameterByName('tasacambio'));
 
        
    
@@ -42,28 +42,16 @@ function inicio(){
       
        jQuery("#recibo").on('input', function (evt) {
         jQuery(this).val(jQuery(this).val().replace(/[^0-9'.']/g, ''));
+        validarReciboPedido($('#recibo').val(),$('#pedido').val(),$('#monto').val());
        });
 
 
        jQuery("#pedido").on('input', function (evt) {
         jQuery(this).val(jQuery(this).val().replace(/[^0-9'.']/g, ''));
-       });
-
-       jQuery("#pedido").keypress(function() {
-       
         validarReciboPedido($('#recibo').val(),$('#pedido').val(),$('#monto').val());
-
        });
+
       
-       jQuery("#pedido").keypress(function() {
-       
-        validarReciboPedido($('#recibo').val(),$('#pedido').val(),$('#monto').val());
-
-       });
-
-
-
-       
        cargarBancos('cboBancoN');
        cargarBancos('cboBancop');
        cargarBancos('cboBancoj');
@@ -86,7 +74,7 @@ function inicio(){
 
     consultaTasaCambio(prmCambio);
 
-    tasaCambio(prmCambio);
+    //tasaCambio(prmCambio);
 
 
    
@@ -354,8 +342,13 @@ function consultarGestionCliente(idInqu,tipoInqu){
                                 | DATOS PRINCIPALES
                                 |------------------------------------------------------
                                 */
-                                $('#tasacambio').val(json.Items[0].cambio);
+
+                                var html = '<strong style="font-size:1.3em;">PROMEDIO TASA CAMBIO Bs/$ :&nbsp;' + json.Items[0].cambio + '</strong>';
+
+                                $('#lblTasaCambio').html('');
+                                $('#lblTasaCambio').html(html);
                                 
+                                $('#hidTasa').val(json.Items[0].cambio);
       
         
                             }
@@ -623,11 +616,40 @@ function consultarGestionCliente(idInqu,tipoInqu){
     }
     
     
-    function validarReciboPedido(prmrecibo,prmpedido){
+    function validarReciboPedido(prmrecibo,prmpedido,prmRef){
 
-        alert ('estuy en validar');
-        $suma =  prmrecibo + prmpedido ;
+        console.log("Valor 1: " + prmrecibo);
+        console.log("Valor 2: " + prmpedido);
+
+        if(!$.isNumeric(prmrecibo)){
+            prmrecibo = 0;
+        }
+
+        if(!$.isNumeric(prmpedido)){
+            prmpedido = 0;
+        }
+
+        var valor1=parseFloat(prmrecibo);
+        var valor2=parseFloat(prmpedido);
+
+        //alert ('estuy en validar');
+        var suma =  (valor1+valor2).toFixed(2) ;
+
+        console.log("Monto calculado: " + suma);
        
+        if (suma != prmRef){
+            var html = "";
+
+            html='<strong style="color:red;">la suma del Recibo y el Pedido, debe ser igual al monto facturado.</strong></span>';
+        
+            $("#errmsg").html('');
+            $("#errmsg").html(html);
+
+        } else {
+
+            $("#errmsg").html('');
+
+        }
 
     }
 
