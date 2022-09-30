@@ -46,7 +46,7 @@
 			$pdf->cell(60,5,"",0,1,"L");		
 			$pdf->ln();	
 			$pdf->setFont("Arial","",12);
-			$pdf->Multicell( 190,5,utf8_decode("Entre la compañía Anónima ADMINISTRADORA YURUARY C.A, de este domicilio a quien en adelante se denomina LA ADMINISTRADORA representada en este acto por FELIX VALDIVIEZO mayor de edad, venezolano, con Cedula de Identidad N°. V-6.323.563, por una parte, y por la otra ").utf8_decode($fila['nom_Prop'])." C.I. ".utf8_decode($fila['ced_Prop']).utf8_decode(" , a quien en adelante se denominará(n) EL PROPIETARIO, se ha celebrado el contrato contenido en las Cláusulas siguientes ").".");		
+			$pdf->Multicell( 190,5,utf8_decode("Entre la compañía Anónima ADMINISTRADORA YURUARY C.A, de este domicilio a quien en adelante se denomina LA ADMINISTRADORA representada en este acto por FELIX VALDIVIEZO mayor de edad, venezolano, con Cedula de Identidad N°. V-6.323.563, por una parte, y por la otra ").utf8_decode($fila['nom_prop'])." C.I. ".utf8_decode($fila['ced_Prop']).utf8_decode(" , a quien en adelante se denominará(n) EL PROPIETARIO, se ha celebrado el contrato contenido en las Cláusulas siguientes ").".");		
 			$pdf->ln();				$pdf->ln();				$pdf->ln();				$pdf->ln();				$pdf->ln();			
 			$pdf->Multicell( 190,5,utf8_decode("PRIMERA: EL PROPIETARIO encomienda a LA ADMINISTRADORA la administración del inmueble de su propiedad ").utf8_decode($fila['nom_inmu'])." , ubicado ".utf8_decode($fila['dir_inmu']));
 			$pdf->ln();	$pdf->ln();	

@@ -7,6 +7,7 @@ function inicio(){
     */
     let idInmueble = getParameterByName('idinmu');
 
+
     cargarMandato(idInmueble);
     cargarContratos(idInmueble);
 
@@ -73,7 +74,7 @@ function cargarMandato(idInmueble){
                             var html="";
                             html = '<div class="btn-group" style="font-size:1.3em; letter-spacing:0.2em;">';
                            
-                            html += '<a href="app/reportes/repmandato.php?id_prop=' + json.Items[0][i].id_prop + '&tipo_prop=' + json.Items[0][i].tipo_prop  + '" title="Imprimir" target="_blank" ><i class="fa fa-print" alt=“imprimir”></i></a>&nbsp;';
+                            html += '<a href="app/reportes/repmandato.php?id_mandato=' + json.Items[0][i].id + '&idinmu=' + json.Items[0][i].id_inmu +  '&idunid=' + json.Items[0][i].id_unid  + '&id_prop=' + json.Items[0][i].id_prop  + '&tipo_prop=' + json.Items[0][i].tipo_prop  +  '" title="Imprimir" target="_blank" ><i class="fa fa-print" alt=“imprimir”></i></a>&nbsp;';
                             html += '</div>'
                             tr.append("<td>" + html + "</td>");
                             $('#datosMandatos').append(tr);
