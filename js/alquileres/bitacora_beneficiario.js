@@ -11,22 +11,41 @@ function inicio(){
        cargarBancos('cboBancop');
    
        let idPropietario = getParameterByName('idpro');
-       let codigoPropietario = getParameterByName('codpro');
+       let prmCodPro = getParameterByName('codpro');
        let tipoPropietario = getParameterByName('codtip');
       
        let idBeneficiario = getParameterByName('idbene');
        let codigoBeneficiario = getParameterByName('codbene');
-       let tipoBeneficiario = getParameterByName('codtip');
+       let tipoBeneficiario = getParameterByName('codtipbene');
     
        
-       consultarBeneficiario(idBeneficiario,codigoBeneficiario,tipoBeneficiario);
+       consultarBeneficiariobitacora(idBeneficiario,codigoBeneficiario,tipoBeneficiario);
 
        cargarInmueble(idPropietario,tipoPropietario);
        cargarInmuebleConUnidad(idPropietario,tipoPropietario);
 
        imprimirDocumento(idBeneficiario, codigoBeneficiario, tipoBeneficiario);
+
+       atrasbeneficiario(idPropietario,prmCodPro,tipoPropietario);
       
    }
+
+
+   function atrasbeneficiario(idPropietario,prmCodPro,tipoPropietario){
+
+    //if (isEmpty(prmDato) == false ){
+
+
+        var html = "";
+        html='index.php?url=app/vistas/alquileres/beneficiarios&idpro=' + idPropietario  + '&codpro=' + prmCodPro + '&codtip=' + tipoPropietario;
+    
+        $(".codpro").prop("href", html);
+
+
+    //}
+
+}
+
    
    
    function imprimirDocumento(prmIdBene, prmCodBne, prmTipo){
@@ -37,7 +56,7 @@ function inicio(){
            var html = "";
    
            if(prmIdBene != 0 && prmIdBene != ""){
-               html='app/reportes/repfichabeneficiario.php?idbene=' + prmIdBene  + '&codbene=' + prmCodBne + '&codtip=' + prmTipo;
+               html='app/reportes/repfichabeneficiario.php?idbene=' + prmIdBene  + '&codbene=' + prmCodBne + '&codtipbene=' + prmTipo;
                $(".codbene").prop("href", html);
            }
    
@@ -46,7 +65,7 @@ function inicio(){
    }
    
    
-   function consultarBeneficiario(id,codigo,tipo){
+   function consultarBeneficiariobitacora(id,codigo,tipo){
 
     console.log("consultando");
     
@@ -67,7 +86,7 @@ function inicio(){
             | AQUI SE AGREGA UN PARAMETRO ADICIONAL AL FORMULARIO 
             |-----------------------------------------------------
             */
-            formData.append('opcion','CB');
+            formData.append('opcion','CBB');
     
             formData.append('idbeneficiario',id);
             formData.append('codigoBeneficiario',codigo);
@@ -93,7 +112,7 @@ function inicio(){
                 success: function (data) {
                 var json = data;
                 var html = "";
-                let idPropietario = 0;
+                let idbeneficiario = 0;
                     console.log("Mensaje del JSON: " + json);
     
                     if(json.error == 0){
@@ -104,91 +123,11 @@ function inicio(){
     
                             //<input type="hidden" id="tipo_persona" name="tipo_persona" value='1'>
                             $('#hidbeneficiario').val(json.Items[0].id_bene);
-                            $('#hidcuenta_id_nacional').val(json.Items[0].id_banco_nacional);
-                            $('#hidcuenta_id_internacional').val(json.Items[0].id_banco_internacional);
-                            $('#hidcuenta_id_paypal').val(json.Items[0].id_banco_internacional);
-                            $('#hidcuenta_id_zelle').val(json.Items[0].id_banco_internacional);
+                    
+                            $("#registroCodigo").val(json.Items[0].codigo);
     
                            
-                            /*
-                            |------------------------------------------------------
-                            | DATOS PRINCIPALES
-                            |------------------------------------------------------
-                            */
-                            $('#registroNombre').val(json.Items[0].nom_bene);
-                            $('#registroApellido').val(json.Items[0].ape_bene);
-                            
-                            $("select[name='registroNacionalidad']").val(json.Items[0].nac_bene).change();
-    
-    
-                            
-                            $('#registroCedula').val(json.Items[0].ci_bene);
-                            $('#registrorif').val(json.Items[0].rif_bene);
-                            $('#registroTelefono').val(json.Items[0].loc_bene);
-                            $('#registroCelular').val(json.Items[0].cel_bene);
-                            $('#registroEmail').val(json.Items[0].cor_bene);
-    
-    
-                            $("select[name='cboEstados']").val(json.Items[0].est_bene).change();
-                            setTimeout(function(){ $("select[name='cboMunicipios']").val(json.Items[0].mun_bene).change() }, 2000);
-                            setTimeout(function(){ $("select[name='cboParroquia']").val(json.Items[0].par_bene).change() }, 4000);
-    
-                            
-                            $('#registroDirecionH').val(json.Items[0].dir_bene);
-                            $('#registroDirecionO').val(json.Items[0].ofi_bene);
-    
-    
-                            $("#registroCodigo").val(json.Items[0].cod_bene);
-    
-                            /*
-                            |------------------------------------------------------
-                            | DATOS BANCOS NACIONALES
-                            |------------------------------------------------------
-                            */
-                            
-                            $("select[name='cboBancoN']").val(json.Items[0].id_banco).change();
-                            $('#num_cuen').val(json.Items[0].num_cuen);
-                            $('#ced_pmov').val(json.Items[0].pagomovil_cedula);
-                            $("select[name='cboBancoNP']").val(json.Items[0].pagomovil_id_banco).change();
-                            $('#cel_pmov').val(json.Items[0].pagomovil_telefono);
-                            
-                            /*
-                            |------------------------------------------------------
-                            | DATOS BANCOS INTERNACIONALES
-                            |------------------------------------------------------
-                            */
-    
-                           
-                            $('#ban_extr').val(json.Items[0].ban_extr);
-                            $('#age_extr').val(json.Items[0].age_extr);
-                            $('#dc_extr').val(json.Items[0].dc_extr);
-                            $('#cue_extr').val(json.Items[0].cue_extr);
-                            $('#iba_extr').val(json.Items[0].iba_extr);
-                            $('#bic_extr').val(json.Items[0].bic_extr);
-    
-    
-                           /*
-                            |------------------------------------------------------
-                            | DATOS PAYPAL
-                            |------------------------------------------------------
-                            */
-    
-                         
-                            $('#cor_payp').val(json.Items[0].cor_payp);
-                            $('#nom_payp').val(json.Items[0].nom_payp);
-    
-                            /*
-                            |------------------------------------------------------
-                            | DATOS zelle
-                            |------------------------------------------------------
-                            */
-                         
-                            $('#tel_zelle').val(json.Items[0].tel_zelle);
-                            $('#cor_zelle').val(json.Items[0].cor_zelle);
-                            $('#nom_zelle').val(json.Items[0].nom_zelle);
-                          
-    
-    
+
     
                         }
     

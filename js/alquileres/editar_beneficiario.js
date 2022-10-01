@@ -18,7 +18,7 @@ function inicio(){
 
     let idBeneficiario = getParameterByName('idbene');
     let codigoBeneficiario = getParameterByName('codbene');
-    let tipoBeneficiario = getParameterByName('codtip');
+    let tipoBeneficiario = getParameterByName('codtipbene');
     
     
 
@@ -45,7 +45,7 @@ function inicio(){
     cargarBancos('cboBancoN');
     cargarBancos('cboBancoNP');
     
-    atrasbeneficiario(idPropietario,prmCodPro,prmTipo);
+    atrasbeneficiario(idBeneficiario,codigoBeneficiario,prmTipo,idPropietario,prmCodPro);
    
     guardarBeneficiario();
     
@@ -157,13 +157,13 @@ function codigoPropietario(prmDato){
 
 }
 
-function atrasbeneficiario(prmIdPro,prmCodPro,prmTipo){
+function atrasbeneficiario(prmIdPro,prmCodPro,prmTipo,idBeneficiario,){
 
     //if (isEmpty(prmDato) == false ){
 
 
         var html = "";
-        html='index.php?url=app/vistas/alquileres/beneficiarios&idpro=' + prmIdPro  + '&codpro=' + prmCodPro + '&codtip=' + prmTipo;
+        html='index.php?url=app/vistas/alquileres/beneficiarios&idpro=' + prmIdPro  + '&codpro=' + prmCodPro + '&codtip=' + prmTipo + '&idbene=' + idBeneficiario ;
     
         $(".codpro").prop("href", html);
 

@@ -545,7 +545,7 @@ function generarCodigoBeneficiario(){
         var prmApellido=$("#registroApellido").val();
 
         $("#registroCodigo").val('');
-        codigoApoderado(prmNombre + ' ' + prmApellido,function(result){
+        codigoBeneficiario(prmNombre + ' ' + prmApellido,function(result){
             $("#registroCodigo").val(result);
         });
         /*
@@ -559,7 +559,7 @@ function generarCodigoBeneficiario(){
         var prmApellido=this.value;
 
         $("#registroCodigo").val('');
-        codigoApoderado(prmNombre + ' ' + prmApellido,function(result){
+        codigoBeneficiario(prmNombre + ' ' + prmApellido,function(result){
             $("#registroCodigo").val(result);
         });
         /*

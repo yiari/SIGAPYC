@@ -37,7 +37,7 @@ include("layout/menuNavegacion.php");
                                 <form class="form-sample" id="registrarpropietario" name="registrarpropietario" method="POST" action="" autocomplete="off" enctype="multipart/form-data">
                                         
                                         <input type="hidden" id="id_usuario" name="id_usuario" value='1'>
-                                         <input type="hidden" id="tipo_persona" name="tipo_persona" value='1'>
+                                         <input type="hidden" id="tipo_persona" name="tipo_persona" value=''>
                                          <input type="hidden" id="hidpropietario" name="hidpropietario" value=''>
                                          <input type="hidden" id="hidcuenta_id_nacional" name="hidcuenta_id_nacional" value='0'>
                                          <input type="hidden" id="hidcuenta_id_internacional" name="hidcuenta_id_internacional" value='0'>

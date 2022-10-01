@@ -249,6 +249,7 @@ if($operacion == "CB"){
 
 
 
+
 /* 
  |--------------------------------------------------------------
  | AQUI SE EJECUTA LA OPERACION ELIMINAR USUARIO

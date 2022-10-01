@@ -463,7 +463,7 @@ if ($resultado3['error'] == 0){
                  
                    $valor = [$resultado2];
                     foreach ($resultado2 as $valor) {
-                         //AQUI ESCRIBO  NCORREO DE TELEFONO CUENTA ZELLE DEL PROPIETARIO
+                         //AQUI ESCRIBO  LOS IMNUEBLE DE UN PROPÌETARIO
                             $pdf->SetFont('Times', 'B', 9);
                             $pdf->SetTextColor($fontColorContenido['r'], $fontColorContenido['g'], $fontColorContenido['b']);
                             $pdf->SetFillColor(2, 157, 116); //Fondo verde de celda
@@ -477,13 +477,13 @@ if ($resultado3['error'] == 0){
 
 
 
-                     //AQUI ESCRIBO  NCORREO DE TELEFONO CUENTA ZELLE DEL PROPIETARIO
+                     //AQUI ESCRIBO  LOS REPRESENTANTES O APODERADORS DE UN PROPIETARIO
                      $pdf->SetFont('Times', 'B', 9);
                      $pdf->SetTextColor($fontColorContenido['r'], $fontColorContenido['g'], $fontColorContenido['b']);
                      $pdf->SetFillColor(2, 157, 116); //Fondo verde de celda
                      $pdf->SetXY(25,195);//AQUI SE AJUSTA LA POSICION DONDE SE DEBE COLOCAR EL TEXTO
                      //Atención!! el parámetro true rellena la celda con el color elegido
-                     $datapersona =  $resultado3['Items3'][0]['codigo'] ;  //$dataResPersonal['nombrespastor'] . ' ' . $dataResPersonal['apellidospastor'];
+                     $datapersona =  $resultado3['Items3'][0]['nombre'] ;  //$dataResPersonal['nombrespastor'] . ' ' . $dataResPersonal['apellidospastor'];
                      //$dataNombre = str_pad($dataResPersonal['nombrespastor'] . ' ' . $dataResPersonal['apellidospastor'], 50, '* ', STR_PAD_RIGHT);
                      $pdf->Cell(10, 3, $datapersona, $bordeCelda, 0, 'L', $celdaVisible);
 

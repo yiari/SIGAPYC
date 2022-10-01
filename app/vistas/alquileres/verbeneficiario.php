@@ -19,7 +19,7 @@ include("layout/menuNavegacion.php");
             <div style="text-align: right;">
                
                          <ol>          
-                            <a class="btn btn-outline-secondary " href="index.php?url=app/vistas/alquileres/beneficiarios"  role="button">Atras</a>
+                            <a class="btn btn-outline-secondary codpro" href="index.php?url=app/vistas/alquileres/beneficiarios"  role="button">Atrass</a>
                             <a href="app/reportes/repfichabeneficiario.php" target="_blank" class="btn btn-outline-secondary codbene" href="reportes.php" role="button"><i class="fa fa-file-pdf-o" alt=“PDF” ></i> Imprimir</a>
                          </ol>
             </div>
@@ -32,13 +32,11 @@ include("layout/menuNavegacion.php");
                                 <form class="form-sample" id="registrarpropietario" name="registrarpropietario" method="POST" action="" autocomplete="off" enctype="multipart/form-data">
                                         
                                         <input type="hidden" id="id_usuario" name="id_usuario" value='1'>
-                                         <input type="hidden" id="tipo_persona" name="tipo_persona" value='1'>
+                                     
+                                         <input type="hidden" id="tipo_persona" name="tipo_persona" value=''>
+                                         <input type="hidden" id="hidbeneficiario" name="hidbeneficiario" value=''>
                                          <input type="hidden" id="hidpropietario" name="hidpropietario" value=''>
-                                         <input type="hidden" id="hidcuenta_id_nacional" name="hidcuenta_id_nacional" value='0'>
-                                         <input type="hidden" id="hidcuenta_id_internacional" name="hidcuenta_id_internacional" value='0'>
- 
-                                         <input type="hidden" id="hidcuenta_id_paypal" name="hidcuenta_id_paypal" value='0'>
-                                         <input type="hidden" id="hidcuenta_id_zelle" name="hidcuenta_id_zelle" value='0'>
+                                        
                                 <!--Datos del propietario-->
                                 <div class="card" id="Propietario">
                                     <div class="card-body">
