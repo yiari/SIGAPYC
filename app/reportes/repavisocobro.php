@@ -9,10 +9,13 @@ use setasign\Fpdi\Fpdi;
 // setup the autoload function
 require_once('../../vendor/autoload.php');
 include_once '../../app/modelos/conexcion.php';
+include_once '../../app/comunes/funciones.php';
 
 // initiate FPDI
 $pdf = new Fpdi();
 // add a page
+$prmFunciones = new funciones();
+
 //$pdf->AddPage();
 // set the source file
 $pdf->setSourceFile("avcobro.pdf");
@@ -174,12 +177,12 @@ if ($resultado['error'] == 0){
 
 
           //AQUI ESCRIBO MONTO EN LETRAS 
-          $pdf->SetFont('Times', 'B', 9);
+          $pdf->SetFont('Times', 'B', 11.5);
           $pdf->SetTextColor($fontColorContenido['r'], $fontColorContenido['g'], $fontColorContenido['b']);
           $pdf->SetFillColor(2, 157, 116); //Fondo verde de celda
-          $pdf->SetXY(120.5, 124.8);//AQUI SE AJUSTA LA POSICION DONDE SE DEBE COLOCAR EL TEXTO
+          $pdf->SetXY(120.5, 124.3);//AQUI SE AJUSTA LA POSICION DONDE SE DEBE COLOCAR EL TEXTO
           //Atención!! el parámetro true rellena la celda con el color elegido
-          $dataMontoLetra =  '';  //$dataResPersonal['nombrespastor'] . ' ' . $dataResPersonal['apellidospastor'];
+          $dataMontoLetra =  $prmFunciones->montoEscrito($resultado['Items'][0]['total'],"dolares", "y", "centimos");  //$dataResPersonal['nombrespastor'] . ' ' . $dataResPersonal['apellidospastor'];
           //$dataNombre = str_pad($dataResPersonal['nombrespastor'] . ' ' . $dataResPersonal['apellidospastor'], 50, '* ', STR_PAD_RIGHT);
           $pdf->Cell(10, 3, $dataMontoLetra, $bordeCelda, 0, 'L', $celdaVisible);
 

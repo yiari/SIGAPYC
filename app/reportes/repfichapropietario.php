@@ -120,15 +120,15 @@ try {
 
 
     $stmt->execute();
-    $dataRegistro["Items2"][] = $stmt->fetch();
-
+    $dataRegistroInmueble= $stmt->fetchall();
+/*
     $dataRes = array(
       'error' => '0',
       'mensaje' =>  'El registro se obtuvo con exito.'
     );
+  */  
     
-    
-   $resultado2 = array_merge($dataRegistro,$dataRes);
+   $resultado2 = $dataRegistroInmueble; // array_merge($dataRegistroInmueble,$dataRes);
 
     } catch (\Throwable $th) {
     
@@ -143,10 +143,10 @@ try {
 
     }
 
-if ($resultado2['error'] == 0){
+//if ($resultado2['error'] == 0){
 //echo "imprimimos el PDF";
 //echo $resultado2['items'][0]['id_prop'];
-}
+//}
 
 
 
@@ -462,22 +462,44 @@ if ($resultado3['error'] == 0){
 
                  
                    $valor = [$resultado2];
+                   $contadorFila = 0;
+                   $PosY = 195;
                     foreach ($resultado2 as $valor) {
                          //AQUI ESCRIBO  LOS IMNUEBLE DE UN PROPÌETARIO
-                            $pdf->SetFont('Times', 'B', 9);
+                           $pdf->SetFont('Times', 'B', 9);
                             $pdf->SetTextColor($fontColorContenido['r'], $fontColorContenido['g'], $fontColorContenido['b']);
                             $pdf->SetFillColor(2, 157, 116); //Fondo verde de celda
-                            $pdf->SetXY(15,195);//AQUI SE AJUSTA LA POSICION DONDE SE DEBE COLOCAR EL TEXTO
+                            $pdf->SetXY(15,$PosY);//AQUI SE AJUSTA LA POSICION DONDE SE DEBE COLOCAR EL TEXTO
                             //Atención!! el parámetro true rellena la celda con el color elegido
-                            $datainmueble =  $resultado2['Items2'][0]['codigo_inmueble'] ;  //$dataResPersonal['nombrespastor'] . ' ' . $dataResPersonal['apellidospastor'];
+                            $datainmueble =  $valor['codigo_inmueble'] ;  //$dataResPersonal['nombrespastor'] . ' ' . $dataResPersonal['apellidospastor'];
                             //$dataNombre = str_pad($dataResPersonal['nombrespastor'] . ' ' . $dataResPersonal['apellidospastor'], 50, '* ', STR_PAD_RIGHT);
                             $pdf->Cell(10, 3, $datainmueble, $bordeCelda, 0, 'L', $celdaVisible);
+   
+                         
+                           $pdf->SetFont('Times', 'B', 9);
+                            $pdf->SetTextColor($fontColorContenido['r'], $fontColorContenido['g'], $fontColorContenido['b']);
+                            $pdf->SetFillColor(2, 157, 116); //Fondo verde de celda
+                            $pdf->SetXY(55,$PosY);//AQUI SE AJUSTA LA POSICION DONDE SE DEBE COLOCAR EL TEXTO
+                            //Atención!! el parámetro true rellena la celda con el color elegido
+                            $datainmueble =  $valor['codigo_unidad'] ;  //$dataResPersonal['nombrespastor'] . ' ' . $dataResPersonal['apellidospastor'];
+                            //$dataNombre = str_pad($dataResPersonal['nombrespastor'] . ' ' . $dataResPersonal['apellidospastor'], 50, '* ', STR_PAD_RIGHT);
+                            $pdf->Cell(10, 3, $datainmueble, $bordeCelda, 0, 'L', $celdaVisible);
+
+
+
+
+
+
+                            //$pdf->Ln();//Salto de línea para generar otra fila
+                            $contadorFila++;
+                            $PosY += 5;
                     }
 
 
 
 
                      //AQUI ESCRIBO  LOS REPRESENTANTES O APODERADORS DE UN PROPIETARIO
+                     /*
                      $pdf->SetFont('Times', 'B', 9);
                      $pdf->SetTextColor($fontColorContenido['r'], $fontColorContenido['g'], $fontColorContenido['b']);
                      $pdf->SetFillColor(2, 157, 116); //Fondo verde de celda
@@ -486,7 +508,7 @@ if ($resultado3['error'] == 0){
                      $datapersona =  $resultado3['Items3'][0]['nombre'] ;  //$dataResPersonal['nombrespastor'] . ' ' . $dataResPersonal['apellidospastor'];
                      //$dataNombre = str_pad($dataResPersonal['nombrespastor'] . ' ' . $dataResPersonal['apellidospastor'], 50, '* ', STR_PAD_RIGHT);
                      $pdf->Cell(10, 3, $datapersona, $bordeCelda, 0, 'L', $celdaVisible);
-
+                    */
 
 
 
