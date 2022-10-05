@@ -1,5 +1,6 @@
 function inicio(){
 
+    consultarTasaCambio();
     guardarTasaCambio();
     limpiarCampos();
 
@@ -7,6 +8,75 @@ function inicio(){
 }
 
 
+function consultarTasaCambio(){
+
+       /*
+        |-----------------------------------------------
+        | AQUI SE CAPTURA LOS DATOS DEL FORMULARIO 
+        |-----------------------------------------------
+        */
+        var formData = new FormData();
+        /*
+        |-----------------------------------------------------
+        | AQUI SE AGREGA UN PARAMETRO ADICIONAL AL FORMULARIO 
+        |-----------------------------------------------------
+        */
+        formData.append('opcion','C');
+        /*
+        |-----------------------------------------------
+        | AQUI SE LLAMA EL AJAX 
+        |-----------------------------------------------
+        */
+        $.ajax({
+            url: "app/handler/alquileres/hndregistrotasacambio.php",
+            type: "POST",
+            data: formData, //new FormData(this),
+            contentType: false,
+            dataType: "json",
+            cache: false,
+            processData: false,
+            beforeSend: function () {
+                //$("#preview").fadeOut();
+                $("#error").fadeOut();
+            },
+            success: function (data) {
+            var json = data;
+            var html = "";
+
+                console.log("Mensaje del JSON: " + json.mensaje);
+
+                if(json.error == 0){
+                    
+                    $("#hidcambio").val(json.Items[0].id);
+                    $("#registroMonto").val(json.Items[0].cambio);
+
+
+                    //mensaje(json.mensaje,0);
+
+                    //$("#mensaje").html(html).fadeIn();
+                    //limpiarCampos();
+
+
+                }else {
+
+                    //mensaje(json.mensaje,1);
+
+                    //$("#mensaje").html(html).fadeIn();
+                }
+
+
+
+            },
+            error: function (e) {
+                //$("#error").html(e).fadeIn();
+                mensaje(e,1);
+                
+            }
+        });
+
+
+
+}
 
 function guardarTasaCambio(){
 
@@ -76,7 +146,7 @@ function guardarTasaCambio(){
 
                     //$("#mensaje").html(html).fadeIn();
                     limpiarCampos();
-
+                    consultarTasaCambio();
 
                 }else {
 

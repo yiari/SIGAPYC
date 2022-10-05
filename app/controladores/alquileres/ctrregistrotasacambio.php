@@ -39,7 +39,14 @@ class ctrregistrotasacambio{
 
     }
 
-    
+    public function consultartasa(){
+
+        $modelo =  new mdlregistrotasacambio();
+        $respuesta = $modelo->consultartasa();
+
+        return $respuesta;
+
+}
 
 
 }

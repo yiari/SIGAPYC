@@ -118,4 +118,53 @@ public function registrar($tabla,$datos){
 
 
 
+
+
+
+
+  public function consultartasa(){
+
+  
+      try {
+  
+        $dbConexion = new conexcion();
+        
+        $stmt = $dbConexion->conectar()->prepare("CALL usp_consultatasacambio()");
+        //$stmt -> bindParam(1,$items["id_unid"], PDO::PARAM_INT);
+       
+  
+        $stmt->execute();
+        $dataRegistro["Items"][] = $stmt->fetch();
+  
+        $dataRes = array(
+          'error' => '0',
+          'mensaje' =>  'El registro se obtuvo.'
+        );
+        
+        
+        echo json_encode(array_merge($dataRegistro,$dataRes));
+  
+        } catch (\Throwable $th) {
+        
+            //$pdo->rollBack() ;
+            //echo "Mensaje de Error: " . $th->getMessage();
+            $dataRes = array(
+              'error' => '1',
+              'mensaje' =>  "Mensaje de Error: " . $th->getMessage()
+            );
+      
+            echo json_encode($dataRes);
+    
+        }
+  
+  
+    }
+
+  
+
+
+
+
+
+
 }

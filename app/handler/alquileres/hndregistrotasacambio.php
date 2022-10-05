@@ -101,3 +101,39 @@ if($operacion == "ITC"){
 
 
 
+/* 
+ |-------------------------------------------
+ | AQUI SE EJECUTA LA OPERACION DE INSERTAR
+ |-------------------------------------------
+*/
+
+if($operacion == "C"){
+
+   /*
+    |-------------------------------------------
+    | AQUI CREO UNA INSTANCIA DE LA CLASE
+    |-------------------------------------------
+    */
+    
+    $registrortasa =  new ctrregistrotasacambio();
+
+                  
+   /* 
+   |---------------------------------------------
+   | AQUI OBTENGO EL RESULTADO DE LA EJECUCION
+   |---------------------------------------------
+   */
+     $result = $registrortasa->consultartasa();
+    
+    /*
+    |-------------------------------------------
+    | AQUI REGRESO EL RESULTADO AL AJAX
+    |-------------------------------------------
+    */
+    header('Content-Type: application/json');
+     return $result;
+     
+}
+
+
+
