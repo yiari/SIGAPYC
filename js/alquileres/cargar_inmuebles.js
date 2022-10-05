@@ -308,13 +308,16 @@ function cargarInmuebletodo(){
                                     
                                     let prmFoto = json.Items[0][i].foto;
                                     let prmInquilino = json.Items[0][i].inquilino;
-                                   
+                                    let prmunidad = json.Items[0][i].unidad;
+                            
+                                    
                                    
                                     var htmlunidades="";
 
                                     console.log(prmFoto);
                                     console.log(prmInquilino);
                                     console.log(htmlunidades);
+                                    console.log(prmunidad);
                                 
                                    
                                     
@@ -325,7 +328,13 @@ function cargarInmuebletodo(){
                                     }
                                     
                                     tr.append("<td>" + json.Items[0][i].inmueble + "</td>");
-                                    tr.append("<td>" + json.Items[0][i].unidad + "</td>");
+
+                                    if(prmunidad == null){
+                                        tr.append("<td>SIN UNIDAD</td>");
+                                    } else {
+                                        tr.append("<td>" + json.Items[0][i].unidad + "</td>");
+                                    }
+
                                     tr.append("<td>" + json.Items[0][i].propietario + "</td>");
                                     
                                     if(prmInquilino == undefined){
@@ -362,7 +371,7 @@ function cargarInmuebletodo(){
                                    
                                     /*html += '<a title="inquilino"  href="index.php?url=app/vistas/alquileres/asignar_inquilino&idpro=' + json.Items[0][i].id_prop  + '&codpro=' + json.Items[0][i].propietario  + '"><i class="fa fa-user-circle-o"></i></a>&nbsp;';*/
                                     
-                                    html += '<a title="Mandato y Contratos"  href="index.php?url=app/vistas/alquileres/contratos_mandatostodo&idinmu=' + json.Items[0][i].id_inmu   + '&codinmu=' + json.Items[0][i].inmueble  + '"><i class="fa fa-file-text-o"></i></a>&nbsp;';
+                                    html += '<a title="Mandato y Contratos"  href="index.php?url=app/vistas/alquileres/contratos_mandatostodo&idinmu=' + json.Items[0][i].id_inmu   + '&codinmu=' + json.Items[0][i].inmueble + '&idunid=' + json.Items[0][i].id_unid   + '&codunid=' + json.Items[0][i].unidad  + '"><i class="fa fa-file-text-o"></i></a>&nbsp;';
                                    
                                     html += '<a title="Eliminar"  data-field-id="'  + json.Items[0][i].id + '"><i class="fa fa-trash" alt=“eliminar”></i></a>';
                                     html += '</div>'

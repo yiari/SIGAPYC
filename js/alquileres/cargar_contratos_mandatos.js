@@ -6,16 +6,17 @@ function inicio(){
     |---------------------------------------
     */
     let idInmueble = getParameterByName('idinmu');
+    let idUnidad = getParameterByName('idunid');
 
 
-    cargarMandato(idInmueble);
+    cargarMandato(idInmueble,idUnidad);
     cargarContratos(idInmueble);
 
 }
 
 
 
-function cargarMandato(idInmueble){
+function cargarMandato(idInmueble,idUnidad){
 
     /*
     |-----------------------------------------------------
@@ -26,6 +27,7 @@ function cargarMandato(idInmueble){
 
     formData.append('opcion','C');
     formData.append('id_inmu',idInmueble);
+    formData.append('id_unid',idUnidad);
    
     /*
     |-----------------------------------------------
@@ -58,6 +60,8 @@ function cargarMandato(idInmueble){
                 | AQUI SE CARGA LA INFORMACION EN LA TABLA
                 |------------------------------------------------------
                 */
+
+
                 if(json.Items.length > 0){
                     var tr;
 
@@ -66,10 +70,22 @@ function cargarMandato(idInmueble){
                 
                        // if (isEmpty(json.Items[0][i]) == false) {
                             tr = $('<tr/>');
+
+
+                            let prmunidad = json.Items[0][i].unidad;
                             
+                            console.log(prmunidad);
+
+
+
                             tr.append("<td>" + json.Items[0][i].codigo + "</td>");
                             tr.append("<td>" + json.Items[0][i].inmueble + "</td>");
-                            tr.append("<td>" + json.Items[0][i].unidad + "</td>");
+                            
+                            if(prmunidad == null){
+                                tr.append("<td>SIN UNIDAD</td>");
+                            } else {
+                                tr.append("<td>" + json.Items[0][i].unidad + "</td>");
+                            }
 
                             var html="";
                             html = '<div class="btn-group" style="font-size:1.3em; letter-spacing:0.2em;">';

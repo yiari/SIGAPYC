@@ -88,6 +88,7 @@ if(isset($_POST["opcion"])) {
 if($operacion == "C"){
 
 $prmidinmu = $_POST["id_inmu"];
+$prmidunid = $_POST["id_unid"];
 
    /*
     |-------------------------------------------
@@ -102,7 +103,7 @@ $prmidinmu = $_POST["id_inmu"];
    | AQUI OBTENGO EL RESULTADO DE LA EJECUCION
    |---------------------------------------------
    */
-     $result = $registromandato->seleccionarregistros($prmidinmu);
+     $result = $registromandato->seleccionarregistros($prmidinmu,$prmidunid);
     
     /*
     |-------------------------------------------

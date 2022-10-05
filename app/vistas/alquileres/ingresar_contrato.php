@@ -30,6 +30,11 @@ include("layout/menuNavegacion.php");
                                     <input type="hidden" id="tipo_inqui" name="tipo_inqui" value='0'>
                                     <input type="hidden" id="tipo_prop" name="tipo_prop" value='0'>
 
+                                    <input type="hidden" id="cod_propietario" name="cod_propietario" value='0'>
+                                    <input type="hidden" id="codigo_inmueble" name="codigo_inmueble" value='0'>
+                               
+                               
+
 
                             <form class="form-sample" id="buscarCodigo" name="buscarCodigo" method="POST" action="" autocomplete="on">
 
@@ -65,7 +70,8 @@ include("layout/menuNavegacion.php");
                                                                 <th>Propietario</th>
                                                                 <th>Tipo</th>
                                                                 <th>Inmueble</th>
-                                                                <th>Unidad</th>
+                                                                <th>Tipo Inmueble</th>
+                                                                <th>Direcciön</th>
                                                                 <th>Opcion</th>
                                                             </tr>
                                                     </thead>

@@ -21,7 +21,7 @@ class mdlregistromandatos{
 
 
 
- public function seleccionarregistros($prmidinmu){
+ public function seleccionarregistros($prmidinmu,$prmidunid){
 
   //If($idprop == null || $idprop == 0)
 
@@ -29,8 +29,9 @@ class mdlregistromandatos{
 
               $dbConexion = new conexcion();
               
-              $stmt = $dbConexion->conectar()->prepare("CALL usp_cargar_mandatos(?)");
+              $stmt = $dbConexion->conectar()->prepare("CALL usp_cargar_mandatos(?,?)");
               $stmt ->bindParam(1, $prmidinmu, PDO::PARAM_INT);
+              $stmt ->bindParam(2, $prmidunid, PDO::PARAM_INT);
               $stmt->execute();
               $dataRegistro["Items"][] = $stmt->fetchall();
 

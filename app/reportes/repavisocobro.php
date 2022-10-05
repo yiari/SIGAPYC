@@ -154,14 +154,25 @@ if ($resultado['error'] == 0){
 
 
          //AQUI ESCRIBO EL NOMBRE DEL INQUILINO
-         $pdf->SetFont('Times', 'B', 9);
+         $pdf->SetFont('Times', 'B', 10);
          $pdf->SetTextColor($fontColorContenido['r'], $fontColorContenido['g'], $fontColorContenido['b']);
          $pdf->SetFillColor(2, 157, 116); //Fondo verde de celda
-         $pdf->SetXY(57, 98.7);//AQUI SE AJUSTA LA POSICION DONDE SE DEBE COLOCAR EL TEXTO
+         $pdf->SetXY(55, 103);//AQUI SE AJUSTA LA POSICION DONDE SE DEBE COLOCAR EL TEXTO
          //Atención!! el parámetro true rellena la celda con el color elegido
          $dataNombre =  $resultado['Items'][0]['nombre'] ;  //$dataResPersonal['nombrespastor'] . ' ' . $dataResPersonal['apellidospastor'];
          //$dataNombre = str_pad($dataResPersonal['nombrespastor'] . ' ' . $dataResPersonal['apellidospastor'], 50, '* ', STR_PAD_RIGHT);
          $pdf->Cell(10, 3, $dataNombre, $bordeCelda, 0, 'L', $celdaVisible);
+
+
+         //AQUI ESCRIBO EL NOMBRE DEL INQUILINO
+         $pdf->SetFont('Times', 'B', 10);
+         $pdf->SetTextColor($fontColorContenido['r'], $fontColorContenido['g'], $fontColorContenido['b']);
+         $pdf->SetFillColor(2, 157, 116); //Fondo verde de celda
+         $pdf->SetXY(105, 129);//AQUI SE AJUSTA LA POSICION DONDE SE DEBE COLOCAR EL TEXTO
+         //Atención!! el parámetro true rellena la celda con el color elegido
+         $datacodigoUnidad =  $resultado['Items'][0]['cod_inmu'] ;  //$dataResPersonal['nombrespastor'] . ' ' . $dataResPersonal['apellidospastor'];
+         //$dataNombre = str_pad($dataResPersonal['nombrespastor'] . ' ' . $dataResPersonal['apellidospastor'], 50, '* ', STR_PAD_RIGHT);
+         $pdf->Cell(10, 3, $datacodigoUnidad, $bordeCelda, 0, 'L', $celdaVisible);
          
 
 

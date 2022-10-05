@@ -31,11 +31,11 @@ class ctrregistromandato{
 
     /*tabla para visializar los cobradores registrados*/
 
-     public function seleccionarregistros($prmidinmu){
+     public function seleccionarregistros($prmidinmu,$prmidunid){
 
         $tabla = "mandato";
         $modelo =  new mdlregistromandatos();
-        $respuestas =  $modelo->seleccionarregistros($prmidinmu);
+        $respuestas =  $modelo->seleccionarregistros($prmidinmu,$prmidunid);
         return $respuestas;
     }
 

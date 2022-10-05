@@ -448,6 +448,7 @@ if($operacion == "RP"){
                    "mensualidad" => $_POST["monto"],
                    "monto_recibo" => $_POST["recibo"],
                    "monto_pedido" => $_POST["pedido"],
+                   "tasa" => $_POST["hidTasa"],
 
                    "id_usuario" => $_POST["id_usuario"] );
 

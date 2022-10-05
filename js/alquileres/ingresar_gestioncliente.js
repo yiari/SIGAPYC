@@ -705,6 +705,7 @@ function consultarGestionCliente(idInqu,tipoInqu){
             formData.append('id_unidad',$('#id_unid').val());
             formData.append('id_inquilino',$('#id_inqu').val());
             formData.append('id_usuario',$('#id_usuario').val());
+            formData.append('tasa',$('#tasa').val());
             formData.append('mes',$('#mes').val());
             
 
