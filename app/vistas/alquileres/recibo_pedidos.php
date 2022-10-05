@@ -40,7 +40,7 @@ include("layout/menuNavegacion.php");
                                 <!--tabla-->
                              
                                    
-
+                              <!--
                                          <div class="card-body">
 
                                                     <div class="row">
@@ -66,7 +66,7 @@ include("layout/menuNavegacion.php");
 
                                                     </div>
                                          
-                                        </div>
+                                        </div>-->
                                               
                                               <br>
                                         <div class="card-body">
@@ -83,9 +83,11 @@ include("layout/menuNavegacion.php");
                                                         <th>Recibo</th>
                                                         <th>Pedido</th>
                                                       
-                                                        <th>monto_recibo</th>
-                                                        <th>monto_pedido</th>
+                                                        <th>monto recibo</th>
+                                                        <th>monto pedido</th>
                                                         <th>Total</th>
+                                                        <th>Tasa cambio</th>
+                                                        <th>Bs</th>
                                                  
                                                         <th>Acciones</th>
 
