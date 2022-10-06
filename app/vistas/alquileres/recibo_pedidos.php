@@ -18,7 +18,7 @@ include("layout/menuNavegacion.php");
           <div class="card-header">
             <div style="text-align: right;">
                 <ol>
-                    <a class="btn btn-outline-success" href="#" role="button"><i class="fa fa-file-excel-o " alt=“Excel”></i> Execel</a>
+                    <a class="btn btn-outline-success" href="app/reportes/repexcel.php" role="button"><i class="fa fa-file-excel-o " alt=“Excel”></i> Excel</a>
                 </ol>
             </div>
 
