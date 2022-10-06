@@ -33,6 +33,7 @@ function inicio(){
        let prmmonto = getParameterByName('monto');
        let prminmu = getParameterByName('idinmu');
        let prmunid = getParameterByName('idunid');
+       
      
     
  

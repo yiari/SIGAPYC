@@ -18,7 +18,7 @@ include("layout/menuNavegacion.php");
           <div class="card-header">
             <div style="text-align: right;">
                 <ol>
-                    <a class="btn btn-outline-success" href="#" role="button"><i class="fa fa-file-excel-o " alt=“Excel”></i> Execel</a>
+
                 </ol>
             </div>
 
@@ -40,7 +40,7 @@ include("layout/menuNavegacion.php");
                                 <!--tabla-->
                              
                                    
-
+                                        <!--
                                          <div class="card-body">
 
                                                     <div class="row">
@@ -74,7 +74,7 @@ include("layout/menuNavegacion.php");
                                                                 </div>
                                                     </div>
                                          
-                                        </div>
+                                        </div>-->
                                               
                                               <br>
                                         <div class="card-body">
