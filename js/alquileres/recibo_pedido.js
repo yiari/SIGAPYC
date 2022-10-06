@@ -70,7 +70,7 @@ console.log("Items Resultados: " + json.Items[0].length);
                                     tr = $('<tr/>');
 
                                     tr.append("<td>" + json.Items[0][i].nombre_mes + "</td>");
-                                    tr.append("<td>" + json.Items[0][i].id_inqu + "</td>");
+                                    tr.append("<td>" + json.Items[0][i].inquilino + "</td>");
                                     tr.append("<td>" + json.Items[0][i].inmueble + "</td>");
                                     tr.append("<td>" + json.Items[0][i].cod_aviso + "</td>");
                                     tr.append("<td>" + json.Items[0][i].cod_recibo + "</td>");
@@ -79,6 +79,9 @@ console.log("Items Resultados: " + json.Items[0].length);
                                     tr.append("<td>" + json.Items[0][i].monto_recibo + "</td>");
                                     tr.append("<td>" + json.Items[0][i].monto_pedido + "</td>");
                                     tr.append("<td>" + json.Items[0][i].mensualidad + "</td>");
+                                    tr.append("<td>" + json.Items[0][i].tasa + "</td>");
+                                    tr.append("<td>" + json.Items[0][i].Bs + "</td>");
+                                    
                                    /* tr.append("<td>" + statusAvisoCobro(json.Items[0][i].estatus) + "</td>");*/
                                    
 
