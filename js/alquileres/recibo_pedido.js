@@ -39,17 +39,7 @@ function cargarReciboPedido(){
         success: function (data) {
         var json = data;
         var html = "";
-/*
-        console.log(json);
-        console.log("Este es el Mensaje: " + json.mensaje);
-*/
-       // console.log("Items: " + json.Items.length);
 
-/*
-console.log("Items Resultados: " + json.Items[0].length);
-
-        console.log("Email Resultados: " + json.Items[0][1].email);
-*/
                 /*
                 |------------------------------------------------------
                 | AQUI SE CARGA LA INFORMACION EN LA TABLA

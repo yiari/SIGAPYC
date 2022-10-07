@@ -115,7 +115,7 @@ if($operacion == "CRP"){
     if (!headers_sent()) {
       //AGREGAR CABECERA SI NO LA TIENE
       header('Content-Type: application/json');
-} 
+      } 
      return $result;
      
 }

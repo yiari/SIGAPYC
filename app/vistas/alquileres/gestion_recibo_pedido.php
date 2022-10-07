@@ -144,7 +144,7 @@ include("layout/menuNavegacion.php");
                                                                     </div>
                                                                     <div class="col-12 btn btn-align-center">
                                                                     
-                                                                        <button type="submit" class="btn btn-primary mb-2">Guardar</button>
+                                                                        <button id="btnGuardar" type="submit" class="btn btn-primary mb-2" disabled>Guardar</button>
                                                                 
                                                                     </div>
                                                                 </div> 

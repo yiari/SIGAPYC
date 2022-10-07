@@ -644,11 +644,12 @@ function consultarGestionCliente(idInqu,tipoInqu){
         
             $("#errmsg").html('');
             $("#errmsg").html(html);
+            $("#btnGuardar").attr('disabled','disabled');
 
         } else {
 
             $("#errmsg").html('');
-
+            $("#btnGuardar").removeAttr('disabled');
         }
 
     }
