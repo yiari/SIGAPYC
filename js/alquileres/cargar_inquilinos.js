@@ -69,7 +69,7 @@ function cargarInquilino(){
                             var htmlInquilino = "";
 
                             html = '<div class="btn-group" style="font-size:1.3em; letter-spacing:0.2em;">';
-                            html += '<a title="Bitacora" data-field-id="' + json.Items[0][i].id + '"><i class="fa fa-book"></i></a>&nbsp;';
+                            html += '<a title="Bitacora" href="index.php?url=app/vistas/alquileres/verinquilino&idinq=' + json.Items[0][i].id  + '&codinq=' + json.Items[0][i].codigo  + '&codtip=' + json.Items[0][i].tipo +  '"><i class="fa fa-book"></i></a>&nbsp;';
                             
                            
                             htmlInquilino='<a title="Editar" href="index.php?url=app/vistas/alquileres/editar_inquilino&idinq=' + json.Items[0][i].id  + '&codinq=' + json.Items[0][i].codigo  + '&codtip=' + json.Items[0][i].tipo  +  '"><i class="fa fa-edit" alt=“editar”></i></a>&nbsp;' ;

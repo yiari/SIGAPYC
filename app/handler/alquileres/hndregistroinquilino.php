@@ -235,6 +235,94 @@ if($operacion == "CI"){
 
 
 
+/* 
+ |--------------------------------------------------------------
+ | AQUI SE EJECUTA LA OPERACION DE CONSULTAR DEL Beneficiario
+ |--------------------------------------------------------------
+*/
+
+if($operacion == "CIB"){
+
+
+
+   $datos = array( 
+      "id_inqu" => $_POST["idinquilino"],
+      "codigo" => $_POST["codigoInquilino"],
+      "tipo_persona" => $_POST["tipoInquilino"]
+   );
+
+
+
+   /*
+    |-------------------------------------------
+    | AQUI CREO UNA INSTANCIA DE LA CLASE
+    |-------------------------------------------
+    */
+    
+    $registroInquilinoBitacora =  new ctrregistroinquilino();
+
+   /* 
+   |---------------------------------------------
+   | AQUI OBTENGO EL RESULTADO DE LA EJECUCION
+   |---------------------------------------------
+   */
+     $result = $registroInquilinoBitacora->consultainquilinobitacora($datos);
+    
+    /*
+    |-------------------------------------------
+    | AQUI REGRESO EL RESULTADO AL AJAX
+    |-------------------------------------------
+    */
+    header('Content-Type: application/json');
+     return $result;
+     
+}
+
+
+
+/* 
+ |------------------------------------------------------------------------------------
+ | AQUI SE EJECUTA LA OPERACION DE CONSULTAR LOS INMUEBLES y CONTRATOS DE LOS INQULINOS
+ |------------------------------------------------------------------------------------
+*/
+
+if($operacion == "CIC"){
+
+
+   $datos = array( 
+      "id_inqu"   => $_POST["id_inqu"],
+      "tipo_inqu"   => $_POST["tipo_inqu"]
+   );
+
+   /*
+    |-------------------------------------------
+    | AQUI CREO UNA INSTANCIA DE LA CLASE
+    |-------------------------------------------
+    */
+    
+    $registroInmuebleInquilino =  new ctrregistroinquilino();
+
+   /* 
+   |---------------------------------------------
+   | AQUI OBTENGO EL RESULTADO DE LA EJECUCION
+   |---------------------------------------------
+   */
+     $result = $registroInmuebleInquilino->consultainmuebleinquilino($datos);
+    
+    /*
+    |-------------------------------------------
+    | AQUI REGRESO EL RESULTADO AL AJAX
+    |-------------------------------------------
+    */
+    header('Content-Type: application/json');
+     return $result;
+     
+}
+
+
+
+
+
 
 /* 
  |--------------------------------------------------------------

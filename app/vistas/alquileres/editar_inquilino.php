@@ -42,12 +42,29 @@ include("layout/menuNavegacion.php");
                                                     <h5 class="card-title">Datos del Inquilino Natural</h5>
                                                 </div>
 
-                                                <div class="col-md-5">
-                                                        <label for="registroCodigo" class="col-sm-12 col-form-label">Código Inquilino:</label>
-                                                        <div class="col-sm-12">
-                                                            <input  type="text" class="form-control" id="registroCodigo" name="registroCodigo" autofocus readonly="yes" >
+                                                <div class="row">
+
+                                                        <div class="col-md-6">
+                                                            <label for="registroCodigo">Código:</label>
+                                                            <input for="registroCodigo" type="text" class="form-control" id="registroCodigo" name="registroCodigo" autofocus readonly="yes" >
                                                         </div>
+
+                                                       
+
+                                                        <div class="col-sm-3">
+                                                                <label for="pagador" >El Inquilino posee pagador?</label>
+                                                                    <div class="col-sm-12">
+                                                                        <select class="form-select" id="cbopagador" name="cbopagador" >
+                                                                            <option  value="">Seleccione...</option>    
+                                                                            <option  value="1">SI</option>
+                                                                            <option  value="2">NO</option>
+                                                                        </select>
+                                                                    </div>
+                                                        </div>
+
                                                 </div>
+
+                                                
                                                 <div class="row">
                                                     <div class="col-md-4">
                                                         <label class="col-sm-3 col-form-label">Nombre:</label>
@@ -262,12 +279,29 @@ include("layout/menuNavegacion.php");
                                                 <div class="col text-center">
                                                     <h5 class="card-title">Datos del Inquilino Jurídico</h5>
                                                 </div>
-                                                <div class="col-md-5">
-                                                        <label for="registroCodigoj"  class="col-sm-12 col-form-label">Código Inquilino:</label>
-                                                        <div class="col-sm-12">
-                                                            <input  type="text" class="form-control" id="registroCodigoj" name="registroCodigoj" autofocus readonly="yes" >
+
+                                                <div class="row">
+
+                                                        <div class="col-md-6">
+                                                            <label for="registroCodigoj">Código:</label>
+                                                            <input for="registroCodigoj" type="text" class="form-control" id="registroCodigoj" name="registroCodigoj" autofocus readonly="yes" >
                                                         </div>
+
+                                                       
+
+                                                        <div class="col-sm-3">
+                                                                <label for="cbopagador" >El Inquilino posee pagador?</label>
+                                                                    <div class="col-sm-12">
+                                                                        <select class="form-select" id="cbopagador" name="cbopagador" >
+                                                                            <option  value="">Seleccione...</option>    
+                                                                            <option  value="1">SI</option>
+                                                                            <option  value="2">NO</option>
+                                                                        </select>
+                                                                    </div>
+                                                        </div>
+
                                                 </div>
+                                                
                                                 <div class="row">
                                                     <div class="col-md-4">
                                                         <label for="registroNombrej" class="col-sm-12 col-form-label">Nombre o Razón Social:</label>

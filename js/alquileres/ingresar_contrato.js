@@ -150,7 +150,16 @@ function buscarInmueble(){
                         */
                            tr.append("<td>" + json.Items[0][i].cod_propietario + "</td>");
                            tr.append("<td>" + tipoPersona(json.Items[0][i].tipo_propietario) + "</td>");
-                           tr.append("<td>" + json.Items[0][i].cod_inmueble + "</td>");
+
+                           if(json.Items[0][i].cod_unidad != ''){
+                            tr.append("<td>" + json.Items[0][i].cod_unidad + "</td>");
+                           }else{
+                            tr.append("<td>" + json.Items[0][i].cod_inmueble + "</td>");
+                           }
+
+                           
+
+
                            tr.append("<td>" + json.Items[0][i].tipo_inmueble + "</td>");
                            tr.append("<td>" + json.Items[0][i].direccion + "</td>");
                            tr.append('<td class="text-center"><input type="radio" id="id_inmueble_' + json.Items[0][i].id_inmueble +  '" name="inmueble" onclick="seleccionarInmueble(' + json.Items[0][i].id_propietario + ',' + json.Items[0][i].id_inmueble + ',' + json.Items[0][i].id_unidad + ',' + json.Items[0][i].tipo_propietario + ',' + char + json.Items[0][i].cod_inmueble + char +')"></td>');

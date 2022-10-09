@@ -58,8 +58,25 @@ class ctrregistroinquilino{
         return $respuestas;
     }
 
+    public function consultainquilinobitacora($datos){
 
-     
+        $tabla = "inquilinos";
+        $modelo =  new mdlregistroinquilinos();
+        $respuestas =  $modelo->consultainquilinobitacora($tabla,$datos);
+        return $respuestas;
+    }
+
+
+    public function consultainmuebleinquilino($datos){
+
+        $tabla = "inquilinos";
+        $modelo =  new mdlregistroinquilinos();
+        $respuestas =  $modelo->consultainmuebleinquilino($tabla,$datos);
+        return $respuestas;
+    }
+
+
+  
 
 
     public function eliminarinquilino($datos){

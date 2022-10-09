@@ -82,6 +82,7 @@ function cargarReciboPedido(){
 
                                     html = '<div class="btn-group" style="font-size:1.3em; letter-spacing:0.5em;">';
                                     html += '<a title="PDF"  href="app/reportes/reprecibo.php?id='  + json.Items[0][i].id +'&codreci=' +json.Items[0][i].cod_recibo +'" target="_blank"><i class="fa fa-file-pdf-o" alt=“PDF” ></i></a>';
+                                    html += '<a title="PDF"  href="app/reportes/reprecibo2.php?id='  + json.Items[0][i].id +'&codreci=' +json.Items[0][i].cod_recibo +'" target="_blank"><i class="fa fa-file-pdf-o" alt=“PDF” ></i></a>';
                                     html += '<a title="Enviar notificación"  data-field-id="'  + json.Items[0][i].id_aviso + '"><i class="fa fa-envelope-open-o " alt=“email”></i></a>';
                                    
                                    

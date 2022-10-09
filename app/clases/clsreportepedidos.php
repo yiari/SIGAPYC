@@ -29,10 +29,11 @@ class clsreportepedidos
 
         $sheet = $spreadsheet->getActiveSheet();
         $sheet->setCellValue('A1', 'ID');
-        $sheet->setCellValue('B1', 'CODIGO RECIBO');
+        $sheet->setCellValue('B1', 'MES');
         $sheet->setCellValue('C1', 'CODIGO PEDIDO');
-        $sheet->setCellValue('D1', 'MONTO RECIBO');
-        $sheet->setCellValue('E1', 'MONTO PEDIDO');
+        $sheet->setCellValue('D1', 'MONTO PEDIDO');
+
+       
 
 
         $dbConexion = new conexcion();
@@ -53,10 +54,9 @@ class clsreportepedidos
         foreach($dataRegistro as $data){
 
             $sheet->setCellValue('A'.$contador, $data['id']);
-            $sheet->setCellValue('B'.$contador, $data['cod_recibo']);
+            $sheet->setCellValue('B'.$contador, $data['nombre_mes']);
             $sheet->setCellValue('C'.$contador, $data['cod_Pedido']);
-            $sheet->setCellValue('D'.$contador, $data['monto_recibo']);
-            $sheet->setCellValue('E'.$contador, $data['monto_pedido']);
+            $sheet->setCellValue('D'.$contador, $data['monto_pedido']);
 
             $contador++;
 

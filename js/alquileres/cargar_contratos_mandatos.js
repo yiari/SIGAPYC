@@ -176,11 +176,19 @@ function cargarContratos(idInmueble){
                 
                        // if (isEmpty(json.Items[0][i]) == false) {
                             tr = $('<tr/>');
+
+                            let prmunidad = json.Items[0][i].unidad;
                             
                             tr.append("<td>" + json.Items[0][i].codigo + "</td>");
                             tr.append("<td>" + json.Items[0][i].propietario + "</td>");
                             tr.append("<td>" + json.Items[0][i].inmuebles + "</td>");
-                            tr.append("<td>" + json.Items[0][i].unidad + "</td>");
+                            
+                            if(prmunidad == null){
+                                tr.append("<td>SIN UNIDAD</td>");
+                            } else {
+                                tr.append("<td>" + json.Items[0][i].unidad + "</td>");
+                            }
+                           
                             tr.append("<td>" + json.Items[0][i].inquilino + "</td>");
                             tr.append("<td>" + json.Items[0][i].canon + "</td>");
                             tr.append("<td>" + fecha(json.Items[0][i].desde,'YYYYMMDD','DD/MM/YYYY') + "</td>"); 

@@ -185,6 +185,7 @@ function consultarInquilino(id,codigo,tipo){
     
     
                             $("#registroCodigo").val(json.Items[0].cod_inqu);
+                            $("#cbopagador").val(json.Items[0].posee_pagador);
     
                            
                            

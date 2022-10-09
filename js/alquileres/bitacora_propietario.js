@@ -457,6 +457,28 @@ function consultarPropietario(id,codigo,tipo){
     
     }
 
+    function mensaje(mensaje, condicion){
+
+        var html="";
+    
+        if(condicion == 0){//ESTOS SON MENSAJES CON EXITO
+    
+            html='<i class="fa fa-check-circle fa-2x" aria-hidden="true" style="color:#29bf1d;"></i>&nbsp' + mensaje;
+    
+        } else if (condicion == 1){//ESTOS SON MENSAJES CON ERROR
+    
+            html='<i class="fa fa-times-circle fa-2x" aria-hidden="true" style="color:#bf1d1d;"></i>&nbsp' + mensaje;
+        }
+    
+    
+        $('#spanMsg').html('');
+        $('#spanMsg').html(html);
+        //open the modal
+        $('#msgModal').modal('show');
+    
+    }
+
+
 $(document).ready(function() {
 
 

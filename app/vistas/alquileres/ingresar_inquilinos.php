@@ -63,7 +63,7 @@ include("layout/menuNavegacion.php");
                                                                     </div>
                                                         </div>
 
-                                                    </div>
+                                                </div>
 
                                                 <br>
                                                 <div class="row">

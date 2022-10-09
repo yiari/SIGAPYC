@@ -394,6 +394,107 @@ public function registrar($tabla,$datos,$archivos){
 
 
 
+  public function consultainquilinobitacora($tabla,$items){
+
+    If($items == null){
+  
+  
+                  $dataRes = array(
+                    'error' => '1',
+                    'mensaje' =>  "Mensaje de Error: No hay registro para buscar."
+                  );
+            
+  
+    }else{
+  
+  
+      try {
+  
+        $dbConexion = new conexcion();
+        
+        $stmt = $dbConexion->conectar()->prepare("CALL usp_consultarverinquilino(?,?,?)");
+        $stmt -> bindParam(1,$items["id_inqu"], PDO::PARAM_INT);
+        $stmt -> bindParam(2,$items["codigo"], PDO::PARAM_STR);
+        $stmt -> bindParam(3,$items["tipo_persona"], PDO::PARAM_INT);
+       
+
+        $stmt->execute();
+        $dataRegistro["Items"][] = $stmt->fetch();
+  
+        $dataRes = array(
+          'error' => '0',
+          'mensaje' =>  'El registro se obtuvo.'
+        );
+        
+        
+        echo json_encode(array_merge($dataRegistro,$dataRes));
+  
+        } catch (\Throwable $th) {
+        
+            //$pdo->rollBack() ;
+            //echo "Mensaje de Error: " . $th->getMessage();
+            $dataRes = array(
+              'error' => '1',
+              'mensaje' =>  "Mensaje de Error: " . $th->getMessage()
+            );
+      
+            echo json_encode($dataRes);
+    
+        }
+  
+  
+  
+  
+    }
+  }
+
+
+
+  public function consultainmuebleinquilino($tabla,$datos){
+
+
+
+    try {
+
+      $dbConexion = new conexcion();
+      $valor = 0;
+      
+      $stmt = $dbConexion->conectar()->prepare("CALL usp_cargarbitacorainquilino(?,?)" );
+      $stmt ->bindParam(1, $datos["id_inqu"], PDO::PARAM_INT);
+      $stmt ->bindParam(2, $datos["tipo_inqu"], PDO::PARAM_INT);
+
+      $stmt->execute();
+      $dataRegistro["Items"][] = $stmt->fetchAll();
+
+      $dataRes = array(
+        'error' => '0',
+        'mensaje' =>  'El registro se obtuvo con exito.'
+      );
+      
+      
+      echo json_encode(array_merge($dataRegistro,$dataRes));
+
+      } catch (\Throwable $th) {
+      
+          //$pdo->rollBack() ;
+          //echo "Mensaje de Error: " . $th->getMessage();
+          $dataRes = array(
+            'error' => '1',
+            'mensaje' =>  "Mensaje de Error: " . $th->getMessage()
+          );
+    
+          echo json_encode($dataRes);
+  
+      }
+
+
+
+
+
+}
+
+
+
 
 }
 
