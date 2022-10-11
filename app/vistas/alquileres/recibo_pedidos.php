@@ -24,11 +24,11 @@ include("layout/menuNavegacion.php");
 
             <div style="text-align: center;">
                 <ol>
-                   
+                   <!--
                     <button type="button" class="btn btn-outline-secondary" onclick="buscarEstatus(0);">Todos</button>
                     <button type="button" class="btn btn-outline-primary" onclick="buscarEstatus(1);">Recibo</button>
                     <button type="button" class="btn btn-outline-success" onclick="buscarEstatus(2);">Pedidos</button>
-
+                   -->
                 </ol>
             </div>
             <div class="tab-content" id="nav-tabContent">
@@ -88,6 +88,7 @@ include("layout/menuNavegacion.php");
                                                         <th>Total</th>
                                                         <th>Tasa cambio</th>
                                                         <th>Bs</th>
+                                                        <th>Status</th>
                                                  
                                                         <th>Acciones</th>
 

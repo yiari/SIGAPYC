@@ -30,8 +30,12 @@ class clsreportepedidos
         $sheet = $spreadsheet->getActiveSheet();
         $sheet->setCellValue('A1', 'ID');
         $sheet->setCellValue('B1', 'MES');
-        $sheet->setCellValue('C1', 'CODIGO PEDIDO');
-        $sheet->setCellValue('D1', 'MONTO PEDIDO');
+        $sheet->setCellValue('C1', 'CODIGO AVISO');
+        $sheet->setCellValue('D1', 'CODIGO PEDIDO');
+        $sheet->setCellValue('E1', 'CODIGO INQUILINO');
+        $sheet->setCellValue('F1', 'CEDULA INQUILINO');
+        $sheet->setCellValue('G1', 'CODIGO INMUEBLE O UNIDAD');
+        $sheet->setCellValue('H1', 'MONTO PEDIDO');
 
        
 
@@ -55,8 +59,12 @@ class clsreportepedidos
 
             $sheet->setCellValue('A'.$contador, $data['id']);
             $sheet->setCellValue('B'.$contador, $data['nombre_mes']);
-            $sheet->setCellValue('C'.$contador, $data['cod_Pedido']);
-            $sheet->setCellValue('D'.$contador, $data['monto_pedido']);
+            $sheet->setCellValue('C'.$contador, $data['cod_aviso']);
+            $sheet->setCellValue('D'.$contador, $data['cod_Pedido']);
+            $sheet->setCellValue('E'.$contador, $data['inquilino']);
+            $sheet->setCellValue('F'.$contador, $data['cedula']);
+            $sheet->setCellValue('G'.$contador, $data['inmueble']);
+            $sheet->setCellValue('H'.$contador, $data['monto_pedido']);
 
             $contador++;
 

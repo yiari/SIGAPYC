@@ -75,6 +75,21 @@ function syncDelay(milliseconds){
  }
 
 
+ function statusRecibPedido(valor){
+
+  let resultado = "";
+
+  if(valor == "1"){
+    resultado = "Activo";
+  } else if (valor == "2"){
+    resultado = "Anulado";
+  }
+
+  return resultado;
+
+ }
+
+
  function unidades(valor){
 
   let resultado = "";

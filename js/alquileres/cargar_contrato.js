@@ -61,7 +61,14 @@ function cargarContrato(){
                             tr.append("<td>" + json.Items[0][i].codigo + "</td>");
                             tr.append("<td>" + json.Items[0][i].propietario + "</td>");
                             tr.append("<td>" + json.Items[0][i].inquilino + "</td>");
-                            tr.append("<td>" + json.Items[0][i].inmuebles + "</td>");
+                        
+
+                            if(json.Items[0][i].unidad != null){
+                                tr.append("<td>" + json.Items[0][i].unidad + "</td>");
+                               }else{
+                                tr.append("<td>" + json.Items[0][i].inmuebles + "</td>");
+                               }
+
                             tr.append("<td>" + json.Items[0][i].canon + "</td>"); 
                             tr.append("<td>" + fecha(json.Items[0][i].desde,'YYYYMMDD','DD/MM/YYYY') + "</td>"); 
                             tr.append("<td>" + fecha(json.Items[0][i].hasta,'YYYYMMDD','DD/MM/YYYY') + "</td>"); 

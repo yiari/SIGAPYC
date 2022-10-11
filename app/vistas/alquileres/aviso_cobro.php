@@ -18,16 +18,17 @@ include("layout/menuNavegacion.php");
           <div class="card-header">
             <div style="text-align: right;">
                 <ol>
-
+                <a class="btn btn-outline-secondary" href="index.php?url=app/vistas/alquileres/recibo_pedidos">Lista Pedidos Y Recibos</a>  
                 </ol>
             </div>
 
             <div style="text-align: center;">
                 <ol>
-                   
+                   <!--
                     <button type="button" class="btn btn-outline-secondary" onclick="buscarEstatus(0);">Todos</button>
                     <button type="button" class="btn btn-outline-primary" onclick="buscarEstatus(1);">Enviados</button>
-                    <button type="button" class="btn btn-outline-success" onclick="buscarEstatus(2);">Pendiente</button>
+                    <button type="button" class="btn btn-outline-success" onclick="buscarEstatus(2);">Pendiente</button>-->
+                     
 
                 </ol>
             </div>
