@@ -59,6 +59,9 @@ function cargarReciboPedido(){
                             // if (isEmpty(json.Items[0][i]) == false) {
                                     tr = $('<tr/>');
 
+                                 
+                                  
+                                    
                                     tr.append("<td>" + json.Items[0][i].nombre_mes + "</td>");
                                     tr.append("<td>" + json.Items[0][i].inquilino + "</td>");
                                     tr.append("<td>" + json.Items[0][i].inmueble + "</td>");
@@ -74,6 +77,7 @@ function cargarReciboPedido(){
                                   
                                     tr.append("<td>" + statusRecibPedido(json.Items[0][i].status) + "</td>");
                                     
+                                   
                             
                                    
 
@@ -84,7 +88,7 @@ function cargarReciboPedido(){
 
                                     html = '<div class="btn-group" style="font-size:1.3em; letter-spacing:0.5em;">';
                                     html += '<a title="PDF"  href="app/reportes/reprecibo.php?id='  + json.Items[0][i].id +'&codreci=' +json.Items[0][i].cod_recibo +'" target="_blank"><i class="fa fa-file-pdf-o" alt=“PDF” ></i></a>';
-                                    html += '<a title="Anulacion"  href="app/reportes/reprecibo2.php?id='  + json.Items[0][i].id +'&codreci=' +json.Items[0][i].cod_recibo +'" target="_blank"><i class="fa fa-exclamation-triangle" alt=“recibo” ></i></a>';
+                                    html += '<a title="Anulacion"  href="app/vistas/comunes/modalanular.php"><i class="fa fa-exclamation-triangle" alt=“recibo” ></i></a>';
                                     html += '<a title="Enviar notificación"  data-field-id="'  + json.Items[0][i].id_aviso + '"><i class="fa fa-envelope-open-o " alt=“email”></i></a>';
                                    
                                    
@@ -93,6 +97,7 @@ function cargarReciboPedido(){
                                     $('#datosReciboPedido').append(tr);
                                 //}
                             }
+                            
                     
                         } else {
 
@@ -107,6 +112,7 @@ function cargarReciboPedido(){
 
 
                     new simpleDatatables.DataTable("#datosReciboPedido");
+                    validaranulacion();
 
                 } 
                 /************************************************ */
@@ -120,6 +126,92 @@ function cargarReciboPedido(){
 
 }
 
+
+
+function validaranulacion(){
+
+    $(".anular").click(function() {
+
+        var vlId = $(this).data('field-id');
+        var vlEliminar = '#'; //'{{ route("eliminar-ministerial",["id" => "VALOR"]) }}';
+        //vlEliminar = vlEliminar.replace('VALOR', vlId);
+
+        $('#spanDeleteOk').attr('onclick','anulacionRecibo(' + vlId + ')');
+
+        //pass the data in the modal body adding html elements
+        //$('#spanDelete').html('');
+        //$('#spanDelete').html('<form id="delete-form" action="' + vlEliminar + '" method="POST" style="display: none;">@csrf</form>');
+        //open the modal
+        $('#deleteModal').modal('show')
+
+    })
+
+
+}
+
+
+function anulacionRecibo(idrecibo){
+
+    //mensaje("Eliminar el usuario con el ID: " + idusuario,0);
+   
+  /*
+        |-----------------------------------------------------
+        | AQUI SE AGREGA UN PARAMETRO ADICIONAL AL FORMULARIO 
+        |-----------------------------------------------------
+        */
+        var formData = new FormData();
+
+        formData.append('id',idrecibo);
+        formData.append('opcion','A');
+        /*
+        |-----------------------------------------------
+        | AQUI SE LLAMA EL AJAX 
+        |-----------------------------------------------
+        */
+        $.ajax({
+            url: "app/handler/alquileres/hndregistrorecibopedido.php",
+            data: formData,
+            processData: false,
+            contentType: false,
+            type: 'POST',
+            beforeSend: function () {
+                //$("#preview").fadeOut();
+                $("#error").fadeOut();
+            },
+            success: function (data) {
+                var json = data;
+                var html = "";
+    
+                    console.log("Mensaje del JSON: " + json.mensaje);
+    
+                    if(json.error == 0){
+                        
+                        mensaje(json.mensaje,0);
+    
+                        //$("#mensaje").html(html).fadeIn();
+                        //limpiarCampos();
+                        limpiarTabla();
+                 
+    
+                    }else {
+    
+                        mensaje(json.mensaje,1);
+    
+                        //$("#mensaje").html(html).fadeIn();
+                    }
+    
+    
+    
+                },
+                error: function (e) {
+                    //$("#error").html(e).fadeIn();
+                    mensaje(e,1);
+                    
+                }
+            });
+
+
+}
 
 
 

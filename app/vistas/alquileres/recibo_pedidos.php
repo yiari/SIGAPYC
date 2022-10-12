@@ -87,7 +87,7 @@ include("layout/menuNavegacion.php");
                                                         <th>monto pedido</th>
                                                         <th>Total</th>
                                                         <th>Tasa cambio</th>
-                                                        <th>Bs</th>
+                                                        <th class="align-center">Recibo - Tasa Bs</th>
                                                         <th>Status</th>
                                                  
                                                         <th>Acciones</th>
