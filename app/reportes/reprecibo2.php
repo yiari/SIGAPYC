@@ -14,17 +14,18 @@
 	/*-------------------------------------*/
 
 	require_once('../../vendor/autoload.php');
-	require_once("../../clases/rpavisocobro.php");
+	require_once("../../clases/rprecibo2.php");
 
 
 	
 
 	//$id_aviso= 0;//$_GET['id_prop'];
-	if(isset($_GET["idaviso"])) {
+	if(isset($_GET["id"])) {
   
-		$idaviso_temp = $_GET["idaviso"];
+		$id_temp = $_GET["idaviso"];
 	}
-	$idaviso_temp=$_GET['idaviso'];
+
+	$id_temp=$_GET['idaviso'];
 	$txt="";
 	$firma="";
 	$fecha=Date('Y-m-d');
@@ -33,7 +34,7 @@
 	$pdf = new FPDF();
 	$obj = new rpavisocobro();
 	//$obj->set("id_cont",$id_cont);
-	$texto=$obj->texto($idaviso_temp);
+	$texto=$obj->texto($id_temp);
 	$pdf->AddPage();
 	$pdf->AliasnbPages();
 	$pdf->SetAutoPageBreak(true, 20);

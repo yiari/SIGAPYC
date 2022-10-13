@@ -413,14 +413,7 @@ if ($resultado1['error'] == 0){
          $dataCodPropietarioCelular =  $resultado['Items'][0]['celularpropieatrio'];  //$dataResPersonal['nombres'] . ' ' . $dataResPersonal['apellidos'];
          $pdf->Cell(10, 3, $dataCodPropietarioCelular, $bordeCelda, 0, 'L', $celdaVisible);
 
-        //AQUI ESCRIBO EL CODIGO DEL INQUILINO
-         $pdf->SetFont('Times', 'B', 9);
-         $pdf->SetTextColor($fontColorContenido['r'], $fontColorContenido['g'], $fontColorContenido['b']);
-         $pdf->SetFillColor(2, 157, 116); //Fondo verde de celda
-         $pdf->SetXY(102, 116);//AQUI SE AJUSTA LA POSICION DONDE SE DEBE COLOCAR EL TEXTO
-         //Atención!! el parámetro true rellena la celda con el color elegido
-         $dataCodpagador =  $resultado1['Items'][0]['codigop'];  //$dataResPersonal['nombres'] . ' ' . $dataResPersonal['apellidos'];
-         $pdf->Cell(10, 3, $dataCodpagador, $bordeCelda, 0, 'L', $celdaVisible);
+        
         
        
        

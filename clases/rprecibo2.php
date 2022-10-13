@@ -5,12 +5,12 @@ class rpavisocobro
 
 
 
-        public function consultarAvisoCobro($valor){
+        public function consultarRecibo($valor){
 
       
                 $dbConexion = new conexcion();
                 
-                $stmt = $dbConexion->conectar()->prepare("CALL usp_veravisocobro(?)");
+                $stmt = $dbConexion->conectar()->prepare("CALL usp_verrecibopedido(?)");
                 $stmt ->bindParam(1, $valor, PDO::PARAM_INT);
                 $stmt->execute();
             
@@ -36,7 +36,7 @@ class rpavisocobro
         {
             $prmFunciones = new funciones();
            
-            $fila=$this->consultarAvisoCobro($cod_cont);
+            $fila=$this->consultarRecibo($cod_cont);
             
 
     
