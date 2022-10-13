@@ -1,7 +1,8 @@
 <?php
 	//session_start();
 	date_default_timezone_set('America/Caracas') ;
-	require_once("../../fpdf/fpdf.php");
+	//require_once("../../fpdf/fpdf.php");
+	require_once('../../vendor/autoload.php');
 	
 	$id_prop=$_GET['id_prop'];
 	$tipo_prop=$_GET['tipo_prop'];
@@ -25,11 +26,13 @@
 
 		if ($tipo_prop == 1){
 		
-			$sql = "select * from propietario where id_prop='".$id_prop."'";
+			//$sql = "select * from propietario where id_prop='".$id_prop."'";
+			$sql = "SELECT p.*,concat(p.nom_prop,' ',p.ape_prop) as nombre,i.*,u.* FROM `propietario` p left join inmuebles i on i.id_prop = p.`id_prop`left join unidades_inmueble u on u.id_unid =i.`id_inmu` where p.id_prop='$id_prop'";
 		
 		} elseif ($tipo_prop == 2){
 		
-			$sql = "select * from propietario_juridico where id_propj ='".$id_prop."'";
+			//$sql = "select * from propietario_juridico where id_propj ='".$id_prop."'";
+			$sql = "SELECT p.*,p.nom_proj  as nombre,'' as cedula,p.rif_proj as rif,i.*,u.*FROM `propietario_juridico` p left join inmuebles i on i.id_prop = p.`id_propj` left join unidades_inmueble u on u.id_unid =i.`id_inmu`  where p.id_propj='$id_prop'";
 		
 		}
 
@@ -47,11 +50,11 @@
 			$pdf->ln();	
 			$pdf->setFont("Arial","",12);
 			//$pdf->Multicell( 190,5,utf8_decode("Entre la compañía Anónima ADMINISTRADORA YURUARY C.A, de este domicilio a quien en adelante se denomina LA ADMINISTRADORA representada en este acto por FELIX VALDIVIEZO mayor de edad, venezolano, con Cedula de Identidad N°. V-6.323.563, por una parte, y por la otra ").utf8_decode($fila['nom_prop'])." C.I. ".utf8_decode($fila['cedula_prop']).utf8_decode(" , a quien en adelante se denominará(n) EL PROPIETARIO, se ha celebrado el contrato contenido en las Cláusulas siguientes ").".");		
-			$pdf->Multicell( 190,5,utf8_decode("Entre, ADMINISTRADORA YURUARY, C.A, sociedad mercantil de este domicilio, inscrita en el Registro Mercantil Segundo de la Circunscripción Judicial del Distrito Federal y Estado Miranda, el día 9 de Agosto de 1977, bajo el N° 67, Tomo: 97-A, inscrita en el Registro de Información Fiscal (RIF) N° J-00113810-2, representada por su Director FELIX JOSE VALDIVIEZO SALAZAR, mayor de edad, de este domicilio, Venezolano, titular de la Cédula de Identidad V-6.323.563, inscrito en el Registro de Información Fiscal (RIF) N° V-06323563-2, y quién a los solos y únicos efectos de este documento se denominará LA ARRENDADORA por una parte, y por la otra").utf8_decode($fila['nom_prop'])." C.I. ".utf8_decode($fila['cedula_prop']).utf8_decode(" , a quien en adelante se denominará(n) EL PROPIETARIO, se ha celebrado el contrato contenido en las Cláusulas siguientes ").".");
+			$pdf->Multicell( 190,5,utf8_decode("Entre, ADMINISTRADORA YURUARY, C.A, sociedad mercantil de este domicilio, inscrita en el Registro Mercantil Segundo de la Circunscripción Judicial del Distrito Federal y Estado Miranda, el día 9 de Agosto de 1977, bajo el N° 67, Tomo: 97-A, inscrita en el Registro de Información Fiscal (RIF) N° J-00113810-2, representada por su Director FELIX JOSE VALDIVIEZO SALAZAR, mayor de edad, de este domicilio, Venezolano, titular de la Cédula de Identidad V-6.323.563, inscrito en el Registro de Información Fiscal (RIF) N° V-06323563-2, y quién a los solos y únicos efectos de este documento se denominará LA ARRENDADORA por una parte, y por la otra ").utf8_decode($fila['nombre'])." C.I. ".utf8_decode($fila['cedula'])."Rif.".utf8_decode($fila['rif']).utf8_decode (" , a quien en adelante se denominará(n) EL PROPIETARIO, se ha celebrado el contrato contenido en las Cláusulas siguientes ").".");
 			
-			$pdf->ln();				$pdf->ln();				$pdf->ln();				$pdf->ln();				$pdf->ln();			
-			//$pdf->Multicell( 190,5,utf8_decode("PRIMERA: EL PROPIETARIO encomienda a LA ADMINISTRADORA la administración del inmueble de su propiedad ").utf8_decode($fila['nom_inmu'])." , ubicado ".utf8_decode($fila['dir_inmu']));
-			$pdf->ln();	$pdf->ln();	
+			//$pdf->ln();				$pdf->ln();				$pdf->ln();				$pdf->ln();				$pdf->ln();			
+			$pdf->Multicell( 190,5,utf8_decode("PRIMERA: EL PROPIETARIO encomienda a LA ADMINISTRADORA la administración del inmueble de su propiedad ").utf8_decode($fila['nom_inmu'])." , ubicado ".utf8_decode($fila['dir_inmu']));
+			//$pdf->ln();	$pdf->ln();	
 			$pdf->Multicell( 190,5,utf8_decode("SEGUNDA: En ejecución de este contrato, LA ADMINISTRADORA queda facultada para celebrar en su propio nombre los contratos de arrendamiento del referido inmueble, incluso por tiempo mayor de un (1) año, y preparar la documentación que los acredite; resolver dichos contratos antes de su vencimiento, previo consentimiento del propietario, dado por escrito, cuando LA ADMINISTRADORA lo considere conveniente, conceder prorrogas, traspasar a o autorizar traspaso; cobrar en dinero efectivo o valores que lo represente judicialmente o extrajudicial los cánones de arrendamiento y todo cuanto se derive de los mismos contratos; representar a EL PROPIETARIO ante las autoridades administrativas (especialmente la Dirección de inquilinato del Ministerio de Fomento) o jurisdiccionales para todos los asuntos concernientes a los arrendamientos y al inmueble e intentar ante los Tribunales competentes cualquier acción que deduzca de los contratos de arrendamiento respectivos, promover y hacer evacuar notificaciones e inspecciones oculares; publicar avisos y propagandas para alquiler; contraer la ejecución de reparaciones y en general, realizar todos los actos que la ley y la costumbre le asignen a los administradores de inmuebles en la Zona Metropolitana de Caracas. 
 TERCERA: LA ADMINISTRADORA entrega a EL PROPIETARIO, dentro de los primeros quince (15) días de cada mes el monto de los alquileres causados en el mes inmediato anterior, a excepción de aquellos que se estén gestionando por la vía Judicial, previas deducciones previstas de este Contrato. LA ADMINISTRADORA no garantiza aquellos alquileres, reparaciones o gastos que hayan sido reembolsados por el inquilino o su fiador, EL PROPIETARIO autoriza a LA ADMINISTRADORA a debitarle en su cuenta aquellos cánones de arrendamiento que se hubiesen adelantado y pudiere LA ADMINISTRADORA cobrar posteriormente.
 CUARTA: LA ADMINISTRADORA, en ejecución de este contrato, acepta la cesión de los contratos de arrendamiento celebrados con anterioridad a la fecha del presente instrumento y a tal efecto EL PROPIETARIO le hace entrega en este acto de todos los documentos y recaudos relacionados con tales contratos. En tal virtud, LA ADMINISTRADORA queda encargada de preparar la nueva documentación que se requiere y notificar a los inquilinos, tanto de este convenio como de la cesión o traspaso aludido, aun por la vía Judicial, si fuere necesario.

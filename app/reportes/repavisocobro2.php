@@ -13,16 +13,16 @@
 	/*-------------------------------------*/
 
 	require_once('../../vendor/autoload.php');
-	require_once("../../clases/rptcontrato.php");
+	require_once("../../clases/rpavisocobro.php");
 
-	$id_prop= 0;//$_GET['id_prop'];
+	$id_aviso= 0;//$_GET['id_prop'];
 	$id_cont=$_GET['id'];
 	$txt="";
 	$fecha=Date('Y-m-d');
 
 	ob_start();
 	$pdf = new FPDF();
-	$obj = new rptcontrato();
+	$obj = new rpavisocobro();
 	//$obj->set("id_cont",$id_cont);
 	$texto=$obj->texto($id_cont);
 	$pdf->AddPage();

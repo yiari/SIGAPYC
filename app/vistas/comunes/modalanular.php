@@ -9,8 +9,8 @@
             </div>
             <div class="modal-body">Esta seguro que desea anular el recibo ?</div>
             <div class="modal-footer">
-                <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Cancelar</button>
-                <a href="#" class="btn btn-danger" id="spanDeleteOk" data-bs-dismiss="modal">Aceptar</a>
+                <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">si</button>
+                <a href="#" class="btn btn-danger" id="spanDeleteOk" data-bs-dismiss="modal">No</a>
                 <span id="spanDelete">&nbsp;</span>
             </div>
         </div>

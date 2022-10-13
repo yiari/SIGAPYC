@@ -66,9 +66,9 @@ try {
     $dbConexion = new conexcion();
     $valor = 0;
     
-    $stmt = $dbConexion->conectar()->prepare("CALL usp_veravisocobro(?,?)" );
+    $stmt = $dbConexion->conectar()->prepare("CALL usp_veravisocobro(?)" );
     $stmt ->bindParam(1, $idaviso_temp, PDO::PARAM_INT);
-    $stmt ->bindParam(2, $codaviso_temp, PDO::PARAM_STR);
+    
   
 
 
