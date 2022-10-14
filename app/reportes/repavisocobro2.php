@@ -45,7 +45,8 @@
 	    //$num = $tb->num_rows;
 	    //$fila=$tb->fetch_assoc();
 			$y = $pdf->GetY();
-			$pdf->cell(60,5,"Caracas: ".$fecha,0,1,"L");
+			
+			$pdf->Multicell( 190,6,utf8_decode("Caracas, ".dia($fecha)." de ".mes($fecha)." de ".ano($fecha)),0,"R",0);
 			$pdf->ln();	
 			$pdf->cell(200,5,utf8_decode(""),0,1,"L");
 			$pdf->Multicell( 190,5, utf8_decode(" "));		
@@ -53,7 +54,7 @@
 			$pdf->cell(60,5,"",0,1,"L");		
 			$pdf->ln();	
 			$pdf->setFont("Arial","",12);
-			$pdf->ln();	$pdf->ln();	
+			$pdf->ln();	$pdf->ln();	$pdf->ln();
 			$pdf->Multicell(190,5,utf8_decode($texto));	
 	
 			$pdf->ln();				

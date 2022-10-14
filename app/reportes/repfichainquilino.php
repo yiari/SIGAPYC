@@ -413,6 +413,68 @@ if ($resultado1['error'] == 0){
          $dataCodPropietarioCelular =  $resultado['Items'][0]['celularpropieatrio'];  //$dataResPersonal['nombres'] . ' ' . $dataResPersonal['apellidos'];
          $pdf->Cell(10, 3, $dataCodPropietarioCelular, $bordeCelda, 0, 'L', $celdaVisible);
 
+
+         //AQUI ESCRIBO PAGADOR DE INQUILINO 
+         $pdf->SetFont('Times', 'B', 10);
+         $pdf->SetTextColor($fontColorContenido['r'], $fontColorContenido['g'], $fontColorContenido['b']);
+         $pdf->SetFillColor(2, 157, 116); //Fondo verde de celda
+         $pdf->SetXY(55,125);//AQUI SE AJUSTA LA POSICION DONDE SE DEBE COLOCAR EL TEXTO
+         //Atención!! el parámetro true rellena la celda con el color elegido
+         $dataNombrePagador =  $resultado1['Items'][0]['nombre'];  
+         $pdf->Cell(10, 3, $dataNombrePagador, $bordeCelda, 0, 'L', $celdaVisible);
+
+
+         //AQUI ESCRIBO PAGADOR DE INQUILINO 
+         $pdf->SetFont('Times', 'B', 10);
+         $pdf->SetTextColor($fontColorContenido['r'], $fontColorContenido['g'], $fontColorContenido['b']);
+         $pdf->SetFillColor(2, 157, 116); //Fondo verde de celda
+         $pdf->SetXY(139,125);//AQUI SE AJUSTA LA POSICION DONDE SE DEBE COLOCAR EL TEXTO
+         //Atención!! el parámetro true rellena la celda con el color elegido
+         $dataCedulaPagador =  $resultado1['Items'][0]['cedula'];  
+         $pdf->Cell(10, 3, $dataCedulaPagador, $bordeCelda, 0, 'L', $celdaVisible);
+
+         //AQUI ESCRIBO PAGADOR DE INQUILINO 
+         $pdf->SetFont('Times', 'B', 10);
+         $pdf->SetTextColor($fontColorContenido['r'], $fontColorContenido['g'], $fontColorContenido['b']);
+         $pdf->SetFillColor(2, 157, 116); //Fondo verde de celda
+         $pdf->SetXY(175,125);//AQUI SE AJUSTA LA POSICION DONDE SE DEBE COLOCAR EL TEXTO
+         //Atención!! el parámetro true rellena la celda con el color elegido
+         $dataRifPagador =  $resultado1['Items'][0]['rif'];  
+         $pdf->Cell(10, 3, $dataRifPagador, $bordeCelda, 0, 'L', $celdaVisible);
+
+
+          //AQUI ESCRIBO PAGADOR DE INQUILINO 
+          $pdf->SetFont('Times', 'B', 10);
+          $pdf->SetTextColor($fontColorContenido['r'], $fontColorContenido['g'], $fontColorContenido['b']);
+          $pdf->SetFillColor(2, 157, 116); //Fondo verde de celda
+          $pdf->SetXY(30,130.5);//AQUI SE AJUSTA LA POSICION DONDE SE DEBE COLOCAR EL TEXTO
+          //Atención!! el parámetro true rellena la celda con el color elegido
+          $dataCorreoPagador =  $resultado1['Items'][0]['correo'];  
+          $pdf->Cell(10, 3, $dataCorreoPagador, $bordeCelda, 0, 'L', $celdaVisible);
+
+          //AQUI ESCRIBO PAGADOR DE INQUILINO 
+          $pdf->SetFont('Times', 'B', 10);
+          $pdf->SetTextColor($fontColorContenido['r'], $fontColorContenido['g'], $fontColorContenido['b']);
+          $pdf->SetFillColor(2, 157, 116); //Fondo verde de celda
+          $pdf->SetXY(129,130.5);//AQUI SE AJUSTA LA POSICION DONDE SE DEBE COLOCAR EL TEXTO
+          //Atención!! el parámetro true rellena la celda con el color elegido
+          $dataTelefonoPagador =  $resultado1['Items'][0]['telefono'];  
+          $pdf->Cell(10, 3, $dataTelefonoPagador, $bordeCelda, 0, 'L', $celdaVisible);
+
+
+
+           //AQUI ESCRIBO PAGADOR DE INQUILINO 
+           $pdf->SetFont('Times', 'B', 10);
+           $pdf->SetTextColor($fontColorContenido['r'], $fontColorContenido['g'], $fontColorContenido['b']);
+           $pdf->SetFillColor(2, 157, 116); //Fondo verde de celda
+           $pdf->SetXY(30,136);//AQUI SE AJUSTA LA POSICION DONDE SE DEBE COLOCAR EL TEXTO
+           //Atención!! el parámetro true rellena la celda con el color elegido
+           $dataTelefonoPagador =  $resultado1['Items'][0]['direccion'];  
+           $pdf->Cell(10, 3, $dataTelefonoPagador, $bordeCelda, 0, 'L', $celdaVisible);
+
+
+
+
         
         
        

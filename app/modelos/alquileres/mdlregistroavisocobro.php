@@ -324,9 +324,9 @@ class mdlregistroavisocobro{
               );*/
 
 
-                $stmt = $dbConexion->conectar()->prepare("CALL usp_cargar_aviso_cobro(?,?)");
-                $stmt -> bindParam(1,$datosBusqueda["nom_inqu"], PDO::PARAM_STR);
-                $stmt -> bindParam(2,$datosBusqueda["estatus"], PDO::PARAM_INT);
+                $stmt = $dbConexion->conectar()->prepare("CALL usp_cargar_aviso_cobro()");
+                //$stmt -> bindParam(1,$datosBusqueda["nom_inqu"], PDO::PARAM_STR);
+               // $stmt -> bindParam(2,$datosBusqueda["estatus"], PDO::PARAM_INT);
                 //$stmt -> bindParam(2,$datosBusqueda["codigo_prop"], PDO::PARAM_STR);
                 //$stmt -> bindParam(3,$datosBusqueda["tipo_prop"], PDO::PARAM_INT);
 

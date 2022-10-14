@@ -52,21 +52,31 @@ class rpavisocobro
        //   echo $nom_inqu;
          
     
-          $txt=" No de aviso de cobro  ".$cod_aviso."
+          $txt="                                                                                 No. de aviso de cobro:  ".$cod_aviso."
           
-          Estimado Sr(a). ".$nombre_inquilino."
+              
+          
+          
+          
+              Estimado Sr(a). ".$nombre_inquilino."
 
           Reciba un cordial saludo, el presente tiene la finalidad de notificarle que su mensualidad correspondiente al alquiler de la unidad ".$codigo_inmueble." ubicada en ".$direccion_inmueble." está a punto de vencer, hasta el momento tiene una deuda acumulada de ".$monto_escrito." ($".$total.") correspondiente al mes (es) ".$mes.", recuerde que debe cancelar en los próximos 5 días según contrato ".$cod_contrato.", para evitar morosidades.
           
           Por favor comuníquese con nuestras oficinas e informe su forma de pago.
           
         
-          Se despide atentamente"; 
+          Se despide atentamente.
+
+
+          
+                                                             _____________________________                    
+          
+          
+                                                                    MANUEL MORENO"; 
          
     
-            $firma="
-            _____________________________                    
-            MANUEL MORENO ";
+            
+           
     
             return $txt;
         }

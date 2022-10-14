@@ -67,9 +67,9 @@ try {
     $dbConexion = new conexcion();
     $valor = 0;
     
-    $stmt = $dbConexion->conectar()->prepare("CALL usp_verrecibopedido(?,?)" );
+    $stmt = $dbConexion->conectar()->prepare("CALL usp_verrecibopedido(?)" );
     $stmt ->bindParam(1, $idrecibo_temp, PDO::PARAM_INT);
-    $stmt ->bindParam(2, $codrecibo_temp, PDO::PARAM_STR);
+    //$stmt ->bindParam(2, $codrecibo_temp, PDO::PARAM_STR);
   
 
 

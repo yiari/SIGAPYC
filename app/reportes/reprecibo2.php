@@ -22,10 +22,10 @@
 	//$id_aviso= 0;//$_GET['id_prop'];
 	if(isset($_GET["id"])) {
   
-		$id_temp = $_GET["idaviso"];
+		$id_temp = $_GET["id"];
 	}
 
-	$id_temp=$_GET['idaviso'];
+	$id_temp=$_GET['id'];
 	$txt="";
 	$firma="";
 	$fecha=Date('Y-m-d');
@@ -46,15 +46,17 @@
 	    //$num = $tb->num_rows;
 	    //$fila=$tb->fetch_assoc();
 			$y = $pdf->GetY();
-			$pdf->cell(60,5,"Caracas: ".$fecha,0,1,"L");
+			//$pdf->cell(60,5,"Caracas: ".$fecha,0,1,"L");
+			$pdf->ln();	
+			$pdf->Multicell( 190,1,utf8_decode("Caracas, ".dia($fecha)." de ".mes($fecha)." de ".ano($fecha)),0,"R",0);
 			$pdf->ln();	
 			$pdf->cell(200,5,utf8_decode(""),0,1,"L");
-			$pdf->Multicell( 190,5, utf8_decode(" "));		
+			$pdf->Multicell( 190,5, utf8_decode(""));		
 			$pdf->cell( 190,5,".",0,1,"L");
 			$pdf->cell(60,5,"",0,1,"L");		
 			$pdf->ln();	
-			$pdf->setFont("Arial","",12);
-			$pdf->ln();	$pdf->ln();	
+			$pdf->setFont("Arial","",14);
+			$pdf->ln();	
 			$pdf->Multicell(190,5,utf8_decode($texto));	
 	
 			$pdf->ln();				
@@ -119,4 +121,13 @@
 	 }
 	 return $ano;
   }
+
+
+
+  
+
 ?>
+
+
+
+

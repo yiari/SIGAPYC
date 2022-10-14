@@ -37,36 +37,63 @@ class rpavisocobro
             $prmFunciones = new funciones();
            
             $fila=$this->consultarRecibo($cod_cont);
+
+            
             
 
-    
-          $cod_cont=$fila[0]['cod_cont'];
-          $cod_aviso=$fila[0]['cod_aviso'];
-          $nombre_inquilino=$fila[0]['nombre'];
-          $codigo_inmueble=$fila[0]['cod_inmu'];
-          $direccion_inmueble=$fila[0]['dir_inmu'];
-          $monto_escrito=strtoupper($prmFunciones->montoEscrito($fila[0]['total'],"dolares", "y", "centimos"));
-          $total=$fila[0]['total'];
+         
+          $cod_recibo=$fila[0]['cod_recibo'];
+          $nombre_inquilino=$fila[0]['inquilino'];
+          $monto_escrito=strtoupper($prmFunciones->montoEscrito($fila[0]['Bs'],"Bolivarez", "y", "centimos"));
+          $monto_escrito2=strtoupper($prmFunciones->montoEscrito($fila[0]['monto_recibo'],"dolares", "y", "centimos"));
+          $monto_Bs=$fila[0]['Bs'];
+          $monto_dolres=$fila[0]['monto_recibo'];
+          $cod_inmueble=$fila[0]['inmueble'];
+          $direccion_inmueble=$fila[0]['direccion'];
           $mes=$fila[0]['nombre_mes'];
-          $cod_contrato=$fila[0]['cod_cont'];
        //   echo $nom_inqu;
          
     
-          $txt=" No de aviso de cobro  ".$cod_aviso."
+          $txt= 
           
-          Estimado Sr(a). ".$nombre_inquilino."
+          "
+          RECIBO Nº ".$cod_recibo."
+          RIF: J-00113810-2  NIT: 0030662075
+            
+          
+          Hemos recibido de: ".$nombre_inquilino.", la Cantidad
+          de: ".$monto_escrito.". ( BS. ".$monto_Bs.") Que
+          equivalen a".$monto_escrito2.".($ ".$monto_dolres." ) calculados a la tasa
+          de cambio del BCV del día, por concepto de pago de Alquiler del
+          inmueble ".$cod_inmueble." ubicado en
+          ".$direccion_inmueble."  La correspondiente
+          al mes (s) ".$mes.". Recibo que expide en el Municipio Libertador,
+          Caracas.
 
-          Reciba un cordial saludo, el presente tiene la finalidad de notificarle que su mensualidad correspondiente al alquiler de la unidad ".$codigo_inmueble." ubicada en ".$direccion_inmueble." está a punto de vencer, hasta el momento tiene una deuda acumulada de ".$monto_escrito." ($".$total.") correspondiente al mes (es) ".$mes.", recuerde que debe cancelar en los próximos 5 días según contrato ".$cod_contrato.", para evitar morosidades.
+          _____________________________
           
-          Por favor comuníquese con nuestras oficinas e informe su forma de pago.
+          MANUEL MORENO 
+
           
-        
-          Se despide atentamente"; 
+
+          RECIBO Nº ".$cod_recibo."
+          RIF: J-00113810-2  NIT: 0030662075
+
+          Hemos recibido de: ".$nombre_inquilino.", la Cantidad
+          de: ".$monto_escrito.". ( BS. ".$monto_Bs.") Que
+          equivalen a".$monto_escrito2.".($ ".$monto_dolres." ) calculados a la tasa
+          de cambio del BCV del día, por concepto de pago de Alquiler del
+          inmueble ".$cod_inmueble." ubicado en
+          ".$direccion_inmueble."  La correspondiente
+          al mes (s) ".$mes.". Recibo que expide en el Municipio Libertador,
+          Caracas.
+          
+           
+          _____________________________ 
+          
+          MANUEL MORENO " ;
          
     
-            $firma="
-            _____________________________                    
-            MANUEL MORENO ";
     
             return $txt;
         }
