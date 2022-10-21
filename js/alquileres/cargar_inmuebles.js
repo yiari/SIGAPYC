@@ -196,10 +196,10 @@ function cargarInmueble(idPropietario,idInmueble,prmTipo,prmCodInmu,prmcodPropie
                                    
                                     /*html += '<a title="inquilino"  href="index.php?url=app/vistas/alquileres/asignar_inquilino&idpro=' + json.Items[0][i].id_prop  + '&codpro=' + json.Items[0][i].propietario  + '"><i class="fa fa-user-circle-o"></i></a>&nbsp;';*/
                                     
-                                    html += '<a title="Mandato y Contratos"  href="index.php?url=app/vistas/alquileres/contratos_mandatos&idinmu=' + json.Items[0][i].id_inmu   + '&codinmu=' + json.Items[0][i].codigo  + '"><i class="fa fa-file-text-o"></i></a>&nbsp;';
+                                    html += '<a title="Mandato y Contratos"  href="index.php?url=app/vistas/alquileres/contratos_mandatos&idinmu=' + json.Items[0][i].id_inmu   + '&codinmu=' + json.Items[0][i].codigo  +  '&idpro=' + json.Items[0][i].id_prop  + '&codpro=' + json.Items[0][i].propietario  +  '&codtip=' + json.Items[0][i].tipo_propietario  +'"><i class="fa fa-file-text-o"></i></a>&nbsp;';
                                    
 
-                                    html += '<a title="Documento" href="index.php?url=app/vistas/alquileres/documentosinmueble&idinmu=' + json.Items[0][i].id_inmu   + '&codinmu=' + json.Items[0][i].codigo  + '"><i class="fa fa-address-card-o"></i></a>&nbsp;';
+                                    html += '<a title="Documento" href="index.php?url=app/vistas/alquileres/documentosinmueble&idinmu=' + json.Items[0][i].id_inmu   + '&codinmu=' + json.Items[0][i].codigo  +  '&idpro=' + json.Items[0][i].id_prop  + '&codpro=' + json.Items[0][i].propietario  +  '&codtip=' + json.Items[0][i].tipo_propietario  +'"><i class="fa fa-address-card-o"></i></a>&nbsp;';
 
 
                                     html += '<a title="Eliminar"  data-field-id="'  + json.Items[0][i].id + '"><i class="fa fa-trash" alt=“eliminar”></i></a>';

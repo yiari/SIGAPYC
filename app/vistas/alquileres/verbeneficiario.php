@@ -19,7 +19,7 @@ include("layout/menuNavegacion.php");
             <div style="text-align: right;">
                
                          <ol>          
-                            <a class="btn btn-outline-secondary codpro" href="index.php?url=app/vistas/alquileres/beneficiarios"  role="button">Atrass</a>
+                            <a class="btn btn-outline-secondary codpro" href="index.php?url=app/vistas/alquileres/beneficiarios"  role="button">Atras</a>
                             <a href="app/reportes/repfichabeneficiario.php" target="_blank" class="btn btn-outline-secondary codbene" href="reportes.php" role="button"><i class="fa fa-file-pdf-o" alt=“PDF” ></i> Imprimir</a>
                          </ol>
             </div>
@@ -65,7 +65,7 @@ include("layout/menuNavegacion.php");
                 <from>
 
                
-                    <div class="col-12 grid-margin">
+                <div class="col-12 grid-margin">
                         <!--inmuebles-->
                         <div class="card">
                             <div class="card-body">
@@ -73,40 +73,26 @@ include("layout/menuNavegacion.php");
                                 <div class="card mb-4">
                                     <div class="card-header">
                                         <i class='fas fa-house-user'></i>&nbsp;
-                                        INMUEBLES
+                                        INMUEBLES SIN UNIDADES
                                     </div>
 
                                     <div class="card-body">
 
                                     <div class="table-responsive">
-                                        <table class="table table-bordered">
+                                        <table  id="datosInmuebles" >
                                         <thead>
                                             <tr>
-                                                <th>Código</th>
-                                                <th>Tipo</th>
-                                                <th>Canon</th>
-                                                <th>Gastos Fijos</th>
-                                                <th>Gastos Especiales</th>
+                                                <th>Foto</th>
+                                                <th>inmueble</th>
+                                                <th>inquilino</th>
+                                                <th>tipo</th>
+                                                <th style='text-align:rigth'>Canon</th>
                                                 <th>Estatus</th>
+                                                
                                             </tr>
                                         </thead>
                                         <tbody>
-                                                <tr>
-                                                    <td>22-0723-00 DORAL MEXICO</td>
-                                                    <td>Apartamento</td>
-                                                    <td>$320</td>
-                                                    <td>$20</td>
-                                                    <td>Posee</td>
-                                                    <td>Activo</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>12-0001-00 TORRE CANAIMA</td>
-                                                    <td>MEZZANINA NRO.2</td>
-                                                    <td>$120</td>
-                                                    <td>$30</td>
-                                                    <td>No posee</td>
-                                                    <td>Finiquitado</td>
-                                                </tr>
+                                                
                                         </tbody>
                                         </table>
                                     </div>
@@ -117,7 +103,7 @@ include("layout/menuNavegacion.php");
                         </div>
                     </div>
 
-
+                    
                     <div class="col-12 grid-margin">
                         <!--inmuebles-->
                         <div class="card">
@@ -170,11 +156,11 @@ include("layout/menuNavegacion.php");
                                                 <tbody>
                                                     
                                                     <tr>
-                                                        <td>0098</td>
-                                                        <td>14-may-2022</td>
-                                                        <td>22-0723-00 DORAL MEXICO</td>
-                                                        <td>$320</td>
-                                                        <td>Pendiente</td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
                                                         <td></td>
                                                     </tr>
                                                    
@@ -233,12 +219,12 @@ include("layout/menuNavegacion.php");
                                                 </thead>
                                                 <tbody>
                                                     <tr>
-                                                        <td>070058</td>
-                                                        <td>3-jun-2022</td>
-                                                        <td>Emisión de factura por servicios administrativos</td>
-                                                        <td>Bs 320</td>
-                                                        <td>Bs 20</td>
-                                                        <td>factura</td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
                                                     </tr>
  
                                                 </tbody>

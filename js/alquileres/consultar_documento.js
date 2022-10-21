@@ -69,9 +69,26 @@ function inicio(){
     let prmCodUnid = getParameterByName('codunid');
     let prmTipoUnid = 1;
 
-
+    atrasInmuebles(idPropietario,prmCodPro,tipo_propietario,idInmueble,codigoInmueble);
     codigopUnidad(prmCodUnid);
     documentoUnidad(idunidad,prmCodUnid,prmTipoUnid)
+
+    
+
+}
+
+function atrasInmuebles(prmIdPro,prmCodPro,prmTipo,prmIdInmu,prmCodInmu){
+
+    //if (isEmpty(prmDato) == false ){
+
+
+        var html = "";
+        html='index.php?url=app/vistas/alquileres/inmuebles&idpro=' + prmIdPro  + '&codpro=' + prmCodPro  + '&codtip=' + prmTipo + '&idinmu=' + prmIdInmu + '&codinmu=' + prmCodInmu;
+    
+        $(".codpro").prop("href", html);
+
+
+    //}
 
 }
 

@@ -17,7 +17,7 @@ class conexcion{
 */
 
  public function conectar() {
-    $servername = "192.168.11.101";
+    $servername = "localhost";
     $dbname = "yomulite_alquileres";
     $username = "root";
     $password = "";
