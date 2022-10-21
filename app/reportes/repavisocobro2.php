@@ -49,7 +49,7 @@
 			$pdf->Multicell( 190,6,utf8_decode("Caracas, ".dia($fecha)." de ".mes($fecha)." de ".ano($fecha)),0,"R",0);
 			$pdf->ln();	
 			$pdf->cell(200,5,utf8_decode(""),0,1,"L");
-			$pdf->Multicell( 190,5, utf8_decode(" "));		
+			$pdf->Multicell(190,5,utf8_decode(""));		
 			$pdf->cell( 190,5,".",0,1,"L");
 			$pdf->cell(60,5,"",0,1,"L");		
 			$pdf->ln();	

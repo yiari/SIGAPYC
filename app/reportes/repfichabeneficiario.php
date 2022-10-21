@@ -9,10 +9,12 @@ use setasign\Fpdi\Fpdi;
 // setup the autoload function
 require_once('../../vendor/autoload.php');
 include_once '../../app/modelos/conexcion.php';
+include_once '../../app/comunes/funciones.php';
 
 // initiate FPDI
 $pdf = new Fpdi();
 // add a page
+$prmFunciones = new funciones();
 //$pdf->AddPage();
 // set the source file
 $pdf->setSourceFile("fichabeneficiario.pdf");
@@ -154,43 +156,43 @@ if ($resultado1['error'] == 0){
 
 try {
 
-    $dbConexion = new conexcion();
-    $valor = 0;
-    
-    $stmt = $dbConexion->conectar()->prepare("CALL usp_verpagador(?,?)" );
-    $stmt ->bindParam(1, $idbene_temp, PDO::PARAM_INT);
-    $stmt ->bindParam(2, $codtip_temp, PDO::PARAM_INT);
-
-
-
-    $stmt->execute();
-    $datapagadorbeneficiario["Items"][] = $stmt->fetch();
-
-    $dataRes = array(
-      'error' => '0',
-      'mensaje' =>  'El registro se obtuvo con exito.'
-    );
-    
-    
-   $resultado2 = array_merge($datapagadorbeneficiario,$dataRes);
-
-    } catch (\Throwable $th) {
-    
-        //$pdo->rollBack() ;
-        //echo "Mensaje de Error: " . $th->getMessage();
-        $dataRes = array(
-          'error' => '1',
-          'mensaje' =>  "Mensaje de Error: " . $th->getMessage()
-        );
+  $dbConexion = new conexcion();
+  $valor = 0;
   
-        $resultado2 = $dataRes;
+  $stmt = $dbConexion->conectar()->prepare("CALL usp_cargar_documentobeneficiario(?,?)" );
+  $stmt ->bindParam(1, $idbene_temp, PDO::PARAM_INT);
+  $stmt ->bindParam(2, $codtip_temp, PDO::PARAM_INT);
 
-    }
 
-if ($resultado2['error'] == 0){
+  $stmt->execute();
+  $dataRegistrodocumentos= $stmt->fetchall();
+
+ /*
+  $dataRes = array(
+    'error' => '0',
+    'mensaje' =>  'El registro se obtuvo con exito.'
+  );
+ */ 
+  $resultado4 = $dataRegistrodocumentos; // array_merge($dataRegistroInmueble,$dataRes);
+
+
+  } catch (\Throwable $th) {
+  
+      //$pdo->rollBack() ;
+      //echo "Mensaje de Error: " . $th->getMessage();
+      $dataRes = array(
+        'error' => '1',
+        'mensaje' =>  "Mensaje de Error: " . $th->getMessage()
+      );
+
+      $resultado4 = $dataRes;
+
+  }
+
+//if ($resultado3['error'] == 0){
 //echo "imprimimos el PDF";
-//echo $resultado['items'][0]['cod_prop'];
-}
+//echo $resultado2['items'][0]['id_prop'];
+//}
 
 
 
@@ -426,7 +428,7 @@ if ($resultado2['error'] == 0){
                    $pdf->SetFont('Times', 'B', 10);
                    $pdf->SetTextColor($fontColorContenido['r'], $fontColorContenido['g'], $fontColorContenido['b']);
                    $pdf->SetFillColor(2, 157, 116); //Fondo verde de celda
-                   $pdf->SetXY(172, 90);//AQUI SE AJUSTA LA POSICION DONDE SE DEBE COLOCAR EL TEXTO
+                   $pdf->SetXY(175, 90);//AQUI SE AJUSTA LA POSICION DONDE SE DEBE COLOCAR EL TEXTO
                    //Atención!! el parámetro true rellena la celda con el color elegido
                    $databic =  $resultado['Items'][0]['bic'];  
                    $pdf->Cell(10, 3, $databic, $bordeCelda, 0, 'L', $celdaVisible);
@@ -446,7 +448,7 @@ if ($resultado2['error'] == 0){
                      $pdf->SetFont('Times', 'B', 10);
                      $pdf->SetTextColor($fontColorContenido['r'], $fontColorContenido['g'], $fontColorContenido['b']);
                      $pdf->SetFillColor(2, 157, 116); //Fondo verde de celda
-                     $pdf->SetXY(125,94.5);//AQUI SE AJUSTA LA POSICION DONDE SE DEBE COLOCAR EL TEXTO
+                     $pdf->SetXY(128,94.5);//AQUI SE AJUSTA LA POSICION DONDE SE DEBE COLOCAR EL TEXTO
                      //Atención!! el parámetro true rellena la celda con el color elegido
                      $dataCorreoZelle =  $resultado['Items'][0]['correo_zelle'];  
                      $pdf->Cell(10, 3, $dataCorreoZelle, $bordeCelda, 0, 'L', $celdaVisible);
@@ -499,7 +501,7 @@ if ($resultado2['error'] == 0){
                        $pdf->SetFont('Times', 'B', 10);
                        $pdf->SetTextColor($fontColorContenido['r'], $fontColorContenido['g'], $fontColorContenido['b']);
                        $pdf->SetFillColor(2, 157, 116); //Fondo verde de celda
-                       $pdf->SetXY(120,123);//AQUI SE AJUSTA LA POSICION DONDE SE DEBE COLOCAR EL TEXTO
+                       $pdf->SetXY(115,123);//AQUI SE AJUSTA LA POSICION DONDE SE DEBE COLOCAR EL TEXTO
                        //Atención!! el parámetro true rellena la celda con el color elegido
                        $dataPropietarioCorreo =  $resultado1['Items'][0]['correo'];  
                        $pdf->Cell(10, 3, $dataPropietarioCorreo, $bordeCelda, 0, 'L', $celdaVisible);
@@ -515,19 +517,32 @@ if ($resultado2['error'] == 0){
                         $pdf->Cell(10, 3, $dataPropietarioTelefono, $bordeCelda, 0, 'L', $celdaVisible);
 
 
-                        //AQUI ESCRIBO DOCUMETO
-                        $pdf->SetFont('Times', 'B', 10);
-                        $pdf->SetTextColor($fontColorContenido['r'], $fontColorContenido['g'], $fontColorContenido['b']);
-                        $pdf->SetFillColor(2, 157, 116); //Fondo verde de celda
-                        $pdf->SetXY(100,118);//AQUI SE AJUSTA LA POSICION DONDE SE DEBE COLOCAR EL TEXTO
-                        //Atención!! el parámetro true rellena la celda con el color elegido
-                        $dataNombrePagador =  $resultado2['Items'][0]['nombre'];  
-                        $pdf->Cell(10, 3, $dataNombrePagador, $bordeCelda, 0, 'L', $celdaVisible);
+                        
 
 
 
                      
-  
+                        $valor = [$resultado4];
+                        $contadorFila = 0;
+                        $PosY = 155;
+                         foreach ($resultado4 as $valor) {
+      
+                         //AQUI ESCRIBO  LOS REPRESENTANTES O APODERADORS DE UN PROPIETARIO
+                         
+                         $pdf->SetFont('Times', 'B', 9);
+                         $pdf->SetTextColor($fontColorContenido['r'], $fontColorContenido['g'], $fontColorContenido['b']);
+                         $pdf->SetFillColor(2, 157, 116); //Fondo verde de celda
+                         $pdf->SetXY(15,$PosY);;//AQUI SE AJUSTA LA POSICION DONDE SE DEBE COLOCAR EL TEXTO
+                         //Atención!! el parámetro true rellena la celda con el color elegido
+                         $datapersona = strtoupper($prmFunciones->documento($valor['documento'])) ;  //$dataResPersonal['nombrespastor'] . ' ' . $dataResPersonal['apellidospastor'];
+                         //$dataNombre = str_pad($dataResPersonal['nombrespastor'] . ' ' . $dataResPersonal['apellidospastor'], 50, '* ', STR_PAD_RIGHT);
+                         $pdf->Cell(10, 3, $datapersona, $bordeCelda, 0, 'L', $celdaVisible);
+      
+                        
+                        
+                         $contadorFila++;
+                         $PosY += 5;
+                         }
   
  
 

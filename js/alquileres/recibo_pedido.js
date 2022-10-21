@@ -64,7 +64,14 @@ function cargarReciboPedido(){
                                     
                                     tr.append("<td>" + json.Items[0][i].nombre_mes + "</td>");
                                     tr.append("<td>" + json.Items[0][i].inquilino + "</td>");
-                                    tr.append("<td>" + json.Items[0][i].inmueble + "</td>");
+
+
+                                    if(json.Items[0][i].unidad != null){
+                                        tr.append("<td>" + json.Items[0][i].unidad + "</td>");
+                                       }else{
+                                        tr.append("<td>" + json.Items[0][i].inmueble + "</td>");
+                                       }
+                                    
                                     tr.append("<td>" + json.Items[0][i].cod_aviso + "</td>");
                                     tr.append("<td>" + json.Items[0][i].cod_recibo + "</td>");
                                     tr.append("<td>" + json.Items[0][i].cod_Pedido + "</td>");

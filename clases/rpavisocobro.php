@@ -43,8 +43,14 @@ class rpavisocobro
           $cod_cont=$fila[0]['cod_cont'];
           $cod_aviso=$fila[0]['cod_aviso'];
           $nombre_inquilino=$fila[0]['nombre'];
-          $codigo_inmueble=$fila[0]['cod_inmu'];
+
+
+          $codigo_inmueble=$fila[0]['inmueble'];
           $direccion_inmueble=$fila[0]['dir_inmu'];
+
+          $codigo_unidad=$fila[0]['unidad'];
+          $direccion_unidad=$fila[0]['dir_unidad'];
+
           $monto_escrito=strtoupper($prmFunciones->montoEscrito($fila[0]['total'],"dolares", "y", "centimos"));
           $total=$fila[0]['total'];
           $mes=$fila[0]['nombre_mes'];

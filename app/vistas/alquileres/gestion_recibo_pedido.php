@@ -47,7 +47,7 @@ include("layout/menuNavegacion.php");
                                     <input type="hidden" id="tipo_inqu" name="tipo_inqu" value=''>
                                     <input type="hidden" id="hidTasa" name="hidTasa" value='0'>
 
-                                    <input type="hidden" id="mes" name="mes" value=''>
+                                   
                                    
 
                             <!--Datos del propietario-->
