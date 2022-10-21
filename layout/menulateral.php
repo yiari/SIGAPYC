@@ -28,7 +28,7 @@
             </div>
 
             <!--segundo-->
-
+            <!--
             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsefinanzas" aria-expanded="false" aria-controls="collapsefinanzas">
                 <div class="sb-nav-link-icon"><i class="fa fa-calculator"></i></div>
                 FACTURACIÓN
@@ -41,6 +41,7 @@
                     <a class="nav-link" href="p_juridica.php">otros</a>
                 </nav>
             </div>
+           -->
 
             <!--tercero-->
 
@@ -51,11 +52,10 @@
             </a>
             <div class="collapse" id="collapsesistema" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                 <nav class="sb-sidenav-menu-nested nav">
-                    <a class="nav-link" href="">Crear roles</a>
+                    <!--<a class="nav-link" href="">Crear roles</a>-->
                     <a class="nav-link" href="inicio.php?url=app/vistas/admin/registro">Crear usuarios</a>
                     <a class="nav-link" href="inicio.php?url=app/vistas/admin/representante_legal">Representante Legal</a>
-                    <a class="nav-link" href="#">tipo de inmuebles</a>
-                    <a class="nav-link" href="#">tipo de Pagos</a>
+                    
                 </nav>
             </div>
 

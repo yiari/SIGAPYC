@@ -229,6 +229,42 @@ if($operacion == "CAI"){
      
 }
 
+/* 
+ |---------------------------------------------------------------------------
+ | AQUI SE EJECUTA LA OPERACION DE CONSULTAR TODOS LOS INMUEBLES SIN COBRADOR
+ |----------------------------------------------------------------------------
+*/
+
+if($operacion == "CI"){
+
+
+   $prmid_cobrador = $_POST["id_cobrador"];
+
+   /*
+    |-------------------------------------------
+    | AQUI CREO UNA INSTANCIA DE LA CLASE
+    |-------------------------------------------
+    */
+    
+    $registrocobrador =  new ctrregistrocobradores();
+
+   /* 
+   |---------------------------------------------
+   | AQUI OBTENGO EL RESULTADO DE LA EJECUCION
+   |---------------------------------------------
+   */
+     $result = $registrocobrador->InmuebleCobrador($prmid_cobrador);
+    
+    /*
+    |-------------------------------------------
+    | AQUI REGRESO EL RESULTADO AL AJAX
+    |-------------------------------------------
+    */
+    header('Content-Type: application/json');
+     return $result;
+     
+}
+
 
 
 

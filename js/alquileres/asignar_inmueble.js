@@ -21,6 +21,7 @@ function inicio(){
    buscarInmueble();
    codigoCobrador(prmCodcobra)
    InmuebleAsigmnadoCobrador();
+   InmuebleCobrador();
    //vinculacion();
 
 }
@@ -279,6 +280,9 @@ function vinculacion(valor){
 
 
 
+
+
+
 function InmuebleAsigmnadoCobrador(){
 
    /*
@@ -380,6 +384,94 @@ function limpiarTabla() {
 
 }
 
+
+
+
+
+function InmuebleCobrador(){
+
+    /*
+    |-----------------------------------------------------
+    | AQUI SE AGREGA UN PARAMETRO ADICIONAL AL FORMULARIO 
+    |-----------------------------------------------------
+    */
+    var formData = new FormData();
+ 
+    formData.append('opcion','IC'); /*consulta de inmuebles asignado al cobrador*/ 
+   
+   
+ 
+    /*
+    |-----------------------------------------------
+    | AQUI SE LLAMA EL AJAX 
+    |-----------------------------------------------
+    */
+    $.ajax({
+        url: "app/handler/alquileres/hndregistrocobrador.php",
+        data: formData,
+        processData: false,
+        contentType: false,
+        type: 'POST',
+        beforeSend: function () {
+            //$("#preview").fadeOut();
+            $("#error").fadeOut();
+        },
+        success: function (data) {
+        var json = data;
+        var html = "";
+ 
+                /*
+                |------------------------------------------------------
+                | AQUI SE CARGA LA INFORMACION EN LA TABLA
+                |------------------------------------------------------
+                */
+ 
+                if(json.Items.length > 0){
+                    var tr;
+                
+                    if(json.Items.length > 0){
+                    var tr;
+                        for (var i = 0; i < json.Items[0].length; i++) {
+                
+                       // if (isEmpty(json.Items[0][i]) == false) {
+                            tr = $('<tr/>');
+                            
+                           
+                            tr.append("<td>" + json.Items[0][i].cobrador + "</td>");
+                            tr.append("<td>" + json.Items[0][i].inmueble + "</td>");
+                          
+  
+                            var html="";
+                            html = '<div class="btn-group" style="font-size:1.3em; letter-spacing:0.5em;">';
+                            html += '<a title="Cagar_pago"  href="index.php?url=app/vistas/alquileres/gestion_cliente"><i class="fa fa-exclamation-circle"></i></a>';
+                            html += '</div>'
+                            tr.append("<td>" + html + "</td>");
+                            $('#InmuebleCobrador').append(tr);
+                        //}
+                    }
+                    
+                } else {
+ 
+                var tr;
+                tr = $('<tr/>');
+                tr.append("<td colspan=6 style='text-align:center'>NO HAY INFORMACION REGISTRADA</td>");
+                $('#InmuebleCobrador').append(tr);
+ 
+                }
+ 
+                 new simpleDatatables.DataTable("#InmuebleCobrador");
+ 
+            } 
+                /************************************************ */
+ 
+ 
+        },
+        error: function (e) {
+            $("#error").html(e).fadeIn();
+        }
+    });
+ 
+ }
 
 
 function mensaje(mensaje, condicion){

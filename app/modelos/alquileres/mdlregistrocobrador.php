@@ -178,99 +178,7 @@ public function registrar($tabla,$datos,$archivos){
 
 
 
-  public function eliminarpropietario($tabla,$datos){
-
-    /* 
-    |------------------------------------------------------------
-    | AQUI DECLARO LA VARIABLE - INSTANCIA DEL METODO CONEXION
-    |------------------------------------------------------------
-    */
-    $dbConexion = new conexcion();
-    /* 
-    |------------------------------------------------------------------------------------------------
-    | AQUI DECLARO LA VARIABLES QUE CAPTURARAN EL RESULTADO DE LA OPERAION PARA INFORMAR AL USUARIO
-    |------------------------------------------------------------------------------------------------
-    */
-    $prmError = 0;
-    $prmMensaje = "";
   
-  
-  
-    
-        try {
-    
-           /* 
-            |----------------------------------------------------------------------------------
-            | AQUI PREPARO LO QUE SERA LA LLAMADA AL PROCEDIMIENTO QUE REALIZARA LA OPERACION
-            |----------------------------------------------------------------------------------
-            */
-            $stmt = $dbConexion->conectar()->prepare("CALL usp_eliminarpropietarios(?)");
-            $stmt -> bindParam(1, $datos["id_prop"], PDO::PARAM_INT);
-            
-            /*
-            |---------------------------------
-            | AQUI SE EJECUTA LA OPERACION
-            |---------------------------------
-            */
-            $stmt->execute();
-  
-            /* 
-            |----------------------------------
-            | AQUI SE OBTIENE EL RESULTADO
-            |----------------------------------
-            */
-            $resultado = $stmt->fetchAll();
-  
-            if (count($resultado) >0){
-  
-              foreach ($resultado as $key=> $row) {
-                $prmError = $row[0]; //COLUMNA NUMERO DE ERROR ( EN CASO DE SUCEDER), DE LO CONTRARIO REGRESARA, CERO (0)
-                
-                if ($prmError == 1062 ){ //registro duplicado
-                  $prmMensaje =  "Registro duplicado: " . $row[1]; //COLUMNA DEL MENSAJE
-                } else {
-                  $prmMensaje =  $row[1]; //COLUMNA DEL MENSAJE
-                }
-              }
-          
-  
-            } ;
-  
-            /*
-            |--------------------------------------------------------------------
-            | AQUI CARGO LOS VALORES PARA EL MENSAJE QUE SE MOSTRARA AL USUARIO
-            |--------------------------------------------------------------------
-            */
-            $dataRes = array(
-              'error' => $prmError,
-              'mensaje' =>  $prmMensaje
-            );
-  
-            echo json_encode($dataRes);
-  
-      } catch (\Exception $e) {
-      
-  
-          $codigoError = $e->getCode();
-  
-          if ($codigoError == 23000) { //ERROR DE REGISTRO DUPLICADO
-            $dataRes = array(
-              'error' => '1',
-              'mensaje' =>  "El registro se encuentra duplicado " . $e->getMessage()
-            );
-          } else {
-            $dataRes = array(
-              'error' => '1',
-              'mensaje' =>  "Mensaje de Error: " . $e->getMessage()
-            );
-  
-          }
-   
-          echo json_encode($dataRes);
-  
-      }
-    
-    }
 
 
  public function seleccionarregistros($tabla,$idprop){
@@ -421,6 +329,82 @@ public function registrar($tabla,$datos,$archivos){
 
       }
   }
+
+
+
+  public function InmuebleCobrador($tabla,$id_cobrador){
+
+    If($id_cobrador == null && $id_cobrador == null){
+
+
+          try {
+
+            $dbConexion = new conexcion();  
+
+              $stmt = $dbConexion->conectar()->prepare("CALL usp_cargar_asignacion_cobrador(?)");
+              $stmt -> bindParam(1,$id_cobrador,PDO::PARAM_STR);
+              $stmt->execute();
+              $dataRegistro["Items"][] = $stmt->fetchAll();
+    
+              $dataRes = array(
+                'error' => '0',
+                'mensaje' =>  'El registro se realizo con exito.'
+              );
+                        
+              echo json_encode(array_merge($dataRegistro,$dataRes));
+    
+              } catch (\Throwable $th) {
+              
+                  //$pdo->rollBack() ;
+                  //echo "Mensaje de Error: " . $th->getMessage();
+                  $dataRes = array(
+                    'error' => '1',
+                    'mensaje' =>  "Mensaje de Error: " . $th->getMessage()
+                  );
+            
+                  echo json_encode($dataRes);
+          
+              }
+
+    }else{
+
+
+      try {
+
+        $dbConexion = new conexcion();
+        
+        $stmt = $dbConexion->conectar()->prepare("CALL usp_cargar_asignacion_cobrador(?)" );
+      
+        $stmt -> bindParam(1,$id_cobrador,PDO::PARAM_STR);
+        $stmt->execute();
+        $dataRegistro["Items"][] = $stmt->fetchAll();
+
+        $dataRes = array(
+          'error' => '0',
+          'mensaje' =>  'El registro se realizo con exito.'
+        );
+        
+        
+        echo json_encode(array_merge($dataRegistro,$dataRes));
+
+        } catch (\Throwable $th) {
+        
+            //$pdo->rollBack() ;
+            //echo "Mensaje de Error: " . $th->getMessage();
+            $dataRes = array(
+              'error' => '1',
+              'mensaje' =>  "Mensaje de Error: " . $th->getMessage()
+            );
+      
+            echo json_encode($dataRes);
+    
+        }
+
+
+
+
+    }
+}
 
 
 

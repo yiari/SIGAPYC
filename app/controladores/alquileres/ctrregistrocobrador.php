@@ -61,6 +61,15 @@ class ctrregistrocobradores{
     }
 
 
+    public function InmuebleCobrador($id_cobrador){
+
+        $tabla = "cobrador";
+        $modelo =  new mdlregiscobrador();
+        $respuestas =  $modelo->InmuebleCobrador($tabla,$id_cobrador,null);
+        return $respuestas;
+    }
+
+
 
     public function vincular($idusuario,$idcobrador,$idinmueble,$idunidad){
 

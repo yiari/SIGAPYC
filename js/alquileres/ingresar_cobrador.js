@@ -1,32 +1,37 @@
 function inicio(){
 
     
-  generarCodigoCobrador();
-  guardarCobrador();
+ 
 
   
 
-   jQuery("#registroNombre").on('input', function (evt) {
-       jQuery(this).val(jQuery(this).val().replace(/[^A-Za-z ]/g, ''));
-   });
+    $("input[type=text]").keyup(function() {
+        $(this).val($(this).val().toUpperCase());
+    });
+    /*------------------------------------------------*/
+    
+    jQuery("#registroNombre").on('input', function (evt) {
+        jQuery(this).val(jQuery(this).val().replace(/[^A-Za-z ]/g, ''));
+    });
 
-   jQuery("#registroApellido").on('input', function (evt) {
-       jQuery(this).val(jQuery(this).val().replace(/[^A-Za-z ]/g, ''));
-   });
+    jQuery("#registroApellido").on('input', function (evt) {
+        jQuery(this).val(jQuery(this).val().replace(/[^A-Za-z ]/g, ''));
+    });
 
-   jQuery("#registroCedula").on('input', function (evt) {
-       jQuery(this).val(jQuery(this).val().replace(/[^0-9'.']/g, ''));
-   });
+    jQuery("#registroCedula").on('input', function (evt) {
+        jQuery(this).val(jQuery(this).val().replace(/[^0-9'.']/g, ''));
+    });
 
-   jQuery("#registroTelefono").on('input', function (evt) {
-       jQuery(this).val(jQuery(this).val().replace(/[^0-9]/g, ''));
-   });
+    jQuery("#registroTelefono").on('input', function (evt) {
+        jQuery(this).val(jQuery(this).val().replace(/[^0-9]/g, ''));
+    });
 
-   jQuery("#registroCelular").on('input', function (evt) {
-       jQuery(this).val(jQuery(this).val().replace(/[^0-9]/g, ''));
-   });
+    jQuery("#registroCelular").on('input', function (evt) {
+        jQuery(this).val(jQuery(this).val().replace(/[^0-9]/g, ''));
+    });
 
-  
+   generarCodigoCobrador();
+   guardarCobrador();
 
 
 }
