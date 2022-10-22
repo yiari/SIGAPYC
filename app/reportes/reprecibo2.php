@@ -45,6 +45,14 @@
 	    //$tb = $mysqli->query($sql);
 	    //$num = $tb->num_rows;
 	    //$fila=$tb->fetch_assoc();
+
+			$pdf->Image('../../img/logo.jpg',10,10,-200,);
+
+
+			$pdf->Image('../../img/logo.jpg',10,135,-200,);
+
+
+
 			$y = $pdf->GetY();
 			//$pdf->cell(60,5,"Caracas: ".$fecha,0,1,"L");
 		
@@ -52,7 +60,7 @@
 			$pdf->ln();	
 			$pdf->cell(200,5,utf8_decode(""),0,1,"L");
 			$pdf->Multicell( 190,5, utf8_decode(""));		
-			$pdf->cell(190,5,".",0,1,"L");
+
 			$pdf->cell(60,5,"",0,1,"L");		
 			$pdf->ln();	
 			$pdf->setFont("Times","",14);

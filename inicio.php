@@ -8,7 +8,15 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
     <title>SIGAPYC | YURUARY</title>
+    
+    <!--
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
+-->
+
+    <link href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css" rel="stylesheet" />
+    
+
+
     <link href="css/styles.css" rel="stylesheet" />
     <link href="assets/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" />
         <!--
@@ -87,9 +95,15 @@
         <script src="assets/demo/chart-area-demo.js"></script>
         <script src="assets/demo/chart-bar-demo.js"></script>
 
+        <!--
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
         <script src="js/datatables-simple-demo.js"></script>
-
+                    -->
+        
+        <!--
+                    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+                    -->
+        <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
 
     
 </body>

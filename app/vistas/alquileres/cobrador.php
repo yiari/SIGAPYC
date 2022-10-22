@@ -28,7 +28,7 @@
                                     </div>
                                     <div class="card-body">
                                     <div class="table-responsive">
-                                        <table id="datosCobrador">
+                                        <table id="datosCobrador" class="display compact">
                                             <thead>
                                                 <tr>
                                                     

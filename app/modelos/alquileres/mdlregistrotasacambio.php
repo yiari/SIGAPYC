@@ -42,14 +42,18 @@ public function registrar($tabla,$datos){
           | AQUI PREPARO LO QUE SERA LA LLAMADA AL PROCEDIMIENTO QUE REALIZARA LA OPERACION
           |----------------------------------------------------------------------------------
           */
+
+          $valor = floatval($datos["cambio"]);
+
           $stmt = $dbConexion->conectar()->prepare("CALL usp_registratasacambio(?,?,?)");
           $stmt -> bindParam(1, $datos["id"], PDO::PARAM_INT);
-          $stmt -> bindParam(2, $datos["cambio"], PDO::PARAM_STR);
+          /*$stmt -> bindParam(2, $datos["cambio"], PDO::PARAM_STR);*/
+          $stmt -> bindParam(2, $valor ,PDO::PARAM_STR);
           $stmt -> bindParam(3, $datos["id_usuario"], PDO::PARAM_INT);
 
-          
-      
-        
+          /*
+          $item_query->bindParam(":amount", floatval($item_cost[$i]));
+        */
           
           /*
           |---------------------------------

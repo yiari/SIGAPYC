@@ -11,7 +11,13 @@
             </div>
             <div class="modal-body"><span id="spanMsg">&nbsp;</span></div>
             <div class="modal-footer">
-                <button class="btn btn-primary" type="button" data-bs-dismiss="modal">Aceptar</button>
+                <span id="btnMensajeNormal" style="display: block;">
+                    <button class="btn btn-primary" type="button" data-bs-dismiss="modal">Aceptar</button>
+                </span>
+                <span id="btnMensajeAtras"  style="display: none;">
+                    <a class="btn btn-primary" href="#"  role="button">Aceptar</a>
+                </span>
+
             </div>
         </div>
     </div>

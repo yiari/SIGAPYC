@@ -1,3 +1,5 @@
+var tabla;
+
 function inicio(){
 
     cargarCobrador();
@@ -83,9 +85,25 @@ function cargarCobrador(){
                         tr.append("<td colspan=6 style='text-align:center'>NO HAY INFORMACION REGISTRADA</td>");
                         $('#datosCobrador').append(tr);
 
-                        }
+                    }
 
+                    /*
+                    ***********************
+                    ASI ERA ORIGINALMENTE
+                    ************************
                     new simpleDatatables.DataTable("#datosCobrador");
+                    */
+
+                    $('#datosCobrador').DataTable(
+                        {
+                            language: {
+                                url: '//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json'
+                            }
+                            
+                        }
+                    );
+
+
 
                 } 
 
