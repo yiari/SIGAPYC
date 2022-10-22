@@ -38,7 +38,7 @@
 	$pdf->AddPage();
 	$pdf->AliasnbPages();
 	$pdf->SetAutoPageBreak(true, 20);
-		$pdf->setFont("Arial","B",12);
+		$pdf->setFont("Times","B",12);
 		$y = $pdf->GetY();
 		//$sql = "select * from propietario where id_prop='".$id_prop."'";
 		//echo $sql;
@@ -47,23 +47,19 @@
 	    //$fila=$tb->fetch_assoc();
 			$y = $pdf->GetY();
 			//$pdf->cell(60,5,"Caracas: ".$fecha,0,1,"L");
-			$pdf->ln();	
-			$pdf->Multicell( 190,1,utf8_decode("Caracas, ".dia($fecha)." de ".mes($fecha)." de ".ano($fecha)),0,"R",0);
+		
+			$pdf->Multicell(190,1,utf8_decode("Caracas, ".dia($fecha)." de ".mes($fecha)." de ".ano($fecha)),0,"R",0);
 			$pdf->ln();	
 			$pdf->cell(200,5,utf8_decode(""),0,1,"L");
 			$pdf->Multicell( 190,5, utf8_decode(""));		
-			$pdf->cell( 190,5,".",0,1,"L");
+			$pdf->cell(190,5,".",0,1,"L");
 			$pdf->cell(60,5,"",0,1,"L");		
 			$pdf->ln();	
-			$pdf->setFont("Arial","",14);
+			$pdf->setFont("Times","",14);
 			$pdf->ln();	
 			$pdf->Multicell(190,5,utf8_decode($texto));	
 	
-			$pdf->ln();				
-			$pdf->ln();	
-			$pdf->ln();	
-			$pdf->ln();
-			$pdf->ln();			
+					
 		
 	$pdf->Output();	
 	//$fileName = 'contrato.pdf';
