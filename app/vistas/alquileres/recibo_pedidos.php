@@ -72,7 +72,7 @@ include("layout/menuNavegacion.php");
                                         <div class="card-body">
 
                                             <div class="table-responsive">
-                                                <table id="datosReciboPedido" class="display">
+                                                <table id="datosReciboPedido" class="table table-striped table-bordered" style="width:100%">
                                                 <thead>
                                                     <tr>
                                                         

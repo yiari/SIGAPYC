@@ -30,8 +30,6 @@ class ctrregistroinmueble{
      public function registrar($datos,$archivos){
 
             $tabla = "inmuebles";
-            $modelo = new mdlregistroinmueble();
-
             $modelo =  new mdlregistroinmueble();
             $respuesta = $modelo->registrar($tabla,$datos,$archivos);
 

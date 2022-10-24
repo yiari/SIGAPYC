@@ -59,7 +59,7 @@ function inicio(){
     });
 
     jQuery("#registroMonto").on('input', function (evt) {
-        jQuery(this).val(jQuery(this).val().replace(/[^0-9]/g, ''));
+        jQuery(this).val(jQuery(this).val().replace(/[^0-9'.']/g, ''));
     });
    
 
@@ -169,10 +169,6 @@ function guardarGastos(){
        return;
     }
 
-
-  
-
-  
 
 
         /*

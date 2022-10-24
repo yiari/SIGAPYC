@@ -34,6 +34,27 @@ private function subirArchivos($objeto,$idpropietario,$campoDocumento,$tipo,$coo
     */
     $extensiones_validas = array('jpeg', 'jpg', 'png', 'pdf'); // Extensiones de arhivos validas
 
+   /* 
+    |-----------------------------------------
+    | AQUI OBTENGO EL NOMBRE Y EL TEMPORAL
+    |-----------------------------------------
+    */
+    $docimg = $objeto['name'];
+    $tmp = $objeto['tmp_name'];
+
+     
+
+    /* 
+    |---------------------------------------------------
+    | AQUI OBTENGO LA EXTENSION DEL DOCUMENTO O IMAGEN
+    |---------------------------------------------------
+    */
+
+    $ext = strtolower(pathinfo($docimg, PATHINFO_EXTENSION));
+
+    if(($coordenada == '1i' || $coordenada == '2i' ) && ($ext == 'jpeg' || $ext == 'jpg' || $ext == 'png')){
+        $coordenada .= 'i';
+    }
 
     /*
     |--------------------------------------------------------
@@ -46,22 +67,6 @@ private function subirArchivos($objeto,$idpropietario,$campoDocumento,$tipo,$coo
     $rutaDocumento = self::rutasCarpetas($docuTEMP[0],$tipo,$coordenada);
 
 
-    /* 
-    |-----------------------------------------
-    | AQUI OBTENGO EL NOMBRE Y EL TEMPORAL
-    |-----------------------------------------
-    */
-    $docimg = $objeto['name'];
-    $tmp = $objeto['tmp_name'];
-
-
-    /* 
-    |---------------------------------------------------
-    | AQUI OBTENGO LA EXTENSION DEL DOCUMENTO O IMAGEN
-    |---------------------------------------------------
-    */
-
-    $ext = strtolower(pathinfo($docimg, PATHINFO_EXTENSION));
 
 
     /*

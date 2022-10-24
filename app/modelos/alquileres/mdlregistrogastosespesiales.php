@@ -44,6 +44,9 @@ public function registrar($tabla,$datos,$archivos){
           | AQUI PREPARO LO QUE SERA LA LLAMADA AL PROCEDIMIENTO QUE REALIZARA LA OPERACION
           |----------------------------------------------------------------------------------
           */
+
+          $valor = floatval($datos["monto"]);
+
           $stmt = $dbConexion->conectar()->prepare("CALL usp_registrargastosespeciles(?,?,?,?,?,?,?,?,?)");
 
           $stmt -> bindParam(1, $datos["id_gesp"], PDO::PARAM_INT); //ESTE ES EL ID DEL gastos
@@ -52,7 +55,7 @@ public function registrar($tabla,$datos,$archivos){
           $stmt -> bindParam(4, $datos["id_inqu"], PDO::PARAM_INT);
           $stmt -> bindParam(5, $datos["tipo_inqui"], PDO::PARAM_INT);
           $stmt -> bindParam(6, $datos["concepto"], PDO::PARAM_STR); 
-          $stmt -> bindParam(7, $datos["monto"], PDO::PARAM_STR);
+          $stmt -> bindParam(7, $valor,PDO::PARAM_STR);
           $stmt -> bindParam(8, $datos["mes"], PDO::PARAM_INT);
           $stmt -> bindParam(9, $datos["id_usuario"], PDO::PARAM_INT);		
 

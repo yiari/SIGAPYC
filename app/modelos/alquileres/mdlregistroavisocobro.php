@@ -489,12 +489,19 @@ class mdlregistroavisocobro{
   
     
         try {
-    
+
            /* 
             |----------------------------------------------------------------------------------
             | AQUI PREPARO LO QUE SERA LA LLAMADA AL PROCEDIMIENTO QUE REALIZARA LA OPERACION
             |----------------------------------------------------------------------------------
             */
+
+            $recibo = floatval($datos["monto_recibo"]);
+            $pedido = floatval($datos["monto_pedido"]);
+            $mensualidad = floatval($datos["mensualidad"]);
+            $tasa = floatval($datos["tasa"]);
+
+
             $stmt = $dbConexion->conectar()->prepare("CALL usp_registro_recibopedido(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
             $stmt -> bindParam(1,$datos ["id"],  PDO::PARAM_INT); //ESTE ES EL ID respuesta
             $stmt -> bindParam(2,$datos ["id_aviso"],PDO::PARAM_INT); //ESTE ES EL ID DEL avios de cobro
@@ -507,10 +514,10 @@ class mdlregistroavisocobro{
             $stmt -> bindParam(9,$datos ["tipo_inqu"], PDO::PARAM_INT); //
             $stmt -> bindParam(10,$datos ["fecha"], PDO::PARAM_INT); // 
             $stmt -> bindParam(11,$datos ["mes"], PDO::PARAM_INT); //  
-            $stmt -> bindParam(12,$datos ["mensualidad"], PDO::PARAM_INT); //
-            $stmt -> bindParam(13,$datos ["monto_recibo"], PDO::PARAM_INT); //
-            $stmt -> bindParam(14,$datos ["monto_pedido"], PDO::PARAM_INT); //
-            $stmt -> bindParam(15,$datos ["tasa"], PDO::PARAM_INT); //
+            $stmt -> bindParam(12, $mensualidad,PDO::PARAM_STR);
+            $stmt -> bindParam(13, $recibo,PDO::PARAM_STR);
+            $stmt -> bindParam(14, $pedido,PDO::PARAM_STR);
+            $stmt -> bindParam(15, $tasa,PDO::PARAM_STR);
             $stmt -> bindParam(16,$datos["id_usuario"], PDO::PARAM_INT); 
          
           
