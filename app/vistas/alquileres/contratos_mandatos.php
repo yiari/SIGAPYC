@@ -25,7 +25,7 @@ include("layout/menuNavegacion.php");
                 CONTRATOS
             </div>
             <div class="card-body">
-                <table id="datosContratos">
+                <table  class="display compact" id="datosContratos">
                     <thead>
                         <tr>
                             <th>codigo</th>

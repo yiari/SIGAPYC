@@ -131,10 +131,21 @@ console.log("Items Resultados: " + json.Items[0].length);
 
                         }
 
+                   /*
+                    ***********************
+                    ASI ERA ORIGINALMENTE
+                    ************************
+                   new simpleDatatables.DataTable("#datosAvisoCobro");
+                    */
 
-
-
-                    new simpleDatatables.DataTable("#datosAvisoCobro");
+                    $('#datosAvisoCobro').DataTable(
+                        {
+                            language: {
+                                url: '//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json'
+                            }
+                            
+                        }
+                    );
 
                 } 
                 /************************************************ */
@@ -279,9 +290,23 @@ function buscarInquilino(){
                     }
 
 
+               
 
+                   /*
+                    ***********************
+                    ASI ERA ORIGINALMENTE
+                    ************************
+                    new simpleDatatables.DataTable("#datosAvisoCobro");
+                    */
 
-                new simpleDatatables.DataTable("#datosAvisoCobro");
+                    $('#datosAvisoCobro').DataTable(
+                        {
+                            language: {
+                                url: '//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json'
+                            }
+                            
+                        }
+                    );
 
             
                } 
@@ -427,11 +452,21 @@ function buscarEstatus(prmValor){
  
                      }
  
- 
- 
- 
-                 new simpleDatatables.DataTable("#datosAvisoCobro");
- 
+                    /*
+                    ***********************
+                    ASI ERA ORIGINALMENTE
+                    ************************
+                    new simpleDatatables.DataTable("#datosAvisoCobro");
+                    */
+
+                    $('#datosAvisoCobro').DataTable(
+                        {
+                            language: {
+                                url: '//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json'
+                            }
+                            
+                        }
+                    );
              
                 } 
                 /************************************************ */

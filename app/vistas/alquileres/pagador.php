@@ -20,7 +20,7 @@
                 PAGADOR
             </div>
             <div class="card-body">
-                <table id="datosPagador">
+                <table id="datosPagador" class="display compact">
                     <thead>
                         <tr>
 

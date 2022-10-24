@@ -81,7 +81,7 @@ include("layout/menuNavegacion.php");
                                         <div class="card-body">
 
                                             <div class="table-responsive">
-                                                <table id="datosAvisoCobro">
+                                                <table id="datosAvisoCobro" class="display">
                                                 <thead>
                                                     <tr>
                                                         <th>codigo</th>

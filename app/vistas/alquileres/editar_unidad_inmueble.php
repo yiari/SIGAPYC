@@ -10,7 +10,7 @@ include("layout/menuNavegacion.php");
             
                     <div style="text-align: right;">
                         <ol>          
-                            <a class="btn btn-outline-secondary codUnidad" href="index.php?url=app/vistas/alquileres/unidades"  role="button">Atras</a>
+                            <a class="btn btn-outline-secondary codUnidad atrasURL" href="index.php?url=app/vistas/alquileres/unidades"  role="button">Atras</a>
                         </ol>
                     </div>
 

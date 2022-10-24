@@ -214,9 +214,24 @@ function cargarUnidades(idInmueble,prmCodInmu,prmIdUnidad,prmCodUnidad){
 
                    }
 
-                new simpleDatatables.DataTable("#datosUnidad");
+               
+                   /*
+                    ***********************
+                    ASI ERA ORIGINALMENTE
+                    ************************
+                    new simpleDatatables.DataTable("#datosUnidad");
+                    */
+
+                    $('#datosUnidad').DataTable(
+                        {
+                            language: {
+                                url: '//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json'
+                            }
+                            
+                        }
+                    );
             
-            }º                                                                                                                              
+            }                                                                                                                             
                 /************************************************ */
 
 

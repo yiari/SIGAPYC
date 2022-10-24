@@ -73,7 +73,7 @@ include("layout/menuNavegacion.php");
                                         </div>
                                         <div class="card-body">
                                         <div class="table-responsive">
-                                            <table id="datosContratoinquilino">
+                                            <table id="datosContratoinquilino" class="display compact">
                                                 <thead>
                                                     <tr>
                                                         
@@ -134,7 +134,7 @@ include("layout/menuNavegacion.php");
                                                 
                                         </div><br>
                                         <div class="table-responsive">
-                                            <table class="table table-bordered">
+                                            <table class="display compact">
                                                 <thead>
                                                     <tr>
                                                         <th>Fecha</th>
@@ -146,15 +146,7 @@ include("layout/menuNavegacion.php");
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr>
-                                                        <td>070058</td>
-                                                        <td>3-jun-2022</td>
-                                                        <td>Emisión de factura por servicios administrativos</td>
-                                                        <td>Bs 320</td>
-                                                        <td>Bs 20</td>
-                                                        <td>factura</td>
-                                                    </tr>
- 
+                                                   
                                                 </tbody>
                                             </table>
                                         </div>

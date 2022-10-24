@@ -8,7 +8,7 @@ include("layout/menuNavegacion.php");
     <div class="card-header">
                     <div style="text-align: right;">
                         <ol>          
-                            <a class="btn btn-outline-secondary codcobra" href="index.php?url=app/vistas/alquileres/cobrador"  role="button">Atras</a>
+                            <a class="btn btn-outline-secondary codcobra atrasURL" href="index.php?url=app/vistas/alquileres/cobrador"  role="button">Atras</a>
                         </ol>
                     </div>
 
@@ -84,7 +84,7 @@ include("layout/menuNavegacion.php");
                             <div class="card">
                                 <div class="card-body">
                                     <div class="table-responsive">
-                                        <table class="table table-striped" id="datosInmuebleAsignados">
+                                        <table  class="display compact" id="datosInmuebleAsignados">
                                                 <thead>
                                                         <tr>
                                                         <th>Cobrador</th>

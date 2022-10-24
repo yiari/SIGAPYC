@@ -101,7 +101,23 @@ function cargarPropietarios(){
                         //}
                     }
 
-                    new simpleDatatables.DataTable("#datosPropietarios");
+                    
+
+                     /*
+                    ***********************
+                    ASI ERA ORIGINALMENTE
+                    ************************
+                   new simpleDatatables.DataTable("#datosPropietarios");
+                    */
+
+                    $('#datosPropietarios').DataTable(
+                        {
+                            language: {
+                                url: '//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json'
+                            }
+                            
+                        }
+                    );
 
                 }
                 /************************************************ */

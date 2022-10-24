@@ -313,7 +313,23 @@ function cargarDocumentosa(idPropietario,codigoPropietario,tipoPropietario){
 
                     }
 
+                   
+                    /*
+                    ***********************
+                    ASI ERA ORIGINALMENTE
+                    ************************
                     new simpleDatatables.DataTable("#datosDocumentos");
+
+                    */
+
+                    $('#datosDocumentos').DataTable(
+                        {
+                            language: {
+                                url: '//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json'
+                            }
+                            
+                        }
+                    );
                
                 }   
 
@@ -403,7 +419,23 @@ function documentoinquilino(idinquilino,prmCodInqui,prmTipoInqui){
 
                     }
 
-                    new simpleDatatables.DataTable("#DocumentosInquilinos");
+                   
+                    /*
+                    ***********************
+                    ASI ERA ORIGINALMENTE
+                    ************************
+                     new simpleDatatables.DataTable("#DocumentosInquilinos");
+
+                    */
+
+                    $('#DocumentosInquilinos').DataTable(
+                        {
+                            language: {
+                                url: '//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json'
+                            }
+                            
+                        }
+                    );
                
                 }   
 
@@ -495,7 +527,23 @@ function documentobenficiario(idbeneficiario,prmCodbene,prmTipoBene){
 
                     }
 
-                    new simpleDatatables.DataTable("#Documentosbeneficiario");
+                   
+                    /*
+                    ***********************
+                    ASI ERA ORIGINALMENTE
+                    ************************
+                      new simpleDatatables.DataTable("#Documentosbeneficiario");
+
+                    */
+
+                     $('#Documentosbeneficiario').DataTable(
+                        {
+                            language: {
+                                url: '//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json'
+                            }
+                            
+                        }
+                    );
                
                 }   
 
@@ -587,7 +635,24 @@ function documentoApoderado(idapoderado,prmCodapod,prmTipoApod){
 
                     }
 
-                    new simpleDatatables.DataTable("#DocumentosApoderados");
+                    
+
+                     /*
+                    ***********************
+                    ASI ERA ORIGINALMENTE
+                    ************************
+                      new simpleDatatables.DataTable("#DocumentosApoderados");
+
+                    */
+
+                      $('#DocumentosApoderados').DataTable(
+                        {
+                            language: {
+                                url: '//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json'
+                            }
+                            
+                        }
+                    );
                
                 }   
 
@@ -678,7 +743,22 @@ function documentoRepresentante(idrepresentante,prmCodrepr,prmTipoRepr){
 
                     }
 
+                    
+                    /*
+                    ***********************
+                    ASI ERA ORIGINALMENTE
+                    ************************
                     new simpleDatatables.DataTable("#DocumentosRepresentante");
+                    */
+
+                    $('#DocumentosRepresentante').DataTable(
+                        {
+                            language: {
+                                url: '//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json'
+                            }
+                            
+                        }
+                    );
                
                 }   
 
@@ -769,7 +849,22 @@ function documentoPagador(idpagador,prmCodPaga,prmTipoPaga){
 
                     }
 
-                    new simpleDatatables.DataTable("#datosPagador");
+                    
+                    /*
+                    ***********************
+                    ASI ERA ORIGINALMENTE
+                    ************************
+                     new simpleDatatables.DataTable("#datosPagador");
+                    */
+
+                    $('#datosPagador').DataTable(
+                        {
+                            language: {
+                                url: '//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json'
+                            }
+                            
+                        }
+                    );
                
                 }   
 
@@ -859,7 +954,23 @@ function documentoInmueble(idinmueble,prmCodInmu,prmTipoInmu){
 
                     }
 
-                    new simpleDatatables.DataTable("#datosInmueble");
+                   
+
+                    /*
+                    ***********************
+                    ASI ERA ORIGINALMENTE
+                    ************************
+                     new simpleDatatables.DataTable("#datosInmueble");
+                    */
+
+                    $('#datosInmueble').DataTable(
+                        {
+                            language: {
+                                url: '//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json'
+                            }
+                            
+                        }
+                    );
                
                 }   
 
@@ -950,7 +1061,25 @@ function documentoUnidad(idUnidad,prmCodUnid,prmTipoUnid){
 
                     }
 
+                    
+
+                    /*
+                    ***********************
+                    ASI ERA ORIGINALMENTE
+                    ************************
                     new simpleDatatables.DataTable("#datosInmueble");
+                    */
+
+                    $('#datosInmueble').DataTable(
+                        {
+                            language: {
+                                url: '//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json'
+                            }
+                            
+                        }
+                    );
+
+                    
                
                 }   
 

@@ -361,7 +361,24 @@ function InmuebleAsigmnadoCobrador(){
 
                }
 
-                new simpleDatatables.DataTable("#datosInmuebleAsignados");
+                
+
+                /*
+                    ***********************
+                    ASI ERA ORIGINALMENTE
+                    ************************
+                    new simpleDatatables.DataTable("#datosInmuebleAsignados");
+
+                    */
+
+                    $('#datosInmuebleAsignados').DataTable(
+                        {
+                            language: {
+                                url: '//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json'
+                            }
+                            
+                        }
+                    );
 
            } 
                /************************************************ */
@@ -459,7 +476,23 @@ function InmuebleCobrador(){
  
                 }
  
-                 new simpleDatatables.DataTable("#InmuebleCobrador");
+                
+
+                  /*
+                    ***********************
+                    ASI ERA ORIGINALMENTE
+                    ************************
+                     new simpleDatatables.DataTable("#InmuebleCobrador");
+                    */
+
+                    $('#InmuebleCobrador').DataTable(
+                        {
+                            language: {
+                                url: '//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json'
+                            }
+                            
+                        }
+                    );
  
             } 
                 /************************************************ */

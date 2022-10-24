@@ -8,7 +8,7 @@
 
                 <div style="text-align: right;">
                         <ol>          
-                            <a class="btn btn-outline-secondary" href="index.php?url=app/vistas/alquileres/aviso_cobro"  role="button">Atras</a>
+                            <a class="btn btn-outline-secondary atrasURL" href="index.php?url=app/vistas/alquileres/aviso_cobro"  role="button">Atras</a>
                         </ol>
                     </div>
          
@@ -81,7 +81,7 @@
                     <div class="card-body">
 
                             <div class="table-responsive">
-                            <table class="table table-striped" id="Especiales">
+                            <table class="display compact" id="Especiales">
                                     <thead>
                                             <tr>
                                             <th>#</th>

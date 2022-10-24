@@ -98,7 +98,9 @@ if ($("#registroDirecionj").val() == "") {
 
            if(json.error == 0){
                
-               mensaje(json.mensaje,0);
+            let urlATRAS  =$('.atrasURL').attr('href')
+
+            mensaje(json.mensaje,0,urlATRAS);
 
                //$("#mensaje").html(html).fadeIn();
                limpiarFormulario();
@@ -156,6 +158,52 @@ function limpiarFormulario(valor){
     if(valor == 1){
         document.getElementById("registropagadorj").reset();
     }
+
+}
+
+
+function mensaje(mensaje, condicion, url = ""){
+
+    var html="";
+    var urlhtml="";
+
+    if(condicion == 0){//ESTOS SON MENSAJES CON EXITO
+
+        if(url != ""){
+            $('#btnMensajeNormal').hide(); //OCULTO EL BOTON NORMAL
+            $('#btnMensajeAtras').show(); //MUESTRO EL BOTON ACEPTAR QUE REGRESA A LA TABLA ANTERIOR
+                       
+            html='<i class="fa fa-check-circle fa-2x" aria-hidden="true" style="color:#29bf1d;"></i>&nbsp' + mensaje;
+
+            urlhtml = '<a class="btn btn-primary" href="' + url + '"  role="button">Aceptar</a>';
+
+
+        } else {
+            $('#btnMensajeNormal').show(); //MUESTRO EL BOTON NORMAL
+            $('#btnMensajeAtras').hide(); //OCUTLO EL BOTON ACEPTAR QUE REGRESA A LA TABLA ANTERIOR
+            html='<i class="fa fa-check-circle fa-2x" aria-hidden="true" style="color:#29bf1d;"></i>&nbsp' + mensaje;
+        }
+
+
+        
+
+    } else if (condicion == 1){//ESTOS SON MENSAJES CON ERROR
+        $('#btnMensajeNormal').show(); //MUESTRO EL BOTON NORMAL
+        $('#btnMensajeAtras').hide(); //OCUTLO EL BOTON ACEPTAR QUE REGRESA A LA TABLA ANTERIOR
+        html='<i class="fa fa-times-circle fa-2x" aria-hidden="true" style="color:#bf1d1d;"></i>&nbsp' + mensaje;
+    }
+
+
+    $('#spanMsg').html('');
+    $('#spanMsg').html(html);
+
+    if(url != ""){
+        $('#btnMensajeAtras').html('');
+        $('#btnMensajeAtras').html(urlhtml);
+    }
+
+    //open the modal
+    $('#msgModal').modal('show');
 
 }
 

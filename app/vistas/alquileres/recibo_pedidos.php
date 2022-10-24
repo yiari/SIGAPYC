@@ -72,7 +72,7 @@ include("layout/menuNavegacion.php");
                                         <div class="card-body">
 
                                             <div class="table-responsive">
-                                                <table id="datosReciboPedido">
+                                                <table id="datosReciboPedido" class="display">
                                                 <thead>
                                                     <tr>
                                                         
@@ -88,7 +88,7 @@ include("layout/menuNavegacion.php");
                                                         <th>Total</th>
                                                         <th>Tasa cambio</th>
                                                         <th class="align-center">Recibo - Tasa Bs</th>
-                                                        <th>Status</th>
+                                                    
                                                  
                                                         <th>Acciones</th>
 

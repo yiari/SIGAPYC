@@ -8,7 +8,7 @@ include("layout/menuNavegacion.php");
         <div class="card-header">
                 <div style="text-align: right;">
                     <ol>               
-                        <a class="btn btn-outline-secondary codinq" href="index.php?url=app/vistas/alquileres/pagador"  role="button">Atras</a>
+                        <a class="btn btn-outline-secondary codinq atrasURL" href="index.php?url=app/vistas/alquileres/pagador"  role="button">Atras</a>
                     </ol>
                 </div>
 

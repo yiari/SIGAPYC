@@ -25,7 +25,7 @@ include("layout/menuNavegacion.php");
                 INQUILINOS
             </div>
             <div class="card-body">
-                <table id="datosinquilinos">
+                <table id="datosinquilinos" class="display compact">
                     <thead>
                         <tr>
                            <th> Codigo</th>

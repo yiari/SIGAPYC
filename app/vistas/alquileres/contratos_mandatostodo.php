@@ -64,7 +64,7 @@ include("layout/menuNavegacion.php");
                 MANDATOS
             </div>
             <div class="card-body">
-                <table id="datosMandatos">
+                <table id="datosMandatos" class="display compact">
                     <thead>
                         <tr>
                             <th>codigos</th>

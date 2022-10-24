@@ -82,7 +82,7 @@ include("layout/menuNavegacion.php");
                                     <div class="card-body">
 
                                     <div class="table-responsive">
-                                        <table  id="datosInmuebles" >
+                                        <table  id="datosInmuebles" class="display compact">
                                         <thead>
                                             <tr>
                                                 <th>Foto</th>
@@ -120,7 +120,7 @@ include("layout/menuNavegacion.php");
                                     <div class="card-body">
 
                                     <div class="table-responsive">
-                                        <table  id="datosUniades" >
+                                        <table  id="datosUniades" class="display compact" >
                                         <thead>
                                             <tr>
                                                 <th>Foto</th>
@@ -183,7 +183,7 @@ include("layout/menuNavegacion.php");
 
                                         <div class="table-responsive">
 
-                                            <table class="table table-bordered">
+                                            <table class="display compact">
                                                 <thead>
                                                     <tr>
                                                         <th>Referencia</th>
@@ -248,7 +248,7 @@ include("layout/menuNavegacion.php");
                                                 
                                         </div><br>
                                         <div class="table-responsive">
-                                            <table class="table table-bordered">
+                                            <table class="display compact">
                                                 <thead>
                                                     <tr>
                                                         <th>Fecha</th>

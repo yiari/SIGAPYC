@@ -30,7 +30,7 @@
                                         BENEFICIARIOS
                                     </div>
                                     <div class="card-body">
-                                        <table id="datosBeneficiario">
+                                        <table id="datosBeneficiario" class="display compact">
                                             <thead>
                                                 <tr>
                                                     

@@ -23,7 +23,7 @@
                 UNIDADES DEL INMUEBLE
             </div>
             <div class="card-body">
-                <table id="datosUnidad">
+                <table id="datosUnidad" class="display compact">
                     <thead>
                         <tr>
                             

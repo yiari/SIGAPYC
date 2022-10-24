@@ -217,7 +217,23 @@ function cargarInmueble(idPropietario,idInmueble,prmTipo,prmCodInmu,prmcodPropie
 
                        }
 
+                   
+
+                    /*
+                    ***********************
+                    ASI ERA ORIGINALMENTE
+                    ************************
                     new simpleDatatables.DataTable("#datosInmuebles");
+                    */
+
+                    $('#datosInmuebles').DataTable(
+                        {
+                            language: {
+                                url: '//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json'
+                            }
+                            
+                        }
+                    );
 
                 }
                 /************************************************ */
@@ -388,7 +404,22 @@ function cargarInmuebletodo(){
 
                        }
 
-                    new simpleDatatables.DataTable("#datosInmueblesTodo");
+
+                    /*
+                    ***********************
+                    ASI ERA ORIGINALMENTE
+                    ************************
+                   new simpleDatatables.DataTable("#datosInmueblesTodo");
+                    */
+
+                    $('#datosInmueblesTodo').DataTable(
+                        {
+                            language: {
+                                url: '//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json'
+                            }
+                            
+                        }
+                    );
 
                 }
                 /************************************************ */

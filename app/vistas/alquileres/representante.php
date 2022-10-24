@@ -22,7 +22,7 @@
                 REPRESENTANTE
             </div>
             <div class="card-body">
-                <table id="datosRepresentante">
+                <table id="datosRepresentante" class="display compact">
                     <thead>
                         <tr>
 

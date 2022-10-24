@@ -82,7 +82,7 @@ function cargarReciboPedido(){
                                     tr.append("<td>" + json.Items[0][i].tasa + "</td>");
                                     tr.append("<td>" + json.Items[0][i].Bs + "</td>");
                                   
-                                    tr.append("<td>" + statusRecibPedido(json.Items[0][i].status) + "</td>");
+                                 
                                     
                                    
                             
@@ -94,14 +94,10 @@ function cargarReciboPedido(){
                                   
 
                                     html = '<div class="btn-group" style="font-size:1.3em; letter-spacing:0.5em;">';
-                                    html += '<a title="PDF"  href="app/reportes/reprecibo.php?id='  + json.Items[0][i].id +'&codreci=' +json.Items[0][i].cod_recibo +'" target="_blank"><i class="fa fa-file-pdf-o" alt=“PDF” ></i></a>';
+                                    //html += '<a title="PDF"  href="app/reportes/reprecibo.php?id='  + json.Items[0][i].id +'&codreci=' +json.Items[0][i].cod_recibo +'" target="_blank"><i class="fa fa-file-pdf-o" alt=“PDF” ></i></a>';
                                     
                                     html += '<a title="PDF1"  href="app/reportes/reprecibo2.php?id='  + json.Items[0][i].id +'&codreci=' +json.Items[0][i].cod_recibo +'" target="_blank"><i class="fa fa-file-pdf-o" alt=“PDF” ></i></a>';
 
-
-                                    html += '<a title="prueba"  href="app/reportes/verprueba.php?id='  + json.Items[0][i].id +'&codreci=' +json.Items[0][i].cod_recibo +'" target="_blank"><i class="fa fa-file-pdf-o" alt=“PDF” ></i></a>';
-
-                                    
                                     html += '<a title="Anulacion"  href="app/vistas/comunes/modalanular.php"><i class="fa fa-exclamation-triangle" alt=“recibo” ></i></a>';
                                     html += '<a title="Enviar notificación"  data-field-id="'  + json.Items[0][i].id_aviso + '"><i class="fa fa-envelope-open-o " alt=“email”></i></a>';
                                    
@@ -123,9 +119,21 @@ function cargarReciboPedido(){
                         }
 
 
-
-
+                    /*
+                    ***********************
+                    ASI ERA ORIGINALMENTE
+                    ************************
                     new simpleDatatables.DataTable("#datosReciboPedido");
+                    */
+
+                    $('#datosReciboPedido').DataTable(
+                        {
+                            language: {
+                                url: '//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json'
+                            }
+                            
+                        }
+                    );
                     validaranulacion();
 
                 } 
@@ -358,9 +366,21 @@ function buscarInquilino(){
                     }
 
 
+                /*
+                    ***********************
+                    ASI ERA ORIGINALMENTE
+                    ************************
+                     new simpleDatatables.DataTable("#datosAvisoCobro");
+                    */
 
-
-                new simpleDatatables.DataTable("#datosAvisoCobro");
+                    $('#datosAvisoCobro').DataTable(
+                        {
+                            language: {
+                                url: '//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json'
+                            }
+                            
+                        }
+                    );
 
             
                } 
@@ -500,10 +520,22 @@ function buscarEstatus(prmValor){
  
                      }
  
- 
- 
- 
-                 new simpleDatatables.DataTable("#datosAvisoCobro");
+
+                   /*
+                    ***********************
+                    ASI ERA ORIGINALMENTE
+                    ************************
+                    new simpleDatatables.DataTable("#datosAvisoCobro");
+                    */
+
+                    $('#datosAvisoCobro').DataTable(
+                        {
+                            language: {
+                                url: '//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json'
+                            }
+                            
+                        }
+                    );
  
              
                 } 

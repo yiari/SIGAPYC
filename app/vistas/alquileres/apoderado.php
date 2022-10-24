@@ -5,7 +5,7 @@
 
         <div style="text-align: right;">
              <ol>
-                <a class="btn btn-outline-primary codpro" href="index.php?url=app/vistas/alquileres/ingresar_apoderado" role="button">Nuevo</a>                
+                <a class="btn btn-outline-primary codpro " href="index.php?url=app/vistas/alquileres/ingresar_apoderado" role="button">Nuevo</a>                
                 <a class="btn btn-outline-secondary " href="index.php?url=app/vistas/alquileres/propietarios"  role="button">Atras</a>
             </ol>
         </div>
@@ -21,7 +21,7 @@
                 APODERADOS
             </div>
             <div class="card-body">
-                <table id="datosApoderados">
+                <table id="datosApoderados" class="display compact">
                     <thead>
                         <tr>
 

@@ -19,7 +19,7 @@ include("layout/menuNavegacion.php");
             <div style="text-align: right;">
                
                          <ol>          
-                            <a class="btn btn-outline-secondary codpro" href="index.php?url=app/vistas/alquileres/beneficiarios"  role="button">Atras</a>
+                            <a class="btn btn-outline-secondary codpro " href="index.php?url=app/vistas/alquileres/beneficiarios"  role="button">Atras</a>
                             <a href="app/reportes/repfichabeneficiario.php" target="_blank" class="btn btn-outline-secondary codbene" href="reportes.php" role="button"><i class="fa fa-file-pdf-o" alt=“PDF” ></i> Imprimir</a>
                          </ol>
             </div>
@@ -79,7 +79,7 @@ include("layout/menuNavegacion.php");
                                     <div class="card-body">
 
                                     <div class="table-responsive">
-                                        <table  id="datosInmuebles" >
+                                        <table  id="datosInmuebles" class="display compact">
                                         <thead>
                                             <tr>
                                                 <th>Foto</th>
@@ -141,7 +141,7 @@ include("layout/menuNavegacion.php");
 
                                         <div class="table-responsive">
 
-                                            <table class="table table-bordered">
+                                            <table class="display compact">
                                                 <thead>
                                                     <tr>
                                                         <th>Referencia</th>
@@ -206,7 +206,7 @@ include("layout/menuNavegacion.php");
                                                 
                                         </div><br>
                                         <div class="table-responsive">
-                                            <table class="table table-bordered">
+                                            <table class="display compact">
                                                 <thead>
                                                     <tr>
                                                         <th>Fecha</th>

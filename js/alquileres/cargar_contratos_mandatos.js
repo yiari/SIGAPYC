@@ -105,7 +105,23 @@ function cargarMandato(idInmueble,idUnidad){
 
                         }
 
+                    
+                    /*
+                    ***********************
+                    ASI ERA ORIGINALMENTE
+                    ************************
                     new simpleDatatables.DataTable("#datosMandatos");
+                    */
+
+                    $('#datosMandatos').DataTable(
+                        {
+                            language: {
+                                url: '//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json'
+                            }
+                            
+                        }
+                    );
+                    
 
                 } 
 
@@ -213,7 +229,23 @@ function cargarContratos(idInmueble){
 
                         }
 
+                    
+
+                    /*
+                    ***********************
+                    ASI ERA ORIGINALMENTE
+                    ************************
                     new simpleDatatables.DataTable("#datosContratos");
+                    */
+
+                    $('#datosContratos').DataTable(
+                        {
+                            language: {
+                                url: '//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json'
+                            }
+                            
+                        }
+                    );
 
                 } 
 

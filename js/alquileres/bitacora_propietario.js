@@ -322,7 +322,23 @@ function consultarPropietario(id,codigo,tipo){
     
                            }
     
-                        new simpleDatatables.DataTable("#datosInmuebles");
+                       
+                            /*
+                            ***********************
+                            ASI ERA ORIGINALMENTE
+                            ************************
+                             new simpleDatatables.DataTable("#datosInmuebles");
+
+                            */
+
+                            $('#datosInmuebles').DataTable(
+                                {
+                                    language: {
+                                        url: '//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json'
+                                    }
+                                    
+                                }
+                            );
     
                     }
                     /************************************************ */
@@ -443,7 +459,24 @@ function consultarPropietario(id,codigo,tipo){
     
                            }
     
-                        new simpleDatatables.DataTable("#datosUniades");
+                        
+                            /*
+                            ***********************
+                            ASI ERA ORIGINALMENTE
+                            ************************
+                             new simpleDatatables.DataTable("#datosUniades");
+
+
+                            */
+
+                             $('#datosUniades').DataTable(
+                                {
+                                    language: {
+                                        url: '//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json'
+                                    }
+                                    
+                                }
+                            );
     
                     }
                     /************************************************ */

@@ -25,7 +25,7 @@ include("layout/menuNavegacion.php");
                             <div class="card">
                                 <div class="card-body">
                                     <div class="table-responsive">
-                                        <table class="table table-striped" id="InmuebleCobrador">
+                                        <table class="display compact" id="InmuebleCobrador">
                                                 <thead>
                                                         <tr>
                                                         <th>Cobrador</th>

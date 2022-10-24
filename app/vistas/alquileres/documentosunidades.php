@@ -22,23 +22,24 @@
                 DOCUMENTOS CONSIGNADOS
             </div>
             <div class="card-body">
-                <table id="datosInmueble">
-                    <thead>
-                        <tr>
 
-                            
-                            <th>Documento</th>
-                            <th>Acciones</th>
-                     
-        
- 
-                        </tr>
-                    </thead>
-                    
-                    <tbody>
+                <div class="table-responsive">
+                    <table id="datosInmueble" class="display compact"
+    >
+                        <thead>
+                            <tr>
 
-                    </tbody>
-                </table>
+                                <th>Documento</th>
+                                <th>Acciones</th>
+
+                            </tr>
+                        </thead>
+                        
+                        <tbody>
+
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>

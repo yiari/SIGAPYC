@@ -20,7 +20,7 @@
                 INMUEBLES
             </div>
             <div class="card-body">
-                <table id="datosInmueblesTodo">
+                <table id="datosInmueblesTodo" class="display compact">
                     <thead>
                         <tr>
 

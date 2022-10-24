@@ -126,7 +126,23 @@ function cargarInmueble(idPropietario,idInmueble,prmTipo,prmCodInmu){
 
                        }
 
-                    new simpleDatatables.DataTable("#datosInmuebles");
+                    
+                    /*
+                    ***********************
+                    ASI ERA ORIGINALMENTE
+                    ************************
+                   new simpleDatatables.DataTable("#datosInmuebles");
+                    */
+
+                    $('#datosInmuebles').DataTable(
+                        {
+                            language: {
+                                url: '//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json'
+                            }
+                            
+                        }
+                    );
+                    
 
                 }
                 /************************************************ */

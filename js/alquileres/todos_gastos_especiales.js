@@ -1,15 +1,10 @@
 function inicio(){
 
 
-    
-
     GastosEspeciales();
 
 
 }
-
-
-
 
 
 
@@ -93,7 +88,23 @@ function GastosEspeciales(){
 
                     }
 
-                new simpleDatatables.DataTable("#gastosEspeciales");
+                
+
+                   /*
+                    ***********************
+                    ASI ERA ORIGINALMENTE
+                    ************************
+                    new simpleDatatables.DataTable("#gastosEspeciales");
+                    */
+
+                    $('#gastosEspeciales').DataTable(
+                        {
+                            language: {
+                                url: '//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json'
+                            }
+                            
+                        }
+                    );
 
             } 
                 /************************************************ */
