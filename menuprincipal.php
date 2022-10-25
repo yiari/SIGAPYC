@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
+ 
+
     <head>
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -15,85 +17,42 @@
     <body>    
             
                 
-    <div class="container">
-        <div class="row justify-content-center">                            
-            <div class=" mt-5">
-                <div class="logo"><img src="img/logo.png" class="img-responsive" alt="" width="600px" height="300px"></div>
                 <div class="container">
+
+                    <main>
+                        <div class="container-fluid px-4"> 
+                        <div class=" text-center logo"><img src="img/logo.png" class="img-responsive" alt="" width="600px" height="300px"></div>
+                            <h1 class="text-center">SIGAPYC</h1><br><br>
                             <div class="row">
-                                <main>
-                                    <div class="container-fluid px-4"> 
-                                    
-                                        <div class="col-md-12 px-3">
-                                            <div class="row align_center">
-                                            
-                                                <div class="col-xl-6 col-md-6">
-                                                            
-                                                            <button class="corner-button">
-                                                            <div class="logo"><img src="img/alquileres.jpg" class="img-responsive" alt="" width="80px" height="80px"></div>
-                                                                <span>Alquileres</span>
-                                                            </button>
-                                                    </div>
-                                                
-                                            
-                                                    <div class="col-xl-6 col-md-6">
-                                                            <button class="corner-button">
-                                                                <span>Finanzas</span>
-                                                            </button>
-                                                    </div>
-                                            </div>
-                                        </div>  
-                                        </br>
-                                        <div class=" col-md-12">
-                                            <div class="row">       
-                                                    <div class="col-xl-6 col-md-6">
-                                                            <button class="corner-button">
-                                                                <span>Configuracion</span>
-                                                            </button>
-                                                    </div>                                 
-                                                
-                                                
-                                                    <div class="col-xl-6 col-md-6">
-                                                            <button class="corner-button">
-                                                                <span>Reportes</span>
-                                                            </button>
-                                                    </div>
-                                            </div> 
-                                        </div> 
-                                        
+                                <div class="col-xl-6 col-md-6">
+                                    <div class="card bg-primary text-white mb-4">
+                                    <a href="alquileres.php" button type= "submit" class="btn btn-primary">ALQUILERES</button></a>  
                                     </div>
-                                </main>
+                                </div>
+                                <div class="col-xl-6 col-md-6">
+                                    <div class="card bg-primary text-white mb-4">
+                                    <a href="finanzas.php" button type= "submit" class="btn btn-primary">FINANZAS</button></a>  
+                                    </div>
+                                </div>
+                                <div class="col-xl-6 col-md-6">
+                                    <div class="card bg-primary text-white mb-4">
+                                    <a href="configuraciones.php" button type= "submit" class="btn btn-primary">CONFIGURACIONES</button></a>                                   
+                                    </div>
+                                </div>
+                                <div class="col-xl-6 col-md-6">
+                                    <div class="card bg-primary text-white mb-4">
+                                    <a href="reportes.php" button type= "submit" class="btn btn-primary">REPORTES</button></a>                                     
+                                    </div>
+                                </div>
+                                </div>
                             </div>
-        </div>
-            </div>            
-        </div> 
+                        </div>
+                    </main>
+                
+                </div>
+       
 
-                    <div class="all">
-                    <div class="lefter">
-                    <div class="text">Hosting</div>
-                    </div>
-                    <div class="left">
-                    <div class="text">Web Design</div>
-                    </div>
-                    <div class="center">
-                    <div class="explainer"><span>Hover me</span></div>
-                    <div class="text">Frontend Development</div>
-                    </div>
-                    <div class="right">
-                    <div class="text">Backend Development</div>
-                    </div>
-                    <div class="righter">
-                    <div class="text">SEO</div>
-                    </div>
-                    </div>
-        
-
-
-
-
-
-
-    </div>
+   
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="js/scripts.js"></script>

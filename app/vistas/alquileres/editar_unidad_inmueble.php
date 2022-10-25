@@ -431,25 +431,25 @@ include("layout/menuNavegacion.php");
                             <div class="row">
                                 <div class="col-md-4">
                                     <div class="row">
-                                        <label for="ced_prop" class="col-sm-12 col-form-label">Imagen:</label>
+                                        <label for="img_unid1" class="col-sm-12 col-form-label">Imagen:</label>
                                         <div class="col-sm-12">
-                                            <input class="form-control form-control-sm" id="img_inmu" type="file" name="img_inmu"><br>
+                                            <input class="form-control form-control-sm" id="img_unid1" type="file" name="img_unid1"><br>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="row">
-                                        <label for="ced_prop" class="col-sm-12 col-form-label">Imagen:</label>
+                                        <label for="img_unid2" class="col-sm-12 col-form-label">Imagen:</label>
                                         <div class="col-sm-12">
-                                            <input class="form-control form-control-sm" id="img_inmu" type="file" name="img_inmu"><br>
+                                            <input class="form-control form-control-sm" id="img_unid2" type="file" name="img_unid2"><br>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="row">
-                                        <label for="ced_prop" class="col-sm-12 col-form-label">Imagen:</label>
+                                        <label for="img_unid3" class="col-sm-12 col-form-label">Imagen:</label>
                                         <div class="col-sm-12">
-                                            <input class="form-control form-control-sm" id="img_inmu" type="file" name="img_inmu"><br>
+                                            <input class="form-control form-control-sm" id="img_unid3" type="file" name="img_unid3"><br>
                                         </div>
                                     </div>
                                 </div>
@@ -461,25 +461,25 @@ include("layout/menuNavegacion.php");
                             <div class="row">
                                 <div class="col-md-4">
                                     <div class="row">
-                                        <label for="ced_prop" class="col-sm-12 col-form-label">Imagen:</label>
+                                        <label for="img_unid4" class="col-sm-12 col-form-label">Imagen:</label>
                                         <div class="col-sm-12">
-                                            <input class="form-control form-control-sm" id="img_inmu" type="file" name="img_inmu"><br>
+                                            <input class="form-control form-control-sm" id="img_unid4" type="file" name="img_unid4"><br>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="row">
-                                        <label for="ced_prop" class="col-sm-12 col-form-label">Imagen:</label>
+                                        <label for="img_unid5" class="col-sm-12 col-form-label">Imagen:</label>
                                         <div class="col-sm-12">
-                                            <input class="form-control form-control-sm" id="img_inmu" type="file" name="img_inmu"><br>
+                                            <input class="form-control form-control-sm" id="img_unid5" type="file" name="img_unid5"><br>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="row">
-                                        <label for="ced_prop" class="col-sm-12 col-form-label">Imagen:</label>
+                                        <label for="img_unid6" class="col-sm-12 col-form-label">Imagen:</label>
                                         <div class="col-sm-12">
-                                            <input class="form-control form-control-sm" id="img_inmu" type="file" name="img_inmu"><br>
+                                            <input class="form-control form-control-sm" id="img_unid6" type="file" name="img_unid6"><br>
                                         </div>
                                     </div>
                                 </div>

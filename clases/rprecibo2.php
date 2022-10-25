@@ -61,49 +61,36 @@ class rpavisocobro
           
           
           "
-                                                                RECIBO Nº ".$cod_recibo."
-                                                        RIF: J-00113810-2  NIT: 0030662075
+                                                                                         
+          
+                                                                                        RECIBO Nº ".$cod_recibo."
+                                                                               RIF: J-00113810-2  NIT: 0030662075
             
           
-          Hemos recibido de: ".$nombre_inquilino.", la 
-          Cantidad de: ".$monto_escrito. ". ( BS. ".$monto_Bs.") Que
-          equivalen a  ".$monto_escrito2. ".($ ".$monto_dolres." ) calculados a la tasa
-          de cambio del BCV del día, por concepto de pago de Alquiler del
-          inmueble ".$cod_inmueble." ubicado en
-          ".$direccion_inmueble."  La correspondiente
-          al mes (s) ".$mes.". Recibo que expide en el Municipio Libertador,
-          Caracas.
+Hemos recibido de: ".$nombre_inquilino.", la Cantidad de: ".$monto_escrito. ". ( BS. ".$monto_Bs.") Que equivalen a ".$monto_escrito2.   ".      ($ ".$monto_dolres." ) calculados a la tasa de cambio del BCV del día, por concepto de pago de Alquiler del inmueble ".$cod_inmueble." ubicado en ".$direccion_inmueble."  La correspondienteal mes (s) ".$mes.". Recibo que expide en el Municipio Libertador, Caracas.
 
 
 
-                                       _____________________________
+                                            _____________________________
           
-                                              MANUEL MORENO 
+                                                   MANUEL MORENO 
 
           
 
 
 
 
-                                                                 RECIBO Nº ".$cod_recibo."
-                                                        RIF: J-00113810-2  NIT: 0030662075
+                                                                                            RECIBO Nº ".$cod_recibo."
+                                                                                  RIF: J-00113810-2  NIT: 0030662075
 
           
-          Hemos recibido de: ".$nombre_inquilino.", la 
-          Cantidad de: ".$monto_escrito. ". ( BS. ".$monto_Bs.") Que
-          equivalen a  ".$monto_escrito2. ".($ ".$monto_dolres." ) calculados a la tasa
-          de cambio del BCV del día, por concepto de pago de Alquiler del
-          inmueble ".$cod_inmueble." ubicado en
-          ".$direccion_inmueble."  La correspondiente
-          al mes (s) ".$mes.". Recibo que expide en el Municipio Libertador,
-          Caracas.
-          
+Hemos recibido de: ".$nombre_inquilino.", la Cantidad de: ".$monto_escrito. ". ( BS. ".$monto_Bs.") Que equivalen a ".$monto_escrito2.    ".     ($ ".$monto_dolres." ) calculados a la tasa de cambio del BCV del día, por concepto de pago de Alquiler del inmueble ".$cod_inmueble." ubicado en ".$direccion_inmueble."  La correspondienteal mes (s) ".$mes.". Recibo que expide en el Municipio Libertador, Caracas.
 
 
-           
-                                         _____________________________ 
-          
-                                               MANUEL MORENO " ;
+
+                                            _____________________________
+                                                
+                                                    MANUEL MORENO  " ;
          
     
     

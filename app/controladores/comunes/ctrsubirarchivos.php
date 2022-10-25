@@ -56,6 +56,10 @@ private function subirArchivos($objeto,$idpropietario,$campoDocumento,$tipo,$coo
         $coordenada .= 'i';
     }
 
+    if(($coordenada == '1IIU' || $coordenada == '2IIU' ) && ($ext == 'jpeg' || $ext == 'jpg' || $ext == 'png')){
+        $coordenada .= 'U';
+    }
+
     /*
     |--------------------------------------------------------
     | AQUI OBTENGO LA RUTA DONDE VOY A GUARDAR EL DOCUMENTO
@@ -134,7 +138,7 @@ private function subirArchivos($objeto,$idpropietario,$campoDocumento,$tipo,$coo
                 /*
                 |---------------------------------
                 | AQUI SE EJECUTA LA OPERACION
-                |---------------------------------
+                |---------------------------------db
                 */
                 $stmtDOCU->execute();
 
