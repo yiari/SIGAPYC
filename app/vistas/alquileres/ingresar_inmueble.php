@@ -91,7 +91,7 @@ include("layout/menuNavegacion.php");
                                     <label  for="registroletra" class="col-sm-12 col-form-label">Letra/N°:</label>
                                     <div class="col-sm-12">
                                         <div class="col-sm-12">
-                                            <input type="text" class="form-control" id="registroletra" name="registroletra" maxlength="4">
+                                            <input type="text" class="form-control" id="registroletra" name="registroletra" maxlength="10">
                                         </div>
                                     </div>
                                 </div>

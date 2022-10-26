@@ -73,7 +73,7 @@ try {
     $dbConexion = new conexcion();
     $valor = 0;
     
-    $stmt = $dbConexion->conectar()->prepare("CALL usp_cargarbitacorainquilino(?,?)" );
+    $stmt = $dbConexion->conectar()->prepare("CALL usp_verInquilino(?,?)" );
     $stmt ->bindParam(1, $idinqu_temp, PDO::PARAM_INT);
     $stmt ->bindParam(2, $codtip_temp, PDO::PARAM_INT);
 
@@ -318,7 +318,7 @@ try {
        //$dataNombre = str_pad($dataResPersonal['nombrespastor'] . ' ' . $dataResPersonal['apellidospastor'], 50, '* ', STR_PAD_RIGHT);
        $pdf->Cell(10, 3, $dataTelefono, $bordeCelda, 0, 'L', $celdaVisible);
 
-
+/*
         //AQUI ESCRIBO EL CODIGO DEL INQUILINO
         $pdf->SetFont('Times', 'B', 9);
         $pdf->SetTextColor($fontColorContenido['r'], $fontColorContenido['g'], $fontColorContenido['b']);
@@ -328,7 +328,7 @@ try {
         $dataContrato =  $resultado['Items'][0]['codigo'];  //$dataResPersonal['nombres'] . ' ' . $dataResPersonal['apellidos'];
         $pdf->Cell(10, 3, $dataContrato, $bordeCelda, 0, 'L', $celdaVisible);
 
-
+    
         //AQUI ESCRIBO CODOGO DEL INMUEBLE
         $pdf->SetFont('Times', 'B', 9);
         $pdf->SetTextColor($fontColorContenido['r'], $fontColorContenido['g'], $fontColorContenido['b']);
@@ -456,8 +456,20 @@ try {
          //Atención!! el parámetro true rellena la celda con el color elegido
          $dataCodPropietarioCelular =  $resultado['Items'][0]['celularpropieatrio'];  //$dataResPersonal['nombres'] . ' ' . $dataResPersonal['apellidos'];
          $pdf->Cell(10, 3, $dataCodPropietarioCelular, $bordeCelda, 0, 'L', $celdaVisible);
+     */
+        
+        
+         //PAGADOR 
+        // $arrLength = $resultado1['Items'][0];
 
+        if($resultado1['Items'][0] == false){
+            
+            $data =  '' ;
+        
+        }else{
 
+           
+       
 
         //AQUI ESCRIBO PAGADOR DE INQUILINO 
         $pdf->SetFont('Times', 'B', 9);
@@ -528,7 +540,7 @@ try {
            $dataTelefonoPagador =  $resultado1['Items'][0]['direccion'];  
            $pdf->Cell(10, 3, $dataTelefonoPagador, $bordeCelda, 0, 'L', $celdaVisible);
 
-
+        }
 
 
            $valor = [$resultado4];
