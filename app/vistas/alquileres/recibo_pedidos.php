@@ -82,14 +82,12 @@ include("layout/menuNavegacion.php");
                                                         <th>Aviso Cobro</th>
                                                         <th>Recibo</th>
                                                         <th>Pedido</th>
-                                                      
                                                         <th>monto recibo</th>
                                                         <th>monto pedido</th>
                                                         <th>Total</th>
                                                         <th>Tasa cambio</th>
                                                         <th class="align-center">Recibo - Tasa Bs</th>
-                                                    
-                                                 
+                                                        <th>Estatus</th>
                                                         <th>Acciones</th>
 
 
@@ -112,7 +110,16 @@ include("layout/menuNavegacion.php");
             </div>
       
     </div>
+
+
+
 </div>
+
+<?php 
+
+include_once "app/vistas/comunes/modalanular.php";
+
+?>
 
 
 <script src="js/comunes/funciones.js"></script>

@@ -81,15 +81,9 @@ function cargarReciboPedido(){
                                     tr.append("<td>" + json.Items[0][i].mensualidad + "</td>");
                                     tr.append("<td>" + json.Items[0][i].tasa + "</td>");
                                     tr.append("<td>" + json.Items[0][i].Bs + "</td>");
+                                    tr.append("<td>" + statusRecibPedido(json.Items[0][i].status) + "</td>");
                                   
-                                 
-                                    
-                                   
-                            
-                                   
-
-                                  
-                                    
+               
                                     var html="";
                                   
 
@@ -98,7 +92,9 @@ function cargarReciboPedido(){
                                     
                                     html += '<a title="PDF1"  href="app/reportes/reprecibo2.php?id='  + json.Items[0][i].id +'&codreci=' +json.Items[0][i].cod_recibo +'" target="_blank"><i class="fa fa-file-pdf-o" alt=“PDF” ></i></a>';
 
-                                    html += '<a title="Anulacion"  href="app/vistas/comunes/modalanular.php"><i class="fa fa-exclamation-triangle" alt=“recibo” ></i></a>';
+                                    //ANULAR EL RECIBO
+                                   // html += '<a title="Anulacion"  href="#" onclick="validaranulacion(' + json.Items[0][i].id + ');"><i class="fa fa-exclamation-triangle" alt=“recibo” ></i></a>';
+
                                     html += '<a title="Enviar notificación"  data-field-id="'  + json.Items[0][i].id_aviso + '"><i class="fa fa-envelope-open-o " alt=“email”></i></a>';
                                    
                                    
@@ -113,7 +109,7 @@ function cargarReciboPedido(){
 
                         var tr;
                         tr = $('<tr/>');
-                        tr.append("<td colspan=6 style='text-align:center'>NO HAY INFORMACION REGISTRADA</td>");
+                        tr.append("<td colspan=12 style='text-align:center'>NO HAY INFORMACION REGISTRADA</td>");
                         $('#datosReciboPedido').append(tr);
 
                         }
@@ -134,7 +130,7 @@ function cargarReciboPedido(){
                             
                         }
                     );
-                    validaranulacion();
+                    //validaranulacion();
 
                 } 
                 /************************************************ */
@@ -150,23 +146,29 @@ function cargarReciboPedido(){
 
 
 
-function validaranulacion(){
+function validaranulacion(id){
 
-    $(".anular").click(function() {
+    //$(".anular").click(function() {
 
-        var vlId = $(this).data('field-id');
+        var vlId = id;//$(this).data('field-id');
         var vlEliminar = '#'; //'{{ route("eliminar-ministerial",["id" => "VALOR"]) }}';
         //vlEliminar = vlEliminar.replace('VALOR', vlId);
 
-        $('#spanDeleteOk').attr('onclick','anulacionRecibo(' + vlId + ')');
+        var html ='';
+        html = ' <button class="btn btn-secondary" type="button" önclick="anulacionRecibo(' + vlId + ');">si</button>';
+
+         $('#spanAnular').html('');
+         $('#spanAnular').html(html);
+
+        //$('#spanAnular').attr('onclick','anulacionRecibo(' + vlId + ')');
 
         //pass the data in the modal body adding html elements
         //$('#spanDelete').html('');
         //$('#spanDelete').html('<form id="delete-form" action="' + vlEliminar + '" method="POST" style="display: none;">@csrf</form>');
         //open the modal
-        $('#deleteModal').modal('show')
+        $('#anularReciboModal').modal('show');
 
-    })
+    //})
 
 
 }

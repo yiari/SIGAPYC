@@ -126,7 +126,7 @@ console.log("Items Resultados: " + json.Items[0].length);
 
                         var tr;
                         tr = $('<tr/>');
-                        tr.append("<td colspan=6 style='text-align:center'>NO HAY INFORMACION REGISTRADA</td>");
+                        tr.append("<td colspan=12 style='text-align:center'>NO HAY INFORMACION REGISTRADA</td>");
                         $('#datosAvisoCobro').append(tr);
 
                         }
@@ -284,7 +284,7 @@ function buscarInquilino(){
 
                     var tr;
                     tr = $('<tr/>');
-                    tr.append("<td colspan=6 style='text-align:center'>NO HAY INFORMACION REGISTRADA</td>");
+                    tr.append("<td colspan=12 style='text-align:center'>NO HAY INFORMACION REGISTRADA</td>");
                     $('#datosAvisoCobro').append(tr);
 
                     }
@@ -447,7 +447,7 @@ function buscarEstatus(prmValor){
  
                      var tr;
                      tr = $('<tr/>');
-                     tr.append("<td colspan=6 style='text-align:center'>NO HAY INFORMACION REGISTRADA</td>");
+                     tr.append("<td colspan=12 style='text-align:center'>NO HAY INFORMACION REGISTRADA</td>");
                      $('#datosAvisoCobro').append(tr);
  
                      }

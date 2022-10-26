@@ -12,14 +12,14 @@
                 <a type="button" class="btn btn-primary" href="index.php?url=app/vistas/alquileres/consulta_gastos_especiales"><i class="fa fa-money"></i> Gastos especiales</a> 
                 <a type="button" class="btn btn-primary" href="index.php?url=app/vistas/alquileres/consulta_gastos_especiales"><i class="fa fa-money"></i> Pedidos Y Recibos</a> -->
                
-                <div class="btn-group" role="group">
+               <!-- <div class="btn-group" role="group">
                     <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                     <i class="fa fa-briefcase "></i> Cobrador
                     </button>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="index.php?url=app/vistas/alquileres/cobrador_inmueble">listas de inmuebles</a></li>
                     </ul>
-                </div>
+                </div>-->
                 <div class="btn-group" role="group">
                     <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                     <i class="fa fa-exclamation-circle"></i> Aviso de cobro
