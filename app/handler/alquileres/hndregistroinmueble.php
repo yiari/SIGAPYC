@@ -499,3 +499,49 @@ if($operacion == "CI"){
 }
 
 
+
+
+/* 
+ |--------------------------------------------------------------
+ | AQUI SE EJECUTA LA OPERACION DE CONSULTAR INMUEBLES
+ |--------------------------------------------------------------
+*/
+
+if($operacion == "BIN"){
+
+
+
+   $datos = array( 
+      "id_inmu" => $_POST["idinmueble"],
+      "codigo" => $_POST["codigoInmueble"],
+      //"tipo_persona" => $_POST["tipoInquilino"]
+   );
+
+
+
+   /*
+    |-------------------------------------------
+    | AQUI CREO UNA INSTANCIA DE LA CLASE
+    |-------------------------------------------
+    */
+    
+    $registroBitacoraInmueble =  new ctrregistroinmueble();
+
+   /* 
+   |---------------------------------------------
+   | AQUI OBTENGO EL RESULTADO DE LA EJECUCION
+   |---------------------------------------------
+   */
+     $result = $registroBitacoraInmueble->consultabitacoraInmueble($datos);
+    
+    /*
+    |-------------------------------------------
+    | AQUI REGRESO EL RESULTADO AL AJAX
+    |-------------------------------------------
+    */
+    header('Content-Type: application/json');
+     return $result;
+     
+}
+
+

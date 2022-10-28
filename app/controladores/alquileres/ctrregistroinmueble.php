@@ -96,6 +96,14 @@ class ctrregistroinmueble{
     }
 
 
+    public function consultabitacoraInmueble($datos){
+
+        $tabla = "inquilinos";
+        $modelo =  new mdlregistroinmueble();
+        $respuestas =  $modelo->consultabitacoraInmueble($tabla,$datos);
+        return $respuestas;
+    }
+
      
 
 

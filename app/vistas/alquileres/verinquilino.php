@@ -34,7 +34,7 @@ include("layout/menuNavegacion.php");
                                         <input type="hidden" id="id_usuario" name="id_usuario" value='1'>
                                      
                                          <input type="hidden" id="tipo_persona" name="tipo_persona" value=''>
-                                         <input type="hidden" id="hidinquilino" name="hidbeneficiario" value=''>
+                                         <input type="hidden" id="hidinquilino" name="hidinquilino" value=''>
                                          
                                         
                                 <!--Datos del propietario-->

@@ -165,7 +165,7 @@ function cargarInmueble(idPropietario,idInmueble,prmTipo,prmCodInmu,prmcodPropie
                                     var html="";
                                     html = '<div class="btn-group" style="font-size:1.3em; letter-spacing:0.2em;">';
 
-                                    html += '<a title="Bitacora" data-field-id="' + json.Items[0][i].id + '"><i class="fa fa-book"></i></a>&nbsp;';
+                                    html += '<a title="Bitacora" href="index.php?url=app/vistas/alquileres/verinmueble&idinmu=' + json.Items[0][i].id_inmu   + '&codinmu=' + json.Items[0][i].codigo  +  '&idpro=' + json.Items[0][i].id_prop  + '&codpro=' + json.Items[0][i].propietario  +  '&codtip=' + json.Items[0][i].tipo_propietario  +'"><i class="fa fa-book"></i></a>&nbsp;';
 
                                     html += '<a title="Editar" href="index.php?url=app/vistas/alquileres/editar_inmueble&idinmu=' + json.Items[0][i].id_inmu   + '&codinmu=' + json.Items[0][i].codigo  +  '&idpro=' + json.Items[0][i].id_prop  + '&codpro=' + json.Items[0][i].propietario  +  '&codtip=' + json.Items[0][i].tipo_propietario  +'"><i class="fa fa-edit" alt=“editar”></i></a>&nbsp;';
 
@@ -340,7 +340,7 @@ function cargarInmuebletodo(){
                                     if(prmFoto == undefined){
                                         tr.append("<td style='text-align:center'>"+ '<img src="./app/iconos/sinfoto01.png" alt="sin foto" style="width:120px;height:120px;"></img>' + "</td>");
                                     } else {
-                                        tr.append("<td>" + json.Items[0][i].foto + "</td>");
+                                        tr.append('<td style="text-align:center"><img src= "'+  json.Items[0][i].foto + '" style="width:120px;height:120px;"></img></td>');
                                     }
                                     
                                     tr.append("<td>" + json.Items[0][i].inmueble + "</td>");
@@ -353,11 +353,11 @@ function cargarInmuebletodo(){
 
                                     tr.append("<td>" + json.Items[0][i].propietario + "</td>");
                                     
-                                    if(prmInquilino == undefined){
+                                    /*if(prmInquilino == undefined){
                                         tr.append("<td>SIN INQUILINO</td>");
                                     } else {
                                         tr.append("<td>" + json.Items[0][i].inquilino + "</td>");
-                                    }
+                                    }*/
 
                                     tr.append("<td>" + json.Items[0][i].tipo + "</td>"); 
                              

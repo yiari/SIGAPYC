@@ -24,15 +24,14 @@
                     <thead>
                         <tr>
 
-                            <th>Foto</th>    
-                            <th>Inmueble</th>
-                            <th>Unidad</th>
-                            <th>Propietario</th>
-                            <th>Inquilino</th>
-                            <th>Tipo</th>
-                            <th>Estatus</th>
-                            <th>Canon</th>
-                            <th>Acciones</th>
+                            <th style='text-align:center'>Foto</th>    
+                            <th style='text-align:center'>Inmueble</th>
+                            <th style='text-align:center'>Unidad</th>
+                            <th style='text-align:center'>Propietario</th>
+                            <th style='text-align:center'>Tipo</th>
+                            <th style='text-align:center'>Estatus</th>
+                            <th style='text-align:center'>Canon</th>
+                            <th style='text-align:center'>Acciones</th>
  
                         </tr>
                     </thead>
