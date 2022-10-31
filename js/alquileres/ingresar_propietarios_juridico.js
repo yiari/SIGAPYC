@@ -150,7 +150,7 @@ function guardarPropietariosj(){
                     }
 
                     if(idPropietario > 0){
-                        mensajeJuridico(idPropietario,  $("#registroCodigoj").val());
+                        mensajeJuridico(idPropietario, $("#registroCodigo").val(),$("#tipo_persona").val());
                         limpiarFormulario(1);
                         botones(0);
                         
@@ -223,7 +223,7 @@ function generarCodigoPropietarioj(){
 }
 
 
-function mensajeJuridico(idpro, codigopro){
+function mensajeJuridico(idpro, codigopro,tipo_persona){
 
     var htmlContenido="";
     var htmlRepresentante="";
@@ -232,7 +232,7 @@ function mensajeJuridico(idpro, codigopro){
     htmlContenido='<i class="fa fa-check-circle fa-2x" aria-hidden="true" style="color:#29bf1d;"></i>&nbsp' + codigopro;
 
     htmlRepresentante='<a href="index.php?url=app/vistas/alquileres/representante&idpro=' + idpro + '&codpro=' + codigopro + '" class="btn btn-primary">Representante</a>';
-    htmlInmueble='<a href="index.php?url=app/vistas/alquileres/inmuebles&idpro=' + idpro + '&codpro=' + codigopro + '" class="btn btn-primary">Inmueble</a>';
+    htmlInmueble='<a href="index.php?url=app/vistas/alquileres/inmuebles&idpro=' + idpro + '&codpro=' + codigopro + '&tippro=' + tipo_persona + '" class="btn btn-primary">Inmueble</a>';
 
     $('#spanMsgProJuri').html('');
     $('#spanRepresentante').html('');

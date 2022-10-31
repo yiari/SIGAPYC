@@ -669,7 +669,9 @@ function guardarPropietarios(){
 
                 if(json.error == 0){
                     
-                    mensaje(json.mensaje,0);
+                    let urlATRAS  =$('.atrasURL').attr('href')
+
+                    mensaje(json.mensaje,0,urlATRAS);
                     /*
                     if(json.Items.length > 0){
 

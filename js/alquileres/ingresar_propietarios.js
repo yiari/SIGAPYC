@@ -277,6 +277,7 @@ function guardarPropietarios(){
             var json = data;
             var html = "";
             let idPropietario = 0;
+        
                 console.log("Mensaje del JSON: " + json);
 
                 if(json.error == 0){
@@ -286,11 +287,12 @@ function guardarPropietarios(){
 
                         //console.log("Datos del Propietario: " + json.Items[0].ID_PROPIETARIO);
                         idPropietario = json.Items[0].ID_PROPIETARIO;
+                      
 
                     }
 
                     if(idPropietario > 0){
-                        mensajeNatural(idPropietario,  $("#registroCodigo").val());
+                        mensajeNatural(idPropietario, $("#registroCodigo").val(),$("#tipo_persona").val());
                         limpiarFormulario(1);
                         botones(0);
                         
@@ -369,7 +371,7 @@ function mensaje(mensaje, condicion){
 
 
 
-function mensajeNatural(idpro, codigopro){
+function mensajeNatural(idpro,codigopro,tipo_persona){
 
     
     var htmlContenido="";
@@ -379,7 +381,7 @@ function mensajeNatural(idpro, codigopro){
     htmlContenido='<i class="fa fa-check-circle fa-2x" aria-hidden="true" style="color:#29bf1d;"></i>&nbsp' + codigopro;
 
     htmlApoderado='<a href="index.php?url=app/vistas/alquileres/ingresar_apoderado&idpro=' + idpro + '&codpro=' + codigopro + '" class="btn btn-primary">Apoderado</a>';
-    htmlInmueble='<a href="index.php?url=app/vistas/alquileres/ingresar_inmueble&idpro=' + idpro + '&codpro=' + codigopro + '" class="btn btn-primary">Inmueble</a>';
+    htmlInmueble='<a href="index.php?url=app/vistas/alquileres/ingresar_inmueble&idpro=' + idpro + '&codpro=' + codigopro +  '&tippro=' + tipo_persona +'" class="btn btn-primary">Inmueble</a>';
 
     $('#spanMsgProNatu').html('');
     $('#spanApoderado').html('');

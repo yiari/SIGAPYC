@@ -368,7 +368,9 @@ if ($("#cboParroquia").val() == "") {
 
            if(json.error == 0){
                
-               mensaje(json.mensaje,0);
+               let urlATRAS  =$('.atrasURL').attr('href')
+
+                mensaje(json.mensaje,0,urlATRAS);
 
                //$("#mensaje").html(html).fadeIn();
                //limpiarCampos();
