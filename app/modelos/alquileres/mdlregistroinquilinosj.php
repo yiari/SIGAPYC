@@ -43,7 +43,7 @@ public function registrar($tabla,$datos,$archivos){
           | AQUI PREPARO LO QUE SERA LA LLAMADA AL PROCEDIMIENTO QUE REALIZARA LA OPERACION
           |----------------------------------------------------------------------------------
           */
-          $stmt = $dbConexion->conectar()->prepare("CALL usp_registroinquilinos_j(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+          $stmt = $dbConexion->conectar()->prepare("CALL usp_registroinquilinos_j(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
           $stmt -> bindParam(1,  $datos["id"], PDO::PARAM_INT);
           $stmt -> bindParam(2,  $datos["cod_inqu"],PDO::PARAM_STR); 
           $stmt -> bindParam(3,  $datos["nom_inqj"],PDO::PARAM_STR); 
@@ -61,6 +61,26 @@ public function registrar($tabla,$datos,$archivos){
           $stmt -> bindParam(14, $datos["fol_regi"],PDO::PARAM_STR); 
           $stmt -> bindParam(15, $datos["tip_inqu"],PDO::PARAM_STR); 
           $stmt -> bindParam(16,$datos["posee_pagadorj"],PDO::PARAM_INT);
+
+          $stmt -> bindParam(17,$datos["nom_repr1"],PDO::PARAM_STR);
+          $stmt -> bindParam(18,$datos["ape_repr1"],PDO::PARAM_STR);
+          $stmt -> bindParam(19,$datos["nac_repr1"],PDO::PARAM_INT);
+          $stmt -> bindParam(20,$datos["ci_repr1"],PDO::PARAM_STR);
+          $stmt -> bindParam(21,$datos["rif_repr1"],PDO::PARAM_STR);
+          $stmt -> bindParam(22,$datos["loc_repr1"],PDO::PARAM_STR);
+          $stmt -> bindParam(23,$datos["cel_repr1"],PDO::PARAM_STR);
+          $stmt -> bindParam(24,$datos["cor_repr1"],PDO::PARAM_STR);
+
+
+          $stmt -> bindParam(25,$datos["nom_repr2"],PDO::PARAM_STR);
+          $stmt -> bindParam(26,$datos["ape_repr2"],PDO::PARAM_STR);
+          $stmt -> bindParam(27,$datos["nac_repr2"],PDO::PARAM_INT);
+          $stmt -> bindParam(28,$datos["ci_repr2"],PDO::PARAM_STR);
+          $stmt -> bindParam(29,$datos["rif_repr2"],PDO::PARAM_STR);
+          $stmt -> bindParam(30,$datos["loc_repr2"],PDO::PARAM_STR);
+          $stmt -> bindParam(31,$datos["cel_repr2"],PDO::PARAM_STR);
+          $stmt -> bindParam(32,$datos["cor_repr2"],PDO::PARAM_STR);
+
 
 
           

@@ -63,6 +63,25 @@ if ($("#registroDirecionj").val() == "") {
  }
 
 
+ if ($("#nombreRepresentante").val() == "") {
+    mensaje("Debe indicar el Nombre del representante legal",1);
+    return;
+}
+
+
+if ($("#emailRepresentante").val() == "") {
+    mensaje("Debe indicar una direccion de correo valida",1);
+    return;
+} else {
+    var respuesta = validateEmail($("#emailRepresentante").val());
+
+    if (respuesta == false) {
+        mensaje("La direccion de correo es invalida",1);
+        return;
+    }
+}
+
+
    /*
    |-----------------------------------------------
    | LIMPIA EL CAMPO MENSAJE 

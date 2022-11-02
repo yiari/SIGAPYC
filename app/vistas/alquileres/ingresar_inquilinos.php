@@ -84,7 +84,6 @@ include("layout/menuNavegacion.php");
                                                             <label for="registroNacionalidad" class="col-sm-12 col-form-label">Cédula de Identidad</label>
                                                             <div class="col-sm-3">
                                                                 <select class="form-select" id="registroNacionalidad" name="registroNacionalidad" >
-                                                                    <option selected disabled value=""></option>
                                                                     <option value="1">V</option>
                                                                     <option value="2">E</option>
                                                                 </select>
@@ -160,7 +159,7 @@ include("layout/menuNavegacion.php");
                                                 </div>
                                             </div>
                                         </div><br>
-
+                                        
                                         <!--Documentos-->
                                         <div class="card">
                                             <div class="card-body">
@@ -293,7 +292,7 @@ include("layout/menuNavegacion.php");
                                                        
 
                                                         <div class="col-sm-3">
-                                                                <label for="pagadorj" >El Inquilino posee pagador?</label>
+                                                                <label for="cbopagadorj" >El Inquilino posee pagador?</label>
                                                                     <div class="col-sm-12">
                                                                         <select class="form-select" id="cbopagadorj" name="cbopagadorj" >
                                                                             <option  value="">Seleccione...</option>    
@@ -348,6 +347,130 @@ include("layout/menuNavegacion.php");
                                             </div>
                                         </div><br>
 
+                                        <div class="card">
+                                            <div class="card-body">
+
+                                                <div class="col text-center">
+                                                    <h5 class="card-title">Datos del representarte legal</h5>
+                                                    
+                                                </div>
+                                                <div class="row">
+                                                   <h5 class="card-title">Representarte 1</h5>
+                                                    <div class="col-md-4">
+                                                        <label  for="nombreRepresentante" class="col-sm-3 col-form-label">Nombre:</label>
+                                                        <div class="col-sm-12">
+                                                            <input  type="text" class="form-control" id="nombreRepresentante" name="nombreRepresentante">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <label for="apellidoRepresentante" class="col-sm-3 col-form-label">Apellido:</label>
+                                                        <div class="col-sm-12">
+                                                            <input type="text" class="form-control" id="apellidoRepresentante" name="apellidoRepresentante" >
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="row">
+                                                            <label for="nacionalidad" class="col-sm-12 col-form-label">Cédula de Identidad</label>
+                                                            <div class="col-sm-3">
+                                                                <select class="form-select" id="nacionalidad" name="nacionalidad">
+                                                                        <option value="1">V</option>
+                                                                        <option value="2">E</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-sm-9">
+                                                                <input  for="cedulaRepresentante" type="text" class="form-control" id="cedulaRepresentante" name="cedulaRepresentante"  maxlength="11">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-md-2">
+                                                        <label for="rifRepresentante" class="col-sm-5 col-form-label">Rif:</label>
+                                                        <div class="col-sm-12">
+                                                            <input type="text" class="form-control" id="rifRepresentante" name="rifRepresentante" maxlength="14">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <label for="telefonoRepresentante"  class="col-sm-8 col-form-label">Teléfono local:</label>
+                                                        <div class="col-sm-12">
+                                                            <input type="text" class="form-control" id="telefonoRepresentante" name="telefonoRepresentante" maxlength="11" >
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <label for="celularRepresentante" class="col-sm-9 col-form-label">Celular:</label>
+                                                        <div class="col-sm-12">
+                                                            <input type="text" class="form-control" id="celularRepresentante" name="celularRepresentante" maxlength="11">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <label for="emailRepresentante" class="col-sm-3 col-form-label">Correo:</label>
+                                                        <div class="col-sm-12">
+                                                            <input type="text" class="form-control" id="emailRepresentante" name="emailRepresentante">
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <br>
+
+                                                <div class="row">
+                                                    <h5 class="card-title">Representarte 2</h5>
+                                                    <div class="col-md-4">
+                                                        <label  for="nombreRepresentante2" class="col-sm-3 col-form-label">Nombre:</label>
+                                                        <div class="col-sm-12">
+                                                            <input  type="text" class="form-control" id="nombreRepresentante2" name="nombreRepresentante2">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <label for="apellidoRepresentante2" class="col-sm-3 col-form-label">Apellido:</label>
+                                                        <div class="col-sm-12">
+                                                            <input type="text" class="form-control" id="apellidoRepresentante2" name="apellidoRepresentante2" >
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="row">
+                                                            <label for="nacionalidad2" class="col-sm-12 col-form-label">Cédula de Identidad</label>
+                                                            <div class="col-sm-3">
+                                                                <select class="form-select" id="nacionalidad2" name="nacionalidad2">
+                                                                        <option value="1">V</option>
+                                                                        <option value="2">E</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-sm-9">
+                                                                <input  for="RepresentanteCedula2" type="text" class="form-control" id="RepresentanteCedula2" name="RepresentanteCedula2"  maxlength="11">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-md-2">
+                                                        <label for="rifRepresentante2" class="col-sm-5 col-form-label">Rif:</label>
+                                                        <div class="col-sm-12">
+                                                            <input type="text" class="form-control" id="rifRepresentante2" name="rifRepresentante2" maxlength="14">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <label for="telefonoRepresentante2"  class="col-sm-8 col-form-label">Teléfono local:</label>
+                                                        <div class="col-sm-12">
+                                                            <input type="text" class="form-control" id="telefonoRepresentante2" name="telefonoRepresentante2" maxlength="11" >
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <label for="celularRepresentante2" class="col-sm-9 col-form-label">Celular:</label>
+                                                        <div class="col-sm-12">
+                                                            <input type="text" class="form-control" id="celularRepresentante2" name="celularRepresentante2" maxlength="11">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <label for="emailRepresentante2" class="col-sm-3 col-form-label">Correo:</label>
+                                                        <div class="col-sm-12">
+                                                            <input type="text" class="form-control" id="emailRepresentante2" name="emailRepresentante2">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                         </div>
                                         <!--info_registro-->
                                         <div class="card">
                                             <div class="card-body">
@@ -367,7 +490,7 @@ include("layout/menuNavegacion.php");
                                                         <div class="row">
                                                             <label for="nombreRegistro" class="col-sm-12 col-form-label">Nombre del Registro:</label>
                                                             <div class="col-sm-12">
-                                                                <input for="nombreRegistro" type="text" class="form-control" id="nombreRegistro" name="nombreRegistro" >
+                                                                <input type="text" class="form-control" id="nombreRegistro" name="nombreRegistro" >
                                                             </div>
                                                         </div>
                                                     </div>

@@ -64,6 +64,31 @@ function inicio(){
         jQuery(this).val(jQuery(this).val().replace(/[^0-9]/g, ''));
     });
 
+
+
+    jQuery("#nombreRepresentante").on('input', function (evt) {
+        jQuery(this).val(jQuery(this).val().replace(/[^A-Za-z ]/g, ''));
+    });
+
+    jQuery("#apellidoRepresentante").on('input', function (evt) {
+        jQuery(this).val(jQuery(this).val().replace(/[^A-Za-z ]/g, ''));
+    });
+
+
+    jQuery("#CedulaRepresentante").on('input', function (evt) {
+        jQuery(this).val(jQuery(this).val().replace(/[^0-9'.']/g, ''));
+    });
+
+   
+
+    jQuery("#telefonoRepresentante").on('input', function (evt) {
+        jQuery(this).val(jQuery(this).val().replace(/[^0-9]/g, ''));
+    });
+
+    jQuery("#celularRepresentante").on('input', function (evt) {
+        jQuery(this).val(jQuery(this).val().replace(/[^0-9]/g, ''));
+    });
+
     generarCodigoInquilinoj();
     /*
     |------------------------------------------------------------------------------------------------
@@ -185,7 +210,8 @@ function consultarInquilino(id,codigo,tipo){
     
     
                             $("#registroCodigo").val(json.Items[0].cod_inqu);
-                            $("#cbopagador").val(json.Items[0].posee_pagador);
+                    
+                            $("select[name='cbopagador']").val(json.Items[0].posee_pagador).change();
     
                            
                            
@@ -445,6 +471,9 @@ function consultarInquilino(id,codigo,tipo){
                                 | DATOS PRINCIPALES
                                 |------------------------------------------------------
                                 */
+
+
+                                $("select[name='cbopagadorj']").val(json.Items[0].posee_pagador).change();
                                 $('#registroNombrej').val(json.Items[0].nom_inqj);
                                 $('#registroRifj').val(json.Items[0].rif_inqj);
                                 $('#registroCelularj').val(json.Items[0].tel_inqj);
@@ -455,12 +484,21 @@ function consultarInquilino(id,codigo,tipo){
 
 
 
-                                $('#codigoNotaria').val(json.Items[0].cod_regi);
-                                $('#notaria').val(json.Items[0].not_regi);
+                                $('#codigo').val(json.Items[0].cod_regi);
+                                $('#nombreRegistro').val(json.Items[0].not_regi);
                                 $('#fechaRegistro').val(json.Items[0].fec_regi);
                                 $('#numeroRegistro').val(json.Items[0].num_regi);
                                 $('#tomoRegistro').val(json.Items[0].tom_regi);
                                 $('#foliRegistro').val(json.Items[0].fol_regi);
+
+                                $('#nombreRepresentante').val(json.Items[0].nom_repr1);
+                                $('#apellidoRepresentante').val(json.Items[0].ape_repr1);
+                                $('#nacionalidad').val(json.Items[0].nac_repr1);
+                                $('#RepresentanteCedula').val(json.Items[0].ci_repr1);
+                                $('#rifRepresentante').val(json.Items[0].rif_repr1);
+                                $('#telefonoRepresentante').val(json.Items[0].loc_repr1);
+                                $('#celularRepresentante').val(json.Items[0].loc_repr1);
+                                $('#emailRepresentante').val(json.Items[0].cor_repr1);
                                
             
         
@@ -546,6 +584,25 @@ function consultarInquilino(id,codigo,tipo){
              return;
          }
      }
+
+
+     if ($("#nombreRepresentante").val() == "") {
+        mensaje("Debe indicar el Nombre del representante legal",1);
+        return;
+    }
+    
+    
+    if ($("#emailRepresentante").val() == "") {
+        mensaje("Debe indicar una direccion de correo valida",1);
+        return;
+    } else {
+        var respuesta = validateEmail($("#emailRepresentante").val());
+    
+        if (respuesta == false) {
+            mensaje("La direccion de correo es invalida",1);
+            return;
+        }
+    }
     
     
        /*

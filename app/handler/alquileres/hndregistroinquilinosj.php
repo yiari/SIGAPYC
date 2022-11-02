@@ -111,8 +111,27 @@ if($operacion == "I"){
                     "tom_regi" => $_POST["tomoRegistro"],
                     "fol_regi" => $_POST["foliRegistro"],
                     "tip_inqu" => $_POST["tipo_personaj"],
-                    "posee_pagadorj" => $_POST["cbopagadorj"] ); 
+                    "posee_pagadorj" => $_POST["cbopagadorj"], 
+                    "nom_repr1"	=> $_POST["nombreRepresentante"],
+                    "ape_repr1"  => $_POST["apellidoRepresentante"],
+                    "nac_repr1"  => $_POST["nacionalidad"],
+                    "ci_repr1"   => $_POST["RepresentanteCedula"],
+                    "rif_repr1"  => $_POST["rifRepresentante"],
+                    "loc_repr1"  => $_POST["telefonoRepresentante"],
+                    "cel_repr1"  => $_POST["celularRepresentante"],
+                    "cor_repr1"  => $_POST["emailRepresentante"],
+                  
+                    "nom_repr2"	=> $_POST["Representantenombre2"],
+                    "ape_repr2"  => $_POST["Representanteapellido2"],
+                    "nac_repr2"  => $_POST["nacionalidad2"],
+                    "ci_repr2"   => $_POST["RepresentanteCedula2"],
+                    "rif_repr2"  => $_POST["rifRepresentante2"],
+                    "loc_repr2"  => $_POST["telefonoRepresentante2"],
+                    "cel_repr2"  => $_POST["celularRepresentante2"],
+                    "cor_repr2"  => $_POST["emailRepresentante2"]); 
 				
+
+                    
 
       //echo json_encode($datos);
       //die;

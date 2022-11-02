@@ -60,6 +60,33 @@ function inicio(){
     });
 
 
+    jQuery("#nombreRepresentante").on('input', function (evt) {
+        jQuery(this).val(jQuery(this).val().replace(/[^A-Za-z ]/g, ''));
+    });
+
+    jQuery("#apellidoRepresentante").on('input', function (evt) {
+        jQuery(this).val(jQuery(this).val().replace(/[^A-Za-z ]/g, ''));
+    });
+
+
+    jQuery("#CedulaRepresentante").on('input', function (evt) {
+        jQuery(this).val(jQuery(this).val().replace(/[^0-9'.']/g, ''));
+    });
+
+   
+
+    jQuery("#telefonoRepresentante").on('input', function (evt) {
+        jQuery(this).val(jQuery(this).val().replace(/[^0-9]/g, ''));
+    });
+
+    jQuery("#celularRepresentante").on('input', function (evt) {
+        jQuery(this).val(jQuery(this).val().replace(/[^0-9]/g, ''));
+    });
+
+
+    
+
+
 
 
 
