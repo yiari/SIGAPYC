@@ -229,6 +229,7 @@ function cargarInmuebleinqulino(idInquilino,tipoInqulino){
                                            
                                           
                                            let prmInquilino = json.Items[0][i].inquilino;
+                                           let prmunidad = json.Items[0][i].unidad;
                                           
                                           
                                            var htmlunidades="";
@@ -241,7 +242,14 @@ function cargarInmuebleinqulino(idInquilino,tipoInqulino){
                                            
                                            tr.append("<td>" + json.Items[0][i].codigo + "</td>");
                                            tr.append("<td>" + json.Items[0][i].inmuebles + "</td>");
-                                           tr.append("<td>" + json.Items[0][i].unidad + "</td>");
+
+                                           if(prmunidad == null){
+                                            tr.append("<td>SIN UNIDAD</td>");
+                                            } else {
+                                                tr.append("<td>" + json.Items[0][i].unidad + "</td>");
+                                            }
+    
+                                           
                                            tr.append("<td>" + json.Items[0][i].propietario  + "</td>");
                                            
                                          
