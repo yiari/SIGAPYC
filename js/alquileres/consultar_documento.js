@@ -69,15 +69,20 @@ function inicio(){
     let prmCodUnid = getParameterByName('codunid');
     let prmTipoUnid = 1;
 
-    atrasInmuebles(idPropietario,prmCodPro,tipo_propietario,idInmueble,codigoInmueble);
+    
     codigopUnidad(prmCodUnid);
     documentoUnidad(idunidad,prmCodUnid,prmTipoUnid)
 
+    atrasInmuebles(idPropietario,prmCodPro,tipo_propietario,idInmueble,prmCodInmu);
+   
+    atrasunidades(idunidad,prmCodUnid);
     
 
 }
 
-function atrasInmuebles(prmIdPro,prmCodPro,prmTipo,prmIdInmu,prmCodInmu){
+
+
+function atrasInmueble(prmIdPro,prmCodPro,prmTipo,prmIdInmu,prmCodInmu){
 
     //if (isEmpty(prmDato) == false ){
 
@@ -86,6 +91,22 @@ function atrasInmuebles(prmIdPro,prmCodPro,prmTipo,prmIdInmu,prmCodInmu){
         html='index.php?url=app/vistas/alquileres/inmuebles&idpro=' + prmIdPro  + '&codpro=' + prmCodPro  + '&codtip=' + prmTipo + '&idinmu=' + prmIdInmu + '&codinmu=' + prmCodInmu;
     
         $(".codpro").prop("href", html);
+
+
+    //}
+
+}
+
+
+function atrasunidades(idunidad,prmCodUnid){
+
+    //if (isEmpty(prmDato) == false ){
+
+
+        var html = "";
+        html='index.php?url=app/vistas/alquileres/inmuebles&idunid=' + idunidad  + '&codunid=' + prmCodUnid ;
+    
+        $(".codunid").prop("href", html);
 
 
     //}
@@ -1048,7 +1069,7 @@ function documentoUnidad(idUnidad,prmCodUnid,prmTipoUnid){
                             html += '<a title="Eliminar"  data-field-id="'  + json.Items[0][i].id + '"><i class="fa fa-trash fa-5" alt=“eliminar”></i></a>';
                             html += '</div>'
                             tr.append("<td>" + html + "</td>");
-                            $('#datosUnidad').append(tr);
+                            $('#documentosUnidad').append(tr);
                         //}
                     }
 
@@ -1057,7 +1078,7 @@ function documentoUnidad(idUnidad,prmCodUnid,prmTipoUnid){
                     var tr;
                     tr = $('<tr/>');
                     tr.append("<td colspan=6 style='text-align:center'>NO HAY INFORMACION REGISTRADA</td>");
-                    $('#datosInmueble').append(tr);
+                    $('#documentosUnidad').append(tr);
 
                     }
 
@@ -1070,7 +1091,7 @@ function documentoUnidad(idUnidad,prmCodUnid,prmTipoUnid){
                     new simpleDatatables.DataTable("#datosInmueble");
                     */
 
-                    $('#datosInmueble').DataTable(
+                    $('#documentosUnidad').DataTable(
                         {
                             language: {
                                 url: '//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json'

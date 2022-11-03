@@ -5,7 +5,7 @@
 
         <div style="text-align: right;">
              <ol>               
-                <a class="btn btn-outline-secondary " href="index.php?url=app/vistas/alquileres/propietarios"  role="button">Atras</a>
+                <a class="btn btn-outline-secondary codunid" href="index.php?url=app/vistas/alquileres/unidades"  role="button">Atras</a>
             </ol>
         </div>
 
@@ -24,7 +24,7 @@
             <div class="card-body">
 
                 <div class="table-responsive">
-                    <table id="datosInmueble" class="display compact"
+                    <table id="documentosUnidad" class="display compact"
     >
                         <thead>
                             <tr>

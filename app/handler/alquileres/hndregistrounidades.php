@@ -288,3 +288,50 @@ if($operacion == "CU"){
      return $result;
      
 }
+
+
+
+
+/* 
+ |--------------------------------------------------------------
+ | AQUI SE EJECUTA LA OPERACION DE CONSULTAR INMUEBLES
+ |--------------------------------------------------------------
+*/
+
+if($operacion == "BU"){
+
+
+
+   $datos = array( 
+      "id_unid" => $_POST["idinmueble"],
+      "codigo" => $_POST["codigoInmueble"],
+      //"tipo_persona" => $_POST["tipoInquilino"]
+   );
+
+
+
+   /*
+    |-------------------------------------------
+    | AQUI CREO UNA INSTANCIA DE LA CLASE
+    |-------------------------------------------
+    */
+    
+    $registroBitacoraUnidad =  new ctrregistrounidades();
+
+   /* 
+   |---------------------------------------------
+   | AQUI OBTENGO EL RESULTADO DE LA EJECUCION
+   |---------------------------------------------
+   */
+     $result = $registroBitacoraUnidad->consultabitacoraUnidad($datos);
+    
+    /*
+    |-------------------------------------------
+    | AQUI REGRESO EL RESULTADO AL AJAX
+    |-------------------------------------------
+    */
+    header('Content-Type: application/json');
+     return $result;
+     
+}
+

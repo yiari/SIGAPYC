@@ -71,4 +71,14 @@ class ctrregistrounidades{
     }
 
 
+
+    public function consultabitacoraUnidad($datos){
+
+        $tabla = "unidades_inmuebles";
+        $modelo =  new mdlregistrounidades();
+        $respuestas =  $modelo->consultabitacoraUnidad($tabla,$datos);
+        return $respuestas;
+    }
+
+
 }

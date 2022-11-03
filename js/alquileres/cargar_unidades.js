@@ -179,7 +179,7 @@ function cargarUnidades(idInmueble,prmCodInmu,prmIdUnidad,prmCodUnidad){
                             
                             var html="";
                             html = '<div class="btn-group" style="font-size:1.3em; letter-spacing:0.2em;">';
-                            html += '<a title="Bitacora" data-field-id="' + json.Items[0][i].id_unid + '"><i class="fa fa-book"></i></a>&nbsp;';
+                            html += '<a title="Bitacora"href="index.php?url=app/vistas/alquileres/verunidad&idunid=' + json.Items[0][i].id_unid +  '&codUnidad=' + json.Items[0][i].codigo  + '&idpro=' + json.Items[0][i].id_prop  + '&codpro=' + json.Items[0][i].codpro + '&codtip=' + json.Items[0][i].tipo_propietario + '&idinmu=' + json.Items[0][i].id_inmu  + '&codinmu=' + json.Items[0][i].codigo  + '"><i class="fa fa-book"></i></a>&nbsp;';
                            
                             html += '<a title="Editar" href="index.php?url=app/vistas/alquileres/editar_unidad_inmueble&idunid=' + json.Items[0][i].id_unid  +  '&codUnidad=' + json.Items[0][i].codigo  +  '&idinmu=' + json.Items[0][i].id_inmu +  '&codinmu=' + json.Items[0][i].codigo + '&idpro=' + json.Items[0][i].id_prop  + '&codpro=' + json.Items[0][i].propietario + '&codtip=' + json.Items[0][i].tipo_propietario +'"><i class="fa fa-edit" alt=“editar”></i></a>&nbsp;';
 
@@ -192,7 +192,7 @@ function cargarUnidades(idInmueble,prmCodInmu,prmIdUnidad,prmCodUnidad){
 
                             html += '<a title="Mandato y Contratos"  href="index.php?url=app/vistas/alquileres/contratos_mandatos&idunid=' + json.Items[0][i].id_unid + '&codUnidad=' + json.Items[0][i].codigo  +'&idpro=' + json.Items[0][i].id_prop  + '&codpro=' + json.Items[0][i].codpro + '&codtip=' + json.Items[0][i].tipo_propietario + '&idinmu=' + json.Items[0][i].id_inmu  + '&codinmu=' + json.Items[0][i].inmueble  +  '"><i class="fa fa-file-text-o"></i></a>&nbsp;';
                             
-                            html += '<a title="Documento" href="index.php?url=app/vistas/alquileres/documentosunidades&idunid=' + json.Items[0][i].id_unid + '&idpro=' + json.Items[0][i].id_prop  + '&codpro=' + json.Items[0][i].codpro + '&codtip=' + json.Items[0][i].tipo_propietario + '&idinmu=' + json.Items[0][i].id_inmu  + '&codinmu=' + json.Items[0][i].codigo  + '"><i class="fa fa-address-card-o"></i></a>&nbsp;';
+                            html += '<a title="Documento" href="index.php?url=app/vistas/alquileres/documentosunidades&idunid=' + json.Items[0][i].id_unid + '&codUnidad=' + json.Items[0][i].codigo  +'&idpro=' + json.Items[0][i].id_prop  + '&codpro=' + json.Items[0][i].codpro + '&codtip=' + json.Items[0][i].tipo_propietario + '&idinmu=' + json.Items[0][i].id_inmu  + '&codinmu=' + json.Items[0][i].codigo  + '"><i class="fa fa-address-card-o"></i></a>&nbsp;';
                             
                             html += '<a title="Eliminar"  data-field-id="'  + json.Items[0][i].id + '"><i class="fa fa-trash" alt=“eliminar”></i></a>';
                             html += '</div>'

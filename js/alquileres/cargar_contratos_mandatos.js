@@ -194,6 +194,9 @@ function cargarContratos(idInmueble){
                             tr = $('<tr/>');
 
                             let prmunidad = json.Items[0][i].unidad;
+
+                            let prmtipopropietario = json.Items[0][i].tipo_prop;
+                            let prmtipoinquilino = json.Items[0][i].tipo_inquilino;
                             
                             tr.append("<td>" + json.Items[0][i].codigo + "</td>");
                             tr.append("<td>" + json.Items[0][i].propietario + "</td>");
@@ -214,7 +217,17 @@ function cargarContratos(idInmueble){
                             var html="";
                             html = '<div class="btn-group" style="font-size:1.3em; letter-spacing:0.2em;">';
                            
-                            html += '<a href="app/reportes/repcontrato.php?id=' + json.Items[0][i].id + '" title="Imprimir" target="_blank" ><i class="fa fa-print" alt=“imprimir”></i></a>&nbsp;';
+                            /*if(prmtipopropietario == 2 && prmtipoinquilino == 1){
+
+                                html += '<a href="app/reportes/repcontrato1.php?id=' + json.Items[0][i].id + '&idpro=' + json.Items[0][i].id_prop + '&codtip=' + json.Items[0][i].tipo_prop + '&idinqui=' + json.Items[0][i].id_inqu + '&codtipinqu=' + json.Items[0][i].tipo_inqu +'" title="Imprimir" target="_blank" ><i class="fa fa-print" alt=“imprimir”></i></a>&nbsp;';
+                            } else {
+                                html += '<a href="app/reportes/repcontrato.php?id=' + json.Items[0][i].id + '&idpro=' + json.Items[0][i].id_prop + '&codtip=' + json.Items[0][i].tipo_prop + '&idinqui=' + json.Items[0][i].id_inqu + '&codtipinqu=' + json.Items[0][i].tipo_inqu +'" title="Imprimir" target="_blank" ><i class="fa fa-print" alt=“imprimir”></i></a>&nbsp;';
+                            }*/
+                            
+                            html += '<a href="app/reportes/repcontrato.php?id=' + json.Items[0][i].id + '&idpro=' + json.Items[0][i].id_prop + '&codtip=' + json.Items[0][i].tipo_prop + '&idinqui=' + json.Items[0][i].id_inqu + '&codtipinqu=' + json.Items[0][i].tipo_inqu +'" title="Imprimir" target="_blank" ><i class="fa fa-print" alt=“imprimir”></i></a>&nbsp;';
+                            
+                            
+                            
                             html += '</div>'
                             tr.append("<td>" + html + "</td>");
                             $('#datosContratos').append(tr);
