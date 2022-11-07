@@ -170,14 +170,17 @@ function cargarInmueble(idPropietario,idInmueble,prmTipo,prmCodInmu,prmcodPropie
                                     html += '<a title="Editar" href="index.php?url=app/vistas/alquileres/editar_inmueble&idinmu=' + json.Items[0][i].id_inmu   + '&codinmu=' + json.Items[0][i].codigo  +  '&idpro=' + json.Items[0][i].id_prop  + '&codpro=' + json.Items[0][i].propietario  +  '&codtip=' + json.Items[0][i].tipo_propietario  +'"><i class="fa fa-edit" alt=“editar”></i></a>&nbsp;';
 
 
-                                    if(json.Items[0][i].tieneunidades > 0){
-                                        html += '<a title="Unidades_inmueble"  href="index.php?url=app/vistas/alquileres/unidades&idinmu=' + json.Items[0][i].id_inmu   + '&codinmu=' + json.Items[0][i].codigo  +  '&idpro=' + json.Items[0][i].id_prop  + '&codpro=' + json.Items[0][i].propietario  +  '&codtip=' + json.Items[0][i].tipo_propietario  +'"><i class="fa fa-home"></i></a>&nbsp;'; 
-                                    } else {
+                                    if(json.Items[0][i].tieneunidades == 0){
+                                        
                                         html += '<a href="javascript:void" class="link_apagado"><i class="fa fa-home"></i></a>&nbsp;';
+                                       
+                                    } else {
+                                        html += '<a title="Unidades_inmueble"  href="index.php?url=app/vistas/alquileres/unidades&idinmu=' + json.Items[0][i].id_inmu   + '&codinmu=' + json.Items[0][i].codigo  +  '&idpro=' + json.Items[0][i].id_prop  + '&codpro=' + json.Items[0][i].propietario  +  '&codtip=' + json.Items[0][i].tipo_propietario  +'"><i class="fa fa-home"></i></a>&nbsp;'; 
+                                       
                                     }
 
 
-                                    if(json.Items[0][i].tieneunidades > 0){
+                                    if(json.Items[0][i].tieneunidades == 0){
 
                                         html += '<a href="javascript:void" class="link_apagado"><i class="fa fa-users"></i></a>&nbsp;';
 

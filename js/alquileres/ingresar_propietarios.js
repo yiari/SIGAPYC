@@ -381,7 +381,7 @@ function mensajeNatural(idpro,codigopro,tipo_persona){
     htmlContenido='<i class="fa fa-check-circle fa-2x" aria-hidden="true" style="color:#29bf1d;"></i>&nbsp' + codigopro;
 
     htmlApoderado='<a href="index.php?url=app/vistas/alquileres/ingresar_apoderado&idpro=' + idpro + '&codpro=' + codigopro + '" class="btn btn-primary">Apoderado</a>';
-    htmlInmueble='<a href="index.php?url=app/vistas/alquileres/ingresar_inmueble&idpro=' + idpro + '&codpro=' + codigopro +  '&tippro=' + tipo_persona +'" class="btn btn-primary">Inmueble</a>';
+    htmlInmueble='<a href="index.php?url=app/vistas/alquileres/ingresar_inmueble&idpro=' + idpro + '&codpro=' + codigopro +  '&codtip=' + tipo_persona +'" class="btn btn-primary">Inmueble</a>';
 
     $('#spanMsgProNatu').html('');
     $('#spanApoderado').html('');

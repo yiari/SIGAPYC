@@ -459,12 +459,12 @@ function guardaronContratos(){
     }
 
     if ($("#per_pror").val() == "") {
-        mensaje("Debe indicar el día de pago",1);
+        mensaje("Debe indicar el día de Periodo de Prorroga",1);
         return;
         }
     
     if ($("#dia_pago").val() == "") {
-        mensaje("Debe indicar el telefono del propietario",1);
+        mensaje("Debe indicar el Día de Pago",1);
         return;
         }
     
@@ -477,7 +477,7 @@ function guardaronContratos(){
         mensaje("Debe indicar  los peíodo de Inspección",1);
         return;
         }
-    
+
     if ($("#fec_cont").val() == "") {
         mensaje("Debe colocar la fecha del contrato ",1);
         return;

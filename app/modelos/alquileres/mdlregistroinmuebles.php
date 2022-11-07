@@ -33,7 +33,7 @@ public function registrar($tabla,$datos,$archivos){
   $prmMensaje = "";
   $prmIdinmueble = 0;
 
-
+  $fecharegistro = str_replace("-","",$datos["fec_regi"]);
 
   
       try {
@@ -43,6 +43,10 @@ public function registrar($tabla,$datos,$archivos){
           | AQUI PREPARO LO QUE SERA LA LLAMADA AL PROCEDIMIENTO QUE REALIZARA LA OPERACION
           |----------------------------------------------------------------------------------
           */
+
+          $valoradmin = floatval($datos["gasto_administrativo"]);
+          $valorpapel = floatval($datos["gastos_papeleria"]);
+
           $stmt = $dbConexion->conectar()->prepare("CALL usp_registroinmueble(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
           $stmt -> bindParam(1, $datos["id_inmu"],PDO::PARAM_INT); //id del imnumeble
           $stmt -> bindParam(2, $datos["id_prop"],PDO::PARAM_INT); //id propietraio
@@ -68,7 +72,7 @@ public function registrar($tabla,$datos,$archivos){
           $stmt -> bindParam(22,$datos["lim_este"],PDO::PARAM_STR); // limites este
           $stmt -> bindParam(23,$datos["lim_oest"],PDO::PARAM_STR); // limites oeste
           $stmt -> bindParam(24,$datos["nom_regi"],PDO::PARAM_STR); // nombre3 del registro
-          $stmt -> bindParam(25,$datos["fec_regi"],PDO::PARAM_INT); // fecha del registro
+          $stmt -> bindParam(25, $fecharegistro,PDO::PARAM_INT);
           $stmt -> bindParam(26,$datos["tom_regi"],PDO::PARAM_STR); // tomo del registro
           $stmt -> bindParam(27,$datos["fol_regi"],PDO::PARAM_STR); // foli del registro
           $stmt -> bindParam(28,$datos["asi_regi"],PDO::PARAM_STR); // asiento del registro
@@ -79,9 +83,8 @@ public function registrar($tabla,$datos,$archivos){
           $stmt -> bindParam(33,$datos["tipo_persona"],PDO::PARAM_INT); // Numero del  Ficha Catastral
 
           $stmt -> bindParam(34,$datos["id_gastos"],PDO::PARAM_INT); // id gastos fijos
-          $stmt -> bindParam(35,$datos["gasto_administrativo"],PDO::PARAM_INT); // gastos fijos administrativo
-          $stmt -> bindParam(36,$datos["gastos_papeleria"],PDO::PARAM_INT); // gastos fijos papeleria
-
+          $stmt -> bindParam(35, $valoradmin ,PDO::PARAM_STR);
+          $stmt -> bindParam(36, $valorpapel ,PDO::PARAM_STR);
           $stmt -> bindParam(37,$datos["unidades"],PDO::PARAM_INT); // Indicador si el inmueble tiene unidades o no
           $stmt -> bindParam(38,$datos["cantunidades"],PDO::PARAM_INT); // Cantidad de unidades del inmueble en caso de tenerla
           $stmt -> bindParam(39,$datos["posee_beneficiario"],PDO::PARAM_INT); // Cantidad de unidades del inmueble en caso de tenerla
