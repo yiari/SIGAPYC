@@ -112,6 +112,10 @@ function syncDelay(milliseconds){
     resultado = "Registro mercantil";
   } 
 
+  if(valor == "act_icon"){
+    resultado = "Acta Constitutiva";
+  } 
+
   if(valor == "cedu_docu"){
     resultado = "Cédula";
   } 

@@ -536,17 +536,17 @@ include("layout/menuNavegacion.php");
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <label for="act_icon" class="col-sm-9 col-form-label">Acta Constitutiva</label>
+                                                        <label for="actcons_docu" class="col-sm-9 col-form-label">Acta Constitutiva</label>
                                                         <div class="col-sm-12">
-                                                            <input class="form-control form-control-sm" id="act_icon" type="file" name="act_icon" value=""><br>
+                                                            <input class="form-control form-control-sm" id="actcons_docu" type="file" name="actcons_docu" value=""><br>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-6">
-                                                        <label for="actcons_docu" class="col-sm-9 col-form-label">Acta de última Asamblea</label>
+                                                        <label for="actultasam_docu" class="col-sm-9 col-form-label">Acta de última Asamblea</label>
                                                         <div class="col-sm-12">
-                                                            <input class="form-control form-control-sm" id="actcons_docu" type="file" name="actcons_docu" value="">
+                                                            <input class="form-control form-control-sm" id="actultasam_docu" type="file" name="actultasam_docu" value="">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">

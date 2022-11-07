@@ -54,12 +54,11 @@ public function registrar($tabla,$datos,$archivos){
           $stmt -> bindParam(8,  $datos["cor_inqj"],PDO::PARAM_STR); 
           $stmt -> bindParam(9,  $datos["cod_regi"],PDO::PARAM_STR); 
           $stmt -> bindParam(10, $datos["not_regi"],PDO::PARAM_STR); 
-          $stmt -> bindParam(11, $datos["fec_regi"],PDO::PARAM_INT); 
-          $stmt -> bindParam(12,$fecha,PDO::PARAM_INT);
+          $stmt -> bindParam(11,$fecha,PDO::PARAM_INT);
           $stmt -> bindParam(12, $datos["num_regi"],PDO::PARAM_INT);
           $stmt -> bindParam(13, $datos["tom_regi"],PDO::PARAM_STR); 
           $stmt -> bindParam(14, $datos["fol_regi"],PDO::PARAM_STR); 
-          $stmt -> bindParam(15, $datos["tip_inqu"],PDO::PARAM_STR); 
+          $stmt -> bindParam(15, $datos["tipo_persona"],PDO::PARAM_STR); 
           $stmt -> bindParam(16,$datos["posee_pagadorj"],PDO::PARAM_INT);
 
           $stmt -> bindParam(17,$datos["nom_repr1"],PDO::PARAM_STR);
@@ -132,7 +131,7 @@ public function registrar($tabla,$datos,$archivos){
 
           $subirArchivos = new ctrsubirarchivos();
 
-          $prmTipoPersonaTEMP = $datos["tip_inqu"];
+          $prmTipoPersonaTEMP = $datos["tipo_persona"];
 
 
 
