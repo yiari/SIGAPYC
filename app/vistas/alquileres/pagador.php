@@ -20,28 +20,26 @@
                 PAGADOR
             </div>
             <div class="card-body">
-                <table id="datosPagador" class="display compact">
-                    <thead>
-                        <tr>
+                <div class="table-responsive">
+                    <table id="datosPagador" class="display compact">
+                        <thead>
+                            <tr>
 
-                            <th>Codigo</th>
-                            <th>Nombre pagador</th>
-                            <th>Inquilino</th>
-                            <th>Telefono</th>
-                            <th>correo</th>
-                            <th>Acciones</th>
-                     
- 
-                        </tr>
-                    </thead>
-                   
-                    <tbody>
-
-                                    
-                             
+                                <th>Codigo</th>
+                                <th>Nombre pagador</th>
+                                <th>Inquilino</th>
+                                <th>Telefono</th>
+                                <th>correo</th>
+                                <th>Acciones</th>
                         
-                    </tbody>
-                </table>
+    
+                            </tr>
+                        </thead>
+                    
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>

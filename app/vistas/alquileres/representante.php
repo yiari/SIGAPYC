@@ -22,31 +22,29 @@
                 REPRESENTANTE
             </div>
             <div class="card-body">
-                <table id="datosRepresentante" class="display compact">
-                    <thead>
-                        <tr>
+                <div class="table-responsive">
+                    <table id="datosRepresentante" class="display compact">
+                        <thead>
+                            <tr>
 
-                            <th>Codigo</th>
-                            <th>Nombre</th>
-                            <th>cedula</th>
-                            <th>Telefono</th>
-                            <th>correo</th>
-                            
-                            
-                            <th>Doc / Editar</th>
-                     
- 
-                        </tr>
-                    </thead>
-                    
-                    <tbody>
-
-                                    
-
-                             
+                                <th>Codigo</th>
+                                <th>Nombre</th>
+                                <th>cedula</th>
+                                <th>Telefono</th>
+                                <th>correo</th>
+                                
+                                
+                                <th>Doc / Editar</th>
                         
-                    </tbody>
-                </table>
+    
+                            </tr>
+                        </thead>
+                        
+                        <tbody>
+
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>

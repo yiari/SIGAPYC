@@ -25,26 +25,28 @@ include("layout/menuNavegacion.php");
                 CONTRATOS
             </div>
             <div class="card-body">
-                <table  class="display compact" id="datosContratos">
-                    <thead>
-                        <tr>
-                            <th>codigo</th>
-                            <th>Propietario</th>
-                            <th>inmueble</th>
-                            <th>unidad</th>
-                            <th>Inquilino</th>
-                            <th>Canon</th>
-                            <th>Desde</th>
-                            <th>Hasta</th>
-                            <th>Acciones</th>
-                        </tr>
-                    </thead>
-                    
-                    <tbody>
-                                  
+                <div class="table-responsive">
+                    <table  class="display compact" id="datosContratos">
+                        <thead>
+                            <tr>
+                                <th>codigo</th>
+                                <th>Propietario</th>
+                                <th>inmueble</th>
+                                <th>unidad</th>
+                                <th>Inquilino</th>
+                                <th>Canon</th>
+                                <th>Desde</th>
+                                <th>Hasta</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        
+                        <tbody>
+                                    
 
-                    </tbody>
-                </table>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>

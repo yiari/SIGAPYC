@@ -302,7 +302,7 @@ include("layout/menuNavegacion.php");
                                     <div class="col-md-2">
                                         <label for="fic_cata" class="col-sm-12 col-form-label">F. Catastral:</label>
                                         <div class="col-sm-12">
-                                            <input type="text" class="form-control" id="fic_cata" name="fic_cata" maxlength="10">
+                                            <input type="text" class="form-control" id="fic_cata" name="fic_cata" maxlength="40">
                                         </div>
                                     </div>
                                     

@@ -21,26 +21,28 @@
                 APODERADOS
             </div>
             <div class="card-body">
-                <table id="datosApoderados" class="display compact">
-                    <thead>
-                        <tr>
+                <div class="table-responsive">
+                    <table id="datosApoderados" class="display compact">
+                        <thead>
+                            <tr>
 
-                            <th>Codigo</th>
-                            <th>Notaria o Registro</th>
-                            <th>Fecha Poder</th>
-                            <th>Telefono</th>
-                            <th>correo</th>
-                            <th>Doc / Editar</th>
-                     
-        
- 
-                        </tr>
-                    </thead>
-                    
-                    <tbody>
+                                <th>Codigo</th>
+                                <th>Notaria o Registro</th>
+                                <th>Fecha Poder</th>
+                                <th>Telefono</th>
+                                <th>correo</th>
+                                <th>Doc / Editar</th>
+                        
+            
+    
+                            </tr>
+                        </thead>
+                        
+                        <tbody>
 
-                    </tbody>
-                </table>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>

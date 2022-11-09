@@ -25,25 +25,27 @@ include("layout/menuNavegacion.php");
                 INQUILINOS
             </div>
             <div class="card-body">
-                <table id="datosinquilinos" class="display">
-                    <thead>
-                        <tr>
-                           <th> Codigo</th>
-                            <th>Nombre</th>
-                            <th>Doc ID</th>
-                            <th>Telefono </th>
-                            <th>Correo</th>
-                            <th>Tipo</th>
-                            <th>Acciones</th>
-                        </tr>
-                    </thead>
-                    
-                    <tbody>
-
-                    
+                <div class="table-responsive">
+                    <table id="datosinquilinos" class="display">
+                        <thead>
+                            <tr>
+                            <th> Codigo</th>
+                                <th>Nombre</th>
+                                <th>Doc ID</th>
+                                <th>Telefono </th>
+                                <th>Correo</th>
+                                <th>Tipo</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
                         
-                    </tbody>
-                </table>
+                        <tbody>
+
+                        
+                            
+                        </tbody>
+                    </table>
+                </div>
 
             </div>
         </div>

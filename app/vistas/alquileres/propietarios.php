@@ -28,26 +28,28 @@ include("layout/menuNavegacion.php");
             </div>
 
             <div class="card-body">
-                <table id="datosPropietarios" class="display compact">
-                    <thead>
-                        <tr>
-                            <th>Código</th>
-                            <th>Nombre</th>
-                            <th>Cedula o rif</th>
-                            <th>Telefonos</th>
-                            <th>Correo</th>
-                            <th>Tipo</th>
-                            <th>Acciones</th>
-                       </tr>
-                    </thead>
-                   
-                    <tbody>
+                <div class="table-responsive">
+                    <table id="datosPropietarios" class="display compact">
+                        <thead>
+                            <tr>
+                                <th>Código</th>
+                                <th>Nombre</th>
+                                <th>Cedula o rif</th>
+                                <th>Telefonos</th>
+                                <th>Correo</th>
+                                <th>Tipo</th>
+                                <th>Acciones</th>
+                        </tr>
+                        </thead>
+                    
+                        <tbody>
 
-                           
+                            
 
-                       
-                    </tbody>
-                </table>
+                        
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>

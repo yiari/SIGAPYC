@@ -22,24 +22,26 @@
                 INMUEBLES
             </div>
             <div class="card-body">
-                <table id="datosInmuebles" class="display compact">
-                    <thead>
-                        <tr>
+                <div class="table-responsive">
+                    <table id="datosInmuebles" class="display compact">
+                        <thead>
+                            <tr>
 
-                            <th>Foto</th>    
-                            <th>Codigo</th>
-                            <th>Inquilino</th>
-                            <th>Tipo</th>
-                            <th>Estatus</th>
-                            <th>Acciones</th>
- 
-                        </tr>
-                    </thead>
-                    
-                    <tbody>
-  
-                    </tbody>
-                </table>
+                                <th>Foto</th>    
+                                <th>Codigo</th>
+                                <th>Inquilino</th>
+                                <th>Tipo</th>
+                                <th>Estatus</th>
+                                <th>Acciones</th>
+    
+                            </tr>
+                        </thead>
+                        
+                        <tbody>
+    
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>

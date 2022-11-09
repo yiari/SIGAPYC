@@ -20,26 +20,29 @@
                 INMUEBLES
             </div>
             <div class="card-body">
-                <table id="datosInmueblesTodo" class="display compact">
-                    <thead>
-                        <tr>
 
-                            <th style='text-align:center'>Foto</th>    
-                            <th style='text-align:center'>Inmueble</th>
-                            <th style='text-align:center'>Unidad</th>
-                            <th style='text-align:center'>Propietario</th>
-                            <th style='text-align:center'>Tipo</th>
-                            <th style='text-align:center'>Estatus</th>
-                            <th style='text-align:center'>Canon</th>
-                            <th style='text-align:center'>Acciones</th>
- 
-                        </tr>
-                    </thead>
-                    
-                    <tbody>
-  
-                    </tbody>
-                </table>
+                <div class="table-responsive">
+                    <table id="datosInmueblesTodo" class="display compact">
+                        <thead>
+                            <tr>
+
+                                <th style='text-align:center'>Foto</th>    
+                                <th style='text-align:center'>Inmueble</th>
+                                <th style='text-align:center'>Unidad</th>
+                                <th style='text-align:center'>Propietario</th>
+                                <th style='text-align:center'>Tipo</th>
+                                <th style='text-align:center'>Estatus</th>
+                                <th style='text-align:center'>Canon</th>
+                                <th style='text-align:center'>Acciones</th>
+    
+                            </tr>
+                        </thead>
+                        
+                        <tbody>
+    
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>

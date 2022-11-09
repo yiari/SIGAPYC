@@ -30,28 +30,31 @@
                                         BENEFICIARIOS
                                     </div>
                                     <div class="card-body">
-                                        <table id="datosBeneficiario" class="display compact">
-                                            <thead>
-                                                <tr>
-                                                    
-                                                    
-                                                    <th>Codigo</th>
-                                                    <th>Cedula o rif</th>
-                                                    <th>telefono</th>
-                                                    <th>correo</th>
-                                                    <th>% Participacion</th>
-                                                    <th>tipo</th>
-                                                    <th>Doc / Editar</th>
-                                            
-                        
-                                                </tr>
-                                            </thead>
-                                            
-                                            <tbody>
 
+                                        <div class="table-responsive">
+                                            <table id="datosBeneficiario" class="display compact">
+                                                <thead>
+                                                    <tr>
+                                                        
+                                                        
+                                                        <th>Codigo</th>
+                                                        <th>Cedula o rif</th>
+                                                        <th>telefono</th>
+                                                        <th>correo</th>
+                                                        <th>% Participacion</th>
+                                                        <th>tipo</th>
+                                                        <th>Doc / Editar</th>
                                                 
-                                            </tbody>
-                                        </table>
+                            
+                                                    </tr>
+                                                </thead>
+                                                
+                                                <tbody>
+
+                                                    
+                                                </tbody>
+                                            </table>
+                                        </div>
                                     </div>
                                 </div>
         </div>

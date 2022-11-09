@@ -86,9 +86,7 @@ function inicio(){
         jQuery(this).val(jQuery(this).val().replace(/[^0-9]/g, ''));
     });
 
-    jQuery("#fic_cata").on('input', function (evt) {
-        jQuery(this).val(jQuery(this).val().replace(/[^0-9]/g, ''));
-    });
+    
 
     jQuery("#gasto_admi").on('input', function (evt) {
         jQuery(this).val(jQuery(this).val().replace(/[^0-9'.']/g, ''));

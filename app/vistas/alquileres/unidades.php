@@ -23,25 +23,27 @@
                 UNIDADES DEL INMUEBLE
             </div>
             <div class="card-body">
-                <table id="datosUnidad" class="display compact">
-                    <thead>
-                        <tr>
-                            
-                            <th>Fotos</th>
-                            <th>Codigo</th>
-                            <th>Inquilino</th>
-                            <th>Estatus</th>
-                            <th>Tipo</th>
-                            <th>Acciones</th>
-                     
- 
-                        </tr>
-                    </thead>
-                   
-                    <tbody>
+                <div class="table-responsive">
+                    <table id="datosUnidad" class="display compact">
+                        <thead>
+                            <tr>
+                                
+                                <th>Fotos</th>
+                                <th>Codigo</th>
+                                <th>Inquilino</th>
+                                <th>Estatus</th>
+                                <th>Tipo</th>
+                                <th>Acciones</th>
+                        
+    
+                            </tr>
+                        </thead>
+                    
+                        <tbody>
 
-                    </tbody>
-                </table>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
