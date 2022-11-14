@@ -81,16 +81,11 @@ include("layout/menuNavegacion.php");
                                                                 </select>
                                                             </div>
                                                             <div class="col-sm-7">
-                                                                <input for="registroCedula" type="text" class="form-control" id="registroCedula" name="registroCedula" maxlength="11" >
+                                                                <input for="registroCedula" type="text" class="form-control" id="registroCedula" name="registroCedula" maxlength="8" >
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-3">
-                                                        <label class="col-sm-12 col-form-label">Representación:</label>
-                                                        <div class="col-sm-12">
-                                                            <input for="registropre_prop" type="text" class="form-control" id="registropre_prop" name="registropre_prop" >
-                                                        </div>
-                                                    </div>
+                                                    
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-2">
@@ -114,7 +109,7 @@ include("layout/menuNavegacion.php");
                                                     <div class="col-md-6">
                                                         <label class="col-sm-3 col-form-label">Correo:</label>
                                                         <div class="col-sm-12">
-                                                            <input for="registroEmail" type="text" class="form-control" id="registroEmail" name="registroEmail" >
+                                                            <input for="registroEmail" type="text" class="form-control" id="registroEmail" name="registroEmail" maxlength="45">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -176,7 +171,7 @@ include("layout/menuNavegacion.php");
                                                     <div class="col-md-6">
                                                         <label class="col-sm-9 col-form-label">Cuenta:</label>
                                                         <div class="col-sm-12">
-                                                            <input type="text" class="form-control" id="num_cuen" name="num_cuen" maxlength="20" value=''><br>
+                                                            <input type="text" class="form-control" id="num_cuen" name="num_cuen" maxlength="20" ><br>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -198,39 +193,39 @@ include("layout/menuNavegacion.php");
                                                     <div class="col-md-2">
                                                         <label class="col-sm-10 col-form-label">Banco Extranjero:</label>
                                                         <div class="col-sm-12">
-                                                            <input type="text" class="form-control" id="ban_extr" name="ban_extr" >
+                                                            <input type="text" class="form-control" id="ban_extr" name="ban_extr" maxlength="45" >
 
                                                         </div>
                                                     </div>
                                                     <div class="col-md-1">
                                                         <label class="col-sm-12 col-form-label">Agencia:</label>
                                                         <div class="col-sm-12">
-                                                            <input type="text" class="form-control" id="age_extr" name="age_extr" maxlength="11" >
+                                                            <input type="text" class="form-control" id="age_extr" name="age_extr" maxlength="15" >
 
                                                         </div>
                                                     </div>
                                                     <div class="col-md-1">
                                                         <label class="col-sm-12 col-form-label">DC:</label>
                                                         <div class="col-sm-12">
-                                                            <input type="text" class="form-control" id="dc_extr" name="dc_extr" maxlength="11"><br>
+                                                            <input type="text" class="form-control" id="dc_extr" name="dc_extr" maxlength="15"><br>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-2">
                                                         <label class="col-sm-12 col-form-label">Cuenta:</label>
                                                         <div class="col-sm-12">
-                                                            <input type="text" class="form-control" id="cue_extr" name="cue_extr" maxlength="20"><br>
+                                                            <input type="text" class="form-control" id="cue_extr" name="cue_extr" maxlength="30"><br>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-4">
                                                         <label class="col-sm-12 col-form-label">IBAN:</label>
                                                         <div class="col-sm-12">
-                                                            <input type="text" class="form-control" id="iba_extr" name="iba_extr" maxlength="11"><br>
+                                                            <input type="text" class="form-control" id="iba_extr" name="iba_extr" maxlength="35"><br>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-2">
                                                         <label class="col-sm-12 col-form-label">BIC o SWIFT:</label>
                                                         <div class="col-sm-12">
-                                                            <input type="text" class="form-control" id="bic_extr" name="bic_extr" maxlength="11"><br>
+                                                            <input type="text" class="form-control" id="bic_extr" name="bic_extr" maxlength="15"><br>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -239,7 +234,7 @@ include("layout/menuNavegacion.php");
                                                    <div class="col-md-6">
                                                         <div class="input-group">
                                                             <span for="cor_payp" class="input-group-text">Cuenta Paypal:</span>
-                                                            <input type="text" class="form-control" placeholder="correo" id="cor_payp" name="cor_payp" >
+                                                            <input type="text" class="form-control" placeholder="correo" id="cor_payp" name="cor_payp" maxlength="40">
                                                             <input type="hidden" id="nom_payp" name="nom_payp" value='0'>
                                                         </div>
                                                     </div>
@@ -282,7 +277,7 @@ include("layout/menuNavegacion.php");
                                                 <div class="row">
                                                     <div class="col-md-12">
                                                         <div class="row">
-                                                            <label for="ref_docu" class="col-sm-12 col-form-label text-center">Referencias Personales</label>
+                                                            <label for="refper_docu" class="col-sm-12 col-form-label text-center">Referencias Personales</label>
                                                             <div class="col-sm-6">
                                                                 <input class="form-control form-control-sm" id="refper_docu1" type="file" name="refper_docu1" value="">
                                                                 
@@ -297,7 +292,7 @@ include("layout/menuNavegacion.php");
                                                 <div class="row">
                                                     <div class="col-md-12">
                                                         <div class="row">
-                                                            <label for="fam_docu" class="col-sm-12 col-form-label text-center">Referencias Familiares</label>
+                                                            <label for="reffam_docu" class="col-sm-12 col-form-label text-center">Referencias Familiares</label>
                                                             <div class="col-sm-6">
                                                                 <input class="form-control form-control-sm" id="reffam_docu1" type="file" name="reffam_docu1" value="">
                                                                 
@@ -557,11 +552,11 @@ include("layout/menuNavegacion.php");
                                                         <div class="row">
                                                             <label for="reffam_docu" class="col-sm-12 col-form-label text-center">Referencias Familiares</label>
                                                             <div class="col-sm-6">
-                                                                <input class="form-control form-control-sm" id="reffam_docu" type="file" name="reffam_docu" value="">
+                                                                <input class="form-control form-control-sm" id="reffam_docu3" type="file" name="reffam_docu3" value="">
                                                                
                                                             </div>
                                                             <div class="col-sm-6">
-                                                                <input class="form-control form-control-sm" id="reffam_docu1" type="file" name="reffam_docu1" value="">
+                                                                <input class="form-control form-control-sm" id="reffam_docu4" type="file" name="reffam_docu4" value="">
                                                                 
                                                                 
                                                                     

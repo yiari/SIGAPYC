@@ -29,12 +29,13 @@ include("layout/menuNavegacion.php");
 
             <div class="card-body">
                 <div class="table-responsive">
-                    <table id="datosPropietarios" class="display compact">
+                    <table id="datosPropietarios" class="display ">
                         <thead>
                             <tr>
                                 <th>Código</th>
                                 <th>Nombre</th>
-                                <th>Cedula o rif</th>
+                                <th>Cedula </th>
+                                <th>Rif </th>
                                 <th>Telefonos</th>
                                 <th>Correo</th>
                                 <th>Tipo</th>

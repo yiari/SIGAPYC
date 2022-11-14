@@ -133,25 +133,61 @@ function syncDelay(milliseconds){
     resultado = "Autorización del Propietario";
   }
 
-  if(valor == "refper_docu"){
-    resultado = "Referencias Personales";
+  if(valor == "refper_docu1"){
+    resultado = "Referencias Personales 1";
   }
 
-  if(valor == "refper_docu1"){
-    resultado = "Referencias Personales";
+  if(valor == "refper_docu2"){
+    resultado = "Referencias Personales 2";
   }
+
+  if(valor == "refper_docu3"){
+    resultado = "Referencias Personales 1 ";
+  }
+
+  if(valor == "refper_docu4"){
+    resultado = "Referencias Personales 2 ";
+  }
+
 
   if(valor == "reffam_docu"){
-    resultado = "Referencias Familiares";
+    resultado = "Referencias Familiares  del representante 1";
   }
 
   if(valor == "reffam_docu1"){
-    resultado = "Referencias Familiares";
+    resultado = "Referencias Familiares 1";
+  }
+
+  if(valor == "reffam_docu2"){
+    resultado = "Referencias Familiares  del representante 2";
+  }
+
+
+  if(valor == "reffam_docu3"){
+    resultado = "Referencias Familiares 1";
+  }
+
+  if(valor == "reffam_docu4"){
+    resultado = "Referencias Familiares 2";
   }
 
   if(valor == "ref_docu1"){
     resultado = "Referencias Personales";
   }
+  
+  if(valor == "refper_docu"){
+    resultado = "Referencias Personales  del representante 1";
+  }
+
+  if(valor == "refper_docu2"){
+    resultado = "Referencias Personales   del representante 2";
+  }
+
+  if(valor == "ref_docu2"){
+    resultado = "Referencias Personales 2";
+  }
+
+  
 
   if(valor == "ponot_docu"){
     resultado = "Poder notariado";

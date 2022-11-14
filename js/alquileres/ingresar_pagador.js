@@ -166,7 +166,7 @@ function guardarPagador(){
         return;
         }
     
-    if ($("#registroDirecionH").val() == "") {
+   /* if ($("#registroDirecionH").val() == "") {
         mensaje("Debe indicar la dirección de habitación del pagador ",1);
         return;
         }
@@ -187,7 +187,7 @@ function guardarPagador(){
             mensaje("La direccion de correo es invalida",1);
             return;
         }
-    }
+    }*/
 
 
    

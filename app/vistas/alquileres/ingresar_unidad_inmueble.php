@@ -168,37 +168,37 @@ include("layout/menuNavegacion.php");
                                     <div class="col-md-2">
                                         <label for="mtr_inmu" class="col-sm-12 col-form-label">Terreno:</label>
                                         <div class="col-sm-12">
-                                            <input type="text" class="form-control" placeholder="Mtrs." id="mtr_inmu" name="mtr_inmu" >
+                                            <input type="text" class="form-control" placeholder="Mtrs." id="mtr_inmu" name="mtr_inmu" maxlength="10" >
                                         </div>
                                     </div>
                                     <div class="col-md-2">
                                         <label for="mtr_cons" class="col-sm-12 col-form-label">Construido:</label>
                                         <div class="col-sm-12">
-                                            <input type="text" class="form-control" placeholder="Mtrs." id="mtr_cons" name="mtr_cons" >
+                                            <input type="text" class="form-control" placeholder="Mtrs." id="mtr_cons" name="mtr_cons" maxlength="10" >
                                         </div>
                                     </div>
                                     <div class="col-md-2">
                                         <label for="hab_inmu" class="col-sm-12 col-form-label">Habitaciones:</label>
                                         <div class="col-sm-12">
-                                            <input type="text" class="form-control" placeholder="Nro." id="hab_inmu" name="hab_inmu">
+                                            <input type="text" class="form-control" placeholder="Nro." id="hab_inmu" name="hab_inmu" maxlength="3" >
                                         </div>
                                     </div>
                                     <div class="col-md-2">
                                         <label for="ban_inmu" class="col-sm-12 col-form-label">Baños:</label>
                                         <div class="col-sm-12">
-                                            <input type="text" class="form-control" placeholder="Nro." id="ban_inmu" name="ban_inmu"  maxlength="2" >
+                                            <input type="text" class="form-control" placeholder="Nro." id="ban_inmu" name="ban_inmu"  maxlength="3" >
                                         </div>
                                     </div>
                                     <div class="col-md-2">
                                         <label for="est_inmu" class="col-sm-12 col-form-label">Pto. Estacionamiento</label>
                                         <div class="col-sm-12">
-                                            <input type="text" class="form-control" placeholder="Nro." id="est_inmu" name="est_inmu" maxlength="4" >
+                                            <input type="text" class="form-control" placeholder="Nro." id="est_inmu" name="est_inmu" maxlength="3" >
                                         </div>
                                     </div>
                                     <div class="col-md-2">
                                         <label for="ser_inmu" class="col-sm-12 col-form-label">Serv. de Paso:</label>
                                         <div class="col-sm-12">
-                                            <input type="text" class="form-control" placeholder="Mtrs." id="ser_inmu" name="ser_inmu">
+                                            <input type="text" class="form-control" placeholder="Mtrs." id="ser_inmu" name="ser_inmu" maxlength="5" >
                                         </div>
                                     </div>
                                 </div>
@@ -288,7 +288,7 @@ include("layout/menuNavegacion.php");
                                     <div class="col-md-2">
                                         <label for="fic_cata" class="col-sm-12 col-form-label">F. Catastral:</label>
                                         <div class="col-sm-12">
-                                            <input type="text" class="form-control" id="fic_cata" name="fic_cata" >
+                                            <input type="text" class="form-control" id="fic_cata" name="fic_cata" maxlength="40" >
                                         </div>
                                     </div>
                                     

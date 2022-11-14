@@ -459,13 +459,13 @@ include("layout/menuNavegacion.php");
                                                     <div class="col-md-2">
                                                         <label for="celularRepresentante2" class="col-sm-9 col-form-label">Celular:</label>
                                                         <div class="col-sm-12">
-                                                            <input type="text" class="form-control" id="celularRepresentante2" name="celularRepresentante2" maxlength="11">
+                                                            <input type="text" class="form-control" id="celularRepresentante2" name="celularRepresentante2" maxlength="8">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <label for="emailRepresentante2" class="col-sm-3 col-form-label">Correo:</label>
                                                         <div class="col-sm-12">
-                                                            <input type="text" class="form-control" id="emailRepresentante2" name="emailRepresentante2">
+                                                            <input type="text" class="form-control" id="emailRepresentante2" name="emailRepresentante2" maxlength="45">
                                                         </div>
                                                     </div>
                                                 </div>

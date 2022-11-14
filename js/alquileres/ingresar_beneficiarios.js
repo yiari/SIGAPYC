@@ -37,7 +37,7 @@ function inicio(){
     /*------------------------------------------------*/
 
     jQuery("#registroNombre").on('input', function (evt) {
-        jQuery(this).val(jQuery(this).val().replace(/[^A-Za-z ]/g, ''));
+        jQuery(this).val(jQuery(this).val().replace(/[^A-Za-z  ]/g, ''));
     });
 
     jQuery("#registroApellido").on('input', function (evt) {
@@ -45,7 +45,7 @@ function inicio(){
     });
 
     jQuery("#registroCedula").on('input', function (evt) {
-        jQuery(this).val(jQuery(this).val().replace(/[^0-9'.']/g, ''));
+        jQuery(this).val(jQuery(this).val().replace(/[^0-9]/g, ''));
     });
 
     jQuery("#registroTelefono").on('input', function (evt) {
@@ -82,7 +82,7 @@ function inicio(){
  
 
     jQuery("#registroNombrej").on('input', function (evt) {
-        jQuery(this).val(jQuery(this).val().replace(/[^A-Za-z ]/g, ''));
+        jQuery(this).val(jQuery(this).val().replace(/[^A-Za-z ^0-9'.']/g, ''));
     });
 
     jQuery("#registroCelularj").on('input', function (evt) {
@@ -257,17 +257,17 @@ function guardarBeneficiario(){
         return;
         }
     
-    if ($("#registroDirecionH").val() == "") {
+   /* if ($("#registroDirecionH").val() == "") {
         mensaje("Debe indicar la dirección de habitación del beneficiario ",1);
         return;
-        }
+        }*/
 
-    if ($("#registroDirecionO").val() == "") {
+   /* if ($("#registroDirecionO").val() == "") {
         mensaje("Debe indicar la dirección de la oficina del beneficiario ",1);
         return;
-        }
+        }*/
     
-        if ($("#registroEmail").val() == "") {
+     /*   if ($("#registroEmail").val() == "") {
             mensaje("Debe indicar una direccion de correo valida",1);
             return;
         } else {
@@ -277,11 +277,11 @@ function guardarBeneficiario(){
                 mensaje("La direccion de correo es invalida",1);
                 return;
             }
-        }
+        }*/
     
     
     
-    if ($("#cboBancoN").val() == "") {
+   /* if ($("#cboBancoN").val() == "") {
         mensaje("Debe indicar el banco del beneficiario",1);
         return;
         }
@@ -307,7 +307,7 @@ function guardarBeneficiario(){
             } 
 
 
-        }
+        }*/
  
    /*
         |-----------------------------------------------
@@ -430,7 +430,7 @@ function guardarBeneficiarioJ(){
 
     
 
-    if ($("#registroEmailj").val() == "") {
+   /* if ($("#registroEmailj").val() == "") {
         mensaje("Debe indicar una direccion de correo valida",1);
         return;
     } else {
@@ -440,10 +440,10 @@ function guardarBeneficiarioJ(){
             mensaje("La direccion de correo es invalida",1);
             return;
         }
-    }
+    }*/
 
 
-    if ($("#cboBancoj").val() == "") {
+   /* if ($("#cboBancoj").val() == "") {
         mensaje("Debe indicar el banco del beneficiario",1);
         return;
         }
@@ -469,7 +469,7 @@ function guardarBeneficiarioJ(){
             } 
 
 
-        }
+        }*/
 
 
         

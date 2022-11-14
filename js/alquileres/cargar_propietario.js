@@ -58,7 +58,16 @@ function cargarPropietarios(){
                             
                             tr.append("<td>" + json.Items[0][i].codigo + "</td>");
                             tr.append("<td>" + json.Items[0][i].nombre + "</td>");
-                            tr.append("<td>" + json.Items[0][i].cedula + "</td>");
+
+                           
+                            if(json.Items[0][i].cedula == undefined){
+                                tr.append("<td>N/A</td>");
+                            } else {
+                                tr.append("<td>" + json.Items[0][i].cedula + "</td>");
+                            }
+                            
+                            
+                            tr.append("<td>" + json.Items[0][i].rif + "</td>");
                             tr.append("<td>" + json.Items[0][i].telefonos + "</td>");
                             tr.append("<td>" + json.Items[0][i].correo + "</td>"); 
                             tr.append("<td>" + tipoPersona(json.Items[0][i].tipo) + "</td>");

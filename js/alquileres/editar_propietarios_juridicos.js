@@ -68,7 +68,7 @@ function guardarPropietariosj(){
         }
     }
 
-    if ($("#cboBancoj").val() == "") {
+  /*  if ($("#cboBancoj").val() == "") {
         mensaje("Debe indicar el banco del propietario",1);
         return;
         }
@@ -94,7 +94,7 @@ function guardarPropietariosj(){
             } 
 
 
-        }
+        }*/
 
 
 

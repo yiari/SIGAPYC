@@ -46,6 +46,8 @@ public function registrar($tabla,$datos,$archivos){
 
           $valoradmin = floatval($datos["gasto_administrativo"]);
           $valorpapel = floatval($datos["gastos_papeleria"]);
+          $valormtrinmue = floatval($datos["mtr_inmu"]);
+          $valormtrcons = floatval($datos["mtr_cons"]);
 
           $stmt = $dbConexion->conectar()->prepare("CALL usp_registroinmueble(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
           $stmt -> bindParam(1, $datos["id_inmu"],PDO::PARAM_INT); //id del imnumeble
@@ -61,8 +63,8 @@ public function registrar($tabla,$datos,$archivos){
           $stmt -> bindParam(11,$datos["dir_inmu"],PDO::PARAM_STR); // direccion 
           $stmt -> bindParam(12,$datos["pun_inmu"],PDO::PARAM_STR); // punto de referencia
           $stmt -> bindParam(13,$datos["equ_inmu"],PDO::PARAM_STR); // equipado
-          $stmt -> bindParam(14,$datos["mtr_inmu"],PDO::PARAM_INT); // metros del inmueble
-          $stmt -> bindParam(15,$datos["mtr_cons"],PDO::PARAM_INT); // metros de construccion
+          $stmt -> bindParam(14, $valormtrinmue ,PDO::PARAM_STR);// metros del inmueble
+          $stmt -> bindParam(15, $valormtrcons ,PDO::PARAM_STR);// metros de construccion
           $stmt -> bindParam(16,$datos["hab_inmu"],PDO::PARAM_INT); // cantidad de habitacion
           $stmt -> bindParam(17,$datos["ban_inmu"],PDO::PARAM_INT); // cantidad e baño
           $stmt -> bindParam(18,$datos["est_inmu"],PDO::PARAM_INT); // cantidad de puesto de estacionamiento

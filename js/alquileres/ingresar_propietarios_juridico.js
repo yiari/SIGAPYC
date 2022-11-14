@@ -56,7 +56,7 @@ function guardarPropietariosj(){
         return;
         }
     
-    if ($("#registroEmailj").val() == "") {
+  /*  if ($("#registroEmailj").val() == "") {
         mensaje("Debe indicar una direccion de correo valida",1);
         return;
     } else {
@@ -94,7 +94,7 @@ function guardarPropietariosj(){
             } 
 
 
-        }
+        }*/
 
 
 

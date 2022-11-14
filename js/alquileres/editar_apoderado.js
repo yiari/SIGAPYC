@@ -167,10 +167,7 @@ console.log("consultando");
 
                         //<input type="hidden" id="tipo_persona" name="tipo_persona" value='1'>
                         $('#hidapoderado').val(json.Items[0].id_apod);
-                        $('#hidcuenta_id_nacional').val(json.Items[0].id_banco_nacional);
-                        $('#hidcuenta_id_internacional').val(json.Items[0].id_banco_internacional);
-                        $('#hidcuenta_id_paypal').val(json.Items[0].id_banco_internacional);
-                        $('#hidcuenta_id_zelle').val(json.Items[0].id_banco_internacional);
+                        
 
                         /*
                         |------------------------------------------------------

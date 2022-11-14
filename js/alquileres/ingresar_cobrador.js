@@ -19,7 +19,7 @@ function inicio(){
     });
 
     jQuery("#registroCedula").on('input', function (evt) {
-        jQuery(this).val(jQuery(this).val().replace(/[^0-9'.']/g, ''));
+        jQuery(this).val(jQuery(this).val().replace(/[^0-9]/g, ''));
     });
 
     jQuery("#registroTelefono").on('input', function (evt) {

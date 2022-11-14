@@ -31,10 +31,10 @@ if ($("#registroRifj").val() == "") {
         return;
         }
  
-if ($("#registroDirecionj").val() == "") {
+/*if ($("#registroDirecionj").val() == "") {
     mensaje("Debe indicar la Dirección Fiscal del pagador ",1);
     return;
-    }
+    }*/
  
  if ($("#registroCelularj").val() == "") {
      mensaje("Debe indicar el celular del pagador",1);
@@ -42,7 +42,7 @@ if ($("#registroDirecionj").val() == "") {
      }
 
 
- if ($("#registroEmailj").val() == "") {
+ /*if ($("#registroEmailj").val() == "") {
      mensaje("Debe indicar una direccion de correo valida",1);
      return;
  } else {
@@ -52,7 +52,7 @@ if ($("#registroDirecionj").val() == "") {
          mensaje("La direccion de correo es invalida",1);
          return;
      }
- }
+ }*/
 
 
    /*

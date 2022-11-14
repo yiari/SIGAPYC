@@ -19,7 +19,7 @@
         <div class="card mb-4">
             <div class="card-header">
             <i class="fa fa-id-badge"></i>&nbsp;
-                DOCUMENTOS CONSIGNADOS
+                DOCUMENTOS CONSIGNADOS 
             </div>
             <div class="card-body">
                <div class="table-responsive">

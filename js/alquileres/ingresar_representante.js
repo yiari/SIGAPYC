@@ -55,6 +55,11 @@ function inicio(){
     });
 
 
+    jQuery("#num_regi").on('input', function (evt) {
+        jQuery(this).val(jQuery(this).val().replace(/[^0-9]/g, ''));
+    });
+
+
 
 }
 
@@ -159,7 +164,7 @@ function guardarRepresentante(){
         return;
         }
     
-    if ($("#registroDirecionH").val() == "") {
+  /*  if ($("#registroDirecionH").val() == "") {
         mensaje("Debe indicar la dirección de habitación del apoderado ",1);
         return;
         }
@@ -180,7 +185,7 @@ function guardarRepresentante(){
             mensaje("La direccion de correo es invalida",1);
             return;
         }
-    }
+    }*/
 
 
    

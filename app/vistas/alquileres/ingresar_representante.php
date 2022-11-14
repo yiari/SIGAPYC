@@ -24,7 +24,7 @@ include("layout/menuNavegacion.php");
 
             
 
-                <h4 class="card-title">Datos del Representante Lega</h4>
+                <h4 class="card-title">Datos del Representante Legal</h4>
 
                 <nav>
                         <div class="nav nav-tabs" id="nav-tab" role="tablist">
@@ -80,7 +80,7 @@ include("layout/menuNavegacion.php");
                                                             </select>
                                                         </div>
                                                         <div class="col-sm-9">
-                                                            <input  for="registroCedula" type="text" class="form-control" id="registroCedula" name="registroCedula"  maxlength="11">
+                                                            <input  for="registroCedula" type="text" class="form-control" id="registroCedula" name="registroCedula"  maxlength="8">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -108,7 +108,7 @@ include("layout/menuNavegacion.php");
                                                 <div class="col-md-6">
                                                     <label for="registroEmail" class="col-sm-3 col-form-label">Correo:</label>
                                                     <div class="col-sm-12">
-                                                        <input type="text" class="form-control" id="registroEmail" name="registroEmail">
+                                                        <input type="text" class="form-control" id="registroEmail" name="registroEmail" maxlength="45">
                                                     </div>
                                                 </div>
                                             </div>

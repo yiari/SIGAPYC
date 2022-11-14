@@ -79,7 +79,7 @@
                                                             </select>
                                                         </div>
                                                         <div class="col-sm-9">
-                                                            <input for="registroCedula"  type="text" class="form-control" id="registroCedula" name="registroCedula" maxlength="10" >
+                                                            <input for="registroCedula"  type="text" class="form-control" id="registroCedula" name="registroCedula" maxlength="8" >
                                                         </div>
                                                     </div>
                                                 </div>
@@ -107,7 +107,7 @@
                                                 <div class="col-md-6">
                                                     <label for="registroEmail" class="col-sm-3 col-form-label">Correo:</label>
                                                     <div class="col-sm-12">
-                                                        <input type="text" class="form-control" id="registroEmail" name="registroEmail">
+                                                        <input type="text" class="form-control" id="registroEmail" name="registroEmail" maxlength="45">
                                                     </div>
                                                 </div>
                                             </div>
@@ -366,7 +366,7 @@
                                                 <div class="col-md-8">
                                                     <label for="registroEmailj" class="col-sm-9 col-form-label">Correo:</label>
                                                     <div class="col-sm-12">
-                                                        <input type="text" class="form-control" id="registroEmailj" name="registroEmailj">
+                                                        <input type="text" class="form-control" id="registroEmailj" name="registroEmailj" maxlength="45">
                                                     </div>
                                                 </div>
                                             </div>

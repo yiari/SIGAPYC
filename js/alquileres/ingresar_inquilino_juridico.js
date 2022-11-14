@@ -39,10 +39,10 @@ if ($("#registroRifj").val() == "") {
         return;
         }
  
-if ($("#registroDirecionj").val() == "") {
+/*if ($("#registroDirecionj").val() == "") {
     mensaje("Debe indicar la Dirección Fiscal del inquilino ",1);
     return;
-    }
+    }*/
  
  if ($("#registroCelularj").val() == "") {
      mensaje("Debe indicar el celular del inquilino",1);
@@ -50,7 +50,7 @@ if ($("#registroDirecionj").val() == "") {
      }
 
 
- if ($("#registroEmailj").val() == "") {
+/* if ($("#registroEmailj").val() == "") {
      mensaje("Debe indicar una direccion de correo valida",1);
      return;
  } else {
@@ -60,7 +60,7 @@ if ($("#registroDirecionj").val() == "") {
          mensaje("La direccion de correo es invalida",1);
          return;
      }
- }
+ }*/
 
 
  if ($("#nombreRepresentante").val() == "") {
@@ -69,7 +69,7 @@ if ($("#registroDirecionj").val() == "") {
 }
 
 
-if ($("#emailRepresentante").val() == "") {
+/*if ($("#emailRepresentante").val() == "") {
     mensaje("Debe indicar una direccion de correo valida",1);
     return;
 } else {
@@ -79,7 +79,7 @@ if ($("#emailRepresentante").val() == "") {
         mensaje("La direccion de correo es invalida",1);
         return;
     }
-}
+}*/
 
 
    /*

@@ -146,7 +146,7 @@ function guardarApoderado(){
     
     
     
-    if ($("#registroDirecionH").val() == "") {
+   /* if ($("#registroDirecionH").val() == "") {
         mensaje("Debe indicar la dirección de habitación del apoderado ",1);
         return;
         }
@@ -154,10 +154,10 @@ function guardarApoderado(){
     if ($("#registroDirecionO").val() == "") {
         mensaje("Debe indicar la dirección de la oficina del apoderado ",1);
         return;
-        }
+        }*/
     
 
-    if ($("#registroEmail").val() == "") {
+   /* if ($("#registroEmail").val() == "") {
         mensaje("Debe indicar una direccion de correo valida",1);
         return;
     } else {
@@ -167,7 +167,7 @@ function guardarApoderado(){
             mensaje("La direccion de correo es invalida",1);
             return;
         }
-    }
+    }*/
 
 
     if ($("#cboEstados").val() == "") {

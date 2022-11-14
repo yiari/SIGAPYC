@@ -42,10 +42,7 @@ include("layout/menuNavegacion.php");
                                              <input type="hidden"  id="hidapoderado" name="hidapoderado" value='' >
                                              <input type="hidden" id="id_prop" name="id_prop" value="0">
                                              <input type="hidden" id="tipo_persona" name=" tipo_persona" value='1'>
-                                             <input type="hidden" id="hidcuenta_id_nacional" name="hidcuenta_id_nacional" value='0'>
-                                             <input type="hidden" id="hidcuenta_id_internacional" name="hidcuenta_id_internacional" value='0'>
-                                             <input type="hidden" id="hidcuenta_id_paypal" name=" hidcuenta_id_paypal" value='0'>
-                                            <input type="hidden" id="hidcuenta_id_zelle" name="hidcuenta_id_zelle" value='0'>
+                                            
                                             
                                         
                                             <div class="col-md-5">
@@ -85,7 +82,7 @@ include("layout/menuNavegacion.php");
                                                             </select>
                                                         </div>
                                                         <div class="col-sm-9">
-                                                            <input type="text" class="form-control" id="registroCedula" name="registroCedula" maxlength="11">
+                                                            <input type="text" class="form-control" id="registroCedula" name="registroCedula" maxlength="8">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -113,7 +110,7 @@ include("layout/menuNavegacion.php");
                                                 <div class="col-md-6">
                                                     <label for="registroEmail" class="col-sm-3 col-form-label">Correo:</label>
                                                     <div class="col-sm-12">
-                                                        <input type="text" class="form-control" id="registroEmail" name="registroEmail">
+                                                        <input type="text" class="form-control" id="registroEmail" name="registroEmail" maxlength="45">
                                                     </div>
                                                 </div>
                                             </div>

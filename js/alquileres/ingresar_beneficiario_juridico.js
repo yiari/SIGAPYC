@@ -32,10 +32,10 @@ function guardarBeneficiarioJ(){
         }
     
    
-    if ($("#registroDirecionHj").val() == "") {
+   /* if ($("#registroDirecionHj").val() == "") {
         mensaje("Debe indicar la dirección de habitación del beneficiario ",1);
         return;
-        }
+        }*/
 
     if ($("#registroActividad").val() == "") {
         mensaje("Debe indicar la actividad comencial del beneficiario ",1);
@@ -44,7 +44,7 @@ function guardarBeneficiarioJ(){
 
     
 
-    if ($("#registroEmailj").val() == "") {
+    /*if ($("#registroEmailj").val() == "") {
         mensaje("Debe indicar una direccion de correo valida",1);
         return;
     } else {
@@ -83,7 +83,7 @@ function guardarBeneficiarioJ(){
             } 
 
 
-        }
+        }*/
 
 
         

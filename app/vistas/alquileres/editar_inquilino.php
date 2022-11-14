@@ -89,7 +89,7 @@ include("layout/menuNavegacion.php");
                                                                 </select>
                                                             </div>
                                                             <div class="col-sm-9">
-                                                                <input for="registroCedula" type="text" class="form-control" id="registroCedula" name="registroCedula" maxlength="11">
+                                                                <input for="registroCedula" type="text" class="form-control" id="registroCedula" name="registroCedula" maxlength="8">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -116,7 +116,7 @@ include("layout/menuNavegacion.php");
                                                     <div class="col-md-6">
                                                         <label class="col-sm-3 col-form-label">Correo:</label>
                                                         <div class="col-sm-12">
-                                                            <input for="registroEmail" type="email" class="form-control" id="registroEmail" name="registroEmail">
+                                                            <input for="registroEmail" type="email" class="form-control" id="registroEmail" name="registroEmail" maxlength="45">
                                                         </div>
                                                     </div>
                                                 </div>

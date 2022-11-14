@@ -75,7 +75,7 @@
                                                             </select>
                                                         </div>
                                                         <div class="col-sm-9">
-                                                            <input for="registroCedula"  type="text" class="form-control" id="registroCedula" name="registroCedula" >
+                                                            <input for="registroCedula"  type="text" class="form-control" id="registroCedula" name="registroCedula"maxlength="8" >
                                                         </div>
                                                     </div>
                                                 </div>
@@ -103,7 +103,7 @@
                                                 <div class="col-md-6">
                                                     <label for="registroEmail" class="col-sm-3 col-form-label">Correo:</label>
                                                     <div class="col-sm-12">
-                                                        <input type="text" class="form-control" id="registroEmail" name="registroEmail">
+                                                        <input type="text" class="form-control" id="registroEmail" name="registroEmail" maxlength="45">
                                                     </div>
                                                 </div>
                                             </div>

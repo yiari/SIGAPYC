@@ -43,6 +43,12 @@ public function registrar($tabla,$datos,$archivos){
           | AQUI PREPARO LO QUE SERA LA LLAMADA AL PROCEDIMIENTO QUE REALIZARA LA OPERACION
           |----------------------------------------------------------------------------------
           */
+
+          $valoradmin = floatval($datos["gasto_admi"]);
+          $valorpapel = floatval($datos["gasto_papel"]);
+          $valormtrinmue = floatval($datos["mtr_inmu"]);
+          $valormtrcons = floatval($datos["mtr_cons"]);
+
           $stmt = $dbConexion->conectar()->prepare("CALL usp_registrarunideades(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
           $stmt -> bindParam(1, $datos["id_unid"],PDO::PARAM_INT); //id del uniades
           $stmt -> bindParam(2, $datos["id_inmu"],PDO::PARAM_INT); //id inmueble
@@ -56,8 +62,8 @@ public function registrar($tabla,$datos,$archivos){
           $stmt -> bindParam(10,$datos["dir_inmu"],PDO::PARAM_STR); // direccion 
           $stmt -> bindParam(11,$datos["pun_inmu"],PDO::PARAM_STR); // punto de referencia
           $stmt -> bindParam(12,$datos["equ_inmu"],PDO::PARAM_STR); // equipado
-          $stmt -> bindParam(13,$datos["mtr_inmu"],PDO::PARAM_INT); // metros del inmueble
-          $stmt -> bindParam(14,$datos["mtr_cons"],PDO::PARAM_INT); // metros de construccion
+          $stmt -> bindParam(13, $valormtrinmue ,PDO::PARAM_STR);// metros del inmueble
+          $stmt -> bindParam(14, $valormtrcons ,PDO::PARAM_STR);// metros de construccion
           $stmt -> bindParam(15,$datos["hab_inmu"],PDO::PARAM_INT); // cantidad de habitacion
           $stmt -> bindParam(16,$datos["ban_inmu"],PDO::PARAM_INT); // cantidad e baño
           $stmt -> bindParam(17,$datos["est_inmu"],PDO::PARAM_INT); // cantidad de puesto de estacionamiento
@@ -80,8 +86,8 @@ public function registrar($tabla,$datos,$archivos){
           $stmt -> bindParam(34,$datos["nom_inmu"],PDO::PARAM_STR); // nombre del immueble
           
           $stmt -> bindParam(35,$datos["id_gastos"],PDO::PARAM_INT); // id gastos fijos
-          $stmt -> bindParam(36,$datos["gasto_admi"],PDO::PARAM_INT); // gastos fijos administrativo
-          $stmt -> bindParam(37,$datos["gasto_papel"],PDO::PARAM_INT); // gastos fijos papeleria
+          $stmt -> bindParam(36, $valoradmin ,PDO::PARAM_STR);// gastos fijos administrativo
+          $stmt -> bindParam(37, $valorpapel ,PDO::PARAM_STR);// gastos fijos papeleria
           $stmt -> bindParam(38,$datos["iva"],PDO::PARAM_INT); // gastos iva
           $stmt -> bindParam(39,$datos["isrl"],PDO::PARAM_INT); // gastos isrl
 

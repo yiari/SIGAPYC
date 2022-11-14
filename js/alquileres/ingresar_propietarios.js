@@ -32,8 +32,11 @@ function inicio(){
 
 
     jQuery("#registroCedula").on('input', function (evt) {
-        jQuery(this).val(jQuery(this).val().replace(/[^0-9'.']/g, ''));
+        jQuery(this).val(jQuery(this).val().replace(/[^0-9]/g, ''));
     });
+
+
+   
 
     jQuery("#registroTelefono").on('input', function (evt) {
         jQuery(this).val(jQuery(this).val().replace(/[^0-9]/g, ''));
@@ -48,12 +51,14 @@ function inicio(){
     });
 
     jQuery("#ced_pmov").on('input', function (evt) {
-        jQuery(this).val(jQuery(this).val().replace(/[^0-9'.']/g, ''));
+        jQuery(this).val(jQuery(this).val().replace(/[^0-9]/g, ''));
     });
 
     jQuery("#cel_pmov").on('input', function (evt) {
         jQuery(this).val(jQuery(this).val().replace(/[^0-9]/g, ''));
     });
+
+
 
 
      /*
@@ -184,7 +189,7 @@ function guardarPropietarios(){
         return;
         }
     
-    if ($("#registroDirecionH").val() == "") {
+   /* if ($("#registroDirecionH").val() == "") {
         mensaje("Debe indicar la dirección de habitación del propietario ",1);
         return;
         }
@@ -234,7 +239,7 @@ function guardarPropietarios(){
             } 
 
 
-        }
+        }*/
 
 
 

@@ -27,7 +27,7 @@ function inicio(){
     });
 
     jQuery("#registroCedula").on('input', function (evt) {
-        jQuery(this).val(jQuery(this).val().replace(/[^0-9'.']/g, ''));
+        jQuery(this).val(jQuery(this).val().replace(/[^0-9]/g, ''));
     });
 
     jQuery("#registroTelefono").on('input', function (evt) {
@@ -51,7 +51,7 @@ function inicio(){
     generarCodigoInquilinoj();
 
     jQuery("#registroNombreJ").on('input', function (evt) {
-        jQuery(this).val(jQuery(this).val().replace(/[^A-Za-z ]/g, ''));
+        jQuery(this).val(jQuery(this).val().replace(/[^A-Za-z ^0-9'.']/g, ''));
     });
 
 
@@ -171,18 +171,18 @@ if ($("#cboParroquia").val() == "") {
     return;
     }
  
- if ($("#registroDirecionH").val() == "") {
+ /*if ($("#registroDirecionH").val() == "") {
      mensaje("Debe indicar la dirección de habitación del propietario ",1);
      return;
-     }
+     }*/
 
- if ($("#registroDirecionO").val() == "") {
+ /*if ($("#registroDirecionO").val() == "") {
      mensaje("Debe indicar la dirección de la oficina del propietario ",1);
      return;
-     }
+     }*/
  
 
- if ($("#registroEmail").val() == "") {
+ /*if ($("#registroEmail").val() == "") {
      mensaje("Debe indicar una direccion de correo valida",1);
      return;
  } else {
@@ -192,7 +192,7 @@ if ($("#cboParroquia").val() == "") {
          mensaje("La direccion de correo es invalida",1);
          return;
      }
- }
+ }*/
 
 
    /*
