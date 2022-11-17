@@ -419,6 +419,87 @@ if($operacion == "CIC"){
 }
 
 
+
+/* 
+ |----------------------------------------------------------------------
+ | AQUI SE EJECUTA LA OPERACION DE CONSULTAR LOS INMUEBLES BENEFICIARIO
+ |---------------------------------------------------------------------
+*/
+
+if($operacion == "CIB"){
+
+
+   $datos = array( 
+      "id_beneficiario"   => $_POST["id_beneficiario"],
+      "tipo_beneficiario"   => $_POST["tipo_beneficiario"]
+   );
+
+   /*
+    |-------------------------------------------
+    | AQUI CREO UNA INSTANCIA DE LA CLASE
+    |-------------------------------------------
+    */
+    
+    $registroInmueble =  new ctrregistroinmueble();
+
+   /* 
+   |---------------------------------------------
+   | AQUI OBTENGO EL RESULTADO DE LA EJECUCION
+   |---------------------------------------------
+   */
+     $result = $registroInmueble->inmuebleBeneficiario($datos);
+    
+    /*
+    |-------------------------------------------
+    | AQUI REGRESO EL RESULTADO AL AJAX
+    |-------------------------------------------
+    */
+    header('Content-Type: application/json');
+     return $result;
+
+}
+
+
+    /* 
+ |----------------------------------------------------------------------
+ | AQUI SE EJECUTA LA OPERACION DE CONSULTAR LOS UNIDADES BENEFICIARIO
+ |---------------------------------------------------------------------
+*/
+
+if($operacion == "CUB"){
+
+
+   $datos = array( 
+      "id_beneficiario"   => $_POST["id_beneficiario"],
+      "tipo_beneficiario"   => $_POST["tipo_beneficiario"]
+   );
+
+   /*
+    |-------------------------------------------
+    | AQUI CREO UNA INSTANCIA DE LA CLASE
+    |-------------------------------------------
+    */
+    
+    $registrounidad =  new ctrregistroinmueble();
+
+   /* 
+   |---------------------------------------------
+   | AQUI OBTENGO EL RESULTADO DE LA EJECUCION
+   |---------------------------------------------
+   */
+     $result = $registrounidad->uniadesBeneficiario($datos);
+    
+    /*
+    |-------------------------------------------
+    | AQUI REGRESO EL RESULTADO AL AJAX
+    |-------------------------------------------
+    */
+    header('Content-Type: application/json');
+     return $result;
+     
+}
+
+
 /* 
  |--------------------------------------------------------------
  | AQUI SE EJECUTA LA OPERACION DE CONSULTAR TODOS LOS INQUILINOS

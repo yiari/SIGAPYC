@@ -22,7 +22,7 @@
             <div class="card-body">
 
                 <div class="table-responsive">
-                    <table id="datosInmueblesTodo" class="display compact">
+                    <table id="datosInmueblesTodo" class="display">
                         <thead>
                             <tr>
 

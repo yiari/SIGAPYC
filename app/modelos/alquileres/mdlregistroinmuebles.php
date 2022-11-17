@@ -384,6 +384,90 @@ public function consultainmuebleconunidades($tabla,$datos){
 
 
 
+public function inmuebleBeneficiario($tabla,$datos){
+
+
+
+  try {
+
+    $dbConexion = new conexcion();
+    $valor = 0;
+    
+    $stmt = $dbConexion->conectar()->prepare("CALL usp_consultar_inmueblebeneficiario(?,?)" );
+    $stmt ->bindParam(1, $datos["id_beneficiario"], PDO::PARAM_INT);
+    $stmt ->bindParam(2, $datos["tipo_beneficiario"], PDO::PARAM_INT);
+
+    $stmt->execute();
+    $dataRegistro["Items"][] = $stmt->fetchAll();
+
+    $dataRes = array(
+      'error' => '0',
+      'mensaje' =>  'El registro se obtuvo con exito.'
+    );
+    
+    
+    echo json_encode(array_merge($dataRegistro,$dataRes));
+
+    } catch (\Throwable $th) {
+    
+        //$pdo->rollBack() ;
+        //echo "Mensaje de Error: " . $th->getMessage();
+        $dataRes = array(
+          'error' => '1',
+          'mensaje' =>  "Mensaje de Error: " . $th->getMessage()
+        );
+  
+        echo json_encode($dataRes);
+
+    }
+
+
+}
+
+
+
+public function uniadesBeneficiario($tabla,$datos){
+
+
+
+  try {
+
+    $dbConexion = new conexcion();
+    $valor = 0;
+    
+    $stmt = $dbConexion->conectar()->prepare("CALL usp_consultar_unidadbeneficiario(?,?)" );
+    $stmt ->bindParam(1, $datos["id_beneficiario"], PDO::PARAM_INT);
+    $stmt ->bindParam(2, $datos["tipo_beneficiario"], PDO::PARAM_INT);
+
+    $stmt->execute();
+    $dataRegistro["Items"][] = $stmt->fetchAll();
+
+    $dataRes = array(
+      'error' => '0',
+      'mensaje' =>  'El registro se obtuvo con exito.'
+    );
+    
+    
+    echo json_encode(array_merge($dataRegistro,$dataRes));
+
+    } catch (\Throwable $th) {
+    
+        //$pdo->rollBack() ;
+        //echo "Mensaje de Error: " . $th->getMessage();
+        $dataRes = array(
+          'error' => '1',
+          'mensaje' =>  "Mensaje de Error: " . $th->getMessage()
+        );
+  
+        echo json_encode($dataRes);
+
+    }
+
+
+}
+
+
+
 
 
   public function seleccionarBeneficiario($tabla,$prmid_prop,$prmTipoProp){

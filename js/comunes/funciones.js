@@ -133,9 +133,13 @@ function syncDelay(milliseconds){
     resultado = "Autorización del Propietario";
   }
 
+  if(valor == "refper_docu"){
+    resultado = "Referencias Personales 1";
+  }
   if(valor == "refper_docu1"){
     resultado = "Referencias Personales 1";
   }
+
 
   if(valor == "refper_docu2"){
     resultado = "Referencias Personales 2";
@@ -151,7 +155,7 @@ function syncDelay(milliseconds){
 
 
   if(valor == "reffam_docu"){
-    resultado = "Referencias Familiares  del representante 1";
+    resultado = "Referencias Familiares 1";
   }
 
   if(valor == "reffam_docu1"){
@@ -159,7 +163,7 @@ function syncDelay(milliseconds){
   }
 
   if(valor == "reffam_docu2"){
-    resultado = "Referencias Familiares  del representante 2";
+    resultado = "Referencias Familiares 2";
   }
 
 
@@ -175,13 +179,7 @@ function syncDelay(milliseconds){
     resultado = "Referencias Personales";
   }
   
-  if(valor == "refper_docu"){
-    resultado = "Referencias Personales  del representante 1";
-  }
-
-  if(valor == "refper_docu2"){
-    resultado = "Referencias Personales   del representante 2";
-  }
+  
 
   if(valor == "ref_docu2"){
     resultado = "Referencias Personales 2";
@@ -210,11 +208,15 @@ function syncDelay(milliseconds){
   }
 
   if(valor == "serv_docu"){
-    resultado = "Servicios";
+    resultado = "Servicios 1";
   }
 
-  if(valor == "serv_docu"){
-    resultado = "Servicios";
+  if(valor == "serv_docu1"){
+    resultado = "Servicios 2 ";
+  }
+
+  if(valor == "serv_docu2"){
+    resultado = "Servicios 3 ";
   }
 
   if(valor == "refban_docu"){

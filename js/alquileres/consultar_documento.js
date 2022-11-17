@@ -73,7 +73,7 @@ function inicio(){
     codigopUnidad(prmCodUnid);
     documentoUnidad(idunidad,prmCodUnid,prmTipoUnid)
 
-    atrasInmuebles(idPropietario,prmCodPro,tipo_propietario,idInmueble,prmCodInmu);
+    /*atrasInmuebles(idPropietario,prmCodPro,tipo_propietario,idInmueble,prmCodInmu);*/
    
     atrasunidades(idunidad,prmCodUnid);
     

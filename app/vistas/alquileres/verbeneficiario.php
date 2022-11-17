@@ -64,30 +64,65 @@ include("layout/menuNavegacion.php");
                 </div>
                 <from>
 
-               
-                <div class="col-12 grid-margin">
-                        <!--inmuebles-->
-                        <div class="card">
+     
+                    <div class="card">
                             <div class="card-body">
                                 <!--tabla-->
                                 <div class="card mb-4">
                                     <div class="card-header">
-                                        <i class='fas fa-house-user'></i>&nbsp;
-                                        INMUEBLES SIN UNIDADES
+                                     <i class='fas fa-house-user'></i>&nbsp;
+                                        INMUEBLES SIN UNDIDAD
                                     </div>
 
                                     <div class="card-body">
 
                                     <div class="table-responsive">
-                                        <table  id="datosInmuebles" class="display compact">
+                                        <table  id="inmuebleBeneficiario" class="display compact">
                                         <thead>
                                             <tr>
                                                 <th>Foto</th>
                                                 <th>inmueble</th>
-                                                <th>inquilino</th>
                                                 <th>tipo</th>
-                                                <th style='text-align:rigth'>Canon</th>
-                                                <th>Estatus</th>
+                                                <th>foto unidad</th>
+                                                <th>unidad</th>
+                                                <th>tipo</th>
+                                                <th style='text-align:rigth'>Porcentaje %</th>
+                                                
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                
+                                        </tbody>
+                                        </table>
+                                    </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="card">
+                            <div class="card-body">
+                                <!--tabla-->
+                                <div class="card mb-4">
+                                    <div class="card-header">
+                                     <i class='fas fa-house-user'></i>&nbsp;
+                                        INMUEBLES CON UNDIDAD
+                                    </div>
+
+                                    <div class="card-body">
+
+                                    <div class="table-responsive">
+                                        <table  id="unidadBene" class="display compact">
+                                        <thead>
+                                            <tr>
+                                               
+                                                <th>foto </th>
+                                                <th>unidad</th>
+                                                <th>tipo</th>
+                                                <th style='text-align:rigth'>Porcentaje %</th>
                                                 
                                             </tr>
                                         </thead>

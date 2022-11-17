@@ -75,6 +75,24 @@ class ctrregistroinmueble{
     }
 
 
+    public function inmuebleBeneficiario($datos){
+
+        $tabla = "inmuebles";
+        $modelo =  new mdlregistroinmueble();
+        $respuestas =  $modelo->inmuebleBeneficiario($tabla,$datos);
+        return $respuestas;
+    }
+
+
+    public function uniadesBeneficiario($datos){
+
+        $tabla = "inmuebles";
+        $modelo =  new mdlregistroinmueble();
+        $respuestas =  $modelo->uniadesBeneficiario($tabla,$datos);
+        return $respuestas;
+    }
+
+
     public function seleccionarregistros($datos){
 
         $tabla = "inmuebles";

@@ -311,7 +311,7 @@ class mdlregistrodocumento{
           $dbConexion = new conexcion();
           $valor = 0;
           
-          $stmt = $dbConexion->conectar()->prepare("CALL `usp_cargar_documentounidad(?,?)");
+          $stmt = $dbConexion->conectar()->prepare("CALL usp_cargar_documentounidad(?,?)");
           $stmt ->bindParam(1, $prmid_unid, PDO::PARAM_INT);
           $stmt ->bindParam(2, $prmtipo, PDO::PARAM_INT);
           $stmt->execute();

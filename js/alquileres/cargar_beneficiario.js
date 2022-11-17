@@ -115,7 +115,7 @@ function cargarbeneficiarios(prmDato,prmTipo){
                             tr.append("<td>" + json.Items[0][i].cedula+ "</td>");
                             tr.append("<td>" + json.Items[0][i].telefono + "</td>");
                             tr.append("<td>" + json.Items[0][i].correo + "</td>"); 
-                            tr.append("<td>" + json.Items[0][i].valor + "</td>");
+                            tr.append("<td>" + json.Items[0][i].porcentaje + '%' + "</td>");
                             tr.append("<td>" + tipoPersona(json.Items[0][i].tipo) + "</td>");
                          
                             

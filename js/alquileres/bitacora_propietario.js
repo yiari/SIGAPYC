@@ -288,7 +288,7 @@ function consultarPropietario(id,codigo,tipo){
                                         if(prmFoto == undefined){
                                             tr.append("<td style='text-align:center'>"+ '<img src="./app/iconos/sinfoto01.png" alt="sin foto" style="width:120px;height:120px;"></img>' + "</td>");
                                         } else {
-                                            tr.append("<td>" + json.Items[0][i].foto + "</td>");
+                                            tr.append('<td style="text-align:center"><img src= "'+  json.Items[0][i].foto + '" style="width:120px;height:120px;"></img></td>');
                                         }
                                         
                                         tr.append("<td>" + json.Items[0][i].codigo + "</td>");
@@ -425,8 +425,9 @@ function consultarPropietario(id,codigo,tipo){
                                         if(prmFoto == undefined){
                                             tr.append("<td style='text-align:center'>"+ '<img src="./app/iconos/sinfoto01.png" alt="sin foto" style="width:120px;height:120px;"></img>' + "</td>");
                                         } else {
-                                            tr.append("<td>" + json.Items[0][i].foto + "</td>");
+                                            tr.append('<td style="text-align:center"><img src= "'+  json.Items[0][i].foto + '" style="width:120px;height:120px;"></img></td>');
                                         }
+                                        
                                         tr.append("<td>" + json.Items[0][i].inmueble + "</td>");
                                         tr.append("<td>" + json.Items[0][i].unidad + "</td>");
                                         /*tr.append("<td>" + json.Items[0][i].propietario + "</td>");*/

@@ -321,7 +321,7 @@ try {
             $pdf->SetFont('Times', 'B', 10);
             $pdf->SetTextColor($fontColorContenido['r'], $fontColorContenido['g'], $fontColorContenido['b']);
             $pdf->SetFillColor(2, 157, 116); //Fondo verde de celda
-            $pdf->SetXY(165, 75);//AQUI SE AJUSTA LA POSICION DONDE SE DEBE COLOCAR EL TEXTO
+            $pdf->SetXY(168, 75);//AQUI SE AJUSTA LA POSICION DONDE SE DEBE COLOCAR EL TEXTO
             //Atención!! el parámetro true rellena la celda con el color elegido
             $dataCuenta =  $resultado['Items'][0]['numero_cuenta'];  
             $pdf->Cell(10, 3, $dataCuenta, $bordeCelda, 0, 'L', $celdaVisible);
@@ -342,7 +342,7 @@ try {
             $pdf->SetFont('Times', 'B', 10);
             $pdf->SetTextColor($fontColorContenido['r'], $fontColorContenido['g'], $fontColorContenido['b']);
             $pdf->SetFillColor(2, 157, 116); //Fondo verde de celda
-            $pdf->SetXY(125, 80);//AQUI SE AJUSTA LA POSICION DONDE SE DEBE COLOCAR EL TEXTO
+            $pdf->SetXY(128, 80);//AQUI SE AJUSTA LA POSICION DONDE SE DEBE COLOCAR EL TEXTO
             //Atención!! el parámetro true rellena la celda con el color elegido
             $datacedulaMovil =  $resultado['Items'][0]['cedula_movil'];  
             $pdf->Cell(10, 3, $datacedulaMovil, $bordeCelda, 0, 'L', $celdaVisible);
@@ -352,7 +352,7 @@ try {
              $pdf->SetFont('Times', 'B', 10);
              $pdf->SetTextColor($fontColorContenido['r'], $fontColorContenido['g'], $fontColorContenido['b']);
              $pdf->SetFillColor(2, 157, 116); //Fondo verde de celda
-             $pdf->SetXY(165, 80);//AQUI SE AJUSTA LA POSICION DONDE SE DEBE COLOCAR EL TEXTO
+             $pdf->SetXY(168, 80);//AQUI SE AJUSTA LA POSICION DONDE SE DEBE COLOCAR EL TEXTO
              //Atención!! el parámetro true rellena la celda con el color elegido
              $datacelularMovil =  $resultado['Items'][0]['telefono_movil'];  
              $pdf->Cell(10, 3, $datacelularMovil, $bordeCelda, 0, 'L', $celdaVisible);
@@ -481,17 +481,17 @@ try {
                       $pdf->SetFont('Times', 'B', 10);
                       $pdf->SetTextColor($fontColorContenido['r'], $fontColorContenido['g'], $fontColorContenido['b']);
                       $pdf->SetFillColor(2, 157, 116); //Fondo verde de celda
-                      $pdf->SetXY(130,118);//AQUI SE AJUSTA LA POSICION DONDE SE DEBE COLOCAR EL TEXTO
+                      $pdf->SetXY(40,122.5);//AQUI SE AJUSTA LA POSICION DONDE SE DEBE COLOCAR EL TEXTO
                       //Atención!! el parámetro true rellena la celda con el color elegido
                       $dataPropietariocedula =  $resultado1['Items'][0]['cedula'];  
                       $pdf->Cell(10, 3, $dataPropietariocedula, $bordeCelda, 0, 'L', $celdaVisible);
 
 
                       //AQUI ESCRIBO LA DIRECCION QUE ESTA RELACIONADO AL BENEFICIARIO
-                      $pdf->SetFont('Times', 'B', 10);
+                      $pdf->SetFont('Times', 'B', 8);
                       $pdf->SetTextColor($fontColorContenido['r'], $fontColorContenido['g'], $fontColorContenido['b']);
                       $pdf->SetFillColor(2, 157, 116); //Fondo verde de celda
-                      $pdf->SetXY(15,130);//AQUI SE AJUSTA LA POSICION DONDE SE DEBE COLOCAR EL TEXTO
+                      $pdf->SetXY(13,138);//AQUI SE AJUSTA LA POSICION DONDE SE DEBE COLOCAR EL TEXTO
                       //Atención!! el parámetro true rellena la celda con el color elegido
                       $dataPropietarioDireccion =  $resultado1['Items'][0]['direccion'];  
                       $pdf->Cell(10, 3, $dataPropietarioDireccion, $bordeCelda, 0, 'L', $celdaVisible);
@@ -501,7 +501,7 @@ try {
                        $pdf->SetFont('Times', 'B', 10);
                        $pdf->SetTextColor($fontColorContenido['r'], $fontColorContenido['g'], $fontColorContenido['b']);
                        $pdf->SetFillColor(2, 157, 116); //Fondo verde de celda
-                       $pdf->SetXY(115,123);//AQUI SE AJUSTA LA POSICION DONDE SE DEBE COLOCAR EL TEXTO
+                       $pdf->SetXY(32,128);//AQUI SE AJUSTA LA POSICION DONDE SE DEBE COLOCAR EL TEXTO
                        //Atención!! el parámetro true rellena la celda con el color elegido
                        $dataPropietarioCorreo =  $resultado1['Items'][0]['correo'];  
                        $pdf->Cell(10, 3, $dataPropietarioCorreo, $bordeCelda, 0, 'L', $celdaVisible);
@@ -511,7 +511,7 @@ try {
                         $pdf->SetFont('Times', 'B', 10);
                         $pdf->SetTextColor($fontColorContenido['r'], $fontColorContenido['g'], $fontColorContenido['b']);
                         $pdf->SetFillColor(2, 157, 116); //Fondo verde de celda
-                        $pdf->SetXY(178,118);//AQUI SE AJUSTA LA POSICION DONDE SE DEBE COLOCAR EL TEXTO
+                        $pdf->SetXY(165,123);//AQUI SE AJUSTA LA POSICION DONDE SE DEBE COLOCAR EL TEXTO
                         //Atención!! el parámetro true rellena la celda con el color elegido
                         $dataPropietarioTelefono =  $resultado1['Items'][0]['telefono'];  
                         $pdf->Cell(10, 3, $dataPropietarioTelefono, $bordeCelda, 0, 'L', $celdaVisible);
@@ -524,7 +524,7 @@ try {
                      
                         $valor = [$resultado4];
                         $contadorFila = 0;
-                        $PosY = 155;
+                        $PosY = 152;
                          foreach ($resultado4 as $valor) {
       
                          //AQUI ESCRIBO  LOS REPRESENTANTES O APODERADORS DE UN PROPIETARIO

@@ -134,13 +134,13 @@
                                                 <div class="col-md-6">
                                                     <label for="registroDirecionH" class="col-sm-10 col-form-label">Dirección de habitación:</label>
                                                     <div class="col-sm-12">
-                                                        <input type="text" class="form-control" id="registroDirecionH" name="registroDirecionH">
+                                                        <input type="text" class="form-control" id="registroDirecionH" name="registroDirecionH" maxlength="100">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <label for="registroDirecionO" class="col-sm-10 col-form-label">Dirección de oficina:</label>
                                                     <div class="col-sm-12">
-                                                        <input type="text" class="form-control" id="registroDirecionO" name="registroDirecionO"><br>
+                                                        <input type="text" class="form-control" id="registroDirecionO" name="registroDirecionO" maxlength="100"><br>
                                                     </div>
                                                 </div>
                                             </div>
