@@ -101,6 +101,7 @@ if($operacion == "I"){
                     "id_propj"  => $_POST["hiid_propj"],
                     "cod_prop"  => $_POST["registroCodigoj"],
                     "nom_proj"  => $_POST["registroNombrej"],
+                    "id_rif"  => $_POST["rifj"],
                     "rif_proj"  => $_POST["registroRifj"],
                     "act_proj"  => $_POST["registroactividad"],
                     "dir_proj"  => $_POST["registroDirecionj"],

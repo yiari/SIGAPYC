@@ -87,19 +87,25 @@ include("layout/menuNavegacion.php");
                                                         </div>
                                                     </div>
                                                     <div class="col-md-3">
-                                                        <label class="col-sm-12 col-form-label">Representación:</label>
-                                                        <div class="col-sm-12">
-                                                            <input for="registropre_prop" type="text" class="form-control" id="registropre_prop" name="registropre_prop" >
+                                                        <div class="row">
+                                                            <label for="rif" class="col-sm-12 col-form-label">Rif:</label>
+                                                            <div class="col-sm-4">
+                                                                <select class="form-select" id="rif" name="rif" >
+                                                                    <option value="1">V-</option>
+                                                                    <option value="2">J-</option>
+                                                                    <option value="3">E-</option>
+                                                                    <option value="4">G-</option>
+                                                                    <option value="5">P-</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-sm-7">
+                                                                <input for="registroRif" type="text" class="form-control" id="registroRif" name="registroRif" maxlength="10" >
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-md-2">
-                                                        <label  for="registroRif" class="col-sm-5 col-form-label">Rif:</label>
-                                                        <div class="col-sm-12">
-                                                            <input type="text" class="form-control" id="registroRif" name="registroRif" >
-                                                        </div>
-                                                    </div>
+                                                    
                                                     <div class="col-md-2">
                                                         <label  for="registroTeléfono" class="col-sm-8 col-form-label">Teléfono local:</label>
                                                         <div class="col-sm-12">
@@ -362,12 +368,25 @@ include("layout/menuNavegacion.php");
                                                             <input type="text" class="form-control" id="registroNombrej" name="registroNombrej" autofocus >
                                                         </div>
                                                     </div>
+
                                                     <div class="col-md-3">
-                                                        <label for="registroRifj" class="col-sm-12 col-form-label">Rif Jurídico:</label>
-                                                        <div class="col-sm-12">
-                                                            <input type="text" class="form-control" id="registroRifj" name="registroRifj">
+                                                        <div class="row">
+                                                            <label for="rifj" class="col-sm-12 col-form-label">Rif:</label>
+                                                            <div class="col-sm-4">
+                                                                <select class="form-select" id="rifj" name="rifj" >
+                                                                    <option value="1">V-</option>
+                                                                    <option value="2">J-</option>
+                                                                    <option value="3">E-</option>
+                                                                    <option value="4">G-</option>
+                                                                    <option value="5">P-</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-sm-7">
+                                                                <input for="registroRifj" type="text" class="form-control" id="registroRifj" name="registroRifj" maxlength="10" >
+                                                            </div>
                                                         </div>
                                                     </div>
+                                                    
                                                     <div class="col-md-5">
                                                         <label for="registroactividad" class="col-sm-12 col-form-label">Actividad Comercial:</label>
                                                         <div class="col-sm-12">

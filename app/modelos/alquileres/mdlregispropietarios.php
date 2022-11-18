@@ -49,9 +49,9 @@ public function registrar($tabla,$datos,$archivos){
           $stmt -> bindParam(3, $datos["mon_prop"], PDO::PARAM_STR);            
           $stmt -> bindParam(4, $datos["ape_prop"], PDO::PARAM_STR);          
           $stmt -> bindParam(5, $datos["id_nacionalidad"], PDO::PARAM_INT);   
-          $stmt -> bindParam(6, $datos["cedula_prop"], PDO::PARAM_STR);       
-          $stmt -> bindParam(7, $datos["rif_prop"], PDO::PARAM_STR);          
-          $stmt -> bindParam(8, $datos["pre_prop"], PDO::PARAM_STR);          
+          $stmt -> bindParam(6, $datos["cedula_prop"], PDO::PARAM_STR); 
+          $stmt -> bindParam(7, $datos["id_rif"], PDO::PARAM_INT);       
+          $stmt -> bindParam(8, $datos["rif_prop"], PDO::PARAM_STR);                   
           $stmt -> bindParam(9, $datos["telefono_prop"], PDO::PARAM_STR);     
           $stmt -> bindParam(10, $datos["cel_prop"], PDO::PARAM_STR);          
           $stmt -> bindParam(11, $datos["correo_prop"], PDO::PARAM_STR);       

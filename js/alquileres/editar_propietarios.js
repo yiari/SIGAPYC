@@ -222,6 +222,9 @@ console.log("consultando");
 
                         
                         $('#registroCedula').val(json.Items[0].cedula_prop);
+
+                        $("select[name='rif']").val(json.Items[0].id_rif).change();
+                        
                         $('#registroRif').val(json.Items[0].rif_prop);
                         $('#registroTelefono').val(json.Items[0].telefono_prop);
                         $('#registroCelular').val(json.Items[0].cel_prop);
@@ -388,7 +391,10 @@ function consultarPropietarioJuridico(id,codigo,tipo){
 
                            
                             $('#registroNombrej').val(json.Items[0].nom_proj);
+                            
+                            $("select[name='rifj']").val(json.Items[0].id_rifj).change();
                             $('#registroRifj').val(json.Items[0].rif_proj);
+
                             $('#registroTelefonoj').val(json.Items[0].tel_proj);
                             $('#registroEmailj').val(json.Items[0].cor_proj);
                             $('#registroactividad').val(json.Items[0].act_proj);

@@ -75,9 +75,8 @@ include("layout/menuNavegacion.php");
                                                             <label for="registroNacionalidad" class="col-sm-12 col-form-label">Cédula de Identidad</label>
                                                             <div class="col-sm-4">
                                                                 <select class="form-select" id="registroNacionalidad" name="registroNacionalidad" >
-                                                                    <option selected disabled value=""></option>
-                                                                    <option value="1">V</option>
-                                                                    <option value="2">E</option>
+                                                                    <option value="1">V-</option>
+                                                                    <option value="2">E-</option>
                                                                 </select>
                                                             </div>
                                                             <div class="col-sm-7">
@@ -85,22 +84,35 @@ include("layout/menuNavegacion.php");
                                                             </div>
                                                         </div>
                                                     </div>
+
+                                                    <div class="col-md-3">
+                                                        <div class="row">
+                                                            <label for="rif" class="col-sm-12 col-form-label">Rif:</label>
+                                                            <div class="col-sm-4">
+                                                                <select class="form-select" id="rif" name="rif" >
+                                                                    <option value="1">V-</option>
+                                                                    <option value="2">J-</option>
+                                                                    <option value="3">E-</option>
+                                                                    <option value="4">G-</option>
+                                                                    <option value="5">P-</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-sm-7">
+                                                                <input for="registroRif" type="text" class="form-control" id="registroRif" name="registroRif" maxlength="10" >
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                     
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-md-2">
-                                                        <label  for="registroRif" class="col-sm-5 col-form-label">Rif:</label>
-                                                        <div class="col-sm-12">
-                                                            <input type="text" class="form-control" id="registroRif" name="registroRif" maxlength="14">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-2">
+                                                    
+                                                    <div class="col-md-3">
                                                         <label  for="registroTeléfono" class="col-sm-8 col-form-label">Teléfono local:</label>
                                                         <div class="col-sm-12">
                                                             <input type="text" class="form-control" id="registroTelefono" name="registroTelefono" maxlength="11">
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-2">
+                                                    <div class="col-md-3">
                                                         <label  for="registroCelular" class="col-sm-9 col-form-label">Celular:</label>
                                                         <div class="col-sm-12">
                                                             <input type="text" class="form-control" id="registroCelular" name="registroCelular" maxlength="11">
@@ -356,12 +368,26 @@ include("layout/menuNavegacion.php");
                                                             <input type="text" class="form-control" id="registroNombrej" name="registroNombrej" autofocus >
                                                         </div>
                                                     </div>
+
+
                                                     <div class="col-md-3">
-                                                        <label for="registroRifj" class="col-sm-12 col-form-label">Rif Jurídico:</label>
-                                                        <div class="col-sm-12">
-                                                            <input type="text" class="form-control" id="registroRifj" name="registroRifj" maxlength="14">
+                                                        <div class="row">
+                                                            <label for="rifj" class="col-sm-12 col-form-label">Rif:</label>
+                                                            <div class="col-sm-4">
+                                                                <select class="form-select" id="rifj" name="rifj" >
+                                                                    <option value="1">V-</option>
+                                                                    <option value="2">J-</option>
+                                                                    <option value="3">E-</option>
+                                                                    <option value="4">G-</option>
+                                                                    <option value="5">P-</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-sm-7">
+                                                                <input for="registroRifj" type="text" class="form-control" id="registroRifj" name="registroRifj" maxlength="10" >
+                                                            </div>
                                                         </div>
                                                     </div>
+                                                   
                                                     <div class="col-md-5">
                                                         <label for="registroactividad" class="col-sm-12 col-form-label">Actividad Comercial:</label>
                                                         <div class="col-sm-12">

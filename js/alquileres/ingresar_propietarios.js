@@ -35,6 +35,10 @@ function inicio(){
         jQuery(this).val(jQuery(this).val().replace(/[^0-9]/g, ''));
     });
 
+    jQuery("#registroRif").on('input', function (evt) {
+        jQuery(this).val(jQuery(this).val().replace(/[^0-9]/g, ''));
+    });
+
 
    
 

@@ -43,16 +43,17 @@ public function registrar($tabla,$datos,$archivos){
           | AQUI PREPARO LO QUE SERA LA LLAMADA AL PROCEDIMIENTO QUE REALIZARA LA OPERACION
           |----------------------------------------------------------------------------------
           */
-          $stmt = $dbConexion->conectar()->prepare("CALL usp_registropropietarioj(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+          $stmt = $dbConexion->conectar()->prepare("CALL usp_registropropietarioj(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
           $stmt -> bindParam(1, $datos["id_propj"], PDO::PARAM_INT); //ESTE ES EL ID DEL PROPIETARIO JURIDICO
           $stmt -> bindParam(2, $datos["cod_prop"], PDO::PARAM_STR);
-          $stmt -> bindParam(3, $datos["nom_proj"], PDO::PARAM_STR);                  
-          $stmt -> bindParam(4, $datos["rif_proj"], PDO::PARAM_STR); 
-          $stmt -> bindParam(5, $datos["act_proj"], PDO::PARAM_STR);		  
-          $stmt -> bindParam(6, $datos["dir_proj"], PDO::PARAM_STR); 
-          $stmt -> bindParam(7, $datos["tel_proj"], PDO::PARAM_STR);
-          $stmt -> bindParam(8, $datos["cor_proj"], PDO::PARAM_STR);		  
-          $stmt -> bindParam(9, $datos["tipo_persona"],PDO::PARAM_INT); 
+          $stmt -> bindParam(3, $datos["nom_proj"], PDO::PARAM_STR); 
+          $stmt -> bindParam(4, $datos["id_rif"], PDO::PARAM_INT);                  
+          $stmt -> bindParam(5, $datos["rif_proj"], PDO::PARAM_STR); 
+          $stmt -> bindParam(6, $datos["act_proj"], PDO::PARAM_STR);		  
+          $stmt -> bindParam(7, $datos["dir_proj"], PDO::PARAM_STR); 
+          $stmt -> bindParam(8, $datos["tel_proj"], PDO::PARAM_STR);
+          $stmt -> bindParam(9, $datos["cor_proj"], PDO::PARAM_STR);		  
+          $stmt -> bindParam(10, $datos["tipo_persona"],PDO::PARAM_INT); 
           
             /*
             |-----------------------------------------------
@@ -60,13 +61,13 @@ public function registrar($tabla,$datos,$archivos){
             |-----------------------------------------------
             */
 
-          $stmt -> bindParam(10, $datos["cuenta_id_nacionalj"], PDO::PARAM_INT); //ESTE ES EL ID DEL REGISTRO EN LA TABLA CUENTAS_PROPIETARIOSJ_NACIONAL
-          $stmt -> bindParam(11, $datos["cuenta_id_bancoj"], PDO::PARAM_INT); //CAMPO OBLIGATORIO
-          $stmt -> bindParam(12, $datos["num_cuenta_nacionalj"], PDO::PARAM_STR); //CAMPO OBLIGATORIO
+          $stmt -> bindParam(11, $datos["cuenta_id_nacionalj"], PDO::PARAM_INT); //ESTE ES EL ID DEL REGISTRO EN LA TABLA CUENTAS_PROPIETARIOSJ_NACIONAL
+          $stmt -> bindParam(12, $datos["cuenta_id_bancoj"], PDO::PARAM_INT); //CAMPO OBLIGATORIO
+          $stmt -> bindParam(13, $datos["num_cuenta_nacionalj"], PDO::PARAM_STR); //CAMPO OBLIGATORIO
 
-          $stmt -> bindParam(13, $datos["pagomovil_cedulaj"], PDO::PARAM_INT);     
-          $stmt -> bindParam(14, $datos["pagomovil_id_bancoj"], PDO::PARAM_INT);       
-          $stmt -> bindParam(15, $datos["pagomovil_telefonoj"], PDO::PARAM_STR);
+          $stmt -> bindParam(14, $datos["pagomovil_cedulaj"], PDO::PARAM_INT);     
+          $stmt -> bindParam(15, $datos["pagomovil_id_bancoj"], PDO::PARAM_INT);       
+          $stmt -> bindParam(16, $datos["pagomovil_telefonoj"], PDO::PARAM_STR);
 
 
             /*
@@ -75,13 +76,13 @@ public function registrar($tabla,$datos,$archivos){
             |-----------------------------------------------
             */
 
-            $stmt -> bindParam(16, $datos["cuenta_id_internacionalJ"], PDO::PARAM_INT); //ESTE ES EL ID DEL REGISTRO EN LA TABLA CUENTAS_PROPIETARIOSJ_NACIONAL 
-            $stmt -> bindParam(17, $datos["ban_extrj"], PDO::PARAM_STR); 
-            $stmt -> bindParam(18, $datos["age_extrj"], PDO::PARAM_STR); 
-            $stmt -> bindParam(19, $datos["dc_extrj"],  PDO::PARAM_STR);     
-            $stmt -> bindParam(20, $datos["cue_extrj"], PDO::PARAM_STR);       
-            $stmt -> bindParam(21, $datos["iba_extrj"], PDO::PARAM_STR);
-            $stmt -> bindParam(22, $datos["bic_extrj"], PDO::PARAM_STR);
+            $stmt -> bindParam(17, $datos["cuenta_id_internacionalJ"], PDO::PARAM_INT); //ESTE ES EL ID DEL REGISTRO EN LA TABLA CUENTAS_PROPIETARIOSJ_NACIONAL 
+            $stmt -> bindParam(18, $datos["ban_extrj"], PDO::PARAM_STR); 
+            $stmt -> bindParam(19, $datos["age_extrj"], PDO::PARAM_STR); 
+            $stmt -> bindParam(20, $datos["dc_extrj"],  PDO::PARAM_STR);     
+            $stmt -> bindParam(21, $datos["cue_extrj"], PDO::PARAM_STR);       
+            $stmt -> bindParam(22, $datos["iba_extrj"], PDO::PARAM_STR);
+            $stmt -> bindParam(23, $datos["bic_extrj"], PDO::PARAM_STR);
   
              /*
             |-----------------------------------------------
@@ -89,9 +90,9 @@ public function registrar($tabla,$datos,$archivos){
             |-----------------------------------------------
             */
 
-            $stmt -> bindParam(23, $datos["cuenta_id_paypalj"], PDO::PARAM_INT);
-            $stmt -> bindParam(24, $datos["cor_paypj" ], PDO::PARAM_STR);
-            $stmt -> bindParam(25, $datos["nom_paypj"], PDO::PARAM_STR);
+            $stmt -> bindParam(24, $datos["cuenta_id_paypalj"], PDO::PARAM_INT);
+            $stmt -> bindParam(25, $datos["cor_paypj" ], PDO::PARAM_STR);
+            $stmt -> bindParam(26, $datos["nom_paypj"], PDO::PARAM_STR);
 
              /*
             |-----------------------------------------------
@@ -99,10 +100,10 @@ public function registrar($tabla,$datos,$archivos){
             |-----------------------------------------------
             */
 
-            $stmt -> bindParam(26, $datos["cuenta_id_zellej"], PDO::PARAM_INT);
-            $stmt -> bindParam(27, $datos["tel_zellej"], PDO::PARAM_STR);
-            $stmt -> bindParam(28, $datos["cor_zellej"], PDO::PARAM_STR);
-            $stmt -> bindParam(29, $datos["nom_zellej"], PDO::PARAM_STR); 
+            $stmt -> bindParam(27, $datos["cuenta_id_zellej"], PDO::PARAM_INT);
+            $stmt -> bindParam(28, $datos["tel_zellej"], PDO::PARAM_STR);
+            $stmt -> bindParam(29, $datos["cor_zellej"], PDO::PARAM_STR);
+            $stmt -> bindParam(30, $datos["nom_zellej"], PDO::PARAM_STR); 
 
 
            
