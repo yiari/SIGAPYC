@@ -308,6 +308,7 @@ function GastosEspecialesInmueble(prmDato,prmunid,prmidinqu,prmtipoinqu){
         data: formData,
         processData: false,
         contentType: false,
+        dataType: "json",
         type: 'POST',
         beforeSend: function () {
             //$("#preview").fadeOut();

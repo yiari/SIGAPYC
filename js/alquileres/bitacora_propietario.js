@@ -244,6 +244,7 @@ function consultarPropietario(id,codigo,tipo){
             data: formData,
             processData: false,
             contentType: false,
+           // dataType: "json",
             type: 'POST',
             beforeSend: function () {
                 //$("#preview").fadeOut();
@@ -381,6 +382,7 @@ function consultarPropietario(id,codigo,tipo){
             data: formData,
             processData: false,
             contentType: false,
+            //dataType: "json",
             type: 'POST',
             beforeSend: function () {
                 //$("#preview").fadeOut();

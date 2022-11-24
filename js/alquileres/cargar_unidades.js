@@ -118,6 +118,7 @@ function cargarUnidades(idInmueble,prmCodInmu,prmIdUnidad,prmCodUnidad){
         data: formData,
         processData: false,
         contentType: false,
+        dataType: "json",
         type: 'POST',
         beforeSend: function () {
             //$("#preview").fadeOut();

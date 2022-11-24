@@ -39,6 +39,7 @@ function cargarMandato(idInmueble,idUnidad){
         data: formData,
         processData: false,
         contentType: false,
+        dataType: "json",
         type: 'POST',
         beforeSend: function () {
             //$("#preview").fadeOut();
@@ -163,6 +164,7 @@ function cargarContratos(idInmueble){
         data: formData,
         processData: false,
         contentType: false,
+        dataType: "json",
         type: 'POST',
         beforeSend: function () {
             //$("#preview").fadeOut();

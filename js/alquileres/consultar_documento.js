@@ -281,6 +281,7 @@ function cargarDocumentosa(idPropietario,codigoPropietario,tipoPropietario){
         data: formData,
         processData: false,
         contentType: false,
+        dataType: "json",
         type: 'POST',
         beforeSend: function () {
             //$("#preview").fadeOut();
@@ -387,6 +388,7 @@ function documentoinquilino(idinquilino,prmCodInqui,prmTipoInqui){
         data: formData,
         processData: false,
         contentType: false,
+        dataType: "json",
         type: 'POST',
         beforeSend: function () {
             //$("#preview").fadeOut();
@@ -495,6 +497,7 @@ function documentobenficiario(idbeneficiario,prmCodbene,prmTipoBene){
         data: formData,
         processData: false,
         contentType: false,
+        dataType: "json",
         type: 'POST',
         beforeSend: function () {
             //$("#preview").fadeOut();
@@ -603,6 +606,7 @@ function documentoApoderado(idapoderado,prmCodapod,prmTipoApod){
         data: formData,
         processData: false,
         contentType: false,
+        dataType: "json",
         type: 'POST',
         beforeSend: function () {
             //$("#preview").fadeOut();
@@ -711,6 +715,7 @@ function documentoRepresentante(idrepresentante,prmCodrepr,prmTipoRepr){
         data: formData,
         processData: false,
         contentType: false,
+        dataType: "json",
         type: 'POST',
         beforeSend: function () {
             //$("#preview").fadeOut();
@@ -817,6 +822,7 @@ function documentoPagador(idpagador,prmCodPaga,prmTipoPaga){
         data: formData,
         processData: false,
         contentType: false,
+        dataType: "json",
         type: 'POST',
         beforeSend: function () {
             //$("#preview").fadeOut();
@@ -922,6 +928,7 @@ function documentoInmueble(idinmueble,prmCodInmu,prmTipoInmu){
         data: formData,
         processData: false,
         contentType: false,
+        dataType: "json",
         type: 'POST',
         beforeSend: function () {
             //$("#preview").fadeOut();
@@ -1029,6 +1036,7 @@ function documentoUnidad(idUnidad,prmCodUnid,prmTipoUnid){
         data: formData,
         processData: false,
         contentType: false,
+        dataType: "json",
         type: 'POST',
         beforeSend: function () {
             //$("#preview").fadeOut();

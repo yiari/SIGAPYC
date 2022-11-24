@@ -115,6 +115,7 @@ function cargarInmuebleBeneficiario(prmDato,prmTipo,prmIdInmueble,prmIdUnidad){
         data: formData,
         processData: false,
         contentType: false,
+        dataType: "json",
         type: 'POST',
         beforeSend: function () {
             //$("#preview").fadeOut();

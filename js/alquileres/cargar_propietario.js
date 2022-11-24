@@ -26,6 +26,7 @@ function cargarPropietarios(){
         data: formData,
         processData: false,
         contentType: false,
+        dataType: "json", //COLOCAR ESTA ETIQUETA EN TODAS LAS TABLAS
         type: 'POST',
         beforeSend: function () {
             //$("#preview").fadeOut();
@@ -34,6 +35,18 @@ function cargarPropietarios(){
         success: function (data) {
         var json = data;
         var html = "";
+
+        
+        //console.log(strEcho);
+
+        //objRef = jsonRES.Items[0][2].nombre;
+
+        //console.log("Nombre Empresa: " + objRef);
+
+        //objRef = strTest.Items[0][2].nombre;
+
+
+
 /*
         console.log(json);
         console.log("Este es el Mensaje: " + json.mensaje);

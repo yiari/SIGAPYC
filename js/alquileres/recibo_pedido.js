@@ -31,6 +31,7 @@ function cargarReciboPedido(){
         data: formData,
         processData: false,
         contentType: false,
+        dataType: "json",
         type: 'POST',
         beforeSend: function () {
             //$("#preview").fadeOut();
@@ -295,6 +296,7 @@ function buscarInquilino(){
        data: formData,
        processData: false,
        contentType: false,
+       dataType: "json",
        type: 'POST',
        beforeSend: function () {
            //$("#preview").fadeOut();
@@ -450,6 +452,7 @@ function buscarEstatus(prmValor){
         data: formData,
         processData: false,
         contentType: false,
+        dataType: "json",
         type: 'POST',
         beforeSend: function () {
             //$("#preview").fadeOut();
